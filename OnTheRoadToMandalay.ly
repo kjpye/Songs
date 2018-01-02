@@ -5,11 +5,14 @@ global = {
   \key bes \major
   \partial 4
 }
-melody = \relative c' {
+
+melodyOne = \relative c' {
   \global
   r4
   r1
-\repeat volta 6 {
+}
+
+melodyTwo = \relative c' {
   r1
   r1
   r1
@@ -50,25 +53,27 @@ melody = \relative c' {
   f2. d8. c16
   bes4. c8 d4 ees
   f4 g a bes
-} \alternative {
-  {
+}
+
+melodyR = \relative c'' {
     bes4 g c4.-\fermata bes8 % 40
     bes2 r
-  }
-  {
+}
+
+melodyRR = \relative c'' {
     ees2 d
     c2..-\fermata bes8
     bes1 % 45
     r1-\fermata
-  }
-  }
 }
 
-treble = \relative c' {
+trebleOne = \relative c' {
   \global
   <ees f a d>8.-\fermata <ees f a c>16 % 0
   <bes d f bes>4 \times 2/3 { q8 q q} <a d f a>4 q
-  \repeat volta 6 {
+}
+
+trebleTwo = \relative c' {
   <c ees g c>4 <g c ees g>2 <ges c ees ges>4 
   <f bes d f>8-- <g g'>-- <a a'>-- <bes bes'>--
     <<
@@ -112,33 +117,34 @@ treble = \relative c' {
   <f bes f'>4 <g bes e g> <a e f a> <f d'>8. <ees c'>16
   <d bes'>4. <f c'>8 <bes d>4 <c ees>
   <bes d f>4 <bes cis e g> <cis ees a> <cis e bes'>
-  } \alternative {
-    {
+}
+
+trebleR = \relative c' {
       <bes ees g bes>4 <bes ees g>
         <<
           { \voiceOne c'4.-\fermata bes8 }
           { \new Voice {\voiceTwo <c, ees g>4 <c ees f a> }} % slur?
         >>
       <bes d f bes>4 \times 2/3 {q8 q q} <a d f a>4 \times 2/3 {q8 q q}
-    }
-    {
-      <ees' g bes ees>2 <d g bes d>
+}
+
+trebleRR = \relative c' {
+      <ees g bes ees>2 <d g bes d>
       <<
         { \voiceOne c'2.. bes8}
 	{ \new Voice { \voiceTwo <c, ees g>2 <c ees f a> } }
       >>
       <bes d f bes>4 \times 2/3 {q8 q q} <bes ees g bes>16 <bes bes'> <c c'> <d d'> <ees g bes ees> <f f'> <g g'> <a a'>
       <bes d f bes>2.-\fermata r4
-    }
-  }
-  \bar "|."
 }
 
-bass = \relative c' {
+bassOne = \relative c' {
   \global
   d8. c16
   <bes,,, bes'>4 <bes'' d f> <d,, d'> <a'' d f>
-  \repeat volta 6 {
+}
+
+bassTwo = \relative c' {
     <c,, c'>4 <a'' c ees> <ees, ees'> <c'' ees>
     <f,, f'>2
       <<
@@ -202,22 +208,32 @@ bass = \relative c' {
     \ottava #-1 \repeat tremolo 8 {bes,16 bes'}
     \repeat tremolo 4 {bes,16 bes'} \ottava #0 a''4 g
     <c,,, c'>4 <c'' f> <f,, f'> <f'' a>
-  }\alternative {
-    {
+  }
+
+bassR = \relative c' {
       <bes,,, bes'>4 <bes'' d f> <d,, d'> <a'' d f>
       <c,, c'>4 <g'' c ees> <ees, ees'> <c'' ees>
     }
-    {
+bassRR = \relative c {
       <c,, c'>2 <c'' f>
       <f,, f'>2 <f'' a>
       <bes,, bes'>4 <bes' d f> <bes, bes'> <bes' ees g>
       <bes f' d'>2.-\arpeggio-\fermata r4
-    }
-  }
-  \bar "|."
 }
 
 KfirstVerse = \lyricmode {
+\set stanza = "1."
+By the old Moul- mein Pa- go- da, look- in' east- ward to the sea,
+There's a Bur- ma girl a- set- tin', and I know she thinks o' me;
+For the wind is in the palm- trees, and the tem- ple- bells they say:
+"\"Come" you back, you Brit- ish sol- dier; come you back to Man- da- "lay!\""
+    Come you back to Man- da- lay,
+    Come you back to Man- da- lay,
+    Where the old Flo- til- la lay:
+    Can't you 'ear their pad- dles chunk- in' from Ran- goon to Man- da- lay?
+}
+
+SfirstVerse = \lyricmode {
 \set stanza = "1."
 By the old Moul- mein Pa- go- da, look- in' east- ward to the sea,
 There's a Bur- ma girl a- set- tin', and I know she thinks o' me;
@@ -235,7 +251,25 @@ Kchorus = \lyricmode {
     An' the dawn comes up like thun- der out- er Chi- na 'crost the Bay!
 }
 
+Schorus = \lyricmode {
+    On the road to Man- da- lay,
+    Where the fly- in'- fish- es play,
+    An' the dawn comes up like thun- der out- er Chi- na 'crost the Bay!
+}
+
 KsecondVerse = \lyricmode {
+\set stanza = "2."
+'Er _ pet- ti- coat was yal- ler an' 'er lit- tle cap was green,
+An' 'er name was Su- pi- yaw- lat jes' the same as Thee- baw's Queen,
+An' I seed her first a- smo- kin' of a whack- in' white che- root,
+An' a- wast- in' Christ- ian kis- ses on an 'eath- en i- dol's foot:
+    On an 'eath- en i- dol's foot:
+    Bloom- in' i- dol made o' mud
+    Wot they called the Great Gawd Budd
+    Pluck- y lot she cared for i- dols when I kissed 'er where she stud!
+}
+
+SsecondVerse = \lyricmode {
 \set stanza = "2."
 'Er _ pet- ti- coat was yal- ler an' 'er lit- tle cap was green,
 An' 'er name was Su- pi- yaw- lat jes' the same as Thee- baw's Queen,
@@ -295,17 +329,30 @@ By the old Moul- mein Pa- go- da, look- ing laz- y at the sea;
     With our sick be- neath the awn- ings when we went to Man- da- lay!
 }
 
+SthirdVerse = \lyricmode {
+\set stanza = "6."
+Ship me some- wheres east of Su- ez, where the best is like the worst,
+Where there aren't no Ten Com- mand- ments an' a man can raise a thirst;
+For the tem- ple- bells are call- in', an' it's there that I would be
+By the old Moul- mein Pa- go- da, look- ing laz- y at the sea;
+    Look- ing laz- y at the sea;
+    On the road to Man- da- lay,
+    Where the old Flo- til- la lay,
+    Can't you 'ear their pad- dles chunk- in' from Ran- goon to Man- da- lay?
+}
+
 \book {
   \header {
     title = "On the Road to Mandalay"
     composer = "Oley Speaks"
     poet = "Rudyard Kipling"
   }
-  \score {
+
+\score {
     \context GrandStaff {
       <<
       \new Staff = melody {
-        \melody
+        \melodyOne \repeat volta 6 { \melodyTwo } \alternative { {\melodyR} {\melodyRR} }
       }
       \addlyrics { \KfirstVerse \Kchorus Chi- na 'crost the Bay! }
       \addlyrics   \KsecondVerse
@@ -316,11 +363,35 @@ By the old Moul- mein Pa- go- da, look- ing laz- y at the sea;
       \context PianoStaff {
         <<
           \new Staff = treble {
-            \treble
+            \trebleOne \repeat volta 6 \trebleTwo \alternative { \trebleR \trebleRR }
           }
           \new Staff = bass {
             \clef bass
-            \bass
+            \bassOne \repeat volta 6 \bassTwo \alternative { \bassR \bassRR }
+          }
+        >>
+      }
+      >>
+    }
+  }
+  \score { % Three verse Oley Speaks version
+    \context GrandStaff {
+      <<
+      \new Staff = melody {
+        \melodyOne \repeat volta 3 { \melodyTwo } \alternative { {\melodyR} {\melodyRR} }
+      }
+      \addlyrics { \SfirstVerse \Schorus Chi- na 'crost the Bay! }
+      \addlyrics   \SsecondVerse
+      \addlyrics   \SthirdVerse
+      \context PianoStaff {
+        <<
+          \new Staff = treble {
+            \trebleOne \repeat volta 3 \trebleTwo \alternative { \trebleR
+  \trebleRR }
+          }
+          \new Staff = bass {
+            \clef bass
+            \bassOne \repeat volta 3 \bassTwo \alternative { \bassR \bassRR }
           }
         >>
       }
