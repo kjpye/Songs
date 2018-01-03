@@ -3,6 +3,7 @@
 global = {
   \time 4/4
   \key bes \major
+  \tempo 4 = 120
   \partial 4
 }
 
@@ -32,8 +33,8 @@ melodyTwo = \relative c' {
   fes4. 8 ees4 des
   aes'2. 8 8
   aes4. des,8 4 4
-  des4 g2 8 8 % 20
-  g4. 8 4 4
+  des4 ges2 8 8 % 20
+  ges4. 8 4 4
   f2. 8 8
   f4 f f f
   f2.-\fermata bes8-\fermata a-\fermata
@@ -103,11 +104,14 @@ trebleTwo = \relative c' {
   q4 q <g bes d g> q
   <a ees' f a>2.-\fermata <bes d f bes>8-\fermata <a d f a>-\fermata
   \key bes \major
-  <g bes d g>4 \change Staff = "bass" \times 2/3 {<des bes' des>8 q q} <d a' d>4 <d g d'> % 25 
+  <g bes d g>4 \times 2/3 {<des bes' des>8 q q} <d a' d>4 <d g d'> % 25 
+%  <g bes d g>4 \change Staff = "bass" \times 2/3 {<des bes' des>8 q q} <d a' d>4 <d g d'> % 25 
   <d f d'>4 \times 2/3 {q8 q q} q4 q
-  <d bes' d>4 \times 2/3 {q8 q q} 4 <d g d'> \change Staff = "treble"
-  <f bes ees>4 \times 2/3 {<g bes ees>8 q q} <a c ees>4 \change Staff = "bass" <f d>8. <ees c'>16 % 30
-  <d a'>4. <f c'>8 \change Staff = "treble" <bes d>4 \< <c ees>
+  <d bes' d>4 \times 2/3 {q8 q q} 4 <d g d'> % \change Staff = "treble"
+  <f bes ees>4 \times 2/3 {<g bes ees>8 q q} <a c ees>4 <f d>8. <ees c'>16 % 30
+%  <f bes ees>4 \times 2/3 {<g bes ees>8 q q} <a c ees>4 \change Staff = "bass" <f d>8. <ees c'>16 % 30
+  <d a'>4. <f c'>8 <bes d>4 \< <c ees>
+%  <d a'>4. <f c'>8 \change Staff = "treble" <bes d>4 \< <c ees>
   <d f>4 <cis e g> <cis e a> <cis e bes'>
   <bes e g bes>4 <e g d'> <c f c'> <c e bes'> \!
   <c ees g c>4 \times 2/3 {q8 q q} <c ees f c'>4-\fermata <ees f a d>8. <ees f a c>16
@@ -196,10 +200,11 @@ bassTwo = \relative c' {
   <bes f'>2 <f f'>
   <c' c'>2 <f, f'>
   <<
-    { \voiceTwo \ottava #-1 bes1 ~} \ottava #0
-    { \new Voice { \voiceOne bes''4 bes a g } }
+    { \voiceTwo \ottava #-1 bes1 ~
+      bes1} \ottava #0
+    { \new Voice { \voiceOne bes''4 bes a g
+		 <c, c'>4 bes' a g} }
   >> \oneVoice
-  <c, c'>4 bes' a g % 30
   bes4 \times 2/3 {bes8 bes bes} a4-\fermata d8. c16
   <bes,,, bes'>4 <bes'' d f> <d,, d'> <a'' d f>
   <c,, c'>4 <g'' c ees> <c,, c'> <g'' c ees>
@@ -373,10 +378,39 @@ SthirdVerse = \lyricmode {
 	}
       >>
     }
-  }
   \layout {}
+  }
+
+  \score {
+    \context GrandStaff {
+      <<
+	\new Staff = melody \unfoldRepeats {
+	  \melodyOne \repeat volta 6 { \melodyTwo } \alternative { {\melodyR} {\melodyRR} }
+	}
+	\addlyrics { \KfirstVerse  \Kchorus
+                     \KsecondVerse \Kchorus
+                     \KthirdVerse  \Kchorus
+                     \KfourthVerse \Kchorus
+	             \KfifthVerse  \Kchorus
+	             \KsixthVerse  \Kchorus
+		   }
+	\context PianoStaff {
+	  <<
+	    \new Staff = treble \unfoldRepeats {
+	      \trebleOne \repeat volta 6 \trebleTwo \alternative { \trebleR \trebleRR }
+	    }
+	    \new Staff = bass \unfoldRepeats {
+	      \clef bass
+	      \bassOne \repeat volta 6 \bassTwo \alternative { \bassR \bassRR }
+	    }
+	  >>
+	}
+      >>
+    }
   \midi {}
+  }
 }
+
 \book {
   \header {
     title = "On the Road to Mandalay"
@@ -409,5 +443,4 @@ SthirdVerse = \lyricmode {
     }
   }
   \layout {}
-  \midi {}
 }
