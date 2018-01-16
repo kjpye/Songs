@@ -70,6 +70,25 @@ melodyThree = \relative c'' {
     d8. 16 bes4 c8. 16 ees4
     d4 bes c2
     bes8 r g4 a2
+    bes4 g a2
+    bes8. 16 g8. 16 a4 c8. 16
+    bes4 g f2 \>
+    \! bes,4-\pp bes c8 ees4 c8
+    bes4 bes c8 ees4 f8
+    g4 bes c8 bes4 c8
+    ees4 ees \< f8 ees4 f8 \!
+    g4-\f g f8 ees4 f8
+    g4 g f8 ees f4
+  }
+  \alternative {
+    {
+      ees4 r r2
+      r1
+    }
+    {
+      ees1 ~
+      ees4 r r2
+    }
   }
 }
 
@@ -172,7 +191,25 @@ trebleThree = \relative c'' {
 	d4 bes c2)
 	d8.(16 bes4 c8. 16 ees4
 	d4 bes c2)
-	bes4( g a c)
+	bes4( g a c
+        <d, bes'>4 <bes g'> <c a'>4. <ees c'>8)
+	bes'8.( 16 g8. 16 a8. 16 c8. 16 bes4 g f2->)
+	bes,4 bes c8 ees4 c8
+	bes4 bes c8 ees4 f8
+	g4 bes c8 bes4 c8
+	<ees, ees'>4 q <f f'>8 <ees ees'>4 <f f'>8
+	<g g'>4 q <f f'>8 <ees ees'>4 <f f'>8
+	<g g'>4-- q-- <f f'>8-- (<ees ees'>8) s4
+      }
+      \alternative {
+	{
+	  ees'4-- s ees,-> g8 f
+	  <bes, ees>4-> <aes c>-> c->(bes)
+	}
+	{
+	  <ees g bes ees>4 ees'-> g8-> ees4-> c8->
+	  ees4-> r r2
+	}
       }
     }
     { \new Voice
@@ -216,6 +253,25 @@ trebleThree = \relative c'' {
 	  d2 ees
 	  d4~<d g> <d fis>2
 	  s1
+	  s1
+	  d4(bes c ees)
+	  d4 <bes d> <aes c>(<aes d>)
+	  <ees g>2-\arpeggio q-\arpeggio
+	  q-\arpeggio <aes c>-\arpeggio
+	  <bes ees g>2-\arpeggio <d aes'>-\arpeggio
+	  <g c>2-\arpeggio <a c>-\arpeggio
+	  <bes ees>2-\arpeggio <g c>-\arpeggio
+	  <aes c>2-\arpeggio <aes bes>4-\arpeggio <f aes bes f'>-- -\arpeggio
+	}
+	\alternative {
+	  {
+	    <ees g>8 f ees4 ces2
+	    s2 aes2
+	  }
+	  {
+	    s4 bes' aes2
+	    g4 r r2
+	  }
 	}
       }
     }
@@ -316,7 +372,9 @@ bassThree = \relative c {
 	<g bes>2 <fis a>)
 	<e g>2( <fis a>
 	<g bes>2 <a c>)
-	d,( ees)
+	d,( ees
+	g2 fis)
+	g4(d ees fis)
       }
       { \new Voice
 	{ \voiceTwo
@@ -325,9 +383,31 @@ bassThree = \relative c {
 	  r g, r d'
 	  r g, r d'
 	  r g, r g
+	  r4 g r g
+	  r4 g r g
 	}
       }
     >> \oneVoice
+    g'4(g,) aes->(bes)
+    <ees, bes'>2-\arpeggio <c g' c>-\arpeggio
+    <ees bes'>-\arpeggio <aes ees'>-\arpeggio
+    <ees bes'>2-\arpeggio <bes bes'>
+    <c c'>2 <f, f'>
+    <bes bes'>2 <c c'>
+    <<
+      { \voiceOne ees''4-- ees-- }
+      { \new Voice { \voiceTwo f,2 } }
+    >> \oneVoice <bes, f' d'>8-- -\arpeggio(c') q4-- -\arpeggio
+  }
+  \alternative {
+    {
+      <ees,, bes' g'>4-\arpeggio r <aes ees'>2->
+      <g ees'>4-> <f ees'>-> <bes d>2->
+    }
+    {
+      <ees, bes' g'>4-\arpeggio <g' bes>-^ <f c'>-^ <bes d>-^
+      <ees, bes' ees>4-^ r r2
+    }
   }
 }
 
@@ -361,6 +441,14 @@ firstVerse = \lyricmode {
   You an' me, we sweat and strain,
   Bo- dy all ach- in' an' racked wid pain.
   "\"Tote" dat "barge!\""
+  "\"Lift" dat "bale,\""
+  Git a lit- tle drunk an' you'll land in jail.
+  Ah gits wea- ry an' sick of try- in',
+  Ahm tired of liv- in'
+  An' feared of dy- in',
+  But Ol' man riv- er he jes keeps roll- in' a- long.
+  
+  long.
 }
 
 secondVerseA = \lyricmode {
