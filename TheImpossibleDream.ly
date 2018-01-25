@@ -97,7 +97,7 @@ trebleOne = \relative c'' {
   d8-> bes-> c-> d-> r r r4.
   <bes, d f bes>8_> \times 2/3 {q16_> q_> q_>} q8_> q_> \times 2/3 {q16_> q_> q_>} q8_> <bes ees ges bes>_> <d g bes d>_> <c g' bes c>_> % 40
   <d f bes d>8_> \times 2/3 {q16_> q_> q_>} q8_> q_> \times 2/3 {q16_> q_> q_>} q8_> <d ges bes d>_> <f bes ees f>_> <ees g bes ees>_>
-  s2. s4.
+  s2.\> s4.\!
 }
 
 trebleTwo = \relative c' {
@@ -111,15 +111,40 @@ trebleTwo = \relative c' {
   <d g d>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 <ees g bes> q q
   <f a d>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 <a, d f> q q
   <g bes ees>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 q q q
-  s4.*6 % 10
-  s4.*15 % 15
-  s4.*15 % 20
-  s4.*15 % 25
-  s4.*15 % 30
-  s4.*15 % 35
-  s4.*15 % 40
+  <ees' g bes>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 <g, bes ees> q q
+  <a c ees>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 q q q % 10
+  \clef "bass" <f a>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 <d f> q q
+  q8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 q q q
+  <g bes>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 q q q
+  \clef "treble" <g bes>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 q q q
+  <a d>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 r f f % 15
+  \clef "bass" r8 \times 2/3 {<ees g>16 q q} q8 q \times 2/3 {q16 q q} q8 q q q
+  <bes' ees>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 <ees, g> q q
+  <ees f>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 <bes' c ees> q q
+  \clef "treble" <cis e g>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 <cis e> q q
+  <bes d>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 q q q % 20
+  <d f>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 q q q
+  <bes ees>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 q q q
+  <g bes>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 q q q
+  <ges bes>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 q q q
+  <f bes>8 \times 2/3 {q16 q q} q8 <fis bes> \times 2/3 {q16 q q} q8 <g bes> q q % 25
+  <c ees>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 q q q
+  <c ees g>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 q q q
+  <c ees aes>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 <c ees> q q
+  <d fis a>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 q <d fis> q
+  <ees g bes>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 q <ees g> q % 30
+  <cis e g>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 q <cis e> q
+  <bes c fes>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 q r r
+  <c d f>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 <bes d f> q q
+  <a d f>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 <bes d f> q q
+  <d g bes>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 <c ees g> q q % 35
+  <d g bes>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 <ees g bes> q q
+  <f a d>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 q q q
+  <bes, ees>8 \times 2/3 {q16 q q} q8 q q <c f> <bes ees g> <c f a> <d g bes>
+  <d f bes>8-> <bes d f>-> <c f bes>-> <d f bes>-> r r r4 r8
+  s4.*3 % 40
   s4.*3
-  \repeat tremolo 12 { <d'' f bes>32( bes) } <bes d f bes>8-. \oneVoice r r
+  \repeat tremolo 12 { <d' f bes>32( bes) } <bes d f bes>8-.-\sfz \oneVoice r r
 }
 
 bass = \relative c {
@@ -128,10 +153,44 @@ bass = \relative c {
   bes4. f' f,
   bes4. f' f,
   bes4. f bes,
-  ees4. bes' bes,
+  ees4. bes' bes, % 5
   ees4. bes' ees
   d4. a d,
   ees4. bes' ees
+  c4. g c,
+  f4. f' f, % 10
+  bes,4. f' f,
+  bes4. f' bes,
+  ees4. bes' bes,
+  ees4. bes' ees
+  d4. a d, % 15
+  ees4. bes' ees,
+  c'4. g c,
+  f4. f f
+  bes4. f bes
+  g4. d g % 20
+  d'4. a d,
+  ees4. bes' ees,
+  g4. d' g,
+  ges4. des' ges,
+  f4. fis g % 25
+  aes4. aes aes
+  c4. c, c'
+  aes4. aes, aes'
+  d,4. d' d,
+  ees4. ees' ees, % 30
+  a4. a, a'
+  ees4. ees ees8 r r
+  bes'4. f' f,
+  bes4. f bes,
+  ees4. bes' bes, % 35
+  ees4. bes' ees
+  d4. a d,
+  ees4. ees ees4 e8
+  f8-> f-> f-> f-> r r r4 r8
+  <bes, bes'>4.-> q-> <ees ees'>-> % 40
+  <bes bes'>4.-> q-> <ees ees'>->
+  \repeat tremolo 12 {bes32(bes')} <bes bes'>8-. r r
 }
 
 words = \lyricmode {
