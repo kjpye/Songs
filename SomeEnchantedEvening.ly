@@ -21,21 +21,55 @@ melody = \relative c' {
   d1~
   d4 d \times 2/3{e g e}
   c1~
-  c4 a' \times 2/3{b c d}
+  c4 a' \times 2/3{b c d} % 20
   c4 b2 a4
   g4 e2 d4
   e1~
   e2. r4
-  g8 fis a g g4 c,~
+  g8 fis a g g4 c,~ % 25
   c2. r4
   g'8 fis a g g4 b~
   b2. r4
   g8 fis a g g4 c~
-  c4 c c c
+  c4 c c c % 30
   a4. e8 d2
   r4 d \times 2/3{e g e}
   d1~
   d4 d \times 2/3{e g e}
+  c1~ % 35
+  c4 a' \times 2/3{b c d}
+  c4 b2 a4
+  g4 e2 d4
+  c1~
+  c2. r4 % 40
+  f4 f8 f e4 e
+  d8 d d d c2
+  f4 f8 f e4 e
+  d4 d d d
+  g1~ % 45
+  g1
+  g8 fis a g g4 c,4~
+  c2. r4
+  g8 fis a g g4 b~
+  b2. r4 % 50
+  g8 fis a g g4 c~
+  c4 c c c a4. e8 d2
+  r4 d \times 2/3{e g e}
+  d1~
+  d4 d \times 2/3{e g e} % 55
+  c'1~
+  c4 a \times 2/3{b c d}
+  c4 b2 a4
+  c4 a2 d4
+  c1~ % 60
+  c2. r4
+  f,4 f8 f e4 e
+  d8 d d d c2
+  f4 f8 f e4 e
+  d2 f % 65
+  a2 c
+  e1~
+  e4 r r2
   \bar "|."
 }
 
@@ -84,6 +118,23 @@ trebleOne = \relative c' {
   r4 d \times 2/3{e g e}
   d1~
   d4 d \times 2/3{e g e}
+  c1~ % 35
+  c4 a'4(\times 2/3{b c d)}
+  c4-. b2--(a4)
+  g8 r e2(d4)
+  r4 g(g') g,(
+  g'4) g,(g') g, % 40
+  f'4f8 f e4 e
+  d8 d d d <e, c'>2
+  f'4 f8 f e4 e
+  d4-- d-- d-- d--
+  s2 ees4(d8 ees)
+  e4(dis8 e) s2
+  s2 <g, e' g>4(<e g c>)
+  g,8(fis' <c e a> g') g4(<e, g c>)
+  s1
+  g'8(fis <b, f' a> g) g4(<f b d>)
+  
 }
 
 trebleTwo = \relative c' {
@@ -193,7 +244,23 @@ words = \lyricmode {
   You may hear her laugh- ing
   A- cross a crowd- ed room
   And night af- ter night,
-  As strange as it
+  As strange as it seems
+  The sound of her luagh- ter will sing in your dreams.
+  Who ca ex- plain it
+  Who can tell you why?
+  Fools give you reas- ons,
+  Wise men nev- er try.
+  Some en- chant- ed eve- ning
+  When you find your true love,
+  When you feel her call you
+  A- cross a crowd- ed room,
+  Then fly to her side
+  And make her your own,
+  Or ll through your life you may dream all a- lone.
+  Once you have found her,
+  Nev- er let her go,
+  Once you have found her,
+  Nev- er let her go!
 }
 
 Mwords = \lyricmode {
