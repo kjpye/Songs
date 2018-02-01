@@ -50,7 +50,7 @@ melody = \relative c' {
   g1
   g8 fis a g g4 c,4~
   c2. r4
-  g8 fis a g g4 b~
+  g'8 fis a g g4 b~
   b2. r4 % 50
   g8 fis a g g4 c~
   c4 c c c a4. e8 d2
@@ -124,16 +124,35 @@ trebleOne = \relative c' {
   g8 r e2(d4)
   r4 g(g') g,(
   g'4) g,(g') g, % 40
-  f'4f8 f e4 e
+  f'4 f8 f e4 e
   d8 d d d <e, c'>2
   f'4 f8 f e4 e
   d4-- d-- d-- d--
-  s2 ees4(d8 ees)
+  s2 ees4(d8 ees) % 45
   e4(dis8 e) s2
   s2 <g, e' g>4(<e g c>)
   g,8(fis' <c e a> g') g4(<e, g c>)
   s1
-  g'8(fis <b, f' a> g) g4(<f b d>)
+  g'8(fis <b, f' a> g) g4(<f b d>) % 50
+  s1
+  s1
+  s4. <e' e'>8 <d d'>2
+  \oneVoice r4 <d a' d>4( \times 2/3{<e c' e> <g g'> <e e'>)} \voiceOne
+  d'1 % 55
+  r4 <d, a' d>(\times 2/3{<e e'> <g g'> <e e'>)}
+  <c' c'>1~
+  q4 s2.
+  s1
+  s1 % 60
+  q1~
+  q1
+  f4 f8 f e4 e
+  d8 d d d <e, c'>2
+  f'4 f8 f e4 e % 65
+  <f, a d>2 s
+  s1
+  <e' c'>1^\fermata
+  \oneVoice <c e c'>4-\arpeggio-\fermata r4 r2 % 69
   
 }
 
@@ -169,11 +188,46 @@ trebleTwo = \relative c' {
   r4 <b f'> r <b f' g>
   r4 <b' f'> r <f' b>
   r4 <c, e> r <e g>
-  gis,4 <e' gis> q q
+  gis,4 <e' gis> q q % 30
   r4 <a, c> r q
   a2<a c>
   r4 <a c>4 f(b)
   a4(<f a> gis2)
+  r4 a( e bes' % 35
+  a2) <e' g>
+  r4 <c f>2 q4
+  r4 <f,a c>2 <f b>4
+  c1~
+  c1 % 40
+  <g' c>4 <g b> <g d'> <g c>
+  <f c'>4 <f b> <e c'>2
+  <g c>4 <g b> <g d'> <g c>
+  <e g c>2 <fis c'>
+  <g b g'>4 cis8(d) <a c>2 % 45
+  <bes cis>2 <a d f>4-> <a c e fis>->
+  <g e' g>8( <fis fis'> <a e' a> <g g'>) s2
+  s1
+  <g c d g>8( <fis fis'> <a d a'> <g g'>) q4( <b f' b>)
+  s1 % 50
+  <g' e' g>8( <fis fis'> <a e' a> <g g'>) <g e' g>4(<c g' c>)
+  gis,4 <c' gis' c>4->q-> q->
+  <a e' a>8-.-> r r s s4 <f a>
+  a,4 s4 s2
+  d4(<c f a>) b(<b f' g>) % 55
+  a4 s s2
+  r4 <e a c> bes <e g c>
+  a4 <a' f' a>(\times 2/3{<b g' b> <c g c> <d g d'>)}
+  <c f c'>4-. <b f' b>2->(<a f' a>4)
+  <c a' c>4-. <a f'a>2-> <d g d'>4-- % 60
+  r4 g,(g') g,(
+  g'4) g,(g') g,
+  <g c>4 <g b> <g d'> <g c>
+  <f c'>4 <f b> a(g)
+  <g c>4 <g b> <g d'> <g c> % 65
+  s2 <a c f>
+  <a d  a>2 <c f a c>
+  g'8(fis a g) g4(c,)
+  s1 % 69
 }
 
 bassOne = \relative c {
@@ -207,10 +261,43 @@ bassOne = \relative c {
   <d, d'> r <g, g'> r
   <d' d'> <g' a f'> <g,, g'> <g'' b f'>
   <c,, g' e'>4-\arpeggio r <g g'> r
-  <e' e'>4-- <e' gis c>2 q4f,4 c' c, r % 30
+  <e' e'>4-- <e' gis c>2 q4 % 30
+  f,4 c' c, r
   r4 c' r c
   d,4 r g, r
   d'4 r <e d'>2
+  r4 e' r c % 35
+  f,4(c') e,(e')
+  <d, a f'>4-\arpeggio r f r
+  d4 r <g, g'> r
+  r4 g''(g') g,(
+  g'4) g,(g') g, % 40
+  d'4(g,) c(g)
+  d4(g) c(g)
+  d4(g) c(g)
+  a4(a,) d(d,)
+  \voiceOne s4 cis''8(d) ees4(d8 ees) % 45
+  e4(dis8 e) s2
+  <c,, e'>4 s <g g'> s
+  e'4 g g, g'
+  <d d'>4 s <g, g'> s
+  d' g g, g' % 50
+  <e e'>4 s <g, g'> s
+  <e' c'>4-- s4 s2
+  <f e'>4 s <c d'> s
+  <f c'>4 s <e e'> s
+  <d d'>4 s <g, g'> s % 55
+  d'4 s e s
+  <a, a'>4 s <g g'> s
+  <f f'> s <e' e'> s
+  <d d'>4 s <f f'> s
+  <g, g'>4 s q s % 60
+  r4 g''(g') g,(
+  g'4) g,{g'} g,
+  s1*3 % 65
+  s1*2
+  g,8 fis a g c,16-- g'-- e'-- g-- e'4
+  s1 % 69
 }
 
 bassTwo = \relative c, {
@@ -226,9 +313,43 @@ bassTwo = \relative c, {
   f2(e)
   s1*2
   a2(g)
-  s1*12
+  s1 % 20
+  s1*5 % 25
+  s1*5 % 30
+  s1*1
   f2(e)
   s1*2
+  a2 g % 35
+  s1*3
+  <c, g' e'>1~
+  q1 % 40
+  s1*4
+  <g' e' b'>4-\arpeggio r g'2 % 45
+  g2 <g c d f>4-> <g c ees fis>->
+  s4 <a c e> s <e g c>
+  s1
+  s4 <a c d f> s <b f' g>
+  s1 % 50
+  s4 <g c e> s q
+  s4 <gis c e>2 q4
+  s4 <a c> s q
+  s4 q s q
+  s4 r s r % 55
+  s4 q s <e gis d'>
+  s4 <e a c> s <e bes' c>
+  s4 <a c f> s <g c e>
+  s4 <a d f>
+  s <a d f> % 60
+  s4 <a c f> s <g b f'><c,, e'>1~
+  q1
+  d''4(g,) c(g)
+  d'4(g,) c(g)
+  d'4(g,) c(g) % 65
+  c4(g) c(g)
+  c4(g) c(g)
+  <c,, e'>1^\fermata
+  <c' g' e'>4-\arpeggio^\fermata r4 r2 % 69
+  
 }
 
 words = \lyricmode {
@@ -245,8 +366,8 @@ words = \lyricmode {
   A- cross a crowd- ed room
   And night af- ter night,
   As strange as it seems
-  The sound of her luagh- ter will sing in your dreams.
-  Who ca ex- plain it
+  The sound of her laugh- ter will sing in your dreams.
+  Who can ex- plain it
   Who can tell you why?
   Fools give you reas- ons,
   Wise men nev- er try.
@@ -256,7 +377,7 @@ words = \lyricmode {
   A- cross a crowd- ed room,
   Then fly to her side
   And make her your own,
-  Or ll through your life you may dream all a- lone.
+  Or all through your life you may dream all a- lone.
   Once you have found her,
   Nev- er let her go,
   Once you have found her,
