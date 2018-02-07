@@ -3,7 +3,7 @@
 global = {
   \time 4/4
   \key f \major
-  \tempo 4 = 120
+%  \tempo 4 = 120
 }
 
 soprano = \relative c'' {
@@ -15,25 +15,26 @@ alto = \relative c'' {
   a2 a4 a
 }
 
-tenor = \relative c'' {
+tenor = \relative c' {
   f2 f4 f
 }
 
-bass = \relative c'' {
+bass = \relative c {
   f2 f4 f
   \bar "|."
 }
 
-treble = \relative c'' {
+trebleacc = \relative c'' {
   \global
 }
 
-bass = \relative c' {
+bassacc = \relative c, {
 }
 
 
 sopranoWords = \lyricmode {
-  Fine
+  Fine knacks for La- dies cheap, choice, brave and new
+  Good pen- ny worths, but mo- ney can- not move!
 }
 
 altoWords = \lyricmode {
@@ -50,29 +51,37 @@ bassWords = \lyricmode {
 
 \book {
   \header {
-    title = "Fine knacks for ladies"
+    title    = "Fine knacks for ladies"
     composer = "John Dowland"
+    opus     = "London 1562 - 1626"
   }
 
   \score {
     \context GrandStaff <<
       \context ChoirStaff <<
 	\new Staff = soprano { \soprano	}
-	\addlyrics \sopranowords
+	\addlyrics \sopranoWords
 	\new Staff = alto { \alto }
-	\addlyrics \altoowords
-	\new Staff = tenor { \tenor }
-	\addlyrics \tenorwords
-	\new Staff = bass { \bass }
-	\addlyrics \basswords
+	\addlyrics \altoWords
+	\new Staff = tenor { \clef "treble_8" \tenor }
+	\addlyrics \tenorWords
+	\new Staff = bass { \clef "bass" \bass }
+	\addlyrics \bassWords
       >>
       \context PianoStaff <<
-	    \new Staff = treble {
-	      
-	    }
-	    \new Staff = bass {
-	      \clef bass
-	    }
+	    \new Staff <<
+	      \set Staff.printPartCombineTexts = ##f
+	      \partcombine
+              << \soprano >>	      
+	      << \alto >>
+	    >>
+	    \new Staff <<
+              \clef "bass"
+	      \set Staff.printPartCombineTexts = ##f
+	      \partcombine
+              << \tenor >>	      
+	      << \bass >>
+	    >>
       >>
     >>
     \layout {}
