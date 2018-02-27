@@ -432,7 +432,7 @@ firstVerse = \lyricmode {
 
   Ol' man riv- er, dat ol' man riv- er,
   He must know sump- in', but don't say noth- in',
-  He just eeps roll- in'
+  He just keeps roll- in'
   He keeps on roll- in' a- long.
   He don't plant 'ta- ters, he don't plant cot- ton,
   An' dem dat plants 'em is soon for- got- ten;

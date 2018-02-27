@@ -7,8 +7,14 @@ global = {
   \partial 4
 }
 
+tempotrack = {
+  \time 4/4
+  \tempo 4 = 120
+  \partial 4
+  s4 s1
+}
+
 melodyOne = \relative c' {
-  \global
   r4
   r1
 }
@@ -69,7 +75,6 @@ melodyRR = \relative c'' {
 }
 
 trebleOne = \relative c' {
-  \global
   <ees f a d>8.-\fermata <ees f a c>16 % 0
   <bes d f bes>4 \times 2/3 { q8 q q} <a d f a>4 q
 }
@@ -143,7 +148,6 @@ trebleRR = \relative c' {
 }
 
 bassOne = \relative c' {
-  \global
   d8. c16
   <bes,,, bes'>4 <bes'' d f> <d,, d'> <a'' d f>
 }
@@ -468,7 +472,7 @@ MSthirdVerse = \lyricmode {
     \context GrandStaff {
       <<
 	\new Staff = melody {
-	  \melodyOne \repeat volta 6 { \melodyTwo } \alternative { {\melodyR} {\melodyRR} }
+	  \global \melodyOne \repeat volta 6 { \melodyTwo } \alternative { {\melodyR} {\melodyRR} }
 	}
 	\addlyrics { \KfirstVerse \Kchorus Chi- na 'crost the Bay! }
 	\addlyrics   \KsecondVerse
@@ -479,11 +483,11 @@ MSthirdVerse = \lyricmode {
 	\context PianoStaff {
 	  <<
 	    \new Staff = treble {
-	      \trebleOne \repeat volta 6 \trebleTwo \alternative { \trebleR \trebleRR }
+	      \global \trebleOne \repeat volta 6 \trebleTwo \alternative { \trebleR \trebleRR }
 	    }
 	    \new Staff = bass {
 	      \clef bass
-	      \bassOne \repeat volta 6 \bassTwo \alternative { \bassR \bassRR }
+	      \global \bassOne \repeat volta 6 \bassTwo \alternative { \bassR \bassRR }
 	    }
 	  >>
 	}
@@ -496,7 +500,7 @@ MSthirdVerse = \lyricmode {
     \context GrandStaff {
       <<
 	\new Staff = melody \unfoldRepeats {
-	  \melodyOne \repeat volta 6 { \melodyTwo } \alternative { {\melodyR} {\melodyRR} }
+	  \global \melodyOne \repeat volta 6 { \melodyTwo } \alternative { {\melodyR} {\melodyRR} }
 	}
 	\addlyrics { \MKfirstVerse  \MKchorus
                      \MKsecondVerse \MKchorus
@@ -508,11 +512,11 @@ MSthirdVerse = \lyricmode {
 	\context PianoStaff {
 	  <<
 	    \new Staff = treble \unfoldRepeats {
-	      \trebleOne \repeat volta 6 \trebleTwo \alternative { \trebleR \trebleRR }
+	      \global \trebleOne \repeat volta 6 \trebleTwo \alternative { \trebleR \trebleRR }
 	    }
 	    \new Staff = bass \unfoldRepeats {
 	      \clef bass
-	      \bassOne \repeat volta 6 \bassTwo \alternative { \bassR \bassRR }
+	      \global \bassOne \repeat volta 6 \bassTwo \alternative { \bassR \bassRR }
 	    }
 	  >>
 	}
@@ -533,7 +537,7 @@ MSthirdVerse = \lyricmode {
     \context GrandStaff {
       <<
 	\new Staff = melody {
-	  \melodyOne \repeat volta 3 { \melodyTwo } \alternative { {\melodyR} {\melodyRR} }
+	  \global \melodyOne \repeat volta 3 { \melodyTwo } \alternative { {\melodyR} {\melodyRR} }
 	}
 	\addlyrics { \SfirstVerse \Schorus Chi- na 'crost the Bay! }
 	\addlyrics   \SsecondVerse
@@ -541,12 +545,12 @@ MSthirdVerse = \lyricmode {
 	\context PianoStaff {
 	  <<
 	    \new Staff = treble {
-	      \trebleOne \repeat volta 3 \trebleTwo \alternative { \trebleR
+	      \global \trebleOne \repeat volta 3 \trebleTwo \alternative { \trebleR
 								   \trebleRR }
 	    }
 	    \new Staff = bass {
 	      \clef bass
-	      \bassOne \repeat volta 3 \bassTwo \alternative { \bassR \bassRR }
+	      \global \bassOne \repeat volta 3 \bassTwo \alternative { \bassR \bassRR }
 	    }
 	  >>
 	}
@@ -559,20 +563,20 @@ MSthirdVerse = \lyricmode {
     \context GrandStaff {
       <<
 	\new Staff = melody \unfoldRepeats {
-	  \melodyOne \repeat volta 6 { \melodyTwo } \alternative { {\melodyR} {\melodyRR} }
+	  \global \melodyOne \repeat volta 6 { \melodyTwo } \alternative { {\melodyR} {\melodyRR} }
 	}
 	\addlyrics { \MSfirstVerse  \MSchorus
                      \MSsecondVerse \MSchorus
                      \MSthirdVerse  \MSchorus
-		   
+		     }
 	\context PianoStaff {
 	  <<
 	    \new Staff = treble \unfoldRepeats {
-	      \trebleOne \repeat volta 6 \trebleTwo \alternative { \trebleR \trebleRR }
+	      \global \trebleOne \repeat volta 6 \trebleTwo \alternative { \trebleR \trebleRR }
 	    }
 	    \new Staff = bass \unfoldRepeats {
 	      \clef bass
-	      \bassOne \repeat volta 6 \bassTwo \alternative { \bassR \bassRR }
+	      \global \bassOne \repeat volta 6 \bassTwo \alternative { \bassR \bassRR }
 	    }
 	  >>
 	}
@@ -582,4 +586,3 @@ MSthirdVerse = \lyricmode {
   }
 }
 
-}

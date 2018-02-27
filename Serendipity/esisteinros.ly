@@ -207,6 +207,9 @@ BassMusic = \relative c {
 
 BassLyrics = \commonlyrics
 
+\header {
+  title = "Es Ist Ein Ros"
+}
 \include "satb.ly"
 %\score {
 %  \ChoirStaff {
