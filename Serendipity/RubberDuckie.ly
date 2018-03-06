@@ -184,7 +184,7 @@ TenorMusic = \relative c' {
   a8. bes16 c4 bes8. a16~a4
   r4 bes8. a16 bes8. aes16~aes4
   bes4 bes8. c16~c2
-  r4 bes8. bes16 bes8. bes16~b4
+  r4 bes8. bes16 bes8. bes16~bes4
   bes4 bes8. bes16~bes2
   \repeat volta 2 {
     r4 bes8. bes16 bes8. bes16 g4
