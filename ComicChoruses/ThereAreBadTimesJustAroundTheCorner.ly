@@ -121,7 +121,7 @@ melody = \relative c' {
   d'4 g,8 d'4 g,8
   d'4. d
   bes2.~
-  bes8 r r r4 r8 \bar "||"
+  bes8 r r r4 r8 \bar "|."
 }
 
 verseOne = \lyricmode {
@@ -244,18 +244,30 @@ trebleaccone = \relative c {
   f'4 ees8 d4 ees8
   <f, bes f'>4. <g bes ees g>
   <a c fis a>4. <bes d g bes>
-  <c g' bes c>4 <b b'>8 <c e bes' c>4 <g g'>8
+  <c g' bes c>4 <b b'>8 <c e bes' c>4 <g g'>8 % 5
   <bes ees g bes>4. <a ees' f a>
   <bes d f bes>8 r f'8(g f d
   bes8) \oneVoice r r s r r
   \repeat volta 3 {
     s2.
-    s2.
+    s2. % 10
     s4. \voiceOne <gis d' f>8(q q
     <a ees' f>8) \oneVoice r r r4 \voiceOne f'8
     bes4 c8 bes4 g8
     a8 g f~f4 f8
-    g8 a g cis,4 d8
+    g8 a g cis,4 d8 % 15
+    <aes g'>4. r4 d8
+    ees4 ees8 c d ees
+    f4 g8 a4 bes8
+    c8 d c g4 d'8
+    c4. r4 f,8 % 20
+    bes4 c8 bes4 g8
+    a8 g f~ f4 f8
+    f8 g f ees4 d8
+    g4. r4 g8
+    a4 a8 fis8 g a
+    bes4 bes8 g4 g8
+    c8 c c c4 c8
   }
 }
 
