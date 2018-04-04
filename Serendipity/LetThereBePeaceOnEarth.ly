@@ -188,6 +188,67 @@ TenorMusic = \relative c {
   \key c \major
   \time 3/4
   \voiceOne e2.
+  e2 e4
+  f2 f4
+  f2 f4
+  e4 e f
+  g2 e4
+  f2.~
+  f2 s4
+  g2.
+  g2 g4
+  a2 g4
+  fis2 a4
+  g4 b b
+  b2 a4
+  g2.(d'4) s b
+  a2.
+  e2 fis4
+  g4 b2(
+  bes2.)
+  c2 c4
+  b2 b4
+  c2.~
+  c2 s4
+  c2 g4
+  a4 g fis
+  g4 g2~
+  g2 g4
+  g2 g4
+  fis2 fis4
+  g2.(
+  f2) s4
+  e2.
+  e2 e4
+  f2 f4
+  f2 f4
+  e4 e f
+  e2 e4
+  f2.~
+  f2 s4
+  g2.
+  g2 g4
+  b2 b4
+  b2 a4
+  b4 b b
+  b2 a4
+  g2.(
+  d'4) s b
+  g2 g4
+  g4 g g
+  gis2 gis4
+  gis4 gis gis
+  a2 a4
+  gis2 a4
+  c2.~
+  c2 s4
+  c2.
+  d2 b4
+  a2 c4
+  c2 c4
+  c4 c c
+  b2 d4
+  c2.
   \bar "|."
 }
 
