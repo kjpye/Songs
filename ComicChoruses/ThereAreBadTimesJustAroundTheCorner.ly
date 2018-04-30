@@ -431,12 +431,12 @@ trebleacctwo = \relative c' {
     <d e>4 q8 <bes e>4 r8
     r4 <ees a>8 <ees g>4 <ees ges>8
     <ees f>4 s8 s4.
-    r4 <bes d>8 q4 q8
+    r4 <bes d>8 q4 q8 % 65
     <g bes>4 q8 <ees bes>4 q8
     <f bes>4. <g bes ees' g>
     < c fis>4. <bes d g>
-    <c g' bes> b8 <c e bes'>4 g8
-    <bes ees g>4. <a ees' f>
+    <c g' bes>4 b8 <c e bes'>4 g8
+    <bes ees g>4. <a ees' f> % 70
   }
   \alternative {
     {
