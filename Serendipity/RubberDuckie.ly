@@ -71,6 +71,7 @@ BassLyrics = \lyricmode {
 tempotrack = {
   \key bes \major
   \time 4/4
+  \tempo 4=120
 }
 
 SopranoMusic = \relative c' {
@@ -256,4 +257,6 @@ BassMusic = \relative c {
     \context PianoStaff <<
     >>
   >>
+  \layout {}
+  \midi {}
 }
