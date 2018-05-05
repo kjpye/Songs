@@ -301,6 +301,164 @@ SopranoLyrics = \lyricmode {
   'You'll come a- waltz- ing, Ma- til- da, with me!'
 }
 
+AltoTempo = \relative c' {
+  \key f \major
+  \time 2/4
+  s8^\mp s s s % 1
+  s8 s16 s s s s8
+  s8 s16 s s8 s16 s
+  s16 s s8 s^\markup{\italic ten} s16 s
+  s8 s s s
+  s16 s s s s s s8
+  s8 s s s,
+  s8 s s s
+  s8^\mf ^\< s16 s s8 s \!
+  s8^\f \! s16 s s8 s 
+  s8 s16 s s8 s16 s
+  s8 ^\> s16 s \! s8^\fermata ^\mf s16^\mp s
+  s8 s16 s s8 s
+  s16 s s s s s s8
+  s8 s s s
+  s8 s s4
+  s8 s16 s s8 s16 s
+  s16(s) s s s s s8
+  s8 s16 s s8 s16 s
+  s8 16 s s8^\markup{\italic ten} s,16^\mf s
+  s8 16 s s8 s
+  s16 s s s s s s8
+  s8^\< s16 s\! s8^\f s16 s
+  s8 16 s s4
+  s8^\mf ^\< s16 s s8 s \!
+  s8^\f \! s16 s s8 s 
+  s8 s,16 s s8 s16 s
+  s8 ^\> s16 s \! s8^\fermata ^\mf s16^\mp s
+  s8 s16 s s8 s
+  s16 s s s s s s8
+  s8 s s s
+  s8 s s4
+  s2 % psss 6
+  s2
+  s8^\f s s4
+  s8 s s4^\fermata
+  s2
+  s2
+  s4 s8^\f s16 s
+  s8 s16 s s8 s16 s
+  s4. s8
+  s8^\mf^\< s16 s s8 s\!
+  s8^\f s16 s s8 s
+  s8 s16 s s8 s16 s
+  s8^\> s16 s s4^\mf\!
+  s2
+  s2
+  s'8^\f(s) s(s16) s
+  s8 s16 s s4
+  s2
+  s2
+  s2
+  s2
+  s4^\fermata s8^\p s
+  s8 s s s
+  s4 s8 s
+  s8(s)s s
+  s8^\> s s4
+  s2^\pp\! ~
+  s2~
+  s2~
+  s2~
+  s2^\markup{Rit.}~
+  s2^\>~
+  s2\!
+  s'8^\mf^\markip{Tempo primo}^\< s16 s s8 s
+  s8^\f\! s16 s s8 s
+  s8 s,16 s16 s8 s16^\> s
+  s8 s16 s s8^\mf^\fermata \! s8
+  s2
+  s2
+  s2
+  s8 s^-^\pp s-. s8
+  \bar "|."
+}
+
+%AltoMusic = \relative c' {
+%  \key f \major
+%  \time 2/4
+%  c8^\mp f d-- e-- % 1
+%  f8 e16 e d-- c-- bes8--
+%  c8 f16 f g8 f16 f
+%  e16 e f8 g^\markup{\italic ten} d16 e
+%  f8 c d e
+%  f16 f e e d c bes8
+%  c8 r c' f,
+%  d8 e f r
+%  a8^\mf ^\< f16 f g8 a \! % start chorus
+%  bes8^\f \! a16 a c8 bes 
+%  c8 f,16 f f8 f16 f
+%  a8 ^\> g16 f \! e8^\fermata ^\mf d16^\mp e
+%  f8 e16 e d8 e
+%  f16 f e e d c bes8
+%  c8 r c' r
+%  r8 e, f4 % end chorus
+%  a8 16 a g8 g16 g
+%  f16(g) a f d e f8
+%  c8f16 a c8 16 c
+%  c8 16 c c8^\markup{\italic ten} f,16^\mf g
+%  a8 16 a g8 g
+%  f16 g a f d e f8
+%  c8^\< f16 a\! c8^\f bes16 a
+%  g8 16 g f4
+%  a8^\mf ^\< f16 f g8 a \! % start chorus
+%  bes8^\f \! a16 a c8 bes 
+%  c8 f,16 f f8 f16 f
+%  a8 ^\> g16 f \! e8^\fermata ^\mf d16^\mp e
+%  f8 e16 e d8 e
+%  f16 f e e d c bes8
+%  c8 r c' r
+%  r8 e, f4 % end chorus
+%  r2 % page 6
+%  r2
+%  a8^\f f r4
+%  g8^^ g^^ g4^^^\fermata
+%  r2
+%  r2 % page 7
+%  r4 c,8^\f d16 f
+%  e8 d16 c d8 e16 e
+%  f4. r8
+%  a8^\mf^\< f16 f g8 a\!
+%  bes8^\f a16 a c8 bes % page 8
+%  c8 f,16 f f8 f16 f
+%  a8^\> g16 f e4^\mf\!
+%  r2
+%  r2
+%  c'8^\f(a) a(g16) f
+%  e8 e16 e f4
+%  r2
+%  r2
+%  r2
+%  r2
+%  r4^\fermata d8^\p e
+%  f8^\markup{\italic Melodramatically}(g) a a
+%  g4 a8 g
+%  f8(g)a f
+%  d8^\> e f4
+%  c2^\pp\! ~
+%  c2~
+%  c2~
+%  c2~
+%  c2^\markup{Rit.}~
+%  c2^\>~
+%  c2\!
+%  a'8^\mf^\markup{Tempo primo}^\< f16 f g8 a % page 11
+%  bes8^\f\! a16 a c8 bes
+%  c8 f,16 f16 f8 f16^\> f
+%  a8 g16 f e8^\mf^\fermata \! r8
+%  r2 % page 12
+%  r2
+%  r2
+%  r8 e^-^\pp f-. r8
+%  \bar "|."
+%}
+
 AltoMusic = \relative c' {
   \key f \major
   \time 2/4
@@ -389,7 +547,7 @@ AltoLyrics = \lyricmode {
   You'll come a- waltz- ing Ma- til- da, with me;
   And he sang as he watched and waite- ed till his bil- ly boiled:
   'You'll come. with me! % end chorus
-  \set stanza = "2." Down came a jum- buck to drink at the bil- la- bong,
+  \fet stanza = "2." Down came a jum- buck to drink at the bil- la- bong,
   Up jumped the swag- man and grabbed him with glee,
   And he sang as he stowed that jum- buck in his tuck- er- bag,
   'You'll come a- waltz- ing, Ma- til- da with me!'
@@ -397,16 +555,16 @@ AltoLyrics = \lyricmode {
   You'll come a- waltz- ing Ma- til- da, with me;
   And he sang as he watched and waite- ed till his bil- ly boiled:
   'You'll come. with me! % end chorus
-  \set stanza = "3." Troop- ers! One, two, three:
+  \fet stanza = "3." Troop- ers! One, two, three:
   You'll come a- waltz- ing, Ma- til- da, with me!'
-  \set stanza = "4." Waltz- ing Ma- til- da,
+  \fet stanza = "4." Waltz- ing Ma- til- da,
   Waltz- ing Ma- til- da,
   You'll come a- waltz- ing Ma- til- da, with me;
   You'll come Ma- til- da, with me!'
-  \set stanza = "6."And his
+  \fet stanza = "6."And his
   ghost may be heard as you pass by that bil- la- bong:
   Ah
-  \set stanza = "7." Waltz- ing Ma- til- da,
+  \fet stanza = "7." Waltz- ing Ma- til- da,
   Waltz- ing Ma- til- da,
   You'll come a- waltz- ing, Ma- til- da, with me;
   with me!'
@@ -500,25 +658,25 @@ TenorLyrics = \lyricmode {
   You'll come, you'll come with me;
   and wait- ed till his bil- ly boiled;
   'You'll come, with me!' % end chorus
-  \set stanza = "2." Down came a jol- ly jol- ly jum- buck
+  \fet stanza = "2." Down came a jol- ly jol- ly jum- buck
   Up with glee sang
   'You'll come with me!'
   Waltz- ing Ma- til- da, Waltz- ing a- til- da, % start chorus
   You'll come, you'll come with me;
   and wait- ed till his bil- ly boiled;
   'You'll come, with me!' % end chorus
-  \set stanza = "3." Up rode the squat- ter, mount- ed on his thor- ough- bred,
+  \fet stanza = "3." Up rode the squat- ter, mount- ed on his thor- ough- bred,
   Up rode the troop- ers, One, two, three:
   'Where's that jol- ly jum- buck
   you've got in your tuck- er- bag?
   You'll come a- waltz- ing, Ma- til- da, with me!'
-  \set stanza = "4." Waltz- ing Ma- til- da,
+  \fet stanza = "4." Waltz- ing Ma- til- da,
   Waltz- ing Ma- til- da,
   You'll come, you'll come with me;
   'Where's that jol- ly jum- buck you've got in your tuck- er- bag?
   You'll come a- waltz- ing, Ma- til- da, with me!'
   Ah
-  \set stanza = "7." Waltz- ing Ma- til- da, Waltz- ing Ma- til- da,
+  \fet stanza = "7." Waltz- ing Ma- til- da, Waltz- ing Ma- til- da,
   You'll come, you'll come with me;
   with me!'
 }
@@ -609,24 +767,24 @@ BassLyrics = \lyricmode {
   "'You'll" come with "me!'"
   come, come You'll come, you'll come with me; % start chorus
   'You'll come, with me!' % end chorus
-  \set stanza = "2." Down came a jum- buck
+  \fet stanza = "2." Down came a jum- buck
   Up with glee
   'You'll come with me!'
   come, come You'll come, you'll come with me; % start chorus
   'You'll come, with me!' % end chorus
-  \set stanza = "3." Up rode the squat- ter, mount- ed on hos thor- ough- bred,
+  \fet stanza = "3." Up rode the squat- ter, mount- ed on hos thor- ough- bred,
   Up rode the troop- ers, One, two, three:
   'Where's that jol- ly jum- buck
   you've got in your tuck- er- bag?
   You'll come a- waltz- ing, ma- til- da, with me!'
-  \set stanza = "4." Come,
+  \fet stanza = "4." Come,
   come, You'll come, you'll come with me;
   'Where's that jol- ly jum- buck you've got in your tuck- er- bag?
   You'll come a- waltz- ing, Ma- til- da, with me!'
-  \set stanza = "5." Up jumped the swag- man and sprang in- to the bil- la- bong,
+  \fet stanza = "5." Up jumped the swag- man and sprang in- to the bil- la- bong,
   'You'll ne- ver take me a- live.' said he.
   'Ne- ver take me a- live! He! He!'
-  \set stanza = "7." Come, come
+  \fet stanza = "7." Come, come
   You'll come, you'll come with me;
   with me!
 }
@@ -639,10 +797,10 @@ BassLyrics = \lyricmode {
   poet = "A. B. (Banjo) Paterson"
 }
 %\include "satb.ly"
-%\score {
+%\fcore {
 %  \ChoirStaff {
 %    \new Staff = sopranos {
-%      new Voice = sopranos { \SopranoMusic }
+%      new Voice = sopranos { \fopranoMusic }
 %    }
 %  }
 %}
@@ -659,13 +817,13 @@ global = {
 %  \time 4/4
 }
 
-\score {
+\fcore {
   <<
     \new ChoirStaff <<
       \new Staff = "sopranos" <<
-	\SopranoTempo
-        \new Voice = "sopranos" { << \global \SopranoMusic >> }
-        \context Lyrics = "sopranos" \lyricsto "sopranos" \SopranoLyrics
+	\fopranoTempo
+        \new Voice = "sopranos" { << \global \fopranoMusic >> }
+        \context Lyrics = "sopranos" \lyricsto "sopranos" \fopranoLyrics
       >>
       \new Staff = "altos" <<
         \new Voice = "altos" { << \global \AltoMusic >> }
@@ -682,9 +840,9 @@ global = {
     >>
     \new PianoStaff <<
       \new Staff <<
-        \set Staff.printPartCombineTexts = ##f
+        \fet Staff.printPartCombineTexts = ##f
         \partcombine
-        << \global \SopranoMusic >>
+        << \global \fopranoMusic >>
         << \global \AltoMusic >>
       >>
       \new Staff <<
