@@ -334,4 +334,129 @@ altoTwoWords = \lyricmode {
       \new Lyrics \lyricsto "altoTwo" \altoTwoWords
     >>
   >>
+  \layout{}
+}
+
+\score {
+  \new ChoirStaff <<
+    \new Staff <<
+      \new Voice = "sopranoOne" <<
+        \global
+        \sopranoOneNotes
+      >>
+      \new Lyrics \lyricsto "sopranoOne" \sopranoOneWords
+    >>
+    \new Staff <<
+      \new Voice = "sopranoTwo" <<
+        \global
+        \sopranoTwoNotes
+      >>
+    >>
+    \new Staff <<
+      \new Voice = "altoOne" <<
+        \global
+        \altoOneNotes
+      >>
+    >>
+    \new Staff <<
+      \new Voice = "altoTwo" <<
+        \global
+        \altoTwoNotes
+      >>
+    >>
+  >>
+  \midi{}
+}
+
+\score {
+  \new ChoirStaff <<
+    \new Staff <<
+      \new Voice = "sopranoOne" <<
+        \global
+        \sopranoOneNotes
+      >>
+    >>
+    \new Staff <<
+      \new Voice = "sopranoTwo" <<
+        \global
+        \sopranoTwoNotes
+      >>
+      \new Lyrics \lyricsto "sopranoTwo" \sopranoTwoWords
+    >>
+    \new Staff <<
+      \new Voice = "altoOne" <<
+        \global
+        \altoOneNotes
+      >>
+    >>
+    \new Staff <<
+      \new Voice = "altoTwo" <<
+        \global
+        \altoTwoNotes
+      >>
+    >>
+  >>
+  \midi{}
+}
+
+\score {
+  \new ChoirStaff <<
+    \new Staff <<
+      \new Voice = "sopranoOne" <<
+        \global
+        \sopranoOneNotes
+      >>
+    >>
+    \new Staff <<
+      \new Voice = "sopranoTwo" <<
+        \global
+        \sopranoTwoNotes
+      >>
+    >>
+    \new Staff <<
+      \new Voice = "altoOne" <<
+        \global
+        \altoOneNotes
+      >>
+      \new Lyrics \lyricsto "altoOne" \altoOneWords
+    >>
+    \new Staff <<
+      \new Voice = "altoTwo" <<
+        \global
+        \altoTwoNotes
+      >>
+    >>
+  >>
+  \midi{}
+}
+
+\score {
+  \new ChoirStaff <<
+    \new Staff <<
+      \new Voice = "sopranoOne" <<
+        \global
+        \sopranoOneNotes
+      >>
+    >>
+    \new Staff <<
+      \new Voice = "sopranoTwo" <<
+        \global
+        \sopranoTwoNotes
+      >>
+    >>
+    \new Staff <<
+      \new Voice = "altoOne" <<
+        \global
+        \altoOneNotes
+      >>
+    >>
+    \new Staff <<
+      \new Voice = "altoTwo" <<
+        \global
+        \altoTwoNotes
+      >>
+      \new Lyrics \lyricsto "altoTwo" \altoTwoWords
+    >>
+  >>
+  \midi{}
 }
