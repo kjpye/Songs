@@ -173,20 +173,20 @@ sopranoOneNotes = \relative c' {
 }
 
 sopranoOneWords = \lyricmode {
-  E- yo! E- yo! O- go nu fun O- lu- wa!
-  E- yo! E- yo! O- go ni fun O- lu- wa!
-  O- go ni fun O- lu- wa!
-  O- go ni fun O- lu- wa!
-  O- go ni fun O- lu- wa!
-  O- go ni fun O- lu- wa!
   E- yo! E- yo! O- go ni fun O- lu- wa!
   E- yo! E- yo! O- go ni fun O- lu- wa!
   O- go ni fun O- lu- wa!
   O- go ni fun O- lu- wa!
   O- go ni fun O- lu- wa!
   O- go ni fun O- lu- wa!
-  E- jo! E- jo! O- go nu fun O- lu- wa!
-  E- jo! E- jo! O- go nu fun O- lu- wa!
+  E- yo! E- yo! O- go ni fun O- lu- wa!
+  E- yo! E- yo! O- go ni fun O- lu- wa!
+  O- go ni fun O- lu- wa!
+  O- go ni fun O- lu- wa!
+  O- go ni fun O- lu- wa!
+  O- go ni fun O- lu- wa!
+  E- jo! E- jo! O- go ni fun O- lu- wa!
+  E- jo! E- jo! O- go ni fun O- lu- wa!
   O- go ni fun O- lu- wa!
   O- go ni fun O- lu- wa!
   O- go ni fun O- lu- wa!
@@ -312,20 +312,20 @@ sopranoTwoNotes = \relative c' {
 }
 
 sopranoTwoWords = \lyricmode {
-  E- yo! E- yo! O- go nu fun O- lu- wa!
-  E- yo! E- yo! O- go ni fun O- lu- wa!
-  O- go ni fun O- lu- wa!
-  O- go ni fun O- lu- wa!
-  O- go ni fun O- lu- wa!
-  O- go ni fun O- lu- wa!
   E- yo! E- yo! O- go ni fun O- lu- wa!
   E- yo! E- yo! O- go ni fun O- lu- wa!
   O- go ni fun O- lu- wa!
   O- go ni fun O- lu- wa!
   O- go ni fun O- lu- wa!
   O- go ni fun O- lu- wa!
-  E- jo! E- jo! O- go nu fun O- lu- wa!
-  E- jo! E- jo! O- go nu fun O- lu- wa!
+  E- yo! E- yo! O- go ni fun O- lu- wa!
+  E- yo! E- yo! O- go ni fun O- lu- wa!
+  O- go ni fun O- lu- wa!
+  O- go ni fun O- lu- wa!
+  O- go ni fun O- lu- wa!
+  O- go ni fun O- lu- wa!
+  E- jo! E- jo! O- go ni fun O- lu- wa!
+  E- jo! E- jo! O- go ni fun O- lu- wa!
   O- go ni fun O- lu- wa!
   O- go ni fun O- lu- wa!
   O- go ni fun O- lu- wa!
@@ -450,7 +450,7 @@ altoOneNotes = \relative c' {
 }
 
 altoOneWords = \lyricmode {
-  E- yo! E- yo! O- go nu fun O- lu- wa!
+  E- yo! E- yo! O- go ni fun O- lu- wa!
   E- yo! E- yo! O- go ni fun O- lu- wa!
   O- go ni fun O- lu- wa!
   O- go ni fun O- lu- wa!
@@ -460,8 +460,8 @@ altoOneWords = \lyricmode {
   E- yo! E- yo! O- go ni fun O- lu- wa!
   O- go ni fun O- lu- wa! O- lu- wa!
   O- go ni fun O- lu- wa! O- lu- wa!
-  E- jo! E- jo! O- go nu fun O- lu- wa!
-  E- jo! E- jo! O- go nu fun O- lu- wa!
+  E- jo! E- jo! O- go ni fun O- lu- wa!
+  E- jo! E- jo! O- go ni fun O- lu- wa!
   O- go ni fun O- lu- wa! O- lu- wa!
   O- go ni fun O- lu- wa! O- lu- wa!
   A- bi Je- su Kris- ti!
@@ -583,7 +583,7 @@ altoTwoNotes = \relative c' {
 }
 
 altoTwoWords = \lyricmode {
-  E- yo! E- yo! O- go nu fun O- lu- wa!
+  E- yo! E- yo! O- go ni fun O- lu- wa!
   E- yo! E- yo! O- go ni fun O- lu- wa!
   O- go ni fun O- lu- wa!
   O- go ni fun O- lu- wa!
@@ -593,8 +593,8 @@ altoTwoWords = \lyricmode {
   E- yo! E- yo! O- go ni fun O- lu- wa!
   O- go ni fun O- lu- wa! O- lu- wa!
   O- go ni fun O- lu- wa! O- lu- wa!
-  E- jo! E- jo! O- go nu fun O- lu- wa!
-  E- jo! E- jo! O- go nu fun O- lu- wa!
+  E- jo! E- jo! O- go ni fun O- lu- wa!
+  E- jo! E- jo! O- go ni fun O- lu- wa!
   O- go ni fun O- lu- wa! O- lu- wa!
   O- go ni fun O- lu- wa! O- lu- wa!
   A- la- fia! I- re- po! E- pà- te- wö!
@@ -616,7 +616,61 @@ altoTwoWords = \lyricmode {
   poet     = "Rosephanye Powell"
 }
 
-\score {
+\book {
+  \score { % full score
+    <<
+      \new ChoirStaff <<
+	\new Staff <<
+	  \new Voice { \rehearsalTrack }
+	  \new Voice = "sopranoOne" <<
+	    \global
+	    \sopranoOneNotes
+	  >>
+	  \new Lyrics \lyricsto "sopranoOne" \sopranoOneWords
+	>>
+	\new Staff <<
+	  \new Voice = "sopranoTwo" <<
+	    \global
+	    \sopranoTwoNotes
+	  >>
+	  \new Lyrics \lyricsto "sopranoTwo" \sopranoTwoWords
+	>>
+	\new Staff <<
+	  \new Voice = "altoOne" <<
+	    \global
+	    \altoOneNotes
+	  >>
+	  \new Lyrics \lyricsto "altoOne" \altoOneWords
+	>>
+	\new Staff <<
+	  \new Voice = "altoTwo" <<
+	    \global
+	    \altoTwoNotes
+	  >>
+	  \new Lyrics \lyricsto "altoTwo" \altoTwoWords
+	>>
+      >>
+      \new PianoStaff <<
+	\new Staff <<
+	  \set Staff.printPartCombineTexts = ##f
+	  \partcombine
+	  << { \global \sopranoOneNotes } >>
+	  << { \global \sopranoTwoNotes } >>
+	>>
+	\new Staff <<
+	  \set Staff.printPartCombineTexts = ##f
+	  \partcombine
+	  << { \global \altoOneNotes } >>
+	  << { \global \altoTwoNotes } >>
+	>>
+      >>
+    >>
+    \layout{}
+  }
+}
+
+\book {
+\score { % vocal score
   \new ChoirStaff <<
     \new Staff <<
       \new Voice { \rehearsalTrack }
@@ -651,7 +705,7 @@ altoTwoWords = \lyricmode {
   \layout{}
 }
 
-\score {
+\score { % soprano 1 midi
   \new ChoirStaff <<
     \new Staff <<
       \new Voice = "sopranoOne" <<
@@ -682,7 +736,7 @@ altoTwoWords = \lyricmode {
   \midi{}
 }
 
-\score {
+\score { % soprano 2 midi
   \new ChoirStaff <<
     \new Staff <<
       \new Voice = "sopranoOne" <<
@@ -713,7 +767,7 @@ altoTwoWords = \lyricmode {
   \midi{}
 }
 
-\score {
+\score { % alto 1 midi
   \new ChoirStaff <<
     \new Staff <<
       \new Voice = "sopranoOne" <<
@@ -744,7 +798,7 @@ altoTwoWords = \lyricmode {
   \midi{}
 }
 
-\score {
+\score { % Alto 2 midi
   \new ChoirStaff <<
     \new Staff <<
       \new Voice = "sopranoOne" <<
@@ -773,4 +827,5 @@ altoTwoWords = \lyricmode {
     >>
   >>
   \midi{}
+}
 }
