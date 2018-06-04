@@ -2421,7 +2421,7 @@ trackGchannelB = \relative c {
   | % 168
   c4 g8. c16 d4. c8 
   | % 169
-  c4 
+  c4 r4 r2
 }
 
 trackG = <<
@@ -2642,7 +2642,7 @@ trackZ = <<
 \book {
   \score {
     <<
-      \context Choirstaff <<
+      \context ChoirStaff <<
 	\new Staff = melody  << \trackA \trackG >>
 	\new Staff = strings << \trackA \trackE >>
 	\new Staff = brass   << \trackA \trackF >>
@@ -2661,24 +2661,23 @@ trackZ = <<
 %    \context Staff=trackG \trackG
     >>
     \layout {}
-    \midi {}
   }
+}
+
+\book {
   \score { % melody only
     <<
-      \context Choirstaff <<
-	\new Staff << {\new Voice = melody  << \trackA \trackG >> }
-		      \new Lyrics \lyricsto "melody" \words
-		    >>
+      \context ChoirStaff <<
+	\new Staff <<
+          \new Voice = melodyvoice
+            <<
+              \trackA
+              \trackG
+            >>
+        >>
+        \new Lyrics \lyricsto melodyvoice \words
       >>
     >>
-				%    \context Staff=trackD \trackA
-				%    \context Staff=trackD \trackD
-				%    \context Staff=trackE \trackA
-				%    \context Staff=trackE \trackE
-				%    \context Staff=trackF \trackA
-				%    \context Staff=trackF \trackF
-				%    \context Staff=trackG \trackA
-				%    \context Staff=trackG \trackG
     \layout {}
     \midi {}
   }
