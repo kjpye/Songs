@@ -39,12 +39,58 @@ RehearsalTrack = {
   \mark \markup { \circle "2a" }
   s2 s2 s2
   \mark \markup { \circle "2b" }
+  s2 s2 s2
+  \mark \markup { \circle "3a" }
+  s2 s2 s2
+  \mark \markup { \circle "3b" }
+  s2 s2 s2
+  \mark \markup { \circle "4a" }
+  s2 s2
+  \mark \markup { \circle "4b" }
+  s2 s2
+  \mark \markup { \circle "5a" }
+  s2 s2 s2
+  \mark \markup { \circle "5b" }
+  s2 s2 s2
+  \mark \markup { \circle "3a" } % back to the chorus
+  s2 s2 s2
+  \mark \markup { \circle "3b" }
+  s2 s2 s2
+  \mark \markup { \circle "4a" }
+  s2 s2
+  \mark \markup { \circle "6a" } % forward to page 6 for the third verse
+  s2 s2
+  \mark \markup { \circle "6b" }
+  s2 s2 s2
+  \mark \markup { \circle "7a" }
+  s2 s2
+  \mark \markup { \circle "7b" }
+  s2 s2 s2
+  \mark \markup { \circle "8a" }
+  s2 s2 s2
+  \mark \markup { \circle "8b" }
+  s2 s2
+  \mark \markup { \circle "9a" }
+  s2 s2 s2
+  \mark \markup { \circle "9b" }
+  s2 s2 s2
+  \mark \markup { \circle "10a" }
+  s2 s2 s2 s2 s2 s2
+  \mark \markup { \circle "10b" }
+  s2 s2 s2 s2 s2 s2
+  \mark \markup { \circle "11a" }
+  s2 s2
+  \mark \markup { \circle "11b" }
+  s2 s2
+  \mark \markup { \circle "12a" }
+  s2 s2
+  \mark \markup { \circle "12b" }
 }
 
 SopranoTempo = \relative c'' {
   \key f \major
   \time 2/4
-  \tempo 4=88
+  \tempo Gaily 4=88
   s16^\mp s s s s8 s % 1
   s8 s16 s s s s8
   s8s16 s s8 s16 s
@@ -204,7 +250,6 @@ SopranoTempo = \relative c'' {
 SopranoMusic = \relative c'' {
   \key f \major
   \time 2/4
-  \tempo 4=88
   a16 a a a g8-- g-- % 1
   f8 a16 f d-- e-- f8--
   c8 f16 a c8 c16 c
@@ -472,18 +517,18 @@ AltoTempo = \relative c' {
 AltoMusic = \relative c' {
   \key f \major
   \time 2/4
-  c8^\mp f d-- e-- % 1
+  c8 f d-- e-- % 1
   f8 e16 e d-- c-- bes8--
   c8 f16 f g8 f16 f
-  e16 e f8 g^\markup{\italic ten} d16 e
+  e16 e f8 g d16 e
   f8 c d e
   f16 f e e d c bes8
   c8 r c' f,
   d8 e f r
-  a8^\mf ^\< f16 f g8 a \! % start chorus
-  bes8^\f \! a16 a c8 bes 
+  a8 f16 f g8 a % start chorus
+  bes8 a16 a c8 bes 
   c8 f,16 f f8 f16 f
-  a8 ^\> g16 f \! e8^\fermata ^\mf d16^\mp e
+  a8 g16 f e8^\fermata d16 e
   f8 e16 e d8 e
   f16 f e e d c bes8
   c8 r c' r
@@ -491,60 +536,60 @@ AltoMusic = \relative c' {
   a8 16 a g8 g16 g
   f16(g) a f d e f8
   c8f16 a c8 16 c
-  c8 16 c c8^\markup{\italic ten} f,16^\mf g
+  c8 16 c c8 f,16 g
   a8 16 a g8 g
   f16 g a f d e f8
-  c8^\< f16 a\! c8^\f bes16 a
+  c8 f16 a c8 bes16 a
   g8 16 g f4
-  a8^\mf ^\< f16 f g8 a \! % start chorus
-  bes8^\f \! a16 a c8 bes 
+  a8 f16 f g8 a % start chorus
+  bes8 a16 a c8 bes 
   c8 f,16 f f8 f16 f
-  a8 ^\> g16 f \! e8^\fermata ^\mf d16^\mp e
+  a8 g16 f e8^\fermata d16 e
   f8 e16 e d8 e
   f16 f e e d c bes8
   c8 r c' r
   r8 e, f4 % end chorus
   r2 % page 6
   r2
-  a8^\f f r4
+  a8 f r4
   g8^^ g^^ g4^^^\fermata
   r2
   r2 % page 7
-  r4 c,8^\f d16 f
+  r4 c,8 d16 f
   e8 d16 c d8 e16 e
   f4. r8
-  a8^\mf^\< f16 f g8 a\!
-  bes8^\f a16 a c8 bes % page 8
+  a8 f16 f g8 a
+  bes8 a16 a c8 bes % page 8
   c8 f,16 f f8 f16 f
-  a8^\> g16 f e4^\mf\!
+  a8 g16 f e4
+  r2 % page 8b
   r2
-  r2
-  c'8^\f a  a g16  f
+  c'8 (a) a (g16) f % page 9
   e8 e16 e f4
   r2
   r2
   r2
   r2
-  r4^\fermata d8^\p e
-  f8^\markup{\italic Melodramatically}(g) a a
+  r4^\fermata d8 e
+  f8(g) a a
   g4 a8 g
   f8(g)a f
-  d8^\> e f4
-  c2^\pp\! ~
+  d8 e f4
+  c2 ~
   c2~
   c2~
   c2~
-  c2^\markup{Rit.}~
-  c2^\>~
-  c2\!
-  a'8^\mf^\markup{Tempo primo}^\< f16 f g8 a % page 11
-  bes8^\f\! a16 a c8 bes
-  c8 f,16 f16 f8 f16^\> f
-  a8 g16 f e8^\mf^\fermata \! r8
+  c2~
+  c2~
+  c2
+  a'8 f16 f g8 a % page 11
+  bes8 a16 a c8 bes
+  c8 f,16 f16 f8 f16 f
+  a8 g16 f e8 r8
   r2 % page 12
   r2
   r2
-  r8 e^-^\pp f-. r8
+  r8 e^- f-. r8
   \bar "|."
 }
 
@@ -580,57 +625,215 @@ AltoLyrics = \lyricmode {
   with me!'
 }
 
+TenorTempo = \relative c {
+  \key f \major
+  \time 2/4
+  s16^\mp s s8 s4 % 1
+  s2
+  s2
+  s4 s^\markup{\italic ten}
+  s2 % 5
+  s2
+  s2
+  s2
+  s8^\mf ^\< s s4 % start chorus
+  s2 % 10
+  s2^\f \!
+  s8^\> s s4 ^\mf \!
+  s8 s ^\mp s4
+  s2
+  s2 % 15
+  s2
+  s2
+  s2
+  s2
+  s4 s^\f % 20
+  s2^\mp
+  s8^\< s\! s^\mf^\> s\!
+  s2^\mp
+  s2
+  s2^\mf ^\< % 25
+  s2
+  s2^\f \!
+  s4^\> s ^\fermata ^\mf \!
+  s8 s^\mp s4
+  s2 % 30
+  s2
+  s2
+  s2^^^\f
+  s2
+  s2 % 35
+  s2
+  s2^\ff^\markup{\italic Roughly}
+  s2
+  s4 s8^^^\> s16 s \!
+  s2^\f % 40
+  s2
+  s8^\mf^\< s s s\!
+  s2^\<
+  s2^\f\!
+  s4^\> s^\mf\!
+  s2^\ff^\markup{\italic Roughly}
+  s2
+  s2^\f
+  s2
+  s2
+  s2
+  s2
+  s2
+  s2
+  s2
+  s2
+  s2
+  s2
+  s2
+  s2^\pp
+  s2
+  s2
+  s2^\markup{Rit.}
+  s2^\>
+  s2\!
+  s2^\mf^\markup{Tempo primo}^\<
+  s4 s8 s \!
+  s2
+  s4^\> s^\mf^\fermata \!
+  s2
+  s2
+  s2
+  s8 s^\pp s4
+  \bar "|."
+}
+
+%TenorMusic = \relative c {
+%  \key f \major
+%  \time 2/4
+%  f16^\mp g a c d8-- c-- % 1
+%  a8 f16 a c16 a a8
+%  c,8 f16 a c8 a16 a
+%  bes16 bes c8 d^\markup{\italic ten} c
+%  c8 f d c
+%  a16 g f a f e d8
+%  c8 f16 a c8 d16 d
+%  bes8 c16 c a8 r
+%  f8^\mf ^\< a16 a bes8 c % start chorus
+%  d8  c16 c d8 e
+%  f8^\f \! (c) bes c
+%  d8^\> g, c^\fermata ^\mf \! r
+%  r8 c^\mp bes c
+%  d8 c bes16 a g8
+%  c,8 r c' r
+%  r8 c a4 % end chorus
+%  c4 g8. g16
+%  a16 g f a f8 g
+%  f8(c b') a % page 5
+%  d8(f e^\f) r
+%  d8^\mp(c bes g
+%  a8^\< c\! f^\mf^\> bes,\!)
+%  a8^\mp r a r
+%  r8 g^- a4
+%  f8^\mf ^\< a16 a bes8 c % start chorus
+%  d8  c16 c d8 e
+%  f8^\f \! (c) bes c
+%  d8^\> g, c^\fermata ^\mf \! r
+%  r8 c^\mp bes c
+%  d8 c bes16 a g8
+%  c,8 r c' r
+%  r8 c a4 % end chorus
+%  a8^^^\f a16 a g8 g % page 6
+%  f16 g a f d^- e^- f8^-
+%  c'8 a16 c f8 c
+%  d8^^ f^^ e4^^^\fermata
+%  a,8^\ff^\markup{\italic Roughly} a16 a g8 g
+%  f16 g a f bes^- c^- d8^-
+%  c8 f,16 a c8^^^\> bes16 a\!
+%  g8^\f(a) bes c^-
+%  a4. r8
+%  f8^\mf^\< a16 a bes8 c\!
+%  d8^\< c16 c d8 e % page 8
+%  f8^\f\!(c) bes c
+%  d8^\> g, c4^\mf\!
+%  a8^\ff^\markup{\italic Roughly} a16 a g8 g
+%  f16 g a f bes^- c^- d8^-
+%  c8^\f f,16 a c8^^ bes16 a % page 9
+%  g8 16 g a4
+%  r2
+%  r2
+%  r2
+%  r2
+%  r2^\fermata
+%  r2
+%  r2
+%  r2
+%  r2
+%  r2
+%  c,4^\pp( f8 a
+%  c2~
+%  c2~
+%  c2^\markup{Rit.}~
+%  c2^\>~
+%  c2\! )
+%  f,8^\mf^\markup{Tempo primo}^\< a16 a bes8 c % page 11
+%  d8 c16 c d8 e \!
+%  f8(c) bes c
+%  d8^\> g, c^\mf^\fermata \! r
+%  r2 % page 12
+%  r2
+%  r2
+%  r8 c8--^\pp a-. r
+%  \bar "|."
+%}
+
 TenorMusic = \relative c {
   \key f \major
   \time 2/4
-  f16^\mp g a c d8-- c-- % 1
+  f16 g a c d8-- c-- % 1
   a8 f16 a c16 a a8
   c,8 f16 a c8 a16 a
-  bes16 bes c8 d^\markup{\italic ten} c
-  c8 f d c
+  bes16 bes c8 d c
+  c8 f d c % 5
   a16 g f a f e d8
   c8 f16 a c8 d16 d
   bes8 c16 c a8 r
-  f8^\mf ^\< a16 a bes8 c % start chorus
-  d8  c16 c d8 e
-  f8^\f \! (c) bes c
-  d8^\> g, c^\fermata ^\mf \! r
-  r8 c^\mp bes c
+  f8 a16 a bes8 c % start chorus
+  d8  c16 c d8 e % 10
+  f8(c) bes c
+  d8 g, c^\fermata r
+  r8 c bes c
   d8 c bes16 a g8
-  c,8 r c' r
+  c,8 r c' r % 15
   r8 c a4 % end chorus
   c4 g8. g16
   a16 g f a f8 g
   f8(c b') a % page 5
-  d8(f e^\f) r
-  d8^\mp(c bes g
-  a8^\< c\! f^\mf^\> bes,\!)
-  a8^\mp r a r
+  d8(f e) r % 20
+  d8(c bes g
+  a8 c f bes,)
+  a8 r a r
   r8 g^- a4
-  f8^\mf ^\< a16 a bes8 c % start chorus
+  f8 a16 a bes8 c % start chorus
   d8  c16 c d8 e
-  f8^\f \! (c) bes c
-  d8^\> g, c^\fermata ^\mf \! r
-  r8 c^\mp bes c
+  f8(c) bes c
+  d8 g, c^\fermata r
+  r8 c bes c
   d8 c bes16 a g8
   c,8 r c' r
   r8 c a4 % end chorus
-  a8^^^\f a16 a g8 g % page 6
+  a8^^ a16 a g8 g % page 6
   f16 g a f d^- e^- f8^-
   c'8 a16 c f8 c
   d8^^ f^^ e4^^^\fermata
-  a,16^\ff^\markup{\italic Roughly} a a a g8 g
+  a,8 a16 a g8 g
   f16 g a f bes^- c^- d8^-
-  c8 f,16 a c8^^^\> bes16 a\!
-  g8^\f(a) bes c^-
+  c8 f,16 a c8^^ bes16 a
+  g8(a) bes c^-
   a4. r8
-  f8^\mf^\< a16 a bes8 c\!
-  d8^\< c16 c d8 e % page 8
-  f8^\f\!(c) bes c
-  d8^\> g, c4^\mf\!
-  a16^\ff^\markup{\italic Roughly} a a a g8 g
+  f8 a16 a bes8 c
+  d8 c16 c d8 e % page 8
+  f8(c) bes c
+  d8 g, c4
+  a8 a16 a g8 g
   f16 g a f bes^- c^- d8^-
-  c8^\f f,16 a c8^^ bes16 a % page 9
+  c8 f,16 a c8^^ bes16 a % page 9
   g8 16 g a4
   r2
   r2
@@ -642,20 +845,20 @@ TenorMusic = \relative c {
   r2
   r2
   r2
-  c,4^\pp( f8 a
+  c,4( f8 a
   c2~
   c2~
-  c2^\markup{Rit.}~
-  c2^\>~
-  c2\! )
-  f,8^\mf^\markup{Tempo primo}^\< a16 a bes8 c % page 11
-  d8 c16 c d8 e \!
+  c2~
+  c2~
+  c2)
+  f,8 a16 a bes8 c % page 11
+  d8 c16 c d8 e
   f8(c) bes c
-  d8^\> g, c^\mf^\fermata \! r
+  d8 g, c r
   r2 % page 12
   r2
   r2
-  r8 c8--^\pp a-. r
+  r8 c8-- a-. r
   \bar "|."
 }
 
@@ -677,13 +880,12 @@ TenorLyrics = \lyricmode {
   'You'll come, with me!' % end chorus
   \set stanza = "3." Up rode the squat- ter, mount- ed on his thor- ough- bred,
   Up rode the troop- ers, One, two, three:
-  'Where's that jol- ly jum- buck
-  you've got in your tuck- er- bag?
+  'Whose is that jum- buck you've got in your tuck- er- bag?
   You'll come a- waltz- ing, Ma- til- da, with me!'
   \set stanza = "4." Waltz- ing Ma- til- da,
   Waltz- ing Ma- til- da,
   You'll come, you'll come with me;
-  'Where's that jol- ly jum- buck you've got in your tuck- er- bag?
+  'Whose is that jum- buck you've got in your tuck- er- bag?
   You'll come a- waltz- ing, Ma- til- da, with me!'
   Ah
   \set stanza = "7." Waltz- ing Ma- til- da, Waltz- ing Ma- til- da,
@@ -691,21 +893,179 @@ TenorLyrics = \lyricmode {
   with me!'
 }
 
+BassTempo = \relative c {
+  \key f \major
+  \time 2/4
+  s2^\mp
+  s2
+  s2
+  s4 s^\markup{\italic ten}
+  s2 % 5
+  s2
+  s2
+  s2
+  s2^\mf ^\<
+  s2^\f \! % 10
+  s2
+  s4 ^\> s4^\mf \!
+  s2
+  s2
+  s2 % 15
+  s2
+  s2
+  s2
+  s2
+  s4 s^\f % 20
+  s2
+  s2
+  s2^\mp
+  s2
+  s2^\mf ^\< % 25
+  s2^\f \!
+  s2
+  s4 ^\> s^\mf \!
+  s2
+  s2 % 30
+  s2
+  s2
+  s2^\f
+  s2
+  s2 % 35
+  s2
+  s2^\ff^\markup{\italic Roughly}
+  s2
+  s4 s^\>
+  s2^\f % 40
+  s2
+  s2^\mf^\<
+  s2^\f\!
+  s2
+  s4^\> s^\mf\! % 45
+  s2^\ff^\markup{\italic Roughly}
+  s2
+  s2^\f
+  s4 s^\<
+  s2^\ff\! % 50
+  s2
+  s2
+  s2
+  s2
+  s2 % 55
+  s2
+  s2
+  s2
+  s2
+  s2 % 60
+  s4 s^\pp
+  s2
+  s2^\markup{Rit.}
+  s2^\>
+  s2\! % 65
+  s2^\mf^\markup{Tempo primo}^\<
+  s2^\f\!
+  s2
+  s4^\> s^\mf \!
+  s2 % 70
+  s2
+  s2
+  s8 s^\pp s4
+  \bar "|."
+}
+
+%BassMusic = \relative c {
+%  \key f \major
+%  \time 2/4
+%  f8^\mp d bes-- c-- % 1
+%  d8 c16 c bes-- a-- g8--
+%  c8 d16 d e8 f16 f
+%  g16 g a8 bes^\markup{\italic ten} c
+%  f,8 a, bes c
+%  d16 d c c bes a g8
+%  c8 e c' r
+%  r8 c, f r
+%  f2^\mf ^\< % start chorus
+%  bes2^\f \!
+%  a4 bes8 a
+%  g8 ^\> g c,^\fermata^\mf \! r
+%  r2
+%  r2
+%  c8 r c' r
+%  r8 c, f4 % end chorus
+%  f4 e8. e16
+%  d8(c) bes4
+%  a8(a' g) f % page 5
+%  bes8(d c^\f) r
+%  r2
+%  r2
+%  c8^\mp r c, r
+%  r8 e^- f4
+%  f2^\mf ^\< % start chorus
+%  bes2^\f \!
+%  a4 bes8 a
+%  g8 ^\> g c,^\fermata^\mf \! r
+%  r2
+%  r2
+%  c8 r c' r
+%  r8 c, f4 % end chorus
+%  f8^\f 16 f e8 c
+%  d16 e f bes g^- a^- bes8^-
+%  c,8 f16 a c8 a
+%  bes8^^ d^^ c4^^^\fermata
+%  a8^\ff^\markup{\italic Roughly} a16 a g8 g
+%  f16 g a f d^- e^- f8^-
+%  c8 f16 a c8^^^\> bes16 a
+%  g8^\f(a) bes c^-
+%  f,4. r8
+%  f2^\mf^\<
+%  bes2^\f\! % page 8
+%  a4 bes8 a
+%  g8^\> g c,4^\mf\!
+%  a'8^\ff^\markup{\italic Roughly} a16 a g8 g
+%  f16 g a f d^- e^- f8^-
+%  c8^\f f16 a c8^^ bes16 a
+%  g8 16 g f4^\<
+%  a8^\ff\! 16 a g8 16 g
+%  f16 g a f d e f8
+%  c8 f16 a c8^^ 16 c
+%  c8^^ c c4(
+%  c4^\fermata) r
+%  r2
+%  r2
+%  r2
+%  r2
+%  r2
+%  r2
+%  r4 f,,8--^\pp a--
+%  c4^^ bes8 a
+%  g4^\markup{Rit.} g
+%  f2^\> ~
+%  f2\!
+%  f'2^\mf^\markup{Tempo primo}^\< % page 11
+%  bes2^\f\!
+%  a4 bes8 a
+%  g8^\> g c,^\mf^\fermata \! r
+%  r2 % page 12
+%  r2
+%  r2
+%  r8 c--^\pp f-. r
+%  \bar "|."
+%}
+
 BassMusic = \relative c {
   \key f \major
   \time 2/4
-  f8^\mp d bes-- c-- % 1
+  f8 d bes-- c-- % 1
   d8 c16 c bes-- a-- g8--
   c8 d16 d e8 f16 f
-  g16 g a8 bes^\markup{\italic ten} c
+  g16 g a8 bes c
   f,8 a, bes c
   d16 d c c bes a g8
   c8 e c' r
   r8 c, f r
-  f2^\mf ^\< % start chorus
-  bes2^\f \!
+  f2 % start chorus
+  bes2
   a4 bes8 a
-  g8 ^\> g c,^\fermata^\mf \! r
+  g8 g c,^\fermata r
   r2
   r2
   c8 r c' r
@@ -713,37 +1073,37 @@ BassMusic = \relative c {
   f4 e8. e16
   d8(c) bes4
   a8(a' g) f % page 5
-  bes8(d c^\f) r
+  bes8(d c) r
   r2
   r2
-  c8^\mp r c, r
+  c8 r c, r
   r8 e^- f4
-  f2^\mf ^\< % start chorus
-  bes2^\f \!
+  f2 % start chorus
+  bes2
   a4 bes8 a
-  g8 ^\> g c,^\fermata^\mf \! r
+  g8 g c,^\fermata r
   r2
   r2
   c8 r c' r
   r8 c, f4 % end chorus
-  f8^\f 16 f e8 c
+  f8 16 f e8 c
   d16 e f bes g^- a^- bes8^-
   c,8 f16 a c8 a
   bes8^^ d^^ c4^^^\fermata
-  a16^\ff^\markup{\italic Roughly} a a a g8 g
+  a8 a16 a g8 g
   f16 g a f d^- e^- f8^-
-  c8 f16 a c8^^^\> bes16 a
-  g8^\f(a) bes c^-
+  c8 f16 a c8^^ bes16 a
+  g8(a) bes c^-
   f,4. r8
-  f2^\mf^\<
-  bes2^\f\! % page 8
+  f2
+  bes2 % page 8
   a4 bes8 a
-  g8^\> g c,4^\mf\!
-  a'16^\ff^\markup{\italic Roughly} a a a g8 g
+  g8 g c,4
+  a'8 a16 a g8 g
   f16 g a f d^- e^- f8^-
-  c8^\f f16 a c8^^ bes16 a
-  g8 16 g f4^\<
-  a8^\ff\! 16 a g8 16 g
+  c8 f16 a c8^^ bes16 a
+  g8 16 g f4
+  a8 16 a g8 16 g
   f16 g a f d e f8
   c8 f16 a c8^^ 16 c
   c8^^ c c4(
@@ -754,19 +1114,19 @@ BassMusic = \relative c {
   r2
   r2
   r2
-  r4 f,,8--^\pp a--
+  r4 f,,8-- a--
   c4^^ bes8 a
-  g4^\markup{Rit.} g
-  f2^\> ~
-  f2\!
-  f'2^\mf^\markup{Tempo primo}^\< % page 11
-  bes2^\f\!
+  g4 g
+  f2 ~
+  f2
+  f'2 % page 11
+  bes2
   a4 bes8 a
-  g8^\> g c,^\mf^\fermata \! r
+  g8 g c,^\fermata r
   r2 % page 12
   r2
   r2
-  r8 c--^\pp f-. r
+  r8 c-- f-. r
   \bar "|."
 }
 
@@ -784,12 +1144,12 @@ BassLyrics = \lyricmode {
   'You'll come, with me!' % end chorus
   \set stanza = "3." Up rode the squat- ter, mount- ed on hos thor- ough- bred,
   Up rode the troop- ers, One, two, three:
-  'Where's that jol- ly jum- buck
+  'Whose is that jum- buck
   you've got in your tuck- er- bag?
   You'll come a- waltz- ing, ma- til- da, with me!'
   \set stanza = "4." Come,
   come, You'll come, you'll come with me;
-  'Where's that jol- ly jum- buck you've got in your tuck- er- bag?
+  'Whose is that jum- buck you've got in your tuck- er- bag?
   You'll come a- waltz- ing, Ma- til- da, with me!'
   \set stanza = "5." Up jumped the swag- man and sprang in- to the bil- la- bong,
   'You'll ne- ver take me a- live.' said he.
@@ -797,6 +1157,73 @@ BassLyrics = \lyricmode {
   \set stanza = "7." Come, come
   You'll come, you'll come with me;
   with me!
+}
+
+PianoDynamics = {
+  \tempo Gaily 4=88
+  s2
+  s2
+  s2
+  s4 s4^\markup{\italic ten.}
+  s2
+  s2
+  s2
+  s2
+  s2^\mf\<
+  s2\!^\f
+  s2
+  s4\> s8^\mf\! s^\mp
+  s8 s^\mp s4
+  s2
+  s2
+  s2
+  s2^\mf^\markup{alto prominent}
+  s2
+  s2
+  s4 s^\markup{\italic ten.} % Need mp on sop line
+  s2^\mp
+  s2
+  s2^\mp s2
+  s2^\mf
+  s2
+  s2
+  s4 s8^\mf s^\mp
+  s8 s^\mp s4
+  s2
+  s2
+  s2
+  s2
+  s2
+  s2 % Need f on sop line
+  s2
+  s2
+  s2
+  s2
+  s2
+  s2
+  s2
+  s2
+  s2
+  s2
+  s2^\ff
+  s2
+  s2^\f s2^\markup{strict time}
+  s2
+  s2
+  s2
+  s2
+  s4 s^\p
+  s2^\markup{\italic Melodramatically}
+  s2
+  s2
+  s2
+  s2
+  s2^\pp
+  s4 s^\pp
+  s2
+  s2^\markup{Rit.}
+  s2
+  s2
 }
 
 
@@ -827,35 +1254,40 @@ global = {
 %  \time 4/4
 }
 
-\score {
-  <<
-    \new ChoirStaff <<
-      \new Staff = "sopranos" <<
-        \new Voice \RehearsalTrack
-	\new Voice \SopranoTempo
-        \new Voice = "sopranos" { << \global \SopranoMusic >> }
-        \context Lyrics = "sopranos" \lyricsto "sopranos" \SopranoLyrics
+\book {
+  \score {
+    <<
+      \new ChoirStaff <<
+	\new Staff = "sopranos" <<
+	  \new Voice \RehearsalTrack
+	  \new Voice \SopranoTempo
+	  \new Voice = "sopranos" { << \global \SopranoMusic >> }
+	  \context Lyrics = "sopranos" \lyricsto "sopranos" \SopranoLyrics
+	>>
+	\new Staff = "altos" <<
+          \new Voice \AltoTempo
+	  \new Voice = "altos" { << \global \AltoMusic >> }
+	  \context Lyrics = "altos" \lyricsto "altos" \AltoLyrics
+	>>
+	\new Staff = "tenori" <<
+          \new Voice \TenorTempo
+	  \new Voice = "tenors" { \clef "treble_8" << \global \TenorMusic >> }
+	  \context Lyrics = "tenors" \lyricsto "tenors" \TenorLyrics
+	>>
+	\new Staff = "basses" <<
+          \new Voice \BassTempo
+	  \new Voice = "basses" { \clef bass << \global \BassMusic >> }
+	  \context Lyrics = "basses" \lyricsto "basses" \BassLyrics
+	>>
       >>
-      \new Staff = "altos" <<
-        \new Voice = "altos" { << \global \AltoMusic >> }
-        \context Lyrics = "altos" \lyricsto "altos" \AltoLyrics
-      >>
-      \new Staff = "tenori" <<
-        \new Voice = "tenors" { \clef "treble_8" << \global \TenorMusic >> }
-        \context Lyrics = "tenors" \lyricsto "tenors" \TenorLyrics
-      >>
-      \new Staff = "basses" <<
-        \new Voice = "basses" { \clef bass << \global \BassMusic >> }
-        \context Lyrics = "basses" \lyricsto "basses" \BassLyrics
-      >>
-    >>
-    \new PianoStaff <<
+				%    \new PianoStaff <<
       \new Staff <<
         \set Staff.printPartCombineTexts = ##f
         \partcombine
         << \global \SopranoMusic >>
         << \global \AltoMusic >>
       >>
+      \new Dynamics \PianoDynamics
       \new Staff <<
         \clef bass
         \set Staff.printPartCombineTexts = ##f
@@ -864,5 +1296,7 @@ global = {
         << \global \BassMusic >>
       >>
     >>
-  >>
+    \layout{}
+  }
 }
+
