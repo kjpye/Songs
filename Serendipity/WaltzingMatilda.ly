@@ -1300,3 +1300,34 @@ global = {
   }
 }
 
+\book {
+  \score {
+    <<
+      \new ChoirStaff <<
+	\new Staff = "sopranos" <<
+	  \new Voice \RehearsalTrack
+	  \new Voice \SopranoTempo
+	  \new Voice = "sopranos" { << \global \SopranoMusic >> }
+	  \context Lyrics = "sopranos" \lyricsto "sopranos" \SopranoLyrics
+	>>
+	\new Staff = "altos" <<
+          \new Voice \AltoTempo
+	  \new Voice = "altos" { << \global \AltoMusic >> }
+	  \context Lyrics = "altos" \lyricsto "altos" \AltoLyrics
+	>>
+	\new Staff = "tenori" <<
+          \new Voice \TenorTempo
+	  \new Voice = "tenors" { \clef "treble_8" << \global \TenorMusic >> }
+	  \context Lyrics = "tenors" \lyricsto "tenors" \TenorLyrics
+	>>
+	\new Staff = "basses" <<
+          \new Voice \BassTempo
+	  \new Voice = "basses" { \clef bass << \global \BassMusic >> }
+	  \context Lyrics = "basses" \lyricsto "basses" \BassLyrics
+	>>
+      >>
+    >>
+    \layout{}
+  }
+}
+
