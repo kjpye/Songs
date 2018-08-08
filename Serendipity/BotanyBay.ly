@@ -21,17 +21,25 @@ sop = \relative c' {
   \repeat volta 3 {
     fis8. e16 fis8 g a b
     a8. g16 fis e~e8 d e
-    fis8. e16fis8 g a b
+    fis8. e16fis8 g a b % 5
     a8. g16 fis e~e8 r8 d16 e
     fis8 a a e g g
     fis16 e d4~d8 r a'16 a
     fis8 a d g, b d
-    a4.~a8 r b16 cis
+    a4.~a8 r b16 cis % 10
     d8 cis d e d b
     a16 fis d4~d8 r d16 e
     fis8 a a e g fis
-    s2.*6
-    s2.*4
+    d'4 r8 a4^\fermata g8
+    fis8 a a e g g % 15
+    fis16 e d4~ d8 r a'16 g
+    fis8 a d fis, a d
+    a4.~a4 b16 cis
+    d8 cis d e d b
+    a16 fis d4~d8 r d16 e % 20
+    fis8(a) a e g fis
+    d4.~d8 r4
+    r2.
   }
   r2.
   r2.^\fermata
@@ -54,8 +62,16 @@ alt = \relative c' {
     fis8. fis16 fis8 g8. g16 g8
     fis16 fis fis4~fis8 r d16 e
     fis8. e16 d8 e8. d16 cis8
-    s2.*6
-    s2.*4
+    d4 r8 cis4^\fermata cis8
+    d8 cis d d cis d % 15
+    d16 d d8 r b'8. a16 g8
+    f8 r4 g8 b b
+    a8 a a a8. b16 cis8
+    b4 r8 b8. a16 g(fis)
+    a16 fis d4~d8 r d16 e % 20
+    fis8.(e16) d8 e8.d16 cis8
+    d4.~d8 r4
+    r2.
   }
   r2.
   r2.^\fermata
@@ -78,8 +94,16 @@ ten = \relative c' {
     fis8. a,16 a8 b r4
     a8 a a b b b
     a a a b b b
-    s2.*6
-    s2.*4
+    a4 r8 a4^\fermata a8
+    a8. a16 a8 a8. a16 a8 % 15
+    b16 b b8 r d8. cis16 b8
+    a8 r4 b8. a16 b8
+    cis8 cis cis cis8. d16 e8
+    f8 r4 g8. f16 e(d)
+    cis4 cis8 b8 b b % 20
+    a4 a8 a a a
+    a8 a a b b b
+    a8 a a b b b
   }
   a8 a a b b b
   a2.^\fermata^\pp
@@ -93,17 +117,25 @@ bas = \relative c {
   \repeat volta 3 {
     d8 d d d d d
     d8 d d d d d
-    d8 d d d d d
+    d8 d d d d d % 5
     d8 d d a b cis
     d4.~d8 r^\f d16 e
     fis8 a a e g g
     fis16 e d4~d8 r d16 d
-    a8 a a a b cis
+    a8 a a a b cis % 10
     d4.~d8 r b'16 cis
     d8 cis d e d b
     a16 fis d4~d4.~
-    s2.*6
-    s2.*4
+    d4 r8 a4^\fermata a8
+    d8. e16 fis8 a,8. b16 cis8 % 15
+    b8 b b g g g
+    d'8. e16 fis8 e8. fis16 g8
+    a4.~ a4 b16 cis
+    b8 b b g g g
+    fis4 fis8 g g g % 20
+    d8.(e16) fis8 g fis e
+    d8 d d d d d
+    d8 d d d d d
   }
   d8 d d d d d
   d2.^\fermata
@@ -115,7 +147,7 @@ textsopOne = \lyricmode {
   \set stanza = "1." Fare- _ well to old Eng- land for e- _ ver
   Fare- _ well to my rum culls as well
   Fare- _ well to the well- known old Bail- _ ey
-  Where I once used to cut such a
+  Where I once used to cut such a swell.
 }
 
 textsopTwo = \lyricmode {
@@ -127,7 +159,12 @@ textsopTwo = \lyricmode {
   There's the cap- tain he is our com- man- _ der
   There's the bo- sun and all the ship's crew
   There's the first and the sec- ond class pas- sen- gers
-  Knows _ what we poor con- victs go
+  Knows _ what we poor con- victs go through.
+
+  Sing- ing too- ra- li oo- ra- li add- it- y,
+  Sing- ing too- ra- li oo- ra- li ay.
+  Sing- ing too- ra- li oo- ra- li add- it- y,
+  For we're bound for Bo- ta- ny Bay.
 }
 
 textsopThree = \lyricmode {
@@ -135,7 +172,7 @@ textsopThree = \lyricmode {
   \set stanza = "3." If _ I had the wings of a tur- tle dove
   It's _ far on my pin- ions I'd fly
   Right _ back to the arms of my Pol- ly love
-  And _ in her emb- race I would
+  And _ in her emb- race I would die.
 }
 
 textaltOne = \lyricmode {
@@ -143,7 +180,7 @@ textaltOne = \lyricmode {
   \set stanza = "1." Fare- _ well to old Eng- land for e- _ ver
   Fare- _ well to my rum culls as well
   Fare- _ well to the well- known old Bail- _ ey
-  Where I once used to cut such a
+  Where I once used to cut such a swell.
 }
 
 textaltTwo = \lyricmode {
@@ -153,7 +190,14 @@ textaltTwo = \lyricmode {
   There's the cap- tain he is our com- man- _ der
   There's the bo- sun and all the ship's crew
   There's the first and the sec- ond class pas- sen- gers
-  Knows _ what we poor con- victs go
+  Knows _ what we poor con- victs go through.
+
+  Sing- ing too- ra- li oo- ra- li add- it- y.
+  Too- ro- li- ay
+  Too- ro- li- ay
+  Sing- ing too- r- li- ay
+  Too- ra- li add- it- y
+  For we're bound for Bo- tan- y Bay.
 }
 
 textaltThree = \lyricmode {
@@ -161,7 +205,7 @@ textaltThree = \lyricmode {
   \set stanza = "3." If _ I had the wings of a tur- tle dove
   It's _ far on my pin- ions I'd fly
   Right _ back to the arms of my Pol- ly love
-  And _ in her emb- race I would
+  And _ in her emb- race I would die.
 }
 
 texttenOne = \lyricmode {
@@ -181,7 +225,16 @@ texttenTwo = \lyricmode {
   Too- ra- li oo- ra- li
   Too- ra- li- ay
   Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li- ay.
+  Sing- ing too- ra- li oo- ra- li add- it- y.
+  Too- ra- li- ay
+  Too- ra- li- ay
+  Sing- ing too- ra- li- ay
+  Too- ra- li add- it- y
+  For we're bound for Bot- an- y
   Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li- ay.  
 }
 
 texttenThree = \lyricmode {
@@ -207,6 +260,13 @@ textbasTwo = \lyricmode {
   There's the bo- sun and all the ship's crew
   There's the first and the sec- ond class pas- sen- gers
 
+  Sing- ing too- ra- li oo- ra- li add- it- y,
+  Too- ra- li
+  Too- ra- li oo- ra- li ay
+  Sing- ing Too- ra- li oo- ra- li add- it- y,
+  For we're bound for Bo- tan- y
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
 
   Too- ra- li oo- ra- li- ay
 }
