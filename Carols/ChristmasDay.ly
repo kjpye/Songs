@@ -180,7 +180,34 @@ RHhigh = \relative c' {
   \voiceOne
   \partial 8 <g g'>8(
   <g c g'>4. c'4 b8 <f a> <e g> <d f>
-  <g, g'>2. ~ q4) <g d' g>8
+  <g, g'>2. ~ q4) <g d' g>8(
+  <g c g'>4. c'4 b8 <f a> <e g> <d f>
+  <b g'>2.~<g g'>4.)
+  <a c f a>4. (d'4 c8 b a c
+  c2.) g4(8
+  a4.~8 g a g e d
+  <b e>2.) e4(f8
+  <g, c g'>4. c'4 b8 <f a> <e g> <d f>
+  <g, g'>2. ~ <g e' g>4) <g c g'>8(
+  <a c f a>4. d'4 c8 b a b
+  <c, e g c>4.) c'4(b8 <f a> <e g> <d f>
+  <c e g>4.) c'4( b8 <f a> <e g> <d f>
+  <c e g>4.) \change Staff = "LH" <g c>4( b8 <f a> g f
+  <e g>2. ~q4) \change Staff = "RH" s8
+  s2. s4.
+  s2. s4.
+  s2. s4.
+  s2. s4.
+  s2. s4.
+  s2. s4.
+  s2. s4.
+  s2. e'4(f8
+  <g, c g'>4. c'4 b8 <f a> <e g> <d f>
+  <c g>4.) g''4( f8 e8 d c
+  <c, f a>4.) f'4( e8 <b d> <a c> <g b>
+  <c, e g c>4.) c'4( b8 <f a> <e g> <d f>
+  <c e >4.) c'4 b8( <f a> <e g> <d f>
+  <g, c e g>2. ~ q4) r8
 }
 
 RHlow = \relative c' {
@@ -196,10 +223,39 @@ PianoRHMusic = <<
   \RHlow
 >>
 
-PianoLHMusic = \relative c {
+PianoLHMusic = \relative c, {
   \key c \major
   \time 9/8
   \partial 8 r8
+  <c g' e'>4. <e c' g'> <f c' a'>
+  <e e'>4. <d d'> <c c'>4 <b b'>8
+  <a a'>4. <a' e' a> <d a'>
+  <g, g'>4. <f f'> <e e'>
+  <f c' f>4. <d' a' c> <g d'>4 <f d'>8
+  <e c'>4. <d d'> <c c'>4 <b b'>8
+  <a e' a>4. f' <e g>4 <f a>8
+  <e gis>2. <g, g'>4.
+  <c, g' e'>4. <e c' g'> <f c' a'>
+  <e e'>4. <d d'> <c c'>4 <e e'>8
+  <f f'>4. <d d'> <g g'>
+  <c, g' e'>4. <e c' g'> <f c' a'>
+  <c  g' e'>4. <e c' g'> <f c' a'>
+  <c  g' e'>4. \voiceTwo <e c'   > <f c'   >
+  <c c'>2. ~ q4 s8 \oneVoice
+  s2. s4.
+  s2. s4.
+  s2. s4.
+  s2. s4.
+  s2. s4.
+  s2. s4.
+  s2. s4.
+  s2. <g' g'>4.
+  <c, g' e'>4. <e c' g'> <f c' a'>
+  <e e'>4. <d d'> <c c'>
+  <f f'>4. <d d'> <g g'>
+  <c, g' e'>4. <e c' g'> <f c' a'>
+  <c g' e'>4. <e c' g'> <f c' a'>
+  <c c'>2. ~ q4 r8
 }
 
 \book {
@@ -217,8 +273,8 @@ PianoLHMusic = \relative c {
 	>>
       >>
       \context PianoStaff <<
-	\new Staff { \PianoRHMusic }
-	\new Staff { \PianoLHMusic }
+	\new Staff = RH { \PianoRHMusic }
+	\new Staff = LH { \clef "bass" \PianoLHMusic }
       >>
     >>
     \layout {
