@@ -181,7 +181,7 @@ RHhigh = \relative c' {
   \partial 8 <g g'>8(
   <g c g'>4. c'4 b8 <f a> <e g> <d f>
   <g, g'>2. ~ q4) <g d' g>8(
-  <g c g'>4. c'4 b8 <f a> <e g> <d f>
+  <g c g'>4. c'4 b8 <fis a> <e g> <d fis>
   <b g'>2.~<g g'>4.)
   <a c f a>4. (d'4 c8 b a c
   c2.) g4(8
@@ -216,6 +216,9 @@ RHlow = \relative c' {
   \voiceTwo
   \partial 8 s8
   s4. <c g'>4. c
+  c4. f e4 s8
+  s4. <c g'> c
+  
 }
 
 PianoRHMusic = <<
