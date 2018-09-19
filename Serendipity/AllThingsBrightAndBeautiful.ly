@@ -300,13 +300,79 @@ BassMusic = \relative c {
   \bar "|."
 }
 
-PianoRH = \relative c {
+PianoRHhigh = \relative c''' {
+  \voiceOne
+  \key f \major
+  c1^\pp
+  s1
+  c,1
+  s1*13
+}
+
+PianoRHlow = \relative c''' {
+  \voiceTwo
+  \key f \major
+  g8^\pp(a) f2.
+  bes,8(c4 <d bes'>8~q <c a'> <bes f'>4)
+  g8(a f2.)
+  \oneVoice
+  bes,8(c4 <d bes'>8  ~ q <c a'> <bes f'>4)
+  r8 c f a c g a f
+  r8 c f a c g a f
+  r8 c f a c g a f
+  r8 d g bes d a bes g
+  r8e g c e bes c g
+  r8 g a c f a, c f,
+  r8 a c f a c, d a
+  r8 g c e g d e c
+  r8 f, bes d f bes, d f,
+  r8 g bes f'~f g e4
+  r8 f, a c~c g a c
+  r8 g bes d ~ d a bes d
 }
 
 PianoLHhigh = \relative c {
+  \oneVoice
+  \key f \major
+  f4.^\pp(c'8 a'g a c)
+  <f,, d'>4.(f'8 bes2)
+  \clef bass
+  f,,4. c'8(a' g a c)
+  <f,, d'>4.(f'8 bes2)
+  <f,c'a'>2 ~ q4. c'8(
+  f1
+  f1
+  f1
+  f1
+  f2~f4. c8(
+  f1)
+  e1
+  d1
+  \voiceOne
+  c2 c'
+  f,2 c'
+  f,2 d'
 }
 
 PianoLHlow  = \relative c {
+  \voiceTwo
+  \key f \major
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1
+  c1
+  f1
+  f1
 }
 
 \header {
@@ -332,7 +398,8 @@ PianoLHlow  = \relative c {
     >>
     \context PianoStaff <<
       \new Staff <<
-        \new Voice { \PianoRH }
+        \new Voice { \PianoRHhigh }
+        \new Voice { \PianoRHlow  }
       >>
       \new Staff <<
         \new Voice { \PianoLHhigh }
