@@ -16,7 +16,7 @@ UnisonMusic = \relative c' {
   \key f \major
   \time 4/4
   \tempo 4=126
-  s1
+  s1^\ff
   s1
   s1
   s1
@@ -187,10 +187,10 @@ TenorMusic = \relative c' {
   a2) r4 f4
   \key c \major
   e4 e e a
-  e4 e2 bes'4
+  e4 e2 b'4
   e,4 4 4 c' % 35
-  bes2. bes8(c)
-  d4 c bes a
+  b2. b8(c)
+  d4 c b a
   c4(g8) g~g4 c,
   f4 g8 a~a c(b) c~
   c2 r % 40
@@ -303,7 +303,7 @@ BassMusic = \relative c {
 PianoRHhigh = \relative c''' {
   \voiceOne
   \key f \major
-  c1^\pp
+  c1^\ppp
   s1
   c,1
   s1*13
@@ -321,7 +321,7 @@ PianoRHhigh = \relative c''' {
   <c e>8 e, g e~e d <e g> c
   f8 c f c~c f g c~
   c8 f, g e~e d e g % 40
-  <g bes>4 <ees g bes>~q8 e <g bes>4
+  <g bes>4 <ees g bes>~q8 ees <g bes>4
   <fis a>8 d <a' d>4~q8 d, <a' d>4~
   q8 d, q4~q8 d <g d'>4~
   q8 d(g d'~d e d4~
@@ -370,7 +370,7 @@ PianoRHhigh = \relative c''' {
 PianoRHlow = \relative c''' {
   \voiceTwo
   \key f \major
-  g8^\pp(a) f2.
+  g8^\ppp(a) f2.
   bes,8(c4 <d bes'>8~q <c a'> <bes f'>4)
   g8(a f2.)
   \oneVoice
@@ -387,7 +387,7 @@ PianoRHlow = \relative c''' {
   r8 g bes f'~f g e4
   r8 f, a c~c g a c % 15
   r8 g bes d ~ d a bes d
-  r8 g, bes ees~ees g, bes c~
+  r8 g, bes e~e g, bes c~
   c8 a c f~f g, a c
   r8 a c e r g, c ees
   r8 f, bes d r f, bes d % 20
@@ -436,7 +436,7 @@ PianoRHlow = \relative c''' {
   s1
   s1
   s1
-  s1
+  r8 <c, g'>4 <ees g>8~q2
   s4 f'8(f' ees d c bes) % 65
   r8 g( c g' f ees d c)
   r8 ees,( a ees' d c a g
@@ -449,14 +449,14 @@ PianoRHlow = \relative c''' {
   s1
   s1
   s1
-  c8(d bes2.)
-  c''8 d~d4~d8 s8 s4
+  c'8(d bes2.)
+  c'8 d~d4~d8 s8 s4
 }
 
 PianoLHhigh = \relative c {
   \oneVoice
   \key f \major
-  f4.^\pp(c'8 a'g a c)
+  f4.^\ppp(c'8 a'g a c)
   <f,, d'>4.(f'8 bes2)
   \clef bass
   f,,4. c'8(a' g a c)
@@ -489,15 +489,15 @@ PianoLHhigh = \relative c {
   a1
   bes1 % 30
   <f, d'>2 s
-  r4 r8 c8 a' g a c
+  r4 r8 c'8 a' g a c
   \bar "||" \key c \major
-  a4. s8 s4. a8
+  a,4. s8 s4. a8
   b4. s8 s4. b8
   c4. s8 s4. a8 % 35
   s1
   s1
   s2 <g e'>
-  s2 g
+  s1
   c2 s % 40
   c4. s8 s2
   c4. s8 s2
@@ -519,17 +519,33 @@ PianoLHhigh = \relative c {
   d2 g
   e2 a
   fis2 a
-  g2 b
+  g2 b % 60
   <g, fis'>4. q8 <g f'>4. q8
   <c g'>4. q8 <b g'>4. q8
   <a g'>4. q8 <g g'>4. q8
   f'4. <ees g>8~q4~<ees a>
+  \bar "||" \key bes \major
+  s2 s4 s8 bes8 % 65
+  s2 s4 s8 bes
+  s1
+  s1
+  r4 bes' <f aes c>~<f aes d>
+  <g bes>1 % 70
+  q1~
+  q1
+  <bes d>1
+  <f ees'>1
+  bes,8( f' bes c d c d f) % 75
+  <bes,, g'>4. bes'8 ees2
+  \clef treble
+  bes4. c8(d c d f
+  <bes d>2~q8 r r4)
 }
 
 PianoLHlow  = \relative c {
   \voiceTwo
   \key f \major
-  s1^\pp
+  s1^\ppp
   s1
   s1
   s1
@@ -568,7 +584,7 @@ PianoLHlow  = \relative c {
   <b, a'>2 <e gis>
   <gis c>2 <fis c'>
   <g c>2 s
-  b2 g,
+  d2 g,
   s2 c' % 40
   s4. g8 c2
   s4. fis,8 a2
@@ -583,7 +599,7 @@ PianoLHlow  = \relative c {
   s1
   s1
   g,4. g8~g2
-  f4. f8~f2
+  fis4. fis8~fis2
   a4. e8~e2
   d1
   g1
@@ -595,6 +611,21 @@ PianoLHlow  = \relative c {
   s1
   f1
   \bar "||" \key bes \major
+  <bes f' bes>4. <f' bes d>8 q4. s8
+  <bes, g' bes>4. <g' c ees>8 q4. s8
+  <bes, f' a>4. <f' a ees>8 q2
+  <f c' d>4. q8 <f bes d>4. f,8(
+  bes1)
+  ees2. d4
+  <c ees>1~
+  q1
+  f1
+  bes2 c
+  s1
+  s1
+  \clef treble
+  bes1
+  s1
 }
 
 \header {
