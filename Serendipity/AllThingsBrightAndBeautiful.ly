@@ -6,7 +6,7 @@ SopranoLyrics = \lyricmode {
 tempotrack = {
   \key f \major
   \time 4/4
-  \tempo 4=126
+  \tempo 4=100
 }
 
 dynamics = {
@@ -15,7 +15,7 @@ dynamics = {
 UnisonMusic = \relative c' {
   \key f \major
   \time 4/4
-  \tempo 4=126
+  \tempo 4=100
   s1^\ff
   s1
   s1
@@ -24,13 +24,13 @@ UnisonMusic = \relative c' {
   s1
   c4^\markup{UNISON} f g a
   a8 bes g2 d4
-  a'4 g8 e(e) d(e g)
+  a'4 g8 e~e d(e g)
   c,1 % 10
   c4 f g a
-  b4 c8 g(g4.) c,8
+  b4 c8 g~g4. c,8
   bes'4 a f8(bes,) a' g~
   g2. r4
-  c,8 f g a(a4) a % 15
+  c,8 f g a~a4 a % 15
   a8(bes) g2.
   c,8 g' a bes~bes a(g) a(~
   a8 c4. ~ c4) f,8(a)
