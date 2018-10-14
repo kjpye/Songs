@@ -183,12 +183,12 @@ RHhigh = \relative c' {
   <g, g'>2. ~ q4) <g d' g>8(
   <g c g'>4. c'4 b8 <fis a> <e g> <d fis>
   <b g'>2.~<g g'>4.)
-  <a c f a>4. (d'4 c8 b a c
+  <a c f a>4. (d'4 c8 b a c % 5
   c2.) g4(8
   a4.~8 g a g e d
   <b e>2.) e4(f8
   <g, c g'>4. c'4 b8 <f a> <e g> <d f>
-  <g, g'>2. ~ <g e' g>4) <g c g'>8(
+  <g, g'>2. ~ <g e' g>4) <g c g'>8( % 10
   <a c f a>4. d'4 c8 b a b
   <c, e g c>4.) c'4(b8 <f a> <e g> <d f>
   <c e g>4.) c'4( b8 <f a> <e g> <d f>
@@ -218,7 +218,32 @@ RHlow = \relative c' {
   s4. <c g'>4. c
   c4. f e4 s8
   s4. <c g'> c
-  
+  d4. e4 d8 d c b
+  s4. f' f4 g8 % 5
+  g4. f e4 d8
+  <c e>4. <b d> c4 b8
+  s2. b4.
+  s4. <c g'> c4.
+  c4. f s % 10
+  s4. <d f a> <d f>
+  s4. <c g'> c
+  s4. <c g'> c
+  s2. s4.
+  s2. s4.
+  s2. s4.
+  s2. s4.
+  s2. s4.
+  s2. s4.
+  s2. s4.
+  s2. s4.
+  s2. s4.
+  s2. b4.
+  s4. <c g'> c
+  s4. <f g b> <e g bes>
+  s4. <f a> f
+  s4. <c g'> c
+  s4. <c g'> c
+  s2. s4.
 }
 
 PianoRHMusic = <<
@@ -234,12 +259,12 @@ PianoLHMusic = \relative c, {
   <e e'>4. <d d'> <c c'>4 <b b'>8
   <a a'>4. <a' e' a> <d a'>
   <g, g'>4. <f f'> <e e'>
-  <f c' f>4. <d' a' c> <g d'>4 <f d'>8
+  <f c' f>4. <d' a' c> <g d'>4 <f d'>8 % 5
   <e c'>4. <d d'> <c c'>4 <b b'>8
   <a e' a>4. f' <e g>4 <f a>8
   <e gis>2. <g, g'>4.
   <c, g' e'>4. <e c' g'> <f c' a'>
-  <e e'>4. <d d'> <c c'>4 <e e'>8
+  <e e'>4. <d d'> <c c'>4 <e e'>8 % 10
   <f f'>4. <d d'> <g g'>
   <c, g' e'>4. <e c' g'> <f c' a'>
   <c  g' e'>4. <e c' g'> <f c' a'>
