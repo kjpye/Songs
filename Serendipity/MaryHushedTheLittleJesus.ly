@@ -184,15 +184,15 @@ BassMusic = \relative c {
   \context GrandStaff <<
     \context ChoirStaff <<
       \new Staff <<
-        \new Voice = sopranos { \voiceOne \unfoldRepeats \SopranoMusic }
-        \new Voice = altos    { \voiceTwo \unfoldRepeats \AltoMusic }
+        \new Voice = sopranos { \voiceOne \unfoldRepeats \transpose des c \SopranoMusic }
+        \new Voice = altos    { \voiceTwo \unfoldRepeats \transpose des c \AltoMusic }
       >>
       \new Dynamics \dynamics
       \new Lyrics \lyricsto sopranos \SopranoLyrics
       \new Staff <<
         \clef "bass"
-        \new Voice = tenors { \voiceOne \unfoldRepeats \TenorMusic }
-        \new Voice = basses { \voiceTwo \unfoldRepeats \BassMusic }
+        \new Voice = tenors { \voiceOne \unfoldRepeats \transpose des c \TenorMusic }
+        \new Voice = basses { \voiceTwo \unfoldRepeats \transpose des c \BassMusic }
       >>
     >>
   >>
