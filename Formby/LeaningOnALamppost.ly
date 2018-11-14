@@ -350,7 +350,7 @@ verse = \lyricmode {
   She's not a girl like that,
   She's ab- so- lute- ly won- der- ful and mar- vel- lous and beau- ti- ful,
   And an- y- one can un- der- stand why
-  I'm lean- ing on a lamp- post at the cor= ner of the street,
+  I'm lean- ing on a lamp- post at the cor- ner of the street,
   In case a cer- tain lit- tle la- dy comes by.
 
   I'm
@@ -358,6 +358,49 @@ verse = \lyricmode {
 }
 
 Mverse = \lyricmode {
+  "/Lean" "ing " "on " "a " "lamp, " "May" "be " "you " "think, "
+  "/I " "look " "a " "tramp, "
+  "/Or " "you " "may " "think " "I'm " "hang" "ing " "round " "to " "steal " "a " "car; "
+  "/But " "no, " "I'm " "not " "a " "crook, " "And " "if " "you " "think " "that's " "what " "I " "look, "
+  "/I'll " "tell " "you " "why " "I'm " "here " "and " "what " "my " "mo" "tives " "are. "
+
+  "/I'm " "lean" "ing " "on " "a " "lamp" "post " "at " "the " "cor" "ner " "of " "the " "street, "
+  "/In " "case " "a " "cer" "tain " "lit" "tle " "la" "dy " "comes " "by "
+  "/Oh " "me, " "oh " "my, "
+  "/I " "hope " "the " "lit" "tle " "la" "dy " "comes " "by. "
+  "/I " "don't " "know " "if " "she'll " "get " "a" "way, "
+  "/She " "does" "n't " "al" "ways " "get " "a" "way, "
+  "/But " "an" "y" "way " "I " "know " "that " "she'll " "try. "
+  "/Oh " "me, " "Oh " "my, "
+  "/I " "hope " "the " "lit" "tle " "la" "dy " "comes " "by. "
+  "/There's " "no " "oth" "er " "girl " "I " "would " "wait " "for, "
+  "/But " "this " "one " "I'd " "break " "an" "y " "date " "for, "
+  "/I " "won't " "have " "to " "ask " "what " "she's " "late " "for, "
+  "/She'd " "nev" "er " "leave " "me " "flat, "
+  "/She's " "not " "a " "girl " "like " "that, "
+  "/She's " "ab" "so" "lute" "ly " "won" "der" "ful " "and " "mar" "vel" "lous " "and " "beau" "ti" "ful, "
+  "/And " "an" "y" "one " "can " "un" "der" "stand " "why "
+  "/I'm " "lean" "ing " "on " "a " "lamp" "post " "at " "the " "cor" "ner " "of " "the " "street, "
+  "/In " "case " "a " "cer" "tain " "lit" "tle " "la" "dy " "comes " "by. "
+
+  "/I'm " "lean" "ing " "on " "a " "lamp" "post " "at " "the " "cor" "ner " "of " "the " "street, "
+  "/In " "case " "a " "cer" "tain " "lit" "tle " "la" "dy " "comes " "by "
+  "/Oh " "me, " "oh " "my, "
+  "/I " "hope " "the " "lit" "tle " "la" "dy " "comes " "by. "
+  "/I " "don't " "know " "if " "she'll " "get " "a" "way, "
+  "/She " "does" "n't " "al" "ways " "get " "a" "way, "
+  "/But " "an" "y" "way " "I " "know " "that " "she'll " "try. "
+  "/Oh " "me, " "Oh " "my, "
+  "/I " "hope " "the " "lit" "tle " "la" "dy " "comes " "by. "
+  "/There's " "no " "oth" "er " "girl " "I " "would " "wait " "for, "
+  "/But " "this " "one " "I'd " "break " "an" "y " "date " "for, "
+  "/I " "won't " "have " "to " "ask " "what " "she's " "late " "for, "
+  "/She'd " "nev" "er " "leave " "me " "flat, "
+  "/She's " "not " "a " "girl " "like " "that, "
+  "/She's " "ab" "so" "lute" "ly " "won" "der" "ful " "and " "mar" "vel" "lous " "and " "beau" "ti" "ful, "
+  "/And " "an" "y" "one " "can " "un" "der" "stand " "why "
+  "/I'm " "lean" "ing " "on " "a " "lamp" "post " "at " "the " "cor" "ner " "of " "the " "street, "
+  "/In " "case " "a " "cer" "tain " "lit" "tle " "la" "dy " "comes " "by. "
 }
 
 \book {
