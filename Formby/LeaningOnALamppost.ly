@@ -199,9 +199,60 @@ trebleTwo = \relative c' {
   <a c>4 r r2
   <c fis>4 r r2
   g'2 f
-  s1 r4 <e g>2 <c e>4
+  s1
+  r4 <e g>2 <c e>4 % 5
+  r4<b f'> r b
+  r4 <c e> r bes
+  r4 <b f'> r b
+  c2 c
+  c2 b % 10
+  g'2. fis4
+  f2. f4
   r4 <e g>2 <c e>4
-  
+  r4 <b f'> r b
+  r4 <c e> r bes % 15
+  r4 <b f'> r b
+  c2. <c e>4
+  r4 <c e>4 r s
+  s1
+  f2 f4 s % 20
+  \repeat volta 2 {
+    s1
+    s1
+    s1
+    r4 <e, g> r <g c>
+    r4 <a c>(<g b>) r % 25
+    r4 <c e> r <e g>
+    <d g>4 r c s
+    g'8. f16 d8. c16 a4 b
+    s1
+    s1 % 30
+    s1
+    r4 <g b> r <g c>
+    r4 <a c>(<g b>) r
+    r4 <c e>2 <e g>4
+    <d g>4 r c s % 35
+    g'2~g8 r r4
+    r4 <f, b> r <g b>
+    <c f>(<d f>) r <b dis>
+    r4 <g c> r <b e>8. c16
+    <d gis>4(<e a>) r e % 40
+    r4 <c d> r <c f>
+    <e g>4 <fis c'> r q
+    <f b> r <f a> r
+    <f g>2. s4
+    s1 % 45
+    s1
+    s1
+    s1
+    <a, c>4 r r2
+    <c fis>4 r r2 % 50
+    g'2 f
+  }
+  \alternative {
+    { s1 }
+    { s1 }
+  }
 }
 
 bassOne = \relative c, {
