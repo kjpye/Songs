@@ -257,6 +257,17 @@ verseOne = \lyricmode {
   _ Yet Na- po- le- on short and fat _ cap- ti- vates a love- ly look- ing dame like that.
 }
 
+MverseOne = \lyricmode {
+  "/Now " "I " "know " "I'm " "not " "hand" _ "some " _ "no " "good " "looks " "or " "wealth"
+  "/But " "the " "girls " "I " "chase " "say " "my " "plain " "face " "will " "com" "prom" "ise " "their " "health"
+  "/Now " "I " "know " "fel" "lers " "worse " "than " "me " "bow" "leg" "ged " "and " "boss" "eyed"
+  "/Walk" "ing " "out " "with " "love" "ly " "wo" "men " "cling" "ing " "to " "their " "side"
+
+  "Now " "if " "wo" "men " "like " "them " "like " "men " "like " "those " "why " "don't " "wo" "men " "like " "me "
+  _ "/Look " "at " "Em" "press " "Jo" "se" "phine " "the " "most " "at" "trac" "tive " "wo" "man " "that "_ "ev" "er " "was " "seen"
+  _ "/Yet " "Na" "po" "le" "on " "short " "and " "fat " _ "cap" "ti" "vates " "a " "love" "ly " "look" "ing " "dame " "like " "that."
+}
+
 verseTwo = \lyricmode {
   Last night I went out walk- ing my in- ten- tions were to click
   But the sights I saw while walk- ing out they near- ly made me sick
@@ -274,6 +285,21 @@ verseTwo = \lyricmode {
   _ me?
 }
 
+MverseTwo = \lyricmode {
+  "/Last " "night " "I " "went " "out " "walk" "ing " "my " "in" "ten" "tions " "were " "to " "click "
+  "/But " "the " "sights " "I " "saw " "while " "walk" "ing " "out " "they " "near" "ly " "made " "me " "sick "
+  "/I " "must " "ad" "mit " "I " "saw " "some " "girls " "at" "trac" "tive " "lit" "tle " "dears "
+  "/Arm " "in " "arm " "with " "ug" "ly " "men " "with " "caul" "i" "flow" "er " "ears "
+
+  "/Now " "if " "wo" "men " "like " "them " "like " "men " "like " "those " "why " "don't " "wo" "men " "like " "me "
+  _ "/What " "can " "the " "at" "tract" "ion " "be " _ "that's " "the " "thing " "that " "al" "ways " "starts " _ "to " "wor" "ry " "me "
+  "/Al" "tho' " "I " "have" _ "n't " "got " "a " "bean " "I've " "got " "a " "lot " "of " "things " "the " "girls " "have " "nev" "er " "seen. "
+
+  "/Now " "if " "wo" "men " "like " "them " "like " "men " "like " "those "
+  "/Why " "don't " "wo" "men " "like " "me " "hey " "hey "
+  "/Why " "don't " "wo" "men " "like " "me? "
+}
+
 verseThree = \lyricmode {
   Now I went for my hol- i- days down to the gay sea- side
   I __ _ saw a lot of things there be- ing hid- den by the tide
@@ -283,6 +309,17 @@ verseThree = \lyricmode {
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
   Of all the shapes and siz- es there I've got a chance of click- ing yes I do _ de- clare
   _ I don't want _ to be a nark I saw a lot of things be- low the wat- er mark.
+}
+
+MverseThree = \lyricmode {
+  "/Now " "I " "went " "for " "my " "hol" "i" "days " "down " "to " "the " "gay " "sea" "side "
+  "/I " _ "saw " "a " "lot " "of " "things " "there " "be" "ing " "hid" "den " "by " "the " "tide "
+  "/The " "way " "the " "wo" "men " "jumped " "a" "round " "the " "men " "there " "by " "the " "sea "
+  "/Made " "me " "think " "that " "there " "is " "still " "a " "good " "chance " "left " "for " "me "
+
+  "/Now " "if " "wo" "men " "like " "them " "like " "men " "like " "those " "why " "don't " "wo" "men " "like " "me "
+  "/Of " "all " "the " "shapes " "and " "siz" "es " "there " "I've " "got " "a " "chance " "of " "click" "ing " "yes " "I " "do " _ "de" "clare "
+  _ "/I " "don't " "want " _ "to " "be " "a " "nark " "I " "saw " "a " "lot " "of " "things " "be" "low " "the " "wat" "er " "mark."
 }
 
 verseFour = \lyricmode {
@@ -298,7 +335,12 @@ verseFour = \lyricmode {
   _ she ran like the dev- il and she grabbed the rest.
 }
 
-Mverse = \lyricmode {
+MverseFour = \lyricmode {
+  "Now " "if " "wo" "men " "like " "them " "like " "men " "like " "those " "why " "don't " "wo" "men " "like " "me "
+  _ "Take " "Lord " "Nel" "son " "with " "one " "limb "
+  _ "La" "dy " "Wil" "liam " "Ham" "il" "ton " "she " "fell " _ "for " "him "
+  "With " "one " "eye " "and " _ "one " "hand " "gone " "west "
+  _ "she " "ran " "like " "the " "dev" "il " "and " "she " "grabbed " "the " "rest."
 }
 
 \book {
@@ -336,7 +378,7 @@ Mverse = \lyricmode {
     \context GrandStaff {
       <<
 	\new Staff = melody { \unfoldRepeats \melody }
-	\addlyrics { \Mverse }
+	\addlyrics { \MverseOne \MverseTwo \MverseThree }
 	\context PianoStaff
 	  <<
 	    \new Staff = treble <<
