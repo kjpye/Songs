@@ -160,11 +160,11 @@ trebleTwo = \relative c' {
   \repeat volta 3 {
     r4 <d g> r <d fis> % 5
     r4 <d a'> r <d gis>
-    r4 <cisg'> r c
-    r4 <cisg'> r q
+    r4 <cis g'> r c
+    r4 <cis g'> r q
     r4 <c fis> r q
     r4 q r q % 10
-    r <b d> rq
+    r <b d> r q
     r4 <d g> r c
     r4 <d g> r <d fis>
     r4 <d a'> r <d gis>
