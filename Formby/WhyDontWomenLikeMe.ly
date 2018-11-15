@@ -61,10 +61,43 @@ ukulele = \chordmode {
   s1
   s2. d4:7
   \repeat volta 3 {
+    g2 g:maj7 % 5
+    d2:m6 e4:7 e:7
+    a1:7
+    s1
+    d1:7
+    s1 % 10
+    g1
+    s2. d4:7
+    g2 g:maj7
+    d2:m6 a4:7 e:7
+    a1:7 % 15
+    s1
+    d1:7
+    a1:7
+    s1
+    d1:7 % 20
+    g1:7
+    s2 e:7
+    a2:9 d:7
+    g1
+    c1 % 25
+    g1
+    a1:7
+    s2 d:7
+    g2 g:maj7
+    d2:m6 e:7 % 30
+    a1:7
+    s2. d4:7
+    g1
+    s2 e:7
+    a2:7 d:7 % 35
+    g4 b:m7 e2:7
+    a2:7 d:7
   }
   \alternative {
-    { s1 }
-    { s1 }
+    { g2. d4:7 }
+    { g2. s4 }
   }
 }
 
@@ -124,13 +157,46 @@ trebleTwo = \relative c' {
   r4 q r <gis b>
   r4 cis r <c fis>
   r4 <b d> r \bar "||" c
-%  \repeat volta 3 {
-%  }
-%  \alternative {
-%    { s1 }
-%    { s1 }
-%  }
-%  \bar "|."
+  \repeat volta 3 {
+    r4 <d g> r <d fis> % 5
+    r4 <d a'> r <d gis>
+    r4 <cisg'> r c
+    r4 <cisg'> r q
+    r4 <c fis> r q
+    r4 q r q % 10
+    r <b d> rq
+    r4 <d g> r c
+    r4 <d g> r <d fis>
+    r4 <d a'> r <d gis>
+    r4 <cis g'> r c % 15
+    r4 <cis g'> r q
+    r4 <d fis> r q
+    r4 <c g'> r q
+    r4 cis r <cis g'>
+    r4 <c fis> r q % 20
+    r4 <b d> r q
+    r4 q r <gis b>
+    r4 <cis g'> r <c fis>
+    r4 <b d> r q
+    r4 <e g> r q % 25
+    r4 <d g> r q
+    r4 <cis g'> r q
+    r4 q r <c fis>
+    r4 <d g> r <d fis>
+    r4 <d a'> r <d gis> % 30
+    r4 <cis g'> r q
+    r4 q r <c fis>
+    r4 <b d> r q
+    r4 <b d> r <gis b>
+    r4 <cis g'> r <c fis> % 35
+    r4 <a d> r <gis d>
+    r4 <cis g'> r <cis fis>
+  }
+  \alternative {
+    { r4 <b d> r c }
+    { s1 }
+  }
+  \bar "|."
 }
 
 bass = \relative c {
@@ -150,16 +216,29 @@ bass = \relative c {
     g4 r d r
     g4 r d r
     f4 r e r
-    a4 r e r
+    a4 r e r % 15
     a4 r e a
     d,4 r a' r
     e4 r a r
     e4 r a r
-    d,4 fis e d
+    d,4 fis e d % 20
     g4 r d r
     g4 r e r
     a4 r d, r
-    
+    g4 fis e d
+    c4 r g' r % 25
+    d4 r g r
+    e4 r a r
+    a4 r d, r
+    g4 r fis r
+    f4 r e r % 30
+    a4 r e r
+    a4 r d, r
+    g4 r d r
+    g4 r e r
+    a4 r d, r % 35
+    g4 r e, r
+    a4 r d, r
   }
   \alternative {
     { g4 fis e d }
@@ -232,7 +311,7 @@ Mverse = \lyricmode {
     \context GrandStaff {
       <<
         \new ChordNames { \ukulele }
-	\new FretBoards { \set Staff.stringTunings = #ukulele-tuning \ukulele }
+	\new FretBoards { \set Staff.stringTunings = #ukulele-tuning \transpose d c \ukulele }
 	\new Staff = melody { \melody }
 	\addlyrics \verseOne
 	\addlyrics \verseTwo
