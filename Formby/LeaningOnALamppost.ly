@@ -461,15 +461,16 @@ Mverse = \lyricmode {
   }
 
   \score {
-    \context GrandStaff {
-      <<
-        \new ChordNames { \ukulele }
-	\new FretBoards { \set Staff.stringTunings = #ukulele-tuning \ukulele }
-	\new Staff = melody { \melody }
-	\addlyrics \verse
-	\context PianoStaff
-	  <<
-	    \new Staff = treble <<
+    <<
+      \new ChordNames { \ukulele }
+      \new FretBoards { \set Staff.stringTunings = #ukulele-tuning \ukulele }
+      \context GrandStaff {
+        <<
+	  \new Staff = melody { \melody }
+	  \addlyrics \verse
+	  \context PianoStaff
+	    <<
+	      \new Staff = treble <<
 	      \new Voice { \trebleOne }
               \new Voice { \trebleTwo }
 	    >>
@@ -478,8 +479,9 @@ Mverse = \lyricmode {
 	      \new Voice { \clef bass \bassTwo }
 	    >>
 	  >>
-      >>
-    }
+        >>
+      }
+    >>
     \layout {}
   }
 
