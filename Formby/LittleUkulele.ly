@@ -7,7 +7,7 @@ global = {
   \tempo 4 = 150
 }
 
-melody = \relative c' {
+melody = \relative c'' {
   \global
   s1
   s1
@@ -17,7 +17,7 @@ melody = \relative c' {
     c4 d c a % 5
     bes4 c bes g
     c4 bes a g
-    f2. c8 c
+    f2. c'8 c
     d4 d f d
     c4 c a a % 10
     a4 g g a
@@ -69,7 +69,7 @@ melody = \relative c' {
     { f1~
       f2 r4 a,
     }
-    { f1~
+    { f'1~
       f2 r
     }
   }
@@ -152,18 +152,65 @@ bass = \relative c {
 }
 
 verseOne = \lyricmode {
+  Now ev- 'ry- bo- dy's got a cra- zy no- tion of their own,
+  Some _ like to mix up with a crowd, some like to be a- lone.
+  It's no one el- ses busi- ness _ as far as I can see,
+  But ev- 'ry- time that I go out the peo- ple stare at me. _
+
+  With my Lit- tle U- ke- le- le in my hand, __
+  I'm sure the peo- ple just don't un- der- stand, __
+  Some say, "\"Why" don't you be a scout, why don't you read a "book?\""
+  But I get much more plea sure when I'm play- ing with my uke.
+
+  Of course I take no no- tice you can tell, __
+  For moth- ers' sound ad- vice will al- ways stand,
+  She said "\"my" son do what I say, _ and you'll ne- ver go a- stray, _
+  If you keep your U- ke- le- le in your hand.
+  Yes son, _ _ Keep your U- ke- le- le in your "hand.\""
+
+  While
 }
 
 MverseOne = \lyricmode {
 }
 
 verseTwo = \lyricmode {
+  While walk- ing down the prom last night as peace- ful as can be,
+  This bird from Wales said how a- bout a stroll down by the sea.
+  She said her name was Gert and that she'd just come down for the day,
+  She looked so young and harm- less that I could- n't turn a- way.
+
+  And with my lit- tle u- ke- le- le in my hand,
+  I took a stroll with Gert a- long the sands.
+  We walked a- long for miles with- out a sing- le care or frown,
+  But when we reached the sand- hills she siad come on let's sit down.
+
+  I felt so shy and bash- ful sit- ting there,
+  "For the" things she said I did' n't un- der- stand.
+  She said your love just turns me cuc- koo, I in- deed to good- ness look you,
+  But I kept my u- ke- le- le in my hand, oh ba- by, I kept my u- ke- le- le in my hand.
+
+  Made
 }
 
 MverseTwo = \lyricmode {
 }
 
 verseThree = \lyricmode {
+  Made up my mind that I'd get wed some eight- een months a- go,
+  I _ e- ven bought a book a- bout the things you ought to know.
+  But just a- bout a week a- go I had an aw- ful fright,
+  I had to get dressed quick- ly in the mid- dle of the night.
+
+  And with my lit- tle u- ke- le- le- in my hand,
+  I ran a- long the road for Doc- tor Brand.
+  It did- n't take him long to get his lit- tle bag of tools,
+  I held his hat and coat and let hiom have my book of rules.
+
+  Out of the bed- room door he looked and smiled,
+  Said come in- side and see your wife and child.
+  _ _ My heart did pump with joy _ I could see it mwas a boy, _
+  'Cause he had his u- ke- le- le in his hand, oh ba- by, he had his u- ke- le- le in his hand.
 }
 
 MverseThree = \lyricmode {
