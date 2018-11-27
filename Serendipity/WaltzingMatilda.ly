@@ -1060,7 +1060,7 @@ BassMusic = \relative c {
   g16 g a8 bes c
   f,8 a, bes c
   d16 d c c bes a g8
-  c8 e c' r
+  c8 r c' r
   r8 c, f r
   f2 % start chorus
   bes2
@@ -1133,7 +1133,7 @@ BassMusic = \relative c {
 BassLyrics = \lyricmode {
   Once a swag- man camped by a bil- la- bong,
   Un- der the shade of a cool- i- bah tree;
-  And he sang and watched and wait- ed till his bil- ly boiled;
+  And sang and watched and wait- ed till his bil- ly boiled;
   "'You'll" come with "me!'"
   come, come You'll come, you'll come with me; % start chorus
   'You'll come, with me!' % end chorus
