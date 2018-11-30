@@ -88,21 +88,33 @@ alto = \relative c' {
   s2.
   f4 f8 f4~f8
   f4.(e8) r d
-  d4 bes'8 a r f
+  d4 bes'8 a r f % 5
   d4 bes'8 a4 f8
   d4 d8 d4 d8
   d4.(cis4) d8
   f4 f8 e4 e8
-  f4 e8 f4 f8
+  f4 e8 f4 f8 % 10
   f4. f
   e4.~e4 g8
   f4 f8 f4 f8
   f4 e8 f4 f8
-  f4 f8 a4 g8
+  f4 f8 a4 g8 % 15
   e4.~e4 e8
   f4 f8 f4 f8
   f4 f8 f4 f8
   f4.(e8 f) e
+  c4.~c8 s4
+  s1
+  s1
+  f4 f8 f4~f8
+  f4.~f8 r4
+  r2.
+  r4 r8 r4 f8
+  e4 f8 e4 f8
+  f4.~f4 f8
+  g4 a8 f4 g8
+  g4 a8 f4 g8
+  g4.(d8 e)f8
 }
 
 tenor = \relative c' {
@@ -156,10 +168,49 @@ bass = \relative c' {
   f4.~f8 r r % 20
   s2.
   s2.
-  d'4 <a c>8 bes4~bes8)
+  d'4 <a c>8 bes4~bes8
   f4.~f8 r r
-  r2.
+  r2. % 25
   r4 r8 r4 a8
+  a4 a8 a4 a8
+  d,4.~d4 d8
+  e4 f8 g4 f8
+  e4 f8 g4 f8 % 30
+  e4.(g4) g8
+  c,4.~c4 s8
+  s2.
+  s2.
+  s2.
+  s2.
+  s2.
+  s4. s4 d8
+  d4 bes'8 a r f
+  d4 bes'8 a4 f8
+  bes4 a8 g4 f8
+  e4.~e4 f8
+  d4 d8 c4 bes'8
+  a4 gis8 a f a
+  bes8 a g f e d
+  c4.~c4 c8
+  d4 bes'8 a4 f8
+  d4 bes'8 a4 a8
+  f4 f8 a,4 a8
+  bes4 bes8 b4 b8
+  c4.~c4 c8
+  f4.~f8 r a,
+  bes4 bes8 d4 d8
+  bes4.~bes4 bes8
+  d4 d8 d4 d8
+  f4.~f4 f8
+  d4 r8 f4 r8
+  d4 r8f4 r8
+  d4 r8 bes4 r8
+  g4 r8 bes4 r8
+  g4 r8 a4 r8
+  <f c'>2.~
+  q2.~
+  q8 r r r4 r8
+  q2.
 }
 
 words = \lyricmode {
