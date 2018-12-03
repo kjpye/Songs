@@ -103,18 +103,52 @@ alto = \relative c' {
   f4 f8 f4 f8
   f4 f8 f4 f8
   f4.(e8 f) e
-  c4.~c8 s4
-  s1
-  s1
+  c4.~c8 s4 % 20
+  s2.
+  s2.
   f4 f8 f4~f8
   f4.~f8 r4
-  r2.
+  r2. % 25
   r4 r8 r4 f8
   e4 f8 e4 f8
   f4.~f4 f8
   g4 a8 f4 g8
-  g4 a8 f4 g8
+  g4 a8 f4 g8 % 30
   g4.(d8 e)f8
+  e4.~e4 s8
+  s2.
+  s2.
+  s2. % 35
+  s2.
+  f4 f8 f4~f8
+  f4.(e4) d8
+  d4 bes'8 a r f
+  d4 bes'8 a4 f8 % 40
+  d4 d8 d4 d8
+  d4.(cis4) d8
+  g4 g8 e4 e8
+  f4 e8 f4 f8
+  f4. f % 45
+  g4.~g4 g8
+  f4 f8 f4 f8
+  f4 e8 f4 f8
+  f4 f8 f4 f8
+  f4 f8 f4 f8 % 50
+  f4.(e8 f) e
+  c4.~c8 r c
+  d4 d8 d4 d8
+  d4.~d4 d8
+  d4 d8 f4 f8 % 55
+  d4.(c4) c8
+  e4 r8 c8(d c)
+  d4 r8 c8(d c)
+  d4 r8 d4 r8
+  d4 r8 d(c d) % 60
+  bes4 r8 c4 r8
+  c2.~
+  c2.~
+  c8 r r r4 r8
+  r2. % 65
 }
 
 tenor = \relative c' {
@@ -126,22 +160,70 @@ tenor = \relative c' {
   f4. e8 d c
   d4 <a c>8 <bes d>4.
   \voiceOne d4.(cis8)r d,
-  d4 bes'8 a r f
+  d4 bes'8 a r f % 5
   d4 bes'8 a4 f8
   d'4 c8 bes4 a8
   g4.~g4 a8
   f4 a8 bes4 c8
-  c4 c8 c4 c8
+  c4 c8 c4 c8 % 10
   a4. a8( g a)
   bes4.~bes4 bes8
   a4 a8 c4 a8
   a4 c8 c(bes) c
-  d4 d8 d4 d8
+  d4 d8 d4 d8 % 15
   c4.~c4 c8
   c4 c8 d4 d8
   c4 c8 b4 b8
   c4.~c4 c8
-}
+  a4.~a8 r r % 20
+  \oneVoice
+  r4 r8 r4 c8
+  f4. e8 d c
+  \voiceOne
+  d4 s8 d4(ees8)
+  c4.~c8 r r
+  r4 r8 r4 f,8^\p % 25
+  a4 d8 c4 c8
+  des4 c8 des4 c8
+  c4.(b4)b8
+  c4 a8 e'4 d8
+  c4 a8 e'4 d8 % 30
+  c4.~c4 b8
+  c4.~c4 \oneVoice r8
+  r4 r8 r4 a8
+  g4 c,8 c'4.
+  r4 r8 r4 c8 % 35
+  f4. e8 d c
+  d4 <a c>8 <bes d>4. \voiceOne
+  d4.(cis4) d,8^\p
+  d4 bes'8 a r f
+  d4 bes'8 a4 f8 % 40
+  d'4 c8 bes4 a8
+  g4.~g4 a8
+  f4 a8 bes4 c8
+  c4 c8 c(f) e
+  d8(c bes a g) f % 45
+  e4^\f(g8 c4) bes8
+  a4 bes8c4 a8
+  a4 c8 c4 c8^\p
+  c4 c8 c4 c8
+  d4 d8 d4 d8 % 50
+  c4.~c4 c8
+  a4.^\p~a8 r f
+  f4 f8 f4 f8
+  f4.(f4) f8
+  f4 a8 c(bes) a % 55
+  a4.~a4 a8
+  a4 r8 a8(g a)
+  a4 r8 a(g a)
+  f4 r8 f4^\pp r8
+  f4 r8 f4 r8 % 60
+  f4 r8 f4 r8
+  a2.^\ppp~
+  a2.~
+  a8 r r r4.
+  <f a>2.^\fermata % 65
+} 
 
 bass = \relative c' {
   \voiceTwo
