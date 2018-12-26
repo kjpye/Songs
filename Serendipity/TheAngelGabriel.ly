@@ -138,10 +138,10 @@ verseFour = \lyricmode {
       \context Voice = soprano \soprano
       \context Voice = alto    \alto
     >>
-    \new Lyrics \lyricsto "soprano" { \verseOne   }
-    \new Lyrics \lyricsto "soprano" { \verseTwo   }
-    \new Lyrics \lyricsto "soprano" { \verseThree }
-    \new Lyrics \lyricsto "soprano" { \verseFour  }
+    \new Lyrics \lyricsto "alto" { \verseOne   }
+    \new Lyrics \lyricsto "alto" { \verseTwo   }
+    \new Lyrics \lyricsto "alto" { \verseThree }
+    \new Lyrics \lyricsto "alto" { \verseFour  }
     \new Staff  <<
       \context Voice = tenor \tenor
       \context Voice = bass  \bass
