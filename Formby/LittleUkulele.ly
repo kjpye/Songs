@@ -17,7 +17,7 @@ melody = \relative c'' {
     c4 d c a % 5
     bes4 c bes g
     c4 bes a g
-    f2. c'8 c
+    f2. c'4
     d4 d f d
     c4 c a a % 10
     a4 g g a
@@ -39,12 +39,12 @@ melody = \relative c'' {
     c1~
     c2 r4 c
     c4 g g a
-    bes4 d c bes' % 30
+    bes4 d c bes % 30
     a4 g a bes
     c2. a4
     g4 a b c
     d4 b a g
-    d4 b a g % 35
+    d'4 b a g % 35
     c2. g4
     a4 a a a
     g4 g g g
@@ -82,12 +82,70 @@ ukulele = \chordmode {
   s1
   s2. d4:7
   \repeat volta 3 {
+    f1
+    c1:7
+    s1
+    f1
+    bes1
+    f1
+    g1:7
+    c1:7
+    bes1
+    s1
+    f1
+    s1
+    g4:7
+    gis:7
+    a:7
+    bes:7
+    b4:7
+    bes:7
+    a:7
+    aes:7
+    g1:7
+    c1:7 \bar "||"
+    f1
+    s1
+    s1
+    s1
+    bes1
+    s1
+    f1
+    s1
+    c1:7
+    s1
+    f1
+    s1
+    g1:7
+    s1
+    s1
+    c1:7
+    f1
+    a1:7
+    d1:m
+    f1:7
+    bes1
+    s1
+    a2 a:maj7
+    c1:7
+    f1
+    a1:7
+    d1:7
+    g2:m
+    c:7
+    f2
+    fis:dim
+    c1:7
+    f2 a:7
+    d1:7
+    g1:7
+    c1:7
   }
   \alternative {
-    { s1
-      s1
+    { f1
+      s2 c:7
     }
-    { s1
+    { f1
       s1
     }
   }
@@ -96,18 +154,68 @@ ukulele = \chordmode {
 trebleOne = \relative c'' {
   \global
   \voiceOne
-  g8 g e4 d e
-  g4 e d2
-  b'4 b a8 g a4
-  g2. \bar "||" d4
+  f4 d f d
+  f4 e d e
+  f1~
+  f4 r r \bar "||" \break c4
   \repeat volta 3 {
+    c4 d c a % 5
+    bes4 c bes g
+    c4 bes a g
+    f2. c'4
+    d4 d f d
+    c4 c a a % 10
+    a4 g g a
+    g2. c4
+    d4 bes bes c
+    \oneVoice <bes d>4 <d f>2 <bes d>4
+    <a c>4 <f a> q <g bes> % 15
+    \voiceOne <a c>2. a4
+    \oneVoice <b, g'>4 <c gis'> <cis a'> <d bes'>
+    <dis b'>4 <d bes'> <cis a'> <c aes'>
+    <b g'>4 <a' f'> <g e'> <f d'>
+    <e c'>2 <c a'>4 <bes g'> \bar "||" % 20
+    \voiceOne f'4 f f f
+    f4 g a bes
+    c1 ~
+    c2. c4
+    d4 cis d e
+    \oneVoice <d f>4 <cis d> <d f> <bes d>
+    \voiceOne c1~
+    c2 r4 c4
+    c4 \oneVoice <e, g> q <f a>
+    <g bes> <bes d> <a c> <g bes>
+    <f a>4 <e g> <f a> <g bes>
+    \voiceOne <a c>2. a4
+    g4 a b c
+    d4 b a g
+    d'4 b a g
+    c2. g4
+    a4 a a a
+    g4 g g g
+    f1~
+    f2 r4 c'
+    \oneVoice <bes d> q q <c e>
+    <d f>4 <cis e> <d f> <bes d>
+    <cis e>1
+    \voiceOne r4 c d e
+    f4 e d e
+    e2 cis4 cis
+    d4 cis d a
+    bes2 a4 g
+    c4 c c d
+    c4 bes a g
+    \oneVoice <a, c f>2 <g' cis e>
+    \voiceOne d'1
+    f4 d f d
+    f4 e d e
   }
   \alternative {
-    { s1
-      s1
+    { f1~
+      f2 r4 a,
     }
-    { s1
-      s1
+    { f'1~
+      f2 \oneVoice <f, a c f>4-> r
     }
   }
   \bar "|."
@@ -116,18 +224,68 @@ trebleOne = \relative c'' {
 trebleTwo = \relative c' {
   \global
   \voiceTwo
-  r4 <b d> r q
-  r4 q r <gis b>
-  r4 cis r <c fis>
-  r4 <b d> r \bar "||" c
+  r4 <f b> r q
+  r4 <g bes> r q
+  r4 <a c> r q
+  r4 q r \bar "||" \break <bes, e>
   \repeat volta 3 {
+    r4 <f' a> r q % 5
+    r4 <e g> r e
+    r4 q r <bes e>
+    r4 <a c> r <f' a>
+    r4 <f bes> r q
+    r4 <f a> r f % 10
+    r4 <b, f'> r q
+    r4 <bes e> r <e bes'>
+    r <d f> r a'
+    s1
+    s1 % 15
+    r4 <c, f> r f
+    s1
+    s1
+    s1
+    s1 \bar "||"% 20
+    r4 <a, c> r q
+    r4 q r <d f>
+    r4 q r q
+    r4 q r q
+    r4 a' r c % 25
+    s1
+    r4 <f, a> r q
+    r4 q r q
+    r4 s4 s2
+    s1 % 30
+    s1
+    r4 <c f> r f
+    r <b, f'> r a'
+    r <d, f> r <b f'>
+    r <d f> e <b f'> % 35
+    r4 <e bes'> r <bes e>
+    r4 <c f> r q
+    r <cis e> r q
+    r <a d> r q
+    r <a ees'> r <ees' a> % 40
+    s1
+    s1
+    s1
+    r4 <e bes'> r <g bes>
+    r4 <a c> r <f a> % 45
+    r4 <g cis> r a
+    r4 <fis a cis> r fis
+    r <d f> c <bes e>
+    r4 <f' a> r <ees a>
+    r4 d c bes % 50
+    s1
+    r4 <fis' c'> r q
+    r4 <f b> r q
+    r4 <g bes> r q
   }
   \alternative {
-    { s1
-      s1
+    { r4 <a c> r q
+      r4 q r <bes, e>
     }
-    { s1
-      s1
+    { r4 <a' c> r q
+      r2 s
     }
   }
   \bar "|."
@@ -135,25 +293,74 @@ trebleTwo = \relative c' {
 
 bass = \relative c {
   \global
-  g4 r d r
-  g4 r e r
-  a4 r d, r
-  g4 fis e \bar "||" d
+  g4 r g r
+  c,4 r c r
+  f4 r e r
+  d4 r c \bar "||" \break r4
   \repeat volta 3 {
+    f4 r c r % 5
+    g'4 r c, r
+    g'4 r c, r
+    f4 r f r
+    bes4 r bes r
+    a4 r f r % 10
+    d4 r g r
+    c,4 r c r
+    bes'4 r f r
+    bes4 r bes r
+    f4 r c r % 15
+    f4 r c r
+    d4 dis e f
+    fis4 f e ees
+    d4 r g r
+    c,4 c d e % 20
+    f4 r e r
+    d4 r c r
+    f4 r e r
+    d4 r c r
+    bes r f' r % 25
+    bes, r bes r
+    f'4 r e r
+    d4 r c r
+    g'4 r c, r
+    g'4 r c, r % 30
+    f4 r c r
+    f4 r c r
+    d4 r g r
+    d4 r g r
+    d4 r g r
+    c,4 r c r
+    f4 r f r
+    a4 r a r
+    d,4 r a' r
+    c,4 r f r
+    bes4 r f r
+    bes4 r bes r
+    a2 aes
+    g4 r c, r f4 r f r
+    a4 r a r
+    d,4 r d r
+    g4 r c, r
+    f4 r fis r
+    g4 r c, r
+    f2 a
+    d,4 r a' d,
+    g4 r g r
+    c,4 r c r
   }
   \alternative {
-    { s1
-      s1
+    { f4 r e r
+      d4 r c r
     }
-    { s1
-      s1
+    { f4 r c r
+      f4 c f, r
     }
   }
 }
 
 verseOne = \lyricmode {
   Now ev- 'ry- bo- dy's got a cra- zy no- tion of their own,
-  Some _ like to mix up with a crowd, some like to be a- lone.
+  Some like to mix up with a crowd, some like to be a- lone.
   It's no one el- ses busi- ness _ as far as I can see,
   But ev- 'ry- time that I go out the peo- ple stare at me. _
 
@@ -177,7 +384,7 @@ MverseOne = \lyricmode {
 verseTwo = \lyricmode {
   While walk- ing down the prom last night as peace- ful as can be,
   This bird from Wales said how a- bout a stroll down by the sea.
-  She said her name was Gert and that she'd just come down for the day,
+  She said her name was Gert and that she'd just come for the day,
   She looked so young and harm- less that I could- n't turn a- way.
 
   And with my lit- tle u- ke- le- le in my hand,
@@ -198,7 +405,7 @@ MverseTwo = \lyricmode {
 
 verseThree = \lyricmode {
   Made up my mind that I'd get wed some eight- een months a- go,
-  I _ e- ven bought a book a- bout the things you ought to know.
+  I e- ven bought a book a- bout the things you ought to know.
   But just a- bout a week a- go I had an aw- ful fright,
   I had to get dressed quick- ly in the mid- dle of the night.
 
@@ -210,7 +417,8 @@ verseThree = \lyricmode {
   Out of the bed- room door he looked and smiled,
   Said come in- side and see your wife and child.
   _ _ My heart did pump with joy _ I could see it mwas a boy, _
-  'Cause he had his u- ke- le- le in his hand, oh ba- by, he had his u- ke- le- le in his hand.
+  'Cause he had his u- ke- le- le in his hand, oh ba- by,
+ he had his u- ke- le- le in his _ _ hand.
 }
 
 MverseThree = \lyricmode {
@@ -223,15 +431,16 @@ MverseThree = \lyricmode {
   }
 
   \score {
-    \context GrandStaff {
-      <<
-        \new ChordNames { \ukulele }
-	\new FretBoards { \set Staff.stringTunings = #ukulele-tuning \transpose d c \ukulele }
-	\new Staff = melody { \melody }
-	\addlyrics \verseOne
-	\addlyrics \verseTwo
-	\addlyrics \verseThree
-	\context PianoStaff
+    <<
+      \new ChordNames { \ukulele }
+      \new FretBoards { \set Staff.stringTunings = #ukulele-tuning \transpose d c \ukulele }
+      \context GrandStaff {
+	<<
+	  \new Staff = melody { \melody }
+	  \addlyrics \verseOne
+	  \addlyrics \verseTwo
+	  \addlyrics \verseThree
+	  \context PianoStaff
 	  <<
 	    \new Staff = treble <<
 	      \new Voice { \trebleOne }
@@ -241,8 +450,9 @@ MverseThree = \lyricmode {
 	      \new Voice { \clef bass \bass }
 	    >>
 	  >>
-      >>
-    }
+	>>
+      }
+    >>
     \layout {}
   }
 
