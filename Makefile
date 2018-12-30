@@ -12,6 +12,8 @@
 # WeWillWalkWithGod.ly
 # YoHoHoAndABottleOfRum.ly
 
+clean:
+	rm *.pdf *.kar *.mp3 *.midi
 
 
 
