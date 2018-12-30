@@ -4,7 +4,7 @@
 global = {
   \time 2/2
   \key c \major
-  \tempo 4 = 150
+  \tempo 4 = 140
 }
 
 melody = \relative c'' {
@@ -60,7 +60,7 @@ melody = \relative c'' {
   d8. d16 e8. e16 f8. f16 g8. g16
   a8. a16 b8. b16 c8. c16 d8. d16 % 50
   e8. d16 c8. e16 d8. c16 b4
-  c2 r4 g
+  c2 r4 g \tempo 4=130
   c8 g g g g a a a
   a8 e e e e g g g
   g8 d d d d dis e4 % 55
