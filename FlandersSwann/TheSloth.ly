@@ -210,21 +210,90 @@ trebleTwo = \relative c' {
   s2.
   s2.
   s2.
-  s2.
+  s2. % 5
   s2.
   s2.
   s2.
   \repeat volta 3 {
-    s2.*40
+    s2.
+    s2. % 10
+    s2.
+    s2.
+    s2.
+    s2.
+    s2. % 15
+    s2.
+    s2.
+    s2.
+    s2.
+    s2. % 20
+    c2(bes4)
+    s2.
+    s2.
+    s2.
+    s2. % 25
+    s2.
+    s2.
+    s2.
+    s2.
+    s2. % 30
+    s2.
+    <f a>4 <g bes> s4
+    s2.
+    s2.
+    s2. % 35
+    s2.
   }
   \alternative {
     {
-      s2.*4
+      s2.
+      s2.
+      s2.
+      s2. % 40
     }
+    {
+      s2.
+      s2.
+      s2.
+      s2.
+      s2. % 45
+      s2.
+      s2.
+      s2.
+      r4 <f' bes>2
+      r4 <g bes>2 % 50
+      r4 <a ees'> q
+      q2 r4
+      s2.
+      s2.
+      s2. % 55
+      s2.
+      s2.
+      s2.
+      s2.
+      s2. % 60
+      s2.
+      s2.
+      s2.
+      s2.
+      s2.
+      s2.
+      s2.
+      s2.
+      s2.
+      s2.
+      s2.
+      s2.
+      s2.
+      s2.
+      s2.
     }
     {
 %      \time 4/4
-      s1*4
+      s1
+      s1
+      <f bes d>1~
+      q1
     }
   }
   \bar "|."
