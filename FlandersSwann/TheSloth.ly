@@ -189,7 +189,7 @@ trebleOne = \relative c''' {
       <bes g'>2 <g ees'>4
       <c, a'>2 <a f'>4
       <bes d bes'>2.
-      <a, c ees>2.
+      <a c ees>2.
     }
     {
       \time 4/4
@@ -287,12 +287,13 @@ trebleTwo = \relative c' {
       s2.
       s2.
       s2.
+      s2.
     }
     {
-%      \time 4/4
+      \time 4/4
       s1
       s1
-      <f bes d>1~
+      <f, bes d>1~
       q1
     }
   }
@@ -304,25 +305,98 @@ bassOne = \relative c, {
   r4
   <ees ees'>4(<bes'' ees g>2)
   <ees,, bes' ges'>4-\arpeggio(<bes'' ees ges>2)
-  s2.
-  s2.
-  s2.
-  s2.
-  s2.
-  s2.
+  <d,, bes' f'>4-\arpeggio(<bes'' d f>2)
+  <f,, d' bes'>4-\arpeggio(<bes'' d f>) <cis, ais'>
+  <c bes'>4(<g' ees'>2) % 5
+  <f, c a'>4-\arpeggio(<a' ees' d>2)
+  <bes,, bes'>4 d' g(
+  f2.)
   \repeat volta 3 {
-    s2.*28
+    <bes,, bes'>2.
+    <d d'>2. % 10
+    <ees ees'>2.
+    <c c'>2.
+    <f f'>2.
+    <f, f'>2.
+    <bes bes'>2. % 15
+    <f f'>4-.->
+    <g g'>-.->
+    <a a'>-.->
+    <bes bes'>2.
+    <d d'>2. % 20
+    <ees ees'>2(g'4
+    bes2.)
+    <g, e'>2.
+    <c, c'>2.
+    <f f'>4.(g'8 g g) %%%%%%%%% 25
+    ees4(d) c
+    <bes, bes'>2.
+    <d d'>2.
+    <ees ees'>2.
+    g'2. % 30
+    bes2.
+    <g, e'>2.
+    <f f'>2.
+    <ees ees'>4-.-> <d d'>-.-> <c c'>-.->
+    <bes bes'>2. % 35
+    <d d'>2.
+    <ees ees'>2 g'4(
+    bes2) g4(
   }
   \alternative {
     {
-      s2.*4
+      f2) f4(
+      f,2) f4(
+      d'2.) %%%%%%% % 40
+      \clef treble f'' \clef bass
     }
     {
-      s2*44
+      f,,2 f4
+      f,2 f4
+      <bes, bes'>2.
+      f''4(g a)
+      <bes, f'>4(<f' bes d>2) % 45
+      <f, bes d>4(<f' bes d>2)
+      <bes, f'>4(<f' bes d>2)
+      <f, bes d>4(<f' bes d>2)
+      <bes, f'>4(<bes' d>2)
+      <f, d'>4(<bes' d>2) % 50
+      <c, f a>4(a' c
+      f2) r4
+      <c,, c'>4(<g'' c ees>2)
+      ees4(<g c>2)
+      c,4(<c' ees g>2) % 55
+      ees,4(<g c>2)
+      f4(<a ees' f>2)
+      <f, f'>4(<a' ees' d>2)
+      <bes,, bes'>4(f'' <bes d>4)
+      <f a ees' f>2. % 60
+      <bes,, bes'>4(<f'' bes d>2)
+      f,4(<f' bes d>2)
+      <bes, f'>2 <f' bes d>4->
+      <f bes d>4-> r r
+      <bes, f'>4(<f' bes d>2) % 65
+      <bes, f'>4(<bes' d f>2)
+      << ees,2.~
+         \new Voice {s4 g2~}
+	 \new Voice {s4 s c~}
+      >> % 67
+      <ees, g c ees>2 r4
+      <ees, ees'>4(<g' c ees>2)
+      <ees, bes' ges'>4-\arpeggio(<bes'' ees ges>2) % 70
+      <d,, bes' f'>4-\arpeggio(<bes'' d f>2)
+      <d, bes'>4(d') <cis, fis ais>
+      <c g'>4(<bes' ees>2)
+      <f, c'>4(<a' ees' f>2)
+      <bes, f'>4(<f' d'>2)
+      f4(ees) c
     }
     {
-%      \time 4/4
-      s1*4
+      \time 4/4
+      f2 r
+      f,2 r
+      <bes, bes'>1 ~
+      q1
     }
   }
   \bar "|."
