@@ -354,7 +354,7 @@ MKfirstVerse = \lyricmode {
   "By " "the " "old " "Moul" "mein " "Pa" "go" "da, " "look" "in' " "east" "ward " "to " "the " "sea,"
   "/There's " "a " "Bur" "ma " "girl " "a-" "set" "tin', " "and " "I " "know " "she " "thinks " "o' " "me;"
   "/For " "the " "wind " "is " "in " "the " "palm-" "trees, " "and " "the " "tem" "ple-" "bells " "they " "say:"
-  "/\"Come" "you " "back, " "you " "Brit" "ish " "sol" "dier; " "come " "you " "back " "to " "Man" "da" "lay!\""
+  "/\"Come " "you " "back, " "you " "Brit" "ish " "sol" "dier; " "come " "you " "back " "to " "Man" "da" "lay!\""
   "/Come " "you " "back " "to " "Man" "da" "lay,"
   "/Come " "you " "back " "to " "Man" "da" "lay,"
   "/Where " "the " "old " "Flo" "til" "la " "lay:"
@@ -365,7 +365,7 @@ MSfirstVerse = \lyricmode {
   "By " "the " "old " "Moul" "mein " "Pa" "go" "da, " "look" "in' " "east" "ward " "to " "the " "sea,"
   "/There's " "a " "Bur" "ma " "girl " "a" "set" "tin', " "and " "I " "know " "she " "thinks " "o' " "me;"
   "/For " "the " "wind " "is " "in " "the " "palm" "trees, " "and " "the " "tem" "ple" "bells " "they " "say:"
-  "/\"Come" "you " "back, " "you " "Brit" "ish " "sol" "dier; " "come " "you " "back " "to " "Man" "da" "lay!\""
+  "/\"Come " "you " "back, " "you " "Brit" "ish " "sol" "dier; " "come " "you " "back " "to " "Man" "da" "lay!\""
   "/Come " "you " "back " "to " "Man" "da" "lay,"
   "/Come " "you " "back " "to " "Man" "da" "lay,"
   "/Where " "the " "old " "Flo" "til" "la " "lay:"
@@ -374,22 +374,22 @@ MSfirstVerse = \lyricmode {
 
 MKchorus = \lyricmode {
   "\\On " "the " "road " "to " "Man" "da" "lay,"
-  "/Where " "the " "fly" "in'" "fish" "es " "play,"
+  "/Where " "the " "fly" "in' " "fish" "es " "play,"
   "/An' " "the " "dawn " "comes " "up " "like " "thun" "der " "out" "er " "Chi" "na " "'crost " "the " "Bay!"
 }
 
 MSchorus = \lyricmode {
   "\\On " "the " "road " "to " "Man" "da" "lay,"
-  "/Where " "the " "fly" "in'" "fish" "es " "play,"
+  "/Where " "the " "fly" "in' " "fish" "es " "play,"
   "/An' " "the " "dawn " "comes " "up " "like " "thun" "der " "out" "er " "Chi" "na " "'crost " "the " "Bay!"
 }
 
 MKsecondVerse = \lyricmode {
   "\\'Er " "" "pet" "ti" "coat " "was " "yal" "ler " "an' " "'er " "lit" "tle " "cap " "was " "green,"
-  "/An' " "'er " "name " "was " "Su" "pi" "yaw" "lat −" "jes' " "the " "same " "as " "Thee" "baw's " "Queen,"
-  "/An' " "I " "seed " "her " "first " "a" "smo" "kin' " "of " "a " "whack" "in' " "white " "che" "root,"
-  "/An' " "a" "wast" "in' " "Christ" "ian " "kis" "ses " "on " "an " "'eath" "en " "i" "dol's " "foot:"
-  "/On " "an " "'eath" "en " "i" "dol's " "foot:"
+  "/An' " "'er " "name " "was " "Su" "pi" "yaw" "lat − " "jes' " "the " "same " "as " "Thee" "baw's " "Queen,"
+  "/An' " "I " "seed " "her " "first " "a-" "smo" "kin' " "of " "a " "whack" "in' " "white " "che" "root,"
+  "/An' " "a-" "wast" "in' " "Christ" "ian " "kis" "ses " "on " "an " "'eath" "en " "i" "dol's " "foot:"
+  "/On " "an " "'eath" "en " "i" "dol's " "foot."
   "/Bloom" "in' " "i" "dol " "made " "o' " "mud −"
   "/Wot " "they " "called " "the " "Great " "Gawd " "Budd −"
   "/Pluck" "y " "lot " "she " "cared " "for " "i" "dols " "when " "I " "kissed " "'er " "where " "she " "stud!"
@@ -397,10 +397,10 @@ MKsecondVerse = \lyricmode {
 
 MSsecondVerse = \lyricmode {
   "\\'Er " "" "pet" "ti" "coat " "was " "yal" "ler " "an' " "'er " "lit" "tle " "cap " "was " "green,"
-  "/An' " "'er " "name " "was " "Su" "pi" "yaw" "lat −" "jes' " "the " "same " "as " "Thee" "baw's " "Queen,"
-  "/An' " "I " "seed " "her " "first " "a" "smo" "kin' " "of " "a " "whack" "in' " "white " "che" "root,"
-  "/An' " "a" "wast" "in' " "Christ" "ian " "kis" "ses " "on " "an " "'eath" "en " "i" "dol's " "foot:"
-  "/On " "an " "'eath" "en " "i" "dol's " "foot:"
+  "/An' " "'er " "name " "was " "Su" "pi" "yaw" "lat − " "jes' " "the " "same " "as " "Thee" "baw's " "Queen,"
+  "/An' " "I " "seed " "her " "first " "a-" "smo" "kin' " "of " "a " "whack" "in' " "white " "che" "root,"
+  "/An' " "a-" "wast" "in' " "Christ" "ian " "kis" "ses " "on " "an " "'eath" "en " "i" "dol's " "foot:"
+  "/On " "an " "'eath" "en " "i" "dol's " "foot."
   "Bloom" "in' " "i" "dol " "made " "o' " "mud"
   "/Wot " "they " "called " "the " "Great " "Gawd " "Budd"
   "/Pluck" "y " "lot " "she " "cared " "for " "i" "dols " "when " "I " "kissed " "'er " "where " "she " "stud!"
@@ -414,35 +414,35 @@ MKthirdVerse = \lyricmode {
   "/The " "" "hath" "is " "pil" "in' " "teak."
   "/El" "e" "phints " "a" "pil" "in' " "teak"
   "/In " "the " "sludg" "y, " "squdg" "y " "creek,"
-  "Where " "the " "si" "lence " "'ung " "that " "'eav" "y " "you " "was " "'arf " "a" "fraid " "to " "speak!"
+  "/Where " "the " "si" "lence " "'ung " "that " "'eav" "y " "you " "was " "'arf " "a" "fraid " "to " "speak!"
 }
 
 MKfourthVerse = \lyricmode {
-  "\\But " "" "that's " "all " "shove " "be'" "ind " "me −" "long " "a" "go " "an' " "fur " "a" "way,"
+  "\\But " "" "that's " "all " "shove " "be'" "ind " "me − " "long " "a" "go " "an' " "fur " "a" "way,"
   "/An' " "there " "ain't " "no " "'bus" "ses " "run" "nin' " "from " "the " "Bank " "to " "Man" "da" "lay;"
-  "An' " "I'm " "learn" "in' " "'ere " "in " "Lon" "don " "what " "the " "ten" "year " "sol" "dier " "tells:"
-  "\\\"If " "you've " "'eard " "the " "East " "a" "call" "in', " "you " "won't " "nev" "er " "'eed " "naught " "else.\""
+  "/An' " "I'm " "learn" "in' " "'ere " "in " "Lon" "don " "what " "the " "ten-" "year " "sol" "dier " "tells:"
+  "\\\"If " "you've " "'eard " "the " "East " "a-" "call" "in', " "you " "won't " "nev" "er " "'eed " "naught " "else.\""
   "/You " "won't " "nev" "er " "'eed " "naught " "else.\""
   "/No! " "you " "won't " "'eed " "no" "thin' " "else "
   "/But " "them " "spic" "y " "gar" "lic " "smells,"
-  "/An' " "the " "sun" "shine " "an' " "the " "palm" "trees " "an' " "the " "tink" "ly " "tem" "ple" "bells;"
+  "/An' " "the " "sun" "shine " "an' " "the " "palm " "trees " "an' " "the " "tink" "ly " "tem" "ple " "bells;"
 }
 
 MKfifthVerse = \lyricmode {
-  "\\I " "am " "sick " "o' " "wast" "in' " "leath" "er " "on " "these " "grit" "ty " "pav" "in'" "stones,"
+  "\\I " "am " "sick " "o' " "wast" "in' " "leath" "er " "on " "these " "grit" "ty " "pav" "in' " "stones,"
   "/An' " "the " "blast" "ed " "Heng" "lish " "driz" "zle " "wakes " "the " "fe" "ver " "in " "my " "bones;"
   /"Tho' " "I " "walks " "with " "fif" "ty " "'ouse" "maids " "out" "er " "Chel" "sea " "to " "the " "Strand,"
   "/An' " "they " "talks " "a " "lot " "o' " "lov" "in', " "but " "wot " "do " "they " "un" "der" "stand?"
   "/But " "wot " "do " "they " "un" "der" "stand?"
-  "Beef" "y " "face " "an' " "grub" "by " "'and −"
+  "/Beef" "y " "face " "an' " "grub" "by " "'and −"
   "/Law! " "wot " "do " "they " "un" "der" "stand?"
-  "I've " "a " "neat" "er, " "sweet" "er " "mai" "den " "in " "a " "clean" "er, " "green" "er " "land!"
+  "/I've " "a " "neat" "er, " "sweet" "er " "mai" "den " "in " "a " "clean" "er, " "green" "er " "land!"
 }
 
 MKsixthVerse = \lyricmode {
   "\\Ship " "me " "some" "wheres " "east " "of " "Su" "ez, " "where " "the " "best " "is " "like " "the " "worst,"
   "/Where " "there " "aren't " "no " "Ten " "Com" "mand" "ments " "an' " "a " "man " "can " "raise " "a " "thirst;"
-  "/For " "the " "tem" "ple" "bells " "are " "call" "in', " "an' " "it's " "there " "that " "I " "would " "be"
+  "/For " "the " "tem" "ple " "bells " "are " "call" "in', " "an' " "it's " "there " "that " "I " "would " "be"
   "/By " "the " "old " "Moul" "mein " "Pa" "go" "da, " "look" "ing " "laz" "y " "at " "the " "sea;"
   "/Look" "ing " "laz" "y " "at " "the " "sea;"
   "/On " "the " "road " "to " "Man" "da" "lay,"
