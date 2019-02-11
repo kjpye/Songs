@@ -48,12 +48,12 @@ partOne = \relative c'' {
   f2 e4
   ees4(c) ees
   d2 c4
-  d2 c4 % 25
+  d2 c4
   c4(d) f
   c2.~
   c2 r4
   a'4 a c
-  d2 bes4 % 30
+  d2 bes4
   c2 c4
   f4(e) \breathe d4
   c2 d4
@@ -62,6 +62,7 @@ partOne = \relative c'' {
   a2 r4
   r2.
   r2. \key des \major
+  r2.
   r2.
   r2.
   r4 r aes
@@ -125,8 +126,51 @@ partTwo = \relative c'' {
   c2 c4
   c4(bes) c
   c4(bes) a
-  a2.~
-  a2 r4
+  a2.(
+  g2) r4
+  a4 a a
+  bes2 bes4
+  c4(bes)a
+  g4(a) bes
+  c4(f,) bes
+  a2 g4
+  f2.~f2 r4
+  r2.
+  r2. \bar "||" \key des \major
+  r2.
+  r2.
+  r2.
+  r2.
+  r2.
+  r2.
+  r2.
+  r2. \bar "||" \key e \major
+  gis4 gis gis
+  a2 a4
+  b4(a) gis
+  fis4(gis) a
+  b4(e,) a
+  gis2 fis4
+  e2. \bar "||" \key f \major
+  r4 r c'
+  a4(f) a
+  c2 c4
+  c4(a) c
+  c2 c4
+  d2 c4
+  c4(bes) a
+  a2.(
+  g2) r4
+  f4 f f
+  g2 g4
+  a4(bes) a
+  g4(a) bes
+  c4(f,) f
+  f4 r e
+  d4(c2) ~
+  c2. ~
+  c2. ~
+  c4 r r \bar "|."
 }
 
 partThree = \relative c' {
@@ -159,6 +203,50 @@ partThree = \relative c' {
   a4(bes) f
   d4(f) d
   f4(e) r
+  g4 f a
+  a4(g) bes
+  a4(bes) c
+  g2 g4
+  a2 c,4
+  d4(f)e
+  d4(c2)~
+  c2 r4
+  r2.
+  r2. \bar "||" \key des \major
+  f4 f f
+  des2 ges4
+  aes4(ges) f
+  ees4(f) ges
+  aes4(des,) ges
+  f2 ees4
+  des2.~
+  des2 r4 \bar "||" \key e \major
+  r2.
+  r2.
+  r4 r b
+  b4(gis') fis
+  b,2 b4
+  r4 b b
+  gis'2. \bar "||" \key f \major
+  r4 r c,
+  f4(c) f
+  a2 a4
+  a4(f) a
+  a2 a4
+  bes2 a4
+  a4(g) f
+  f4(d f
+  e2) r4
+  c4 f e
+  ees4(d) des
+  c4(g') f
+  d2 des4
+  c2 d4
+  c4 r c
+  d4(c) c
+  <a a'>2. ~
+  q2.~
+  q4 r r \bar "|."
 }
 
 pianoRH = \relative c''' {
@@ -207,7 +295,7 @@ wordsThree = \lyricmode {
   Or leave a kiss with- in the cup and I'll not ask for wine
   The thirst that from the soul doth rise doth ask a drink, a drink di- vine
   But might I of love's nec- tar sip I would not change for thine.
-  I sent thee late a ro- sy wreath not so much hon- our- ing thee.
+  I sent thee late a ro- sy wreath not so much hon- ouring thee.
   A hope it could not with- ered be.
   But thou there- on didst on- ly breathe and sent'st it back to me
   Since when it grows and smells I swear not of it- self but thee, but thee.
