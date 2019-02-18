@@ -3,7 +3,7 @@
 global = {
   \time 4/4
   \key c \major
-  \tempo 4 = 100
+  \tempo 4 = 92
 }
 
 melody = \relative c' {
