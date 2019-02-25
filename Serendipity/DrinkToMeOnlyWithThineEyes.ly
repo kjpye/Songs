@@ -49,7 +49,7 @@ partOne = \relative c'' {
   r2.
   r2.
   r2. \colour
-  a4 a a % 5
+  a4^\p a a % 5
   bes2 bes4
   c4(bes) a
   g4(a) bes
@@ -64,12 +64,12 @@ partOne = \relative c'' {
   r2.
   r2.
   r2.
-  r4 r \colour c' % 20
+  r4 r \colour c'^\f % 20
   c4(a) c
   f2 \black e4
   ees4(c) ees
-  d2 \colour c4
-  d2 \black c4 % 25
+  d2   \colour c4
+  d2-- \black  c4 % 25
   c4(d) f
   c2.~
   c2 r4
@@ -98,18 +98,18 @@ partOne = \relative c'' {
   b2 b4
   r4 b b
   b2. \key f \major
-  r4 r c4
+  r4 r \colour c4
   c4(a) c % 55
-  e2 c4
+  e2 \black c4
   c4(f) e
-  e4(d) c
+  e4(d) \colour c
   d2 c4
   c4(bes) a % 60
   a2.(
   g2) r4
   a4 \( a a
 	bes2 bes4
-	c4(cis) d % 65
+	c4( \black cis) d % 65
 	f2 bes,4
   a2 \colour bes4
 	a4 \) r \breathe g
@@ -134,14 +134,14 @@ partTwo = \relative c'' {
   r2. % 10
   r2.
   r2. \colour
-  a4 a a
+  a4^\mf a a
   bes2 bes4
   c4(bes) a % 15
   g4(a) bes
   c4(f,) bes
   a2 g4
   f2.~
-  f2 \black a4 % 20
+  f2 \black a4^\f % 20
   a4(f) a
   c2 \colour c4
   c4(a) c
@@ -174,19 +174,19 @@ partTwo = \relative c'' {
   fis4(gis) a % 50
   b4(e,) a
   gis2 fis4
-  e2. \bar "||" \key f \major
+  e2. \bar "||" \key f \major \black
   r4 r c'
   a4(f) a % 55
-  c2 \black c4
+  c2 \colour c4
   c4(a) c
-  c2 c4
+  c2 \black c4
   d2 c4
   c4(bes) a % 60
   a2.(
-  g2) r4 \colour
+  g2) r4
   f4 f f
   g2 g4
-  a4(bes) a % 65
+  a4( \colour bes) a % 65
   g4(a) bes
   c4(f,) \black f
   f4 r e
@@ -210,14 +210,14 @@ partThree = \relative c' {
   r2. % 10
   r2.
   r2.
-  c4 d f
+  c4^\mf d f
   f4(e) g
   c,4(f) a % 15
   bes4(a) g
   c,2 c4
   d4(f) e
   d2.(
-  c2) a'4 % 20
+  c2) a'4^\f % 20
   a4(f) a
   a2 a4
   g4(a) g
@@ -253,13 +253,13 @@ partThree = \relative c' {
   gis'2. \bar "||" \key f \major
   r4 r c,
   f4(c) f % 55
-  a2 \colour a4
+  a2 a4
   a4(f) a
   a2 a4
   bes2 a4
   a4(g) f % 60
   f4(d f
-  e2) \black r4
+  e2) r4
   c4 f e
   ees4(d) des
   c4(g') f % 65
@@ -373,17 +373,17 @@ pianoRH = \relative c''' {
   <a f'>8(<f c'> <a f'> <c a'> <a e'> <c a'>)
   <c g'>8(<g ees'> <c a'> <a ees'> <c g'> <g ees'>)
    <a fis'>8(<fis c'> <a f'> <f' d'> <d a'> <f d'>)
-   <c d a'>8(a <bes d g> g <c d a'> a)
+   <c d a'>8(a <bes d g> g <c d a'> a) % 25
    <c d a'>8 a <d bes'> bes <f' d'> <d a'>
    <f c'>8(<d a'> <f c'> <d a'> <f c'> <d a'>)
   <g c>8(c, q c q c)
   <a c g'>4~q8 r r4
-  <bes d a'>4~q8 r r4
+  <bes d a'>4~q8 r r4 % 30
   <a a'>4(<bes bes'> <c c'>)
   <f g bes f'>8 r r4 r
   <c f c'>4 r r
   r2.
-  c'4(f,2)
+  c'4(f,2) % 35
   c2.--
   c'4(c,2)
   f2.-- \bar "||" \key des \major
@@ -428,6 +428,7 @@ pianoLHone = \relative c'''' {
   \global
   \clef treble
   \voiceOne
+  \set Staff.pedalSostenutoStyle = #'bracket
   { r4.
     \set Staff.ottavation = #"8va"
     \set Voice.middleCPosition = #-13
@@ -440,12 +441,12 @@ pianoLHone = \relative c'''' {
     c~
   } % 3
   c2. \unset Staff.ottavation \unset Voice.middleCPosition
-  <c,,, d f a>2.
-  <c f bes>2.
-  <c f a>2.
+  <c,,, d f a>2. % 5
+  \sostenutoOn <c f bes>2. \sostenutoOff
+  \sostenutoOn <c f a>2. \sostenutoOff _\markup \italic Simile
   <c d f g>2.
   <c f a> 2.
-  a'2(g4)
+  a'2(g4) \sostenutoOn % 10
   { r4.
     \set Staff.ottavation = #"8va"
     \set Voice.middleCPosition = #-13
@@ -453,28 +454,65 @@ pianoLHone = \relative c'''' {
   } % 11
   c2. \unset Staff.ottavation \unset Voice.middleCPosition
   <c,,, f a>2.
-  f4(e2)
-  <c f a>2.
+  f4(e2) \sostenutoOff
+  <c f a>2. % 15
   bes'4(a g)
   a2(bes4)
   <d, a'>2(<e g>4)
   <a, d f>2.~
-  q2.
+  q2. % 20
   \clef bass % \set Voice.middleCPosition = #6
   <f, c' a'>2.
   <a' c>2.
   s2.
   <d,, a' fis'>2.
-  s2.
+  s2. % 25
   s4 \clef treble s4 <d'' f a>
   d4(f d)
   f4(e2)
   <a, c g'>4 ~ q8 r r4
-  <bes d a'>4 ~ q8 r r4
+  <bes d a'>4 ~ q8 r r4 % 30
   a4(bes c)
   <d f g bes>8 r r4 r
   <c f g>4 r r
   r2.
+  \sostenutoOn a8(d c a' f c) % 35
+  a8(d c a' f c) \sostenutoOff
+  \sostenutoOn aes(c f aes f c)
+  aes(c f aes f c) \sostenutoOff \bar "||" \key des \major
+  <aes des f>2.
+  <bes ges'>4(<aes f'> <ges ees'>) \clef bass % 40
+  <aes, f'>4(des') \clef treble aes'(
+  <bes, ges'>4 <aes c f> <ges ees'>) \clef bass
+  s2.
+  aes,4(aes' ges)
+  f2._\markup \italic Ped. % 45
+  aes2.-> \bar "||" \key e \major
+  gis4(gis gis) % ####### FIX
+  a4(gis fis)
+  b,2 gis'4( % ###### FIX
+  b4 b a) % 50
+  gis2(a4)
+  b2(a4)
+  gis2. \bar "||" \key f \major
+  r4 <c, e gis>2
+  <f, c' a'>4 r4 r % 55
+  <f c'>4 \clef treble <c'' a'> <a c f>
+  s2. \sustainOn \clef bass
+  s2 \sustainOff r4
+  s2. % 60
+  r4 <d f>2
+  s2.
+  r2.
+  r2.
+  r2. % 65
+  r2.
+  r2.
+  r2.
+  r2.
+  r2. % 70
+  <c, a'>2.
+  <f, c' a'>2.-\arpeggio
 }
 
 pianoLHtwo = \relative c' {
@@ -484,35 +522,73 @@ pianoLHtwo = \relative c' {
   q2.
   q2.~
   q2.
+  s2. % 5
   s2.
   s2.
   s2.
   s2.
-  s2.
-  <c e>2.
+  <c e>2. % 10
   <a c f>2.~
   q2.
   s2.
   <c bes'>2.
-  s2.
+  s2. % 15
   c2.
   <c f>2.
   c2.
   s2.
-  s2.
-  \clef bass \key f \major
+  s2. \clef bass % 20
   s2.
   f,2(e4)
   <ees g a c>2.
   s2.
-  <a c>4(<g bes>) <a d>
+  <a c>4(<g bes>) <a d>% 25
   <a c d>4( \clef treble <bes d g>) s4
   s2.
-  c2.s2.
+  c2.
+  s2.
+  s2. % 30 
   s2.
   s2.
   s2.
   s2.
+  s2. % 35
+  s2.
+  s2.
+  s2. \bar "||" \key des \major
+  s2.
+  s2. \clef bass % 40
+  s2 \clef treble s4
+  s2. \clef bass
+  <f, des'>4 <ees ges bes des>2
+  s2.
+  r4 <d a'>2 % 45
+  aes''2.-> \bar "||" \key e \major
+  s2.
+  s2.
+  s2 gis4(
+  b b a) % 50
+  gis2(a4)
+  s2.
+  s2. % ##### FIX \bar "||" \key f \major
+  c,,,2. % ##### FIX
+  s2. % 55
+  s4 \clef treble s2
+  s2. \clef bass
+  d4 d'' s % ##### FIX
+  <bes d>2 s4
+  s2. % 60
+  c,,2.
+  <bes'' c e>2.
+  s2.
+  s2.
+  s2. % 65
+  s2.
+  s2.
+  s2.
+  s2.
+  s2. % 70
+  s2. % ##### CHECK
   s2.
 }
 
@@ -571,6 +647,7 @@ wordsThree = \lyricmode {
       \new Voice \pianoLHone
       \new Voice \pianoLHtwo
     >>
+%    \new Dynamics \pedal
   >>
   >>
   \layout { indent = 1.5\cm }
