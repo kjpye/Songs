@@ -49,7 +49,7 @@ partOne = \relative c'' {
   r2.
   r2.
   r2. \colour
-  a4^\p a a % 5
+  a4 a a % 5
   bes2 bes4
   c4(bes) a
   g4(a) bes
@@ -64,7 +64,7 @@ partOne = \relative c'' {
   r2.
   r2.
   r2.
-  r4 r \colour c'^\f % 20
+  r4 r \colour c' % 20
   c4(a) c
   f2 \black e4
   ees4(c) ees
@@ -120,6 +120,43 @@ partOne = \relative c'' {
   \bar "|."
 }
 
+dynamicsOne = {
+  s2.*4
+  s2.^\p
+  s2.*3
+  s8\< s8\> s2\!
+  s2.*10
+  s2 s4^\markup{\right-align \concat \italic{poco} \dynamic f}
+  s2\<s4\!
+  s2 s4\<
+  s2 \> s4
+  s2.\!
+  s2.*4
+  s2.^\markup{\concat {\dynamic f} {poco mosso}}
+  s2.
+  s2\<s4\!
+  s4\>s4\!s4^\p
+  s2.*9
+  s2 s4\<
+  s4\>s2\!
+  s2.*10
+  s2^\markup{poco allarg.}
+  s4^\mf
+  s2^\markup{a tempo} s4\<
+  s2.\!
+  s2.
+  s8\<s8\>s2\!
+  s2.^\mf
+  s2.
+  s2.\>
+  s2.\!
+  s2.^\pp^\markup{molto espress.}
+  s8\<^\markup{slower} s8\> s2\!
+  s2.*4
+  s2 s4^\markup{rall.}
+  s2.*3
+}
+
 partTwo = \relative c'' {
   \global
   r2.
@@ -134,14 +171,14 @@ partTwo = \relative c'' {
   r2. % 10
   r2.
   r2. \colour
-  a4^\mf a a
+  a4 a a
   bes2 bes4
   c4(bes) a % 15
   g4(a) bes
   c4(f,) bes
   a2 g4
   f2.~
-  f2 \black a4^\f % 20
+  f2 \black a4 % 20
   a4(f) a
   c2 \colour c4
   c4(a) c
@@ -196,6 +233,47 @@ partTwo = \relative c'' {
   c4 r r \bar "|."
 }
 
+dynamicsTwo = {
+  s2.*12
+  s2.^\mf
+  s8\<s8\>s4.\! s8\<
+  s4\>s2\! % 15
+  s2 s8 s8\<
+  s2.\!
+  s2.*2
+  s2 s4^\markup{\right-align \concat \italic{poco} \dynamic f} % 20
+  s2\<s4\!
+  s2 s4\<
+  s2\>s4
+  s2.\!
+  s2.*4
+  s2.^\f
+  s2. % 30
+  s2\<s4\!
+  s4\>s4\!s4^\p
+  s2.*14
+  s2.^\mf
+  s2 s4\<
+  s4\<s4\!s4
+  s2.*4
+  s2 s4^\f % 54
+  s2 s4\< % 55
+  s2.\!
+  s2.
+  s8^\p\< s8\> s4\! s4\<
+  s2.\!
+  s2. % 60
+  s2.\>
+  s2.\!
+  s2.^\pp
+  s8\<s8\>s2\!
+  s2.\<
+  s2\>s4\!
+  s2.*2
+  s8\<s8\>s2\!
+  s2.*3
+}
+
 partThree = \relative c' {
   \global
   r2.
@@ -210,14 +288,14 @@ partThree = \relative c' {
   r2. % 10
   r2.
   r2.
-  c4^\mf d f
+  c4 d f
   f4(e) g
   c,4(f) a % 15
   bes4(a) g
   c,2 c4
   d4(f) e
   d2.(
-  c2) a'4^\f % 20
+  c2) a'4 % 20
   a4(f) a
   a2 a4
   g4(a) g
@@ -267,12 +345,61 @@ partThree = \relative c' {
   c2 d4
   c4 r c
   d4(c) c
-  <a a'>2. ~
-  q2.~
-  q4 r r \bar "|."
+  a2. ~
+  a2.~
+  a4 r r \bar "|."
 }
 
-dynamics = {
+dynamicsThree = {
+  s2.*12
+  s2.^\mf
+  s8\<s8\>s4.\!s8\<
+  s8\>s8\!s2 % 15
+  s2 s4\<
+  s2.\!
+  s2.*2
+  s2 s4^\markup{\right-align \concat \italic{poco} \dynamic f} % 20
+  s2\<s4\!
+  s2 s4\<
+  s2\! s4\<
+  s2.
+  s2.\! % 25
+  s2.*3
+  s2.^\f
+  s2. % 30
+  s2.^\<
+  s2\> s4^\p \!
+  s2.*2
+  s4\< s4\> s4\! % 35
+  s2.*3
+  s2.^\pp
+  s2. % 40
+  s8\<s8\>s2\!
+  s2 s4\<
+  s4\> s2\!
+  s2.*8
+  s2 s8 s8\< % 52
+  s8\> s8\! s2
+  s2 s4^\mf
+  s2 s4\<
+  s2.\!
+  s2.
+  s8^\p \< s8\> s4\! s4\<
+  s2.\!
+  s2 s4\<
+  s2.\>
+  s2.\!
+  s2.^\pp
+  s8\<s8\>s2\!
+  s2.\<
+  s2\> s4\!
+  s2.*2
+  s8\<s8\>s2\!
+  s8\<s8\>s2\!
+  s2.*2
+}
+
+dynamicsPiano = {
   s2.^\p
   s2.
   s2.
@@ -488,9 +615,9 @@ pianoLHone = \relative c'''' {
   aes,4(aes' ges)
   f2._\markup \italic Ped. % 45
   aes2.-> \bar "||" \key e \major
-  gis4(gis gis) % ####### FIX
-  a4(gis fis)
-  b,2 gis'4( % ###### FIX
+  gis8(b, e,2)
+  a'4(gis fis)
+  <e, b'>2 gis'4(
   b4 b a) % 50
   gis2(a4)
   b2(a4)
@@ -625,14 +752,17 @@ wordsThree = \lyricmode {
 \score {
   <<
   \new ChoirStaff <<
+    \new Dynamics \dynamicsOne
     \new Staff \with { instrumentName = #"Nancy"} <<
       \new Voice = "partone" \partOne
       \new Lyrics \lyricsto "partone" \wordsOne
     >>
+    \new Dynamics \dynamicsTwo
     \new Staff \with { instrumentName = \markup { \center-column { "Diedre" \line {"June"} \line {"Ruth"} } } } <<
       \new Voice = "parttwo" \partTwo
       \new Lyrics \lyricsto "parttwo" \wordsTwo
     >>
+    \new Dynamics \dynamicsThree
     \new Staff \with { instrumentName = \markup { \center-column { "Diane" \line {"Gael"} \line {"Irene"} } } }<<
       \new Voice = "partthree" \partThree
       \new Lyrics \lyricsto "partthree" \wordsThree
@@ -642,7 +772,7 @@ wordsThree = \lyricmode {
     \new Staff <<
       \new Voice \pianoRH
     >>
-    \new Dynamics \dynamics
+    \new Dynamics \dynamicsPiano
     \new Staff <<
       \new Voice \pianoLHone
       \new Voice \pianoLHtwo
