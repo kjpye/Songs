@@ -551,6 +551,86 @@ pianoRH = \relative c''' {
   \bar "|."
 }
 
+pianoLH = \relative c'''' {
+  \global
+  \clef treble
+  \oneVoice
+  \set Staff.pedalSostenutoStyle = #'bracket
+  s2.
+  s2.
+  s2.
+  s2.
+  <c,,, d f a>2. % 5
+  \sostenutoOn <c f bes>2. \sostenutoOff
+  \sostenutoOn <c f a>2. \sostenutoOff _\markup \italic Simile
+  <c d f g>2.
+  <c f a> 2.
+  s2. \sostenutoOn % 10
+  s2.
+  s2. \unset Staff.ottavation \unset Voice.middleCPosition
+  <c f a>2.
+  s2. \sostenutoOff
+  <c f a>2. % 15
+  s2.
+  s2.
+  s2.
+  <a d f>2.~
+  q2. % 20
+  \clef bass % \set Voice.middleCPosition = #6
+  <f, c' a'>2.
+  s2.
+  <ees' g a c>2.
+  <d, a' fis'>2.
+  <a'' c>4(<g bes>) <a d>
+  <a c d>4( \clef treble <bes d g>) <d f a>
+  d4(f d)
+  s2.
+  <a c g'>4 ~ q8 r r4
+  <bes d a'>4 ~ q8 r r4 % 30
+  a4(bes c)
+  <d f g bes>8 r r4 r
+  <c f g>4 r r
+  r2.
+  \sostenutoOn a8(d c a' f c) % 35
+  a8(d c a' f c) \sostenutoOff
+  \sostenutoOn aes(c f aes f c)
+  aes(c f aes f c) \sostenutoOff \bar "||" \key des \major
+  <aes des f>2.
+  <bes ges'>4(<aes f'> <ges ees'>) \clef bass % 40
+  <aes, f'>4(des') \clef treble aes'(
+  <bes, ges'>4 <aes c f> <ges ees'>) \clef bass
+  <f des'>4 <ees ges bes des>2
+  aes,4(aes' ges)
+  s2._\markup \italic Ped. % 45
+  aes2.-> \bar "||" \key e \major
+  gis8(b, e,2)
+  a'4(gis fis)
+  <e, b'>2 gis'4(
+  b4 b a) % 50
+  gis2(a4)
+  s2.
+  s2. \bar "||" \key f \major
+  s2.
+  <f, c' a'>4 r4 r % 55
+  <f c'>4 \clef treble <c'' a'> <a c f>
+  s2. \sustainOn \clef bass
+  d,,,4 d''' r \sustainOff
+  <bes d>2 r4
+  r2. % 60
+  s2.
+  <bes c e>2.
+  r2.
+  r2.
+  r2. % 65
+  r2.
+  r2.
+  r2.
+  r2.
+  r2.
+  <c, a'>2.
+  <f, c' a'>2.-\arpeggio
+}
+
 pianoLHone = \relative c'''' {
   \global
   \clef treble
@@ -568,78 +648,79 @@ pianoLHone = \relative c'''' {
     c~
   } % 3
   c2. \unset Staff.ottavation \unset Voice.middleCPosition
-  <c,,, d f a>2. % 5
-  \sostenutoOn <c f bes>2. \sostenutoOff
-  \sostenutoOn <c f a>2. \sostenutoOff _\markup \italic Simile
-  <c d f g>2.
-  <c f a> 2.
-  a'2(g4) \sostenutoOn % 10
+  s2. % 5
+  s2.
+  s2.
+  s2.
+  s2.
+  a,,2(g4) % 10
   { r4.
     \set Staff.ottavation = #"8va"
     \set Voice.middleCPosition = #-13
     c''~
   } % 11
   c2. \unset Staff.ottavation \unset Voice.middleCPosition
-  <c,,, f a>2.
-  f4(e2) \sostenutoOff
-  <c f a>2. % 15
+  s2.
+  f,,,4(e2)
+  s2. % 15
   bes'4(a g)
   a2(bes4)
   <d, a'>2(<e g>4)
-  <a, d f>2.~
-  q2. % 20
-  \clef bass % \set Voice.middleCPosition = #6
-  <f, c' a'>2.
-  <a' c>2.
   s2.
-  <d,, a' fis'>2.
+  s2. % 20
+  \clef bass
+  s2.
+  <a, c>2.
+  s2.
+  s2.
   s2. % 25
-  s4 \clef treble s4 <d'' f a>
-  d4(f d)
-  f4(e2)
-  <a, c g'>4 ~ q8 r r4
-  <bes d a'>4 ~ q8 r r4 % 30
-  a4(bes c)
-  <d f g bes>8 r r4 r
-  <c f g>4 r r
-  r2.
-  \sostenutoOn a8(d c a' f c) % 35
-  a8(d c a' f c) \sostenutoOff
-  \sostenutoOn aes(c f aes f c)
-  aes(c f aes f c) \sostenutoOff \bar "||" \key des \major
-  <aes des f>2.
-  <bes ges'>4(<aes f'> <ges ees'>) \clef bass % 40
-  <aes, f'>4(des') \clef treble aes'(
-  <bes, ges'>4 <aes c f> <ges ees'>) \clef bass
+  s4 \clef treble s2
   s2.
-  aes,4(aes' ges)
-  f2._\markup \italic Ped. % 45
-  aes2.-> \bar "||" \key e \major
-  gis8(b, e,2)
-  a'4(gis fis)
-  <e, b'>2 gis'4(
-  b4 b a) % 50
-  gis2(a4)
+  f'4(e2)
+  s2.
+  s2. % 30
+  s2.
+  s2.
+  s2.
+  s2.
+  s2.
+  s2.
+  s2.
+  s2. \key des \major
+  s2.
+  s2.
+  s2 \clef treble s4
+  s2. \clef bass
+  s2.
+  s2.
+  f,2. % 45
+  s2. \bar "||" \key e \major
+  s2.
+  s2.
+  s2.
+  s2.
+  s2.
   b2(a4)
   gis2. \bar "||" \key f \major
   r4 <c, e gis>2
-  <f, c' a'>4 r4 r % 55
-  <f c'>4 \clef treble <c'' a'> <a c f>
-  s2. \sustainOn \clef bass
-  s2 \sustainOff r4
-  s2. % 60
-  r4 <d f>2
+  s2. % 55
+  s4 \clef treble s2
+  s2. \clef bass
   s2.
-  r2.
-  r2.
-  r2. % 65
-  r2.
-  r2.
-  r2.
-  r2.
-  r2. % 70
-  <c, a'>2.
-  <f, c' a'>2.-\arpeggio
+  s2.
+  s2.
+  r4 <d' f>2 % 60
+  s2.
+  s2.
+  s2.
+  s2.
+  s2.
+  s2.
+  s2.
+  s2.
+  s2.
+  s2.
+  s2.
 }
 
 pianoLHtwo = \relative c' {
@@ -667,12 +748,12 @@ pianoLHtwo = \relative c' {
   s2. \clef bass % 20
   s2.
   f,2(e4)
-  <ees g a c>2.
   s2.
-  <a c>4(<g bes>) <a d>% 25
-  <a c d>4( \clef treble <bes d g>) s4
   s2.
-  c2.
+  s2. % 25
+  s4( \clef treble 2
+  s2.
+  c'2.
   s2.
   s2. % 30 
   s2.
@@ -687,26 +768,25 @@ pianoLHtwo = \relative c' {
   s2. \clef bass % 40
   s2 \clef treble s4
   s2. \clef bass
-  <f, des'>4 <ees ges bes des>2
-  s2.
-  r4 <d a'>2 % 45
-  aes''2.-> \bar "||" \key e \major
   s2.
   s2.
-  s2 gis4(
-  b b a) % 50
-  gis2(a4)
+  r4 <des,, aes'>2 % 45
+  s2. \bar "||" \key e \major
   s2.
-  s2. % ##### FIX \bar "||" \key f \major
-  c,,,2. % ##### FIX
+  s2.
+  s2.
+  s2. % 50
+  s2.
+  b'2.
+  <e, b'>2. \bar "||" \key f \major
+  \ottava #-1 c,2. \ottava 0 %  ######### FIX
   s2. % 55
   s4 \clef treble s2
   s2. \clef bass
-  d4 d'' s % ##### FIX
-  <bes d>2 s4
+  s2.
+  s2.
   s2. % 60
-  c,,2.
-  <bes'' c e>2.
+  c2.
   s2.
   s2.
   s2. % 65
@@ -715,7 +795,7 @@ pianoLHtwo = \relative c' {
   s2.
   s2.
   s2. % 70
-  s2. % ##### CHECK
+  s2
   s2.
 }
 
@@ -774,6 +854,7 @@ wordsThree = \lyricmode {
     >>
     \new Dynamics \dynamicsPiano
     \new Staff <<
+      \new Voice \pianoLH
       \new Voice \pianoLHone
       \new Voice \pianoLHtwo
     >>
