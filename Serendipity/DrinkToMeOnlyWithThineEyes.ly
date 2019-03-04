@@ -7,7 +7,7 @@
   % Remove default LilyPond tagline
   tagline = ##f
 }
-% #(set-global-staff-size 24)
+#(set-global-staff-size 16)
 
 %\paper {
 %  #(set-paper-size "a4")
@@ -614,7 +614,7 @@ pianoLH = \relative c'''' {
   <f, c' a'>4 r4 r % 55
   <f c'>4 \clef treble <c'' a'> <a c f>
   s2. \sustainOn \clef bass
-  d,,,4 d''' r \sustainOff
+  \ottava #-1 d,,,4 \ottava #0 d''' r \sustainOff
   <bes d>2 r4
   r2. % 60
   s2.
@@ -702,7 +702,7 @@ pianoLHone = \relative c'''' {
   s2.
   b2(a4)
   gis2. \bar "||" \key f \major
-  r4 <c, e gis>2
+  r4 <c, e gis>2--
   s2. % 55
   s4 \clef treble s2
   s2. \clef bass
@@ -751,7 +751,7 @@ pianoLHtwo = \relative c' {
   s2.
   s2.
   s2. % 25
-  s4( \clef treble 2
+  s4 \clef treble 2
   s2.
   c'2.
   s2.
@@ -779,14 +779,20 @@ pianoLHtwo = \relative c' {
   s2.
   b'2.
   <e, b'>2. \bar "||" \key f \major
-  \ottava #-1 c,2. \ottava 0 %  ######### FIX
+  { \set Staff.ottavation = #'"8vb"
+    \once \override Staff.OttavaBracket.direction = #DOWN
+    \set Voice.middleCPosition = #(+ 6 7)
+    c,2.
+    \unset Staff.ottavation
+    \unset Voice.middleCPosition
+  }
   s2. % 55
   s4 \clef treble s2
   s2. \clef bass
   s2.
   s2.
   s2. % 60
-  c2.
+  c'2.
   s2.
   s2.
   s2. % 65
