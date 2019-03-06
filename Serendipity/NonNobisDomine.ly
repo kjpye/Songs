@@ -69,6 +69,7 @@ soprano = \relative c'' {
   %bar 58 3/4
   a8(g) f2 f'2^\< e4(d) c\!(b^\ff)
   <<  { \stemDown \slurDown a2^"Rit." (g4 f g1)} \new Voice {c1~c} >>
+  \bar "|."
 }
 
 alto = \relative c' {
@@ -474,7 +475,7 @@ pianoPart = \new PianoStaff <<
     midiInstrument = "acoustic grand"
     printPartCombineTexts = ##f
   }
-  \set PianoStaff.instrumentName = #"Piano"
+%  \set PianoStaff.instrumentName = #"Piano"
   {
     << \rightOne \\ \rightTwo >>
     %  \partcombine \rightOne \rightTwo
