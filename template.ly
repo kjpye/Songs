@@ -114,9 +114,23 @@ pianoRH = \relative c' {
   \bar "|."
 }
 
-pianoLH = \relative c' {
+pianoRHone = \relative c' {
   \global
   \clef bass
+  \voiceOne
+  c4
+  \bar "|."
+}
+
+pianoRHtwo = \relative c' {
+  \global
+  \voiceTwo
+  c4
+  \bar "|."
+}
+
+pianoLH = \relative c' {
+  \global
   \oneVoice
   c4
   \bar "|."
@@ -181,6 +195,8 @@ wordsBass = \lyricmode {
     \new PianoStaff <<
       \new Staff <<
         \new Voice \pianoRH
+        \new Voice \pianoRHone
+        \new Voice \pianoRHtwo
       >>
       \new Dynamics \dynamicsPiano
       \new Staff <<
