@@ -158,22 +158,22 @@ wordsBass = \lyricmode {
   <<
     \new ChoirStaff <<
       \new Dynamics \dynamicsSop
-      \new Staff \with { instrumentName = #"Soprano" } <<
+      \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
         \new Voice = "soprano" \soprano
         \new Lyrics \lyricsto "soprano" \wordsSop
       >>
       \new Dynamics \dynamicsAlto
-      \new Staff \with { instrumentName = #"Alto" } <<
+      \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
         \new Voice = "alto" \alto
         \new Lyrics \lyricsto "alto" \wordsAlto
       >>
       \new Dynamics \dynamicsTenor
-      \new Staff \with { instrumentName = #"Tenor" } <<
+      \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
         \new Voice = "tenor" \tenor
         \new Lyrics \lyricsto "tenor" \wordsTenor
       >>
       \new Dynamics \dynamicsBass
-      \new Staff \with { instrumentName = #"Bass" } <<
+      \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
         \new Voice = "bass" \bass
         \new Lyrics \lyricsto "bass" \wordsBass
       >>
