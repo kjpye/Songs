@@ -7,6 +7,8 @@
   poet     = "Charlotte Elliot"
 }
 
+#(set-global-staff-size 18)
+
 \layout {
   ragged-last-bottom = ##f
 %  system-count = 10
@@ -16,6 +18,7 @@
 global = {
   \key d \major
   \time 3/4
+  \tempo 4=92
 }
 
 tempoMark = {
@@ -26,9 +29,9 @@ tempoMark = {
 sop = \relative c' {
   \global
   \repeat volta 4 {
-    fis4 fis fis
+    fis4^\p fis fis
     f2 f4
-    f2 b4
+    fis2 b4
     a2.
     g4 g g
     fis2 fis4
@@ -43,10 +46,10 @@ sop = \relative c' {
     a2.
     b4 b b
     b2.
-    a4 a a
+    a4^\mp a a
     a2.
-    d4 e, fis
-    g4. r8 e4
+    d4^\mf e, fis
+    g4. r8 e4^\p
     d2.
   }
 }
@@ -54,14 +57,34 @@ sop = \relative c' {
 alt = \relative c' {
   \global
   \repeat volta 4 {
-    d4 d d
+    d4^\p d d
+    d2 d4
+    d2 d4
+    d2.
+    e4 e e
+    dis2 dis4
+    e2 fis4
+    fis2.
+    g4 g e
+    d2 d4
+    d2 cis4
+    d2 d4
+    b2 e4
+    fis4 e d
+    cis2. dis4 g fis
+    e2.
+    e4^\mp fis e
+    d2.
+    d4^\mf d d
+    d4. r8 cis4^\p
+    d2.
   }
 }
 
 ten = \relative c' {
   \global
   \repeat volta 4 {
-    a4 a a
+    a4^\p a a
     gis2 gis4
     a2 g4
     a2.
@@ -78,10 +101,10 @@ ten = \relative c' {
     a2.
     r2.
     b4 e d
-    cis2.
+    cis2.^\mp
     a4 d cis
-    b2.(
-    b4.) r8 g4
+    b2.^\mf(
+    b4.) r8 g4^\p
     fis2.
   }
 }
@@ -89,7 +112,7 @@ ten = \relative c' {
 bas = \relative c {
   \global
   \repeat volta 4 {
-    d4 d d
+    d4^\p d d
     d2 d4
     d2 g4
     fis2.
@@ -106,10 +129,10 @@ bas = \relative c {
     a2.
     a4 a a
     g2.
-    g4 g g
+    g4^\mp g g
     fis2.
-    b,4 g' fis
-    e4. r8 a,4
+    b,4^\mf g' fis
+    e4. r8 a,4^\p
     d2.
   }
 }
@@ -132,41 +155,57 @@ verseOneMen = \lyricmode {
   Just as I am, I come.
 }
 
+verseOneBass = \lyricmode {
+  _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _
+  O Lamb of God I come.
+  Just as I am, Just as I am,
+  Just as I am, I come.
+}
+
 verseTwo = \lyricmode {
-  Just as I am, poor wreth- ed, blind
+  Just as I am, poor wretch- ed, blind
+  sight, rich- es heal- ing of the mind.
+  Yea all I need, in Thee I find,
 }
 
 verseThree = \lyricmode {
   Just as I am Thou wilt re-  ceive
+  Wilt wel- come par- don, cleanse, re- lieve.
+  Be- cause Thy pro- mise I be- lieve,
 }
 
 verseFour = \lyricmode {
   Just as I am, of that free love
+  the breadth, length, depth, and height to prove.
+  Here for a sea- son, then a- bove,
 }
 
 \book {
   \score {
     \new ChoirStaff <<
-      \new Voice = sop << \sop >>
+      \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+        \new Voice = sop << \sop >>
+      >>
       \new Lyrics \lyricsto sop \verseOneWomen
       \new Lyrics \lyricsto sop \verseTwo
       \new Lyrics \lyricsto sop \verseThree
       \new Lyrics \lyricsto sop \verseFour
-      \new Voice = alt << \alt >>
-%      \new Lyrics \lyricsto alt \verseOne
-%      \new Lyrics \lyricsto alt \verseTwo
-%      \new Lyrics \lyricsto alt \verseThree
-%      \new Lyrics \lyricsto alt \verseFour
-      \new Voice = ten << \clef "G_8" \ten >>
+      \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+        \new Voice = alt << \alt >>
+      >>
+      \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+        \new Voice = ten << \clef "G_8" \ten >>
+      >>
       \new Lyrics \lyricsto ten \verseOneMen
       \new Lyrics \lyricsto ten \verseTwo
       \new Lyrics \lyricsto ten \verseThree
       \new Lyrics \lyricsto ten \verseFour
-      \new Voice = bas << \clef F \bas >>
-%      \new Lyrics \lyricsto bas \verseOne
-%      \new Lyrics \lyricsto bas \verseTwo
-%      \new Lyrics \lyricsto bas \verseThree
-%      \new Lyrics \lyricsto bas \verseFour
+      \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+        \new Voice = bas << \clef F \bas >>
+      >>
+      \new Lyrics \lyricsto bas \verseOneBass
     >>
     \layout {
       \context {
@@ -176,5 +215,23 @@ verseFour = \lyricmode {
 	\override DynamicLineSpanner.direction = #UP
       }
     }
+  }
+  \score {
+    \new ChoirStaff <<
+      \new Voice = sop << \unfoldRepeats \sop >>
+      \new Lyrics \lyricsto sop \verseOneWomen
+      \new Lyrics \lyricsto sop \verseTwo
+      \new Lyrics \lyricsto sop \verseThree
+      \new Lyrics \lyricsto sop \verseFour
+      \new Voice = alt << \unfoldRepeats \alt >>
+      \new Voice = ten << \clef "G_8" \unfoldRepeats \ten >>
+      \new Lyrics \lyricsto ten \verseOneMen
+      \new Lyrics \lyricsto ten \verseTwo
+      \new Lyrics \lyricsto ten \verseThree
+      \new Lyrics \lyricsto ten \verseFour
+      \new Voice = bas << \clef F \unfoldRepeats \bas >>
+      \new Lyrics \lyricsto bas \verseOneBass
+    >>
+    \midi {}
   }
 }

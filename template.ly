@@ -114,9 +114,23 @@ pianoRH = \relative c' {
   \bar "|."
 }
 
-pianoLH = \relative c' {
+pianoRHone = \relative c' {
   \global
   \clef bass
+  \voiceOne
+  c4
+  \bar "|."
+}
+
+pianoRHtwo = \relative c' {
+  \global
+  \voiceTwo
+  c4
+  \bar "|."
+}
+
+pianoLH = \relative c' {
+  \global
   \oneVoice
   c4
   \bar "|."
@@ -158,22 +172,22 @@ wordsBass = \lyricmode {
   <<
     \new ChoirStaff <<
       \new Dynamics \dynamicsSop
-      \new Staff \with { instrumentName = #"Soprano" } <<
+      \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
         \new Voice = "soprano" \soprano
         \new Lyrics \lyricsto "soprano" \wordsSop
       >>
       \new Dynamics \dynamicsAlto
-      \new Staff \with { instrumentName = #"Alto" } <<
+      \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
         \new Voice = "alto" \alto
         \new Lyrics \lyricsto "alto" \wordsAlto
       >>
       \new Dynamics \dynamicsTenor
-      \new Staff \with { instrumentName = #"Tenor" } <<
+      \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
         \new Voice = "tenor" \tenor
         \new Lyrics \lyricsto "tenor" \wordsTenor
       >>
       \new Dynamics \dynamicsBass
-      \new Staff \with { instrumentName = #"Bass" } <<
+      \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
         \new Voice = "bass" \bass
         \new Lyrics \lyricsto "bass" \wordsBass
       >>
@@ -181,6 +195,8 @@ wordsBass = \lyricmode {
     \new PianoStaff <<
       \new Staff <<
         \new Voice \pianoRH
+        \new Voice \pianoRHone
+        \new Voice \pianoRHtwo
       >>
       \new Dynamics \dynamicsPiano
       \new Staff <<
