@@ -4,11 +4,11 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 
 \header {
 % centered at top
-  dedication  = "dedication"
+%  dedication  = "dedication"
   title       = "title"
-  subtitle    = "subtitle"
-  subsubtitle = "subsubtitle"
-  instrument  = "instrument"
+%  subtitle    = "subtitle"
+%  subsubtitle = "subsubtitle"
+%  instrument  = "instrument"
   
 % arrangement of following lines:
 %
@@ -16,13 +16,13 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 %  meter   arranger
 %  piece       opus
 
-  composer    = "composer"
-  arranger    = "arranger"
-  opus        = "opus"
+%  composer    = "composer"
+%  arranger    = "arranger"
+%  opus        = "opus"
 
-  poet        = "poet"
-  meter       = "meter"
-  piece       = "piece"
+%  poet        = "poet"
+%  meter       = "meter"
+%  piece       = "piece"
 
 % centered at bottom
   tagline     = "tagline" % default lilypond version
@@ -171,25 +171,42 @@ wordsBass = \lyricmode {
 \score {
   <<
     \new ChoirStaff <<
+% Single soprano staff
       \new Dynamics \dynamicsSop
       \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
         \new Voice = "soprano" \soprano
         \new Lyrics \lyricsto "soprano" \wordsSop
       >>
+% Single alto staff
       \new Dynamics \dynamicsAlto
       \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
         \new Voice = "alto" \alto
         \new Lyrics \lyricsto "alto" \wordsAlto
       >>
+% Single tenor staff
       \new Dynamics \dynamicsTenor
       \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
         \new Voice = "tenor" \tenor
         \new Lyrics \lyricsto "tenor" \wordsTenor
       >>
+% Single bass staff
       \new Dynamics \dynamicsBass
       \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
         \new Voice = "bass" \bass
         \new Lyrics \lyricsto "bass" \wordsBass
+      >>
+% Joint soprano/alto staff
+      \new Dynamics \dynamicsWomen
+      \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
+        \new Voice = "soprano" { \voiceOne \soprano }
+        \new Voice = "alto"    { \voiceTwo \alto    }
+        \new Lyrics \lyricsto "soprano" \words
+      >>
+% Joint tenor/bass staff
+      \new Dynamics \dynamicsMen
+      \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
+        \new Voice = "tenor" \tenor
+        \new Voice = "bass" \bass
       >>
     >>
     \new PianoStaff <<
@@ -211,6 +228,7 @@ wordsBass = \lyricmode {
     \context {
       \Score
 %      tempoWholesPerMinute = #(ly:make-moment 100 4)
+       RemoveAllEmptyStaves = ##t
     }
   }
 }
