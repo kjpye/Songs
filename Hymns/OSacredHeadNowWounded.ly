@@ -108,7 +108,7 @@ bassTwo = \relative c' {
 }
 
 wordsOne = \lyricmode {
-  O sac- red Head, now wound- ed,
+  O sac- red Head, sore wound- ed,
   with grief and shame weighed down,
   Now scorn -ful- ly sur- round- ed 
   with thorns, Thine on- ly crown;
@@ -127,6 +127,28 @@ wordsTwo = \lyricmode {
   up- on Thy cross shall dwell,
   My heart by faith en- folds Thee. 
   Who di- eth thus dies well.
+}
+
+wordsThree = \lyricmode {
+  They beau- ty, long- de- sir- ed,
+  hath van- ished from our sight;
+  Thy power is all ex- pired,
+  and quenched the light of light.
+  Ah me! for whom thou di- est,
+  hide not so far thy grace:
+  show me, O love most high- est,
+  the bright- ness of thy face.
+}
+
+wordsFour = \lyricmode {
+  I pray thee, Je- sus, own me,
+  me, Shep- herd good, for thine;
+  who to thy fold hast won me,
+  and fed with truth di- vine.
+  Me guilt- y, ,e re- fuse not,
+  in- cline Thy face to me,
+  this com- fort that I lose not,
+  on earth to com- fort thee.
 }
 
 Mwords = \lyricmode {
@@ -152,7 +174,7 @@ Mwords = \lyricmode {
 
 \book {
   \header {
-    title = "O Sacred Head, Now Wounded"
+    title = "O Sacred Head, Sore Wounded"
     composer = "Hans Leo Hassler, 1601"
     poet     = "Paul Gerhadt"
   }
@@ -160,7 +182,7 @@ Mwords = \lyricmode {
   \score {
     \context GrandStaff {
       <<
-	\context PianoStaff {
+	\context ChoirStaff {
 	  <<
 	    \new Staff = treble {
               <<
@@ -168,8 +190,10 @@ Mwords = \lyricmode {
                 \new Voice          { \voiceTwo \trebleTwo }
               >>
 	    }
-            \new Lyrics \lyricsto melody { \wordsOne }
-            \new Lyrics \lyricsto melody { \wordsTwo }
+            \new Lyrics \lyricsto melody { \wordsOne   }
+            \new Lyrics \lyricsto melody { \wordsTwo   }
+            \new Lyrics \lyricsto melody { \wordsThree }
+            \new Lyrics \lyricsto melody { \wordsFour  }
 	    \new Staff = bass {
               <<
                 \new Voice { \clef bass \voiceOne \bassOne }
