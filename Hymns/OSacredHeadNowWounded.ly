@@ -110,15 +110,37 @@ bassTwo = \relative c' {
 wordsOne = \lyricmode {
   O sac- red Head, sore wound- ed,
   with grief and shame weighed down,
-  Now scorn -ful- ly sur- round- ed 
+  O king- ly head sur- round- ed 
   with thorns, Thine on- ly crown;
-  O sac- red Head, what glo- ry, 
-  what bliss till now was Thine!
-  Yet, though des- pised and go- ry, 
-  I joy to call Thee mine.
+  Death's pal- lor now comes o-er thee,
+  the glow of life de- cays;
+  yet hosts of heaven a- dore thee
+  and trem- ble as they gaze.
 }
 
 wordsTwo = \lyricmode {
+  What lan- guage shall I bor- row
+  to praise thee, heaven- ly friend,
+  for this thy dy- ing sor- row,
+  thy pit- y with- out end?
+  O a- gon- y and dy- ing!
+  O love to sin- ners free!
+  Je- sus, all grace sup- ply- ing,
+  turn thou thy face on me.
+}
+
+wordsThree = \lyricmode {
+  In this thy bit- ter Pas- sion,
+  good Shep- herd think of me
+  with thy most sweet com- pas- sion,
+  un- worth- y though I be:
+  be- neath thy cross a- bid- ing
+  for e- ver would I rest,
+  in thy dear love con- fid- ing,
+  and with thy pres- ence blest.
+}
+
+wordsFour = \lyricmode {
   Be Thou my con- sol- a- tion, 
   my shield when I must die;
   Re- mind me of Thy pas- sion 
@@ -127,28 +149,6 @@ wordsTwo = \lyricmode {
   up- on Thy cross shall dwell,
   My heart by faith en- folds Thee. 
   Who di- eth thus dies well.
-}
-
-wordsThree = \lyricmode {
-  They beau- ty, long- de- sir- ed,
-  hath van- ished from our sight;
-  Thy power is all ex- pired,
-  and quenched the light of light.
-  Ah me! for whom thou di- est,
-  hide not so far thy grace:
-  show me, O love most high- est,
-  the bright- ness of thy face.
-}
-
-wordsFour = \lyricmode {
-  I pray thee, Je- sus, own me,
-  me, Shep- herd good, for thine;
-  who to thy fold hast won me,
-  and fed with truth di- vine.
-  Me guilt- y, ,e re- fuse not,
-  in- cline Thy face to me,
-  this com- fort that I lose not,
-  on earth to com- fort thee.
 }
 
 Mwords = \lyricmode {
