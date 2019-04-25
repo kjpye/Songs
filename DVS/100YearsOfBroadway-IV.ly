@@ -243,6 +243,34 @@ soprano = \relative c'' {
   <f a d>4 q8 q~q <f a c> <f a d>4
   d'8(c4.~c2)
   r1 \bar "||" \key f \major
+  r1
+  r1
+  r1
+  r1
+  r1
+  \time 3/4
+
+% Time to Remember
+  a4. a8 a4
+  a4 g4. f8
+  bes,4. bes8 bes4
+  bes4 c d
+  c2 a4
+  f'2 c4
+  d2 bes4
+  g'8 d4.~d4
+  a'4. a8 a4
+  4 g f
+  bes,4. bes8 bes4
+  bes4 c d \time 4/4 \tempo 4=70
+  a'8^\markup{Dreamily} f4.~f2
+  a8 f a f a f a f \voiceOne
+  a4 f2.
+  r4 a4 c2~
+  \times 2/3 {c4 a bes} \times 2/3 {c bes a}
+  c1~
+  c1
+  r1
 
   \bar "|."
 }
@@ -256,6 +284,16 @@ alto = \relative c'' {
   s2 b4 g
   f2 <d f>(
   <e g>2) s2
+  s1*135
+  s2.*12
+  s1
+  s1
+  r8 c b c b4. c8
+  f4. c8 a2
+  r1
+  r1
+  g'4 a2.~
+  a2 g8 a g f
   \bar "|."
 }
 
@@ -452,7 +490,40 @@ baritone = \relative c' {
   a4 a8 a~a gis a4
   g8 b a g g b a g
   b1
-  
+  r8 a4. a4 a
+  a4 a8 a~a gis a4
+  r8 b4. b4 b
+  b4 b8 b~b ais b4
+  r8 c4. c4 c
+  c4 c8 b~b b b4
+  c1
+  r2 r4 c \bar "||" \key f \major
+  a8 gis a bes c4 c
+  c8 bes a c bes4 bes8 a
+  g8 bes a4 a8 g f a
+  d1
+  e,1
+  \time 3/4
+  f2.
+  r2.
+  r2.
+  r2.
+  r2.
+  r2.
+  r2.
+  r2.
+  r2.
+  r2.
+  r2.
+  r2. \time 4/4
+  r1
+  r1
+  r1
+  r1
+  r2 r4 c
+  c4. c8 \times 2/3 {c4 d e}
+  \times 2/3 {d c bes} c2~
+  c1
   \bar "|."
 }
 
@@ -553,9 +624,20 @@ wordsSopBelow = \lyricmode {
   You've made us feel a- live __ a- gain,
   you've giv- en us the drive __ a- gain,
   to make the South re- vive __ a- gain Mame. __
+
+% Try to Remember
+  Try to re- mem- ber the kind of Sep- tem- ber
+  when life was slow and oh so mel- low, __
+  Try to re- mem- ber and if you re- mem- ber, then fol- low. __
+  Fol- low, fol- low, fol- low, fol-low
+  _ _ _ _ _ _ _ _ _ _
 }
 
 wordsAltoBelow = \lyricmode {
+  _ _ _ _
+  I know a place where dreams come true
+
+  peo- ple, peo- ple who need
 }
 
 verseTwo = \lyricmode {
@@ -628,6 +710,62 @@ wordsBaritoneAbove = \lyricmode {
 
 }
 
+wordsBaritoneBelow = \lyricmode {
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _
+  Just stand- in' on the cor- ner watch- ing all the girls,
+  watch- ing all the girls, watch- ing all the girls go by.
+
+  Hel- lo young lov- ers where- ev- er you are. __
+}
+
 wordsBassBelow = \lyricmode {
 }
 
@@ -650,7 +788,8 @@ wordsBassBelow = \lyricmode {
       \new Staff <<
         \new Voice = "baritone" \baritone
         \new Voice = "bass" \bass
-        \new Lyrics \lyricsto "bass"    \wordsBassBelow
+        \new Lyrics \lyricsto "baritone" \wordsBaritoneBelow
+        \new Lyrics \lyricsto "bass"     \wordsBassBelow
       >>
       \context Lyrics = baritoneabove { \lyricsto baritone \wordsBaritoneAbove }
     >>
