@@ -340,15 +340,258 @@ soprano = \relative c'' {
   r2 a^\fermata \time 6/8
 
 % Before the Parade Passes By
-  bes2.~ ^\markup{\bold{Before the Parade Passes by}}
+  \oneVoice 
+  \key bes \major \time 6/8 \tempo "March in 2" 4.=135
+  bes2.~ ^\markup{\bold{Before the Parade Passes By}} % 265
   bes2.~
   bes2.~
   bes2.
+  r2.
+  r2. % 270
+  r2.
+  r4 bes,8 bes d f
+  a2.~
+  a4. g4 f8
+  g2. % 275
+  r4 r8 bes,8 d f
+  a4. a
+  a4. a8 bes g
+  f4. c
+  r4 c8 c ees g % 280
+  c2.~
+  c4. bes4 a8
+  bes2.
+  r4 r8 c, ees g
+  c4. c % 285
+  c4. bes8 a g
+  f4. d
+  r4 bes8 bes d <d f>
+  q2.~
+  q4. <d g>4 <d f>8 % 290
+  <d g>2.
+  r4 r8 bes d f
+  <aes c>4. q
+  <f c'>4. <f bes>4 <f g>8
+  <d f>4. c4. % 295
+  r4 r8 bes4 c8
+  d4 f8 f4.~
+  f4. r8 bes, c
+  d4 fis8 fis4.~
+  fis4. r8 bes, c % 300
+  d4. <f g>
+  <f a>4. <f bes>
+  <e a>2.
+  r4 g8 g a bes
+  c4 c8 c4.
+  r2.
+  r2.
+  r4 r8 g8 a bes
+  c4. c
+  c4. g8 a bes
+  c4 c8 c4.
+  r4 g8 g a bes
+  c2.~
+  c2.~
+  c2.
+  r4 r8 <ees, bes'>4 <ees a>8
+  <f bes>2.~
+  q2.
+  \bar "||" \key b \major
+  r2.
+  r2.
+
+% Seventy Six Trombones
+  \repeat volta 2 {
+    r4^\markup{\bold{Seventy Six Trombones}} b8 b dis fis
+    b,8 r r r4.
+    r4 fis8 fis eis gis
+    fis8 r r r4.
+    r4 cis8 cis fis ais
+    cis8 r r r4.
+    dis4 cis8 b4 gis8
+    fis8 r r r4.
+    r4 dis8 dis fis b
+    <fis dis'>8 r r r4.
+    <gis e>4 b8 b ais cis
+    b8 r r r4.
+  }
+  \alternative {
+    {
+      r2.
+      r2.
+      r2.
+      r2.
+    }
+    {
+      r2.
+    }
+  }
+  fis4. ais
+  cis4. cis
+  b4. ais
+  b2.~
+  b2.~
+  b2.
+  r4 r8 g4. \bar "||" \key c \major
+  e8 fisis fis g4.~
+  g4. e'
+  c2.
+  r4 r8 g4.
+  e8 f fis g4.~
+  g4. g8 a g
+  f4 e8 d4.
+  r4 r8 g4.
+  e8 f fis g4.~
+  g4. e'
+  c2.
+  r4 r8 <g e'>4.
+  <g d'>4. r4 r8
+  <b d>4. r4 r8
+  <e, c'>8 <e d'> <e c'> <fis b>4 <f a>8
+  <d g>4. g
+  e8 f fis g4.~
+  g4. g
+  c2.
+  r4 r8 a4.
+  f8 g gis a4.~
+  a4. f'
+  d2.
+  r4 r8 <f, dis'>4.
+  <g e'>4 <fis dis'>8 <g e'>4 <fis dis'>8
+  <g e'>4 <fis dis'>8 <g e'>4 <fis dis'>8
+  <g e'>4. <g d'>
+  <e cis'>4. <g e'>
+  <a d f>8 q q q4.~ (
+  <a f'>2.~
+  <a c f>2.)
+  r4 r8 <b d g>4 q8
+  <c e g>2.~
+  q2.~
+  q2.~
+  q2.~
+  q2.~
+  q2.
+  r2.
+  r2.^\fermata
 
   \bar "|."
 }
 
 dynamicsWomen = {
+  s1
+  s1
+  s1^\mf
+  s1*15
+				% Applause
+  s8 s^\f s4 s2
+  s1*6
+				% Everthing's coming up roses
+  s1*20
+  s2. s4^\mp
+				% They Call the Wind Maria
+  s1*4
+  s1^\cresc
+  s1*3
+  s2. s4^\f
+  s1*15
+  s2. s4^\mf
+				% I'm Flying
+  \repeat volta 2 {
+    s1*4
+  }
+  \alternative {
+    {
+      s1*2
+    }
+    {
+      s1
+    }
+  }
+  s1*7
+				% Luck Be a Lady
+  s1*19
+				% Put on a Happy Face
+  s1^\mf
+  s1*12
+  s1^\markup{\italic rit}
+				% Standing on the Corner
+  s1*22
+				% Hello Dolly
+  s1*16
+				% Mame
+  s1*23
+  s1^\markup{\italic rit}
+  s1
+				% Try to Remember
+  \time 3/4
+  s2.^\mp
+  s2.*10
+  s2.^\markup{\italic rit}
+  \time 4/4
+  s1
+  s1^\pp
+  s1*7
+  s1^\markup{\italic rit}
+  s1
+				% Where is Love?
+  s1^\p
+  s1*7
+  s1^\cresc
+  s1*2
+  s1^\dim
+  \time 2/4
+  s4 s^\mp
+				% On the Street Where You Live
+  \time 4/4
+  s1*7
+  s2.. s8^\mf
+  s1*6
+  s1^\markup{\italic rit}
+  s1
+				% If Ever I Would Leave You
+  s1*16
+  s4 s4^\mf s2
+  s1*6
+  s1^\cresc
+  s1
+  s1^\f
+  s1
+  s1^\markup{\italic rit}
+  s1*3
+  \time 6/8
+				% Before the Parade Passes By
+  s2.*7
+  s4 s2^\p
+  s2.*8
+  s2.^\cresc
+  s2.*3
+  s2.^\mf
+  s2.*10
+  s4. s4.^\cresc
+  s2.*6
+  s2.^\f
+  s2.*17
+				% Seventy Six Trombones
+  \repeat volta 2 {
+    s4 s2^\mf
+    s2.*11
+  }
+  \alternative {
+    {
+      s2.*4
+    }
+    {
+      s2.
+    }
+  }
+  s2.*3
+  s2.^\cresc
+  s2.*2
+  s4. s^\f
+				% Consider Yourself
+  s2.*32
+  s2.^\ff
+  s2.*7
 }
 
 alto = \relative c'' {
@@ -690,10 +933,137 @@ baritone = \relative c' {
   r2 a2^\fermata \time 6/8
 
 % Before the Parade Passes By
+  \key bes \major \time 6/8
   bes2.~
   bes2.~
   bes2.~
   bes2.
+  r2.
+  r2.
+  r2.
+  r4 bes,8 bes d f
+  a2.~
+  a4. g4 f8
+  g2.
+  r4 r8 bes, d f
+  a4. a
+  a4. a8 bes g
+  f4. c
+  r4 c8 c ees g
+  c2.~c4. bes4 a8
+  bes2.
+  r4 r8 c, ees g
+  c4. c
+  c4. bes8 a g
+  f4. d
+  r4 bes'8 bes bes bes
+  d2.~
+  d4. bes4 bes8
+  bes2.
+  r4 r8 bes bes bes
+  ees4. ees
+  d4. d4 bes8
+  bes4. c
+  r2.
+  r4 r8 bes4 a8
+  bes4 f8 f4.
+  r4 r8 bes4 a8
+  bes4 fis8 fis fis fis
+  g4. bes
+  d4. d
+  c2.
+  r2.
+  r2.
+  r4 r8 g8 a bes
+  c4 c8 c4.
+  r4 r8 g a bes
+  c4. c
+  c4. g8 a bes
+  c4 c8 c4.
+  r4 g8 g a bes
+  c2.~
+  c2.~
+  c2.
+  r4 r8 c4 c8
+  d2.~
+  d2. \bar "||" \key b \major
+  r2.
+  r4 r8 fis, gis ais
+
+% Seventy Six Trombones
+  \repeat volta 2 {
+    b4. fis
+    dis4. cis4 b8
+    ais4 gis'8 fis4.
+    r8 fis gis ais b bis
+    cis4. ais
+    fis4. e4 cis8
+    b2.
+    r8 fis' gis ais b cis
+    dis4. b
+    fis4. dis4 b8
+    e4 fis8 gis4 ais8
+    b4. ais4 gis8
+  }
+  \alternative {
+    {
+      fis4. r4 ais8
+      cis4 cis8 b4 gis8
+      cis2.
+      r4 r8 fis,8 gis ais
+    }
+    {
+      fis4. ais
+    }
+  }
+  r2.
+  cis4. cis
+  b4. ais
+  b2.~
+  b2.~
+  b2.
+  r4 r8 g4. \bar "||" \key c \major
+
+% Consider Yourself
+  e8 f fis g4.~
+  g4. g
+  c2.
+  r4 r8 g4.
+  e8 f fis
+  g4.~
+  g4. g8 a g
+  f4 e8 f4.
+  r4 r8 g4.
+  e8 f fis g4.~
+  g4. b
+  a2.
+  r4 r8 bes4.
+  b4. r4 r8
+  gis4. r4 r8
+  a8 a a d4 c8
+  b4. g
+  e8 f fis g4.~
+  g4. g
+  c2.
+  r4 r8 e,4.
+  f8 g gis a4.~
+  a4. a
+  d2.
+  r4 r8 b4.
+  c4 b8 c4 b8
+  c4 b8 c4 b8
+  c4. bes
+  a4. cis
+  d8 d d d4.~(
+  d2.
+  g,2.)
+  r4 r8 g4 g8
+  c2.~
+  c2.~
+  c2.~
+  c2.~
+  c2.~
+  c2. r2. r2.^\fermata
 
   \bar "|."
 }
@@ -887,6 +1257,40 @@ wordsSopBelow = \lyricmode {
   Sum- mer, Win- ter or Fall.
   No, nev- er would I leave you at all.
 
+				% Before the Parade Passes By
+  Be fore the pa- rade pass- es by,
+  I'm gon- na go and taste Sat- ur- day's high life.
+  Be- fore the pa- rade pass- es by,
+  I'm gon- na get some life back in- to my life.
+  I'm read- y to move __ out in front.
+  I'ev had e- nough of just pass- ing by life.
+  With the rest of them, __ wth the best of them, __
+  I can hold my head up high
+  for I've got a goal a- gain.
+  I've got to feel my heart com- in' a- live a- gain,
+  be- fore the pa- rade pass- es by.
+
+				% Seventy Six Trombones
+  Ba ba ba ba ba,
+  bop ba da da dat.
+  Ba ba ba ba ba,
+  dat da da da da.
+  Ba ba ba ba ba
+  dat bop ba da da da
+
+  oom- pahed up and down the square. __
+
+				% Consider Yourself
+  Con- sid- er your self __ at home.
+  Con- sid- er your- self __ one of the fam- i- ly.
+  We've tak- en to you __ so strong,
+  it's clear we're go- ing to get a- long.
+  Con- sid- er your- self __
+  our mate.
+  We don't want to have __ no fuss.
+  For af- ter some con- sid- er- a- tion we can state:
+  con- sid- er your self__
+  one of us. __
 }
 
 wordsAltoBelow = \lyricmode {
@@ -1050,7 +1454,7 @@ wordsBaritoneBelow = \lyricmode {
 
   Hel- lo young lov- ers where- ev- er you are. __
 
-  Ah __
+  Ah % __
   _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _
