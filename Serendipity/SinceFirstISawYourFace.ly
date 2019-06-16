@@ -176,7 +176,7 @@ altoWordsThree = \lyricmode {
   Then just- ly might you leave me.
   I asked you leave you bade me love,
   Is't now the time to chide me?
-  No, no, no,no, no, I'll love you still,
+  No, no, no, no, no, I'll love you still,
   What for- tune e'er be- tide me.
 }
 
