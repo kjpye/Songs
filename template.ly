@@ -67,6 +67,13 @@ black = {
   \override Dots.color       = #black
 }
 
+RehearsalTrack = {
+%  \set Score.currentBarNumber = #5
+%  \mark \markup { \box 5 }
+  \mark \markup { \circle "1a" }
+  s2 s2
+}
+
 soprano = \relative c' {
   \global
   c4
