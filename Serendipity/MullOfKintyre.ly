@@ -67,6 +67,56 @@ black = {
   \override Dots.color       = #black
 }
 
+RehearsalTrack = {
+%  \set Score.currentBarNumber = #5
+%  \mark \markup { \box 5 }
+  \mark \markup { \circle "1a" }
+  s2. s2. s2. s2. s2.
+  \mark \markup { \circle "1b" }
+  s2. s2. s2. s2. s2.
+  \mark \markup { \circle "2a" }
+  s2. s2. s2. s2. s2. s2.
+  \mark \markup { \circle "2b" }
+  s2. s2. s2. s2. s2.
+  \mark \markup { \circle "3a" }
+  s2. s2. s2. s2. s2.
+  \mark \markup { \circle "3b" }
+  s2. s2. s2. s2. s2.
+  \mark \markup { \circle "4a" }
+  s2. s2.
+  \mark \markup { \circle "1a.5" }
+  s2.
+  \mark \markup { \circle "1b" }
+  s2. s2. s2. s2. s2.
+  \mark \markup { \circle "2a" }
+  s2. s2. s2. s2. s2. s2.
+  \mark \markup { \circle "2b" }
+  s2. s2. s2. s2. s2.
+  \mark \markup { \circle "3a" }
+  s2. s2. s2. s2. s2.
+  \mark \markup { \circle "3b" }
+  s2. s2. s2. s2. s2.
+  \mark \markup { \circle "4a" }
+  s2. s2.
+  \mark \markup { \circle "5b" }
+  s2. s2. s2. s2. s2.
+  \mark \markup { \circle "6a" }
+  s2. s2. s2. s2. s2.
+  \mark \markup { \circle "6b" }
+  s2. s2. s2. s2. s2.
+  \mark \markup { \circle "7a" }
+  s2. s2. s2. s2. s2.
+  \mark \markup { \circle "7b" }
+  s2. s2. s2. s2. s2.
+  \mark \markup { \circle "8a" }
+  s2. s2. s2. s2.
+  \mark \markup { \circle "5b" }
+  s2. s2. s2. s2. s2.
+  \mark \markup { \circle "6a" }
+  s2. s2. s2.
+  \mark \markup { \circle "8b.3" }
+}
+
 sopOne = \relative c' { % 5-33
   e4.^\mf fis8 a4 % 5
   cis2 cis4
@@ -613,7 +663,7 @@ pianoRHTwoOne = \relative c'' {
   r4 <e a> q
   r4 <d fis> q
   r4 q <a d>
-  r3 <a cis> <cis e>
+  r4 <a cis> <cis e>
   r4 q q
   r4 q q
   r4 q q
@@ -820,6 +870,7 @@ wordsBass = \lyricmode {
 % Single soprano staff
 %     \new Dynamics \dynamicsSop
       \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+        \new Voice \RehearsalTrack
         \new Voice = "soprano" \soprano
         \new Lyrics \lyricsto "soprano" \wordsSop
       >>
@@ -844,6 +895,7 @@ wordsBass = \lyricmode {
 % Joint soprano/alto staff
 %     \new Dynamics \dynamicsWomen
 %     \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
+%       \new Voice \RehearsalTrack
 %       \new Voice = "soprano" { \voiceOne \soprano }
 %       \new Voice = "alto"    { \voiceTwo \alto    }
 %       \new Lyrics \lyricsto "soprano" \words
