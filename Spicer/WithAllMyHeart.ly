@@ -3,48 +3,18 @@
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 
 \header {
-% centered at top
-%  dedication  = "dedication"
   title       = "With All My Heart"
-%  subtitle    = "subtitle"
-%  subsubtitle = "subsubtitle"
-%  instrument  = "instrument"
-  
-% arrangement of following lines:
-%
-%  poet    composer
-%  meter   arranger
-%  piece       opus
-
   composer    = "Marjorie Spicer"
-%  arranger    = "arranger"
-%  opus        = "opus"
-
-%  poet        = "poet"
-%  meter       = "meter"
-%  piece       = "piece"
-
-% centered at bottom
-% tagline     = "tagline" % default lilypond version
   tagline   = ##f
   copyright   = \today
 }
 
 % #(set-global-staff-size 16)
 
-% \paper {
-%   #(set-paper-size "a4")
-%   line-width = 180\mm
-%   left-margin = 20\mm
-%   bottom-margin = 10\mm
-%   top-margin = 10\mm
-% }
-
 global = {
   \key aes \major
   \time 4/4
   \tempo 4=80
-%  \partial 4
 }
 
 colour = {
@@ -126,41 +96,6 @@ soprano = \relative c' {
   \bar "|."
 }
 
-dynamicsSop = {
-}
-
-alto = \relative c' {
-  \global
-  c4
-  \bar "|."
-}
-
-dynamicsAlto = {
-}
-
-tenor = \relative c {
-  \global
-  \clef "treble_8"
-  c4
-  \bar "|."
-}
-
-dynamicsTenor = {
-}
-
-bass= \relative c' {
-  \global
-  \clef bass
-  c4
-  \bar "|."
-}
-
-dynamicsBass = {
-}
-
-dynamicsPiano = {
-}
-
 pianoRH = \relative c' {
   \global
   <c ees>1
@@ -208,21 +143,6 @@ pianoRH = \relative c' {
       <c, ees aes>1
     }
   }
-  \bar "|."
-}
-
-pianoRHone = \relative c' {
-  \global
-  \clef bass
-  \voiceOne
-  c4
-  \bar "|."
-}
-
-pianoRHtwo = \relative c' {
-  \global
-  \voiceTwo
-  c4
   \bar "|."
 }
 
@@ -277,22 +197,6 @@ pianoLH = \relative c {
   \bar "|."
 }
 
-pianoLHone = \relative c' {
-  \global
-  \clef bass
-  \voiceOne
-  c4
-  \bar "|."
-}
-
-pianoLHtwo = \relative c' {
-  \global
-  \clef bass
-  \voiceTwo
-  c4
-  \bar "|."
-}
-
 wordsSopOne = \lyricmode {
   I love you Lord, with all my heart,
   and all my mind, and all my soul and strength.
@@ -318,18 +222,6 @@ wordsSopTwo = \lyricmode {
   I love you Lord.
 }
 
-wordsAlto = \lyricmode {
-  words
-}
-
-wordsTenor = \lyricmode {
-  words
-}
-
-wordsBass = \lyricmode {
-  words
-}
-
 \score {
   <<
     \new ChoirStaff <<
@@ -341,51 +233,15 @@ wordsBass = \lyricmode {
         \new Lyrics \lyricsto "soprano" \wordsSopOne
         \new Lyrics \lyricsto "soprano" \wordsSopTwo
       >>
-% Single alto staff
-%      \new Dynamics \dynamicsAlto
-%      \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
-%        \new Voice = "alto" \alto
-%        \new Lyrics \lyricsto "alto" \wordsAlto
-%      >>
-% Single tenor staff
-%      \new Dynamics \dynamicsTenor
-%      \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
-%        \new Voice = "tenor" \tenor
-%        \new Lyrics \lyricsto "tenor" \wordsTenor
-%      >>
-% Single bass staff
-%      \new Dynamics \dynamicsBass
-%      \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
-%        \new Voice = "bass" \bass
-%        \new Lyrics \lyricsto "bass" \wordsBass
-%      >>
-% Joint soprano/alto staff
-%      \new Dynamics \dynamicsWomen
-%      \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
-%        \new Voice \RehearsalTrack
-%        \new Voice = "soprano" { \voiceOne \soprano }
-%        \new Voice = "alto"    { \voiceTwo \alto    }
-%        \new Lyrics \lyricsto "soprano" \words
-%      >>
-% Joint tenor/bass staff
-%      \new Dynamics \dynamicsMen
-%      \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
-%        \new Voice = "tenor" \tenor
-%        \new Voice = "bass" \bass
-%      >>
     >>
     \new PianoStaff <<
       \new Staff <<
         \new Voice \pianoRH
-%        \new Voice \pianoRHone
-%        \new Voice \pianoRHtwo
       >>
       \new Dynamics \dynamicsPiano
       \new Staff <<
 	\clef bass
         \new Voice \pianoLH
-%        \new Voice \pianoLHone
-%        \new Voice \pianoLHtwo
       >>
     >>
   >>
