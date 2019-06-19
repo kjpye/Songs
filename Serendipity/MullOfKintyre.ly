@@ -515,7 +515,7 @@ pianoRHtwo = {
 }
 
 pianoRHthree = \relative c'' {
-  s2.
+  s2. % 38 ???
   s2.
   s2.
   s2. \bar "||"
@@ -562,54 +562,54 @@ pianoRH = \relative c' {
 }
 
 pianoRHOneOne = \relative c' {
-  e4. fis8 a4
+  e4. fis8 a4 % 5 in original
   cis2 cis4
   cis4 b a
   b8 a~a4 fis
   e4. fis8 a4
-  cis2 cis4
+  cis2 cis4 % 10
   cis4 b a
   b4 a r8 fis
   a4. fis8 b4
   a2.~
-  a2.~
+  a2.~ % 15
   a4 r r \bar "||"
   e4 a4. fis8
   e8 cis~cis4 e
   a4 cis b
-  <cis, e a>2.
+  <cis, e a>2. % 20
   fis4 a4. g8
   fis8 e~e4 d
   e4 a fis
   e2.
-  e4 a4. fis8
+  e4 a4. fis8 % 25
   e cis~cis4 e
   a4 cis b
   a4. b8 cis4
   d4. cis8 b4
-  a4 fis r8 e
+  a4 fis r8 e % 30
   e4. fis8 b4
   a2.~
   a4 r r
 }
 
 pianoRHOneTwo = \relative c'' {
-  a4. b8 d4
+  a4. b8 d4 % 48 in original
   fis2 fis4
-  fis4 e d
+  fis4 e d % 50
   e8 d~d4 b
   a4. b8 d4
   fis2 fis4
   fis4 e d
-  e4 d r8 b
+  e4 d r8 b % 55
 }
 
 pianoRHOneThree = \relative c' { % 56-77
-  a4. b8 e4
+  a4. b8 e4 % 56 in original
   d2.~
   d2.~
   d4 r r
-  s2.
+  s2. % 60
   s2.
   s2.
   s2.
@@ -655,43 +655,77 @@ pianoRHOne = \relative c' {
 }
 
 pianoRHTwoOne = \relative c'' {
-  r4 <a, cis> <cis e>
+  r4 <a, cis> <cis e> % 5 in original
   r4 <e a> q
   r4 <d fis> q
   r4 q <a d>
   r4 <a cis> <cis e>
-  r4 <e a> q
+  r4 <e a> q % 10
   r4 <d fis> q
   r4 q <a d>
   r4 <a cis> <cis e>
   r4 q q
-  r4 q q
+  r4 q q % 15
   r4 q q
   r4 q <a cis>
   r4 <e a> <a cis>
   r4 <e' a> <cis e>
-  s2.
+  s2. % 20
   r4 <d fis> <a d>
   r4 <fis a> q
   r4 <cis' e> <a cis>
   r4 q q
-  r4 <cis e> <a cis>
+  r4 <cis e> <a cis> % 25
   r4 <e a> <a cis>
   r4 <e a> <cis e>
   q2 <e a>4
-  r4 <fis a> < fis>
-  r4 <a d> <fis a>
+  r4 <fis a> < fis> 
+  r4 <a d> <fis a> % 30
   r4 <gis d'> <d' gis>
+  r4 <cis e> q
   r4 <cis e> q
 }
 
-pianoRHTwoTwo = \relative c' {
+pianoRHTwoTwo = \relative c' { % 48 - 56
+  r4 <d fis> <fis a>
+  r4 <a d> q
+  r4 <g b> q
+  r4 q <d g>
+  r4 <d fis> <fis a>
+  r4 <a d> q
+  r4 <g b> q
+  r4 q <d g>
 }
 
-pianoRHTwoThree = \relative c' {
+pianoRHTwoThree = \relative c' { % 56 - 77
+  r4 <d fis> <fis a>
+  r4 <fis a> q
+  r4 q q
+  r4 q q
+  s2.
+  s2.
+  s2.
+  s2.
+  s2.
+  s2.
+  s2.
+  s2.
+  s2.
+  s2.
+  s2.
+  s2.
+  s2.
+  s2.
+  s2.
+  s2.
+  s2.
 }
 
 pianoRHTwoFour = \relative c' {
+  r4 <d fis> <fis a>
+  r4 q q
+  r4 <g b> q
+  s2.
 }
 
 pianoRHTwo = \relative c' {
