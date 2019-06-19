@@ -210,14 +210,18 @@ wordsSopOne = \lyricmode {
 }
 
 wordsSopTwo = \lyricmode {
-  I'll love you Lord, with all my heart,
+  love you Lord, with all my heart,
   and all my mind, and all my soul and strength.
   \set ignoreMelismata = ##t
   I'll praise you Lord, I wor- ship you with ev- _ ery breath,
   \unset ignoreMelismata
   and with my whole life.
   With all my heart, and all my mind;
-  with all my soul, and all my strength I love you _ _ Lord.
+  with all my soul, and all my strength I love you
+}
+
+wordsSopThree = \lyricmode {
+  Lord.
   I love you Lord.
   I love you Lord.
 }
@@ -226,19 +230,17 @@ wordsSopTwo = \lyricmode {
   <<
     \new ChoirStaff <<
 % Single soprano staff
-      \new Dynamics \dynamicsSop
       \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
         \new Voice \RehearsalTrack
         \new Voice = "soprano" \soprano
-        \new Lyrics \lyricsto "soprano" \wordsSopOne
-        \new Lyrics \lyricsto "soprano" \wordsSopTwo
+        \new Lyrics \lyricsto "soprano" \wordsSopOne { \lyricmode { _ _ } }
+        \new Lyrics \lyricsto "soprano" { \lyricmode { _ } \wordsSopTwo \lyricmode { _ _ } \wordsSopThree }
       >>
     >>
     \new PianoStaff <<
       \new Staff <<
         \new Voice \pianoRH
       >>
-      \new Dynamics \dynamicsPiano
       \new Staff <<
 	\clef bass
         \new Voice \pianoLH
@@ -246,6 +248,27 @@ wordsSopTwo = \lyricmode {
     >>
   >>
   \layout { indent = 1.5\cm }
+}
+
+\score {
+  <<
+    \new ChoirStaff <<
+% Single soprano staff
+      \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+        \new Voice = "soprano" \unfoldRepeats \soprano
+        \new Lyrics \lyricsto "soprano" { \wordsSopOne \wordsSopTwo \wordsSopThree }
+      >>
+    >>
+    \new PianoStaff <<
+      \new Staff <<
+        \new Voice \unfoldRepeats \pianoRH
+      >>
+      \new Staff <<
+	\clef bass
+        \new Voice \unfoldRepeats \pianoLH
+      >>
+    >>
+  >>
   \midi {
     \context {
       \Score
