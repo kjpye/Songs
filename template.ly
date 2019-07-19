@@ -67,6 +67,13 @@ black = {
   \override Dots.color       = #black
 }
 
+RehearsalTrack = {
+%  \set Score.currentBarNumber = #5
+%  \mark \markup { \box 5 }
+  \mark \markup { \circle "1a" }
+  s2 s2
+}
+
 soprano = \relative c' {
   \global
   c4
@@ -174,6 +181,7 @@ wordsBass = \lyricmode {
 % Single soprano staff
       \new Dynamics \dynamicsSop
       \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+        \new Voice \RehearsalTrack
         \new Voice = "soprano" \soprano
         \new Lyrics \lyricsto "soprano" \wordsSop
       >>
@@ -198,6 +206,7 @@ wordsBass = \lyricmode {
 % Joint soprano/alto staff
       \new Dynamics \dynamicsWomen
       \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
+        \new Voice \RehearsalTrack
         \new Voice = "soprano" { \voiceOne \soprano }
         \new Voice = "alto"    { \voiceTwo \alto    }
         \new Lyrics \lyricsto "soprano" \words

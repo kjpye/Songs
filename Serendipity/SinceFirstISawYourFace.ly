@@ -6,7 +6,7 @@
   % Remove default LilyPond tagline
   tagline = ##f
 }
-#(set-global-staff-size 24)
+#(set-global-staff-size 22)
 
 %\paper {
 %  #(set-paper-size "a4")
@@ -32,7 +32,7 @@ soprano = \relative c' {
   d4. e8 fis4 g % 5
   a4 g8(fis) e4 b'
   a4. 8 g4 fis
-  e4.(d8) d4 \repeat volta 2 { fis
+  e4.(d8) d4 \break \repeat volta 2 { fis
     b4. 8 gis4 e
     a4. 8 fis4 d % 10
     d'4. 8 4 c
@@ -135,6 +135,18 @@ sopranoWordsTwo = \lyricmode {
   I leave my heart be- hind me.
 }
 
+sopranoWordsThree = \lyricmode {
+  \set stanza = "3."
+  If I de- sire or praise you too much,
+  That fault you may for- give me,
+  Or if my hands had strayed a touch,
+  Then just- ly might you leave me.
+  I asked you leave you bade me love,
+  Is't now the time to chide me?
+  No, no, no I'll love you still,
+  What for- tune e'er be- tide me.
+}
+
 altoWordsOne = \lyricmode {
   \set stanza = "1."
   Since first I saw your face I re- solv'd to ho- nour and re- known ye;
@@ -154,6 +166,18 @@ altoWordsTwo = \lyricmode {
   And signs of kind- ness blind me,
   There, O there, wher- "e're," wher- "e'er" I go,
   I leave my heart be- hind me.
+}
+
+altoWordsThree = \lyricmode {
+  \set stanza = "3."
+  If I de- sire or praise you too much,
+  That fault you may for- give me,
+  Or if my hands had strayed a touch,
+  Then just- ly might you leave me.
+  I asked you leave you bade me love,
+  Is't now the time to chide me?
+  No, no, no, no, no, I'll love you still,
+  What for- tune e'er be- tide me.
 }
 
 tenorWordsOne = \lyricmode {
@@ -177,6 +201,18 @@ tenorWordsTwo = \lyricmode {
   I leave my heart be- hind me.
 }
 
+tenorWordsThree = \lyricmode {
+  \set stanza = "3."
+  If I de- sire or praise you too much,
+  That fault you may for- give me,
+  Or if my hands had strayed a touch,
+  Then just- ly might you leave me.
+  I asked you leave you bade me love,
+  Is't now the time to chide me?
+  No, no, no, no, no, I'll love you still,
+  What for- tune e'er be- tide me.
+}
+
 bassWordsOne = \lyricmode {
   \set stanza = "1."
   Since first I saw your face I re- solv'd to ho- nour and re- known ye;
@@ -198,6 +234,18 @@ bassWordsTwo = \lyricmode {
   I leave my heart be- hind me.
 }
 
+bassWordsThree = \lyricmode {
+  \set stanza = "3."
+  If I de- sire or praise you too much,
+  That fault you may for- give me,
+  Or if my hands had strayed a touch,
+  Then just- ly might you leave me.
+  I asked you leave you bade me love,
+  Is't now the time to chide me?
+  No, no, no, no, no I'll love you still,
+  What for- tune e'er be- tide me.
+}
+
 verseThree = \lyricmode {
   \set stanza = "3."
 }
@@ -208,23 +256,27 @@ verseThree = \lyricmode {
       \new Voice = "soprano" \soprano
       \new Lyrics \lyricsto "soprano" \sopranoWordsOne
       \new Lyrics \lyricsto "soprano" \sopranoWordsTwo
+      \new Lyrics \lyricsto "soprano" \sopranoWordsThree
     >>
     \new Staff <<
       \new Voice = "alto" \alto
       \new Lyrics \lyricsto "alto" \altoWordsOne
       \new Lyrics \lyricsto "alto" \altoWordsTwo
+      \new Lyrics \lyricsto "alto" \altoWordsThree
     >>
     \new Staff <<
       \clef "treble_8"
       \new Voice = "tenor" \tenor
       \new Lyrics \lyricsto "tenor" \tenorWordsOne
       \new Lyrics \lyricsto "tenor" \tenorWordsTwo
+      \new Lyrics \lyricsto "tenor" \tenorWordsThree
     >>
     \new Staff <<
       \clef bass
       \new Voice = "bass" \bass
       \new Lyrics \lyricsto "bass" \bassWordsOne
       \new Lyrics \lyricsto "bass" \bassWordsTwo
+      \new Lyrics \lyricsto "bass" \bassWordsThree
     >>
   >>
   \layout { }
