@@ -5,6 +5,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 global = {
   \key f \major
   \time 3/4
+  \tempo 4=90
 }
 
 sopMusic = \relative c' {

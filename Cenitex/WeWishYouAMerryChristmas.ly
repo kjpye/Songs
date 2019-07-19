@@ -194,7 +194,7 @@ chordtrack = \chordmode {
     <<
       <<
         \new ChordNames { \transpose f g \chordtrack }
-%        \new FretBoards { \transpose f g \chordtrack }
+        \new FretBoards { \transpose f g \chordtrack }
       >>
     \context ChoirStaff <<
       \context Staff = melody <<

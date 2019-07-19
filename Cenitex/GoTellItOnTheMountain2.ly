@@ -269,7 +269,7 @@ Mbasswords = \lyricmode {
     <<
       <<
         \new ChordNames { \chordtrack }
-%        \new FretBoards { \chordtrack }
+        \new FretBoards { \chordtrack }
       >>
     \context ChoirStaff <<
 	\context Staff = melody <<
