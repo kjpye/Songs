@@ -844,7 +844,7 @@ wordsThree = \lyricmode {
       \new Lyrics \lyricsto "partone" \wordsOne
     >>
     \new Dynamics \dynamicsTwo
-    \new Staff \with { instrumentName = \markup { \center-column { "Diedre" \line {"June"} \line {"Ruth"} } } } <<
+    \new Staff \with { instrumentName = \markup { \center-column { "Deidre" \line {"June"} \line {"Ruth"} } } } <<
       \new Voice = "parttwo" \partTwo
       \new Lyrics \lyricsto "parttwo" \wordsTwo
     >>
