@@ -25,8 +25,8 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   piece       = "Nottingham"
 
 % centered at bottom
-  tagline     = "tagline" % default lilypond version
-% tagline   = ##f
+%  tagline     = "tagline" % default lilypond version
+  tagline   = ##f
   copyright   = \today
 }
 
@@ -43,7 +43,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 global = {
   \key g \major
   \time 3/2
-  \tempo 2=85
+  \tempo 2=125
 }
 
 colour = {
@@ -69,7 +69,7 @@ black = {
 RehearsalTrack = {
 %  \set Score.currentBarNumber = #5
 %  \mark \markup { \box 5 }
-  \mark \markup { \circle "1a" }
+%  \mark \markup { \circle "1a" }
   s2 s2
 }
 
@@ -120,25 +120,56 @@ pianoRH = \relative c' {
   \bar "|."
 }
 
-pianoRHone = \relative c'' {
+melody = \relative c'' {
   \global
   \voiceOne
-  \repeat volta 6 {
+  s1.
+  s1.
+  s1.
+  s1.
+  \repeat volta 4 {
     g1 g2
     fis2(e) d2
     c'1 c2
     b1. \bar "||"
     d1 b2
     d2(c) a
-    g1 b2 a1.
-    g1 g2 \bar "||"
+    g1 b2
+    a1. \bar "||"
+    g1 g2
     fis2.(e4) d2
     c'1 c2
-    b1.
-    d1 b2 \bar "||"
+    b1. \bar "||"
+    d1 b2
     a2(c) e
-    g,1
-    fis2
+    g,1 fis2
+    g1.
+  }
+}
+
+pianoRHone = \relative c'' {
+  \global
+  \voiceOne
+    d1 b2
+    a2(c) e
+    g,1 fis2
+    g1.
+  \repeat volta 4 {
+    g1 g2
+    fis2(e) d2
+    c'1 c2
+    b1. \bar "||"
+    d1 b2
+    d2(c) a
+    g1 b2
+    a1. \bar "||"
+    g1 g2
+    fis2.(e4) d2
+    c'1 c2
+    b1. \bar "||"
+    d1 b2
+    a2(c) e
+    g,1 fis2
     g1.
   }
 }
@@ -146,7 +177,11 @@ pianoRHone = \relative c'' {
 pianoRHtwo = \relative c' {
   \global
   \voiceTwo
-  \repeat volta 6 {
+    d2(g) f
+    e1 e2
+    d1 c2
+    b1.
+  \repeat volta 4 {
     d1 d2
     d1 d2
     d1 fis2
@@ -177,7 +212,11 @@ pianoLHone = \relative c' {
   \global
   \clef bass
   \voiceOne
-  \repeat volta 6 {
+    b1 d2
+    c1 a2
+    b1 a2
+    g1.
+  \repeat volta 4 {
     b1 b2
     a1 fis2
     fis2(a) d
@@ -192,7 +231,8 @@ pianoLHone = \relative c' {
     d1.
     b1 d2
     c1 a2
-    b1 a2 g1.
+    b1 a2
+    g1.
   }
 }
 
@@ -200,8 +240,12 @@ pianoLHtwo = \relative c' {
   \global
   \clef bass
   \voiceTwo
-  \repeat volta 6 {
-    g1 g2
+    g1 gis2
+    a1 c,2
+    d1 d2
+    g,1.
+  \repeat volta 4 {
+    g'1 g2
     d1 d2
     d2(fis) d
     g1.
@@ -227,6 +271,13 @@ wordsOne = \lyricmode {
   Let them flow in cease- less praise.
 }
 
+wordsOneA = \lyricmode {
+  Take my life, and let it be
+  Con- sec- ra- ted, Lord, to Thee;
+  Take my mom- ents and my days,
+  Let them flow in cease- less praise.
+}
+
 wordsTwo = \lyricmode {
   Take my hands, and let them move
   At the im- pulse of thy love;
@@ -241,11 +292,25 @@ Take my voice, and let me sing
   Filled with mes- sag- es from Thee.
 }
 
+wordsTwoA = \lyricmode {
+Take my voice, and let me sing
+  Al- ways, on- ly, for my King;
+  Take my lips, and let them be
+  Filled with mes- sag- es from Thee.
+}
+
 wordsFour = \lyricmode {
   Take my sil- ver and my gold;
   Not a mite would I with- hold:
   Take my in- tel- lect, and use
   Ev- ery pow- er as Thou shalt choose.
+}
+
+wordsThreeA = \lyricmode {
+  Take my in- tel- lect, and use
+  Ev- ery pow- er as Thou shalt choose.
+  Take my will, and make it Thine;
+  It shall be no long- er mine:
 }
 
 wordsFive = \lyricmode {
@@ -262,16 +327,26 @@ wordsSix = \lyricmode {
   Ev- er, on- ly, all for Thee.
 }
 
+wordsFourA = \lyricmode {
+  Take my love: my Lord, I pour
+  At Thy feet its treas- ure- store;
+  Take my- self, and I will be
+  Ev- er, on- ly, all for Thee.
+}
+
 \score {
   <<
 %    \new ChoirStaff <<
-%% Single soprano staff
-%      \new Dynamics \dynamicsSop
-%      \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
-%        \new Voice \RehearsalTrack
-%        \new Voice = "soprano" \soprano
-%        \new Lyrics \lyricsto "soprano" \wordsSop
-%      >>
+% Single soprano staff
+      \new Dynamics \dynamicsSop
+      \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+        \new Voice \RehearsalTrack
+        \new Voice = "soprano" \melody
+        \new Lyrics \lyricsto "soprano" \wordsOneA
+        \new Lyrics \lyricsto "soprano" \wordsTwoA
+        \new Lyrics \lyricsto "soprano" \wordsThreeA
+        \new Lyrics \lyricsto "soprano" \wordsFourA
+      >>
 %% Single alto staff
 %      \new Dynamics \dynamicsAlto
 %      \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
@@ -310,12 +385,6 @@ wordsSix = \lyricmode {
 %        \new Voice \pianoRH
         \new Voice = "pianorhone" \pianoRHone
         \new Voice \pianoRHtwo
-        \new Lyrics \lyricsto "pianorhone" \wordsOne
-        \new Lyrics \lyricsto "pianorhone" \wordsTwo
-        \new Lyrics \lyricsto "pianorhone" \wordsThree
-        \new Lyrics \lyricsto "pianorhone" \wordsFour
-        \new Lyrics \lyricsto "pianorhone" \wordsFive
-        \new Lyrics \lyricsto "pianorhone" \wordsSix
       >>
       \new Dynamics \dynamicsPiano
       \new Staff <<
@@ -334,14 +403,14 @@ wordsSix = \lyricmode {
         \context PianoStaff {
           <<
             \new Staff = treble \unfoldRepeats {
-              \set Staff.midiInstrument = #"church organ"
+%              \set Staff.midiInstrument = #"church organ"
               <<
                 \new Voice = melody { \pianoRHone}
                 \new Voice          { \pianoRHtwo }
               >>
             }
             \new Staff = bass \unfoldRepeats {
-              \set Staff.midiInstrument = #"church organ"
+%              \set Staff.midiInstrument = #"church organ"
               <<
                 \new Voice { \pianoLHone }
                 \new Voice { \pianoLHtwo }
