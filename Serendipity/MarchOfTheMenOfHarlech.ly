@@ -175,7 +175,7 @@ dynamicsTenor = {
   s1
   s1
   \repeat volta 2 {
-    s1^\mf^\markup{Descant}
+    s1^\mf^\markup{DESCANT}
     s1
     s1
     s1
@@ -292,7 +292,7 @@ dynamicsBass = {
   s1^\ff \!
   s1
   \repeat volta 2 {
-    s1^\f^\markup \roman Melody
+    s1^\f^\markup \roman MELODY
     s1
     s1
     s1
@@ -318,6 +318,40 @@ dynamicsBass = {
 }
 
 dynamicsPiano = {
+  s1^\f
+  s1
+  \repeat volta 2 {
+    s1^\mf
+    s1*4
+    s1\<
+    s1\!
+    s1
+  }
+  s1^\mf
+  s1*3
+  s1^\markup \italic cresc.
+  s1*3
+  s1^\f
+  s1*4
+  s1\<
+  s1^\ff\!
+  s1
+  \repeat volta 2 {
+    s1*4
+    s1
+    s1\<
+    s1\!
+    s1
+  }
+  s1^\mf
+  s1*3
+  s1^\markup \italic cresc.
+  s1*3
+  s1^\f
+  s1*4
+  s1^\markup \italic cresc.
+  s1^\ff
+  s1
 }
 
 pianoRH = \relative c' {
@@ -473,7 +507,7 @@ pianoRHtwo = \relative c' {
   <c f>2 <bes e> % 25
   s1
   \repeat volta 2 {
-    s4 c2 d4~d8. e16
+    s4 c d4~d8. e16
     s1
     s1
     s1 % 30
@@ -489,7 +523,7 @@ pianoRHtwo = \relative c' {
   s1
   s1 % 40
   s1
-  a8 g16 a8. bes16 s2
+  a8. g16 a8. bes16 s2
   s1
   s1
   s4 fis8. a16 s2 % 45
@@ -501,27 +535,104 @@ pianoRHtwo = \relative c' {
   \bar "|."
 }
 
-pianoLH = \relative c' {
+pianoLH = \relative c {
   \global
   \clef bass
   \oneVoice
-  c4
+  <c c'>2 c
+  <f, f'>4 <c c'> <f, f'> r
+  \repeat volta 2 {
+    <f' f'>2 bes
+    a4 <g g'> <f f'> <a f'>
+    <g g'>4 a <bes g'> <b g'>
+    <c g'>4 <g g'> <c g'> <bes e>
+    <a f'>2 <bes f>
+    <a f'>4 c f <bes, bes'>
+    <c a'>2-> c
+    <f, f'>4 <c c'> <f, f'> r
+  }
+  c''4 g' c g
+  c,4 g' c g
+  f4 c' f c
+  f,4 c' f c
+  f,4 c' f c
+  f,4 c' f c
+  f, 4 c'2 c,4
+  f4 <c c'> <a a'> <f f'>
+  <bes bes'>4 <g g'> <a a'> q
+  <d, d'>4 <e e'> <f f'> <a a'>
+  <bes bes'>4 <g g'>8. <a a'>16 <bes bes'>4 <b g'>
+  <c g'>4 <g g'> <c g> <bes e>
+  <a f'>2 <bes f'>
+  <a f'>4 <g g'> <f f'> <bes bes'>
+  <c a'>2 <c, c'>
+  <f f'>4-> <c c'>-> <f, f'>-> r
+  \repeat volta 2 {
+    <f' f'>4 <a f'> s2
+    a4 c f a
+    <g d>4 <g c> <g bes> <g b>
+    c4 d c <c, bes>
+    s1
+    a4 c d <bes bes'>
+    <c c'>4 r <c bes'> r
+    f4 c f, r
+  }
+  c'4 g' c g
+  c,4 g' c g
+  f4 c' f c
+  f,4 c' f c
+  f,4 c' f c
+  f,4 c' f c
+  f,4 c'2 c,4
+  f8. e16 f8. g16 a4 a,
+  <bes bes'>4 <bes' d> <a c> <a, f'>
+  <g g'>4 <g' bes> <f a> <f, f'>
+  <bes bes'>4 <c c'> <bes bes'> <b g'>
+  s1
+  s1
+  a4 c d <bes bes'>
+  <c c'>4-> r  <c bes'>-> r
+  <f, f'>4-> <c c'>-> <f, f'>4-> r
   \bar "|."
 }
 
-pianoLHone = \relative c' {
+pianoLHone = \relative c {
   \global
   \clef bass
   \voiceOne
-  c4
+  s1*2
+  \repeat volta 2 { s1*8 }
+  s1*16
+  \repeat volta 2 {
+    s2 f4~f8. g16
+    s1*3
+  }
+  a2 bes4 f8. g16
+  s1*3
+  s1*11
+  g4 d' c bes
+  a2 bes4 f8. g16
+  s1*3
   \bar "|."
 }
 
-pianoLHtwo = \relative c' {
+pianoLHtwo = \relative c {
   \global
   \clef bass
   \voiceTwo
-  c4
+  s1*2
+  \repeat volta 2 { s1*8 }
+  s1*16
+  \repeat volta 2 {
+    s2 bes4 bes
+    s1*3
+  }
+  d4~d8. c16 bes4 bes
+  s1*3
+  s1*11
+  c2. c4
+  d4~d8. c16 bes4 bes
+  s1*3
   \bar "|."
 }
 
@@ -567,6 +678,9 @@ wordsEmpty = \lyricmode {
   _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _
   _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _
 }
 
 wordsTwoA = \lyricmode {
@@ -579,8 +693,8 @@ wordsTwoA = \lyricmode {
 wordsTwoB = \lyricmode {
   Hurl the reel- ing horse- men o- ver!
   Let the earth dead foe- en cov- er!
-  Fate of friend, of wife, of lover,
-  Trembles on a blow!
+  Fate of friend, of wife, of lov- er,
+  Trem- bles on a blow!
 }
 
 wordsTwoC = \lyricmode {
@@ -597,16 +711,6 @@ wordsTwoC = \lyricmode {
 \score {
   <<
     \new ChoirStaff <<
-%      \new Dynamics \dynamicsSop
-%      \new Staff \with { instrumentName = #"Soprano" } <<
-%        \new Voice = "soprano" \soprano
-%        \new Lyrics \lyricsto "soprano" \wordsSop
-%      >>
-%      \new Dynamics \dynamicsAlto
-%      \new Staff \with { instrumentName = #"Alto" } <<
-%        \new Voice = "alto" \alto
-%        \new Lyrics \lyricsto "alto" \wordsAlto
-%      >>
       \new Dynamics \dynamicsTenor
       \new Staff \with { instrumentName = #"Tenor" } <<
         \new Voice = "tenor" \tenor
@@ -617,7 +721,7 @@ wordsTwoC = \lyricmode {
       \new Staff \with { instrumentName = #"Bass" } <<
         \new Voice = "bass" \bass
         \new Lyrics \lyricsto "bass" { \wordsOneA \wordsOneC  \wordsTwoA \wordsTwoC }
-        \new Lyrics \lyricsto "bass" { \wordsTwoA \wordsEmpty \wordsTwoA            }
+        \new Lyrics \lyricsto "bass" { \wordsTwoA \wordsEmpty \wordsTwoB            }
       >>
     >>
     \new PianoStaff <<
@@ -641,7 +745,6 @@ wordsTwoC = \lyricmode {
   \midi {
     \context {
       \Score
-%      tempoWholesPerMinute = #(ly:make-moment 100 4)
     }
   }
 }
