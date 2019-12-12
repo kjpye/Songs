@@ -111,12 +111,9 @@ wordsBassTwo = \lyricmode {
       >>
     >>
   >>
-  \layout { indent = 1.5\cm }
-  \midi {
-    \context {
-      \Score
-%      tempoWholesPerMinute = #(ly:make-moment 100 4)
-       RemoveAllEmptyStaves = ##t
-    }
+  \layout {
+    indent = 1.5\cm
+    \context { \Score \RemoveAllEmptyStaves }
   }
+  \midi {}
 }

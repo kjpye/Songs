@@ -332,12 +332,12 @@ choruswordsTwo = \lyricmode {
 	}
       >>
     }
-    \layout {
-      \context {
-	\Staff
-	\RemoveAllEmptyStaves
-      }
+  \layout {
+    indent = 1.5\cm
+    \context {
+      \Staff \RemoveAllEmptyStaves
     }
   }
-
+  \midi {
+  }
 }

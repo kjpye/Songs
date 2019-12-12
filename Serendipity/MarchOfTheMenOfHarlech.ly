@@ -742,9 +742,5 @@ wordsTwoC = \lyricmode {
     \context { \Staff \RemoveAllEmptyStaves }
     indent = 1.5\cm
   }
-  \midi {
-    \context {
-      \Score
-    }
-  }
+  \midi {}
 }

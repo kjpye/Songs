@@ -769,10 +769,12 @@ wordsBassA = \lyricmode {
       \RemoveAllEmptyStaves
     }
   }
-  \midi {
+  \layout {
+    indent = 1.5\cm
     \context {
-      \Score
-%      tempoWholesPerMinute = #(ly:make-moment 100 4)
+      \Staff \RemoveAllEmptyStaves
     }
+  }
+  \midi {
   }
 }
