@@ -175,7 +175,7 @@ bass= \relative c' {
 wordsOne = \lyricmode {
   O ho- ly night, the stars are bright- ly shin- ing,
   it is the night of the dear Sav- iour's birth!
-  Long lay the world in sin and er- ror play- ing,
+  Long lay the world in sin and er- ror pin- ing,
   Till He ap- peared and the soul felt its worth.
   A thrill of hope the
   wea- ry world re- joic- es,

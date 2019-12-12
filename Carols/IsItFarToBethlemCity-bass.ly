@@ -6,7 +6,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 % centered at top
 %  dedication  = "dedication"
   title       = "Is It Far to Bethlem City"
-%  subtitle    = "subtitle"
+  subtitle    = "Bass"
 %  subsubtitle = "subsubtitle"
 %  instrument  = "instrument"
   
@@ -97,6 +97,17 @@ wordsBassOne = \lyricmode {
 
 wordsBassTwo = \lyricmode {
   May we touch the gen- tle ox- en?
+  May we pull the curl- y sheep wool?
+  May we taste the shep- herd's sweet cheese?
+  _ _ _ _ _ _
+  See, the sky with joy is ring- ing,
+  a new star o'er the man- ger shin- ing,
+  and the world hears an- gels sing- ing,
+  _ _ _ _ _ _
+  With gold and __ in- cense lad- en.
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  with gold and in- cense lad- en.
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 }
 
 \score {
