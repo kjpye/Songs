@@ -289,10 +289,10 @@ bassAccMusic = \relative c, {
 	\set Staff.midiInstrument = "clarinet"
 	\context Voice = alto { \global \clef "treble" \AltoMusic }
       >>
-      \lyricsto "soprano" \context Lyrics = FirstVerse { \FirstVerse }
-      \lyricsto "soprano" \context Lyrics = SecondVerse { \SecondVerse }
-%     \lyricsto "soprano" \context Lyrics = ThirdVerse { \ThirdVerse }
-      \lyricsto "soprano" \context Lyrics = FourthVerse { \FourthVerse }
+      \new Lyrics \lyricsto "soprano" { \FirstVerse }
+      \new Lyrics \lyricsto "soprano" { \SecondVerse }
+%      \new Lyrics \lyricsto "soprano" { \ThirdVerse }
+      \new Lyrics \lyricsto "soprano" { \FourthVerse }
       
       \context Staff = tgenor <<
 	\set Staff.midiInstrument = "oboe"
@@ -330,10 +330,7 @@ bassAccMusic = \relative c, {
 	\set Staff.midiInstrument = "clarinet"
 	\context Voice = alto { \global \clef "treble" \unfoldRepeats {\AltoMusic}}
       >>
-      \lyricsto "soprano" \context Lyrics = FirstVerse { \MFirstVerse \MSecondVerse \MFourthVerse}
-%      \lyricsto "soprano" \context Lyrics = SecondVerse { \MSecondVerse }
-%     \lyricsto "soprano" \context Lyrics = ThirdVerse { \MThirdVerse }
-%      \lyricsto "soprano" \context Lyrics = FourthVerse { \MFourthVerse }
+      \new Lyrics \lyricsto "soprano" { \MFirstVerse \MSecondVerse \MFourthVerse }
       
       \context Staff = tgenor <<
 	\set Staff.midiInstrument = "oboe"
