@@ -1,24 +1,5 @@
-# AdventRound.ly
-# OLittleTownOfBethlehem.ly
-# RollingHome.ly
-# SantyAnna.ly
-# SpringfieldMountain.ly
-# StilleNacht.ly
-# TheCoastOfHighBarbary.ly
-# TheEchoCarol-satb.ly
-# TheEchoCarol-unison.ly
-# TheHollyAndTheIvy.ly
-# TheTwelveDaysOfTheCloud.ly
-# WeWillWalkWithGod.ly
-# YoHoHoAndABottleOfRum.ly
-
-
-
-
-
-
 %.pdf %.kar %.mp3: %.ly
-	lilypond $<
+	lilypond -dcrop $<
 	timidity -Or -o - $*.midi | lame -r - $*.mp3
 	-mv $*.midi $*.kar
 

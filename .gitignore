@@ -2,6 +2,7 @@
 *.pdf
 *.kar
 *.mp3
+*.png
 .directory
 *~
 \#*#
