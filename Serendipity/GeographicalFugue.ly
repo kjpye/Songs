@@ -43,7 +43,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 global = {
   \key c \major
   \time 4/4
-  \tempo 4=120
+  \tempo 4=60
 }
 
 colour = {
@@ -177,7 +177,56 @@ soprano = \relative c' {
 }
 
 dynamicsSop = {
-  s1
+  s1 % 1a
+  s1 % 1b
+  s1 % 1c
+  s1 % 1d
+  s1 % 2a
+  s1 % 2b
+  s4^\f r8 s^\p s2 % 2c
+  s1 % 2d
+  s1 % 2e
+  s1^\pp % 3a
+  s1 % 3b
+  s16^\f s s s^\mf s4 s s % 3c
+  s1 % 3d
+  s1 % 4a
+  s1 % 4b
+  s1^\p % 4c
+  s1^\pp % 4d
+  s1 % 4e
+  s4 s16 s^\mf s8 s 4s % 5a
+  s1 % 5b
+  s1 % 5c
+  s1 % 5d
+  s1 % 6a
+  s1 % 6b
+  s2 s16 s^\pp s8 s4 % 6c
+  s1 % 6d
+  s8 s^\pp s4 s s % 7a
+  s4 s16 s^\mf s s s2 % 7b
+  s8 s^\p s4 s s % 7c
+  s2 s^\ff % 7d
+  s1^\mf % 8a
+  s1 % 8b
+  s2 s^\ff % 8c
+  s4 s8 s^\mf s2 % 8d
+  s1 % 9a
+  s1 % 9b
+  s2^\pp^\cresc s^\p % 9c
+  s2^\mf s^\f % 9d
+  s4^\ff \> s s^\p \! s^\f  % 10a
+  s4 s s s^\f % 10b
+  s1 % 10c
+  s1 % 10d
+  s1 % 11a
+  s1 % 11b
+  s1 % 11c
+  s1 % 11d
+  s1 % 12a
+  s1^\fp^\cresc % 12b
+  s1^\f ^\markup{\italic{cresc. molto}} % 12c
+  s4^\ff % 12d
 }
 
 wordsSop = \lyricmode {
@@ -308,7 +357,56 @@ alto = \relative c' {
 }
 
 dynamicsAlto = {
-  s1
+  s1 % 1a
+  s1 % 1b
+  s1 % 1c
+  s4^\f s8 s^\p s4 s % 1d
+  s1 % 2a
+  s1 % 2b
+  s1^\pp % 2c
+  s1 % 2d
+  s1 % 2e
+  s8 s^\mf s2. % 3a
+  s1 % 3b
+  s16 s^\mf s8 s2. % 3c
+  s1 % 3d
+  s2 s^\dim % 4a
+  s1^\p % 4b
+  s1 % 4c
+  s16 s^\f s8 s4 s16 s^\mf s8 s4 % 4d
+  s1 % 4e
+  s1 % 5a
+  s2 s4 s8 s^\p % 5b
+  s1 % 5c
+  s2 s4 s8 s16 s^\f % 5d
+  s1 % 6a
+  s1 % 6b
+  s4 s^\ff s8 s^\mf s s % 6c
+  s1 % 6d
+  s2 s4 s8 s16 s^\pp % 7a
+  s1 % 7b
+  s1 % 7c
+  s1 % 7d
+  s4^\ff s8 s^\f s4 s % 8a
+  s1 % 8b
+  s1 % 8c
+  s4^\ff s s s^\mf % 8d
+  s1 % 9a
+  s1 % 9b
+  s2^\pp^\cresc s^\p % 9c
+  s2^\mf s^\f % 9d
+  s4 s^\ff s s % 10a
+  s8 s^\p \< s^\f \! s^\p \< s^\f \! s s s % 10b
+  s8 s^\p \< s^\f \! s^\p \< s^\f \! s s s % 10c
+  s8 s^\p \< s^\f \! s^\p \< s^\f \! s s s % 10d
+  s8^\p \> s^\f s2.^\markup{\italic{sim. sempre}} % 11a
+  s1 % 11b
+  s1 % 11c
+  s1 % 11d
+  s1 % 12a
+  s1 % 12b
+  s8 s^\markup{\italic{cresc. molto}} s2. % 12c
+  s4^\ff % 12d
 }
 
 wordsAlto = \lyricmode {
@@ -418,12 +516,102 @@ tenor = \relative c {
   16 r r c16 8 r16 c c8 r16 c16 8 r16 c
   c8 16 16 8 8 r8 c16 16 8 8
   r8 c16 16 8 8 r8 c16 16 8 8
-  r16 c16 8 r16 c c8 r16 c c8 r16 c16 8
-%  \bar "|."
+  r16 c16 8 r16 c c8 r16 c c8 r16 c16 8 % 2e
+  r1 % 3a
+  r1 % 3b
+  r1 % 3c
+  r1 % 3d
+  r1 % 4a
+  r1 % 4b
+  r1 % 4c
+  c16 c c r r8 c16 c c8 c16 c c c c c % 4d
+  c8 c16 c c c c c c8 c16 c c c r c % 4e
+  \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} % 5a
+  \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} % 5b
+  r8 c16 c c8. c16-. r8 c16 c c8. c16-. % 5c
+  r8 c16 c c8. c16 r8 c16 c c8. c16 % 5d
+  r16 c16 c8 r16 c c8 r16 c c8 r16 c c8 % 6a
+  r4 r16 c32-. c-. c16-. c-. r c r c r8 c-> ~ % 6b
+  c8 c r4 r r16 c c8 % 6c
+  r4 r16 c c8 r r4 r16 c % 6d
+  \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} % 7a
+  r8 c16 c c8 c r c16 c c8 c % 7b
+  \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} % 7c
+  \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} % 7d  
+  r1 % 8a
+  r8 c16 c c8 r c16 c c8 c16 c c c % 8b
+  c16 c c8 c16 c c c c c c8 c16 c c c % 8c
+  c16 c c c r4 c c % 8d
+  c4 r8 c16 c c8 c16 c c c c c % 9a
+  c8 c16 c c c c c c8 c16 c c c r c % 9b
+  \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} % 9c
+  \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} % 9d
+  c8-> c-> c4-> r4 r8 c16 c % 10a
+  c8 c16 c c c r8 r4 r8 c16 c % 10b
+  c8 c16 c c c r8 r4 r8 c16 c % 10c
+  c8 c16 c c c r8 r4 r8 c16 c % 10d
+  c8 c16 c c c c c c8 c16 c c c c c % 11a
+  c8 c16 c c c c c c c c c c c c c % 11b
+  c16 c c c c c c c c c c c c c c c % 11c
+  c16 c c c c8-^ c-^ c-^ c-^ c-^ c-^ % 11d
+  \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} \times 2/3 {c16 16 16} 2 % 12a
+  r8 c16-> c-> c8-> r8 r c16-> c-> c8-> r % 12b
+  r8 c16 c c8 c16 c c8 c16 c c8 c16 c % 12c
+  c8 r
+  \bar "|."
 }
 
 dynamicsTenor = {
-s1^\f
+  s4^\f s8 s^\p s2% 1a
+  s1 % 1b
+  s1 % 1c
+  s1^\pp % 1d
+  s1 % 2a
+  s1 % 2b
+  s8 s^\pp s4 s2 % 2c
+  s1 % 2d
+  s1 % 2e
+  s1 % 3a
+  s1 % 3b
+  s1 % 3c
+  s1 % 3d
+  s1 % 4a
+  s1 % 4b
+  s1 % 4c
+  s4^\ff s8 s^\f s2 % 4d
+  s1 % 4e
+  s1^\mf % 5a
+  s8 s^\markup{\italic dim.} s4 s2 % 5b
+  s8 s^\p s4 s2 % 5c
+  s1 % 5d
+  s16 s^\f s8 s4 s2 % 6a
+  s4 s16 s^\ppp s8 s2 % 6b
+  s2 s4 s16 s^\pp s8 % 6c
+  s2 s4 s8 s16 s^\mf % 6d
+  s1 % 7a
+  s1 % 7b
+  s1^\p % 7c
+  s1 % 7d
+  s1 % 8a
+  s8 s^\ff s4 s2^\mf % 8b
+  s1 % 8c
+  s1 % 8d
+  s4 s8 s^\mf s2 % 9a
+  s1 % 9b
+  s2^\pp^\cresc s2^\p % 9c
+  s2^\mf s^\f % 9d
+  s2^\ff s4 s8 s16.^\p \< s32 \! % 10a
+  s8^\f s^\p \< s4^\f \!  s4 s8 s16.^\p \< s32 \! % 10b
+  s8^\f s^\p \< s4^\f \!  s4 s8 s16.^\p \< s32 \! % 10c
+  s8^\f s^\p \< s4^\f \!  s4 s8 s16.^\p \< s32 \! % 10d
+  s8^\f s^\markup{\italic{sim. sempre}} s4 s2 % 11a
+  s1 % 11b
+  s1 % 11c
+  s1 % 11d
+  s1 % 12a
+  s1 % 12b
+  s8 s^\markup{\italic{ cresc. molto}} s4 s2 % 12c
+  s4^\ff % 12d
 }
 
 wordsTenor = \lyricmode {
@@ -441,7 +629,81 @@ wordsTenor = \lyricmode {
   Na- ga- sa- ki! Yo- ko- ha- ma!
   Na- ga- sa- ki! Yo- ko- ha- ma!
   Ti- bet, Ti- bet, Ti- bet, Ti- bet,
-
+  Trin- i- dad! %4d
+  And the big Mis- sis- sip- pi
+  and the town Hon- o- lu- lu
+  and the lake Ti- ti- ca- ca.
+  the Po- po- ca- te- pet- l is not in Can- a- da,
+  rath- er in Mex- i- co, Mex- i- co, Mex- i- co!
+  Can- a- da, Má- la- ga, Ri- mi- ni, Brin- di- si
+  Can- a- da, Má- la- ga, Ri- mi- ni, Brin- di- si
+  Yo- ko- ha- ma
+  Hon- o- lu- lu
+  Mis- sis- sip- i
+  Ti- ti- ca- ca
+  Ti- bet, Ti- bet, Ti- bet, Ti- bet,
+  Na- ga- sa- ki
+  Yo- ko- ha- ma
+  Ti- bet
+  Ti- bet
+  the Po- po- ca- te- pet- l is not in Can- a- da, % 7a
+  rath- er in Mex- i- co, Mex- i- co, Mex- i- co!
+  Na- ga- sa- ki
+  Na- ga- sa- ki
+  Can- a- da, Má- la- ga, Ri- mi- ni, Brin- di- si
+  Can- a- da, Má- la- ga, Ri- mi- ni, Brin- di- si
+  Can- a- da,
+  Can- a- da,
+  Can- a- da,
+  Can- a- da,
+  Má- la- ga,
+  Má- la- ga,
+  Má- la- ga,
+  Má- la- ga,
+  Trin- i- dad! % 8b
+  And the big Mis- sis- sip- pi
+  and the town Hon- o- lu- lu
+  and the lake Ti- ti- ca- ca.
+  Ti- ti- ca- ca.
+  Trin- i- dad
+  And the big Mis- sis- sip- pi
+  and the town Hon- o- lu- lu
+  and the lake Ti- ti- ca- ca.
+  the Po- po- ca- te- pet- l is not in Can- a- da, % 7a
+  rath- er in Mex- i- co, Mex- i- co, Mex- i- co!
+  Can- a- da,
+  Can- a- da,
+  Má- la- ga,
+  Má- la- ga,
+  Can- a- da,
+  Can- a- da,
+  Má- la- ga,
+  Má- la- ga,
+  Trin- i- dad % 10a
+  And the big Mis- sis- sip- pi
+  and the town Hon- o- lu- lu
+  and the lake Ti- ti- ca- ca.
+  and the big Mis- sis- sip- pi
+  and the town Hon- o- lu- lu
+  and the lake Ti- ti- ca- ca.
+  Mis- sis- sip- i
+  Hon- o- lu- lu
+  Ti- ti- ca- ca.
+  Mis- sis- sip- i
+  Mis- sis- sip- i
+  Mis- sis- sip- i
+  Mis- sis- sip- i % 11d
+  Mis- sis- sip- i
+  Mis- sis- sip- i
+  Mis- sis- sip- i
+  Can- a- da, Má- la- ga, Ri- mi- ni, Brin- di- si
+  Trin- i- dad % 12b
+  Trin- i- dad
+  Trin- i- dad
+  Trin- i- dad
+  Trin- i- dad
+  Trin- i- dad
+}
 %  Trin- i- dad!
 %  And the big Mis- sis- sip- pi
 %  and the  town Hon- o- lu- lu
@@ -451,7 +713,6 @@ wordsTenor = \lyricmode {
 %  Can- a- da, Má- la- ga, Ri- mi- ni, Brin- di- si
 %  Yes, Ti- bet, Ti- bet, Ti- bet, Ti- bet,
 %  Na- ga- sa- ki! Yo- ko- ha- ma!
-}
 
 bass= \relative c' {
   \global
@@ -510,7 +771,56 @@ bass= \relative c' {
 }
 
 dynamicsBass = {
-  s1
+  s1 % 1a
+  s1 % 1b
+  s1 % 1c
+  s1 % 1d
+  s1 % 2a
+  s1 % 2b
+  s1 % 2c
+  s1 % 2d
+  s1 % 2e
+  s4^\ff s8 s^\f s2 % 3a
+  s1 % 3b
+  s1^\p % 3c
+  s1 % 3d
+  s1 % 4a
+  s8 s^\mf s4 s2 % 4b
+  s1 % 4c
+  s1 % 4d
+  s1 % 4e
+  s1 % 5a
+  s2 s4 s^\p % 5b
+  s1 % 5c
+  s1 % 5d
+  s1 % 6a
+  s1 % 6b
+  s4^\ff s8 s^\mf s2 % 6c
+  s1 % 6d
+  s4 s8 s^\pp s2 % 7a
+  s4 s8 s^\mf s2 % 7b
+  s4 s^\p s2 % 7c
+  s2 s4 s^\ff % 7d
+  s4 s^\mf s2 % 8a
+  s1 % 8b
+  s1 % 8c
+  s1 % 8d
+  s2^\f s4 s8 s^\mf % 9a
+  s1 % 9b
+  s2 s^\p\cresc % 9c
+  s2^\mf s^\f % 9d
+  s4 s8 s^\ff s2 % 10a
+  s4 s8 s^\p \< s^\f \! s^\p \< s^\f \! s % 10b
+  s4 s8 s^\p \< s^\f \! s^\p \< s^\f \! s % 10c
+  s4 s8 s^\p \< s^\f \! s^\p \< s^\f \! s % 10d
+  s8 s^\p s^\f s^\markup{\italic{sim. sempre}} s2  % 11a
+  s1 % 11b
+  s1 % 11c
+  s1 % 11d
+  s1 % 12a
+  s1 % 12b
+  s1^\markup{\italic{cresc. molto}} % 12c
+  s4^\ff % 12d
 }
 
 wordsBass = \lyricmode {
