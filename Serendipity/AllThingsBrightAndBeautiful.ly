@@ -1,6 +1,66 @@
 \version "2.18.2"
 
+UnisonLyrics = \lyricmode {
+  All things bright and beau- ti- ful,
+  All crea- tures great and __ small,
+  All things wise and won- der- ful,
+  The Lord God made them all.
+}
+
+AltoLyrics = \lyricmode {
+  Each lit- tle flow'r that o- pens,
+  Each lit- tle bird that sings, __
+  He made their glow- ing col- ours,
+  He made their ti- ny wings.
+  Ah. __
+  Ah. __
+  The Lord God made them all.
+
+  The cold wind __ in the win- ter, __
+  The plea- sant sum- mer sun, __
+  The ripe fruits in the gar- den,
+  He made them ev- 'ry one:
+
+  All things bright and beau- ti- ful,
+  All crea- tures great and __ small,
+  All things wise and won- der- ful,
+  The Lord God made them all.
+
+  He gave us eyes to see __ them,
+  And lips that we might tell __
+  How great is God Al- might- y, __
+  Who has made all things well.
+  
+  All things bright and beau- ti- ful,
+  All crea- tures great and __ small,
+  All things wise and won- der- ful,
+  The Lord God made them all.
+}
+
+TenorLyrics = \lyricmode {
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _ _ _
+  The pur- ple- head- ed moun- tain,
+  The riv- er run- ning by,
+  The sun- set and the morn- ing,
+  That bright- ens up the sky;
+}
+
+BassLyrics = \lyricmode {
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _ _
+  Ah.
+}
+
 SopranoLyrics = \lyricmode {
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  All things bright and beau- ti- ful,
+  All crea- tures great and __ small,
+  All things wise and won- der- ful,
+  The Lord God made them all.
 }  
 
 tempotrack = {
@@ -50,7 +110,7 @@ SopranoMusic = \relative c' {
   a'4 g8 e~e d(e g) % 25
   c,1
   c4 f a c
-  c4 d8 f,~f f f4
+  c4 d8 f,~f4 f4
   e'2 f % 30
   f,2 g
   f1 ~
@@ -134,23 +194,23 @@ AltoMusic = \relative c' {
   a4(d,8) d~d4 d
   a'4 a a b8 g~
   g2 r4 d4
-  d4 d a d
+  d4 d a d % 45
   d4. b8~b4 d
   d4 d d cis
   d2(c)
   \key g \major
   b4 d d d
-  e8 e e2 e4
+  e8 e e2 e4 % 50
   fis4 fis8 fis~fis e(fis a)
   d,1
   d4 g a b
   a4 a8  a~a4. d,8
-  g4 g g8(c,) b' a~
+  g4 g g8(c,) b' a~ % 55
   a2. r4
   d,8 g a b~ b4 d,
   e4 e2 a4
-  d,8 a'(b) c~c b(a) a~
-  a8 g4.(g4) g
+  d,8 a'(b) c~c b(a) a~(
+  a8 g4.~g4) g % 60
   fis4 fis f f
   e4. e8~e4 e
   e4 e e e
@@ -245,10 +305,10 @@ BassMusic = \relative c {
   f1
   f1~
   <f bes,>1
-  c1~
+  c1~ (
   c1 % 30
   <f, d'>1~
-  q2 r4 f'4
+  q2) r4 f'4
   \key c \major
   e4 e e a
   e4 e2 b'4
@@ -637,17 +697,22 @@ PianoLHlow  = \relative c {
 \score {
   \context GrandStaff <<
     \context ChoirStaff <<
+      \new Lyrics = "sopranolyrics"
       \new Staff <<
         \new Voice = sopranos { \voiceOne \UnisonMusic \SopranoMusic }
         \new Voice = altos    { \voiceTwo \UnisonMusic     \AltoMusic }
       >>
       \new Dynamics \dynamics
-      \new Lyrics \lyricsto sopranos \SopranoLyrics
+      \new Lyrics \lyricsto altos { \UnisonLyrics \AltoLyrics }
+      \new Lyrics = "tenorlyrics"
       \new Staff <<
         \clef "bass"
         \new Voice = tenors { \voiceOne \transpose c c, \UnisonMusic \TenorMusic }
         \new Voice = basses { \voiceTwo \transpose c c, \UnisonMusic \BassMusic }
       >>
+      \new Lyrics \lyricsto basses { \BassLyrics }
+      \context Lyrics = "sopranolyrics" { \lyricsto sopranos { \SopranoLyrics } }
+      \context Lyrics = "tenorlyrics" { \lyricsto tenors { \TenorLyrics } }
     >>
     \context PianoStaff <<
       \new Staff <<
