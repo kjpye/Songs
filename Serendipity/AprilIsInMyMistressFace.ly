@@ -209,7 +209,23 @@ tenor = \relative c' {
   r1
   r1
   r2 bes4 a8 g
-%  \bar "|."
+  a4 bes c g(
+  a1)
+  g2 d'4 c8 bes
+  c4 d bes bes
+  a4 d d ees
+  d1
+  r1
+  r2 r4 bes
+  d8 c d e f4 bes,
+  c2 bes4 c->~(
+  c8 bes) bes2(a4)
+  bes2 r4 bes
+  f'4 d c2
+  bes2 bes
+  g4 bes2 a4->
+  
+  \bar "|."
 }
 
 dynamicsTenor = {
