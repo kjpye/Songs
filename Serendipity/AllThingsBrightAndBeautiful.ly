@@ -1,5 +1,7 @@
 \version "2.18.2"
 
+#(set-global-staff-size 18)
+
 UnisonLyrics = \lyricmode {
   All things bright and beau- ti- ful,
   All crea- tures great and __ small,
@@ -69,20 +71,170 @@ tempotrack = {
   \tempo 4=126
 }
 
+dynamicsWomen = {
+  \override DynamicTextSpanner.style = #'none
+  s1*6
+  s4\mp s2.-\markup \italic {poco legato}
+  s1
+  s1
+  s1
+  s1\<
+  s2\! s\>
+  s1\!
+  s1
+  s4\mp s2.\cresc
+  s1
+  s1
+  s2. s4\mf
+  s1*4
+  s1\mf
+  s1*3
+  s1\cresc
+  s2. s4\f-\markup \italic dolce
+  s1*11
+  s2. s4\mp
+  s1*4
+  s1\cresc
+  s2. s4\mf
+  s1
+  s1-\markup \bold {poco rit.}
+  s1-\markup{( \dynamic mf )}
+  s1*7
+  s1\cresc
+  s1*2
+  s2. s4\f
+  s1*4
+  s1-\markup{( \dynamic f )}
+  s1*4
+  s2 s\>
+  s1\!
+  s2. s4\mp-\markup \bold rall.
+  s1
+  s1\dim
+  s1\p-\markup \bold { a tempo}
+}
+
+dynamicsMen = {
+  \override DynamicTextSpanner.style = #'none
+  s1*22
+  s1\mp
+  s1*3
+  s1\cresc
+  s1
+  s1\mf
+  s1
+  s1
+  s2. s4\mf
+  s1*11
+  s2. s4\mp
+  s1\cresc
+  s2. s4\mf
+  s1*2
+  s1-\markup{( \dynamic mf )}
+  s1*7
+  s1\cresc
+  s1
+  s1
+  s2. s4\f
+  s1*4
+  s1-\markup{( \dynamic f )}
+  s1*4
+  s2 s\>
+  s1\!
+  s2. s4\mp
+  s1
+  s1\dim
+  s1\p
+}
+
 dynamics = {
+  \override DynamicTextSpanner.style = #'none
+  s4\mp s2.-\markup \italic delicato
+  s1
+  s1
+  s1
+  s1-\markup \italic legato
+  s1*9
+  s1\cresc
+  s1*3
+  s1\mf
+  s1*3
+  s1-\markup{(\dynamic mf )}
+  s1*3
+  s1\cresc
+  s1
+  s4\f s2.-\markup \italic dolce
+  s1
+  s4 s2. \>
+  s1\mf
+  s1*7
+  s2. \> s4\mp
+  s1*4
+  s1\cresc
+  s1
+  s1\mf
+  s1
+  s1-\markup{(\dynamic mf )}
+  s1*7
+  s1\cresc
+  s1*2
+  s2. s4\f
+  s1*4
+  s1-\markup{(\dynamic f )}
+  s1*4
+  s2 s \>
+  s4\mf s2.\dim
+  s2. s4\mp
+  s1
+  s1\dim
+  s1\p
+  s1
+  s2 s\>
+  s1\pp
+}
+
+dynamicsPedal = {
+  s1\sustainOn
+  s1\sustainOff\sustainOn
+  s1\sustainOff-\markup \italic sim.
+  s1
+  s1\sustainOn
+  s1
+  s1\sustainOff
+  s1*25
+  s1\sustainOn
+  s1\sustainOff\sustainOn
+  s1\sustainOff\sustainOn
+  s1\sustainOff
+  s1*4
+  s1\sustainOn
+  s1\sustainOff\sustainOn
+  s1\sustainOff-\markup \italic sim.
+  s1
+  s1\sustainOn
+  s1\sustainOff\sustainOn
+  s1\sustainOff
+  s1*17
+  s1\sustainOn
+  s1\sustainOff-\markup \italic sim.
+  s1*8
+  s1\sustainOn
+  s1\sustainOff\sustainOn
+  s1\sustainOff\sustainOn
+  s2 s\sustainOff
 }
 
 UnisonMusic = \relative c' {
   \key f \major
   \time 4/4
   \tempo 4=126
-  s1^\ff
+  s1
   s1
   s1
   s1
   s1 % 5
   s1
-  c4^\markup{UNISON} f g a
+  c4 f g a
   a8 bes g2 d4
   a'4 g8 e~e d(e g)
   c,1 % 10
@@ -363,7 +515,7 @@ BassMusic = \relative c {
 PianoRHhigh = \relative c''' {
   \voiceOne
   \key f \major
-  c1^\ppp
+  c1
   s1
   c,1
   s1*13
@@ -390,7 +542,7 @@ PianoRHhigh = \relative c''' {
   a4 d,2 cis4
   r8 a d a'~a d, d'4
   \bar "||" \key g \major
-  r8 d, g b d a b g
+  \oneVoice r8^\markup \bold {a tempo} \voiceOne d, g b d a b g
   r8 e a c e b c a % 50
   r8 fis a d fis c d a
   r8 a b d g b, d g,
@@ -416,11 +568,11 @@ PianoRHhigh = \relative c''' {
   s1
   s1 % 70
   bes''8 bes,ees g g, bes ees ees,
-  g8 d' d, g bes bes, f' bes,
+  g8 d' d, g bes^\markup \bold rall.  bes, f' bes,
   \oneVoice
   f'4 f, f' f,~
   f4 f <a f'> f~
-  <d f>1 % 75
+  <d f>1^\markup \bold {a tempo} % 75
   ees8(f4 <g ees'>8~q <f d'> <ees bes'>4)
   f'1
   \voiceOne
@@ -430,7 +582,7 @@ PianoRHhigh = \relative c''' {
 PianoRHlow = \relative c''' {
   \voiceTwo
   \key f \major
-  g8^\ppp(a) f2.
+  g8(a) f2.
   bes,8(c4 <d bes'>8~q <c a'> <bes f'>4)
   g8(a f2.)
   \oneVoice
@@ -516,7 +668,7 @@ PianoRHlow = \relative c''' {
 PianoLHhigh = \relative c {
   \oneVoice
   \key f \major
-  f4.^\ppp(c'8 a'g a c)
+  f4.(c'8 a'g a c)
   <f,, d'>4.(f'8 bes2)
   \clef bass
   f,,4. c'8(a' g a c)
@@ -605,7 +757,7 @@ PianoLHhigh = \relative c {
 PianoLHlow  = \relative c {
   \voiceTwo
   \key f \major
-  s1^\ppp
+  s1
   s1
   s1
   s1
@@ -698,11 +850,11 @@ PianoLHlow  = \relative c {
   \context GrandStaff <<
     \context ChoirStaff <<
       \new Lyrics = "sopranolyrics"
+      \new Dynamics \dynamicsWomen
       \new Staff <<
         \new Voice = sopranos { \voiceOne \UnisonMusic \SopranoMusic }
         \new Voice = altos    { \voiceTwo \UnisonMusic     \AltoMusic }
       >>
-      \new Dynamics \dynamics
       \new Lyrics \lyricsto altos { \UnisonLyrics \AltoLyrics }
       \new Lyrics = "tenorlyrics"
       \new Staff <<
@@ -710,6 +862,7 @@ PianoLHlow  = \relative c {
         \new Voice = tenors { \voiceOne \transpose c c, \UnisonMusic \TenorMusic }
         \new Voice = basses { \voiceTwo \transpose c c, \UnisonMusic \BassMusic }
       >>
+      \new Dynamics \dynamicsMen
       \new Lyrics \lyricsto basses { \BassLyrics }
       \context Lyrics = "sopranolyrics" { \lyricsto sopranos { \SopranoLyrics } }
       \context Lyrics = "tenorlyrics" { \lyricsto tenors { \TenorLyrics } }
@@ -719,72 +872,14 @@ PianoLHlow  = \relative c {
         \new Voice { \PianoRHhigh }
         \new Voice { \PianoRHlow  }
       >>
+      \new Dynamics \dynamics
       \new Staff <<
         \new Voice { \PianoLHhigh }
 	\new Voice { \PianoLHlow  }
       >>
+      \new Dynamics \dynamicsPedal
     >>
   >>
   \layout {}
-  \midi {}
-}
-
-\score { % soprano
-  \context GrandStaff <<
-    \context ChoirStaff <<
-      \new Staff <<
-        \new Voice { \UnisonMusic \SopranoMusic }
-        \new Voice { \PianoRHhigh }
-	\new Voice { \PianoRHlow  }
-	\new Voice { \PianoLHhigh }
-	\new Voice { \PianoLHlow  }
-      >>
-    >>
-  >>
-  \midi {}
-}
-
-\score { % alto
-  \context GrandStaff <<
-    \context ChoirStaff <<
-      \new Staff <<
-        \new Voice { \UnisonMusic \AltoMusic }
-        \new Voice { \PianoRHhigh }
-	\new Voice { \PianoRHlow  }
-	\new Voice { \PianoLHhigh }
-	\new Voice { \PianoLHlow  }
-      >>
-    >>
-  >>
-  \midi {}
-}
-
-\score { % tenor
-  \context GrandStaff <<
-    \context ChoirStaff <<
-      \new Staff <<
-        \new Voice { \transpose c c, \UnisonMusic \TenorMusic }
-        \new Voice { \PianoRHhigh }
-	\new Voice { \PianoRHlow  }
-	\new Voice { \PianoLHhigh }
-	\new Voice { \PianoLHlow  }
-      >>
-    >>
-  >>
-  \midi {}
-}
-
-\score { % bass
-  \context GrandStaff <<
-    \context ChoirStaff <<
-      \new Staff <<
-        \new Voice { \transpose c c, \UnisonMusic \BassMusic }
-        \new Voice { \PianoRHhigh }
-	\new Voice { \PianoRHlow  }
-	\new Voice { \PianoLHhigh }
-	\new Voice { \PianoLHlow  }
-      >>
-    >>
-  >>
   \midi {}
 }
