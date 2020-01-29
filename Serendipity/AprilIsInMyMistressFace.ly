@@ -69,15 +69,15 @@ black = {
 RehearsalTrack = {
 %  \set Score.currentBarNumber = #5
 %  \mark \markup { \box 5 }
-  \mark \markup { \circle "1a" } s1*3
-  \mark \markup { \circle "1b" } s1*4
-  \mark \markup { \circle "1c" } s1*3
-  \mark \markup { \circle "2a" } s1*3
-  \mark \markup { \circle "2b" } s1*5
-  \mark \markup { \circle "2c" } s1*6
-  \mark \markup { \circle "3a" } s1*5
-  \mark \markup { \circle "3b" } s1*4
-  \mark \markup { \circle "1c" } s1*5
+  \mark \markup { \circle "10a" } s1*3
+  \mark \markup { \circle "10b" } s1*4
+  \mark \markup { \circle "10c" } s1*3
+  \mark \markup { \circle "11a" } s1*3
+  \mark \markup { \circle "11b" } s1*5
+  \mark \markup { \circle "11c" } s1*6
+  \mark \markup { \circle "12a" } s1*5
+  \mark \markup { \circle "12b" } s1*4
+  \mark \markup { \circle "12c" } s1*5
 }
 
 soprano = \relative c'' {
@@ -224,7 +224,26 @@ tenor = \relative c' {
   f'4 d c2
   bes2 bes
   g4 bes2 a4->
-  
+  bes2 f'~ % 2c
+  f2 f
+  d1~
+  d
+  d2 r4 d
+  d4 d f2~
+  f2 f % 3a
+  c1
+  r2 g
+  bes2 bes
+  a1
+  g2 r4 g % 12b
+  g4 g d'2
+  d2 f2~
+  f2 f
+  c1 % 12c
+  r2 g
+  bes2 bes
+  a1
+  g1-\fermata
   \bar "|."
 }
 
@@ -232,19 +251,39 @@ dynamicsTenor = {
   s1
   s1
   s2 s\p
+  s1
+  s1
+  s2 s\mf
+  s1*4
+  s2. s4\f
+  s1*3
+  s2. s4\mf
+  s1
+  s2 s\p
+  s1
+  s1 s\<
+  s1
+  s1\>
+  s1
+  s2.\! s4\f
+  s1*5
+  s2. s4\p
+  s1*5
+  s1\>
+  s1
+  s1\!
 }
 
 wordsTenor = \lyricmode {
   A- pril is in my mis- tress' face,
   A- pril is in my mis- tress' face,
-  A- pril is in my mis- tress' face,
+  my mis- tress' face,
   And Ju- ly in her eyes hath place,
-  And Ju- ly in her eyes, her eyes hath place,
+  her eyes hath place,
   With- in her bo- som,
   with- in her bo- som is Sep- tem- ber,
   but in her heart, her heart, a cold De- cem- ber,
-  But in her heart, her heart
-  but in her heart, her heart, a cold De- cem- ber,
+  but in her heart, but in her heart, a cold De- cem- ber,
 }
 
 bass= \relative c' {
@@ -252,26 +291,85 @@ bass= \relative c' {
   r1
   r1
   r2 g4 fis8 e
+  fis4 g c, ees
+  d1
+  r2 bes'4 a8 g
+  a4 fis g g
+  c,4 d g c, % 10c
+  d1
+  r1
+  r4 d ees8 f g a % 11a
+  bes2 bes
+  f2 g4 ees->
+  f1 % 11b
+  bes,1
+  r1
+  r2 bes
+  ees4 bes f'2
+  bes,1 % 11c
+  f'2 d
+  g1~
+  g1
+  d1
+  r4 d d d
+  f1 % 12a
+  r4 c c c
+  ees2. ees4
+  bes2. c4
+  d1
+  g,1~ % 12b
+  g1
+  r4 d' d d
+  f1
+  r4 c c c % 12c
+  ees2. ees4
+  bes2. c4
+  d1
+  g,1-\fermata
 %  \bar "|."
 }
 
 dynamicsBass = {
-  s1
+  s1 % 10a
   s1
   s2 s\p
+  s1*2 % 10b
+  s2 s\mf
+  s1
+  s1*3 % 10c
+  s4 s2.\f % 11a
+  s1*2
+  s1 % 11b
+  s1\>
+  s1\!
+  s2 s\p
+  s1
+  s2 s\< % 11c
+  s1
+  s1\>
+  s1
+  s1\!
+  s4 s2.\f
+  s1*5 % 12a
+  s1\> % 12b
+  s1
+  s4\! s2.\p
+  s1
+  s1*2 % 12c
+  s1\>
+  s1
+  s1\!
 }
 
 wordsBass = \lyricmode {
   A- pril is in my mis- tress' face,
   A- pril is in my mis- tress' face,
-  A- pril is in my mis- tress' face,
+  my mis- tress' face,
   And Ju- ly in her eyes hath place,
-  And Ju- ly in her eyes, her eyes hath place,
-  With- in her bo- som,
-  with- in her bo- som is Sep- tem- ber,
-  but in her heart, her heart, a cold De- cem- ber,
-  But in her heart, her heart
-  but in her heart, her heart, a cold De- cem- ber,
+  her eyes hath place,
+  With- in her bo- som is Sep- tem- ber,
+  but in her heart, but in her heart, a cold De- cem- ber,
+  but in her heart, but in her heart, a cold De- cem- ber,
 }
 
 \score {

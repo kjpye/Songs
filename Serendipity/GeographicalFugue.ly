@@ -505,7 +505,7 @@ wordsAlto = \lyricmode {
   Trin- i- dad!
 }
 
-tenor = \relative c {
+tenor = \relative c' {
   \global
   \clef "treble_8"
   c16-> 16-> 16-> r r8 c16 16 8 16 16 16 16 16 16
@@ -907,19 +907,19 @@ wordsBass = \lyricmode {
 % Single alto staff
       \new Dynamics \dynamicsAlto
       \new RhythmicStaff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
-        \new Voice = "alto" \alto
+        \new Voice = "alto" \transpose c g \alto
         \new Lyrics \lyricsto "alto" \wordsAlto
       >>
 % Single tenor staff
       \new Dynamics \dynamicsTenor
       \new RhythmicStaff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
-        \new Voice = "tenor" \tenor
+        \new Voice = "tenor" \transpose c g, \tenor
         \new Lyrics \lyricsto "tenor" \wordsTenor
       >>
 % Single bass staff
       \new Dynamics \dynamicsBass
       \new RhythmicStaff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
-        \new Voice = "bass" \bass
+        \new Voice = "bass" \transpose c c, \bass
         \new Lyrics \lyricsto "bass" \wordsBass
       >>
     >>

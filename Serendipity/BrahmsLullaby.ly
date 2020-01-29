@@ -8,6 +8,16 @@ global = {
 }
 
 rehearsalTrack = {
+%  \set Score.currentBarNumber = #5
+%  \mark \markup { \box 5 }
+  \mark \markup { \circle "2a" } \partial 8 s8 s2.*4
+  \mark \markup { \circle "2b" } s2.*5
+  \mark \markup { \circle "3a" } s2.*4
+  \mark \markup { \circle "3b" } s2.*4 s2 s8
+  \mark \markup { \circle "3c" } s8 s2.*4
+  \mark \markup { \circle "4a" } s2.*5
+  \mark \markup { \circle "4b" } s2.*4
+  \mark \markup { \circle "4c" } s2.*4 s2 s8
 }
 
 sopranoNotes = \relative c'' {
@@ -30,7 +40,7 @@ sopranoNotes = \relative c'' {
   ees'2 c8 aes
   bes2 g8 ees
   aes4 \grace {bes16 aes} g4 f
-  ees2 r4
+  ees2 r8 \bar "||" r
   r2.
   r4 r g8^\p g
   bes4. g8 g4
@@ -48,7 +58,7 @@ sopranoNotes = \relative c'' {
   ees'2 c8 aes
   bes2 g8 ees
   aes4 \grace {bes16 aes} g4 f
-  ees2 r4
+  ees2 r8
   \bar "|."
 }
 
@@ -94,7 +104,7 @@ altoNotes = \relative c' {
   ees4(aes) ees8 aes
   g2 ees8 ees
   d4 ees8(c) d4
-  ees2 r4
+  ees2 r8 \bar "||" r
   r2.
   r4 r ees8 ees
   g4. ees8 ees4
@@ -112,7 +122,7 @@ altoNotes = \relative c' {
   ees4(aes) ees8 aes
   g2 ees8 ees
   d4 ees8(c) d4
-  ees2 r4
+  ees2 r8
   \bar "|."
 }
 
@@ -136,7 +146,7 @@ tenorNotes = \relative c' {
   ees'4(c) aes8 c
   ees2 bes8 g
   f4 bes aes
-  g2 r4
+  g2 r8 \bar "||" r
   r2.
   r4 r bes8^\p bes
   bes4. bes8 bes4
@@ -154,7 +164,7 @@ tenorNotes = \relative c' {
   ees'4(c) aes8 c
   ees2 bes8 g
   f4 bes aes
-  g2 r4
+  g2 r8
   \bar "|."
 }
 
@@ -178,7 +188,7 @@ bassNotes = \relative c {
   ees2 ees8 ees
   ees2 ees8 ees
   bes4 bes bes
-  ees2 r4
+  ees2 r8 \bar "||" r
   r2.
   r4 r ees8 ees
   ees4. g8 g4
@@ -196,15 +206,48 @@ bassNotes = \relative c {
   ees2 ees8 ees
   ees2 ees8 ees
   bes4 bes bes
-  ees2 r4
+  ees2 r8
   \bar "|."
 }
 
 pianoRH = \relative c'' {
-  \partial 8  <g bes>8^\markup{\italic{Teneramente con noto.}} ~ \(
-  q8 <ees g>8 <g bes>4 \) r8 q~\(
-  q8 <ees g> <g bes>4 \) r8 q~ \(
-  q8 <ees g>4 \) bes <g' bes>8
+  \partial 8  <g bes>8^\markup{\italic{Teneramente con noto.}} ~ (
+  q8 <ees g>8 <g bes>4 ) r8 q~(
+  q8 <ees g> <g bes>4 ) r8 q~ (
+  q8 <ees g>4 ) bes <g' bes>8~ (
+  q8 <ees g>4 bes ) <g' bes>8 (
+  q8 <ees' g>4 q q8~ % 2b
+  q8 <d aes'>4 <aes d> ) <g bes>8~ (
+  q8 <f aes>4 <bes, f'> ) <aes' c>8 ~ (
+  q8 <f aes>4 <bes, f'> ) <aes' c>8 ~ (
+  q8 <f aes>4 <aes d> <aes f'>8~
+  q8 <g ees'>4 <g bes> ) <ees des' ees>8 ~ ( % 3a
+  q8 <aes c> ) <c ees>4. <aes c>8
+  <g bes>8 (<ees g>) <g bes>4. <ees g>8
+  <d f>8(<bes d> <d ees> <aes c> <d ees> <g bes>)
+  <ees g>2 r8 <ees des' ees>~( % 3b
+  q8 <aes c>) <c ees>4. <aes c>8
+  <g bes>8(<ees g>) <g bes>4. <ees g>8
+  <d f>8(bes' <ees, g> c' <f, aes> d')
+  <g, bes ees>2 r8 \bar "||" <g bes>8 ~ (
+  q8 <ees g>) <g bes>4 r8 q8 ~ ( % 3c
+  q8 <ees g>) <g bes>4 r8 q8 ~ (
+  q8 <ees g>4 bes) <g' bes>8~ (
+  q8 <ees g>4 bes) <g' bes>8 ~ (
+  q8 <ees' g>4 q q8 ~ % 4a
+  q8 <d aes'>4 <aes d>) <g bes>8 ~ (
+  q8 <f aes>4 <bes, f'>) <aes' c>8 ~ (
+  q8 <f aes>4 <bes, f'>) <aes' c>8 ~ (
+  q8 <f aes>4 <aes d> <aes f'>8 ~
+  q8 <g ees'>4 <g bes>) <ees des' ees>8 ~ ( % 4b
+  q8 <aes c>) <c ees>4. <aes c>8
+  <g bes>8(<ees g>) <g bes>4. <ees g>8
+  <d f>8(<bes d> <d f> <aes c> <d f> <g, bes>)
+  <ees g>2 r8 <ees des' ees>8 ~ ( % 4c
+  q8 <aes c>) <c ees>4. <aes c>8
+  <g bes>8(<ees g>) <g bes>4. <ees g>8
+  <d f>8(bes' <ees, g> c' <f, aes> d')
+  <g bes ees>2 r8
   \bar "|."
  }
   
@@ -227,7 +270,7 @@ pianoLH = \relative c, {
   ees,4 aes'(aes,)
   ees4 g'(bes,)
   ees,4 bes''(bes,)
-  ees,4 <bes' ees g> r
+  ees,4 <bes' ees g> r8 \bar "||" r
   ees,4 g'(bes,)
   ees,4 g'(bes,)
   ees,4 g'(bes,)
@@ -245,7 +288,7 @@ pianoLH = \relative c, {
   ees,4 aes'(aes,)
   ees4 g'(bes,)
   ees,4 bes''(bes,)
-  ees,4 <bes' ees g> r
+  ees,4 <bes' ees g> r8
   \bar "|."
  }
   
@@ -260,7 +303,7 @@ pianoLH = \relative c, {
     <<
       \new ChoirStaff <<
 	\new Staff <<
-%         \new Voice { \rehearsalTrack }
+         \new Voice { \rehearsalTrack }
 	  \new Voice = "soprano" <<
 	    \global
 	    \sopranoNotes
@@ -294,5 +337,6 @@ pianoLH = \relative c, {
       >>
     >>
     \layout{}
+    \midi  {}
   }
 }
