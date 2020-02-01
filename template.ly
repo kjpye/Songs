@@ -74,6 +74,9 @@ RehearsalTrack = {
   s2 s2
 }
 
+ChordTrack = \chordmode {
+}
+
 soprano = \relative c' {
   \global
   c4
@@ -81,6 +84,10 @@ soprano = \relative c' {
 }
 
 dynamicsSop = {
+}
+
+wordsSop = \lyricmode {
+  words
 }
 
 alto = \relative c' {
@@ -92,9 +99,12 @@ alto = \relative c' {
 dynamicsAlto = {
 }
 
+wordsAlto = \lyricmode {
+  words
+}
+
 tenor = \relative c {
   \global
-  \clef "treble_8"
   c4
   \bar "|."
 }
@@ -102,9 +112,12 @@ tenor = \relative c {
 dynamicsTenor = {
 }
 
+wordsTenor = \lyricmode {
+  words
+}
+
 bass= \relative c' {
   \global
-  \clef bass
   c4
   \bar "|."
 }
@@ -112,7 +125,8 @@ bass= \relative c' {
 dynamicsBass = {
 }
 
-dynamicsPiano = {
+wordsBass = \lyricmode {
+  words
 }
 
 pianoRH = \relative c' {
@@ -123,7 +137,6 @@ pianoRH = \relative c' {
 
 pianoRHone = \relative c' {
   \global
-  \clef bass
   \voiceOne
   c4
   \bar "|."
@@ -136,6 +149,9 @@ pianoRHtwo = \relative c' {
   \bar "|."
 }
 
+dynamicsPiano = {
+}
+
 pianoLH = \relative c' {
   \global
   \oneVoice
@@ -145,7 +161,6 @@ pianoLH = \relative c' {
 
 pianoLHone = \relative c' {
   \global
-  \clef bass
   \voiceOne
   c4
   \bar "|."
@@ -153,22 +168,9 @@ pianoLHone = \relative c' {
 
 pianoLHtwo = \relative c' {
   \global
-  \clef bass
   \voiceTwo
   c4
   \bar "|."
-}
-
-wordsSop = \lyricmode {
-  words
-}
-
-wordsAlto = \lyricmode {
-  words
-}
-
-wordsTenor = \lyricmode {
-  words
 }
 
 wordsBass = \lyricmode {
@@ -176,59 +178,69 @@ wordsBass = \lyricmode {
 }
 
 \score {
-  <<
-    \new ChoirStaff <<
-% Single soprano staff
-      \new Dynamics \dynamicsSop
-      \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
-        \new Voice \RehearsalTrack
-        \new Voice = "soprano" \soprano
-        \new Lyrics \lyricsto "soprano" \wordsSop
-      >>
-% Single alto staff
-      \new Dynamics \dynamicsAlto
-      \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
-        \new Voice = "alto" \alto
-        \new Lyrics \lyricsto "alto" \wordsAlto
-      >>
-% Single tenor staff
-      \new Dynamics \dynamicsTenor
-      \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
-        \new Voice = "tenor" \tenor
-        \new Lyrics \lyricsto "tenor" \wordsTenor
-      >>
-% Single bass staff
-      \new Dynamics \dynamicsBass
-      \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
-        \new Voice = "bass" \bass
-        \new Lyrics \lyricsto "bass" \wordsBass
-      >>
-% Joint soprano/alto staff
-      \new Dynamics \dynamicsWomen
-      \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
-        \new Voice \RehearsalTrack
-        \new Voice = "soprano" { \voiceOne \soprano }
-        \new Voice = "alto"    { \voiceTwo \alto    }
-        \new Lyrics \lyricsto "soprano" \words
-      >>
-% Joint tenor/bass staff
-      \new Dynamics \dynamicsMen
-      \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
-        \new Voice = "tenor" \tenor
-        \new Voice = "bass" \bass
-      >>
+  \context GrandStaff <<
+    <<
+      \new ChordNames { \ChordTrack }
+      \new FretBoards { \ChordTrack }
     >>
-    \new PianoStaff <<
-      \new Staff <<
-        \new Voice \pianoRH
-        \new Voice \pianoRHone
-        \new Voice \pianoRHtwo
+    <<
+      \new ChoirStaff <<
+                                % Single soprano staff
+        \new Dynamics \dynamicsSop
+        \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+          \new Voice \RehearsalTrack
+          \new Voice = "soprano" \soprano
+          \new Lyrics \lyricsto "soprano" \wordsSop
+        >>
+                                % Single alto staff
+        \new Dynamics \dynamicsAlto
+        \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+          \new Voice = "alto" \alto
+          \new Lyrics \lyricsto "alto" \wordsAlto
+        >>
+                                % Single tenor staff
+        \new Dynamics \dynamicsTenor
+        \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+          \clef "treble_8"
+          \new Voice = "tenor" \tenor
+          \new Lyrics \lyricsto "tenor" \wordsTenor
+        >>
+                                % Single bass staff
+        \new Dynamics \dynamicsBass
+        \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+          \clef "bass"
+          \new Voice = "bass" \bass
+          \new Lyrics \lyricsto "bass" \wordsBass
+        >>
+                                % Joint soprano/alto staff
+        \new Dynamics \dynamicsWomen
+        \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
+          \new Voice \RehearsalTrack
+          \new Voice = "soprano" { \voiceOne \soprano }
+          \new Voice = "alto"    { \voiceTwo \alto    }
+          \new Lyrics \lyricsto "soprano" \words
+        >>
+                                % Joint tenor/bass staff
+        \new Dynamics \dynamicsMen
+        \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
+          \clef "bass"
+          \new Voice = "tenor" \tenor
+          \new Voice = "bass" \bass
+        >>
       >>
-      \new Dynamics \dynamicsPiano
-      \new Staff <<
-        \new Voice \pianoLH
-        \new Voice \pianoLHone
-        \new Voice \pianoLHtwo
+      \new PianoStaff <<
+        \new Staff <<
+          \new Voice \pianoRH
+          \new Voice \pianoRHone
+          \new Voice \pianoRHtwo
+        >>
+        \new Dynamics \dynamicsPiano
+        \new Staff <<
+          \clef "bass"
+          \new Voice \pianoLH
+          \new Voice \pianoLHone
+          \new Voice \pianoLHtwo
+        >>
       >>
     >>
   >>
