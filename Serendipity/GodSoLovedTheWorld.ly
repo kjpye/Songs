@@ -224,7 +224,7 @@ bas = \relative c {
   % God so loved...
   d2. d4 d4. d8 d2.~d2 r4|
   d2. d4 d4. d8 d2.~d2 r4|
-  a2. a4 a a d2.\fermata
+  a2. a4 a a d,2.\fermata
   \bar"|."
 }
 
@@ -339,7 +339,7 @@ bassaccTwo = \relative c {
   \bar"|."
 }
 
-text = \lyricmode {
+textOne = \lyricmode {
   God so loved the world, __
   God so loved the world, __
   that He gave His on -- ly be -- got -- ten Son,
@@ -348,9 +348,14 @@ text = \lyricmode {
   should not per -- ish,
   should not per -- ish,
   but have ev -- er -- last -- ing life.
+}
 
+textTwo = \lyricmode {
   For God sent not His Son in -- to the world
   to con -- demn the world,
+}
+
+textThree = \lyricmode {
   God sent not His Son in -- to the world
   to con -- demn the world;
   but that the world through Him might be sa -- ved.
@@ -433,13 +438,13 @@ text = \lyricmode {
     \new Grandstaff <<
       \new ChoirStaff <<
 	\new Voice = sop << \sop \dyn >>
-	\new Lyrics \lyricsto sop \text
+	\new Lyrics \lyricsto sop { \textOne \textTwo \textThree }
 	\new Voice = alt << \alt \dyn >>
-	\new Lyrics \lyricsto alt \text
+	\new Lyrics \lyricsto alt { \textOne \textTwo \textThree }
 	\new Voice = ten << \clef "G_8" \ten \dyn >>
-	\new Lyrics \lyricsto ten \text
+	\new Lyrics \lyricsto ten { \textOne \textTwo \textThree }
 	\new Voice = bas << \clef F \bas \dyn >>
-	\new Lyrics \lyricsto bas \text
+	\new Lyrics \lyricsto bas { \textOne          \textThree }
       >>
       \new PianoStaff <<
 	\new Staff = trebleacc <<

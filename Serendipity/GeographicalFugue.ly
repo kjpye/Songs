@@ -177,6 +177,7 @@ soprano = \relative c' {
 }
 
 dynamicsSop = {
+  \override DynamicTextSpanner.style = #'none
   s1 % 1a
   s1 % 1b
   s1 % 1c
@@ -357,6 +358,7 @@ alto = \relative c' {
 }
 
 dynamicsAlto = {
+  \override DynamicTextSpanner.style = #'none
   s1 % 1a
   s1 % 1b
   s1 % 1c
@@ -562,6 +564,7 @@ tenor = \relative c' {
 }
 
 dynamicsTenor = {
+  \override DynamicTextSpanner.style = #'none
   s4^\f s8 s^\p s2% 1a
   s1 % 1b
   s1 % 1c
@@ -771,6 +774,7 @@ bass= \relative c' {
 }
 
 dynamicsBass = {
+  \override DynamicTextSpanner.style = #'none
   s1 % 1a
   s1 % 1b
   s1 % 1c
@@ -807,7 +811,7 @@ dynamicsBass = {
   s1 % 8d
   s2^\f s4 s8 s^\mf % 9a
   s1 % 9b
-  s2 s^\p\cresc % 9c
+  s2 s^\p^\cresc % 9c
   s2^\mf s^\f % 9d
   s4 s8 s^\ff s2 % 10a
   s4 s8 s^\p \< s^\f \! s^\p \< s^\f \! s % 10b

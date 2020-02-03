@@ -5,7 +5,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 \header {
 % centered at top
 %  dedication  = "dedication"
-  title       = "The Mystery of the Divine Humiliation"
+  title       = "5. The Mystery of the Divine Humiliation"
   subtitle    = "The Crucifixion"
 %  subsubtitle = "subsubtitle"
 %  instrument  = "instrument"
@@ -16,11 +16,11 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 %  meter   arranger
 %  piece       opus
 
-  composer    = "Stainer"
+  composer    = "J. Stainer"
 %  arranger    = "arranger"
 %  opus        = "opus"
 
-%  poet        = "poet"
+  poet        = "Rev. J. Sparrow-Simpson, M.A."
 %  meter       = "meter"
 %  piece       = "piece"
 
