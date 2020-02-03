@@ -84,6 +84,7 @@ soprano = \relative c' {
 }
 
 dynamicsSop = {
+  \override DynamicTextSpanner.style = #'none
 }
 
 wordsSop = \lyricmode {
@@ -97,6 +98,7 @@ alto = \relative c' {
 }
 
 dynamicsAlto = {
+  \override DynamicTextSpanner.style = #'none
 }
 
 wordsAlto = \lyricmode {
@@ -110,6 +112,7 @@ tenor = \relative c {
 }
 
 dynamicsTenor = {
+  \override DynamicTextSpanner.style = #'none
 }
 
 wordsTenor = \lyricmode {
@@ -123,6 +126,7 @@ bass= \relative c' {
 }
 
 dynamicsBass = {
+  \override DynamicTextSpanner.style = #'none
 }
 
 wordsBass = \lyricmode {
@@ -150,6 +154,7 @@ pianoRHtwo = \relative c' {
 }
 
 dynamicsPiano = {
+  \override DynamicTextSpanner.style = #'none
 }
 
 pianoLH = \relative c' {
