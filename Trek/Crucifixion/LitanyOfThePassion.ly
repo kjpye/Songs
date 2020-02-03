@@ -16,11 +16,11 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 %  meter   arranger
 %  piece       opus
 
-  composer    = "Stainer"
+  composer    = "Sir John Stainer"
 %  arranger    = "arranger"
 %  opus        = "opus"
 
-%  poet        = "poet"
+  poet        = "Rev. James Sparrow-Simpson, M.A."
 %  meter       = "meter"
 %  piece       = "piece"
 
@@ -92,11 +92,11 @@ wordsSix = \lyricmode {
   By the Spir- it which could ren- der
   Love for hate and good for ill,
   By the merc- y, sweet and ten- der,
-  Ppured up- on Thy murd- erers still:
+  Poured up- on Thy murd- erers still:
 }
 
 soprano = \relative c'' {
-  \repeat volta 6 {
+  \repeat volta 4 {
     a2^\mf e fis e
     a2 b cis a
     b2 cis d cis
@@ -113,7 +113,7 @@ soprano = \relative c'' {
 }
 
 alto = \relative c' {
-  \repeat volta 6 {
+  \repeat volta 4 {
     cis2 cis4(b) a(b) cis2
     cis2 e4(d) cis(d) e2
     e2 e d g
@@ -130,7 +130,7 @@ alto = \relative c' {
 }
 
 tenor = \relative c' {
-  \repeat volta 6 {
+  \repeat volta 4 {
     a2 a4(gis) fis(gis) a2
     a2 gis a4(b) c2
     b2 ais b e
@@ -147,11 +147,11 @@ tenor = \relative c' {
 }
 
 bass= \relative c {
-  \repeat volta 6 {
+  \repeat volta 4 {
     a2 cis d cis
     fis2 e a a
     g2 fis b e,
-    fis2 fis b a
+    fis2 fis b(a)
     gis2 gis4(fis) eis2 eis
     fis2 cis fis fis4(e)
     dis2 b cis a
@@ -171,17 +171,25 @@ bass= \relative c {
         \new ChoirStaff <<
                                 % Joint soprano/alto staff
           \new Staff <<
-            \new Voice = "soprano" { \global \voiceOne \soprano \soprano \bar "|."}
-            \new Voice = "alto"    { \global \voiceTwo \alto    \alto    }
-            \new Lyrics \lyricsto "soprano" { \wordsOne   \emptychorus \wordsFour         }
-            \new Lyrics \lyricsto "soprano" { \wordsTwo   \chorus      \wordsFive \chorus }
-            \new Lyrics \lyricsto "soprano" { \wordsThree \emptychorus \wordsSix          }
+%            \new Voice = "soprano" { \global \voiceOne \soprano \soprano \bar "|."}
+%            \new Voice = "alto"    { \global \voiceTwo \alto    \alto    }
+%            \new Lyrics \lyricsto "soprano" { \wordsOne   \emptychorus \wordsFour         }
+%            \new Lyrics \lyricsto "soprano" { \wordsTwo   \chorus      \wordsFive \chorus }
+%            \new Lyrics \lyricsto "soprano" { \wordsThree \emptychorus \wordsSix          }
+            \new Voice = "soprano" { \global \voiceOne \soprano \bar "|."}
+            \new Voice = "alto"    { \global \voiceTwo \alto             }
+            \new Lyrics \lyricsto "soprano" { \wordsOne           }
+            \new Lyrics \lyricsto "soprano" { \wordsTwo  \chorus  }
+            \new Lyrics \lyricsto "soprano" { \wordsFour          }
+            \new Lyrics \lyricsto "soprano" { \wordsSix           }
           >>
                                 % Joint tenor/bass staff
           \new Staff <<
             \clef "bass"
-            \new Voice = "tenor" { \global \voiceOne \tenor \tenor }
-            \new Voice = "bass"  { \global \voiceTwo \bass  \bass  }
+%            \new Voice = "tenor" { \global \voiceOne \tenor \tenor }
+%            \new Voice = "bass"  { \global \voiceTwo \bass  \bass  }
+            \new Voice = "tenor" { \global \voiceOne \tenor  }
+            \new Voice = "bass"  { \global \voiceTwo \bass   }
           >>
         >>
       >>
@@ -207,9 +215,9 @@ bass= \relative c {
             \new Voice = "alto"    { \global \voiceTwo \unfoldRepeats \alto    }
             \new Lyrics \lyricsto "soprano" { \wordsOne   \chorus
                                               \wordsTwo   \chorus
-                                              \wordsThree \chorus
+%                                              \wordsThree \chorus
                                               \wordsFour  \chorus
-                                              \wordsFive  \chorus
+%                                              \wordsFive  \chorus
                                               \wordsSix   \chorus
                                             }
           >>
