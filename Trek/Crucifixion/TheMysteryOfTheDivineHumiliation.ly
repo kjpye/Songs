@@ -127,7 +127,7 @@ wordsTen = \lyricmode {
 }
 
 soprano = \relative c'' {
-  \repeat volta 10 {
+  \repeat volta 5 {
     c2 aes ees ees
     ees2 aes aes g \bar "||"
     aes2 c f,4(g) aes2
@@ -140,7 +140,7 @@ soprano = \relative c'' {
 }
 
 alto = \relative c' {
-  \repeat volta 10 {
+  \repeat volta 5 {
     ees2 c des des
     c2 c4(d) ees2 ees \bar "||"
     ees2 c f ees4(f)
@@ -153,7 +153,7 @@ alto = \relative c' {
 }
 
 tenor = \relative c' {
-  \repeat volta 10 {
+  \repeat volta 5 {
     aes2 aes bes bes
     aes2 aes4(bes) c2 bes \bar "||"
     aes2 aes aes4(bes) c2
@@ -166,7 +166,7 @@ tenor = \relative c' {
 }
 
 bass= \relative c {
-  \repeat volta 10 {
+  \repeat volta 5 {
     aes2 aes' aes g
     aes2 f ees ees4(des) \bar "||"
     c2 aes des c
@@ -186,18 +186,19 @@ bass= \relative c {
         \new ChoirStaff <<
                                 % Joint soprano/alto staff
           \new Staff <<
-            \new Voice = "soprano" { \global \voiceOne \soprano \soprano \soprano \bar "|."}
-            \new Voice = "alto"    { \global \voiceTwo \alto    \alto    \alto    }
-            \new Lyrics \lyricsto "soprano" { \wordsOne   \wordsFive  \wordsEight }
-            \new Lyrics \lyricsto "soprano" { \wordsTwo   \wordsSix   \wordsNine  }
-            \new Lyrics \lyricsto "soprano" { \wordsThree \wordsSeven \wordsTen   }
-            \new Lyrics \lyricsto "soprano" { \wordsFour                          }
+            \new Voice = "soprano" { \global \voiceOne \soprano \bar "|." }
+            \new Voice = "alto"    { \global \voiceTwo \alto              }
+            \new Lyrics \lyricsto "soprano" { \wordsOne  }
+            \new Lyrics \lyricsto "soprano" { \wordsTwo  }
+            \new Lyrics \lyricsto "soprano" { \wordsFive }
+            \new Lyrics \lyricsto "soprano" { \wordsNine }
+            \new Lyrics \lyricsto "soprano" { \wordsTen  }
           >>
                                 % Joint tenor/bass staff
           \new Staff <<
             \clef "bass"
-            \new Voice = "tenor" { \global \voiceOne \tenor \tenor \tenor }
-            \new Voice = "bass"  { \global \voiceTwo \bass  \bass  \bass  }
+            \new Voice = "tenor" { \global \voiceOne \tenor }
+            \new Voice = "bass"  { \global \voiceTwo \bass  }
           >>
         >>
       >>
@@ -223,12 +224,12 @@ bass= \relative c {
             \new Voice = "alto"    { \global \voiceTwo \unfoldRepeats \alto    }
             \new Lyrics \lyricsto "soprano" { \wordsOne
                                               \wordsTwo
-                                              \wordsThree
-                                              \wordsFour
+%                                              \wordsThree
+%                                              \wordsFour
                                               \wordsFive
-                                              \wordsSix
-                                              \wordsSeven
-                                              \wordsEight
+%                                              \wordsSix
+%                                              \wordsSeven
+%                                              \wordsEight
                                               \wordsNine
                                               \wordsTen
                                             }

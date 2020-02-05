@@ -87,7 +87,7 @@ wordsFour = \lyricmode {
 }
 
 soprano = \relative c' {
-  \repeat volta 4 {
+  \repeat volta 3 {
     f2^\mp des ees
     f2 aes ges
     f1 ees2
@@ -124,7 +124,7 @@ soprano = \relative c' {
 }
 
 alto = \relative c' {
-  \repeat volta 4 {
+  \repeat volta 3 {
     des2 des c
     des2 des des
     c1 c2
@@ -160,7 +160,7 @@ alto = \relative c' {
 }
 
 tenor = \relative c' {
-  \repeat volta 4 {
+  \repeat volta 3 {
     aes2 aes ges
     aes2 f ges
     aes1 ges2
@@ -197,7 +197,7 @@ tenor = \relative c' {
 }
 
 bass= \relative c {
-  \repeat volta 4 {
+  \repeat volta 3 {
     des2 f ees
     des2 c bes
     aes1 a2
@@ -245,7 +245,7 @@ bass= \relative c {
             \new Voice = "alto"    { \global \voiceTwo \alto             }
             \new Lyrics \lyricsto "soprano" { \wordsOne   }
             \new Lyrics \lyricsto "soprano" { \wordsTwo   }
-            \new Lyrics \lyricsto "soprano" { \wordsThree }
+%            \new Lyrics \lyricsto "soprano" { \wordsThree }
             \new Lyrics \lyricsto "soprano" { \wordsFour  }
           >>
                                 % Joint tenor/bass staff
@@ -278,7 +278,7 @@ bass= \relative c {
             \new Voice = "alto"    { \global \voiceTwo \unfoldRepeats \alto    }
             \new Lyrics \lyricsto "soprano" { \wordsOne
                                               \wordsTwo
-                                              \wordsThree
+ %                                             \wordsThree
                                               \wordsFour
                                             }
           >>

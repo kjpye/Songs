@@ -5,7 +5,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 \header {
 % centered at top
 %  dedication  = "dedication"
-  title       = "15. The Adoration of the Crucified"
+  title       = "20. For the Love of Jesus"
   subtitle    = "The Crucifixion"
 %  subsubtitle = "subsubtitle"
 %  instrument  = "instrument"
@@ -33,101 +33,106 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 #(set-global-staff-size 20)
 
 global = {
-  \key ees \major
+  \key e \major
   \time 4/2
-  \tempo 2=86
-  \partial 1
+  \tempo 2=84
 }
 
 wordsOne = \lyricmode {
   \set stanza = "1."
-  I a- dore Thee, I a- dore Thee!
-  Glor- ious ere the world be- gan;
-  Yet more won- der- ful Thour shin- est,
-  Thou div- ine, yet still div- in- est
-  In Thy dy- ing love for man.
+  All for Jes- us, all for Jes- us,
+  This our song shall e- ver be;
+  For we have no hope, nor Sav- iour,
+  If we have not hope in Thee.
 }
 
 wordsTwo = \lyricmode {
   \set stanza = "2."
-  I a- dore Thee, I a- dore Thee!
-  Thank- ful at Thy feet to be;
-  I have heard They ac- cent thrill- ing,
-  Lo! I come, for Thou art will- ing
-  Me to par- don, e- ven me.
+  All for Jes- us, Thou wilt give us
+  Strength to serve Thee, hour by hour;
+  None can move us from They pres- ence,
+  While we trust Thy love and power.
 }
 
 wordsThree = \lyricmode {
   \set stanza = "3."
-  I a- dore Thee, I a- dore Thee!
-  Born of wo- man, yet Div- ine:
-  Stained with sins I kneel be- fore Thee,
-  Sweet- est Je- su, I im- plore Thee,
-  Make me e- ver on- ly Thine.
+  All for Jes- us, at Thine al- tar
+  Thou wilt give us sweet con- tent;
+  There, dear Lord, we shall re- ceive Thee
+  In the sol- emn Sac- ra- ment.
+}
+
+wordsFour = \lyricmode {
+  \set stanza = "4."
+  All for Jes- us, Thou hast loved us;
+  All for Jes- us, Thou hasr died;
+  All for Jes- us, Thou art with us;
+  All for Jes- us cruc- if- ied.
+}
+
+wordsFive = \lyricmode {
+  \set stanza = "5."
+  All for Jes- us, all for Jes- us,
+  This the Church- "'s" song must be;
+  Till, at last, her sons are gath- ered
+  One in love and one in Thee.
+  A- men.
 }
 
 soprano = \relative c'' {
-  \repeat volta 3 {
-    g2. f4
-    f2 ees aes2. g4
-    g2 f g aes
-    bes2 c bes aes
-    g1 bes2. a4
-    a2 g d' c
-    c2 bes bes ees
-    ees2 d c b
-    c2 g aes f
-    ees2 g f d
-    ees1
+  \repeat volta 4 {
+    gis2 b e dis
+    cis2 b b a
+    gis2 b e, gis
+    fis2 e fis1
+    fis2 gis a cis
+    fis2 e e dis
+    e2 b b a
+    gis2 fis e1
   }
+  e2 e
 }
 
-alto = \relative c' {
-  \repeat volta 3 {
-    d2. d4
-    d2 ees d ees
-    ees2 d ees f
-    g2 g g f
-    ees1 fis2. fis4
-    fis2 g fis fis
-    fis2 g ees ees
-    aes2 aes g f
-    ees2 e f c
-    ees2 d c bes
-    bes1
+alto = \relative c'' {
+  \repeat volta 4 {
+    gis2 fis e e
+    e2 e e dis
+    gis2 fis e d
+    cis2 e dis1
+    dis2 eis fis fis
+    a2 a a a
+    gis2 e e fis
+    e2 dis e1
   }
+  cis2 b
 }
 
 tenor = \relative c' {
-  \repeat volta 3 {
-    bes2. aes4
-    aes2 g aes bes
-    bes2 bes bes aes
-    g2 c c d
-    ees2(bes) d2. c4
-    c2 bes bes a
-    a2 bes bes bes
-    aes2 f' ees d
-    c2 c c aes
-    g2 bes a aes
-    g1
+  \repeat volta 4 {
+    e2 dis cis b
+    a2 b cis b
+    b2 b gis b
+    cis2 gis b1
+    b2 b a a
+    b2 cis fis fis
+    e2 gis, a4(b) cis2
+    b2 b4(a) gis1
   }
+  a2 gis
 }
 
 bass= \relative c {
-  \repeat volta 3 {
-    bes2. bes4
-    c2 c f ees
-    bes'2 aes g f
-    ees2 e f bes,
-    ees1 d2. d4
-    ees2 ees d d
-    g2 g g g
-    f2 f g g
-    c,2 c f aes,
-    bes2 bes bes bes
-    ees1
+  \repeat volta 4 {
+    e2 e e e
+    a2 gis fis b,
+    e2 dis cis b
+    a2 cis b1
+    a'2 gis fis e
+    dis2 cis b bis
+    cis2 d cis a
+    b2 b e1
   }
+  a2 e
 }
 
 \book {
@@ -142,7 +147,9 @@ bass= \relative c {
             \new Voice = "alto"    { \global \voiceTwo \alto             }
             \new Lyrics \lyricsto "soprano" { \wordsOne   }
             \new Lyrics \lyricsto "soprano" { \wordsTwo   }
-            \new Lyrics \lyricsto "soprano" { \wordsThree }
+%            \new Lyrics \lyricsto "soprano" { \wordsThree }
+            \new Lyrics \lyricsto "soprano" { \wordsFour }
+            \new Lyrics \lyricsto "soprano" { \wordsFive }
           >>
                                 % Joint tenor/bass staff
           \new Staff <<
@@ -176,7 +183,9 @@ bass= \relative c {
             \new Voice = "alto"    { \global \voiceTwo \unfoldRepeats \alto    }
             \new Lyrics \lyricsto "soprano" { \wordsOne  
                                               \wordsTwo  
-                                              \wordsThree
+%                                              \wordsThree
+                                              \wordsFour 
+                                              \wordsFive 
                                             }
           >>
                                 % Joint tenor/bass staff
