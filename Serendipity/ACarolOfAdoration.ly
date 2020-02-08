@@ -43,7 +43,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 global = {
   \key f \major
   \time 6/8
-  \tempo 4=120
+  \tempo 4=80
   \partial 8
 }
 
@@ -188,12 +188,26 @@ wordsOne = \lyricmode {
   Thy- self to love a- bove all things.
 }
 
+wordsOneMidi = \lyricmode {
+  "O " "Babe " "Di" "vine, " "now " "will " "I " "sing "
+  "/To " "Thee " "a " "song " "of " "love-" "long" "ing: "
+  "/Make " "in " "my " "heart " "a " "quick " "well" "spring, "
+  "/Thy" "self " "to " "love " "a" "bove " "all " "things. "
+}
+
 wordsTwo = \lyricmode {
   \set stanza = "2."
   O Hol- y Child, my dim heart's gleam,
   O bright- er than the sun- ny beam!
   As Thou wast born in Beth- le- hem,
   Be born in me and be my dream.
+}
+
+wordsTwoMidi = \lyricmode {
+  "/O " "Hol" "y " "Child, " "my " "dim " "heart's " "gleam, "
+  "/O " "bright" "er " "than " "the " "sun" "ny " "beam! "
+  "/As " "Thou " "wast " "born " "in " "Beth" "le" "hem, "
+  "/Be " "born " "in " "me " "and " "be " "my " "dream. "
 }
 
 wordsThree = \lyricmode {
@@ -204,6 +218,13 @@ wordsThree = \lyricmode {
   E- ver to love Thy- self a- right.
 }
 
+wordsThreeMidi = \lyricmode {
+  "/O " "Prince " "of " "Peace, " "my " "dark " "soul's " "light! "
+  _ "/Thou " "art " "day " "with" "out " "a " "night: "
+  "/O " "give " "me " "strength " "and " "give " "me " "might "
+  "/E" "ver " "to " "love " "Thy" "self " "a" "right. "
+}
+
 wordsFour = \lyricmode {
   \set stanza = "4."
   O Son of God, Thou war- rior best!
@@ -212,12 +233,26 @@ wordsFour = \lyricmode {
   In Thee a- lone may I find rest.
 }
 
+wordsFourMidi = \lyricmode {
+  "/O " "Son " "of " "God, " "Thou " "war" "rior " "best! "
+  "/Thy " "love, " "Thou " "in " "mine " "heart " "make " "fast; "
+  "/When " "I " "go " "North, " "South, " "East " "or " "West "
+  "/In " "Thee " "a" "lone " "may " "I " "find " "rest. "
+}
+
 wordsFive = \lyricmode {
   \set stanza = "5."
   Je- su, it well for him shall be
   That in Thy bliss Thy- self shall see:
   O then with love- chords draw Thou me,
   That I may come and dwell with Thee.
+}
+
+wordsFiveMidi = \lyricmode {
+  "/Je" "su, " "it " "well " "for " "him " "shall " "be "
+  "/That " "in " "Thy " "bliss " "Thy" "self " "shall " "see: "
+  "/O " "then " "with " "love" "chords " "draw " "Thou " "me, "
+  "/That " "I " "may " "come " "and " "dwell " "with " "Thee. "
 }
 
 \book {
@@ -289,6 +324,37 @@ wordsFive = \lyricmode {
         \Staff \RemoveAllEmptyStaves
       }
     }
+  }
+}
+
+\book {
+  \score {
+    <<
+      \new ChoirStaff <<
+                                % Joint soprano/alto staff
+        \new Dynamics \dynamicsWomen
+        \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
+          \new Voice { \RehearsalTrack \RehearsalTrack \RehearsalTrack }
+          \new Voice = "soprano" { \voiceOne \global \soprano \bar "||" \break
+                                                     \soprano \bar "||" \break
+                                                     \soprano \bar "|." }
+          \new Voice = "alto"    { \voiceTwo \global \alto    \alto    \alto    }
+          \new Lyrics \lyricsto "soprano" {
+            \wordsOneMidi
+            \wordsTwoMidi
+            \wordsThreeMidi
+           %\wordsFourMidi
+           %\wordsFiveMidi
+          }
+        >>
+                                % Joint tenor/bass staff
+        \new Dynamics \dynamicsMen
+        \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
+          \new Voice = "tenor" { \global \tenor \tenor \tenor }
+          \new Voice = "bass"  { \global \bass  \bass  \bass  }
+        >>
+      >>
+    >>
     \midi {
     }
   }
