@@ -20,7 +20,7 @@ commonlyrics = \lyricmode {
   The tree of liv- ing green.
 
   To Ma- ry, rose of heav- en,
-  With liv- ing hearts we say
+  With lov- ing hearts we say
   Let our sins be for- giv- en,
   And grief be turned a- way
 

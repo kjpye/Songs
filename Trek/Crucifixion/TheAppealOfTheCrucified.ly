@@ -752,39 +752,39 @@ alto = \relative c'' {
 
 dynamicsAlto = {
   \override DynamicTextSpanner.style = #'none
-  s1
+  s1 % 46a
   s1
   s1
   s2 s\ff
   s1
   s1
-  s1
+  s1 % 46b
   s1
   s1
   s1
   s1
   s1
   s1\ff
-  s1
+  s1 % 46c
   s1
   s1
   s1
   s2 s\pp
   s1
   s2 s\cresc
-  s1
+  s1 % 47a
   s1
   s1\p
   s1
   s1
   s2 s\cresc
-  s1
+  s1 % 47b
   s1
   s1
   s2 s2\dim
   s1
   s1
-  s1
+  s1 % 47c
   s1
   s1
   s1
@@ -795,7 +795,7 @@ dynamicsAlto = {
   s1
   s1
   s1\dim
-  s2. s4\p
+  s2 s\p
   s1
   s1
   s1
@@ -1246,7 +1246,7 @@ dynamicsTenor = {
   s1
   s1
   s1\dim
-  s2. s4\p
+  s2 s\p
   s1
   s1
   s1
@@ -1697,7 +1697,7 @@ dynamicsBass = {
   s1
   s1
   s1\dim
-  s2. s4\p
+  s2 s\p
   s1
   s1
   s1
@@ -1926,6 +1926,179 @@ pianoRH = \relative c' {
   g2 r
   <ees aes>1
   <d g>1
+  s1 % 47a
+  <d g b>2-\fermata r
+  <ees g>1
+  q4 <d f> q <ees g>
+  <d bes'>2. <d aes'>4
+  s1
+  s1 % 47b
+  s1
+  <fis a>2. q4
+  <g bes>2 <d bes'>4 <e c'>
+  <f d'>2 <d g>
+  s1
+  s1 % 47c
+  s1
+  s2 r
+  s1
+  s1
+  s1
+  <f bes d>2-\fermata r
+  f1 % 48a
+  s1
+  s1
+  <f bes>2 <d aes'>
+  s1
+  <c ees g>2 <d f bes>4 <c ees aes>
+  <b d g>2 s % 48b
+  s1
+  <bes ees>2 r4 ees
+  ees4 r r ees
+  <ees ges>4 r r2
+  <c ees a c>1-> % 48c
+  <c f a c>1->
+  <c ees a c>1->
+  <c ees a c>1-> % 49a
+  s1
+  s4 r r2\fermata
+  s1
+  s1
+  s2 r % 49b
+  <ges' ces>1
+  <f bes>2-\fermata r
+  q2(<ees aes>
+  <d g>1)
+  d4 f2 ees4
+  d2 <f g>
+  s1 % 49c
+  s1
+  s1
+  <e bes'>4 <f aes>2 <aes c>4
+  s1
+  s1
+  s1 % 50a
+  s1
+  <f d'>2 <d aes'>
+  s1
+  s1
+  s2 r
+  <ees aes>1
+  <d g>1 % 50b
+  s1
+  <d g b>2\fermata r
+  <ees g c>2 q4 <f bes d>
+  <g bes ees>2 <g c ees>4 <c f>
+  <b d g>2 <c ees aes>
+  <b d g>2 r
+  <ees, g c>2 q4 <f bes d> % 50c
+  <g bes ees>2 <g c ees>4 <c f>
+  <b d g>2 <c ees aes>
+  s1
+  s1
+  <ees, c'>2 <g ees'>
+  <f aes d>2 <ees c'> % 51a
+  <g b>2 r
+  q2 q4 <fis d'>
+  <g d'>2 g
+  <g ees'>2 <fis ees'>
+  <g d'>1
+  g1~
+  g2 r % 51b
+  <ees aes>1
+  <d g>1~
+  q2 r
+  <ees aes>1
+  s1
+  <c ees>2 <b d> % 51c
+  c2 r
+  <ees aes>1
+  s1
+  s1
+  <b g'>2 g'
+  <g b>1 % 52a
+  <g d'>2 g
+  <g ees'>2 <fis ees'>
+  <g d'>1
+  g1~
+  g2 r
+  <ees aes>1
+  <d g>\fermata ~ \key e \minor \bar "||" \break
+  q2 <c d fis a> % 52b
+  <b d g a>2 <d b'>
+  <e b'>2 e4 <e fis>
+  <e g>2 <e g c>
+  q2 <c fis>4 <d g>
+  <e a>2 <f a d>
+  s1 % 52c
+  <e g d'>2
+  <g c>4 <fis b>
+  <e b'>2 <e a>4 e
+  <e a>2 s
+  <e a>2 d
+  <d g>2 s
+  <d fis>2 <cis e> % 53a
+  d2 d
+  <d a'>2 q4 <e g>
+  q2 fis4 fis
+  <fis c'>2. <g b>4
+  <fis a>1
+  <a d>1
+  <g bes ees>1 % 53b
+  <d a' d>2\fermata r
+  <b d>2 <d b'>
+  <e b'> e4 <e fis>
+  <e g>2 <e g c>
+  q2 <c fis>4 <d g>
+  <e a>2 <f a d>2
+  s1 % 53c
+  s2. <e b'>4
+  <e b'>2 e
+  s1
+  <d a'>2 d
+  s1
+  <d fis>2 <cis e> % 54a
+  d2 d
+  <d a>2. <e g>4
+  q2 fis
+  <fis c'>2. <g b>4
+  <fis a>2 r
+  <a d>1
+  <g bes ees>1
+  <d a' d>2\fermata r
+  d2 <d b'>
+  <e b'>2 e4 <e fis>
+  <e g>2 <e g c>
+  q2 <c fis>4 <d g>
+  <e a>2 <f a d>
+  s1 % 54c
+  s2. <e b'>4
+  q2 <e a>4 e
+  <e a>2 <c c'>
+  s2. <d g>4
+  <e g e'>2 <fis a d>
+  s1 % 55a
+  s2 r
+  r1
+  r2 <fis d'>
+  s1
+  s1
+  <e a>2 r < e c'>1
+  s1 % 55b
+  s1
+  <b g'>1
+  s1
+  s1
+  s1
+  s1
+  d1~
+  d1 % 55c
+  d1
+  r2 s
+  s1
+  s1
+  s1
+  s1
 %  \bar "|."
 }
 
@@ -1952,6 +2125,179 @@ pianoRHone = \relative c''' {
   s1
   s1
   s1
+  g4 fis~ <fis c'>2 % 47a
+  s1
+  s1
+  s1
+  s1
+  <ees g>2 g4 a
+  bes2 bes4 c % 47b
+  d2. a4
+  s1
+  s1
+  s1
+  g2 c
+  bes2 bes~
+  bes1~
+  bes2 s
+  ces1
+  bes1
+  bes4 a~ <a ees'>2
+  s1
+  s1 % 48a
+  d2 ees4 f
+  f4 bes,2 c4
+  s1
+  g2. g4
+  s1
+  s2 ees4 f % 48b
+  d1
+  s1
+  s1
+  s1
+  s1 % 48c
+  s1
+  s1
+  s1 % 49c
+  <c' ges' c>2. -> <ces ges' ces>4
+  <ges' ces>4-! s2.
+  ces,1(
+  bes2 ces
+  bes2) s % 49b
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1
+  g2 bes4 aes % 49c
+  g2 <g b>
+  c4 des2 c4
+  s1
+  d4 ees2 d4
+  d2. d4
+  f2. c4 % 50a
+  c4 b2 b4
+  s1
+  g1~
+  g1~
+  g2 s
+  s1
+  s1 % 50b
+  g4 fis~ <fis c'>2
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1 % 50c
+  s1
+  s1
+  g'2. f4
+  s2 <g, ees'>4 <f d'>
+  s1
+  s1 % 51a
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1 % 51b
+  s1
+  s1
+  s1
+  s1
+  g2 s
+  s1 % 51c
+  s1
+  s1
+  g1
+  b2. a4
+  s1
+  s1 % 52a
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1 \key e \minor
+  s1 % 52b
+  s1
+  s1
+  s1
+  s1
+  s1
+  d2 e4 d % 52c
+  s1
+  s1
+  s2 b4. a8
+  s1
+  s2 a4 g
+  s1 % 53a
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1 % 53b
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1
+  d'2 e4 d % 53c
+  d2(c4) s
+  s1
+  a2. a4
+  s1
+  a2 g
+  s1 % 54a
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1 % 54b
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1
+  d'2 e4 d % 54c
+  d2(c4) s
+  s1
+  s1
+  b2 a4 s
+  s1
+  d2 g~ % 55a
+  g2 s
+  s1
+  s1
+  e1
+  d2 b
+  s1
+  s1
+  e,1 % 55b
+  d2 a'
+  s1
+  b2 a4 e
+  a1
+  a2 g4 d
+  g1
+  s1
+  s1 % 55c
+  s1
+  s2 <d' g>
+  aes'4 aes2 des,4
+  g2 g
+  g4 fis <fis c'>2
+  <g b>1
 }
 
 pianoRHtwo = \relative c'' {
@@ -1977,6 +2323,179 @@ pianoRHtwo = \relative c'' {
   s1
   s1
   s1
+  c,2 c % 47a
+  s1
+  s1
+  s1
+  s1
+  s2 g'2
+  g4 bes a g % 47b
+  fis1
+  s1
+  s1
+  s1
+  ees1
+  d2 bes~ % 47c
+  bes1~
+  bes2 s
+  ges'1
+  f1
+  ees2 ees
+  s1
+  s1 % 48a
+  f2 ees4 d
+  d2 e
+  s1
+  ees2 f
+  s1
+  s2 c~ % 48b
+  c2 bes
+  s1
+  s1
+  s1
+  s1 % 48c
+  s1
+  s1
+  s1 % 49a
+  <a ees' ges>2. <ees' a>4
+  <ees a ces>4 s2.
+  ges1
+  f2 ges
+  f2 s % 49b
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1
+  f1~ % 49c
+  f1
+  g1
+  s1
+  aes2 a
+  g1
+  f1 % 50a
+  f2. f4
+  s1
+  d1
+  s1
+  s1
+  s1
+  s1 % 50b
+  c2 c
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1 % 50c
+  s1
+  s1
+  <b' d>2 <g d'>
+  <g c ees>2 b
+  s1
+  s1 % 51a
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1 % 51b
+  s1
+  s1
+  s1
+  s1
+  ees,4 d c c
+  s1 % 51c
+  s1
+  s1
+  d2 c
+  <c fis>1
+  s1
+  s1 % 52a
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1 \key e \minor
+  s1 % 52b
+  s1
+  s1
+  \change Staff = pianolh c2 s \change Staff = pianorh
+  s1
+  s1
+  <f g>1 % 52c
+  s1
+  s1
+  s2 e
+  s1
+  s2 d
+  s1 % 53a
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1 % 53b
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1
+  <f g>1 % 53c
+  <e g>2. s4
+  s1
+  e1
+  s1
+  e1
+  s1 % 54a
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1 % 54b
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1
+  <f g>1 % 54c
+  <e g>2. s4
+  s1
+  s1
+  f1
+  s1
+  g1~ % 55a
+  g2 s
+  s1
+  s1
+  f1~
+  f1
+  s1
+  s1
+  c1~ % 55b
+  c1
+  s1
+  c1~
+  c1
+  b1~
+  b1
+  s1
+  s1 % 55c
+  s1
+  s2 <b g'>
+  <c ees aes ees'>1
+  <b d g d'>1
+  <a d c' d>1
+  <g d' b' d>1
 }
 
 dynamicsPiano = {
@@ -2001,9 +2520,178 @@ dynamicsPiano = {
   s1
   s1\pp
   s2 s\cresc
+  s1 % 47a
+  s1
+  s1\p
+  s1
+  s1
+  s2 s\cresc
+  s1
+  s1
+  s1
+  s2 s\dim
+  s1
+  s1
+  s2 s\p
+  s1
+  s1
+  s1
+  s2 s\cresc
+  s1
+  s1
+  s1\mf % 48a
+  s1
+  s1
+  s1\dim
+  s2 s\p
+  s1
+  s1
+  s1
+  s2 s\cresc
+  s1
+  s1
+  s1 % 48c
+  s1
+  s1\ff
+  s1 % 49a
+  s1\fff
+  s1
+  s1\pp
+  s1
+  s1 % 49b
+  s1
+  s1
+  s1\p-\markup \italic {a tempo}
+  s1
+  s1-\markup \italic legato
+  s1
+  s1\cresc % 49c
+  s2 s\cresc
+  s1
+  s2. s4\f
+  s1
+  s1
+  s1\ff s2. s4\p
+  s2 s\pp
+  s1
+  s1
+  s1
+  s1\pp
+  s2 s\cresc % 50b
+  s1
+  s1
+  s1\ff
+  s1
+  s1
+  s1
+  s1 % 50c
+  s1
+  s1
+  s1
+  s4. s8\dim s2
+  s1
+  s1 % 51a
+  s1
+  s1\f-\markup \italic {Accomp. ad lib.}
+  s1
+  s1
+  s1-\markup \upright {Org.}
+  s1\p
+  s1 % 51b
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1 % 51c
+  s1
+  s1\cresc
+  s1
+  s1
+  s2 s\mf
+  s1 % 52a
+  s1
+  s1
+  s1
+  s1\p \>
+  s1 \!
+  s1\pp
+  s1
+  s1 % 52b
+  s2 s\p
+  s1
+  s2 s\cresc
+  s1
+  s2 s\mf
+  s1 % 52c
+  s2. s4\dim
+  s1
+  s1\p
+  s1
+  s2 s\pp
+  s1 % 53a
+  s2 s\cresc
+  s1
+  s1
+  s1
+  s1
+  s1\mf
+  s1 % 53b
+  s2 s\p
+  s1
+  s1
+  s2 s\cresc
+  s1
+  s2 s\mf
+  s1 % 53c
+  s2. s4\p
+  s1
+  s1
+  s1
+  s1
+  s1 % 54a
+  s2 s\cresc
+  s1
+  s2 s\mf
+  s1
+  s1
+  s1\f
+  s1 % 54b
+  s1
+  s2 s\p
+  s1
+  s2 s\cresc
+  s1
+  s2 s\mf
+  s1 % 54c
+  s2. s4\p
+  s1
+  s2 s\cresc
+  s1
+  s2 s\f
+  s1 % 55a
+  s1
+  s1
+  s2 s\cresc
+  s1
+  s1
+  s1
+  s1\mf
+  s1\p % 55b
+  s1
+  s1
+  s1
+  s1\dim
   s1
   s1
   s1\p
+  s1 % 55c
+  s1
+  s2 s-\markup \italic {ad lib.}
+  s1
+  s1
+  s1
+  s1
 }
 
 pianoLH = \relative c' {
@@ -2029,33 +2717,175 @@ pianoLH = \relative c' {
   s1
   c,1
   b2 bes
+  a2 aes % 47a
+  g2\fermata r
+  s1
+  s1
+  s1
+  s1
+  s1 % 47b
+  s1
+  s1
+  <g' bes>1
+  s1
+  s1
+  <bes, bes'>1 % 47c
+  s1
+  s1
+  ees1
+  d2 des
+  c2 ces
+  bes1\fermata
+  s1 % 48a
+  s1
+  s1
+  s1
+  s1
+  c2 f,
+  g2 s % 48b
+  <bes aes'>1
+  s2 r4 s
+  s1
+  s1
+  s1 % 48c
+  s1
+  s1
+  s1 % 49a
+  s1
+  r1\fermata
+  <ees a>1
+  s1
+  s2 r % 49b
+  <ees a>1
+  s2 r
+  s1
+  s1
+  s1
+  s1
+  s1 % 49c
+  s1
+  s1
+  s1
+  s1
+  <g b>1
+  <a c>1 % 50a
+  s1
+  s1
+  s1
+  s1
+  s2 r
+  c,1
+  b2 bes % 50b
+  a2 aes
+  g2\fermata r
+  s1
+  s1
+  s1
+  s2 r
+  s1 % 50c
+  s1
+  s1
+  s1
+  c'2 g
+  aes2 s
+  s1*100
   \bar "|."
 }
 
 pianoLHone = \relative c' {
   \global
   \voiceOne
-  g2 g4 bes
+  g2 g4 bes % 46a
   bes2 c4 c
   <b d>2 <c ees>
   <b d>2 s
   g2 g4 bes
   bes2 c4 c
-  <b d>2 <c ees>
+  <b d>2 <c ees>% 46b
   <b d>2 d
   s1
   s2 c
   aes2 c
   d2 s
   d2 d4 c
-  b4 d2 g,4
+  b4 d2 g,4 % 46c
   c2 a
   g1
   g1~
   g2 r
   s1
   s1
-  \bar "|."
+  s1 % 47a
+  s1
+  bes1
+  aes2 aes4 g
+  f2. bes4
+  bes2 bes4 c
+  bes4 d c bes % 47b
+  a2. d4
+  d2. c4
+  s1
+  bes1~
+  bes2 a
+  bes2 s % 47c
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1
+  bes1~ % 48a
+  bes1
+  bes2 bes
+  c2 bes
+  bes2 b
+  s1
+  s2 g4 aes % 48b
+  s1
+  g2 s4 ees
+  ges8 aes ges aes ges aes ges aes
+  ges8 aes ges aes ges aes ges aes % 48c
+  ges16 aes ges aes ges aes ges aes ges aes ges aes ges aes ges aes
+  fes16 ges fes ges fes ges fes ges fes ges fes ges fes ges fes ges
+  ges16 aes ges aes ges aes ges aes ges aes ges aes ges aes ges aes
+  ges16 aes ges aes ges aes ges aes ges aes ges aes ges aes ges aes % 49a
+  s1
+  s1
+  s1
+  bes2 a
+  bes2 s % 49b
+  s1
+  bes2\fermata s
+  f2 f
+  f1
+  g2 <fis a>
+  g2 g4 a
+  b2 c % 49c
+  b2 d
+  c4 bes2 c4
+  des4 c2 c4
+  c1
+  s1
+  s1 % 50a
+  d2. d4
+  g,2 f
+  g1~
+  g1~
+  g2 s
+  s1
+  s1 % 50b
+  s1
+  s1
+  g2 g4 bes
+  bes2 c4 c
+  <b d>2 <c ees>
+  <b d>2 s
+  g2 g4 bes % 50c
+  bes2 c4 c
+  <b d>2 <c ees>
+  <b d>2 q
+  s1
+  s2 c
 }
 
 pianoLHtwo = \relative c {
@@ -2081,7 +2911,77 @@ pianoLHtwo = \relative c {
   r1
   s1
   s1
-  \bar "|."
+  s1 % 47a
+  s1
+  ees1~
+  ees1~
+  ees1~
+  ees1
+  d1 % 47b
+  d1
+  d2. d4
+  s1
+  f1
+  f1
+  s1 % 47c
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1
+  aes1~ % 48a
+  aes1
+  aes2 g
+  f2 bes,
+  ees2 d
+  s1
+  s2 c4 aes % 48b
+  s1
+  ees'2 s4 ees
+  ges,1~
+  ges1~
+  ges1 % 48c
+  f1
+  ges1~
+  ges1 % 49a
+  s1
+  s1
+  s1
+  d'2 ees
+  bes2 s % 49b
+  s1
+  d2\fermata s
+  d2(c
+  b1)
+  b2 c
+  b2 b4 c
+  d2 ees % 49c
+  d2 f
+  e1
+  f2. f4
+  f2 fis
+  s1
+  s1 % 50a
+  g2. g4
+  b,2 c
+  <b f'>1
+  s1
+  s1
+  s1
+  s1 % 50b
+  s1
+  s1
+  c2 c4 bes
+  ees2 c4 aes'
+  g2 f
+  g2 s
+  c,2 c4 bes % 50c
+  ees2 c4 aes'
+  g2 f
+  g2 bes
+  s1
+  s2 ees,
 }
 
 \score {
@@ -2117,13 +3017,13 @@ pianoLHtwo = \relative c {
         >>
       >>
       \new PianoStaff <<
-        \new Staff <<
+        \new Staff = "pianorh" <<
           \new Voice \pianoRH
           \new Voice \pianoRHone
           \new Voice \pianoRHtwo
         >>
         \new Dynamics \dynamicsPiano
-        \new Staff <<
+        \new Staff = "pianolh" <<
           \clef "bass"
           \new Voice \pianoLH
           \new Voice \pianoLHone

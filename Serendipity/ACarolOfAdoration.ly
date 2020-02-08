@@ -70,12 +70,12 @@ black = {
 RehearsalTrack = {
 %  \set Score.currentBarNumber = #5
 %  \mark \markup { \box 5 }
-  \mark \markup { \circle "1a" }
-  s2 s2
+  \mark \markup { \circle "1a" } s8 s2.*3
+  \mark \markup { \circle "1b" } s2.*2
+  \mark \markup { \circle "1c" } s2. s2. s2 s8
 }
 
 soprano = \relative c'' {
-  \global
   a8
   d4 c8 a4 a16(bes)
   c8(a) g f4 g8
@@ -85,14 +85,12 @@ soprano = \relative c'' {
   bes4 c16(bes) a4 a8
   g8.(f16) g8 a4 f8
   f4 d8 f4
-  \bar "|."
 }
 
 dynamicsSop = {
 }
 
 alto = \relative c' {
-  \global
   f8
   a8(g16 f) e8 e(d) d
   c8.(d16) e8 e(d) d16(e)
@@ -102,7 +100,6 @@ alto = \relative c' {
   d16(f e d) c8 c8(d16 e) f(e)
   d4 d16(e) f4 c8
   c8(bes) bes c4
-  \bar "|."
 }
 
 dynamicsAlto = {
@@ -116,18 +113,16 @@ dynamicsMen = {
 
 tenor = \relative c' {
   \voiceOne
-  \global
   \clef "treble_8"
   d16(c)
   bes8.(a16) g8 g(f) f
   f8(c') bes a4 bes8
   c4 c8 c4 d8
-  c8(c16 a) a(c) c4 c8
+  c8~(c16 a) a(c) c4 c8
   bes4 bes8 c4 d16(c)
   bes4 g8 bes4 c8
   bes8(a) bes8 c4 a8
   f4 f16(g) a4
-  \bar "|."
 }
 
 dynamicsTenor = {
@@ -135,18 +130,16 @@ dynamicsTenor = {
 
 bass= \relative c {
   \voiceTwo
-  \global
   \clef bass
   d8
   d4 d8 d4 bes8
   a8.(bes16) c8 d4 bes8
   f8(a) c f(a) bes
-  a8(a16 f) f(a) c4 a8
+  a8~(a16 f) f(a) c4 a8
   bes4 g8 a4 d,8
   g4 e8 f4 a,8
   bes8(d) g f4 a,8
   a8(d) bes f'4
-  \bar "|."
 }
 
 dynamicsBass = {
@@ -156,50 +149,39 @@ dynamicsPiano = {
 }
 
 pianoRH = \relative c' {
-  \global
   c4
-  \bar "|."
 }
 
 pianoRHone = \relative c' {
-  \global
   \clef bass
   \voiceOne
   c4
-  \bar "|."
 }
 
 pianoRHtwo = \relative c' {
-  \global
   \voiceTwo
   c4
-  \bar "|."
 }
 
 pianoLH = \relative c' {
-  \global
   \oneVoice
   c4
-  \bar "|."
 }
 
 pianoLHone = \relative c' {
-  \global
   \clef bass
   \voiceOne
   c4
-  \bar "|."
 }
 
 pianoLHtwo = \relative c' {
-  \global
   \clef bass
   \voiceTwo
   c4
-  \bar "|."
 }
 
 wordsOne = \lyricmode {
+  \set stanza = "1."
   O Babe Di- vine, now will I sing
   To Thee a song of love- long- ing:
   Make in my heart a quick well- spring,
@@ -207,6 +189,7 @@ wordsOne = \lyricmode {
 }
 
 wordsTwo = \lyricmode {
+  \set stanza = "2."
   O Hol- y Child, my dim heart's gleam,
   O bright- er than the sun- ny beam!
   As Thou wast born in Beth- le- hem,
@@ -214,13 +197,15 @@ wordsTwo = \lyricmode {
 }
 
 wordsThree = \lyricmode {
+  \set stanza = "3."
   O Prince of Peace, my dark soul's light!
-  Thou art day with- out a night:
+  _ Thou art day with- out a night:
   O give me strength and give me might
   E- ver to love Thy- self a- right.
 }
 
 wordsFour = \lyricmode {
+  \set stanza = "4."
   O Son of God, Thou war- rior best!
   Thy love, Thou in mine heart make fast;
   When I go North, South, East or West
@@ -228,41 +213,83 @@ wordsFour = \lyricmode {
 }
 
 wordsFive = \lyricmode {
+  \set stanza = "5."
   Je- su, it well for him shall be
   That in Thy bliss Thy- self shall see:
   O then with love- chords draw Thou me,
   That I may come and dwell with Thee.
 }
 
-\score {
-  <<
-    \new ChoirStaff <<
-% Joint soprano/alto staff
-      \new Dynamics \dynamicsWomen
-      \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
-        \new Voice \RehearsalTrack
-        \new Voice = "soprano" { \voiceOne \soprano }
-        \new Voice = "alto"    { \voiceTwo \alto    }
-        \new Lyrics \lyricsto "soprano" \wordsOne
-        \new Lyrics \lyricsto "soprano" \wordsTwo
-        \new Lyrics \lyricsto "soprano" \wordsThree
-        \new Lyrics \lyricsto "soprano" \wordsFour
-        \new Lyrics \lyricsto "soprano" \wordsFive
-      >>
-% Joint tenor/bass staff
-      \new Dynamics \dynamicsMen
-      \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
-        \new Voice = "tenor" \tenor
-        \new Voice = "bass" \bass
+\book {
+  \bookOutputSuffix "multi"
+  \score {
+    <<
+      \new ChoirStaff <<
+                                % Joint soprano/alto staff
+        \new Dynamics \dynamicsWomen
+        \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
+          \new Voice \RehearsalTrack
+          \new Voice = "soprano" { \voiceOne \global \soprano }
+          \new Voice = "alto"    { \voiceTwo \global \alto    }
+          \new Lyrics \lyricsto "soprano" \wordsOne
+          \new Lyrics \lyricsto "soprano" \wordsTwo
+          \new Lyrics \lyricsto "soprano" \wordsThree
+%          \new Lyrics \lyricsto "soprano" \wordsFour
+%          \new Lyrics \lyricsto "soprano" \wordsFive
+        >>
+                                % Joint tenor/bass staff
+        \new Dynamics \dynamicsMen
+        \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
+          \new Voice = "tenor" { \voiceOne \global \tenor }
+          \new Voice = "bass"  { \voiceTwo \global \bass  }
+        >>
       >>
     >>
-  >>
-  \layout {
-    indent = 1.5\cm
-    \context {
-      \Staff \RemoveAllEmptyStaves
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
     }
   }
-  \midi {
+}
+
+\book {
+  \bookOutputSuffix "single"
+  \score {
+    <<
+      \new ChoirStaff <<
+                                % Joint soprano/alto staff
+        \new Dynamics \dynamicsWomen
+        \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
+          \new Voice { \RehearsalTrack \RehearsalTrack \RehearsalTrack }
+          \new Voice = "soprano" { \voiceOne \global \soprano \bar "||" \break
+                                                     \soprano \bar "||" \break
+                                                     \soprano \bar "|." }
+          \new Voice = "alto"    { \voiceTwo \global \alto    \alto    \alto    }
+          \new Lyrics \lyricsto "soprano" {
+            \wordsOne
+            \wordsTwo
+            \wordsThree
+           %\wordsFour
+           %\wordsFive
+          }
+        >>
+                                % Joint tenor/bass staff
+        \new Dynamics \dynamicsMen
+        \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
+          \new Voice = "tenor" { \global \tenor \tenor \tenor }
+          \new Voice = "bass"  { \global \bass  \bass  \bass  }
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+    \midi {
+    }
   }
 }

@@ -116,7 +116,7 @@ verseTwoEnglish = \lyricmode {
 
 verseThreeEnglish = \lyricmode {
   To Ma- ry, rose of heav- en,
-  With liv- ing hearts we say
+  With lov- ing hearts we say
   Let our sins be for- giv- en,
   And grief be turned a= way
   U- pon this Christ- mas Day
@@ -124,39 +124,77 @@ verseThreeEnglish = \lyricmode {
   For grace and hope we pray.
 }
 
-\score {
-  \new ChoirStaff <<
-    \new Staff \with {
-      midiInstrument = "piano"
-      instrumentName = \markup \center-column { "S." "A." }
-    } <<
-      \new Voice = "soprano" { \voiceOne \soprano }
-      \new Voice = "alto" { \voiceTwo \alto }
+\book {
+  \bookOutputSuffix "english"
+  \score {
+    \new ChoirStaff <<
+      \new Staff \with {
+        midiInstrument = "piano"
+        instrumentName = \markup \center-column { "S." "A." }
+      } <<
+        \new Voice = "soprano" { \voiceOne \soprano }
+        \new Voice = "alto" { \voiceTwo \alto }
+      >>
+      \new Lyrics \lyricsto "soprano" \verseOneEnglish
+      \new Lyrics \lyricsto "soprano" \verseTwoEnglish
+      \new Lyrics \lyricsto "soprano" \verseThreeEnglish
+      \new Staff \with {
+        midiInstrument = "piano"
+        instrumentName = \markup \center-column { "T." "B." }
+      } <<
+        \clef bass
+        \new Voice = "tenor" { \voiceOne \tenor }
+        \new Voice = "bass" { \voiceTwo \bass }
+      >>
     >>
-%    \new Lyrics \lyricsto "soprano" \verseOneGerman
-%    \new Lyrics \lyricsto "soprano" \verseTwoGerman
-    \new Lyrics \lyricsto "soprano" \verseOneEnglish
-    \new Lyrics \lyricsto "soprano" \verseTwoEnglish
-    \new Lyrics \lyricsto "soprano" \verseThreeEnglish
-    \new Staff \with {
-      midiInstrument = "piano"
-      instrumentName = \markup \center-column { "T." "B." }
-    } <<
-      \clef bass
-      \new Voice = "tenor" { \voiceOne \tenor }
-      \new Voice = "bass" { \voiceTwo \bass }
-    >>
-  >>
-  \layout {
-    \context {
-      \Score
-      \remove "Bar_number_engraver"
+    \layout {
+      \context {
+        \Score
+        \remove "Bar_number_engraver"
+      }
+    }
+    \midi {
+      \context {
+        \Score
+        tempoWholesPerMinute = #(ly:make-moment 100 4)
+      }
     }
   }
-  \midi {
-    \context {
-      \Score
-      tempoWholesPerMinute = #(ly:make-moment 100 4)
+}
+
+\book {
+  \bookOutputSuffix "german"
+  \score {
+    \new ChoirStaff <<
+      \new Staff \with {
+        midiInstrument = "piano"
+        instrumentName = \markup \center-column { "S." "A." }
+      } <<
+        \new Voice = "soprano" { \voiceOne \soprano }
+        \new Voice = "alto" { \voiceTwo \alto }
+      >>
+      \new Lyrics \lyricsto "soprano" \verseOneGerman
+      \new Lyrics \lyricsto "soprano" \verseTwoGerman
+      \new Staff \with {
+        midiInstrument = "piano"
+        instrumentName = \markup \center-column { "T." "B." }
+      } <<
+        \clef bass
+        \new Voice = "tenor" { \voiceOne \tenor }
+        \new Voice = "bass" { \voiceTwo \bass }
+      >>
+    >>
+    \layout {
+      \context {
+        \Score
+        \remove "Bar_number_engraver"
+      }
+    }
+    \midi {
+      \context {
+        \Score
+        tempoWholesPerMinute = #(ly:make-moment 100 4)
+      }
     }
   }
 }
