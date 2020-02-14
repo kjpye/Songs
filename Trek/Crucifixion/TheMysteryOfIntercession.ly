@@ -30,7 +30,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   copyright   = \today
 }
 
-#(set-global-staff-size 20)
+#(set-global-staff-size 18)
 
 global = {
   \key des \major
@@ -148,12 +148,18 @@ alto = \relative c' {
     f2 ges f
     ees1 des2
     c1.
-    ces1.
-    bes2 des d
-    ees1 des2
-    <c ees>1(<ees aes>2)
-    f1(<f a>2)
-    <f bes>2 ees des
+%    ces1.
+%    bes2 des d
+%    ees1 des2
+%    <c ees>1(<ees aes>2)
+%    f1(<f a>2)
+%    <f bes>2 ees des
+    f2 ees des
+    des2 ges bes
+    bes2 g ees
+    c'1.
+    des,2 c ees
+    des2 c bes
     des2(bes) c
     des1.
   }
@@ -185,12 +191,18 @@ tenor = \relative c' {
     c2 ees des
     c1 bes2
     aes1.
-    aes2 ges f
-    bes1 aes2
-    g2 bes g
-    aes1 ges2
-    aes2 a c
-    bes2 a bes_\fermata
+%    aes2 ges f
+%    bes1 aes2
+%    g2 bes g
+%    aes1 ges2
+%    aes2 a c
+%    bes2 a bes_\fermata
+    f2 ees des
+    des2 ges bes
+    bes2 g ees
+    c'1.
+    des2 c ees
+    des2 c bes^\fermata
     f2(ees) ges
     f1.
   }
@@ -222,13 +234,19 @@ bass= \relative c {
     aes2 aes des,
     ees1 ees2
     aes,1.
-    des1.
-    ges1 fes2
-    ees1.
-    s1.
-    f1 f2
-    bes2 f ges
-    aes,1 aes2
+%    des1.
+%    ges1 fes2
+%    ees1.
+%    s1.
+%    f1 f2
+%    bes2 f ges
+    f'2 ees des
+    des2 ges bes
+    bes2 g ees
+    c'1.
+    des,2 c ees
+    des2 c bes_\fermata
+    aes1 aes2
     des1.
   }
 }

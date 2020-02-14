@@ -43,8 +43,8 @@ wordsOne = \lyricmode {
   \set stanza = "1."
   I a- dore Thee, I a- dore Thee!
   Glor- ious ere the world be- gan;
-  Yet more won- der- ful Thour shin- est,
-  Thou div- ine, yet still div- in- est
+  Yet more won- der- ful Thou shin- est,
+  Though div- ine, yet still div- in- est
   In Thy dy- ing love for man.
 }
 
