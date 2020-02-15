@@ -105,6 +105,10 @@ wordsAlto = \lyricmode {
   words
 }
 
+dynamicsWomen = {
+  \override DynamicTextSpanner.style = #'none
+}
+
 tenor = \relative c {
   \global
   c4
@@ -131,6 +135,10 @@ dynamicsBass = {
 
 wordsBass = \lyricmode {
   words
+}
+
+dynamicsMen = {
+  \override DynamicTextSpanner.style = #'none
 }
 
 pianoRH = \relative c' {
@@ -176,10 +184,6 @@ pianoLHtwo = \relative c' {
   \voiceTwo
   c4
   \bar "|."
-}
-
-wordsBass = \lyricmode {
-  words
 }
 
 \score {

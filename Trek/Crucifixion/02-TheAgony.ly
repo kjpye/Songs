@@ -559,13 +559,13 @@ pianoRH = \relative c' {
                 <gis gis'>4 <a a'> <b b'> <c c'>
                 <d e>4 \) r4 r2
   <c e c'>4 r <c dis a'> r % 7d
+  <e b'>2 s
+  s2 <e g a>\fermata
+  s1
+  s2. <c fis a>4 % 7e
   s1
   s1
-  s1
-  s1 % 7e
-  s1
-  s1
-  s1 % 8a
+  s4 e r e % 8a
   <e cis'>4 <a c>(<a b>) <g e'>
   <fis e'>4 <b d>(<b cis>) <a fis'>
   <a c fis>4 r r2 % 8b
@@ -631,6 +631,84 @@ pianoRHone = \relative c'' {
   s2.
   cis4(e fis
   <bis, gis'>2) s4
+  s2. % 4c
+  s2.
+  s2.
+  s2.
+  gis'2.
+  s2. % 4d
+  s2.
+  s2.
+  s2.
+  s2.
+  bis4(aes4. aes8
+  <dis, bis'>4 <bis gis'>2) % 5a
+  bis'4(cis dis
+  <gis, e'>4) s2
+  s2 <d e b'>4(
+  a'4 e <c e fis>
+  <b e gis>2) s4
+  s2. % 5b
+  s2.
+  ais2.
+  s2.
+  b'4 cis4. b8
+  b4 ais4. fis8 % 5c
+  fis4 gis a
+  gis2 r4
+  gis4 <bis, dis a'> <cis gis'>
+  cis' e dis
+  s2. % 5d
+  gis,2.
+  s2.
+  s2.
+  s2.
+  s2. \key f \minor \time 4/4
+  s1 % 6a
+  s1
+  s1 % 6b
+  s1
+  s1 % 6c
+  s1
+  s1
+  s1 % 6d
+  s1
+  s1
+  s1 % 6e \bar "||" \key fis \minor
+  s1
+  s1
+  <dis b'>4(<cis a'> <fis a> <gis b>) % 7a
+  s1
+  <dis b'>4(<cis a'> <fis a> <gis b>)
+  s1
+  s1 % 7b
+  a'4\fermata gis8 fis gis2\fermata
+  s1 \bar "||" \key a \minor
+  s1
+  s1 % 7c
+  s1
+  s1
+  s1
+  s1 % 7d
+  s2 a,
+  a2 s
+  <f a>2 q
+  bes2~bes4 s4 % 7e
+  <b, e a>4(gis'8 fis <b, e gis>2\fermata)
+  e2 f~
+  f4 s2. % 8a
+  s1
+  s1
+  s1 % 8b
+  s1
+  c'2 <d, b'>
+  s1 % 8c
+  s2. c'8 f
+  s1
+  s1 % 8d
+  s1
+  s1
+  s1
 }
 
 pianoRHtwo = \relative c' {
@@ -640,7 +718,7 @@ pianoRHtwo = \relative c' {
   s2.
   s2.
   b2.
-  eis2 fis4 % 3b
+  eis2 fis4 % 2b
   fis4 dis eis
   fis4 a, b
   cis4 d dis
@@ -651,6 +729,61 @@ pianoRHtwo = \relative c' {
   s2.
   s2.
   s2.
+  s2. % 2d
+  s2.
+  s2.
+  s2.
+  bis4 cis dis
+  s2. % 3a
+  s2.
+  s2.
+  s2.
+  s2.
+  dis2.
+  s2. % 3b
+  gis2.~
+  gis4 s2
+  s2.
+  <cis, e>2 s4
+  s2.
+  b2 s4 % 3c
+  dis2 s4
+  s2.
+  s2.
+  b2.
+  eis2 s4
+  fis4 dis eis % 4a
+  fis4 a, b
+  cis4 d dis
+  e4 dis d
+  cis2 cis4
+  <cis e>4 <bis dis>2 % 4b
+  d2~d4
+  s2.
+  cis2.
+  s2.
+  s2. % 4c
+  s2.
+  s2.
+  s2.
+  bis4 cis dis
+  s2. % 4d
+  s2.
+  s2.
+  s2.
+  s2.
+  dis2.
+  s2. % 5a
+  gis2 fis4
+  e4 s2
+  s2.
+  <cis e>2 s4
+  s2. % 5b
+  s2.
+  s2.
+  s2.
+  s2.
+  e4 eis2
 }
 
 dynamicsPiano = {
