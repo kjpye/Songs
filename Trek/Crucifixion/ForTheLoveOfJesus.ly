@@ -65,7 +65,7 @@ wordsThree = \lyricmode {
 wordsFour = \lyricmode {
   \set stanza = "4."
   All for Jes- us, Thou hast loved us;
-  All for Jes- us, Thou hasr died;
+  All for Jes- us, Thou hast died;
   All for Jes- us, Thou art with us;
   All for Jes- us cruc- if- ied.
 }

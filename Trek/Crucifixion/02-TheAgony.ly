@@ -30,7 +30,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   copyright   = \today
 }
 
-% #(set-global-staff-size 16)
+ #(set-global-staff-size 18)
 
 % \paper {
 %   #(set-paper-size "a4")
@@ -273,7 +273,7 @@ wordsSoloBass = \lyricmode {
 
   And they laid their hands on Him, and took Him,
   and led him a- way to the high priest.
-  And the hig priest ask- ed Him and said un- to Him,
+  And the high priest ask- ed Him and said un- to Him,
   Art Thou the Christ, the Son of the Bles- sed?
   Je- sus said, I am:
   And ye shall see the Son of man sit- ting on the right hand of power,
@@ -392,7 +392,41 @@ wordsSop = \lyricmode {
 
 alto = \relative c' {
   s2.*16
-  cis4 cis r8 cis
+  cis4 cis r8 cis % 2d
+  dis4 cis r
+  cis4. e8 e-> d
+  cis4 bis gis'
+  bis,4 cis dis8. dis16
+  e2 e4 % 3a
+  fis4(gis)fis
+  dis4 r gis
+  dis4 dis r
+  gis4 gis dis8 dis
+  dis4 dis4. dis8
+  dis4 bis2 % 3b
+  gis'4 gis gis
+  gis4 r fis
+  e4 r d
+  cis2 c4
+  b2 r4
+  s2.*16
+  cis4 cis r8 cis % 4c
+  dis4 cis r
+  cis4. e8 e-> d
+  cis4 bis gis'
+  bis,4 cis dis8. dis16
+  e2 e4 % 4d
+  fis4(gis)fis
+  dis4 r gis
+  dis4 dis r
+  gis4 gis dis8 dis
+  dis4 dis4. dis8
+  dis4 bis2 % 5a
+  gis'4 gis gis
+  gis4 r fis
+  e4 r d
+  cis2 c4
+  b2 r4
 }
 
 dynamicsAlto = {
@@ -408,11 +442,49 @@ wordsAlto = \lyricmode {
   Oh, teach us,
   teach us how to love Thee for Thy love;
   Help us to pray, and watch, and mourn with Thee.
+  Je- su, Lord, Je- su,
+  bowed in bit- ter an- guish,
+  and bear- ing all the e- vil we have done,
+  Oh, teach us,
+  teach us how to love Thee for Thy love;
+  Help us to pray, and watch, and mourn with Thee.
 }
 
 tenor = \relative c' {
   s2.*16
-  gis4 gis r8 gis
+  gis4 gis r8 gis % 2c
+  a4 gis r
+  gis4. gis8 a-> a
+  gis4 gis gis
+  gis4 ais bis8. bis16
+  cis2 cis4 % 3a
+  cis4(d) cis
+  bis4 r gis
+  bis4 bis r
+  dis4 dis gis,8 gis
+  gis4 fisis4. fisis8
+  gis4 gis2 % 3b
+  dis'4 cis fis
+  e4 r bis
+  cis4 r e
+  e2 e,4 e2 r4
+  s2.*16
+  gis4 gis r8 gis % 4c
+  a4 gis r
+  gis4. gis8 a-> a
+  gis4 gis gis
+  gis4 ais bis8. bis16
+  cis2 cis4 % 4d
+  cis4(d) cis
+  bis4 r gis
+  bis4 bis r
+  dis4 dis gis,8 gis
+  gis4 fisis4. fisis8
+  gis4 gis2 % 5a
+  dis'4 cis fis
+  e4 r bis
+  cis4 r e
+  e2 e,4 e2 r4
 }
 
 dynamicsTenor = {
@@ -428,11 +500,51 @@ wordsTenor = \lyricmode {
   Oh, teach us,
   teach us how to love Thee for Thy love;
   Help us to pray, and watch, and mourn with Thee.
+  Je- su, Lord, Je- su,
+  bowed in bit- ter an- guish,
+  and bear- ing all the e- vil we have done,
+  Oh, teach us,
+  teach us how to love Thee for Thy love;
+  Help us to pray, and watch, and mourn with Thee.
 }
 
 bass= \relative c {
   s2.*16
-  cis4 cis r8 cis
+  cis4 cis r8 cis % 2c
+  bis4 cis r
+  e4. e8 fis-> fis
+  gis4 gis gis
+  gis4 gis gis8. gis16
+  cis,2 cis4 % 3a
+  fis4(eis) fis
+  gis4 r gis
+  gis4 gis r
+  gis4 gis gis8 gis
+  dis4 dis4. dis8
+  gis4 gis,2 % 3b
+  gis'4 ais bis
+  cis4 r gis
+  a4 r a
+  a,2 a4
+  <e e'>2 r4
+  s2.*16
+  cis4 cis r8 cis % 3c
+  bis4 cis r
+  e4. e8 fis-> fis
+  gis4 gis gis
+  gis4 gis gis8. gis16
+  cis,2 cis4 % 3d
+  fis4(eis) fis
+  gis4 r gis
+  gis4 gis r
+  gis4 gis gis8 gis
+  dis4 dis4. dis8
+  gis4 gis,2 % 4a
+  gis'4 ais bis
+  cis4 r gis
+  a4 r a
+  a,2 a4
+  <e e'>2 r4
 }
 
 dynamicsBass = {
@@ -448,10 +560,16 @@ wordsBass = \lyricmode {
   Oh, teach us,
   teach us how to love Thee for Thy love;
   Help us to pray, and watch, and mourn with Thee.
+  Je- su, Lord, Je- su,
+  bowed in bit- ter an- guish,
+  and bear- ing all the e- vil we have done,
+  Oh, teach us,
+  teach us how to love Thee for Thy love;
+  Help us to pray, and watch, and mourn with Thee.
 }
 
 pianoRH = \relative c' {
-  s2.
+  s2.^\markup \upright \bold Andante.
   s2.
   <cis e>2(<dis fis>4
   <e gis>2) r4
@@ -533,7 +651,7 @@ pianoRH = \relative c' {
   e4(dis cis)
   cis4.(bis8 cis4
   gis2.) \bar "||" \break \key f \minor \time 4/4
-  c32 aes c aes c aes c aes c32 aes c aes c aes c aes c32 aes c aes c aes c aes c32 aes c aes c aes c aes % 6a
+  c32^\markup \bold Allegro. aes c aes c aes c aes c32 aes c aes c aes c aes c32 aes c aes c aes c aes c32 aes c aes c aes c aes % 6a
   ges32 c ges32 c ges32 c ges32 c ges32 c ges32 c ges32 c ges32 c ges32 c ges32 c ges32 c ges32 c ges32 c ges32 c ges32 c ges32 c
   aes32 c aes32 c aes32 c aes32 c aes32 c aes32 c aes32 c aes32 c aes32 c aes32 c aes32 c aes32 c aes32 c aes32 c aes32 c aes32 c % 6b
   g32 c g32 c g32 c g32 c g32 c g32 c g32 c g32 c g32 c g32 c g32 c g32 c g32 c g32 c g32 c g32 c
@@ -544,7 +662,7 @@ pianoRH = \relative c' {
   <g c>4 r r2
   r1
   r2 e4 e \bar "||" \key fis \minor % 6e
-  cis2 <d e gis>
+  cis2^\markup \bold Slow. <d e gis>
   <a' cis>4(<gis b> <fis d'> <e cis'>)
   s1 % 7a
   <cis e a cis>4(<gis' b> <fis d'> <e cis'>)
@@ -553,7 +671,7 @@ pianoRH = \relative c' {
   <e b'>4 <gis b e> <a cis e> <a e' a> % 7b
   s1
   <a cis e a>2 r \bar "||" \key a \minor
-  r4 <e e'>4 \( <f f'> <e e'>
+  r4^\markup \upright \bold {Allegro molto} <e e'>4 \( <f f'> <e e'>
                 <d d'>4 <cis cis'> <d d'> <c c'> % 7c
                 <b b'>4 <a a'> <bes bes'> <a a'>
                 <gis gis'>4 <a a'> <b b'> <c c'>
@@ -561,14 +679,14 @@ pianoRH = \relative c' {
   <c e c'>4 r <c dis a'> r % 7d
   <e b'>2 s
   s2 <e g a>\fermata
-  s1
+  s1^\markup \bold Slow.
   s2. <c fis a>4 % 7e
   s1
-  s1
+  s1^\markup \bold {a tempo}
   s4 e r e % 8a
   <e cis'>4 <a c>(<a b>) <g e'>
   <fis e'>4 <b d>(<b cis>) <a fis'>
-  <a c fis>4 r r2 % 8b
+  <a c fis>4^\markup \upright \bold Moderato. r r2 % 8b
   <b, fis' b>2 <b e g>
   s1
   <d fis a>4 <d f a> <d f gis> <cis e a> % 8c
@@ -677,9 +795,9 @@ pianoRHone = \relative c'' {
   s1 % 6e \bar "||" \key fis \minor
   s1
   s1
-  <dis b'>4(<cis a'> <fis a> <gis b>) % 7a
+  <d b'>4(<cis a'> <fis a> <gis b>) % 7a
   s1
-  <dis b'>4(<cis a'> <fis a> <gis b>)
+  <d b'>4(<cis a'> <fis a> <gis b>)
   s1
   s1 % 7b
   a'4\fermata gis8 fis gis2\fermata
@@ -784,6 +902,62 @@ pianoRHtwo = \relative c' {
   s2.
   s2.
   e4 eis2
+  fis2  cis4 % 5c
+  fis2 <cis e>4
+  dis4 cis dis
+  e4 s2
+  e4 fis2
+  s2. % 5d
+  e4 dis d
+  s2.
+  s2.
+  s2.
+  s2. \bar "||" \time 4/4 \key f \minor
+  s1 % 6a
+  s1
+  s1 % 6b
+  s1
+  s1 % 6c
+  s1
+  s1
+  s1 % 6d
+  s1
+  s1
+  s1 \bar "||" \key fis \minor % 6e
+  s1
+  s1
+  s2 d % 7a
+  s1
+  s2 d
+  s1
+  s1 % 7b
+  <b' e>2 q
+  s1 \bar "||" \key a \minor
+  s1
+  s1 % 7c
+  s1
+  s1
+  s1
+  s1 % 7d
+  s2 dis,4 d
+  <cis e>4 <d f> s2
+  d4 c d eis
+  d4 ees f s % 7e
+  s4 <c dis> s2
+  d1~
+  d2 s % 8a
+  s1
+  s1
+  s1 % 8b
+  s1
+  <e g>4 <d a'> a' g
+  s1 % 8c
+  s1
+  s1
+  s1
+  s1
+  s1
+  s1
 }
 
 dynamicsPiano = {
@@ -795,7 +969,7 @@ dynamicsPiano = {
   s2.\cresc
   s2. % 2b
   s2.
-  s4 s2-\markup legato
+  s4 s2-\markup \bold legato
   s2.
   s2.
   s2. % 2c
@@ -806,6 +980,114 @@ dynamicsPiano = {
   s2.
   s2\pp s8 s\< % 2d
   s4 \> s2\!
+  s2.
+  s2.
+  s2 s4\cresc
+  s2. % 3a
+  s4 \< s \! s \>
+  s4 \! s s\mf
+  s2.
+  s2.\cresc
+  s2.
+  s2. % 3b
+  s2.\f
+  s2 s4\dim
+  s2 s4\p
+  s2 s4\pp
+  s2.
+  s2.\p % 3c
+  s2.
+  s2.
+  s2.
+  s2.\cresc
+  s2.
+  s2. % 4a
+  s4 s2-\markup \bold legato
+  s2.\mf
+  s2.
+  s2.
+  s2. %4b
+  s2.\p
+  s2.
+  s2.
+  s2.
+  s2\pp s4\< % 4c
+  s4 \> s \! s
+  s2.
+  s2.
+  s2 s4\cresc
+  s2.\< % 4d
+  s2 \! s4 \>
+  s2 \! s4\mf
+  s2.
+  s2.\cresc
+  s2.
+  s2. % 5a
+  s2.\f
+  s2 s4\dim
+  d2 s4\p
+  s2 s4\pp
+  s2.
+  s2. % 5b
+  s2.
+  s4\p s2-\markup \bold legato
+  s2.
+  s2.\cresc
+  s2.\dim % 5c
+  s2.
+  s2.
+  s2.
+  s2.-\markup \bold rit.
+  s2. % 5d
+  s2.
+  s2.\dim
+  s2 s4\p s2.
+  s2. \time 4/4
+  s1-\markup \upright {Full Sw.} % 6a
+  s1
+  s1 % 6b
+  s1\cresc
+  s1\f % 6c
+  s1
+  s1
+  s1 % 6d
+  s1
+  s1
+  s2 s\p % 6e
+  s1
+  s2 s\cresc
+  s1 % 7a
+  s1\cresc
+  s1
+  s1\cresc
+  s2\cresc s\f % 7b
+  s1-\markup \bold {colla voce}
+  s1
+  s1
+  s1 % 7c
+  s1
+  s1-\markup \bold rit.
+  s1
+  s1 % 7d
+  s1
+  s1
+  s1\p
+  s2. s4\pp % 7e
+  s1
+  s1\p
+  s1 % 8a
+  s4 s2.\cresc
+  s1
+  s1\f % 8b
+  s1\p
+  s1
+  s4 s2.\cresc
+  s2 s\f
+  s1
+  s2.\pp s4\pp
+  s1
+  s1
+  s1
 }
 
 pianoLH = \relative c {
@@ -826,6 +1108,119 @@ pianoLH = \relative c {
   s2 r4
   s2.
   s2 r4 \bar "||" \break
+  s2 r8 s % 2d
+  s2 r4
+  s2.
+  s2 gis'4
+  s2.
+  s2. % 3a
+  s2.
+  s4 r gis
+  s2 r4
+  s2.
+  s2.
+  s2. % 3b
+  s2.
+  s4 r s
+  s4 r a
+  a,2.
+  <e e'>2 r4
+  e'4(dis cis % 3c
+  bis2 cis4)
+  s2.
+  s2 r4
+  s2.
+  s2.
+  s2. % 4a
+  s2.
+  s2.
+  s2.
+  a'2 a4
+  gis2 fis4 % 4b
+  s2.
+  s4 r r
+  s2.
+  s2 r4
+  s2 r8 s8 % 4c
+  s2 r4
+  s2.
+  gis2 gis4
+  s2.
+  s2. % 4d
+  s2.
+  s4 r gis4
+  s2 r4
+  s2.
+  s2.
+  s2. % 5a
+  s2.
+  s4 r s4
+  s4 r a
+  a,2.
+  s2 r4
+  r2. % 5b
+  r2.\fermata
+  s2.
+  s2.
+  s2.
+  s2. % 5c
+  s2.
+  bis4 ais bis
+  cis4 fis e
+  s2.
+  a2 a,4 % 5d
+  s2.
+  s2.
+  s2.
+  s2.
+  s2.
+  \clef treble \time 4/4 \key f \minor
+  ees''32 c ees c ees c ees c ees c ees c ees c ees c ees c ees c ees c ees c ees c ees c ees c ees c % 6a
+  e32 c e c e c e c e c e c e c e c e c e c e c e c e c e c e c e c
+  f32 c f c f c f c f c f c f c f c f c f c f c f c f c f c f c f c % 6b
+  e32 c e c e c e c e c e c e c e c e c e c e c e c e c e c e c e c
+  \clef bass
+  <e, g c>4 r r2 % 6c
+  r2 r4 f8-> g->
+  aes4-> r r2
+  r2 d,4 r % 6d
+  e4 r r2
+  r1
+  r2 e4 e \bar "||" \key fis \minor % 6e
+  e2 e
+  a,1~
+  a1~ % 7a
+  a1~
+  a1~
+  a2. a'4
+  gis4 e a8 b cis dis % 7b
+  e2\fermata e,\fermata
+  <a, a'>2 r \bar "||" \key a \minor
+  s1
+  s1 % 7c
+  s1
+  s1
+  s4 r r2
+  a'4 e a r % 7d
+  gis4(g fis f
+  e d cis2\fermata )
+  d4(ees d c
+  bes c d dis % 7e
+  e4 a e2\fermata )
+  s1
+  <gis b>2 r % 8a
+  a2 e
+  b'2 fis
+  dis4 r r2 % 8b
+  dis2 e
+  e4 fis g2
+  d4 c b c % 8c
+  d4 e f a
+  bes4.\fermata a8 a4\fermata r
+  b,2~b4\fermata a % 8d
+  gis2 a
+  s1
+  s2 r
 }
 
 pianoLHone = \relative c' {
@@ -846,6 +1241,119 @@ pianoLHone = \relative c' {
   gis4 fisis s
   gis2(fis4
   e2) s4
+  gis2 s8 gis % 2d
+  a4 gis s
+  gis2 a4->
+  gis4 gis s
+  gis4 ais bis
+  cis2. % 3a
+  cis4 d cis
+  bis4 s2
+  bis2 s4
+  d2 gis,4
+  gis4 fisis4. fisis8
+  gis4 gis2 % 3b
+  dis'4 cis s
+  s2 bis4
+  cis4 s2
+  s2.
+  s2.
+  s2. % 3c
+  s2.
+  a2.
+  gis2 s4
+  s2.
+  b2 a4
+  a2 <gis cis>4 % 4a
+  <fis cis'>4 fis gis
+  a2 a4
+  gis4 a b
+  s2.
+  gis2 fis4 % 4b
+  b4 a a
+  gis4 s2
+  e2 cis4
+  d2 s4
+  gis2 s8 gis % 4c
+  a4 gis s
+  gis2 a4
+  s2.
+  gis4 ais bis
+  cis2. % 4d
+  cis4 d cis
+  bis4 s2
+  bis2 s4
+  dis2 gis,4
+  gis4 fisis4. fisis8
+  gis4 gis2 % 5a
+  dis'4 cis bis
+  s2 bis4
+  cis4 s2
+  s2.
+  e,2 s4 \bar "||"
+  s2. % 5b
+  s2.
+  fisis2.
+  gis4 bis bis
+  b2.
+  cis2 ais4 % 5c
+  b2 s4
+  s2.
+  s2.
+  cis4 bis2
+  s2. % 5d
+  b2.
+  cis2 cis4
+  gis2 gis4
+  fis2 e4
+  dis2.
+  \clef treble \bar "||" \time 4/4 \key f \minor
+  s1 % 6a
+  s1
+  s1 % 6b
+  s1
+  \clef bass
+  s1 % 6c
+  s1
+  s1
+  s1 % 6d
+  s1
+  s1
+  s1 \bar "||" \key fis \minor % 6e
+  s1
+  s1
+  s1 % 7a
+  s1
+  s1
+  s1
+  s1 % 7b
+  s1
+  s1 \bar "||" \key a \minor
+  c'4 b c b
+  a4 g a g % 7c
+  f4 e f e
+  d4 e d c
+  b4 s2.
+  s1 % 7d
+  s1
+  s1
+  s1
+  s1 % 7e
+  s1
+  b'1
+  s1 % 8a
+  s1
+  s1
+  s1 % 8b
+  s1
+  s1
+  s1 % 8c
+  s1
+  s1
+  s1 % 8d
+  s1
+  b2 a
+  gis2 s
 }
 
 pianoLHtwo = \relative c {
@@ -866,6 +1374,118 @@ pianoLHtwo = \relative c {
   gis,4(a) s
   gis2 gis4
   cis2 s4
+  cis2 s8 cis % 2d
+  bis4 cis s
+  a2 fis'4
+  gis4 gis s
+  gis2.
+  cis,2. % 3a
+  fis4(eis fis
+  gis4) s2
+  gis2 s4
+  gis2 gis4
+  dis2.
+  gis4 gis,2 % 3b
+  gis'4(ais bis
+  cis4) s gis(
+  a4) s2
+  s2.
+  s2.
+  s2.  % 3c
+  s2.
+  b,2.(
+  e2) s4
+  e4( dis d
+  cis2.)~
+  cis2. % 4a
+  fis,2.
+  fis'2 f4
+  e4 fis gis
+  s2.
+  s2. % 4b
+  eis4 fis fis,
+  gis4 s2
+  a2.(
+  gis2) s4
+  cis2 s8 cis % 4c
+  bis4 cis s
+  e2 fis4
+  s2.
+  gis2.
+  cis,2. % 4d
+  fis4(eis fis
+  gis4) s2
+  gis2 s4
+  gis2 gis4
+  dis2.
+  gis4 gis,2 % 5a
+  gis'4(ais bis
+  cis4) s gis(
+  a4) s2
+  s2.
+  e,2 s4
+  s2. % 5b
+  s2.
+  cis'2.
+  gis2 r4
+  gis'4 g2
+  fis2 e4 % 5c
+  dis2 cis4
+  s2.
+  s2.
+  a'4 gis2
+  s2. % 5d
+  e4 fis gis
+  a2 gis4
+  fis2 e4
+  dis2 cis4
+  bis2.\fermata
+  \clef treble \key f \minor \time 4/4
+  s1 % 6a
+  s1
+  s1 % 6b
+  s1
+  \clef bass s1 % 6c
+  s1
+  s1
+  s1 % 6d
+  s1
+  s1
+  s1 % 6e \key fis \minor \bar "||"
+  s1
+  s1
+  s1 % 7a
+  s1
+  s1
+  s1
+  s1 % 7b
+  s1
+  s1 \bar "||" \key a \minor
+  a'4(gis a g
+  f4 e f e % 7c
+  d4 c d c
+  b4 c b a
+  gis4) s2.
+  s1 % 7d
+  s1
+  s1
+  s1
+  s1 % 7e
+  s1
+  gis'2 a
+  s1 % 8a
+  s1
+  s1
+  s1 % 8b
+  s1
+  s1
+  s1 % 8c
+  s1
+  s1
+  s1 % 8d
+  s1
+  b,1
+  <e, e'>2 s
 }
 
 \score {
@@ -887,20 +1507,20 @@ pianoLHtwo = \relative c {
           \new Lyrics \lyricsto "soprano" \wordsSop
         >>
                                 % Single alto staff
-        \new Dynamics \dynamicsAlto
+        \new Dynamics \dynamicsSop
         \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
           \new Voice = "alto" { \global \alto }
           \new Lyrics \lyricsto "alto" \wordsAlto
         >>
                                 % Single tenor staff
-        \new Dynamics \dynamicsTenor
+        \new Dynamics \dynamicsSop
         \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
           \clef "treble_8"
           \new Voice = "tenor" { \global \tenor }
           \new Lyrics \lyricsto "tenor" \wordsTenor
         >>
                                 % Single bass staff
-        \new Dynamics \dynamicsBass
+        \new Dynamics \dynamicsSop
         \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
           \clef "bass"
           \new Voice = "bass" { \global \bass }

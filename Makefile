@@ -1,7 +1,9 @@
 %.pdf %.kar %.mp3: %.ly
 	lilypond -dcrop $<
 	timidity -Or -o - $*.midi | lame -r - $*.mp3
+	timidity -Or -o - $*-single.midi | lame -r - $*.mp3
 	-mv $*.midi $*.kar
+	-mv $*-single.midi $*.kar
 
 broken: \
         OComeOComeEmmanual \
