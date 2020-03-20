@@ -123,8 +123,8 @@ sopranoJoint = \relative c' {
   f8 \oneVoice r r4 r2 \voiceOne
   c8 d f a c4 bes8 a % 92a
   bes4-- c8 c a(g) f4
-  ees8-. g-. aes-. bes-. c-. \oneVoice r \voiceOne bes-. a~ % 92b
-  a8 \oneVoice r r4 r2 \voiceOne
+  ees8-. g-. aes-. bes-. c-. \oneVoice r \voiceOne bes-. aes~ % 92b
+  aes8 \oneVoice r r4 r2 \voiceOne
   f'4 g8 e~e d c4
   ees4 f8 d~d c bes4 % 92c
   \time 3/8 des4 ees8
@@ -143,8 +143,8 @@ sopranoJoint = \relative c' {
   f8 \oneVoice r r4 r2 \voiceOne
   c8 d f a c4 bes8 a % 94c
   bes4 c a8(g) f4
-  ees8-. f-. aes-. bes-. c-. \oneVoice r \voiceOne bes-. a~ % 95a
-  a8 \oneVoice r r4 r2 \voiceOne
+  ees8-. f-. aes-. bes-. c-. \oneVoice r \voiceOne bes-. aes~ % 95a
+  aes8 \oneVoice r r4 r2 \voiceOne
   f'4 g8 e~e d c4 % 95b
   ees4 f8 d~d c bes4
   \time 3/8 des4 ees8
@@ -405,7 +405,7 @@ LyricsSopranoJointBelowSingle = \lyricmode {
 LyricsFive = \lyricmode {
   \set stanza = "5. "
   'May I come with you, shep- herd boy pi- ping mer- ri- ly,
-  Come with you to Beth- le- hem？__
+  Come with you to Beth- le- hem? __
   Pay my hom- age too at the new King's cra- dle,
   Is it far to Beth- le- "hem?'" __
 }
@@ -444,18 +444,38 @@ wordsBass = \lyricmode {
 %%% Lyrics for karaoke
 
 MLyricsSopranoJoint = \lyricmode { % midi lyrics for sopranos
-  "On " "the " "way " "to " Beth le "hem, "
-  "On " "the " "way " "to " Beth le "hem, "
-  An "gels " "in " "the " "sky " "brought " "this " mes "sage " "nigh: "
-  "'Dance " "and " "sing " "for " "joy " "that " "Christ " "the " new "born " "King " "is " "come "
-  "to " "bring " "us " "peace " "on " "earth, "
-  "and " "he's " ly "ing‿ " "cra" "dled " "there " "at " "Beth" "le" "hem.' "
-  "On " "the " "way " "to " Beth le "hem, "
-  "On " "the " "way " "to " Beth le "hem, "
-  An "gels " "in " "the " "sky " "brought " "this " mes "sage " "nigh: "
-  "'Dance " "and " "sing " "for " "joy " "that " "Christ " "the " new "born " "King " "is " "come "
-  "to " "bring " "us " "peace " "on " "earth, "
-  "and " "he's " ly "ing‿ " "cra" "dled " "there " "at " "Beth" "le" "hem.' "
+  "On " "the " "way " "to " Beth le "hem,
+"
+  "On " "the " "way " "to " Beth le "hem,
+"
+  An "gels " "in " "the " "sky
+" "brought " "this " mes "sage " "nigh:
+"
+  "'Dance " "and " "sing " "for " "joy
+" "that " "Christ " "the " new "born " "King
+" "is " "come "  "to " "bring
+" "us " "peace " "on " "earth,
+"
+  "and " "he's " ly "ing‿ " "cra" "dled
+" "there " "at " "Beth" "le" "hem.'
+
+"
+  "On " "the " "way " "to " Beth le "hem,
+"
+  "On " "the " "way " "to " Beth le "hem,
+"
+  An "gels " "in " "the " "sky
+" "brought " "this " mes "sage " "nigh:
+"
+  "'Dance " "and " "sing " "for " "joy
+" "that " "Christ " "the " new "born " "King
+" "is " "come " "to " "bring
+" "us " "peace " "on " "earth,
+"
+  "and " "he's " ly "ing‿ " "cra" "dled
+" "there " "at " "Beth" "le" "hem.'
+
+"
 
   "Is " "he " "here" "at " Beth le "hem, "
   "'I " "will " "find " "him " "soon " "by " "the " "star " "shi" "ning " "bright" "ly "
@@ -515,7 +535,7 @@ MLyricsAltoJoint = \lyricmode {
   "and " "he's " "ly" "ing‿ " "cra" "dled " "there " "at " "Beth" "le" "hem.' "
   \set stanza = "5. "
   "'May " "I " "come " "with " "you, " "shep" "herd " "boy " "pi" "ping " "mer" "ri" "ly, "
-  "Come " "with " "you " "to " "Beth" "le" "hem？ "
+  "Come " "with " "you " "to " "Beth" "le" "hem? "
   "Pay " "my " "hom" "age " "too " "at " "the " "new " "King's " "cra" "dle, "
   "Is " "it " "far " "to " "Beth" "le" "hem?' "
   "An" "gels " __ "brought " "this " "mes" "sage: "
@@ -620,7 +640,7 @@ MLyricsSopranoJointBelowSingle = \lyricmode {
 MLyricsFive = \lyricmode {
   \set stanza = "5. "
   "'May " "I " "come " "with " "you, " "shep" "herd " "boy " "pi" "ping " "mer" "ri" "ly, "
-  "Come " "with " "you " "to " "Beth" "le" "hem？__ "
+  "Come " "with " "you " "to " "Beth" "le" "hem? "
   "Pay " "my " "hom" "age " "too " "at " "the " "new " "King's " "cra" "dle, "
   "Is " "it " "far " "to " "Beth" "le" "hem?' " __
 }
@@ -695,8 +715,8 @@ altoJoint = \relative c' {
   f8 s s4 s2
   c8 d f a c4 bes8 a % 92a
   bes4-- c8 c a(g) f4
-  ees8-. des-. ees-. ees-. aes-. s f-. e~ % 92b
-  e8 s s2.
+  ees8-. des-. ees-. ees-. aes-. s f-. ees~ % 92b
+  ees8 s s2.
   bes'4. a8~a2
   aes4 aes8 g~g4 g % 92c
   \time 3/8 f4 ees8
@@ -1163,7 +1183,7 @@ bassJoint= \relative c {
     f8 s s4 s2
     c8 d f a c4 bes8 a
     bes8 bes c4 a8(g) f4 % 87a
-    c'8-. bes-. aes-. g-. f-. s g-. a~
+    c'8-. bes-. aes-. g-. f-. s g-. aes~
     a8 s s4 s2 % 87b
     f4. f8~f2
     f4 f8 f~f4 f % 87c
@@ -1217,8 +1237,8 @@ bassJoint= \relative c {
   f8 s s2.
   c8 d f a c4 bes8 a % 94c
   bes4 c a8(g) f4
-  c'8 bes aes g f s g a~ % 95a
-  a8 s s2.
+  c'8 bes aes g f s g aes~ % 95a
+  aes8 s s2.
   d,4. d8~d2 % 95b
   f4 f8 f~f4 f
   \time 3/8 bes4 g8
