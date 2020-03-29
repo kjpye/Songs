@@ -1,3 +1,4 @@
+
 \version "2.19.82"
 
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
@@ -1184,7 +1185,7 @@ bassJoint= \relative c {
     c8 d f a c4 bes8 a
     bes8 bes c4 a8(g) f4 % 87a
     c'8-. bes-. aes-. g-. f-. s g-. aes~
-    a8 s s4 s2 % 87b
+    aes8 s s4 s2 % 87b
     f4. f8~f2
     f4 f8 f~f4 f % 87c
     \time 3/8 bes4 g8
@@ -1710,7 +1711,7 @@ pianoRHtwo = \relative c'' {
   a'8 g f e a, c f e % 94a
   s4 c8 e c'4~c8 bes
   s1 % 94b
-  s4 <c, e> d <d e>
+  s8 \once \override Stem.transparent = ##t c,8 ~ <c e>4 d <d e>
   s4 f8 e a, c f e % 94c
   d4 c8 e f2
   s1 % 95a
