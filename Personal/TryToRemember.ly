@@ -218,6 +218,47 @@ wordsBass = \lyricmode {
   And fol- low. __
 }
 
+Mttr = \lyricmode {
+  "\nTry " "to " "re" "mem" "ber "
+}
+
+Mttrtkos = \lyricmode {
+  "\nTry " "to " "re" "mem" "ber " "the " "kind " "of " "Sep" "tem" "ber "
+}
+
+Mdid = \lyricmode {
+  "\nDeep " "in " "De" "cem" "ber, "
+}
+
+MwordsBass = \lyricmode {
+  \Mttrtkos
+  "\nWhen " "life " "was " "slow " "and " "oh " "so " "mel" "low. "
+  \Mttrtkos
+  "\nWhen " "grass " "was " "green " "and " "grain " "was " "yel" "low. "
+  \Mttrtkos
+  "\nWhen " "you " "were " "a " "ten" "der " "\nand " "cal" "low " "fel" "low. "
+  \Mttr "and " "if " "you " "re" "mem" "ber, "
+  "\nThen " "fol" "low.\n"
+
+  \Mttr "when " "life " "was " "so " "ten" "der "
+  "\nThat " "no " "one " "wept " "ex" "cept " "the " "wil" "low. "
+  \Mttr "when " "life " "was " "so " "ten" "der "
+  "\nThat " "dreams " "were " "kept " "be" "side " "your " "pil" "low. "
+  \Mttr "when " "life " "was " "so " "ten" "der "
+  "\nThat " "love " "was " "an " "em" "ber " "a" "bout " "to " "bil" "low. "
+  \Mttr "and " "if " "you " "re" "mem" "ber, "
+  "\nThen " "fol" "low. " "Fol" "low " "Fol" "low "
+
+  \Mdid "it's " "nice " "to " "re" "mem" "ber, "
+  "\nAl" "tho' " "you " "know " "the " "snow " "will " "fol" "low. "
+  \Mdid "it's " "nice " "to " "re" "mem" "ber, "
+  "\nWith" "out " "a " "hurt " "the " "heart " "is " "hol" "low. "
+  \Mdid "it's " "nice " "to " "re" "mem" "ber "
+  "\nThe " "fire " "of " "Sep" "tem" "ber " "that " "made " "us " "mel" "low. "
+  \Mdid "our " "hearts " "should " "re" "mem" "ber, "
+  "\nAnd " "fol" "low."
+}
+
 pianoRH = \relative c' {
   \global
   R2.*8
@@ -964,5 +1005,37 @@ pianoLHtwo = \relative c, {
       \Staff \RemoveAllEmptyStaves
     }
   }
+}
+
+%%% MIDI
+
+\score {
+  \context GrandStaff <<
+    <<
+      \new ChoirStaff <<
+                                % Single bass staff
+        \new Staff <<
+          \clef "bass"
+          \new Voice = "bass" \bass
+          \new Lyrics \lyricsto "bass" \MwordsBass
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff = pianoRH <<
+          \new Voice \pianoRH
+          \new Voice \pianoRHopt
+          \new Voice \pianoRHone
+          \new Voice \pianoRHtwo
+        >>
+        \new Dynamics \dynamicsPiano
+        \new Staff = pianoLH <<
+          \clef "bass"
+          \new Voice \pianoLH
+          \new Voice \pianoLHone
+          \new Voice \pianoLHtwo
+        >>
+      >>
+    >>
+  >>
   \midi {}
 }
