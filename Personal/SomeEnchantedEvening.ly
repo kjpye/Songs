@@ -385,8 +385,39 @@ words = \lyricmode {
 }
 
 Mwords = \lyricmode {
+  "Some " "en" "chant" "ed " "eve" "ning "
+  "\nYou " "may " "see " "a " "stran" "ger, "
+  "\nYou " "may " "see " "a " "stran" "ger "
+  "\nA" "cross " "a " "crowd" "ed " "room "
+  "\nAnd " "some" "how " "you " "know, "
+  "\nYou " "know " "e" "ven " "then "
+  "\nThat " "some" "where " "you'll " "see " "her "
+  "\na" "gain " "and " "a" "gain. "
+  "\nSome " "en" "chant" "ed " "eve" "ning, "
+  "\nSome " "one " "may " "be " "laugh" "ing, "
+  "\nYou " "may " "hear " "her " "laugh" "ing "
+  "\nA" "cross " "a " "crowd" "ed " "room "
+  "\nAnd " "night " "af" "ter " "night, "
+  "\nAs " "strange " "as " "it " "seems "
+  "\nThe " "sound " "of " "her " "laugh" "ter "
+  "\nwill " "sing " "in " "your " "dreams. "
+  "\nWho " "can " "ex" "plain " "it "
+  "\nWho " "can " "tell " "you " "why? "
+  "\nFools " "give " "you " "reas" "ons, "
+  "\nWise " "men " "nev" "er " "try. "
+  "\nSome " "en" "chant" "ed " "eve" "ning "
+  "\nWhen " "you " "find " "your " "true " "love, "
+  "\nWhen " "you " "feel " "her " "call " "you "
+  "\nA" "cross " "a " "crowd" "ed " "room, "
+  "\nThen " "fly " "to " "her " "side "
+  "\nAnd " "make " "her " "your " "own, "
+  "\nOr " "all " "through " "your " "life "
+  "\nyou " "may " "dream " "all " "a" "lone. "
+  "\nOnce " "you " "have " "found " "her, "
+  "\nNev" "er " "let " "her " "go, "
+  "\nOnce " "you " "have " "found " "her, "
+  "\nNev" "er " "let " "her " "go! "
 }
-
 \book {
   \header {
     title = "Some Enchanted Evening"
