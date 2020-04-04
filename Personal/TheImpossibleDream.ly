@@ -1,4 +1,4 @@
-\version "2.19.80"
+\version "2.20.0"
 
 global = {
   \time 9/8
@@ -121,7 +121,7 @@ trebleTwo = \relative c' {
   \clef "bass" r8 \times 2/3 {<ees g>16 q q} q8 q \times 2/3 {q16 q q} q8 q q q
   <bes' ees>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 <ees, g> q q
   <ees f>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 <bes' c ees> q q
-  \clef "treble" <cis e g>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 <cis e> q q
+  \clef "treble" <bes d>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 q q q
   <bes d>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 q q q % 20
   <d f>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 q q q
   <bes ees>8 \times 2/3 {q16 q q} q8 q \times 2/3 {q16 q q} q8 q q q
@@ -216,6 +216,25 @@ words = \lyricmode {
 }
 
 Mwords = \lyricmode {
+  "To " "dream " "the " "im" "pos" "si" "ble " "dream, "
+  "To " "fight " "the " "un" "beat" "a" "ble " "foe, "
+  "To " "bear " "with " "un" "bear" "a" "ble " "sor" "row, "
+  "To " "run " "where " "the " "brave " "dare " "not " "go; "
+  "To " "right " "the " "un" "right" "a" "ble " "wrong, "
+  "To " "love, " "pure " "and " "chaste, " "from " "a" "far, "
+  "To " "try, " "when " "your " "arms " "are " "too " "wear" "y, "
+  "To " "reach " "the " "un" "reach" "a" "ble " "star! "
+
+  "This " "is " "my " "Quest " "to " "fol" "low " "that " "star, "
+  "No " "mat" "ter " "how " "hope" "less, " "no " "mat" "ter " "how " "far, "
+  "To " "fight " "for " "the " "right " "with" "out " "ques" "tion " "or " "pause, "
+  "To " "be " "wil" "ling " "to " "march " "in" "to " "hell " "for " "a " "heav" "en" "ly " "cause! "
+  "And " "I " "know, " "if " "I'll " "on" "ly " "be " "true " "to " "this " "glor" "i" "ous " "Quest, "
+  "That " "my " "heart " "will " "lie " "peace" "ful " "and " "calm " "when " "I'm " "laid " "to " "my " "rest, "
+  "And " "the " "world " "will " "be " "bet" "ter " "for " "this, "
+  "That " "one " "man, " "scorned " "and " "cov" "ered " "with " "scars, "
+  "Still " "strove, " "with " "his " "last " "ounce " "of " "cour" "age, "
+  "To " "reach " "the " "un" "reach" "a" "ble " "stars! "
 }
 
 \book {
