@@ -76,12 +76,12 @@ ChordTrack = \chordmode {
     b2:m7 e:13 % 9c
     e1:m7
     e2:m9 a4:13 a:13.9-
-    d2:6 d4:dim d % 10a -- check chords
-    fis2:7 f4:7 fis %% check chords
+    d2:6 d4:dim/f d/fis % 10a
+    fis2:7/cis f4:7 fis
     b2:13 bes4:13 b:13
     c2:9 b:7
     e1:m7 % 10b
-    g2 a:13.9- % check chords
+    g2/a a:13.9-
     d2:6 c4:9 a8:m7 d:6
     s1
     d1:7 % 10c
@@ -111,7 +111,7 @@ ChordTrack = \chordmode {
     }
   }
   e2:m7 a:13.9-
-  e1:m7 % check chords
+  e1:m7/a
   d1:6
 }
 
