@@ -71,7 +71,67 @@ ChordTrack = \chordmode {
   aes2 f:m
   c2:m f:7
   bes2:m7 bes:m
+  ees1:7 % 2b
+  aes2 f:m
+  c2:m f:7
+  bes2:m7 ees:13 % 2c
+  aes1
+  c2:m g:7
+  c2:m f:7 % 3a
+  f2:m7 bes:7
   ees1:7
+  bes2:m7 ees:7 % 3b
+  c2:7 f:m
+  d1:m5.7-
+  s1 % 3c
+  bes2:m7/f
+  bes:m7.5-/e
+  ees1:13
+  aes1 % 3d
+  c2.:m aes4:7
+  des2. d4:dim7
+  aes2/ees
+  f:m7
+  bes1:m % 4a
+  ees1:7
+  aes2 f:m
+  bes2:m7 ees:13
+  aes1 % 4b
+  c2.:m aes4
+  des2. d4:dim7
+  aes2/ees
+  f:m7
+  bes1:m % 4c
+  ees1:7
+  aes2 bes:m7/des
+  aes2. aes4:7
+  \repeat volta 2 {
+  des2 des:aug/a % 4d
+  des2:m7 d:dim7
+  aes1/ees
+  aes2:maj7 aes:7
+  des2 bes:m % 5a
+  f1:m
+  f2:m7 bes:7
+  ees1:7 % 5b
+  aes1
+  c2.:m
+  aes4:7
+  des2. d4:dim7 % 5c
+  aes2/ees f:m7
+  bes1:m
+  ees1:7
+  }
+  \alternative {
+    {
+      aes2 aes:7 % 5d
+      bes2:m7 ees:7
+    }
+    {
+      aes4 bes2.:m7.5- % check chords
+      aes1
+    }
+  }
 }
 
 melody = \relative c' {
