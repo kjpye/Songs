@@ -6,6 +6,9 @@
 	-mv $*.midi $*.kar
 	-mv $*-single.midi $*.kar
 
+clean:
+	rm *.pdf *.kar *.midi *.png *.mp3 *~
+
 broken: \
         OComeOComeEmmanual \
         Gaudete \
