@@ -71,6 +71,9 @@ wordsTwo = \lyricmode {
   words
 }
 
+midiWords = \lyricmode {
+}
+
 pianoRH = \relative c' {
   \global
   c4
@@ -233,7 +236,7 @@ pianoLHtwo = \relative c' {
           \new Staff
           <<
             \new Voice = "melody" \unfoldRepeats \melody
-            \new Lyrics \lyricsto "melody" { \midiWordsOne \midiWordsTwo }
+            \new Lyrics \lyricsto "melody" { \midiWords }
           >>
         >>
         \new PianoStaff
