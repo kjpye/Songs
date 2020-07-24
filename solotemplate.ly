@@ -1,4 +1,4 @@
-\version "2.20.2"
+\version "2.20.0"
 
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 
@@ -37,6 +37,10 @@ global = {
   \time 3/4
   \tempo 4=120
   \partial 4
+}
+
+TempoTrack = {
+  \global
 }
 
 RehearsalTrack = {
@@ -124,6 +128,7 @@ pianoLHtwo = \relative c' {
       <<
         \new ChoirStaff
         <<
+          \new Dynamics \TempoTrack
           \new Dynamics \dynamicsMelody
           \new Staff
           <<
@@ -173,6 +178,7 @@ pianoLHtwo = \relative c' {
       <<
         \new ChoirStaff
         <<
+          \new Dynamics \TempoTrack
           \new Dynamics \dynamicsMelody
           \new Staff
           <<
@@ -222,6 +228,7 @@ pianoLHtwo = \relative c' {
       <<
         \new ChoirStaff
         <<
+          \new Dynamics \TempoTrack
           \new Dynamics \dynamicsMelody
           \new Staff
           <<
