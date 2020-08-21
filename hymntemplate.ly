@@ -47,6 +47,9 @@ RehearsalTrack = {
   \mark \markup { \box 5 } s4 s2.
 }
 
+TempoTrack = {
+}
+
 soprano = \relative c' {
   \global
   c4
@@ -142,6 +145,7 @@ pianoLHtwo = \relative c' {
 %      >>
       <<
         \new ChoirStaff <<
+%          \new Voice = tempo \TempoTrack
 %                                  % Single soprano staff
 %          \new Dynamics \dynamicsSop
 %          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
