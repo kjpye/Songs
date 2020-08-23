@@ -56,7 +56,7 @@ soprano = \relative c' {
   \bar "|."
 }
 
-dynamicsSop = {
+dynamicsWomen = {
   \override DynamicTextSpanner.style = #'none
 }
 
@@ -66,17 +66,13 @@ alto = \relative c' {
   \bar "|."
 }
 
-dynamicsAlto = {
-  \override DynamicTextSpanner.style = #'none
-}
-
 tenor = \relative c {
   \global
   c4
   \bar "|."
 }
 
-dynamicsTenor = {
+dynamicsMen = {
   \override DynamicTextSpanner.style = #'none
 }
 
@@ -84,10 +80,6 @@ bass= \relative c' {
   \global
   c4
   \bar "|."
-}
-
-dynamicsBass = {
-  \override DynamicTextSpanner.style = #'none
 }
 
 pianoRH = \relative c' {
