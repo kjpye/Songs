@@ -8,8 +8,8 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 % centered at top
 %  dedication  = "dedication"
   title       = "title"
-%  subtitle    = "subtitle"
-%  subsubtitle = "subsubtitle"
+  subtitle    = "Sankey No. X"
+  subsubtitle = "Sankey 880 No. Y"
 %  instrument  = "instrument"
   
 % arrangement of following lines:
@@ -18,13 +18,13 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 %  meter   arranger
 %  piece       opus
 
-%  composer    = "composer"
+  composer    = "composer"
 %  arranger    = "arranger"
 %  opus        = "opus"
 
-%  poet        = "poet"
-%  meter       = "meter"
-%  piece       = "piece"
+  poet        = "poet"
+  meter       = "meter"
+  piece       = "piece"
 
 % centered at bottom
 % tagline     = "tagline" % default lilypond version
@@ -35,16 +35,17 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 % #(set-global-staff-size 16)
 
 global = {
-  \key f \major
+  \key g \major
   \time 3/4
   \tempo 4=120
-  \partial 4
 }
 
 RehearsalTrack = {
 % \set Score.currentBarNumber = #5
 % \mark \markup { \circle "1a" }
-  \mark \markup { \box 5 } s4 s2.
+  \mark \markup { \box "A" } s2.*6
+  \mark \markup { \box "B" } s2.*5
+  \mark \markup { \box "C" } s2.*5
 }
 
 TempoTrack = {
@@ -52,8 +53,9 @@ TempoTrack = {
 
 soprano = \relative c' {
   \global
-  c4
-  \bar "|."
+  \repeat volta 4 {
+    d4
+  }
 }
 
 dynamicsWomen = {
@@ -62,18 +64,27 @@ dynamicsWomen = {
 
 alto = \relative c' {
   \global
-  c4
-  \bar "|."
+  \repeat volta 4 {
+    d4
+  }
 }
 
 tenor = \relative c {
   \global
-  c4
-  \bar "|."
+  \repeat volta 4 {
+    d4
+  }
 }
 
 dynamicsMen = {
   \override DynamicTextSpanner.style = #'none
+}
+
+bass= \relative c' {
+  \global
+  \repeat volta 4 {
+    d4
+  }
 }
 
 wordsOne = \lyricmode {
@@ -92,12 +103,6 @@ wordsFour = \lyricmode {
   \set stanza = "1."
 }
   
-bass= \relative c' {
-  \global
-  c4
-  \bar "|."
-}
-
 pianoRH = \relative c' {
   \global
   c4
@@ -196,8 +201,8 @@ pianoLHtwo = \relative c' {
           \new Dynamics \dynamicsMen
           \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
             \clef "bass"
-            \new Voice = "tenor" \tenor
-            \new Voice = "bass" \bass
+            \new Voice = "tenor" { \voiceOne \tenor }
+            \new Voice = "bass"  { \voiceTwo \bass  }
           >>
         >>
 %        \new PianoStaff <<
