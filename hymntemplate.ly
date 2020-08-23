@@ -92,15 +92,15 @@ wordsOne = \lyricmode {
 }
   
 wordsTwo = \lyricmode {
-  \set stanza = "1."
+  \set stanza = "2."
 }
   
 wordsThree = \lyricmode {
-  \set stanza = "1."
+  \set stanza = "3."
 }
   
 wordsFour = \lyricmode {
-  \set stanza = "1."
+  \set stanza = "4."
 }
   
 pianoRH = \relative c' {
