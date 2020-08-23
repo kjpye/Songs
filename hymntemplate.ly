@@ -76,6 +76,22 @@ dynamicsMen = {
   \override DynamicTextSpanner.style = #'none
 }
 
+wordsOne = \lyricmode {
+  \set stanza = "1."
+}
+  
+wordsTwo = \lyricmode {
+  \set stanza = "1."
+}
+  
+wordsThree = \lyricmode {
+  \set stanza = "1."
+}
+  
+wordsFour = \lyricmode {
+  \set stanza = "1."
+}
+  
 bass= \relative c' {
   \global
   c4
@@ -200,7 +216,6 @@ pianoLHtwo = \relative c' {
 %        >>
       >>
     >>
-  >>
     \layout {
       indent = 1.5\cm
       \context {
