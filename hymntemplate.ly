@@ -149,6 +149,7 @@ pianoLHtwo = \relative c' {
 }
 
 \book {
+  \bookOutputSuffix "repeat"
   \score {
 %    \unfoldRepeats \articulate <<
     \context GrandStaff <<
