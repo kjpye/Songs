@@ -38,6 +38,7 @@ global = {
   \key g \major
   \time 3/4
   \tempo 4=120
+  \partial 4
 }
 
 RehearsalTrack = {
@@ -191,6 +192,7 @@ pianoLHtwo = \relative c' {
           \new Dynamics \dynamicsWomen
           \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
             \new Voice \RehearsalTrack
+%            \new Voice \TempoTrack
             \new Voice = "soprano" { \voiceOne \soprano }
             \new Voice = "alto"    { \voiceTwo \alto    }
             \new Lyrics \lyricsto "soprano" \wordsOne
