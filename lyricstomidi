@@ -19,15 +19,29 @@ grammar Lyrics {
 }
 
 for lines() -> $line {
+    my $first = '\\n';
+    if $line.starts-with: '\\' {
+      say $line;
+      next;
+    }
     my $/ = Lyrics.parse($line);
     for $/<word> -> $word is copy {
         given $word {
             when .ends-with('-') {
-                s/\-$//;
-                .print;
+                if $first {
+                  s/\-$//;
+                  print "\"\\n{$_}\"";
+                  $first = '';
+                } else {
+                  s/\-$//;
+                  .print;
+                }
             }
             when .starts-with('"') {
+                s/^\"/"$first/ if $first;
+                s/\-\"$/"/ or s/\"$/ "/;
                 print $_;
+                $first = '';
             }
             when '__' {
             }
@@ -36,9 +50,11 @@ for lines() -> $line {
             }
             when /^\s+$/ {
                 print $_;
+                $first = '';
             }
             default {
-                print "\"$_ \"";
+                print "\"{$first}$_ \"";
+                $first = '';
             }
         }
     }
