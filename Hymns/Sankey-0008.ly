@@ -7,7 +7,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 \header {
 % centered at top
 %  dedication  = "dedication"
-  title       = "Grace! 'tis a Chatming Sound!"
+  title       = "Grace! 'tis a Charming Sound!"
   subtitle    = "Sankey No. 8"
   subsubtitle = "Sankey 880 No. 81"
 %  instrument  = "instrument"
