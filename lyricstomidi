@@ -20,7 +20,7 @@ grammar Lyrics {
 
 for lines() -> $line {
     my $first = '\\n';
-    if $line.starts-with: '\\' {
+    if $line ~~ /\s+\\/ {
       say $line;
       next;
     }
@@ -50,7 +50,6 @@ for lines() -> $line {
             }
             when /^\s+$/ {
                 print $_;
-                $first = '';
             }
             default {
                 print "\"{$first}$_ \"";

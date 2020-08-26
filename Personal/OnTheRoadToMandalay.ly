@@ -3,15 +3,29 @@
 global = {
   \time 4/4
   \key bes \major
-  \tempo 4 = 120
+  \tempo 4 = 124
   \partial 4
 }
 
-tempotrack = {
+TempoTrack = {
   \time 4/4
-  \tempo 4 = 120
+  \tempo 4 = 124
   \partial 4
   s4 s1
+  \repeat volta 6 {
+    s1
+    s2.\tempo 4=31 s8\tempo 4=124 s
+    s2\tempo 4=62 s\tempo 4=124
+    s1*34
+  }
+  \alternative {
+    {
+      s1*2
+    }
+    {
+      s1*4
+    }
+  }
 }
 
 melodyOne = \relative c' {
@@ -471,6 +485,7 @@ MSthirdVerse = \lyricmode {
   \score {
     \context GrandStaff {
       <<
+          \new Voice = tempo \TempoTrack
 	\new Staff = melody {
 	  \global \melodyOne \repeat volta 6 { \melodyTwo } \alternative { {\melodyR} {\melodyRR} }
 	}
@@ -562,6 +577,7 @@ MSthirdVerse = \lyricmode {
   \score { % Midi 3-verse
     \context GrandStaff {
       <<
+          \new Voice = tempo \TempoTrack
 	\new Staff = melody \unfoldRepeats {
 	  \global \melodyOne \repeat volta 6 { \melodyTwo } \alternative { {\melodyR} {\melodyRR} }
 	}
