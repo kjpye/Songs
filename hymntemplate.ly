@@ -212,6 +212,16 @@ pianoLHtwo = \relative c' {
             \new Lyrics \lyricsto "soprano" \wordsTwo
             \new Lyrics \lyricsto "soprano" \wordsThree
             \new Lyrics \lyricsto "soprano" \wordsFour
+            \new Lyrics \lyricsto "soprano" \wordsFive
+            \new Lyrics \lyricsto "soprano" \wordsSix
+%            \new Lyrics \lyricsto "soprano" { \wordsOne
+%                                              \wordsTwo
+%                                              \wordsThree
+%                                              \wordsFour
+%                                              \wordsFive
+%                                              \wordsSix
+%                                            }
+%            \new Lyrics \lyricsto "soprano" \wordsMidi
           >>
                                   % Joint tenor/bass staff
           \new Dynamics \dynamicsMen
