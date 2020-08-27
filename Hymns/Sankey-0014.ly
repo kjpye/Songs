@@ -106,7 +106,7 @@ tenor = \relative c' {
   \global
   \repeat volta 4 {
     a4
-    cis4 a g
+    cis4 a gis
     a2 b4
     cis4 d b
     a2 gis4
@@ -137,7 +137,7 @@ bass= \relative c {
     a2 gis4
     fis4 d e
     a,2 e'4
-    a4 g fis
+    a4 gis fis
     e2 cis4
     gis4 a b
     e2 cis4

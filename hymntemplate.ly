@@ -104,6 +104,17 @@ wordsFour = \lyricmode {
   \set stanza = "4."
 }
   
+wordsFive = \lyricmode {
+  \set stanza = "5."
+}
+  
+wordsSix = \lyricmode {
+  \set stanza = "6."
+}
+  
+wordsMidi = \lyricmode {
+}
+  
 pianoRH = \relative c' {
   \global
   c4
@@ -152,7 +163,9 @@ pianoLHtwo = \relative c' {
 \book {
   \bookOutputSuffix "repeat"
   \score {
-%    \unfoldRepeats \articulate <<
+%    \unfoldRepeats
+%    \articulate
+%    <<
     \context GrandStaff <<
 %      <<
 %        \new ChordNames { \ChordTrack }
