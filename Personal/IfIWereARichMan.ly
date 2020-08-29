@@ -13,7 +13,7 @@ melodyOne = \relative c'' {
 }
 
 melodyTwo = \relative c'' {
-  g8 f g f e4 d % 3
+  g8 f g f e4 c % 3
   r4 e8 f g f g f
   e8 f g a bes a bes a % 5
   g4 r r2
@@ -90,12 +90,12 @@ trebleOne = \relative c'' {
 }
 
 trebleTwo = \relative c''' {
-  g8 f g f e4 d
+  g8 f g f e4 c
   r4 e8 f g f g f
   e8 f g a bes a bes a
   g4 <g, c e>8 q r4 q
   aes'4 g ges f
-  ees8 d c d e4 r
+  ees8 d c d ees4 r
   ees8 d c d ees4 c
   g'4 r \ottava #1 g' \ottava #0 r
   g,8 f g f e4 c
@@ -291,8 +291,8 @@ secondVerseD = \lyricmode {
   dai- dle, dee- dle, dai- dle, dig- guh, dig- guh, dee- dle, dai- dle, dum.
   All day long I'd bid- dy, bid- dy, bum.
   If I were a wealth- y man.
-  Wouldn't have to work hard
-  dai- dle, dee- dle,dai- dle, dig- guh, dig- guh, dig- guh, dee- dle, dai- dle, dum.
+  Would- n't have to work hard
+  dai- dle, dee- dle, dai- dle, dig- guh, dig- guh, dee- dle, dai- dle, dum.
 
   Lord, who made the li- on and the lamb.
   You de- creed I should be what I am;
@@ -317,14 +317,14 @@ MfirstVerse = \lyricmode {
   "/right " "in " "the " "mid" "dle " "of " "the " "town."
   "/A " "fine " "tin " "roof "
   "/with " "real " "wood" "en " "floors " "be" "low."
-  "/There " "could " "be"
+  "/There " "could " "be "
 }
 
 MsecondVerseB = \lyricmode {
   "one " "long " "stair" "case "
   "/just " "go" "ing " "up "
   "/and " "one " "e" "ven " "long" "er " "com" "ing " "down."
-  "/And " "one " "more " "lead" "ing"
+  "/And " "one " "more " "lead" "ing "
 }
 
 MsecondVerseD = \lyricmode {
@@ -346,9 +346,9 @@ MsecondVerseD = \lyricmode {
   "/dig" "guh, " "dig" "guh, " "dee" "dle, " "dai" "dle, " "dum."
   "/All " "day " "long " "I'd " "bid" "dy, " "bid" "dy, " "bum."
   "/If " "I " "were " "a " "wealth" "y " "man."
-  "/Wouldn't " "have " "to " "work " "hard"
-  "/dai" "dle, " "dee" "dle," "dai" "dle, "
-  "/dig" "guh, " "dig" "guh, " "dig" "guh, "
+  "/Would" "n't " "have " "to " "work " "hard"
+  "/dai" "dle, " "dee" "dle, " "dai" "dle, "
+  "/dig" "guh, " "dig" "guh, "
   "/dee" "dle, " "dai" "dle, " "dum."
 
   "/Lord, " "who " "made " "the "
@@ -397,7 +397,7 @@ MsecondVerseD = \lyricmode {
 	\new Staff = melody {
 	  \melodyOne \melodyTwo \unfoldRepeats \melodyThree \melodyTwo \melodyFour
 	}
-	\addlyrics { \firstVerse \secondVerseB \secondVerseD }
+	\addlyrics { \MfirstVerse \MsecondVerseB \MsecondVerseD }
 	\context PianoStaff {
 	  <<
 	    \new Staff = treble {
