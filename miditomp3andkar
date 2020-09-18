@@ -1,0 +1,12 @@
+#!/bin/bash
+
+basename=$1
+
+if [[ -f $basename.midi ]]
+then
+    timidity -Or -o - $basename.midi | lame -r - $basename.mp3
+    mv $basename.midi $basename.kar
+fi
+
+exit 0
+
