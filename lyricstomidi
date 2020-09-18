@@ -18,12 +18,14 @@ grammar Lyrics {
     }
 }
 
-for lines() -> $line {
+for lines() -> $line is copy {
     my $first = '\\n';
     if $line ~~ /\s+\\/ {
       say $line;
       next;
     }
+    $line ~~ s/(\s*\%.*)?$//;
+    my $suffix = ~$0 // '';
     my $/ = Lyrics.parse($line);
     for $/<word> -> $word is copy {
         given $word {
@@ -57,6 +59,6 @@ for lines() -> $line {
             }
         }
     }
-    say '';
+    say $suffix;
 }
 

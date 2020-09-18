@@ -1,10 +1,15 @@
 %.pdf %.kar %.mp3: %.ly
 	lilypond -dcrop $<
 #	fluidsynth -T raw -F- -q /usr/share/sounds/sf2/FluidR3_GM.sf2 $*.midi | lame -r - $*.mp3
-#	fluidsynth -T raw -F- -q /usr/share/sounds/sf2/FluidR3_GM.sf2 $*-single.midi | lame -r - $*.mp3
-	timidity -Or -o - $*-single.midi | lame -r - $*.mp3
-	-mv $*.midi $*.kar
-	-mv $*-single.midi $*.kar
+#	fluidsynth -T raw -F- -q /usr/share/sounds/sf2/FluidR3_GM.sf2 $*-midi.midi | lame -r - $*.mp3
+	../miditomp3andkar $*-single
+	../miditomp3andkar $*-midi
+	../miditomp3andkar $*-midi-women
+	../miditomp3andkar $*-midi-men
+	../miditomp3andkar $*-midi-sop
+	../miditomp3andkar $*-midi-alto
+	../miditomp3andkar $*-midi-tenor
+	../miditomp3andkar $*-midi-bass
 
 clean:
 	rm *.pdf *.kar *.midi *.png *.mp3 *~
