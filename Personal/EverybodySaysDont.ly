@@ -225,7 +225,7 @@ words = \lyricmode {
   Don't! It is- n't nice!
   \esd \esd
   \esdc walk on the grass.
-  Don't dis- turb the peace. Dont' skate on the ice.
+  Don't dis- turb the peace. Don't skate on the ice.
 
   Well, I say do!
   I say walk on the grass, it was meant to feel!
@@ -258,7 +258,7 @@ words = \lyricmode {
 
   Well, I say try! __
   I say:
-  Laught at the kings or they'll make you cry!
+  Laugh at the kings or they'll make you cry!
   Lose your poise! __
   Fall if you have to,
   But, la- dy, make a noise! __
@@ -270,6 +270,64 @@ words = \lyricmode {
   if you do them, Mir- a- cles! __
   Noth- ing to them! I say don't--
   Don't be a- fraid!
+}
+
+Mebs   = \lyricmode { "\nEv" 'ry bod "y " "says " } % should be "es" but Lilypond won't allow that
+Mesc  = \lyricmode { "\nEv" 'ry bod "y " "says: " }
+Mesd  = \lyricmode { "\nEv" 'ry bod "y " "says " "don't, " }
+Mesdc = \lyricmode { "\nEv" 'ry bod "y " "says: " "don't, " }
+
+wordsMidi = \lyricmode {
+  \Mesd \Mesd
+  \Mesd "it " is- "n't " "right. "
+  "\nDon't! " "It " is "n't " "nice! "
+  \Mesd \Mesd
+  \Mesdc "walk " "on " "the " "grass. "
+  "\nDon't " dis "turb " "the " "peace. " "Don't " "skate " "on " "the " "ice. "
+
+  "\nWell, " "I " "say " "do! "
+  "\nI " "say " "walk " "on " "the " "grass, " "it " "was " "meant " "to " "feel! "
+  "\nI " "Say " "Sail! "
+  "\nTilt " "at " "the " wind "mill "
+  "\nAnd " "if " "you " "fail, " "you " "fail! " 
+
+  \Mesd \Mesd
+  \Mesdc "get " "out " "of " "line. "
+  "\nWhen " "they " "say " "that, " "then, "
+  "\nLa" "dy, " "that's " "a " "sign: " 
+  "\nNine " "times " "out " "of " "ten, "
+  "\nLa" "dy, " "you " "are " do "ing " "just " "fine! " 
+  "\nMake " "just " "a " rip "ple. " 
+  "\nCome " "on, " "be " "brave. " 
+  "\nThis " "time " "a " rip "ple, " 
+  "\nNext " "time " "a " "wave! " 
+  "\nSome" "times " "you " "have " "to " "start " "small, "
+  "\nClimb" "ing " "the " ti ni "est " "wall, "
+  "\nMay" "be " "you're " go "ing " "to " "fall, " 
+  "\nBut " "it's " bet "ter " "than " "not " start "ing " "at " "all! "
+
+  \Mebs "\nno, " \Mebs "stop, "
+  \Mesc must- "n't " "rock " "the " "boat! "
+  "\nMust" "n't " "touch " "a " "thing! " 
+  \Mesd \Mebs "\nwait, "
+  \Mesc "can't " "fight " Cit- "y " "Hall, "
+  "\nCan't " up "set " "the " "cart, "
+  "\nCan't " "laugh " "at " "the " "King. " 
+
+  "\nWell, " "I " "say " "try! " 
+  "\nI " "say: "
+  "\nLaugh " "at " "the " "kings " "or " "they'll " "make " "you " "cry! "
+  "\nLose " "your " "poise! " 
+  "\nFall " "if " "you " "have " "to, "
+  "\nBut, " la "dy, " "make " "a " "noise! " 
+  \Mesd
+  \Mebs "\ncan't, "
+  \Mesc "wait " a "round " "for " mir a "cles, " 
+  "\nThat's " "the " "way " "the " "world " "is " "made! " 
+  "\nI " in "sist " "on " Mir a "cles, " 
+  "\nif " "you " "do " "them, " Mir a "cles! " 
+  "\nNoth" "ing " "to " "them! " "I " "say " don't-
+  "\nDon't " "be " a "fraid! "
 }
 
 pianoRH = \relative c' {
@@ -298,6 +356,87 @@ pianoRH = \relative c' {
   s1 % 14c
   <f' a c e>8-> r r4 r <f, a b d>8-. r
   <e g a c>8-. [ r r q-. ] r4 <f a d>8-. r
+  s1
+  s1 % 14d
+  s1
+  s1
+  s1
+  s1 % 15a
+  s1
+  s1
+  s1
+  s1 % 15b
+  <bes d a'>8-. r r q r4 q8 r
+  <g a c e>8 r r q r4 q8 r
+  <bes d g>8 r r q r4 q8 r
+  <b d g>8 r r q r4 q8 r % 15c
+  s1
+  <f a c e>8 r r4 r2
+  <b dis>4 q8 <b d g>~q <a' d g> <g c f> <f b ees> \bar "||" \time 2/4
+  <d e g a d>8-> <a d> r <e a d> % 15d
+  <e a d>8(<e aes c>) r q
+  <fis bes d>8 q r q
+  <f a c e>8 q r <f a b e>
+  s4 s8 <g d' f>->~( % 16a
+  <g c e>8) r <g d' f>~^(<g c e>)
+  <a e' g>8~(<a d f>) r <a e' g>~(
+  <a d f>8) r <des ges bes>8->(<c f a>)
+  <d e g a d>8-> <a d> r <e a d>
+  <e a d>8(<e aes c>) r q % 16b
+  <fis bes d>8 q r q
+  <f a c e>8 q r <f a b e>
+  s4. <g d' f>8->~(
+  <g c e>8) e <g d' f>~(<g c e>) % 16c
+  <a e' g>8~(<a d f>) r <a e' g>~(
+  <a d f>8) r <b e g>(<a d f>)
+  <b d g>8 <g b e> r <b d g>(
+  <g b e>) r <b e g>(<g b e>)
+  r8 <b d g>(<g b e>) r % 16d
+  <b' d g>8(<g b e>) s4
+  s2
+  s2
+  s2
+  s2
+  s2 % 17a
+  s2
+  <a, c e g>8 r r4
+  r4 r8 <aes b d f>
+  s2 % 17b
+  s2
+  s2
+  s2
+  <c e a>8 r r4
+  <d e a>8-> r r4 % 17c
+  <b dis>4 <cis e>8 s
+  s2
+  <e a d>8-> <a, d> r <e a d>
+  <e a d>8(<e aes c>) r q % 17d
+  <fis bes e>8(<fis bes d>) r q
+  <f a c e>8 q r <f a b e>
+  s2
+  s2 % 18a
+  s2
+  s2
+  s4 r8 d'(
+  c8 e g c)
+  s4 r8 <e, b' d>~( % 18b
+  <e a c>8) r s4
+  s2
+  s2
+  s2
+  s2
+  s2 % 18c
+  s2
+  s2
+  s8 r f16-> e-> c-> a->
+  g8-^ r <f bes d f>4
+  <a cis e a>4-> <c ees aes c>->
+  r8 <e g c>16 q q q q q % 18d
+  s2
+  <e gis b>4 <fis ais cis>8 <g b d>->~
+  q8 <a cis e>-> <b dis fis>-> <cis eis gis>->
+  \repeat tremolo 8 { <b e a>32(g\fermata)}
+  <g b e a>8-^ r r4
   \bar "|."
 }
 
@@ -311,21 +450,108 @@ pianoRHone = \relative c' {
   <d f>8(<c e>) r <d f>(<c e>) r s4
   s1 % 12c
   s1
-  <d f>8(<c e>) r <d f>[(<c e>)] r <d f>(<c e>) % 13a
-  <e g>8(<d f>) r <e g>[(<d f>)] r <e g>(<d f>)
+  <d f>8(<c e>) r <d f>(<c e>) r <d f>(<c e>) % 13a
+  <e g>8(<d f>) r <e g>(<d f>) r <e g>(<d f>)
   g8(e) r g->[e] r b'->(g)
   r8 d'8->[(b)] r g'->[(e)] s4 % 13b
   b2(c)
-  <b d>8->(<a c>) r <b d>8->(<a c>) r <b d>8->(<a c>) 
-                   c2(d) % 13c
-                   s1
-                   e,2(fis)
-                   s1 % 13d
-                   s1
-                   s1
-                   s1 % 13d
-                   s1
-                   s1
+  <b d>8-> (<a c>) r <b d>-> (<a c>) r <b d>-> (<a c>) 
+  c2(d) % 13c
+  s1
+  e,2(fis)
+  s1 % 13d
+  s1
+  s1
+  s1 % 14a
+  s1
+  <d f>8(<c e>) r <d f>(<c e>) r <d f>(<c e>) % 14b
+  <d f>(<c e>) r <d f>(<c e>) r <d f>(<c e>)
+  <g' b>8(<fis a>) r <g b>8(<fis a>) r <g b>8(<fis a>)
+  r8 <g b> <fis a> s s2
+  e8(d) r e->(d) r e'->(d) % 14c
+  s1
+  s1
+  b1
+  b1 % 14d
+  cis1
+  b1
+  cis1
+  ees1 % 15a
+  <d f>1
+  ees1
+  q1
+  <c e g>1 % 15b
+  s1
+  s1
+  s1
+  s1 % 15c
+  <e, g>8(<d f>) r <g b>->(<f a>) e <e g>->(<d f>)
+  s1
+  s1 \bar "||" \time 2/4
+  s2 % 15d
+  s2
+  s2
+  s2
+  <d f>8->(<c e>) r s % 16a
+  s2
+  s2
+  s2
+  s2
+  s2 % 16b
+  s2
+  s2
+  <d f>8->(<c e>) r s
+  s2 % 16c
+  s2
+  s2
+  s2
+  s2
+  s2 % 16d
+  s4 b16(d g a
+  b2
+  c2)
+  <b d>8(<a c>) r <b d>(
+  <a c>8) r <b d>(<a c>)
+  <d, f a c>2( % 17a
+  <f a b d>2)
+  s2
+  s2
+  e2 % 17b
+  fis2
+  a2(
+  a2)
+  s2
+  s2 % 17c
+  s4 r8 <d, g>~
+  q4 s
+  s2
+  s2 % 17d
+  s2
+  s2
+  <d f>8(<c e>) r <d f>~
+  q8 r <d f>(<c e>) % 18a
+  <f a>8(<e g>) r q(
+  <d f>) r <g b>(<f a>)
+  q8->(<e g>) s4
+  s2
+  <b' d>8->(<a c>) s4 % 18b
+  s4 <b d>8(<a c>)
+  <b d>4(<c e>
+  <a c>4 g)
+  <g b d>8 <g a c>4 <g b d>8~
+  q8 q->(<a c> <b d>)
+  <fis a d>4(<gis b e> % 18c
+  <e g c>4 <des ees g>)
+  <b' d>4(<a c>
+  <e g b d>8) s s4
+  s2
+  s2
+  s2 % 18d
+  s4 a'16 fis d a
+  s2
+  s2
+  s2
+  s2
   \bar "|."
 }
 
@@ -343,15 +569,104 @@ pianoRHtwo = \relative c' {
   a4 r8 a4 r8 a4
   <b d>4 r8 q4 r8 q4
   r8 <d g>4 r8 <g b d>4 <b, d> % 13b
-  <b f' a>8[ q r q] <c f a>[ q r q]
+  <b f' a>8 q r q <c f a> q r q
   <e g>4 r8 q4 r8 q4
-  <c d f a>8[ q r q] <d f a b>[ q r q] % 13c
+  <c d f a>8 q r q <d f a b> q r q % 13c
   s1
-  <a b d>8[ q r q] <gis b d>[ q r q]
+  <a b d>8 q r q <gis b d> q r q
   s1 % 13d
   s1
   s1
-  
+  s1 % 14a
+  s1
+  g4 r8 g4 r8 g4 % 14b
+  a4 r8 a4 r8 a4
+  d4 r8 d4 r8 d4
+  r8 d4 s8 s2
+  <a c>4 r8 q4 r8 <a' c>4 % 14c
+  s1
+  s1
+  <e fis gis>8-. r r q-. r4 q8 r
+  <e fis gis>8-. r r q-. r4 q8 r % 14d
+  <e fis gis>8-. r r q-. r4 q8 r
+  <e fis gis>8-. r r q-. r4 q8 r
+  <fis gis ais>8-. r r q-. r4 q8 r
+  <ees aes c>8 r r q r4 q8 r % 15a
+  <f aes bes>8 r r q r4 q8 r
+  <ees aes c>8 r r q r4 q8 r
+  <f aes bes>8 r r q r4 q8 r
+  <c' e>8 r r <g, a c e>-. r4 q8-. r % 15b
+  s1
+  s1
+  s1
+  s1 % 15c
+  a4 r8 c4 r8 a4
+  s1
+  s1 \bar "||" \time 2/4
+  s2 % 15d
+  s2
+  s2
+  s2
+  g4 r8 s % 16a
+  s2
+  s2
+  s2
+  s2
+  s2 % 16b
+  s2
+  s2
+  g4 r8 s
+  s2 % 16c
+  s2
+  s2
+  s2
+  s2
+  s2
+  s2 % 16d
+  <b f' a>8 q r q
+  <c f a>8 q r q
+  <e g>4 r8 q~
+  q4 q
+  r8 <a, c d f> r q % 17a
+  r8 <b d f a> r q
+  s2
+  s2
+  <a d>8 q r q % 17b
+  <gis b d>8 q r q
+  <a cis fis>8 <b e> r <a cis fis>(
+  <b e>8) r s4
+  s2
+  s2 % 17c
+  s4 s8 b~
+  b8 <a' d g> <g c f> <f bes ees>
+  s2
+  s2 % 17d
+  s2
+  s2
+  g,4 r8 g~
+  g8 r g4 % 18a
+  b4-> r8 a~
+  a8 r c4->
+  <a c>4 s
+  s2
+  e'4 s % 18b
+  s4 e
+  r8 <e g> r q
+  r8 <c e> r q
+  dis2~
+  dis8 <dis g>4.
+  r8 d r d % 18c
+  r8 d r a
+  r8 <e' g> r q
+  s2
+  s2
+  s2
+  s2 % 18d
+  <fis a d>8-> <d f a>16 q q q q8
+  s2
+  s2
+  s2
+  s2
   \bar "|."
 }
 
@@ -390,6 +705,19 @@ dynamicsPiano = {
   s1
   s1
   s1
+  s1*12 % 15a
+  \time 2/4
+  s2*30
+  s4. s8\mf % 17b++
+  s2
+  s2\p
+  s2\fz % 17c
+  s2*21
+  s4 s\ff % 18c+++
+  s4 s\mf
+  s2
+  s2\ff % 18d
+  s2*5
 }
 
 pianoLH = \relative c, {
@@ -502,8 +830,8 @@ pianoLH = \relative c, {
   <c c'>8-> [ r <g' g'>-> ] r
   <fis fis'>4 <gis gis'>8 <e e'>-> ~
   q8 <fis fis'>-> <d d'>-> <cis cis'>->
-  \repeat tremolo 8 { c32 c'\fermata }
-  <c c'>8 r r4
+  \repeat tremolo 8 { c32( c'\fermata) }
+  <c, c'>8 r r4
   \bar "|."
 }
 
@@ -531,39 +859,121 @@ pianoLHtwo = \relative c {
   \bar "|."
 }
 
-\score {
-  \context GrandStaff <<
-    <<
-      \new ChoirStaff <<
+\book {
+  \bookOutputSuffix "repeat"
+  \score {
+    \context GrandStaff <<
+      <<
+        \new ChoirStaff <<
                                 % Single bass staff
-        \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
-          \new Voice \RehearsalTrack
-          \clef "treble_8" %%%% SHOULD BE "bass"
-          \new Voice = "bass" \melody
-          \new Lyrics \lyricsto "bass" \words
+          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \new Voice \RehearsalTrack
+            \clef "treble_8" %%%% SHOULD BE "bass"
+            \new Voice = "bass" \melody
+            \new Lyrics \lyricsto "bass" \words
+          >>
         >>
-      >>
-      \new PianoStaff <<
-        \new Staff <<
-          \new Voice \pianoRH
-          \new Voice \pianoRHone
-          \new Voice \pianoRHtwo
-        >>
-        \new Dynamics \dynamicsPiano
-        \new Staff <<
-          \clef "bass"
-          \new Voice \pianoLH
-          \new Voice \pianoLHone
-          \new Voice \pianoLHtwo
+        \new PianoStaff <<
+          \new Staff <<
+            \new Voice \pianoRH
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff <<
+            \clef "bass"
+            \new Voice \pianoLH
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
         >>
       >>
     >>
-  >>
-  \layout {
-    indent = 1.5\cm
-    \context {
-      \Staff \RemoveAllEmptyStaves
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
     }
   }
-  \midi {}
+}
+
+\book {
+  \bookOutputSuffix "single"
+  \score {
+    \unfoldRepeats
+    <<
+      \context GrandStaff <<
+        <<
+          \new ChoirStaff <<
+                                % Single bass staff
+            \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+              \new Voice \RehearsalTrack
+              \clef "treble_8" %%%% SHOULD BE "bass"
+              \new Voice = "bass" \melody
+              \new Lyrics \lyricsto "bass" \words
+            >>
+          >>
+          \new PianoStaff <<
+            \new Staff <<
+              \new Voice \pianoRH
+              \new Voice \pianoRHone
+              \new Voice \pianoRHtwo
+            >>
+            \new Dynamics \dynamicsPiano
+            \new Staff <<
+              \clef "bass"
+              \new Voice \pianoLH
+              \new Voice \pianoLHone
+              \new Voice \pianoLHtwo
+            >>
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+  
+\book {
+  \bookOutputSuffix "midi"
+  \score {
+    \unfoldRepeats
+                                % \articulate
+    <<
+      \context GrandStaff <<
+        <<
+          \new ChoirStaff <<
+                                % Single bass staff
+            \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+              \new Voice \RehearsalTrack
+              \clef "treble_8" %%%% SHOULD BE "bass"
+              \new Voice = "bass" \melody
+              \new Lyrics \lyricsto "bass" \wordsMidi
+            >>
+          >>
+          \new PianoStaff <<
+            \new Staff <<
+              \new Voice \pianoRH
+              \new Voice \pianoRHone
+              \new Voice \pianoRHtwo
+            >>
+            \new Dynamics \dynamicsPiano
+            \new Staff <<
+              \clef "bass"
+              \new Voice \pianoLH
+              \new Voice \pianoLHone
+              \new Voice \pianoLHtwo
+            >>
+          >>
+        >>
+      >>
+    >>
+    \midi {}
+  }
 }
