@@ -189,8 +189,11 @@ pianoLHtwo = \relative c' {
 }
 
 \book {
+  \bookOutputSuffix "repeat"
   \score {
-%    \unfoldRepeats \articulate <<
+%   \unfoldRepeats
+%   \articulate
+%   <<
     \context GrandStaff <<
       <<
         \new ChordNames { \ChordTrack }
