@@ -34,6 +34,8 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 
 % #(set-global-staff-size 16)
 
+verses = 6
+
 global = {
   \key g \major
   \time 3/4
@@ -44,48 +46,59 @@ global = {
 RehearsalTrack = {
 % \set Score.currentBarNumber = #5
 % \mark \markup { \circle "1a" }
-  \mark \markup { \box "A" } s2.*6
-  \mark \markup { \box "B" } s2.*5
-  \mark \markup { \box "C" } s2.*5
+  \repeat volta \verses {
+    \mark \markup { \box "A" } s2.*6
+    \mark \markup { \box "B" } s2.*5
+    \mark \markup { \box "C" } s2.*5
+  }
 }
 
 TempoTrack = {
+  \repeat volta \verses {
+  }
 }
 
 soprano = \relative c' {
   \global
-  \repeat volta 4 {
+  \repeat volta \verses {
     d4
   }
 }
 
 dynamicsWomen = {
   \override DynamicTextSpanner.style = #'none
+  \repeat volta \verses {
+  }
 }
 
 alto = \relative c' {
   \global
-  \repeat volta 4 {
+  \repeat volta \verses {
     d4
   }
 }
 
 tenor = \relative c {
   \global
-  \repeat volta 4 {
+  \repeat volta \verses {
     d4
   }
 }
 
 dynamicsMen = {
   \override DynamicTextSpanner.style = #'none
+  \repeat volta \verses {
+  }
 }
 
 bass= \relative c' {
   \global
-  \repeat volta 4 {
+  \repeat volta verses {
     d4
   }
+}
+
+chorus = \lyricmode {
 }
 
 wordsOne = \lyricmode {
@@ -117,46 +130,60 @@ wordsMidi = \lyricmode {
   
 pianoRH = \relative c' {
   \global
-  c4
+  \repeat volta \verses {
+    c4
+  }
   \bar "|."
 }
 
 pianoRHone = \relative c' {
   \global
   \voiceOne
-  c4
+  \repeat volta \verses {
+    c4
+  }
   \bar "|."
 }
 
 pianoRHtwo = \relative c' {
   \global
   \voiceTwo
-  c4
+  \repeat volta \verses {
+    c4
+  }
   \bar "|."
 }
 
 dynamicsPiano = {
   \override DynamicTextSpanner.style = #'none
+  \repeat volta \verses {
+  }
 }
 
 pianoLH = \relative c' {
   \global
   \oneVoice
-  c4
+  \repeat volta \verses {
+    c4
+  }
   \bar "|."
 }
 
 pianoLHone = \relative c' {
   \global
   \voiceOne
-  c4
+  \repeat volta \verses {
+    c4
+  }
   \bar "|."
 }
 
 pianoLHtwo = \relative c' {
   \global
   \voiceTwo
-  c4
+  \repeat volta \verses {
+    c4
+  }
   \bar "|."
 }
 
@@ -208,18 +235,18 @@ pianoLHtwo = \relative c' {
 %            \new Voice \TempoTrack
             \new Voice = "soprano" { \voiceOne \soprano }
             \new Voice = "alto"    { \voiceTwo \alto    }
-            \new Lyrics \lyricsto "soprano" \wordsOne
-            \new Lyrics \lyricsto "soprano" \wordsTwo
-            \new Lyrics \lyricsto "soprano" \wordsThree
-            \new Lyrics \lyricsto "soprano" \wordsFour
-            \new Lyrics \lyricsto "soprano" \wordsFive
-            \new Lyrics \lyricsto "soprano" \wordsSix
-%            \new Lyrics \lyricsto "soprano" { \wordsOne
-%                                              \wordsTwo
-%                                              \wordsThree
-%                                              \wordsFour
-%                                              \wordsFive
-%                                              \wordsSix
+            \new Lyrics \lyricsto "soprano" { \wordsOne \chorus }
+            \new Lyrics \lyricsto "soprano"   \wordsTwo
+            \new Lyrics \lyricsto "soprano"   \wordsThree
+            \new Lyrics \lyricsto "soprano"   \wordsFour
+            \new Lyrics \lyricsto "soprano"   \wordsFive
+            \new Lyrics \lyricsto "soprano"   \wordsSix
+%            \new Lyrics \lyricsto "soprano" { \wordsOne   \chorus
+%                                              \wordsTwo   \chorus
+%                                              \wordsThree \chorus
+%                                              \wordsFour  \chorus
+%                                              \wordsFive  \chorus
+%                                              \wordsSix   \chorus
 %                                            }
 %            \new Lyrics \lyricsto "soprano" \wordsMidi
           >>
