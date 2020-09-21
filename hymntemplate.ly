@@ -93,7 +93,7 @@ dynamicsMen = {
 
 bass= \relative c' {
   \global
-  \repeat volta verses {
+  \repeat volta \verses {
     d4
   }
 }
