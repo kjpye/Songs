@@ -230,7 +230,7 @@ pianoLHtwo = \relative c' {
 %          >>
                                   % Joint soprano/alto staff
           \new Dynamics \dynamicsWomen
-          \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
+          \new Staff <<
             \new Voice \RehearsalTrack
 %            \new Voice \TempoTrack
             \new Voice = "soprano" { \voiceOne \soprano }
@@ -252,7 +252,7 @@ pianoLHtwo = \relative c' {
           >>
                                   % Joint tenor/bass staff
           \new Dynamics \dynamicsMen
-          \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
+          \new Staff <<
             \clef "bass"
             \new Voice = "tenor" { \voiceOne \tenor }
             \new Voice = "bass"  { \voiceTwo \bass  }
