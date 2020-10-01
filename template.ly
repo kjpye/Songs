@@ -69,6 +69,17 @@ black = {
   \override Dots.color       = #black
 }
 
+drumPitchNames.cc = #'crashcymbal
+#(define mystyle
+  '((crashcymbal cross   #f  5)
+    (bass        default #f -1)
+  ))
+
+midiDrumPitches.bass = des
+
+DrumTrack = \drummode {
+}
+
 RehearsalTrack = {
 %  \set Score.currentBarNumber = #5
 %  \mark \markup { \box 5 }
@@ -259,6 +270,11 @@ pianoLHtwo = \relative c' {
           >>
         >>
       >>
+      \new DrumStaff \with {
+        \override StaffSymbol.line-count = #1
+        drumStyleTable = #(alist->hash-table mystyle)
+        drumPitchTable = #(alist->hash-table midiDrumPitches)
+        } << \DrumTrack >>
     >>
 % >>
     \layout {
