@@ -45,7 +45,6 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 global = {
   \key f \major
   \time 3/4
-  \tempo 4=120
   \partial 4
 }
 
@@ -78,6 +77,12 @@ drumPitchNames.cc = #'crashcymbal
 midiDrumPitches.bass = des
 
 DrumTrack = \drummode {
+}
+
+TempoTrack = {
+  \tempo 4=120
+  \set Score.tempoHideNote = ##t
+  s4
 }
 
 RehearsalTrack = {
@@ -204,42 +209,42 @@ pianoLHtwo = \relative c' {
   \score {
 %   \unfoldRepeats
 %   \articulate
-%   <<
-    \context GrandStaff <<
+    <<
       <<
         \new ChordNames { \ChordTrack }
         \new FretBoards { \ChordTrack }
       >>
       <<
         \new ChoirStaff <<
-                                  % Single soprano staff
+                                % Single soprano staff
           \new Dynamics \dynamicsSop
           \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+            \new Voice \TempoTrack
             \new Voice \RehearsalTrack
             \new Voice = "soprano" \soprano
             \new Lyrics \lyricsto "soprano" \wordsSop
           >>
-                                  % Single alto staff
+                                % Single alto staff
           \new Dynamics \dynamicsAlto
           \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
             \new Voice = "alto" \alto
             \new Lyrics \lyricsto "alto" \wordsAlto
           >>
-                                  % Single tenor staff
+                                % Single tenor staff
           \new Dynamics \dynamicsTenor
           \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
             \clef "treble_8"
             \new Voice = "tenor" \tenor
             \new Lyrics \lyricsto "tenor" \wordsTenor
           >>
-                                  % Single bass staff
+                                % Single bass staff
           \new Dynamics \dynamicsBass
           \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
             \clef "bass"
             \new Voice = "bass" \bass
             \new Lyrics \lyricsto "bass" \wordsBass
           >>
-                                  % Joint soprano/alto staff
+                                % Joint soprano/alto staff
           \new Dynamics \dynamicsWomen
           \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
             \new Voice \RehearsalTrack
@@ -247,7 +252,7 @@ pianoLHtwo = \relative c' {
             \new Voice = "alto"    { \voiceTwo \alto    }
             \new Lyrics \lyricsto "soprano" \words
           >>
-                                  % Joint tenor/bass staff
+                                % Joint tenor/bass staff
           \new Dynamics \dynamicsMen
           \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
             \clef "bass"
@@ -274,9 +279,8 @@ pianoLHtwo = \relative c' {
         \override StaffSymbol.line-count = #1
         drumStyleTable = #(alist->hash-table mystyle)
         drumPitchTable = #(alist->hash-table midiDrumPitches)
-        } << \DrumTrack >>
+      } << \DrumTrack >>
     >>
-% >>
     \layout {
       indent = 1.5\cm
       \context {
