@@ -20,12 +20,13 @@ grammar Lyrics {
 
 for lines() -> $line is copy {
     my $first = '\\n';
-    if $line ~~ /\s+\\/ {
+    if $line ~~ /\s*\\/ {
       say $line;
       next;
     }
+    my $suffix = '';
     $line ~~ s/(\s*\%.*)?$//;
-    my $suffix = ~$0 // '';
+    $suffix = ~$0 if $0;
     my $/ = Lyrics.parse($line);
     for $/<word> -> $word is copy {
         given $word {
