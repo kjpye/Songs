@@ -223,7 +223,7 @@ ChordTrack = \chordmode {
   g1:7/d
   c1:m/ees
   g1:7/d % 4c
-  c2:m c:m %%% FIX
+  c2:m c:m7+
   c2:m7 f:9
   f:m9 f4:m ees:7
   s1 % 5a
@@ -247,7 +247,7 @@ ChordTrack = \chordmode {
   \alternative {
     {
       bes2 g:m7
-      c4:7 r2. %%% FIX
+      c4:7.4 r2.
     }
     {
       bes1 % 6b
@@ -258,7 +258,7 @@ ChordTrack = \chordmode {
   a1:7/e
   d1:m/f % 6c
   a1:7/e
-  d2:m d:m/a %%% FIX
+  d2:m d:m7+/a % .7+/a
   d2:m7 g:9
   c2.:m9 f4:7 % 7a
   s1
@@ -268,15 +268,15 @@ ChordTrack = \chordmode {
   bes1 % 7b
   s2 bes:7/d
   ees1:6
-  c1:m7 %%% FIX
+  c1:m7.5-
   bes2 bes/a % 7c
   g1
   c1
   s1
   s2 c:maj7/g % 8a
-  a2:m/c e4:m7/d c:7/e %%% FIX
+  a2:m/c e4:m7.5-/d c:7/e
   f1:6
-  d2:m7 d:m7 %%% FIX
+  d2:m7 d:m7.5-
   c1 % 8b
   b1
   e1
@@ -288,7 +288,7 @@ ChordTrack = \chordmode {
   b2:m9 a4:m g:7 % 9a
   c1
   s1
-  s2. e4:m7/b %%% FIX
+  s2. e4:m7.4/b
   a2:m c:7/g % 9b
   d1:m
   d1:m7
@@ -317,7 +317,7 @@ sopB = \relative {
 }
 
 sopBb = \relative {
-  r1*6 % 3c
+  R1*6 % 3c
 }
 
 sopC = \relative {
@@ -327,7 +327,7 @@ sopC = \relative {
 
 sopCb = \relative {
       aes'1
-      r1
+      R1
 }
 
 sopD = \relative {
@@ -785,7 +785,7 @@ altoB = \relative {
 }
 
 altoBb = \relative {
-  r1*6
+  R1*6
 }
 
 altoC = \relative {
@@ -795,7 +795,7 @@ altoC = \relative {
 
 altoCb = \relative {
       aes'1
-      r1
+      R1
 }
 
 altoD = {
@@ -954,7 +954,7 @@ tenorA = \relative {
 }
 
 tenorBa = \relative {
-  r1*6
+  R1*6
 }
 
 tenorB = \relative {
@@ -1096,7 +1096,7 @@ bassA = \relative {
 }
 
 bassBa = \relative {
-  r1*6
+  R1*6
 }
 
 bassB = \relative {
@@ -1541,51 +1541,50 @@ pianoLH = \relative c {
 \book {
   \bookOutputSuffix "repeat"
   \score {
-    \context GrandStaff <<
-      <<
-        \new ChoirStaff <<
-                                  % Joint soprano/alto staff
-          \new Dynamics \dynamicsWomen
-          \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
-            \new Voice \TempoTrack
-            \new Voice \RehearsalTrack
-            \new Voice = "soprano" { \voiceOne \soprano }
-            \new Voice = "alto"    { \voiceTwo \alto    }
-            \new Lyrics \lyricsto "soprano" \wordsAll
-            \new Lyrics \lyricsto "soprano" \wordsAllTwo
-          >>
-                                  % Joint tenor/bass staff
-          \new Dynamics \dynamicsMen
-          \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
-            \clef "bass"
-            \new Voice = "tenor" \tenor
-            \new Voice = "bass" \bass
-            \new Lyrics \lyricsto "bass" \wordsBass
-          >>
+    <<
+      \new ChoirStaff <<
+                                % Joint soprano/alto staff
+        \new Dynamics \dynamicsWomen
+        \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
+          \new Voice \TempoTrack
+          \new Voice \RehearsalTrack
+          \new Voice = "soprano" { \voiceOne \soprano }
+          \new Voice = "alto"    { \voiceTwo \alto    }
+          \new Lyrics \lyricsto "soprano" \wordsAll
+          \new Lyrics \lyricsto "soprano" \wordsAllTwo
         >>
-        <<
-          \new ChordNames { \ChordTrack }
-%          \new FretBoards { \ChordTrack }
-        >>
-        \new PianoStaff <<
-          \new Staff <<
-            \new Voice \pianoRH
-            \new Voice \pianoRHone
-            \new Voice \pianoRHtwo
-          >>
-          \new Dynamics \dynamicsPiano
-          \new Staff <<
-            \clef "bass"
-            \new Voice \pianoLH
-          >>
+                                % Joint tenor/bass staff
+        \new Dynamics \dynamicsMen
+        \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
+          \clef "bass"
+          \new Voice = "tenor" \tenor
+          \new Voice = "bass" \bass
+          \new Lyrics \lyricsto "bass" \wordsBass
         >>
       >>
+      <<
+        \new ChordNames { \ChordTrack }
+                                %          \new FretBoards { \ChordTrack }
+      >>
+      \new PianoStaff <<
+        \new Staff <<
+          \new Voice \pianoRH
+          \new Voice \pianoRHone
+          \new Voice \pianoRHtwo
+        >>
+        \new Dynamics \dynamicsPiano
+        \new Staff <<
+          \clef "bass"
+          \new Voice \pianoLH
+        >>
+      >>
+
       \new DrumStaff \with {
         \override StaffSymbol.line-count = #1
         drumStyleTable = #(alist->hash-table mystyle)
         drumPitchTable = #(alist->hash-table midiDrumPitches)
         \remove Ledger_line_engraver
-        } << \DrumTrack >>
+      } << \DrumTrack >>
     >>
     \layout {
       indent = 1.5\cm
@@ -1599,33 +1598,52 @@ pianoLH = \relative c {
 \book {
   \bookOutputSuffix "single"
   \score {
-   \unfoldRepeats
+    \unfoldRepeats
 %   \articulate
-   <<
-    \context GrandStaff <<
+    <<
       <<
         \new ChoirStaff <<
-                                  % Joint soprano/alto staff
+                                % Joint soprano/alto staff
           \new Dynamics \dynamicsWomen
           \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice = "soprano" { \voiceOne \global \sopA \sopB \sopCb \sopBb \sopDb \sopE \sopF \sopG \sopF \sopH \sopI }
-            \new Voice = "alto"    { \voiceTwo \global \altoA \altoB \altoCb \altoBb \altoDb \altoE \altoF \altoG \altoF \altoH \altoI }
+            \new Voice = "soprano" { \voiceOne \global
+                                     \sopA \sopB  \sopCb
+                                           \sopBb \sopDb
+                                     \sopE \sopF \sopG
+                                           \sopF \sopH
+                                     \sopI }
+            \new Voice = "alto"    { \voiceTwo \global
+                                     \altoA \altoB  \altoCb
+                                            \altoBb \altoDb
+                                     \altoE \altoF \altoG
+                                            \altoF \altoH
+                                     \altoI }
             \new Lyrics \lyricsto "soprano" \wordsSingleWomen
           >>
-                                  % Joint tenor/bass staff
+                                % Joint tenor/bass staff
           \new Dynamics \dynamicsMen
           \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
             \clef "bass"
-            \new Voice = "tenor" { \global \voiceOne \tenorAa \tenorBa \tenorCa \tenorB \tenorD \tenorE \tenorF \tenorG \tenorF \tenorH \tenorI }
-            \new Voice = "bass" { \global \voiceTwo \bassAa \bassBa \bassCa \bassB \bassD \bassE \bassF \bassG \bassF \bassH \bassI }
+            \new Voice = "tenor" { \global \voiceOne
+                                   \tenorAa \tenorBa \tenorCa
+                                            \tenorB  \tenorD
+                                   \tenorE \tenorF \tenorG
+                                           \tenorF \tenorH
+                                   \tenorI }
+            \new Voice = "bass" { \global \voiceTwo
+                                  \bassAa \bassBa \bassCa
+                                          \bassB  \bassD
+                                  \bassE \bassF \bassG
+                                         \bassF \bassH
+                                  \bassI }
             \new Lyrics \lyricsto "bass" \wordsSingleMen
           >>
         >>
         <<
           \new ChordNames { \ChordTrack }
-%          \new FretBoards { \ChordTrack }
+                                %          \new FretBoards { \ChordTrack }
         >>
         \new PianoStaff <<
           \new Staff <<
@@ -1645,13 +1663,12 @@ pianoLH = \relative c {
         drumStyleTable = #(alist->hash-table mystyle)
         drumPitchTable = #(alist->hash-table midiDrumPitches)
         \remove Ledger_line_engraver
-        } << \DrumTrack >>
+      } << \DrumTrack >>
     >>
- >>
     \layout {
       indent = 1.5\cm
       \context {
-        \Staff \RemoveAllEmptyStaves
+%        \Staff \RemoveAllEmptyStaves
       }
     }
   }
@@ -1660,13 +1677,12 @@ pianoLH = \relative c {
 \book {
   \bookOutputSuffix "midi-women"
   \score {
-   \unfoldRepeats
+    \unfoldRepeats
 %   \articulate
-   <<
-    \context GrandStaff <<
+    <<
       <<
         \new ChoirStaff <<
-                                  % Joint soprano/alto staff
+                                % Joint soprano/alto staff
           \new Dynamics \dynamicsWomen
           \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
             \new Voice \TempoTrack
@@ -1675,7 +1691,7 @@ pianoLH = \relative c {
             \new Voice = "alto"    { \voiceTwo \global \altoA \altoB \altoCb \altoBb \altoDb \altoE \altoF \altoG \altoF \altoH \altoI }
             \new Lyrics \lyricsto "soprano" \wordsSingleWomen
           >>
-                                  % Joint tenor/bass staff
+                                % Joint tenor/bass staff
           \new Dynamics \dynamicsMen
           \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
             \clef "bass"
@@ -1685,7 +1701,7 @@ pianoLH = \relative c {
         >>
         <<
           \new ChordNames { \ChordTrack }
-%          \new FretBoards { \ChordTrack }
+                                %          \new FretBoards { \ChordTrack }
         >>
         \new PianoStaff <<
           \new Staff <<
@@ -1699,15 +1715,14 @@ pianoLH = \relative c {
             \new Voice \pianoLH
           >>
         >>
-      >>
-      \new DrumStaff \with {
-        \override StaffSymbol.line-count = #1
-        drumStyleTable = #(alist->hash-table mystyle)
-        drumPitchTable = #(alist->hash-table midiDrumPitches)
-        \remove Ledger_line_engraver
+        \new DrumStaff \with {
+          \override StaffSymbol.line-count = #1
+          drumStyleTable = #(alist->hash-table mystyle)
+          drumPitchTable = #(alist->hash-table midiDrumPitches)
+          \remove Ledger_line_engraver
         } << \DrumTrack >>
+      >>
     >>
- >>
     \midi {}
   }
 }
@@ -1715,13 +1730,12 @@ pianoLH = \relative c {
 \book {
   \bookOutputSuffix "midi-men"
   \score {
-   \unfoldRepeats
+    \unfoldRepeats
 %   \articulate
-   <<
-    \context GrandStaff <<
+    <<
       <<
         \new ChoirStaff <<
-                                  % Joint soprano/alto staff
+                                % Joint soprano/alto staff
           \new Dynamics \dynamicsWomen
           \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
             \new Voice \TempoTrack
@@ -1729,7 +1743,7 @@ pianoLH = \relative c {
             \new Voice = "soprano" { \voiceOne \global \sopA \sopB \sopCb \sopBb \sopDb \sopE \sopF \sopG \sopF \sopH \sopI }
             \new Voice = "alto"    { \voiceTwo \global \altoA \altoB \altoCb \altoBb \altoDb \altoE \altoF \altoG \altoF \altoH \altoI }
           >>
-                                  % Joint tenor/bass staff
+                                % Joint tenor/bass staff
           \new Dynamics \dynamicsMen
           \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
             \clef "bass"
@@ -1740,7 +1754,7 @@ pianoLH = \relative c {
         >>
         <<
           \new ChordNames { \ChordTrack }
-%          \new FretBoards { \ChordTrack }
+                                %          \new FretBoards { \ChordTrack }
         >>
         \new PianoStaff <<
           \new Staff <<
@@ -1754,15 +1768,14 @@ pianoLH = \relative c {
             \new Voice \pianoLH
           >>
         >>
-      >>
-      \new DrumStaff \with {
-        \override StaffSymbol.line-count = #1
-        drumStyleTable = #(alist->hash-table mystyle)
-        drumPitchTable = #(alist->hash-table midiDrumPitches)
-        \remove Ledger_line_engraver
+        \new DrumStaff \with {
+          \override StaffSymbol.line-count = #1
+          drumStyleTable = #(alist->hash-table mystyle)
+          drumPitchTable = #(alist->hash-table midiDrumPitches)
+          \remove Ledger_line_engraver
         } << \DrumTrack >>
+      >>
     >>
- >>
     \midi {}
   }
 }

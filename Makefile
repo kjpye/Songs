@@ -10,6 +10,7 @@
 	../miditomp3andkar $*-midi-alto
 	../miditomp3andkar $*-midi-tenor
 	../miditomp3andkar $*-midi-bass
+	../miditomp3andkar $*-midi-solo
 
 clean:
 	rm *.pdf *.kar *.midi *.png *.mp3 *~
