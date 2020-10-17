@@ -158,6 +158,41 @@ wordsSix = \lyricmode {
 }
   
 wordsMidi = \lyricmode {
+  \set stanza = "1."
+  "\nHark! " "what " "mean " "those " "ho " "ly " "voi " "ces "
+  "\nSweet " "ly " "sound " "ing " "in " "the " "skies? "
+  "\nLo! " "th'an " "gel " "ic " "host " "re " "joi " "ces, "
+  "\nLoud " "est " "hal " "le " "lu " "jahs " "rise. "
+
+  \set stanza = "2."
+  "\nList " "en " "to " "the " "won " "drous " "sto " "ry "
+  "\nWhich " "they " "chant " "in " "hymns " "of " "joy: "
+  "\n\"Glo" "ry " "in " "the " high "est, " glo "ry! "
+  "\nGlo " "ry " "be " "to " "God " "most " "high. "
+
+  \set stanza = "3."
+  "\"Peace" "on " "earth, " good "will " "from " hea "ven, "
+  "\nReach " "ing " "far " "as " "man " "is " "found: "
+  "\nSouls " "re " "deemed " "and " "sins " "for " "giv " "en, "
+  "\nLoud " "our " "gold " "en " "harps " "shall " "sound. "
+
+  \set stanza = "4."
+  "\"Christ" "is " "born! " "the " "great " An oint "ed! "
+  "\nHeaven " "and " "earth " "His " "glo " "ry " "sing; "
+  "\nOh, " "re " "ceive " "whom " "God " "ap " "point " "ed "
+  "\nFor " "your " "proph " "et, " "Priest, " "and " "King! "
+
+  \set stanza = "5."
+  "\"Has" ten, mor "tals, " "to " a "dore " "Him, "
+  "\nLearn " "His " "name " "and " "taste " "His " "joy, "
+  "\nTill " "in " "heaven " "ye " "sing " "be " "fore " "Him- "
+  Glo "ry " "be " "to " "God " "most " "high!\""
+
+  \set stanza = "6."
+  "\nLet " "us " "learn " "the " "wond " "rous " "stor " "y "
+  "\nOf " "our " "great " "Re " "deem " "er's " "birth; "
+  "\nSpread " "the " "bright " "ness " "of " "His " "glo " "ry, "
+  "\nTill " "it " "cov " "er " "all " "the " "earth. "
 }
   
 \book {

@@ -148,6 +148,29 @@ wordsFour = \lyricmode {
 }
   
 wordsMidi = \lyricmode {
+  \set stanza = "1."
+  "\nHark, " "the " "glad " sound- "the " "Sa " "iour " "comes! "
+  "\nThe " "Sa " "viour " "pro " "mised " "long; "
+  "\nLet " "ev " "'ry " "heart " "ex " "ult " "with " "joy, "
+  "\nAnd " "ev " "'ry " "voice " "be " "sung! "
+
+  \set stanza = "2."
+  "\nHe " "comes! " "the " "pris " "'ners " "to " "re " "lease, "
+  "\nIn " "Sa " "tan's " "bin " "dage " "held; "
+  "\nThe " "gates " "of " "brass " "be " "fore " "Him " "burst, "
+  "\nThe " "i " "ron " "fet " "ters " "yield. "
+
+  \set stanza = "3."
+  "\nHe " "comes! " "the " "bro " "ken " "hearts " "to " "bind, "
+  "\nThe " "bleed " "ing " "souls " "to " "curel "
+  "\nAnd " "with " "the " "treas " "ures " "of " "His " "grace "
+  "\nTo " "enrich " "the " "hum " "ble " "poor. "
+
+  \set stanza = "4."
+  "\nOur " "glad " "ho " "san " "nas, " "Prince " "of " "Peace! "
+  "\nThey " "wel " "come " "shall " "pro " "claim; "
+  "\nAnd " "heaven's " "ex " "alt " "ed " "arch " "es " "ring "
+  "\nWith " "Thy " "most " "hon " "oured " "name. "
 }
   
 \book {
