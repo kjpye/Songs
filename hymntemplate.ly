@@ -58,7 +58,7 @@ TempoTrack = {
   }
 }
 
-soprano = \relative c' {
+soprano = \relative {
   \global
   \repeat volta \verses {
     d4
@@ -71,14 +71,14 @@ dynamicsWomen = {
   }
 }
 
-alto = \relative c' {
+alto = \relative {
   \global
   \repeat volta \verses {
     d4
   }
 }
 
-tenor = \relative c {
+tenor = \relative {
   \global
   \repeat volta \verses {
     d4
@@ -91,7 +91,7 @@ dynamicsMen = {
   }
 }
 
-bass= \relative c' {
+bass= \relative {
   \global
   \repeat volta \verses {
     d4
@@ -128,7 +128,7 @@ wordsSix = \lyricmode {
 wordsMidi = \lyricmode {
 }
   
-pianoRH = \relative c' {
+pianoRH = \relative {
   \global
   \repeat volta \verses {
     c4
@@ -136,7 +136,7 @@ pianoRH = \relative c' {
   \bar "|."
 }
 
-pianoRHone = \relative c' {
+pianoRHone = \relative {
   \global
   \voiceOne
   \repeat volta \verses {
@@ -145,7 +145,7 @@ pianoRHone = \relative c' {
   \bar "|."
 }
 
-pianoRHtwo = \relative c' {
+pianoRHtwo = \relative {
   \global
   \voiceTwo
   \repeat volta \verses {
@@ -160,7 +160,7 @@ dynamicsPiano = {
   }
 }
 
-pianoLH = \relative c' {
+pianoLH = \relative {
   \global
   \oneVoice
   \repeat volta \verses {
@@ -169,7 +169,7 @@ pianoLH = \relative c' {
   \bar "|."
 }
 
-pianoLHone = \relative c' {
+pianoLHone = \relative {
   \global
   \voiceOne
   \repeat volta \verses {
@@ -178,7 +178,7 @@ pianoLHone = \relative c' {
   \bar "|."
 }
 
-pianoLHtwo = \relative c' {
+pianoLHtwo = \relative {
   \global
   \voiceTwo
   \repeat volta \verses {
@@ -192,7 +192,6 @@ pianoLHtwo = \relative c' {
   \score {
 %    \unfoldRepeats
 %    \articulate
-%    <<
     \context GrandStaff <<
 %      <<
 %        \new ChordNames { \ChordTrack }

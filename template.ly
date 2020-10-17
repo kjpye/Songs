@@ -95,7 +95,7 @@ RehearsalTrack = {
 ChordTrack = \chordmode {
 }
 
-soprano = \relative c' {
+soprano = \relative {
   \global
   c4
   \bar "|."
@@ -109,7 +109,7 @@ wordsSop = \lyricmode {
   words
 }
 
-alto = \relative c' {
+alto = \relative {
   \global
   c4
   \bar "|."
@@ -127,7 +127,7 @@ dynamicsWomen = {
   \override DynamicTextSpanner.style = #'none
 }
 
-tenor = \relative c {
+tenor = \relative {
   \global
   c4
   \bar "|."
@@ -141,7 +141,7 @@ wordsTenor = \lyricmode {
   words
 }
 
-bass= \relative c' {
+bass= \relative {
   \global
   c4
   \bar "|."
@@ -159,20 +159,20 @@ dynamicsMen = {
   \override DynamicTextSpanner.style = #'none
 }
 
-pianoRH = \relative c' {
+pianoRH = \relative {
   \global
   c4
   \bar "|."
 }
 
-pianoRHone = \relative c' {
+pianoRHone = \relative {
   \global
   \voiceOne
   c4
   \bar "|."
 }
 
-pianoRHtwo = \relative c' {
+pianoRHtwo = \relative {
   \global
   \voiceTwo
   c4
@@ -183,21 +183,21 @@ dynamicsPiano = {
   \override DynamicTextSpanner.style = #'none
 }
 
-pianoLH = \relative c' {
+pianoLH = \relative {
   \global
   \oneVoice
   c4
   \bar "|."
 }
 
-pianoLHone = \relative c' {
+pianoLHone = \relative {
   \global
   \voiceOne
   c4
   \bar "|."
 }
 
-pianoLHtwo = \relative c' {
+pianoLHtwo = \relative {
   \global
   \voiceTwo
   c4
