@@ -7,8 +7,9 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 \header {
 % centered at top
 %  dedication  = "dedication"
-  title       = "Hark! what Means those Holy Voices?"
-  subtitle    = "Sankey No. 24"
+  title       = "Hark! the Glad Sound!"
+  subtitle    = "Sankey No. 25"
+  subsubtitle = "Sankey 880 No. 659"
 %  instrument  = "instrument"
   
 % arrangement of following lines:
@@ -17,13 +18,13 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 %  meter   arranger
 %  piece       opus
 
-  composer    = "attr. H. L. Hassler"
+  composer    = "W. Wheall"
 %  arranger    = "arranger"
 %  opus        = "opus"
 
-  poet        = "John Cawood"
-  meter       = "8.7.8.7"
-  piece       = \markup \smallCaps Stuttgart
+  poet        = "P. Doddridge"
+  meter       = "C.M."
+  piece       = \markup \smallCaps Bedford
 
 % centered at bottom
 % tagline     = "tagline" % default lilypond version
@@ -33,76 +34,81 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 
 % #(set-global-staff-size 16)
 
-verses = 6
+verses = 4
 
 global = {
-  \key g \major
+  \key ees \major
   \time 4/4
   \tempo 4=120
+  \partial 4
 }
 
 RehearsalTrack = {
 % \set Score.currentBarNumber = #5
 % \mark \markup { \circle "1a" }
   \repeat volta \verses {
-    \mark \markup { \box "A" } s1*4
-    \mark \markup { \box "B" } s1*4
+    \mark \markup { \box "A" } s4 s1*3 s2.
+    \mark \markup { \box "B" } s4 s1*3 s2.
   }
 }
 
 soprano = \relative {
   \global
   \repeat volta \verses {
-    d'4 d g g
-    a4 a b g
-    d'4 d e c
-    a4 d b2
-    b4 b a b % B
-    g4 a fis d
-    g4 e d g
-    g4 fis g2
+    bes'4
+    g4 ees c' bes
+    aes4 g f bes
+    ees4 d c c
+    bes2. \bar "||" \break g4
+    aes4 bes c bes % B
+    aes4 g f bes
+    ees4 g, aes f
+    ees2.
   }
 }
 
 alto = \relative {
   \global
   \repeat volta \verses {
-    d'4 d b b
-    e4 d d d
-    g4 g g g
-    g4 fis g2
-    d4 d d d % B
-    d4 cis d d
-    d4 c b d
-    d4 d d2
+    ees'4
+    ees4 ees ees ees
+    ees8 d ees4 d f
+    ees4 f g f8 ees
+    d2. \bar "||" \break ees4
+    ees4 ees ees d % B
+    ees8 f ees4 d d
+    ees4 ees ees d
+    ees2.
   }
 }
 
 tenor = \relative {
   \global
   \repeat volta \verses {
-    b4 a g g
-    g4 fis g b
-    g4  b c e
-    d4 d d2
-    g,4 g fis fis % B
-    b4 a a fis
-    g4 g d' b
-    a8 b c4 b2
+    g4
+    bes4 bes c g
+    aes4 bes bes bes
+    bes8 a bes4 bes a
+    bes2. \bar "||" \break bes4
+    aes4 g aes f % B
+    aes8[f] g[aes] bes4 bes
+    bes4 c c bes8 aes
+    g2.
   }
 }
 
 bass= \relative {
   \global
   \repeat volta \verses {
-    g4 fis e d
-    c4 d g g,
-    b4 g c a
-    d4 d g2
-    g,4 b d d % B
-    e4 a, d d
-    b4 c g b8 c
-    d4 d g2
+    ees4
+    ees4 g aes g
+    f4 ees bes d
+    c4 bes ees f
+    bes,2. \bar "||" \break ees4
+    c4 ees aes, bes % B
+    c8 d ees4 bes bes
+    aes4 c aes bes
+    ees2.
   }
 }
 
@@ -111,50 +117,34 @@ chorus = \lyricmode {
 
 wordsOne = \lyricmode {
   \set stanza = "1."
-  Hark! what mean those ho -- ly voi -- ces
-  Sweet -- ly sound -- ing in the skies?
-  Lo! th'an -- gel -- ic host re -- joi -- ces,
-  Loud -- est hal -- le -- lu -- jahs rise.
+  Hark, the glad sound-- the Sa -- iour comes!
+  The Sa -- viour pro -- mised long;
+  Let ev -- 'ry heart ex -- ult with joy,
+  And ev -- 'ry voice be sung!
 }
   
 wordsTwo = \lyricmode {
   \set stanza = "2."
-  List -- en to the won -- drous sto -- ry
-  Which they chant in hymns of joy:
-  "\"Glo" -- ry in the high -- est, glo -- ry!
-  Glo -- ry be to God most high.
+  He comes! the pris -- 'ners to re -- lease,
+  In Sa -- tan's bin -- dage held;
+  The gates of brass be -- fore Him burst,
+  The i -- ron fet -- ters yield.
 }
   
 wordsThree = \lyricmode {
   \set stanza = "3."
-  "\"Peace" on earth, good -- will from hea -- ven,
-  Reach -- ing far as man is found:
-  Souls re -- deemed and sins for -- giv -- en,
-  Loud our gold -- en harps shall sound.
+  He comes! the bro -- ken hearts to bind,
+  The bleed -- ing souls to curel
+  And with the treas -- ures of His grace
+  To enrich the hum -- ble poor.
 }
   
 wordsFour = \lyricmode {
   \set stanza = "4."
-  "\"Christ" is born! the great An -- oint -- ed!
-  Heaven and earth His glo -- ry sing;
-  Oh, re -- ceive whom God ap -- point -- ed
-  For your proph -- et, Priest, and King!
-}
-  
-wordsFive = \lyricmode {
-  \set stanza = "5."
-  "\"Has" -- ten, mor -- tals, to a -- dore Him,
-  Learn His name and taste His joy,
-  Till in heaven ye sing be -- fore Him--
-  Glo -- ry be to God most "high!\""
-}
-  
-wordsSix = \lyricmode {
-  \set stanza = "6."
-  Let us learn the wond -- rous stor -- y
-  Of our great Re -- deem -- er's birth;
-  Spread the bright -- ness of His glo -- ry,
-  Till it cov -- er all the earth.
+  Our glad ho -- san -- nas, Prince of Peace!
+  They wel -- come shall pro -- claim;
+  And heaven's ex -- alt -- ed arch -- es ring
+  With Thy most hon -- oured name.
 }
   
 wordsMidi = \lyricmode {
@@ -178,14 +168,10 @@ wordsMidi = \lyricmode {
             \new Lyrics \lyricsto "soprano"   \wordsTwo
             \new Lyrics \lyricsto "soprano"   \wordsThree
             \new Lyrics \lyricsto "soprano"   \wordsFour
-            \new Lyrics \lyricsto "soprano"   \wordsFive
-            \new Lyrics \lyricsto "soprano"   \wordsSix
 %            \new Lyrics \lyricsto "soprano" { \wordsOne   \chorus
 %                                              \wordsTwo   \chorus
 %                                              \wordsThree \chorus
 %                                              \wordsFour  \chorus
-%                                              \wordsFive  \chorus
-%                                              \wordsSix   \chorus
 %                                            }
 %            \new Lyrics \lyricsto "soprano" \wordsMidi
           >>
@@ -204,9 +190,10 @@ wordsMidi = \lyricmode {
         \Staff \RemoveAllEmptyStaves
       }
     }
+    \midi {}
   }
 }
-  
+
 \book {
   \bookOutputSuffix "single"
   \score {
@@ -224,8 +211,6 @@ wordsMidi = \lyricmode {
                                               \wordsTwo   \chorus
                                               \wordsThree \chorus
                                               \wordsFour  \chorus
-                                              \wordsFive  \chorus
-                                              \wordsSix   \chorus
                                             }
           >>
                                   % Joint tenor/bass staff
@@ -245,7 +230,7 @@ wordsMidi = \lyricmode {
     }
   }
 }
-  
+
 \book {
   \bookOutputSuffix "midi"
   \score {
