@@ -46,6 +46,8 @@ for lines() -> $line is copy {
                 print $_;
                 $first = '';
             }
+            when '--' {
+            }
             when '__' {
             }
             when '_' {
