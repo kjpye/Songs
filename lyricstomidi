@@ -2,7 +2,10 @@
 
 grammar Lyrics {
     token TOP {
-        <word>*
+        <cword>*
+    }
+    token cword {
+        <word> [ \s+ '--' ]?
     }
     token word {
         | <quotedstring>
@@ -20,7 +23,7 @@ grammar Lyrics {
 
 for lines() -> $line is copy {
     my $first = '\\n';
-    if $line ~~ /\s*\\/ {
+    if $line ~~ /^\s*\\/ {
       say $line;
       next;
     }
@@ -28,7 +31,8 @@ for lines() -> $line is copy {
     $line ~~ s/(\s*\%.*)?$//;
     $suffix = ~$0 if $0;
     my $/ = Lyrics.parse($line);
-    for $/<word> -> $word is copy {
+    for $/<cword> -> $word is copy {
+        $word ~~ s/\s* '--'/-/;
         given $word {
             when .ends-with('-') {
                 if $first {

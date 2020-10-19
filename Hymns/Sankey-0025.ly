@@ -117,7 +117,7 @@ chorus = \lyricmode {
 
 wordsOne = \lyricmode {
   \set stanza = "1."
-  Hark, the glad sound-- the Sa -- iour comes!
+  Hark, the glad sound— the Sa -- viour comes!
   The Sa -- viour pro -- mised long;
   Let ev -- 'ry heart ex -- ult with joy,
   And ev -- 'ry voice be sung!
@@ -126,7 +126,7 @@ wordsOne = \lyricmode {
 wordsTwo = \lyricmode {
   \set stanza = "2."
   He comes! the pris -- 'ners to re -- lease,
-  In Sa -- tan's bin -- dage held;
+  In Sa -- tan's bon -- dage held;
   The gates of brass be -- fore Him burst,
   The i -- ron fet -- ters yield.
 }
@@ -134,43 +134,43 @@ wordsTwo = \lyricmode {
 wordsThree = \lyricmode {
   \set stanza = "3."
   He comes! the bro -- ken hearts to bind,
-  The bleed -- ing souls to curel
+  The bleed -- ing souls to cure;
   And with the treas -- ures of His grace
-  To enrich the hum -- ble poor.
+  To~en -- rich the hum -- ble poor.
 }
   
 wordsFour = \lyricmode {
   \set stanza = "4."
   Our glad ho -- san -- nas, Prince of Peace!
-  They wel -- come shall pro -- claim;
+  Thy wel -- come shall pro -- claim;
   And heaven's ex -- alt -- ed arch -- es ring
   With Thy most hon -- oured name.
 }
   
 wordsMidi = \lyricmode {
   \set stanza = "1."
-  "\nHark, " "the " "glad " sound- "the " "Sa " "iour " "comes! "
-  "\nThe " "Sa " "viour " "pro " "mised " "long; "
-  "\nLet " "ev " "'ry " "heart " "ex " "ult " "with " "joy, "
-  "\nAnd " "ev " "'ry " "voice " "be " "sung! "
+  "\nHark, " "the " "glad " "sound— " "the " Sa "viour " "comes! "
+  "\nThe " Sa "viour " pro "mised " "long; "
+  "\nLet " ev "'ry " "heart " ex "ult " "with " "joy, "
+  "\nAnd " ev "'ry " "voice " "be " "sung! "
 
   \set stanza = "2."
-  "\nHe " "comes! " "the " "pris " "'ners " "to " "re " "lease, "
-  "\nIn " "Sa " "tan's " "bin " "dage " "held; "
-  "\nThe " "gates " "of " "brass " "be " "fore " "Him " "burst, "
-  "\nThe " "i " "ron " "fet " "ters " "yield. "
+  "\nHe " "comes! " "the " pris "'ners " "to " re "lease, "
+  "\nIn " Sa "tan's " bon "dage " "held; "
+  "\nThe " "gates " "of " "brass " be "fore " "Him " "burst, "
+  "\nThe " i "ron " fet "ters " "yield. "
 
   \set stanza = "3."
-  "\nHe " "comes! " "the " "bro " "ken " "hearts " "to " "bind, "
-  "\nThe " "bleed " "ing " "souls " "to " "curel "
-  "\nAnd " "with " "the " "treas " "ures " "of " "His " "grace "
-  "\nTo " "enrich " "the " "hum " "ble " "poor. "
+  "\nHe " "comes! " "the " bro "ken " "hearts " "to " "bind, "
+  "\nThe " bleed "ing " "souls " "to " "cure; "
+  "\nAnd " "with " "the " treas "ures " "of " "His " "grace "
+  "\nTo en" "rich " "the " hum "ble " "poor. "
 
   \set stanza = "4."
-  "\nOur " "glad " "ho " "san " "nas, " "Prince " "of " "Peace! "
-  "\nThey " "wel " "come " "shall " "pro " "claim; "
-  "\nAnd " "heaven's " "ex " "alt " "ed " "arch " "es " "ring "
-  "\nWith " "Thy " "most " "hon " "oured " "name. "
+  "\nOur " "glad " ho san "nas, " "Prince " "of " "Peace! "
+  "\nThy " wel "come " "shall " pro "claim; "
+  "\nAnd " "heaven's " ex alt "ed " arch "es " "ring "
+  "\nWith " "Thy " "most " hon "oured " "name. "
 }
   
 \book {
