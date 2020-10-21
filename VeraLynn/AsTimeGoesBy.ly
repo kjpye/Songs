@@ -236,38 +236,38 @@ wordsOne = \lyricmode {
 
 midiWordsOne = \lyricmode {
   "You " "must " re mem "ber " "this, "
-  "a " "kiss " "is " "still " "a " "kiss, "
-  "a " "sigh " "is " "just " "a " "sigh; "
-  "the " fun da men "tal " "things " ap "ply, "
-  "as " "time " "goes " "by. " 
-  "And " "when " "two " lov "ers " "woo, "
-  "they " "still " "say " "\"I " "love " "you\""
-  "on " "that " "you " "can " re "ly "
-  "no " mat "ter " "what " "the " fu "ture "
-  "brings, " "as " "time " "goes " "by. " 
+  "\na " "kiss " "is " "still " "a " "kiss, "
+  "\ba " "sigh " "is " "just " "a " "sigh; "
+  "\nthe " fun da men "tal " "things " ap "ply, "
+  "\nas " "time " "goes " "by. " 
+  "\nAnd " "when " "two " lov "ers " "woo, "
+  "\nthey " "still " "say " "\"I " "love " "you\""
+  "\non " "that " "you " "can " re "ly "
+  "\nno " mat "ter " "what " "the " fu "ture "
+  "\nbrings, " "as " "time " "goes " "by. " 
 
-  Moon "light " "and " "love "  "songs "
-  nev "er " "out " "of " "date, "
-  "hearts " "full " "of " pas "sion, " jea lou "sy " "and " "hate; "
-  wo "man " "needs " "man "  "and " "man " "must " "have " "his " "mate, "
-  "that " "no " "one " "can " de "ny. "
+  "\nMoon" "light " "and " "love "  "songs "
+  "\nnev" "er " "out " "of " "date, "
+  "\nhearts " "full " "of " pas "sion, " jea lou "sy " "and " "hate; "
+  "\nwo" "man " "needs " "man "  "and " "man " "must " "have " "his " "mate, "
+  "\nthat " "no " "one " "can " de "ny. "
 
-  "It's " "still " "the " "same " "old " sto "ry, "
-  "a " "fight " "for " "love " "and " glo "ry, "
-  "a " "case " "of " "do " "or " "die! "
-  "The " "world " "will " al "ways " wel "come " lov "ers, "
-  "as " "time " "goes " "by. "
+  "\nIt's " "still " "the " "same " "old " sto "ry, "
+  "\na " "fight " "for " "love " "and " glo "ry, "
+  "\na " "case " "of " "do " "or " "die! "
+  "\nThe " "world " "will " al "ways " wel "come " lov "ers, "
+  "\nas " "time " "goes " "by. "
 
   _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _
 
-  "It's " "still " "the " "same " "old " sto "ry, "
-  "a " "fight " "for " "love " "and " glo "ry, "
-  "a " "case " "of " "do " "or " "die! "
-  "The " "world " "will " al "ways " wel "come " lov "ers, "
-  "as " "time " "goes " "by. "
+  "\nIt's " "still " "the " "same " "old " sto "ry, "
+  "\na " "fight " "for " "love " "and " glo "ry, "
+  "\na " "case " "of " "do " "or " "die! "
+  "\nThe " "world " "will " al "ways " wel "come " lov "ers, "
+  "\nas " "time " "goes " "by. "
 }
 
 wordsTwo = \lyricmode {

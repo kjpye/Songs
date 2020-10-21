@@ -1,5 +1,7 @@
 \version "2.20.0"
 
+\include "articulate.ly"
+
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 
 \header {
@@ -250,32 +252,35 @@ words = \lyricmode {
 }
 
 midiWords = \lyricmode {
-  "When " "I " "was " "young " "my " moth "er " "would " "watch " "me "
-  "on " "the " "days " "when " "it " "would " "rain, " 
-  "she'd " "see " "me " "so " un hap "py " "my "
-  "nose " a "gainst " "the " drip "ping " win "dow " "pane " 
-  "and " "I " "would " "hear " "her " sing "ing " "this " re "frain: " 
-  "It's " "a " love "ly " "day " to mor "row, " to mor "row " "is " "a " love "ly " "day, " 
-  "come " "and " "feast " "your " "tear " "dimmed " "eyes " 
-  "on " to mor "row's " "clear " "blue " "skies " 
-  "If " to "day " "your " "heart " "is " wear "y, "
-  "if " ev "'ry " lit "tle " "thing " "looks " "grey, " 
-  "just " for "get " "your " trou "bles " "and " "learn " "to " "say, "
-  to mor "row " "is " "a " love "ly " "day. " 
-  "It's " "a " love "ly " "day " to mor "row, " to mor "row " "is " "a " love "ly " "day, " 
-  "come " "and " "feast " "your " "tear " "dimmed " "eyes " 
-  "on " to mor "row's " "clear " "blue " "skies " 
-  "If " to "day " "your " "heart " "is " wear "y, "
-  "if " ev "'ry " lit "tle " "thing " "looks " "grey, " 
-  "just " for "get " "your " trou "bles " "and " "learn " "to " "say, "
-  to mor "row " "is " "a " love "ly " "day. " 
+  "When " "I " "was " "young " "my " moth "er "
+  "\nwould " "watch " "me " "on " "the " "days "
+  "\nwhen " "it " "would " "rain, " 
+  "\nshe'd " "see " "me " "so " un hap "py " "my "
+  "\nnose " a "gainst " "the " drip "ping " win "dow " "pane " 
+  "\nand " "I " "would " "hear " "her " sing "ing " "this " re "frain:\n" 
+  "\nIt's " "a " love "ly " "day " to mor "row, "
+  "\nto" mor "row " "is " "a " love "ly " "day, " 
+  "\ncome " "and " "feast " "your " "tear-" "dimmed " "eyes " 
+  "\non " to mor "row's " "clear " "blue " "skies " 
+  "\nIf " to "day " "your " "heart " "is " wear "y, "
+  "\nif " ev "'ry " lit "tle " "thing " "looks " "grey, " 
+  "\njust " for "get " "your " trou "bles " "and " "learn " "to " "say, "
+  "\nto" mor "row " "is " "a " love "ly " "day.\n" 
+  "\nIt's " "a " love "ly " "day " to mor "row, "
+  "\nto" mor "row " "is " "a " love "ly " "day, " 
+  "\ncome " "and " "feast " "your " "tear-" "dimmed " "eyes " 
+  "\non " to mor "row's " "clear " "blue " "skies " 
+  "\nIf " to "day " "your " "heart " "is " wear "y, "
+  "\nif " ev "'ry " lit "tle " "thing " "looks " "grey, " 
+  "\njust " for "get " "your " trou "bles " "and " "learn " "to " "say, "
+  "\nto" mor "row " "is " "a " love "ly " "day. " 
 }
 
 pianoRH = \relative c' {
   \global
   <fis fis'>4 <g g'>
   <a c e a>2\arpeggio <g c e g>\arpeggio
-  <f cis' f>4 <g cis g'>2 <e g b e>4
+  <fis cis' fis>4 <g cis g'>2 <e g b e>4
   <d g d'>2\arpeggio <g d' g>\arpeggio
   s1
   s1 % 34b
@@ -324,7 +329,7 @@ pianoRH = \relative c' {
     s1
     s1
     <a' c e a>2\arpeggio <g c e g>\arpeggio % 37b
-    <fis cis' e>4 <g c g'>2 <e g c e>4
+    <fis cis' fis>4 <g c g'>2 <e g c e>4
     <d g d'>2\arpeggio <g d' g>\arpeggio
     s1 % 37c
     s1
@@ -832,6 +837,45 @@ pianoLHtwo = \relative c, {
             \new Voice = "melody" \unfoldRepeats \melody
             \new Lyrics \lyricsto "melody" { \midiWords }
           >>
+        >>
+        \new PianoStaff
+        <<
+          \new Staff
+          <<
+            \new Voice \unfoldRepeats \pianoRH
+            \new Voice \unfoldRepeats \pianoRHone
+            \new Voice \unfoldRepeats \pianoRHtwo
+          >>
+          \new Dynamics \unfoldRepeats \dynamicsPiano
+          \new Staff
+          <<
+            \clef "bass"
+            \new Voice \unfoldRepeats \pianoLH
+            \new Voice \unfoldRepeats \pianoLHone
+            \new Voice \unfoldRepeats \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \midi {}
+  }
+}
+
+\book {
+  #(define output-suffix "mp3")
+  \score {
+    \articulate
+    \context GrandStaff
+    <<
+%      <<
+%        \new ChordNames { \unfoldRepeats \ChordTrack }
+%        \new FretBoards { \unfoldRepeats \ChordTrack }
+%      >>
+      <<
+        \new ChoirStaff
+        <<
+          \new Dynamics \TempoTrack
+          \new Dynamics \dynamicsMelody
         >>
         \new PianoStaff
         <<

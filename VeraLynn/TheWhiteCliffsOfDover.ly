@@ -224,23 +224,50 @@ wordsOne = \lyricmode {
 }
 
 midiWordsOne = \lyricmode {
-  "I'll " nev "er " for "get " "the " peo "ple " "I " "met " brav "ing " "those " an "gry " "skies. "
-  "I " re mem "ber " "well " "as " "the " sha "dows " "fell, " "the " "light " "of " "hope " "in " "their " "eyes. "
-  "And " "tho' " "I'm " "far " a "way " "I " "still " "can " "hear " "them "
-  "say " "\"Thumbs " "up!\"" 
-  "For " "when " "the " "dawn " "comes " "up: "
-  "There'll " "be "
-  "blue " "birds " o "ver " "the " "white " "cliffs " "of " Dov "er "
-  to mor "row, " "just " "you " "wait " "and " "see. " 
+  "\nI'll " nev "er " for "get " "the " peo "ple " "I " "met " brav "ing " "those " an "gry " "skies. "
+  "\nI " re mem "ber " "well " "as " "the " sha "dows " "fell, " "the " "light " "of " "hope " "in " "their " "eyes. "
+  "\nAnd " "tho' " "I'm " "far " a "way " "I " "still " "can " "hear " "them " "say " "\"Thumbs " "up!\" " 
+  "\nFor " "when " "the " "dawn " "comes " "up: "
+  "\nThere'll " "be "
+  "\nblue " "birds " o "ver " "the " "white " "cliffs " "of " Dov "er "
+  "\nto" mor "row, " "just " "you " "wait " "and " "see. " 
 
-  "There'll " "be " "love " "and " laugh "ter " "and " "peace " ev "er " af "ter, "
-  to mor "row, " "when " "the " "world " "is " "free. " 
-  "The " shep "herd " "will " "tend " "his " "sheep, "
-  "the " val "ley " "will " "bloom " a "gain, "
-  "and " Jim "my " "will " "go " "to " "sleep " "in " "his " "own " lit "tle " "room " a "gain. "
+  "\nThere'll " "be " "love " "and " laugh "ter " "and " "peace " ev "er " af "ter, "
+  "\nto" mor "row, " "when " "the " "world " "is " "free. " 
 
-  "There'll " "be " blue "birds " o "ver " "the " "white " "cliffs " "of " Do "ver " to mor "row, "
-  "just " "you " "wait " "and " "see. " 
+  "\nThe " shep "herd " "will " "tend " "his " "sheep, "
+  "\nthe " val "ley " "will " "bloom " a "gain, "
+  "\nand " Jim "my " "will " "go " "to " "sleep " "in " "his " "own " lit "tle " "room " a "gain. "
+
+  "\nThere'll " "be " blue "birds " o "ver " "the " "white " "cliffs " "of " Do "ver " to mor "row, "
+  "\njust " "you " "wait " "and " "see. " 
+
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+  "\nThere'll " "be " blue "birds " o "ver " "the " "white " "cliffs " "of " Do "ver " to mor "row, "
+  "\njust " "you " "wait " "and " "see. " 
+}
+
+wordsSingle = \lyricmode {
+  I'll nev- er for- get the peo- ple I met brav- ing those an- gry skies.
+  I re- mem- ber well as the sha- dows fell, the light of hope in their eyes.
+  And tho' I'm far a- way I still can hear them say "\"Thumbs" "up!\"" __
+  For when the dawn comes up:
+  There'll be
+  blue birds o- ver the white cliffs of Dov- er
+  to- mor- row, just you wait and see. __
+
+  There'll be love and laugh- ter and peace ev- er af- ter,
+  to- mor- row, when the world is free. __
+  The shep- herd will tend his sheep,
+  the val- ley will bloom a- gain,
+  and Jim- my will go to sleep in his own lit- tle room a- gain.
+
+  There'll be blue- birds o- ver the white cliffs of Do- ver to- mor- row,
+  just you wait and see.
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  There'll be blue- birds o- ver the white cliffs of Do- ver to- mor- row,
+  just you wait and see. __
 }
 
 wordsTwo = \lyricmode {
@@ -353,7 +380,6 @@ pianoRHone = \relative c'' {
   s1 \bar "||" % 2b
   \times 2/3 {ees4 ees ees} aes4. aes8
   \times 2/3 {g4 ees f} s2
-  \bar "|."
   \times 2/3 {f4 des ees} f4. f8 % 2c
   <c ees>2. c8 d
   ees4 ees g f8 g
@@ -754,7 +780,7 @@ pianoLHtwo = \relative c, {
     <<
       <<
         \new ChordNames { \unfoldRepeats \ChordTrack }
-        \new FretBoards { \unfoldRepeats \ChordTrack }
+%        \new FretBoards { \unfoldRepeats \ChordTrack }
       >>
       <<
         \new ChoirStaff
@@ -764,7 +790,7 @@ pianoLHtwo = \relative c, {
           <<
             \new Voice \unfoldRepeats \RehearsalTrack
             \new Voice = "melody" \unfoldRepeats \melody
-            \new Lyrics \lyricsto "melody" { \wordsOne \wordsTwo }
+            \new Lyrics \lyricsto "melody" { \wordsSingle }
           >>
         >>
         \new PianoStaff
@@ -792,7 +818,6 @@ pianoLHtwo = \relative c, {
         \Staff \RemoveAllEmptyStaves
       }
     }
-    \midi {}
   }
 }
 
@@ -801,10 +826,9 @@ pianoLHtwo = \relative c, {
   \score {
     \context GrandStaff
     <<
-      <<
-        \new ChordNames { \unfoldRepeats \ChordTrack }
-        \new FretBoards { \unfoldRepeats \ChordTrack }
-      >>
+%      <<
+%        \new ChordNames { \unfoldRepeats \ChordTrack }
+%      >>
       <<
         \new ChoirStaff
         <<
