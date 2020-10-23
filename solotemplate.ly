@@ -53,7 +53,7 @@ RehearsalTrack = {
 ChordTrack = \chordmode {
 }
 
-melody = \relative c' {
+melody = \relative {
   \global
   c4
   \bar "|."
@@ -74,20 +74,20 @@ wordsTwo = \lyricmode {
 midiWords = \lyricmode {
 }
 
-pianoRH = \relative c' {
+pianoRH = \relative {
   \global
   c4
   \bar "|."
 }
 
-pianoRHone = \relative c' {
+pianoRHone = \relative {
   \global
   \voiceOne
   c4
   \bar "|."
 }
 
-pianoRHtwo = \relative c' {
+pianoRHtwo = \relative {
   \global
   \voiceTwo
   c4
@@ -98,21 +98,21 @@ dynamicsPiano = {
   \override DynamicTextSpanner.style = #'none
 }
 
-pianoLH = \relative c' {
+pianoLH = \relative {
   \global
   \oneVoice
   c4
   \bar "|."
 }
 
-pianoLHone = \relative c' {
+pianoLHone = \relative {
   \global
   \voiceOne
   c4
   \bar "|."
 }
 
-pianoLHtwo = \relative c' {
+pianoLHtwo = \relative {
   \global
   \voiceTwo
   c4
