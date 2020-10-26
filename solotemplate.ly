@@ -41,6 +41,7 @@ global = {
 
 TempoTrack = {
   \global
+  \set Score.tempoHideNote = ##t
 }
 
 RehearsalTrack = {
