@@ -172,11 +172,11 @@ pianoLHtwo = \relative {
 \book {
   #(define output-suffix "single")
   \score {
-    \context GrandStaff
+    \unfoldRepeats
     <<
       <<
-        \new ChordNames { \unfoldRepeats \ChordTrack }
-        \new FretBoards { \unfoldRepeats \ChordTrack }
+        \new ChordNames \ChordTrack
+        \new FretBoards \ChordTrack
       >>
       <<
         \new ChoirStaff
@@ -185,8 +185,8 @@ pianoLHtwo = \relative {
           \new Dynamics \dynamicsMelody
           \new Staff
           <<
-            \new Voice \unfoldRepeats \RehearsalTrack
-            \new Voice = "melody" \unfoldRepeats \melody
+            \new Voice \RehearsalTrack
+            \new Voice = "melody" \melody
             \new Lyrics \lyricsto "melody" { \wordsOne \wordsTwo }
           >>
         >>
@@ -194,17 +194,17 @@ pianoLHtwo = \relative {
         <<
           \new Staff
           <<
-            \new Voice \unfoldRepeats \pianoRH
-            \new Voice \unfoldRepeats \pianoRHone
-            \new Voice \unfoldRepeats \pianoRHtwo
+            \new Voice \pianoRH
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
           >>
-          \new Dynamics \unfoldRepeats \dynamicsPiano
+          \new Dynamics \dynamicsPiano
           \new Staff
           <<
             \clef "bass"
-            \new Voice \unfoldRepeats \pianoLH
-            \new Voice \unfoldRepeats \pianoLHone
-            \new Voice \unfoldRepeats \pianoLHtwo
+            \new Voice \pianoLH
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
           >>
         >>
       >>
@@ -215,18 +215,16 @@ pianoLHtwo = \relative {
         \Staff \RemoveAllEmptyStaves
       }
     }
-    \midi {}
   }
 }
 
 \book {
   #(define output-suffix "midi")
   \score {
-    \context GrandStaff
+    \unfoldRepeats
     <<
       <<
-        \new ChordNames { \unfoldRepeats \ChordTrack }
-        \new FretBoards { \unfoldRepeats \ChordTrack }
+        \new ChordNames \ChordTrack
       >>
       <<
         \new ChoirStaff
@@ -235,7 +233,7 @@ pianoLHtwo = \relative {
           \new Dynamics \dynamicsMelody
           \new Staff
           <<
-            \new Voice = "melody" \unfoldRepeats \melody
+            \new Voice = "melody" \melody
             \new Lyrics \lyricsto "melody" { \midiWords }
           >>
         >>
@@ -243,17 +241,17 @@ pianoLHtwo = \relative {
         <<
           \new Staff
           <<
-            \new Voice \unfoldRepeats \pianoRH
-            \new Voice \unfoldRepeats \pianoRHone
-            \new Voice \unfoldRepeats \pianoRHtwo
+            \new Voice \pianoRH
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
           >>
-          \new Dynamics \unfoldRepeats \dynamicsPiano
+          \new Dynamics \dynamicsPiano
           \new Staff
           <<
             \clef "bass"
-            \new Voice \unfoldRepeats \pianoLH
-            \new Voice \unfoldRepeats \pianoLHone
-            \new Voice \unfoldRepeats \pianoLHtwo
+            \new Voice \pianoLH
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
           >>
         >>
       >>
