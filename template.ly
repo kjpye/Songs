@@ -1,5 +1,6 @@
 \version "2.20.2"
 
+\include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
 
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))

@@ -1,5 +1,7 @@
 \version "2.20.0"
 
+\include "predefined-guitar-fretboards.ly"
+
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 
 \header {
