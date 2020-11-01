@@ -610,13 +610,16 @@ pianoLHtwo = \relative {
             \new Voice \pianoRHtwo
           >>
           \new Dynamics \dynamicsPiano
-          \new Staff
-          <<
-            \clef "bass"
-            \new Voice \pianoLH
-            \new Voice \pianoLHone
-            \new Voice \pianoLHtwo
-          >>
+          \new Staff \with { \consists "Span_arpeggio_engraver" }
+          {
+            \set Staff.connectArpeggios = ##t
+            <<
+              \clef "bass"
+              \new Voice \pianoLH
+              \new Voice \pianoLHone
+              \new Voice \pianoLHtwo
+            >>
+          }
         >>
       >>
     >>
