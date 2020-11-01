@@ -136,7 +136,7 @@ pianoLHtwo = \relative {
         <<
           \new Dynamics \TempoTrack
           \new Dynamics \dynamicsMelody
-          \new Staff
+          \new Staff \with { \consists "Volta_engraver" }
           <<
             \new Voice \RehearsalTrack
             \new Voice = "melody" \melody
@@ -165,6 +165,10 @@ pianoLHtwo = \relative {
     >>
     \layout {
       indent = 1.5\cm
+      \context {
+        \Score
+        \remove "Volta_engraver"
+        }
       \context {
         \Staff \RemoveAllEmptyStaves
       }
