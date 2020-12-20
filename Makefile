@@ -8,7 +8,11 @@
 	../miditomp3andkar $*-midi-men
 	../miditomp3andkar $*-midi-sop
 	../miditomp3andkar $*-midi-alto
+	../miditomp3andkar $*-midi-alto1
+	../miditomp3andkar $*-midi-alto2
 	../miditomp3andkar $*-midi-tenor
+	../miditomp3andkar $*-midi-tenor1
+	../miditomp3andkar $*-midi-tenor2
 	../miditomp3andkar $*-midi-bass
 	../miditomp3andkar $*-mp3
 

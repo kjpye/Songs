@@ -9,6 +9,7 @@
 }
 
 commonlyrics = \lyricmode {
+  \set stanza = "1."
   In the bleak mid- win- ter,
   Fros- ty wind made moan,
   Earth stood hard as i- ron,
@@ -18,6 +19,7 @@ commonlyrics = \lyricmode {
   In the bleak mid- win- ter,
   Long a- go
 
+  \set stanza = "2."
   Our God, heaven can- not hold Him,
   Nor earth sus- tain;
   Heaven and earth shall flee a- way
@@ -26,6 +28,8 @@ commonlyrics = \lyricmode {
   A sta- ble- place suf- ficed
   The Lord God Al- might- y,
   Je- sus Christ.
+
+  \set stanza = "3."
   Ang- els and arch- ang- els
   May have gath- ered there,
   Cher- u- bim and Ser- a- phim
@@ -35,6 +39,7 @@ commonlyrics = \lyricmode {
   Wor- shipped the Be- lov- ed
   With a kiss.
 
+  \set stanza = "4."
   What can I give Him,
   Poor as I am?
   If I were a shep- herd
@@ -48,6 +53,7 @@ commonlyrics = \lyricmode {
 tempotrack = {
   \key f \major
   \time 4/4
+  \tempo 4=120
 }
 
 SopranoMusic = \relative c'' {
