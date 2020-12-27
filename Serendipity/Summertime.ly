@@ -26,7 +26,7 @@ SopranoMusic = \relative c' {
     c16^>(a8.)~a2.~
     a2 r
     r1
-    r2 \times 2/3 {e'2^\markup{\italic{poco rit}} e c}
+    r2 \times 2/3 {e'4^\markup{\italic{poco rit}} e c}
     e4^\markup{\italic{a tempo}} e2.~
     e8. e16 d8. c16 d8.(e16) c4
     a2 e2~
@@ -42,7 +42,7 @@ SopranoMusic = \relative c' {
     f4 e8 g a4 c
     e8(d4.) c2
     c16^>(a8.)~a2.~
-    a2\>~
+    a1\>~
     a2.^\pp r4
     \bar "|."
   }  
