@@ -159,11 +159,14 @@ chorusWomen = \lyricmode {
   I will mag -- ni -- fy the Lord my King.
 }
 
-wordsMen = \lyricmode {
+emptyVerse = \lyricmode {
   _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _
   _
+}
+
+chorusMen = \lyricmode {
   I will praise my great Re -- deem -- er
   As my days are on the wing; __
   I will sing, will sing,
@@ -203,15 +206,96 @@ wordsFour = \lyricmode {
   Shall His name ex -- alt -- ed be.
 }
   
-wordsFive = \lyricmode {
-  \set stanza = "5."
+wordsMidiWomen = \lyricmode {
+  \set stanza = "1."
+  "\nI " "will " "sing " "the " "\markup " "\italic " "love " "of " Je "sus— "
+  "\nGreat" "er " "love " "was " nev "er " "known! "
+  "\nYield" "ing " "up " "His " "life " "for " sin "ners, "
+  "\nOh, " "what " "love " "to " "me " "was " "shown! "
+  "\nI " "will " "praise " "my " "great " Re deem "er "
+  "\nAs " "my " "days " "are " "on " "the " "wing; " 
+  "\nI " "will " "sing, " "will " "sing, "
+  "\nwill " "sing " "of " "Him " "who " "saves " "me, "
+  "\nI " "will " mag ni "fy " "the " "Lord " "my " "King. "
+
+  \set stanza = "2."
+  "\nI " "will " "sing " "the " "\markup " "\italic " "words " "of " Je "sus— "
+  "\nWords " "of " "life " "from "  "lips " Di "vine; "
+  "\nFull " "of " com "fort, " "joy " "and " cour "age, "
+  "\nPrec" "ious " "to " "this " "soul " "of " "mine. "
+  "\nI " "will " "praise " "my " "great " Re deem "er "
+  "\nAs " "my " "days " "are " "on " "the " "wing; " 
+  "\nI " "will " "sing, " "will " "sing, "
+  "\nwill " "sing " "of " "Him " "who " "saves " "me, "
+  "\nI " "will " mag ni "fy " "the " "Lord " "my " "King. "
+
+  \set stanza = "3."
+  "\nI " "will " "sing " "the " "\markup " "\italic " "grace " "of " Je "sus— "
+  "\nGrace " "my " "heart " "may " "now " re "ceive; "
+  "\nHe " "by " "faith " "will " "seal " "my " par "don, "
+  "\nIf " "His " prom "ise " "I " be "lieve. "
+  "\nI " "will " "praise " "my " "great " Re deem "er "
+  "\nAs " "my " "days " "are " "on " "the " "wing; " 
+  "\nI " "will " "sing, " "will " "sing, "
+  "\nwill " "sing " "of " "Him " "who " "saves " "me, "
+  "\nI " "will " mag ni "fy " "the " "Lord " "my " "King. "
+
+  \set stanza = "4."
+  "\nI " "will " "sing " "the " "\markup " "\italic " "name " "of " Je "sus— "
+  "\nName " "of " "all " "most " "dear " "to " "mel "
+  "\nBy " "the " ran "somed " "host " "in " glo "ry "
+  "\nShall " "His " "name " ex alt "ed " "be. "
+  "\nI " "will " "praise " "my " "great " Re deem "er "
+  "\nAs " "my " "days " "are " "on " "the " "wing; " 
+  "\nI " "will " "sing, " "will " "sing, "
+  "\nwill " "sing " "of " "Him " "who " "saves " "me, "
+  "\nI " "will " mag ni "fy " "the " "Lord " "my " "King. "
 }
   
-wordsSix = \lyricmode {
-  \set stanza = "6."
-}
-  
-wordsMidi = \lyricmode {
+wordsMidiMen = \lyricmode {
+  \set stanza = "1."
+  "\nI " "will " "sing " "the " "\markup " "\italic " "love " "of " Je "sus— "
+  "\nGreat" "er " "love " "was " nev "er " "known! "
+  "\nYield" "ing " "up " "His " "life " "for " sin "ners, "
+  "\nOh, " "what " "love " "to " "me " "was " "shown! "
+  "\nI " "will " "praise " "my " "great " Re deem "er "
+  "\nAs " "my " "days " "are " "on " "the " "wing; " 
+  "\nI " "will " "sing, " "will " "sing, "
+  "\nwill " "sing " "of " "Him " "who " "saves " "me, "
+  "\nI " "will " mag ni "fy " "the " "Lord " "my " "King. "
+
+  \set stanza = "2."
+  "\nI " "will " "sing " "the " "\markup " "\italic " "words " "of " Je "sus— "
+  "\nWords " "of " "life " "from "  "lips " Di "vine; "
+  "\nFull " "of " com "fort, " "joy " "and " cour "age, "
+  "\nPrec" "ious " "to " "this " "soul " "of " "mine. "
+  "\nI " "will " "praise " "my " "great " Re deem "er "
+  "\nAs " "my " "days " "are " "on " "the " "wing; " 
+  "\nI " "will " "sing, " "will " "sing, "
+  "\nwill " "sing " "of " "Him " "who " "saves " "me, "
+  "\nI " "will " mag ni "fy " "the " "Lord " "my " "King. "
+
+  \set stanza = "3."
+  "\nI " "will " "sing " "the " "\markup " "\italic " "grace " "of " Je "sus— "
+  "\nGrace " "my " "heart " "may " "now " re "ceive; "
+  "\nHe " "by " "faith " "will " "seal " "my " par "don, "
+  "\nIf " "His " prom "ise " "I " be "lieve. "
+  "\nI " "will " "praise " "my " "great " Re deem "er "
+  "\nAs " "my " "days " "are " "on " "the " "wing; " 
+  "\nI " "will " "sing, " "will " "sing, "
+  "\nwill " "sing " "of " "Him " "who " "saves " "me, "
+  "\nI " "will " mag ni "fy " "the " "Lord " "my " "King. "
+
+  \set stanza = "4."
+  "\nI " "will " "sing " "the " "\markup " "\italic " "name " "of " Je "sus— "
+  "\nName " "of " "all " "most " "dear " "to " "mel "
+  "\nBy " "the " ran "somed " "host " "in " glo "ry "
+  "\nShall " "His " "name " ex alt "ed " "be. "
+  "\nI " "will " "praise " "my " "great " Re deem "er "
+  "\nAs " "my " "days " "are " "on " "the " "wing; " 
+  "\nI " "will " "sing, " "will " "sing, "
+  "\nwill " "sing " "of " "Him " "who " "saves " "me, "
+  "\nI " "will " mag ni "fy " "the " "Lord " "my " "King. "
 }
   
 \book {
@@ -232,19 +316,13 @@ wordsMidi = \lyricmode {
             \new Lyrics \lyricsto "soprano"   \wordsTwo
             \new Lyrics \lyricsto "soprano"   \wordsThree
             \new Lyrics \lyricsto "soprano"   \wordsFour
-%            \new Lyrics \lyricsto "soprano" { \wordsOne   \chorusWomen
-%                                              \wordsTwo   \chorusWomen
-%                                              \wordsThree \chorusWomen
-%                                              \wordsFour  \chorusWomen
-%                                            }
-%            \new Lyrics \lyricsto "soprano" \wordsMidi
           >>
                                   % Joint tenor/bass staff
           \new Staff <<
             \clef "bass"
             \new Voice = "tenor" { \voiceOne \tenor }
             \new Voice = "bass"  { \voiceTwo \bass  }
-            \new Lyrics \lyricsto tenor \wordsMen
+            \new Lyrics \lyricsto tenor { \emptyVerse \chorusMen }
           >>
         >>
       >>
@@ -255,6 +333,104 @@ wordsMidi = \lyricmode {
         \Staff \RemoveAllEmptyStaves
       }
     }
+  }
+}
+  
+\book {
+  \bookOutputSuffix "single"
+  \score {
+    \unfoldRepeats
+%    \articulate
+    \context GrandStaff <<
+      <<
+        \new ChoirStaff <<
+                                  % Joint soprano/alto staff
+          \new Staff <<
+            \new Voice \RehearsalTrack
+            \new Voice = "soprano" { \voiceOne \soprano }
+            \new Voice = "alto"    { \voiceTwo \alto    }
+            \new Lyrics \lyricsto "soprano" { \wordsOne   \chorusWomen
+                                              \wordsTwo   \chorusWomen
+                                              \wordsThree \chorusWomen
+                                              \wordsFour  \chorusWomen
+                                            }
+          >>
+                                  % Joint tenor/bass staff
+          \new Staff <<
+            \clef "bass"
+            \new Voice = "tenor" { \voiceOne \tenor }
+            \new Voice = "bass"  { \voiceTwo \bass  }
+            \new Lyrics \lyricsto "tenor" { \emptyVerse \chorusMen
+                                            \emptyVerse \chorusMen
+                                            \emptyVerse \chorusMen
+                                            \emptyVerse  \chorusMen
+                                          }
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+  
+\book {
+  \bookOutputSuffix "midi-women"
+  \score {
+    \unfoldRepeats
+%    \articulate
+    \context GrandStaff <<
+      <<
+        \new ChoirStaff <<
+                                  % Joint soprano/alto staff
+          \new Staff <<
+            \new Voice \RehearsalTrack
+            \new Voice = "soprano" { \voiceOne \soprano }
+            \new Voice = "alto"    { \voiceTwo \alto    }
+            \new Lyrics \lyricsto "soprano" \wordsMidiWomen
+          >>
+                                  % Joint tenor/bass staff
+          \new Staff <<
+            \clef "bass"
+            \new Voice = "tenor" { \voiceOne \tenor }
+            \new Voice = "bass"  { \voiceTwo \bass  }
+%            \new Lyrics \lyricsto "soprano" \wordsMidiMen
+          >>
+        >>
+      >>
+    >>
+    \midi {}
+  }
+}
+  
+\book {
+  \bookOutputSuffix "midi-men"
+  \score {
+    \unfoldRepeats
+%    \articulate
+    \context GrandStaff <<
+      <<
+        \new ChoirStaff <<
+                                  % Joint soprano/alto staff
+          \new Staff <<
+            \new Voice \RehearsalTrack
+            \new Voice = "soprano" { \voiceOne \soprano }
+            \new Voice = "alto"    { \voiceTwo \alto    }
+          >>
+                                  % Joint tenor/bass staff
+          \new Staff <<
+            \clef "bass"
+            \new Voice = "tenor" { \voiceOne \tenor }
+            \new Voice = "bass"  { \voiceTwo \bass  }
+            \new Lyrics \lyricsto "soprano" \wordsMidiMen
+          >>
+        >>
+      >>
+    >>
     \midi {}
   }
 }
