@@ -1,11 +1,13 @@
-\version "2.19.82"
+\version "2.20.2"
+
+\include "articulate.ly"
 
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 
 \header {
 % centered at top
 %  dedication  = "dedication"
-  title       = "Marchof the Men of Harlech"
+  title       = "March of the Men of Harlech"
 %  subtitle    = "subtitle"
 %  subsubtitle = "subsubtitle"
 %  instrument  = "instrument"
@@ -205,8 +207,8 @@ dynamicsTenor = {
 bass= \relative c {
   \global
   \clef bass
-  r1
-  r1
+  R1
+  R1
   \repeat volta 2 {
     f4.. e16 d4.. e16
     f4 g a f
@@ -263,7 +265,7 @@ bass= \relative c {
 }
 
 dynamicsBass = {
-  s1^\markup{\roman{In march time}}
+  s1^\markup \upright \bold {In march time}
   s1
   \repeat volta 2 {
     s1^\mf
@@ -636,18 +638,6 @@ pianoLHtwo = \relative c {
   \bar "|."
 }
 
-wordsSop = \lyricmode {
-  words
-}
-
-wordsAlto = \lyricmode {
-  words
-}
-
-wordsTenor = \lyricmode {
-  words
-}
-
 wordsOneA = \lyricmode {
   Men of Har- lech! in the hol- low,
   Do ye hear, like rush- ing bil- low,
@@ -669,7 +659,7 @@ wordsOneC = \lyricmode {
   Shall launch its bolt in thun- der!
   On- ward! 'tis our coun- try needs us!
   He is bra- vest, he who leads us!
-  Hon- our;s self now proud- ly heads us!
+  Hon- our's self now proud- ly heads us!
   Cam- bria, God, and Right!
 }
 
@@ -692,7 +682,7 @@ wordsTwoA = \lyricmode {
 
 wordsTwoB = \lyricmode {
   Hurl the reel- ing horse- men o- ver!
-  Let the earth dead foe- en cov- er!
+  Let the earth dead foe en- cov- er!
   Fate of friend, of wife, of lov- er,
   Trem- bles on a blow!
 }
@@ -708,39 +698,217 @@ wordsTwoC = \lyricmode {
   Cam- bria, God, and Right!
 }
 
-\score {
-  <<
-    \new ChoirStaff <<
-      \new Dynamics \dynamicsTenor
-      \new Staff \with { instrumentName = #"Tenor" } <<
-        \new Voice = "tenor" \tenor
-        \new Lyrics \lyricsto "tenor" { \wordsTwoA \wordsTwoC }
-        \new Lyrics \lyricsto "tenor" { \wordsTwoB            }
+wordsTenorMidi = \lyricmode {
+  "Rock" "y " "steeps " "and " pass "es " nar "row "
+  "\nFlash " "with " "spear " "and " "flight " "of " ar "row, "
+  "\nWho " "would " "think " "of " "death " "or " sor "row! "
+  "\nGlo" "ry " "crowns " "us " "now! "
+
+  "\nHurl " "the " reel "ing " horse "men " o "ver! "
+  "\nLet " "the " "earth " "dead " "foe " en cov "er! "
+  "\nFate " "of " "friend, " "of " "wife, " "of " lov "er, "
+  "\nTrem" "bles " "on " "a " "blow! "
+
+  "\nStrands " "of " "life " "are " riv "en; "
+  "\nBlow " "for " "blow " "is " giv "en, "
+  "\nIn " dead "ly " "lock, " "or " bat "tle " "shock, "
+  "\nAnd " mer "cy " "shrieks " "to " heav "en! "
+  "\nMen " "of " Har "lech, " "young " "and " hoar "y, "
+  "\nWould " "you " "win " "a " "name " "in " stor "y! "
+  "\nStrike " "for " "home, " "for " "life, " "for " glo "ry! "
+  "\nCam" "bria, " "God, " "and " "Right! "
+}
+
+wordsBassMidi = \lyricmode {
+  "Men " "of " Har "lech! " "in " "the " hol "low, "
+  "\nDo " "ye " "hear, " "like " rush "ing " bil "low, "
+  "\nWave " "on " "wave " "that " surg "ing " fol "low, "
+  "\nBat" "tle's " dis "tant " "sound? "
+
+  "\n'Tis " "the " "tramp " "of " Sax "on " foe "men, "
+  "\nSax" "on " spear "men, " Sax "on " bow "men "
+  "\nBe " "they " "knights, " "or " "hinds, " "or " yeo "men, "
+  "\nThey " "shall " "bite " "the " "ground! "
+
+  "\nLoose " "the " "folds " a sun "der, "
+  "\nFlag " "we " con "quer " un "der! "
+  "\nThe " pla "cid " "sky, " "now " "bright " "on " "high, "
+  "\nShall " "launch " "its " "bolt " "in " thun "der! "
+  "\nOn" "ward! " "'tis " "our " coun "try " "needs " "us! "
+  "\nHe " "is " bra "vest, " "he " "who " "leads " "us! "
+  "\nHon" "our's " "self " "now " proud "ly " "heads " "us! "
+  "\nCam" "bria, " "God, " "and " "Right! "
+
+  "\nRock" "y " "steeps " "and " pass "es " nar "row "
+  "\nFlash " "with " "spear " "and " "flight " "of " ar "row, "
+  "\nWho " "would " "think " "of " "death " "or " sor "row! "
+  "\nGlo" "ry " "crowns " "us " "now! "
+
+  "\nHurl " "the " reel "ing " horse "men " o "ver! "
+  "\nLet " "the " "earth " "dead " "foe " en cov "er! "
+  "\nFate " "of " "friend, " "of " "wife, " "of " lov "er, "
+  "\nTrem" "bles " "on " "a " "blow! "
+
+  "\nStrands " "of " "life " "are " riv "en; "
+  "\nBlow " "for " "blow " "is " giv "en, "
+  "\nIn " dead "ly " "lock, " "or " bat "tle " "shock, "
+  "\nAnd " mer "cy " "shrieks " "to " heav "en! "
+  "\nMen " "of " Har "lech, " "young " "and " hoar "y, "
+  "\nWould " "you " "win " "a " "name " "in " stor "y! "
+  "\nStrike " "for " "home, " "for " "life, " "for " glo "ry! "
+  "\nCam" "bria, " "God, " "and " "Right! "
+}
+
+\book {
+  \bookOutputSuffix "repeat"
+  \score {
+%  \unfoldRepeats
+%  \articulate
+    <<
+      \new ChoirStaff <<
+        \new Dynamics \dynamicsTenor
+        \new Staff \with { instrumentName = #"Tenor" } <<
+          \new Voice = "tenor" \tenor
+          \new Lyrics \lyricsto "tenor" { \wordsTwoA \wordsTwoC }
+          \new Lyrics \lyricsto "tenor" { \wordsTwoB            }
+        >>
+        \new Dynamics \dynamicsBass
+        \new Staff \with { instrumentName = #"Bass" } <<
+          \new Voice = "bass" \bass
+          \new Lyrics \lyricsto "bass" { \wordsOneA \wordsOneC  \wordsTwoA \wordsTwoC }
+          \new Lyrics \lyricsto "bass" { \wordsOneB \wordsEmpty \wordsTwoB            }
+        >>
       >>
-      \new Dynamics \dynamicsBass
-      \new Staff \with { instrumentName = #"Bass" } <<
-        \new Voice = "bass" \bass
-        \new Lyrics \lyricsto "bass" { \wordsOneA \wordsOneC  \wordsTwoA \wordsTwoC }
-        \new Lyrics \lyricsto "bass" { \wordsTwoA \wordsEmpty \wordsTwoB            }
+      \new PianoStaff <<
+        \new Staff <<
+          \new Voice \pianoRH
+          \new Voice \pianoRHone
+          \new Voice \pianoRHtwo
+        >>
+        \new Dynamics \dynamicsPiano
+        \new Staff <<
+          \new Voice \pianoLH
+          \new Voice \pianoLHone
+          \new Voice \pianoLHtwo
+        >>
       >>
     >>
-    \new PianoStaff <<
-      \new Staff <<
-        \new Voice \pianoRH
-        \new Voice \pianoRHone
-        \new Voice \pianoRHtwo
-      >>
-      \new Dynamics \dynamicsPiano
-      \new Staff <<
-        \new Voice \pianoLH
-        \new Voice \pianoLHone
-        \new Voice \pianoLHtwo
-      >>
-    >>
-  >>
-  \layout {
-    \context { \Staff \RemoveAllEmptyStaves }
-    indent = 1.5\cm
+    \layout {
+      \context { \Staff \RemoveAllEmptyStaves }
+      indent = 1.5\cm
+    }
+    \midi {}
   }
-  \midi {}
+}
+
+\book {
+  \bookOutputSuffix "single"
+  \score {
+  \unfoldRepeats
+%  \articulate
+    <<
+      \new ChoirStaff <<
+        \new Dynamics \dynamicsTenor
+        \new Staff \with { instrumentName = #"Tenor" } <<
+          \new Voice = "tenor" \tenor
+          \new Lyrics \lyricsto "tenor" { \wordsTwoA \wordsTwoB \wordsTwoC }
+        >>
+        \new Dynamics \dynamicsBass
+        \new Staff \with { instrumentName = #"Bass" } <<
+          \new Voice = "bass" \bass
+          \new Lyrics \lyricsto "bass" { \wordsOneA \wordsOneB \wordsOneC  \wordsTwoA \wordsTwoB \wordsTwoC }
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff <<
+          \new Voice \pianoRH
+          \new Voice \pianoRHone
+          \new Voice \pianoRHtwo
+        >>
+        \new Dynamics \dynamicsPiano
+        \new Staff <<
+          \new Voice \pianoLH
+          \new Voice \pianoLHone
+          \new Voice \pianoLHtwo
+        >>
+      >>
+    >>
+    \layout {
+      \context { \Staff \RemoveAllEmptyStaves }
+      indent = 1.5\cm
+    }
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-bass"
+  \score {
+  \unfoldRepeats
+%  \articulate
+    <<
+      \new ChoirStaff <<
+        \new Dynamics \dynamicsTenor
+        \new Staff \with { instrumentName = #"Tenor" } <<
+          \new Voice = "tenor" \tenor
+%          \new Lyrics \lyricsto "tenor" \wordsTenorMidi
+        >>
+        \new Dynamics \dynamicsBass
+        \new Staff \with { instrumentName = #"Bass" } <<
+          \new Voice = "bass" \bass
+          \new Lyrics \lyricsto "bass" \wordsBassMidi
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff <<
+          \new Voice \pianoRH
+          \new Voice \pianoRHone
+          \new Voice \pianoRHtwo
+        >>
+        \new Dynamics \dynamicsPiano
+        \new Staff <<
+          \new Voice \pianoLH
+          \new Voice \pianoLHone
+          \new Voice \pianoLHtwo
+        >>
+      >>
+    >>
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-tenor"
+  \score {
+  \unfoldRepeats
+%  \articulate
+    <<
+      \new ChoirStaff <<
+        \new Dynamics \dynamicsTenor
+        \new Staff \with { instrumentName = #"Tenor" } <<
+          \new Voice = "tenor" \tenor
+          \new Lyrics \lyricsto "tenor" \wordsTenorMidi
+        >>
+        \new Dynamics \dynamicsBass
+        \new Staff \with { instrumentName = #"Bass" } <<
+          \new Voice = "bass" \bass
+%          \new Lyrics \lyricsto "bass" \wordsBassMidi
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff <<
+          \new Voice \pianoRH
+          \new Voice \pianoRHone
+          \new Voice \pianoRHtwo
+        >>
+        \new Dynamics \dynamicsPiano
+        \new Staff <<
+          \new Voice \pianoLH
+          \new Voice \pianoLHone
+          \new Voice \pianoLHtwo
+        >>
+      >>
+    >>
+    \midi {}
+  }
 }
