@@ -17,7 +17,7 @@
 	../miditomp3andkar $*-mp3
 
 clean:
-	rm *.pdf *.kar *.midi *.png *.mp3 *~
+	rm -f *.pdf *.kar *.midi *.png *.mp3 *~
 
 broken: \
         OComeOComeEmmanual \
