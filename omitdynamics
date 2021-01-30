@@ -6,11 +6,11 @@ my regex dynamic {
    | (\\mf)
    | (\\f+)
    | (\\sfz)
+   | (\\\<)
+   | (\\\>)
 }
 
 for lines() -> $_ is copy {
-    dd $/ if /<dynamic>/;
-    dd $0;
     s:g{<dynamic>} = '\omit' ~ $/;
     s:g/\\omit\\omit/\\omit/; # in case we run this multiple times over the same code
     .say;
