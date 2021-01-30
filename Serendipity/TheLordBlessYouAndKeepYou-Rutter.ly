@@ -32,7 +32,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   copyright   = \today
 }
 
-#(set-global-staff-size 18)
+% #(set-global-staff-size 17)
 
 % \paper {
 %   #(set-paper-size "a4")
@@ -573,8 +573,8 @@ bassJoint = \relative {
   R1 % 2c
   r2 r4 r8 b'
   b4 b b g
-  gis2. gis8 gis
-  aes4. aes8 aes4 aes % 3a
+  gis2. gis8 gis_\markup \bold \right-align {\with-color #red "SAME"}
+  aes4._\markup \bold \left-align \with-color #red "NOTE" aes8 aes4 aes % 3a
   aes4 bes2.~
   bes4 r r2
   R1
