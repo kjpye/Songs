@@ -147,6 +147,24 @@ wordsSop = \lyricmode {
   lon' __
 }
 
+wordsSopMidi = \lyricmode {
+  "Ol' " "man " riv "er " "mus' " "know " sump "in' "
+  "\nJust " "keeps " rol "lin' " a "lon'. "
+
+  "\nAn' " "dem " "dat " "plant " "'em " "is " "soon " for got "ten, "
+  "\nBut " "Ol' " "man " riv "er, "
+  "\nHe " "jes' " "keeps " rol "lin' " a "lon'. "
+  "\nHe "  "keeps " "on " rol "lin' " a "lon'. "
+  "\nYou " "an' " "me " "we " "sweat " "an' " "strain, "
+  "\nBo" "dy " "all " ach "in' " "an' " "racked " "wid " "pain " 
+  "\n\"Tote " "dat " "barge!\" "
+  "\n\"Lift " "dat " "bale!\" "
+  "\nGit " "a " lit "tle " "drunk " "an' " "you'll " "land " "in " "jail. " 
+
+  "\nBut " "ol' " "man " Ri "ver, "
+  "\nhe " "jes' " "keeps " rol "lin' " a "lon'. " 
+}
+
 alto = \relative {
   \global
   s2*8 \time 4/4
@@ -204,6 +222,25 @@ wordsAlto = \lyricmode {
   jes' keeps rol -- lin' a -- lon'.
 }
 
+wordsAltoMidi = \lyricmode {
+  "Ol' " "man " riv "er " "mus' " "know " sump "in' "
+  "\nJust " "keeps " rol "lin' " a "lon'. "
+
+  "\nAn' " "dem " "dat " "plant " "'em " "is " "soon " for got "ten, "
+  "\nBut " "Ol' " "man " riv "er, "
+  "\nHe " "jes' " "keeps " rol "lin' " a "lon'. "
+  "\nHe "  "keeps " "on " rol "lin' " a "lon'. "
+  "\nYou " "an' " "me " "we " "sweat " "an' " "strain, "
+  "\nBo" "dy " "all " ach "in' " "an' " "racked " "wid " "pain " 
+  "\n\"Tote " "dat " "barge!\" "
+  "\n\"Lift " "dat " "bale!\" "
+  "\nGit " "a " lit "tle " "drunk " "an' " "you'll " "land " "in " "jail. " 
+
+  "\nBut " "ol' " "man " Ri "ver, "
+  "\nhe " "jes' " "keeps " rol "lin' " a "lon'. " 
+  "\njes' " "keeps " rol "lin' " a "lon'. "
+}
+
 tenor = \relative {
   \global
   g16^\p^\markup "TENOR SOLO" f e8 e g16 f
@@ -242,7 +279,7 @@ tenor = \relative {
   e4 g^\< a8 g4 a8
   c4 c d8 c4 e8^\mf % 8b
   d4 cis c8 c4 b8
-  b4 c8(e) f(e) f4
+  b4 c8(e) f e f4
   e2.(fis4)
   f2^\> d % 8c
   ees2 d4 d
@@ -255,11 +292,9 @@ wordsTenor = \lyricmode {
   Dat's de ol' man dat I'd like to be:
   What does he care if de world's got trou -- bles?
   What does he care if de land ain't free?
-  _ _ _ _ _ _ _ _ _ _
-  _ _ _ _ _ _ _ _ _ _
-  _ _ _ _ _ _ _ _ _ _
-  _ _ _ _ _ _ _ _ _ _
-  _ _ _
+  Ol' man riv -- er mus' know sump -- in'
+  Just keeps rol -- lin' a -- lon'.
+
   we sweat an' strain,
   _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _
@@ -269,6 +304,33 @@ wordsTenor = \lyricmode {
   _ _ _ _ _ _ _ _ _ _
   _
   jes' keeps rol -- lin' a -- lon'
+}
+
+wordsTenorMidi = \lyricmode {
+  "Dere's " "an " "ol' " "man " "called " "the " Mis sis sip "pi, "
+  "\nDat's " "de " "ol' " "man " "dat " "I'd " "like " "to " "be: "
+  "\nWhat " "does " "he " "care " "if " "de " "world's " "got " trou "bles? "
+  "\nWhat " "does " "he " "care " "if " "de " "land " "ain't " "free? "
+
+  "\nOl' " "man " riv "er " "mus' " "know " sump "in' "
+  "\nJust " "keeps " rol "lin' " a "lon'. "
+
+  "\nHe " "don't " "plant " 'ta "ters, "
+  "\nHe " "don't " "plant " cot "ton, "
+  "\nBut " "Ol' " "man " riv "er, "
+  "\nHe " "jes' " "keeps " rol "lin' " a "lon'. "
+  "\nHe "  "keeps " "on " rol "lin' " a "lon'. "
+
+  "\nwe " "sweat " "an' " "strain, "
+  "\nBo" "dy " "all " ach "in' " "an' " "racked " "wid " "pain. "
+  "\n\"Tote " "dat " "barge!\" "
+  "\n\"Lift " "dat " "bale!\" "
+  "\nGit " "a " lit "tle " "drunk " "an' " "you'll " "land " "in " "jail. " 
+
+  "\nAh'm " "tired " "of " liv "in' " "an' " "scared " "of " dy "in': "
+  "\nBut " "ol' " "man " Riv "er, "
+  "\nhe " "jes " "keeps "  rol "lin' " a "lon' " 
+  jes' keeps rol -- lin' a -- lon'.
 }
 
 bass = \relative {
@@ -323,7 +385,7 @@ wordsBass = \lyricmode {
   _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _
   You an' me we sweat an' strain
-  Bo -- dy alla ch -- in' an' racked wid pain.
+  Bo -- dy all ach -- in' an' racked wid pain.
   "\"Tote" dat "barge!\""
   "\"Lift" dat "bale!\""
   Git a lit -- tle drunk an' you'll land in jail. __
@@ -331,6 +393,31 @@ wordsBass = \lyricmode {
   Ah'm tired of liv -- in' an' scared of dy -- in':
   But ol' man Riv -- er,
   he jes keeps __ rol -- lin' a -- lon' __
+}
+
+wordsBassMidi = \lyricmode {
+  "Ol " "man " riv "er, " "dat " "ol' " "man " riv "er, "
+  "\nHe " "mus' " "know " sump "in', "
+  "\nBut " "don't " "say " noth "in', "
+  "\nHe " "just " "keeps " rol "lin', "
+  "\nHe " "keeps " "on " rol "lin' " a "lon'. "
+
+  "\nHe " "don't " "plant " 'ta "ters, "
+  "\nHe " "don't " "plant " cot "ton, "
+
+  "\nBut " "Ol' " "man " riv "er, "
+  "\nHe " "jes' " "keeps " rol "lin' " a "lon'. "
+  "\nHe " "keeps " "on " rol "lin' "
+
+  "\nYou " "an' " "me " "we " "sweat " "an' " "strain "
+  "\nBo" "dy " "all " ach "in' " "an' " "racked " "wid " "pain. "
+  "\n\"Tote " "dat " "barge!\" "
+  "\n\"Lift " "dat " "bale!\" "
+  "\nGit " "a " lit "tle " "drunk " "an' " "you'll " "land " "in " "jail. " 
+  "\nAh " "gits " wea "ry " "an " "sick " "of " try "in' "
+  "\nAh'm " "tired " "of " liv "in' " "an' " "scared " "of " dy "in': "
+  "\nBut " "ol' " "man " Riv "er, "
+  "\nhe " "jes " "keeps "  rol "lin' " a "lon' " 
 }
 
 pianoRH = \relative {
@@ -535,7 +622,6 @@ pianoLHtwo = \relative {
 \book {
   \bookOutputSuffix "single"
   \score {
-%   \articulate
     <<
       <<
         \new ChoirStaff <<
@@ -577,9 +663,195 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \context {
-%        \Staff \RemoveAllEmptyStaves
       }
     }
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-sop"
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+          \new Staff <<
+            \new Voice \RehearsalTrack
+            \new Voice = "soprano" { \voiceOne \soprano }
+            \new Lyrics \lyricsto soprano \wordsSopMidi
+          >>
+          \new Staff <<
+            \new Voice = "alto"    { \voiceTwo \alto    }
+%            \new Lyrics \lyricsto "alto" \wordsAltoMidi
+          >>
+          \new Staff <<
+            \clef "treble_8"
+            \new Voice = "tenor" \tenor
+%            \new Lyrics \lyricsto tenor \wordsTenorMidi
+          >>
+          \new Staff <<
+            \clef "bass"
+            \new Voice = "bass" \bass
+%            \new Lyrics \lyricsto bass \wordsBassMidi
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+            \new Voice \pianoRH
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff <<
+            \clef "bass"
+            \new Voice \pianoLH
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-alto"
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+          \new Staff <<
+            \new Voice \RehearsalTrack
+            \new Voice = "soprano" { \voiceOne \soprano }
+%            \new Lyrics \lyricsto soprano \wordsSopMidi
+          >>
+          \new Staff <<
+            \new Voice = "alto"    { \voiceTwo \alto    }
+            \new Lyrics \lyricsto "alto" \wordsAltoMidi
+          >>
+          \new Staff <<
+            \clef "treble_8"
+            \new Voice = "tenor" \tenor
+%            \new Lyrics \lyricsto tenor \wordsTenorMidi
+          >>
+          \new Staff <<
+            \clef "bass"
+            \new Voice = "bass" \bass
+%            \new Lyrics \lyricsto bass \wordsBassMidi
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+            \new Voice \pianoRH
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff <<
+            \clef "bass"
+            \new Voice \pianoLH
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-tenor"
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+          \new Staff <<
+            \new Voice \RehearsalTrack
+            \new Voice = "soprano" { \voiceOne \soprano }
+%            \new Lyrics \lyricsto soprano \wordsSopMidi
+          >>
+          \new Staff <<
+            \new Voice = "alto"    { \voiceTwo \alto    }
+%            \new Lyrics \lyricsto "alto" \wordsAltoMidi
+          >>
+          \new Staff <<
+            \clef "treble_8"
+            \new Voice = "tenor" \tenor
+            \new Lyrics \lyricsto tenor \wordsTenorMidi
+          >>
+          \new Staff <<
+            \clef "bass"
+            \new Voice = "bass" \bass
+%            \new Lyrics \lyricsto bass \wordsBassMidi
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+            \new Voice \pianoRH
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff <<
+            \clef "bass"
+            \new Voice \pianoLH
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-bass"
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+          \new Staff <<
+            \new Voice \RehearsalTrack
+            \new Voice = "soprano" { \voiceOne \soprano }
+%            \new Lyrics \lyricsto soprano \wordsSopMidi
+          >>
+          \new Staff <<
+            \new Voice = "alto"    { \voiceTwo \alto    }
+%            \new Lyrics \lyricsto "alto" \wordsAltoMidi
+          >>
+          \new Staff <<
+            \clef "treble_8"
+            \new Voice = "tenor" \tenor
+%            \new Lyrics \lyricsto tenor \wordsTenorMidi
+          >>
+          \new Staff <<
+            \clef "bass"
+            \new Voice = "bass" \bass
+            \new Lyrics \lyricsto bass \wordsBassMidi
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+            \new Voice \pianoRH
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff <<
+            \clef "bass"
+            \new Voice \pianoLH
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
     \midi {}
   }
 }
