@@ -1,11 +1,11 @@
 #!/usr/bin/env raku
 
 my regex dynamic {
-   | (\\p+)
-   | (\\mp)
-   | (\\mf)
-   | (\\f+)
-   | (\\sfz)
+   | (\\p+)<?wb>
+   | (\\mp)<?wb>
+   | (\\mf)<?wb>
+   | (\\f+)<?wb>
+   | (\\sfz)<?wb>
    | (\\\<)
    | (\\\>)
 }
