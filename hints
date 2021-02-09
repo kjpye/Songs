@@ -1,0 +1,9 @@
+\set Staff.soloText   = #""
+\set Staff.soloIIText = #""
+\set Staff.aDueText   = #""
+or: new Staff \with { printPartCombineTexts = ##f } ...
+\partcombine \tenor \bass
+
+\new Lyrics = "x"
+...
+\context Lyrics = "x" { \lyricsto "y" \words }
