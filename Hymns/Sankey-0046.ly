@@ -48,6 +48,7 @@ RehearsalTrack = {
   \mark \markup { \box "C" } s4 s1*3 s2.
   \mark \markup { \box "D" } s4 s1*3 s2.
   \mark \markup { \box "E" } s4 s1*3 s2.
+  \mark \markup { \box "F" } s4 s1*3 s2.
 }
 
 soprano = \relative {
@@ -71,7 +72,11 @@ soprano = \relative {
   ees4. g8 bes4. c8 % E
   bes4 aes2 bes4
   aes4. des8 des4 des
-  des4 c2
+  des4 c2 \bar "|" \break \partial 4 c4
+  ees4. c8 c(bes) aes4
+  <f bes>4 aes2 f4
+  ees4 aes bes4. aes8
+  aes2.
 }
 
 alto = \relative {
@@ -95,7 +100,11 @@ alto = \relative {
   d4. d8 d4. ees8
   ees4 ees2 ees4
   f4. f8 f4 f
-  f4 ees2
+  f4 ees2 ees4
+  aes4. ees8 ees(des) c8(ees) % F
+  des4 f2 des4
+  c4 c des4. c8
+  c2.
 }
 
 tenor = \relative {
@@ -119,7 +128,11 @@ tenor = \relative {
   g4. 8 4. aes8 % E
   des4 c2 aes4
   aes4. 8 4 4
-  aes4 aes2
+  aes4 aes2 aes4
+  c4. aes8 aes4 aes
+  aes4 des2 aes4
+  aes4 aes g4. aes8
+  aes2.
 }
 
 bass= \relative {
@@ -143,12 +156,18 @@ bass= \relative {
   ees4. 8 4. 8 % E
   <aes, ees'>4 q2 <aes c>4
   des4. 8 4 4
-  aes4 2
+  aes4 2 aes'4
+  aes4. aes,8 aes(bes) c4 % F
+  des4 des2 des4
+  ees4 ees ees4. aes,8
+  aes2.
 }
 
 chorus = \lyricmode {
   I love to tell the Sto -- ry.
   'T'will be my theme in glo -- ry.
+  To tell the Old, Old Sto -- ry
+  Of Je -- sus and His Love.
 }
 
 wordsOne = \lyricmode {
@@ -211,6 +230,8 @@ wordsMidi = \lyricmode {
   "\nAs " no "thing " "else " "can " "do. "
   "\nI " "love " "to " "tell " "the " Sto "ry. "
   "\n'T'will " "be " "my " "theme " "in " glo "ry. "
+  "\nTo " "tell " "the " "Old, " "Old " Sto "ry "
+  "\nOf " Je "sus " "and " "His " "Love. "
 
   \set stanza = "2."
   "\nI " "love " "to " "tell " "the " Sto "ry: "
@@ -223,6 +244,8 @@ wordsMidi = \lyricmode {
   "\nI " "tell " "it " "now " "to " "thee. "
   "\nI " "love " "to " "tell " "the " Sto "ry. "
   "\n'T'will " "be " "my " "theme " "in " glo "ry. "
+  "\nTo " "tell " "the " "Old, " "Old " Sto "ry "
+  "\nOf " Je "sus " "and " "His " "Love. "
 
   \set stanza = "3."
   "\nI " "love " "to " "tell " "the " Sto "ry: "
@@ -235,6 +258,8 @@ wordsMidi = \lyricmode {
   "\nFrom " "God's " "own " Ho "ly " "Word. "
   "\nI " "love " "to " "tell " "the " Sto "ry. "
   "\n'T'will " "be " "my " "theme " "in " glo "ry. "
+  "\nTo " "tell " "the " "Old, " "Old " Sto "ry "
+  "\nOf " Je "sus " "and " "His " "Love. "
 
   \set stanza = "4."
   "\nI " "love " "to " "tell " "the " Sto "ry: "
@@ -247,6 +272,8 @@ wordsMidi = \lyricmode {
   "\nThat " "I " "have " "loved " "so " "long. "
   "\nI " "love " "to " "tell " "the " Sto "ry. "
   "\n'T'will " "be " "my " "theme " "in " glo "ry. "
+  "\nTo " "tell " "the " "Old, " "Old " Sto "ry "
+  "\nOf " Je "sus " "and " "His " "Love. "
 }
   
 \book {
