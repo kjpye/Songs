@@ -5,7 +5,10 @@ my regex dynamic {
    | (\\mp)<?wb>
    | (\\mf)<?wb>
    | (\\f+)<?wb>
+   | (\\fp)<?wb>
    | (\\sfz)<?wb>
+   | (\\cresc)<?wb>
+   | (\\dim)<?wb>
    | (\\\<)
    | (\\\>)
 }
