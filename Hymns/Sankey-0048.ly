@@ -47,7 +47,6 @@ RehearsalTrack = {
 }
 
 soprano = \relative {
-  \global
   ees'4 ees ees ees
   aes2 aes
   bes4 bes g g
@@ -58,7 +57,7 @@ soprano = \relative {
   ees1
   ees4 g bes des
   des2 c
-  c4 aes ees' c
+  c4 aes ees' c \break
   c2(bes) % C
   aes4 c c ees
   ees4 d aes bes
@@ -67,7 +66,6 @@ soprano = \relative {
 }
 
 alto = \relative {
-  \global
   c'4 c des c
   f2 f
   f4 f ees ees
@@ -87,7 +85,6 @@ alto = \relative {
 }
 
 tenor = \relative {
-  \global
   aes4 aes bes aes
   c2 c
   des4 des bes des
@@ -107,7 +104,6 @@ tenor = \relative {
 }
 
 bass= \relative {
-  \global
   aes4 aes g aes
   f2 f
   d4 d ees ees
@@ -115,12 +111,12 @@ bass= \relative {
   aes'4 aes g aes
   g2 aes, % B
   bes4 bes bes bes
-  f1
-  f4 f f f
-  f2 aes
+  ees1
+  ees4 ees ees ees
+  ees2 aes
   aes4 aes, c aes8(c)
   ees1 % C
-  f4 ees ees aes.
+  f4 ees ees aes,
   des4 des des des
   ees2 ees
   aes,1
@@ -144,12 +140,12 @@ wordsOne = \lyricmode {
 wordsTwo = \lyricmode {
   \set stanza = "2."
   Trust the heart of Je -- sus.
-  Thou art prec 00 ious there;
+  Thou art prec -- ious there;
   Sure -- ly He would shield thee
   From the tempt -- er's snare;
   Safe -- ly He would lead thee,
   By His own sweet way,
-  Out in -- to the glo 00 ry
+  Out in -- to the glo -- ry
   Of a bright -- er day.
 }
   
@@ -162,50 +158,58 @@ wordsThree = \lyricmode {
   He thy soul will strength -- en,
   O -- ver -- come thy fears;
   He will send thee com -- fort,
-  Wipe a -- wat thy tears.
+  Wipe a -- way thy tears.
 }
   
 wordsMidi = \lyricmode {
+  \set stanza = "1."
+  "Je" "sus " "knows " "thy " sor "row, "
+  "\nKnows " "thine " ev "'rt " "care: "
+  "\nKnows " "thy " "deep " con tri "tion, "
+  "\nHears " "thy " feeb "lest " "prayer; "
+  "\nDo " "not " "fear " "to " "trust " "Him— "
+  "\nTell " "Him " "all " "thy " "grief: "
+  "\nCast " "on " "Hime " "thy " bur "den, "
+  "\nHe " "will " "bring " re "lief. "
+
+  \set stanza = "2."
+  "\nTrust " "the " "heart " "of " Je "sus. "
+  "\nThou " "art " prec "ious " "there; "
+  "\nSure" "ly " "He " "would " "shield " "thee "
+  "\nFrom " "the " tempt "er's " "snare; "
+  "\nSafe" "ly " "He " "would " "lead " "thee, "
+  "\nBy " "His " "own " "sweet " "way, "
+  "\nOut " in "to " "the " glo "ry "
+  "\nOf " "a " bright "er " "day. "
+
+  \set stanza = "3."
+  "\nJe" "sus " "knows " "thy " con "flict, "
+  "\nHears " "the " bur "den'd " "sigh; "
+  "\nWhen " "thy " "heart " "is " wound "ed, "
+  "\nHears " "they " plaint "ive " "cry; "
+  "\nHe " "thy " "soul " "will " strength "en, "
+  "\nO" ver "come " "thy " "fears; "
+  "\nHe " "will " "send " "thee " com "fort, "
+  "\nWipe " a "way " "thy " "tears. "
 }
   
 \book {
   \bookOutputSuffix "repeat"
   \score {
-%    \articulate
     \context GrandStaff <<
       <<
         \new ChoirStaff <<
                                   % Joint soprano/alto staff
-          \new Dynamics \dynamicsWomen
           \new Staff <<
             \set Staff.soloText   = #""
             \set Staff.soloIIText = #""
             \set Staff.aDueText   = #""
             \new Voice \RehearsalTrack
-%            \new Voice {
-%               \RehearsalTrack
-%               \RehearsalTrack
-%               \RehearsalTrack
-%            }
-%            \new Voice \TempoTrack
-%            \new Voice {
-%              \TempoTrack
-%              \TempoTrack
-%              \TempoTrack
-%            }
-            \new NullVoice = "aligner" \soprano
-%            \new NullVoice = "aligner" { \soprano \soprano \soprano \soprano \soprano \soprano }
-            \new Voice = "women" \partCombine { \soprano \bar "|." } \alto
-%            \new Voice = "women" \partCombine { \soprano \soprano \soprano \soprano \soprano \soprano \bar "|." }
-%                                               { \alto \alto \alto \alto \alto \alto }
+            \new NullVoice = "aligner" { \global \soprano }
+            \new Voice = "women" \partCombine { \global \soprano \bar "|." } { \global \alto }
             \new Lyrics \lyricsto "aligner" { \wordsOne \chorus }
             \new Lyrics \lyricsto "aligner"   \wordsTwo
             \new Lyrics \lyricsto "aligner"   \wordsThree
-                                %            \new Lyrics \lyricsto "aligner" { \wordsOne   \chorus
-%                                              \wordsTwo   \chorus
-%                                              \wordsThree \chorus
-%                                            }
-%            \new Lyrics \lyricsto "aligner" \wordsMidi
           >>
                                   % Joint tenor/bass staff
           \new Staff <<
@@ -213,9 +217,7 @@ wordsMidi = \lyricmode {
             \set Staff.soloIIText = #""
             \set Staff.aDueText   = #""
             \clef "bass"
-            \new Voice = "men" \partCombine \tenor \bass
-%            \new Voice = "men" \partCombine { \tenor \tenor \tenor \tenor \tenor \tenor }
-%                                            { \bass \bass \bass \bass \bass \basss }
+            \new Voice = "men" \partCombine { \global \tenor } { \global \bass }
           >>
         >>
       >>
@@ -226,6 +228,92 @@ wordsMidi = \lyricmode {
         \Staff \RemoveAllEmptyStaves
       }
     }
+  }
+}
+  
+nl = { \bar "||" \break }
+
+\book {
+  \bookOutputSuffix "single"
+  \score {
+%    \articulate
+    \context GrandStaff <<
+      <<
+        \new ChoirStaff <<
+                                  % Joint soprano/alto staff
+          \new Staff <<
+            \set Staff.soloText   = #""
+            \set Staff.soloIIText = #""
+            \set Staff.aDueText   = #""
+            \new Voice {
+               \RehearsalTrack
+               \RehearsalTrack
+               \RehearsalTrack
+            }
+            \new NullVoice = "aligner" { \global \soprano \soprano \soprano }
+            \new Voice = "women" \partCombine { \global \soprano \soprano \soprano \bar "|." }
+                                               { \global \alto \nl \alto \nl \alto }
+            \new Lyrics \lyricsto "aligner" { \wordsOne   \chorus
+                                              \wordsTwo   \chorus
+                                              \wordsThree \chorus
+                                            }
+%            \new Lyrics \lyricsto "aligner" \wordsMidi
+          >>
+                                  % Joint tenor/bass staff
+          \new Staff <<
+            \set Staff.soloText   = #""
+            \set Staff.soloIIText = #""
+            \set Staff.aDueText   = #""
+            \clef "bass"
+            \new Voice = "men" \partCombine { \global \tenor \tenor \tenor }
+                                            { \global \bass \bass \bass }
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi"
+  \score {
+%    \articulate
+    \context GrandStaff <<
+      <<
+        \new ChoirStaff <<
+                                  % Joint soprano/alto staff
+          \new Staff <<
+            \set Staff.soloText   = #""
+            \set Staff.soloIIText = #""
+            \set Staff.aDueText   = #""
+            \new Voice {
+               \RehearsalTrack
+               \RehearsalTrack
+               \RehearsalTrack
+            }
+            \new NullVoice = "aligner" { \global \soprano \soprano \soprano }
+            \new Voice = "women" \partCombine { \global \soprano \soprano \soprano \bar "|." }
+                                               { \global \alto \nl \alto \nl \alto }
+            \new Lyrics \lyricsto "aligner" \wordsMidi
+          >>
+                                  % Joint tenor/bass staff
+          \new Staff <<
+            \set Staff.soloText   = #""
+            \set Staff.soloIIText = #""
+            \set Staff.aDueText   = #""
+            \clef "bass"
+            \new Voice = "men" \partCombine { \global \tenor \tenor \tenor }
+                                            { \global \bass \bass \bass }
+          >>
+        >>
+      >>
+    >>
     \midi {}
   }
 }
