@@ -117,7 +117,7 @@ nl = { \bar "||" \break }
         \new ChoirStaff <<
                                   % Joint soprano/alto staff
           \new Dynamics \dynamicsWomen
-          \new Staff \with { printPartCombineParts = ##f }
+          \new Staff \with { printPartCombineTexts = ##f }
           <<
             \new Voice \RehearsalTrack
 %            \new Voice {
@@ -159,7 +159,7 @@ nl = { \bar "||" \break }
           >>
                                   % Joint tenor/bass staff
           \new Dynamics \dynamicsMen
-          \new Staff \with { printPartCombineTextx = ##f }
+          \new Staff \with { printPartCombineTexts = ##f }
           <<
             \clef "bass"
             \new Voice = "men" \partCombine { \global \tenor } { \global \bass }
