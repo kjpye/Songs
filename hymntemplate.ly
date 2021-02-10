@@ -53,8 +53,6 @@ TempoTrack = {
 }
 
 soprano = \relative {
-  \global
-  d4
 }
 
 dynamicsWomen = {
@@ -62,13 +60,9 @@ dynamicsWomen = {
 }
 
 alto = \relative {
-  \global
-  d4
 }
 
 tenor = \relative {
-  \global
-  d4
 }
 
 dynamicsMen = {
@@ -76,8 +70,6 @@ dynamicsMen = {
 }
 
 bass= \relative {
-  \global
-  d4
 }
 
 chorus = \lyricmode {
@@ -110,6 +102,7 @@ wordsSix = \lyricmode {
 wordsMidi = \lyricmode {
 }
   
+nl = { \bar "||" \break }
 \book {
   \bookOutputSuffix "repeat"
   \score {
@@ -122,13 +115,10 @@ wordsMidi = \lyricmode {
 %      >>
       <<
         \new ChoirStaff <<
-%          \new Voice = tempo \TempoTrack
                                   % Joint soprano/alto staff
           \new Dynamics \dynamicsWomen
-          \new Staff <<
-            \set Staff.soloText   = #""
-            \set Staff.soloIIText = #""
-            \set Staff.aDueText   = #""
+          \new Staff \with { printPartCombineParts = ##f }
+          <<
             \new Voice \RehearsalTrack
 %            \new Voice {
 %               \RehearsalTrack
@@ -149,17 +139,16 @@ wordsMidi = \lyricmode {
 %            }
             \new NullVoice = "aligner" \soprano
 %            \new NullVoice = "aligner" { \soprano \soprano \soprano \soprano \soprano \soprano }
-            \new Voice = "women" \partCombine { \soprano \bar "|." } \alto
-%            \new Voice = "women" \partCombine { \soprano \soprano \soprano \soprano \soprano \soprano \bar "|." }
-%                                               { \alto \alto \alto \alto \alto \alto }
+            \new Voice = "women" \partCombine { \global \soprano \bar "|." } { \global \alto }
+%            \new Voice = "women" \partCombine { \global \soprano \soprano \soprano \soprano \soprano \soprano \bar "|." }
+%                                               { \global \alto \nl \alto \nl \alto \nl \alto \nl \alto \nl \alto }
             \new Lyrics \lyricsto "aligner" { \wordsOne \chorus }
             \new Lyrics \lyricsto "aligner"   \wordsTwo
             \new Lyrics \lyricsto "aligner"   \wordsThree
             \new Lyrics \lyricsto "aligner"   \wordsFour
             \new Lyrics \lyricsto "aligner"   \wordsFive
             \new Lyrics \lyricsto "aligner"   \wordsSix
-                                %            \new Lyrics \lyricsto "aligner
-            " { \wordsOne   \chorus
+%            \new Lyrics \lyricsto "aligner" { \wordsOne   \chorus
 %                                              \wordsTwo   \chorus
 %                                              \wordsThree \chorus
 %                                              \wordsFour  \chorus
@@ -170,14 +159,12 @@ wordsMidi = \lyricmode {
           >>
                                   % Joint tenor/bass staff
           \new Dynamics \dynamicsMen
-          \new Staff <<
-            \set Staff.soloText   = #""
-            \set Staff.soloIIText = #""
-            \set Staff.aDueText   = #""
+          \new Staff \with { printPartCombineTextx = ##f }
+          <<
             \clef "bass"
-            \new Voice = "men" \partCombine \tenor \bass
-%            \new Voice = "men" \partCombine { \tenor \tenor \tenor \tenor \tenor \tenor }
-%                                            { \bass \bass \bass \bass \bass \basss }
+            \new Voice = "men" \partCombine { \global \tenor } { \global \bass }
+%            \new Voice = "men" \partCombine { \global \tenor \tenor \tenor \tenor \tenor \tenor }
+%                                            { \global \bass \bass \bass \bass \bass \bass }
           >>
         >>
       >>
