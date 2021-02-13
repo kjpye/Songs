@@ -145,8 +145,22 @@ wordsSop = \lyricmode {
   One of these morn- in's __
   You goin' to rise up sing- in',
   then you'll spread yo' wings an' you'll take the sky.
-  But till that morn-= in' __ there's a noth- in' can harm you __
+  But till that morn -- in' __ there's a noth- in' can harm you __
   With Dad- dy an' Mam- my stand- in' by.
+}
+
+wordsSopMidi = \lyricmode {
+  "Sum" "mer " "time " 
+  "\nan' " "the " liv "in' " "is " eas "y "
+  "\njump" "in', " "an' " "the " cot "ton " "is " "high. "
+  "\nOh, " "yo " dad "dy's " "rich, "
+  "\nan' " "yo " "ma " "is " good look "in', "
+  "\nSo " "hush, " lit "tle " ba "by, " "don' " "yo' " "cry. "
+  "\nOne " "of " "these " morn "in's " 
+  "\nYou " "goin' " "to " "rise " "up " sing "in', "
+  "\nthen " "you'll " "spread " "yo' " "wings " "an' " "you'll " "take " "the " "sky. "
+  "\nBut " "till " "that " "morn" "in' "  "there's " "a " noth "in' " "can " "harm " "you " 
+  "\nWith " Dad "dy " "an' " Mam "my " stand "in' " "by. "
 }
 
 alto = \relative {
@@ -207,6 +221,20 @@ wordsAlto = \lyricmode {
   With Dad- dy an' Mam- my stand- in' by.
 }
 
+wordsAltoMidi = \lyricmode {
+  "oo "  "oo "  "oo " 
+  "\nan' " "the " liv "in' " "is " eas "y "
+  "\njump" "in', " "an' " "the " cot "ton " "is " "high. "
+  "\noo " 
+  "\nan' " "yo " "ma " "is " good look "in', "
+  "\nSo " "hush, " lit "tle " ba "by, " "don' " "yo' " "cry. "
+  "\noo "  "oo "  "oo " 
+  "\nYou " "goin' " "to " "rise " "up " sing "in', "
+  "\nthen " "you'll " "spread " "yo' " "wings " "an' " "you'll " "take " "the " "sky. "
+  "\noo "  "there's " "a " noth "in' " "can " "harm " "you " 
+  "\nWith " Dad "dy " "an' " Mam "my " stand "in' " "by. "
+}
+
 tenor = \relative {
   \global
   \dynamicUp \phrasingSlurUp \slurUp
@@ -265,6 +293,20 @@ wordsTenor = \lyricmode {
   With Dad- dy an' Mam- my stand- in' by.
 }
 
+wordsMenMidi = \lyricmode {
+  "oo "  "oo "  "oo " 
+  "\nan' " "the " liv "in' " "is " eas "y "
+  "\nFish " "are " jump "in', " "an' " "the " cot "ton " "is " "high. "
+  "\noo " 
+  "\nan' " "yo " "ma " "is " good look "in', "
+  "\nSo " "hush, " lit "tle " ba "by, " "don' " "yo' " "cry. "
+  "\noo "  "oo "  "oo " 
+  "\nYou " "goin' " "to " "rise " "up " sing "in', "
+  "\nthen " "you'll " "spread " "yo' " "wings " "an' " "you'll " "take " "the " "sky. "
+  "\noo "  "there's " "a " noth "in' " "can " "harm " "you " 
+  "\nWith " Dad "dy " "an' " Mam "my " stand "in' " "by. "
+}
+
 bass= \relative {
   \global
   \dynamicUp \phrasingSlurUp \slurUp
@@ -304,7 +346,7 @@ bass= \relative {
   g4 g8 e' c4 a
   d2 g, % 7b
   a1->~
-  a1~
+  a1\>~
   a2.\pp r4
   \bar "|."
 }
@@ -323,12 +365,6 @@ wordsBass = \lyricmode {
   With Dad- dy an' Mam- my stand- in' by.
 }
 
-pianoRH = \relative {
-  \global
-s1*5
-  \bar "|."
-}
-
 pianoRHone = \relative {
   \global
   \voiceOne
@@ -339,8 +375,14 @@ pianoRHone = \relative {
   g e c a) \change Staff = lh fis4(gis)
   \hideStaffSwitch
   fis4(gis) fis(gis) \change Staff = rh
-  r4 \ottava 1 <fis' fis'>\arpeggio r <gis gis'>\arpeggio
-  r4 <fis fis'> \ottava 0 e'4(c \bar "||"
+  r4
+    \set Staff.ottavation = "8va"
+    \set Voice.middleCPosition = #-13
+    <fis'' fis'>\arpeggio r <gis gis'>\arpeggio
+  r4 <fis fis'>
+    \unset Staff.ottavation
+    \unset Voice.middleCPosition
+    e4(c \bar "||"
   e1)~
   e8 r d8.(c16 d8. e16 c4
   a2 e)~ % 3a
@@ -357,7 +399,7 @@ pianoRHone = \relative {
   e8 d4. c2)
   r4 g'8(fis g a fis4
   e4) r r2 % 5a
-  r4 \set Staff.ottavation = #"8" \set Voice.middleCPosition = #-13 <fis fis'> r <gis gis'>
+  r4 \set Staff.ottavation = #"8va" \set Voice.middleCPosition = #-13 <fis fis'> r <gis gis'>
   r4 <fis fis'> \unset Staff.ottavation \unset Voice.middleCPosition \tuplet 3/2 {e4 e c}
   e4 e2.
   r8. e16( d8. c16 d8. e16 c4 % 5b
@@ -434,6 +476,43 @@ dynamicsPiano = {
   s1\pp
   s2 s\mp
   s1-\markup \bold \italic tranquillo
+  s1 % 2b
+  s2 s\p
+  s1-\markup\bold\italic{\dynamic pp molto legato}\<
+  s4\! s\< s2\!
+  s2\< s\! % 3a
+  s1
+  s1
+  s2-\markup\bold\italic "poco rit." s\<
+  s1\omit\mf-\markup\bold\italic {\dynamic mf a tempo} % 3b
+  s2. s4\>
+  s2\< s\!
+  s4 s\< s2\! % 4a
+  s2\< s\!
+  s1
+  s1 % 4b
+  s1
+  s4 s2.-\markup\bold\italic "poco animato"
+  s1 % 5a
+  s1
+  s2 s-\markup\bold\italic "poco rit."
+  s2-\markup\bold\italic "a tempo" s\<
+  s4\! s2.\< % 5b
+  s2\< s\!
+  s1
+  s1 % 6a
+  s1
+  s1
+  s1 % 6b
+  s4 s2.\<
+  s4\! s2.\<
+  s2\< s\! % 7a
+  s1
+  s1
+  s1 % 7b
+  s1
+  s1\>
+  s2 s\pp
 }
 
 pianoLH = \relative {
@@ -449,21 +528,77 @@ pianoLH = \relative {
   <a, e' c'>2\arpeggio <b e d'>\arpeggio
   <a e' c'>2\arpeggio
   <b e d'>\arpeggio
+  <a fis'>2(<b gis'> % 3a
+  <a fis'>2) <b e d'>4\arpeggio <a e' c'>\arpeggio
+  s1
+  s1
+  <gis e'>2(<b dis>) % 3b
+  e8 (e, cis' c b) <bes gis' d>4.\arpeggio
+  <a e' c'>2\arpeggio <b e d'>\arpeggio
+  <a e' c'>2\arpeggio <b e d'>\arpeggio % 4a
+  <a fis'>2(<b fis'>)
+  <a e'>2(<d, a'>)
+  <g e'>4. e'8(c4 a) % 4b
+  <d, a'>2(<g d'>)
+  s1
+  s1 % 5a
+  s1
+  s1
+  <a e' c'>2\arpeggio <b e d'>\arpeggio
+  <a e' c'>2\arpeggio <b e d'>\arpeggio % 5b
+  <a fis'>2( <b eis'>
+  <a fis'>2) <b e d'>4\arpeggio <a e' c'>\arpeggio
+  s1 % 6a
+  s1
+  <gis e'>2(<b dis>)
+  e8 e, cis' c b r <bes gis' d>4\arpeggio % 6b %%%
+  <a e' c'>2\arpeggio <b e d'>\arpeggio %%%
+  <a e' c'>2\arpeggio <b e d'>\arpeggio %%%
+  <a f'>2(<b gis'>) % 7a
+  <a e'>2(<d, a'>)
+  <g e'>4. e'8(c4 a)
+  <d, a'>2(<g d'>) % 7b
+  c4(d8. c16 d8. e16 c4)
+  a4(fis e gis
+  a2) \clef treble <a' e' c'>4\arpeggio r
   \bar "|."
 }
 
 pianoLHone = \relative {
   \global
   \voiceOne
-  c4
-  \bar "|."
+  s1*5
+  fis2(gis)
+  fis2(gis)
+  s1*4
+  a4~\tuplet 3/2 {a8 bes b} c4. cis8 % 3a++
+  d,4(e f fis)
+  s1*8
+  e2 e~ % 4b++
+  e4 d8(c d e c4) % 5a
+  fis2(gis)
+  fis2(gis)
+  s1*4
+  a4(bes8 b c2) % 6a
+  d,4(e f fis)
+  s1*11
 }
 
 pianoLHtwo = \relative {
   \global
   \voiceTwo
-  c4
-  \bar "|."
+  s1*11
+  d2(f) % 3a++
+  a,1
+  s1*8
+  a1~ % 4b++
+  a4 r r2 % 5a
+  a1
+  d,1
+  s1*4
+  d'2(\tuplet 3/2 {f4 g gis}) % 6a
+  a,1
+  s1*11
 }
 
 \book {
@@ -500,7 +635,6 @@ pianoLHtwo = \relative {
         >>
         \new PianoStaff <<
           \new Staff = rh <<
-            \new Voice \pianoRH
             \new Voice \pianoRHone
             \new Voice \pianoRHtwo
           >>
@@ -520,6 +654,151 @@ pianoLHtwo = \relative {
         \Staff \RemoveAllEmptyStaves
       }
     }
+
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-sop"
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice = "soprano" \soprano
+          >>
+                                % Single alto staff
+          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \new Voice = "alto" \alto
+            \new Lyrics \lyricsto "alto" \wordsAltoMidi
+          >>
+                                % Single tenor staff
+          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \clef "treble_8"
+            \new Voice = "tenor" \tenor
+%            \new Lyrics \lyricsto "tenor" \wordsMenMidi
+          >>
+                                % Single bass staff
+          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \clef "bass"
+            \new Voice = "bass" \bass
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff = rh <<
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff = lh <<
+            \clef "bass"
+            \new Voice \pianoLH
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-alto"
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice = "soprano" \soprano
+          >>
+                                % Single alto staff
+          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \new Voice = "alto" \alto
+            \new Lyrics \lyricsto "alto" \wordsAltoMidi
+          >>
+                                % Single tenor staff
+          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \clef "treble_8"
+            \new Voice = "tenor" \tenor
+          >>
+                                % Single bass staff
+          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \clef "bass"
+            \new Voice = "bass" \bass
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff = rh <<
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff = lh <<
+            \clef "bass"
+            \new Voice \pianoLH
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-men"
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice = "soprano" \soprano
+          >>
+                                % Single alto staff
+          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \new Voice = "alto" \alto
+          >>
+                                % Single tenor staff
+          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \clef "treble_8"
+            \new Voice = "tenor" \tenor
+            \new Lyrics \lyricsto "tenor" \wordsMenMidi
+          >>
+                                % Single bass staff
+          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \clef "bass"
+            \new Voice = "bass" \bass
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff = rh <<
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff = lh <<
+            \clef "bass"
+            \new Voice \pianoLH
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
     \midi {}
   }
 }
