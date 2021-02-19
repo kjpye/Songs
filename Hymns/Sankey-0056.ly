@@ -37,7 +37,6 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 global = {
   \key aes \major
   \time 3/4
-  \tempo 4=120
   \partial 4.
 }
 
@@ -52,6 +51,14 @@ RehearsalTrack = {
 }
 
 TempoTrack = {
+  \set Score.tempoHideNote = ##t
+  \tempo 4=120
+  \time 3/4
+  \partial 4. s4.
+  s2.*7
+  s4 \tempo 4=20 s8 \tempo 4=120 \time 4/4 \partial 4. s4.
+  s1*7
+  s2 s8
 }
 
 soprano = \relative {
