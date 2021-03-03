@@ -1,4 +1,4 @@
-\version "2.20.2"
+\version "2.22.0"
 
 \include "articulate.ly"
 
@@ -50,6 +50,7 @@ RehearsalTrack = {
 }
 
 TempoTrack = {
+  \set Score.tempoHideNote = ##t
 }
 
 soprano = \relative {
