@@ -6,6 +6,7 @@ my regex dynamic {
    | (\\mf)<?wb>
    | (\\f+)<?wb>
    | (\\fp)<?wb>
+   | (\\sf)<?wb>
    | (\\sfz)<?wb>
    | (\\cresc)<?wb>
    | (\\dim)<?wb>
