@@ -52,7 +52,7 @@ TempoTrack = {
     s8
     s2.
     s4. \tempo 4=40 s4 \tempo 4=120 s8
-    s1
+    s2.
   }
   \alternative {
     {s4. s4}
@@ -179,6 +179,70 @@ wordsTwoB = \lyricmode {
   "\"Je" -- sus of Naz -- a -- reth pass -- eth "by.\""
 }
   
+wordsThreeA = \lyricmode {
+  \set stanza = "3a."
+  Je -- sus! 'tis He who once be -- low
+  Man's path -- way trod, 'mid pain and woe;
+}
+
+wordsThreeB = \lyricmode {
+  \set stanza = "3b."
+  And bur -- dened ones, wher -- e'er He came,
+  Brought out their sick, and _ _ _ deaf, and lame:
+  The blind re -- joiced to hear the cry,
+  "\"Je" -- sus of Na -- za -- reth pass -- eth "by,\""
+  The blind re -- joiced to hear the cry,
+  "\"Je" -- sus of Na -- za -- reth pass -- eth "by.\""
+}
+
+wordsFourA = \lyricmode {
+  \set stanza = "4a."
+  A -- gain He comes! From place to place
+  His ho -- ly foot prints we can trace;
+}
+
+wordsFourB = \lyricmode {
+  \set stanza = "4b."
+  He paus -- eth at our thresh -- hold— nay,
+  He ent -- ers— con -- de -- _ _ _ scends to stay:
+  Shall we not glad -- ly raise the cry?—
+  "\"Je" -- sus of Na -- za -- reth pass -- eth "by.\""
+  Shall we not glad -- ly raise the cry?—
+  "\"Je" -- sus of Na -- za -- reth pass -- eth "by.\""
+}
+
+wordsFiveA = \lyricmode {
+  \set stanza = "5a."
+  Ho! all ye heav -- y -- la -- den, come!
+  Here's par -- don, com -- fort, rest, and home!
+}
+
+wordsFiveB = \lyricmode {
+  \set stanza = "5b."
+  Ye wan -- derers from a Fath -- er's face.
+  Re -- turn, ac -- cept His _ _ _ prof -- fered grace;
+  Ye tempt -- ed ones, there's re -- fuge nigh:
+  "\"Je" -- sus of Na -- za -- reth pass -- eth "by.\""
+  Ye tempt -- ed ones, there's re -- fuge nigh:
+  "\"Je" -- sus of Na -- za -- reth pass -- eth "by.\""
+}
+
+wordsSixA = \lyricmode {
+  \set stanza = "6a."
+  But if you still His call re -- fuse,
+  And all His won -- drous love a -- buse,
+}
+
+wordsSixB = \lyricmode {
+  \set stanza = "6b."
+  Soon will He sad -- ly from you turn,
+  Your bit -- ter prayer for _ _ _ par -- don spurn:
+  "\"Too" late! too "late!\"" will be the cry,
+  "\"Je" -- sus of Na -- za -- reth pass -- eth "by.\""
+  "\"Too" late! too "late!\"" will be the cry,
+  "\"Je" -- sus of Na -- za -- reth pass -- eth "by.\""
+}
+
 wordsSingle = \lyricmode {
   \set stanza = "1."
   What means this ea -- ger, anx -- ious throng,
@@ -199,6 +263,54 @@ wordsSingle = \lyricmode {
   "\"Je" -- sus of Naz -- a -- reth pass -- eth "by\";"
   A -- gain the stir -- ring tones re -- ply,
   "\"Je" -- sus of Naz -- a -- reth pass -- eth "by.\""
+
+  \set stanza = "3a."
+  Je -- sus! 'tis He who once be -- low
+  Man's path -- way trod, 'mid pain and woe;
+
+  \set stanza = "3b."
+  And bur -- dened ones, wher -- e'er He came,
+  Brought out their sick, and deaf, and lame:
+  The blind re -- joiced to hear the cry,
+  "\"Je" -- sus of Na -- za -- reth pass -- eth "by,\""
+  The blind re -- joiced to hear the cry,
+  "\"Je" -- sus of Na -- za -- reth pass -- eth "by.\""
+
+  \set stanza = "4a."
+  A -- gain He comes! From place to place
+  His ho -- ly foot prints we can trace;
+
+  \set stanza = "4b."
+  He paus -- eth at our thresh -- hold— nay,
+  He ent -- ers— con -- de -- scends to stay:
+  Shall we not glad -- ly raise the cry?—
+  "\"Je" -- sus of Na -- za -- reth pass -- eth "by.\""
+  Shall we not glad -- ly raise the cry?—
+  "\"Je" -- sus of Na -- za -- reth pass -- eth "by.\""
+
+  \set stanza = "5a."
+  Ho! all ye heav -- y -- la -- den, come!
+  Here's par -- don, com -- fort, rest, and home!
+
+  \set stanza = "5b."
+  Ye wan -- derers from a Fath -- er's face.
+  Re -- turn, ac -- cept His prof -- fered grace;
+  Ye tempt -- ed ones, there's re -- fuge nigh:
+  "\"Je" -- sus of Na -- za -- reth pass -- eth "by.\""
+  Ye tempt -- ed ones, there's re -- fuge nigh:
+  "\"Je" -- sus of Na -- za -- reth pass -- eth "by.\""
+
+  \set stanza = "6a."
+  But if you still His call re -- fuse,
+  And all His won -- drous love a -- buse,
+
+  \set stanza = "6b."
+  Soon will He sad -- ly from you turn,
+  Your bit -- ter prayer for par -- don spurn:
+  "\"Too" late! too "late!\"" will be the cry,
+  "\"Je" -- sus of Na -- za -- reth pass -- eth "by.\""
+  "\"Too" late! too "late!\"" will be the cry,
+  "\"Je" -- sus of Na -- za -- reth pass -- eth "by.\""
 }
 
 wordsMidi = \lyricmode {
@@ -208,9 +320,9 @@ wordsMidi = \lyricmode {
   "\nThese " won "drous " gath' "rings " "day " "by " "day, "
   "\nWhat " "means " "this " "strange " com mo "tion, " "pray? "
   "\nIn " ac "cents " "hush'd " "the " "throng " re "ply, "
-  "\n"\"Je"" "sus " "of " Naz a "reth " pass "eth " "by\"; "
+  "\n\"Je" "sus " "of " Naz a "reth " pass "eth " "by\"; "
   "\nIn " ac "cents " "hush'd " "the " "throng " re "ply, "
-  "\n"\"Je"" "sus " "of " Naz a "reth " pass "eth " "by.\" "
+  "\n\"Je" "sus " "of " Naz a "reth " pass "eth " "by.\" "
 
   \set stanza = "2."
   "\nWho " "is " "this " Je "sus? " "why " "should " "He "
@@ -218,9 +330,57 @@ wordsMidi = \lyricmode {
   "\nA " pas "ing " stran "ger, " "has " "He " "skill "
   "\nTo " "move " "the " mul ti "tude " "as " "will? "
   "\nA" "gain " "the " stir "ring " "tones " re "ply, "
-  "\n"\"Je"" "sus " "of " Naz a "reth " pass "eth " "by\"; "
+  "\n\"Je" "sus " "of " Naz a "reth " pass "eth " "by\"; "
   "\nA" "gain " "the " stir "ring " "tones " re "ply, "
-  "\n"\"Je"" "sus " "of " Naz a "reth " pass "eth " "by.\" "
+  "\n\"Je" "sus " "of " Naz a "reth " pass "eth " "by.\" "
+
+  \set stanza = "3a."
+  "\nJe" "sus! " "'tis " "He " "who " "once " be "low "
+  "\nMan's " path "way " "trod, " "'mid " "pain " "and " "woe; "
+
+  \set stanza = "3b."
+  "\nAnd " bur "dened " "ones, " wher "e'er " "He " "came, "
+  "\nBrought " "out " "their " "sick, " "and " "deaf, " "and " "lame: "
+  "\nThe " "blind " re "joiced " "to " "hear " "the " "cry, "
+  "\n\"Je" "sus " "of " Na za "reth " pass "eth " "by,\" "
+  "\nThe " "blind " re "joiced " "to " "hear " "the " "cry, "
+  "\n\"Je" "sus " "of " Na za "reth " pass "eth " "by.\" "
+
+  \set stanza = "4a."
+  "\nA" "gain " "He " "comes! " "From " "place " "to " "place "
+  "\nHis " ho "ly " "foot " "prints " "we " "can " "trace; "
+
+  \set stanza = "4b."
+  "\nHe " paus "eth " "at " "our " thresh "hold— " "nay, "
+  "\nHe " ent "ers— " con de "scends " "to " "stay: "
+  "\nShall " "we " "not " glad "ly " "raise " "the " "cry?— "
+  "\n\"Je" "sus " "of " Na za "reth " pass "eth " "by.\" "
+  "\nShall " "we " "not " glad "ly " "raise " "the " "cry?— "
+  "\n\"Je" "sus " "of " Na za "reth " pass "eth " "by.\" "
+
+  \set stanza = "5a."
+  "\nHo! " "all " "ye " heav y la "den, " "come! "
+  "\nHere's " par "don, " com "fort, " "rest, " "and " "home! "
+
+  \set stanza = "5b."
+  "\nYe " wan "derers " "from " "a " Fath "er's " "face. "
+  "\nRe" "turn, " ac "cept " "His " prof "fered " "grace; "
+  "\nYe " tempt "ed " "ones, " "there's " re "fuge " "nigh: "
+  "\n\"Je" "sus " "of " Na za "reth " pass "eth " "by.\" "
+  "\nYe " tempt "ed " "ones, " "there's " re "fuge " "nigh: "
+  "\n\"Je" "sus " "of " Na za "reth " pass "eth " "by.\" "
+
+  \set stanza = "6a."
+  "\nBut " "if " "you " "still " "His " "call " re "fuse, "
+  "\nAnd " "all " "His " won "drous " "love " a "buse, "
+
+  \set stanza = "6b."
+  "\nSoon " "will " "He " sad "ly " "from " "you " "turn, "
+  "\nYour " bit "ter " "prayer " "for " par "don " "spurn: "
+  "\n\"Too " "late! " "too " "late!\" " "will " "be " "the " "cry, "
+  "\n\"Je" "sus " "of " Na za "reth " pass "eth " "by.\" "
+  "\n\"Too " "late! " "too " "late!\" " "will " "be " "the " "cry, "
+  "\n\"Je" "sus " "of " Na za "reth " pass "eth " "by.\" "
 }
   
 nl = { \bar "||" \break }
@@ -242,6 +402,14 @@ nl = { \bar "||" \break }
             \new Lyrics \lyricsto "aligner" \wordsOneB
             \new Lyrics \lyricsto "aligner" \wordsTwoA
             \new Lyrics \lyricsto "aligner" \wordsTwoB
+            \new Lyrics \lyricsto "aligner" \wordsThreeA
+            \new Lyrics \lyricsto "aligner" \wordsThreeB
+            \new Lyrics \lyricsto "aligner" \wordsFourA
+            \new Lyrics \lyricsto "aligner" \wordsFourB
+            \new Lyrics \lyricsto "aligner" \wordsFiveA
+            \new Lyrics \lyricsto "aligner" \wordsFiveB
+            \new Lyrics \lyricsto "aligner" \wordsSixA
+            \new Lyrics \lyricsto "aligner" \wordsSixB
           >>
                                   % Joint tenor/bass staff
           \new Staff \with { printPartCombineTexts = ##f }
@@ -274,22 +442,30 @@ nl = { \bar "||" \break }
             \new Voice {
                \RehearsalTrack
                \RehearsalTrack
+               \RehearsalTrack
+               \RehearsalTrack
+               \RehearsalTrack
+               \RehearsalTrack
             }
             \new Voice {
               \TempoTrack
               \TempoTrack
+              \TempoTrack
+              \TempoTrack
+              \TempoTrack
+              \TempoTrack
             }
-            \new NullVoice = "aligner" { \soprano \soprano }
-            \new Voice = "women" \partCombine { \global \soprano \soprano \bar "|." }
-                                               { \global \alto \nl \alto }
+            \new NullVoice = "aligner" { \soprano \soprano \soprano \soprano \soprano \soprano }
+            \new Voice = "women" \partCombine { \global \soprano \soprano \soprano \soprano \soprano \soprano \bar "|." }
+                                               { \global \alto \nl \alto \nl \alto \nl \alto \nl \alto \nl \alto }
             \new Lyrics \lyricsto "aligner" \wordsSingle
           >>
                                   % Joint tenor/bass staff
           \new Staff \with { printPartCombineTexts = ##f }
           <<
             \clef "bass"
-            \new Voice = "men" \partCombine { \global \tenor \tenor }
-                                            { \global \bass \bass }
+            \new Voice = "men" \partCombine { \global \tenor \tenor \tenor \tenor \tenor \tenor }
+                                            { \global \bass \bass \bass \bass \bass \bass }
           >>
         >>
       >>
@@ -317,18 +493,22 @@ nl = { \bar "||" \break }
             \new Voice {
               \TempoTrack
               \TempoTrack
+              \TempoTrack
+              \TempoTrack
+              \TempoTrack
+              \TempoTrack
             }
-            \new NullVoice = "aligner" { \soprano \soprano }
-            \new Voice = "women" \partCombine { \global \soprano \soprano \bar "|." }
-                                               { \global \alto \nl \alto }
+            \new NullVoice = "aligner" { \soprano \soprano \soprano \soprano \soprano \soprano }
+            \new Voice = "women" \partCombine { \global \soprano \soprano \soprano \soprano \soprano \soprano \bar "|." }
+                                               { \global \alto \nl \alto \nl \alto \nl \alto \nl \alto \nl \alto }
             \new Lyrics \lyricsto "aligner" \wordsMidi
           >>
                                   % Joint tenor/bass staff
           \new Staff \with { printPartCombineTexts = ##f }
           <<
             \clef "bass"
-            \new Voice = "men" \partCombine { \global \tenor \tenor }
-                                            { \global \bass \bass }
+            \new Voice = "men" \partCombine { \global \tenor \tenor \tenor \tenor \tenor \tenor }
+                                            { \global \bass  \bass  \bass  \bass  \bass \bass }
           >>
         >>
       >>
