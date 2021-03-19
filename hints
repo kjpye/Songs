@@ -7,3 +7,8 @@ or: new Staff \with { printPartCombineTexts = ##f } ...
 \new Lyrics = "x"
 ...
 \context Lyrics = "x" { \lyricsto "y" \words }
+
+\new Staff = "lh" { ... \change Staff = "rh" ... }
+
+\set ignoreMelismata = ##t
+\unset ignoreMelismata
