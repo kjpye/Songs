@@ -1,0 +1,21 @@
+#!/usr/bin/env raku
+
+my regex dynamic {
+   | (<[^_]>?[\\omit]?\\p+)<?wb>
+   | (<[^_]>?[\\omit]?\\mp)<?wb>
+   | (<[^_]>?[\\omit]?\\mf)<?wb>
+   | (<[^_]>?[\\omit]?\\f+)<?wb>
+   | (<[^_]>?[\\omit]?\\fp)<?wb>
+   | (<[^_]>?[\\omit]?\\sf)<?wb>
+   | (<[^_]>?[\\omit]?\\sfz)<?wb>
+   | (<[^_]>?[\\omit]?\\cresc)<?wb>
+   | (<[^_]>?[\\omit]?\\dim)<?wb>
+   | (<[^_]>?[\\omit]?\\\<)
+   | (<[^_]>?[\\omit]?\\\>)
+   | (\\\!)
+}
+
+for lines() -> $_ is copy {
+    s:g{<dynamic>} = '';
+    .say;
+}
