@@ -1,4 +1,4 @@
-\version "2.20.2"
+\version "2.22.0"
 
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
@@ -142,7 +142,7 @@ wordsTenor = \lyricmode {
   words
 }
 
-bass= \relative {
+bass = \relative {
   \global
   c4
   \bar "|."
@@ -158,12 +158,6 @@ wordsBass = \lyricmode {
 
 dynamicsMen = {
   \override DynamicTextSpanner.style = #'none
-}
-
-pianoRH = \relative {
-  \global
-  c4
-  \bar "|."
 }
 
 pianoRHone = \relative {
@@ -184,13 +178,6 @@ dynamicsPiano = {
   \override DynamicTextSpanner.style = #'none
 }
 
-pianoLH = \relative {
-  \global
-  \oneVoice
-  c4
-  \bar "|."
-}
-
 pianoLHone = \relative {
   \global
   \voiceOne
@@ -207,6 +194,16 @@ pianoLHtwo = \relative {
 
 \book {
   \bookOutputSuffix "repeat"
+%  \paper {
+%    top-margin = 0
+%    left-margin = 7
+%    right-margin = 1
+%    paper-width = 190\mm
+%    paper-height = 2000\mm
+%    ragged-bottom = true
+%    system-system-spacing.basic-distance = #22
+%    system-separator-markup = \slashSeparator
+%  }
   \score {
 %   \unfoldRepeats
 %   \articulate
@@ -262,17 +259,15 @@ pianoLHtwo = \relative {
           >>
         >>
         \new PianoStaff <<
-          \new Staff <<
-            \new Voice \pianoRH
-            \new Voice \pianoRHone
-            \new Voice \pianoRHtwo
+          \new Staff \with { printPartCombineTexts = ##f }
+          <<
+            \new Voice \partCombine \pianoRHone \pianoRHtwo
           >>
           \new Dynamics \dynamicsPiano
-          \new Staff <<
+          \new Staff \with { printPartCombineTexts = ##f }
+          <<
             \clef "bass"
-            \new Voice \pianoLH
-            \new Voice \pianoLHone
-            \new Voice \pianoLHtwo
+            \new Voice \partCombine \pianoLHone \pianoLHtwo
           >>
         >>
       >>
