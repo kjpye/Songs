@@ -12,3 +12,8 @@ or: new Staff \with { printPartCombineTexts = ##f } ...
 
 \set ignoreMelismata = ##t
 \unset ignoreMelismata
+
+\new PianoStaff <<
+  \set PianoStaff.connectArpeggios = ##t
+
+\showStaffSwitch ... \hideStaffSwitch
