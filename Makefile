@@ -2,19 +2,7 @@
 	lilypond $<
 #	fluidsynth -T raw -F- -q /usr/share/sounds/sf2/FluidR3_GM.sf2 $*.midi | lame -r - $*.mp3
 #	fluidsynth -T raw -F- -q /usr/share/sounds/sf2/FluidR3_GM.sf2 $*-midi.midi | lame -r - $*.mp3
-	../miditomp3andkar $*-single
-	../miditomp3andkar $*-midi
-	../miditomp3andkar $*-midi-women
-	../miditomp3andkar $*-midi-men
-	../miditomp3andkar $*-midi-sop
-	../miditomp3andkar $*-midi-alto
-	../miditomp3andkar $*-midi-alto1
-	../miditomp3andkar $*-midi-alto2
-	../miditomp3andkar $*-midi-tenor
-	../miditomp3andkar $*-midi-tenor1
-	../miditomp3andkar $*-midi-tenor2
-	../miditomp3andkar $*-midi-bass
-	../miditomp3andkar $*-mp3
+	../miditomp3andkar $*
 
 clean:
 	rm -f *.pdf *.kar *.midi *.png *.mp3 *~
