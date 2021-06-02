@@ -106,6 +106,16 @@ wordsMidi = \lyricmode {
 nl = { \bar "||" \break }
 \book {
   \bookOutputSuffix "repeat"
+%  \paper {
+%    top-margin = 0
+%    left-margin = 7
+%    right-margin = 1
+%    paper-width = 190\mm
+%    paper-height = 2000\mm
+%    ragged-bottom = true
+%    system-system-spacing.basic-distance = #22
+%    system-separator-markup = \slashSeparator
+%  }
   \score {
 %    \unfoldRepeats
 %    \articulate
