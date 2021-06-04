@@ -50,6 +50,10 @@ RehearsalTrack = {
 
 TempoTrack = {
   \set Score.tempoHideNote = ##t
+  \tempo 4=120
+  s1*13
+  s2 \tempo 4-40 s4 \tempo 4=120 s2
+  s1(2
 }
 
 soprano = \relative {
