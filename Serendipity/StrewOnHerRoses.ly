@@ -725,8 +725,6 @@ wordsBassMidi = \lyricmode {
 \book {
   \bookOutputSuffix "repeat"
   \score {
-%   \unfoldRepeats
-%   \articulate
     <<
       <<
         \new ChoirStaff <<
@@ -779,6 +777,63 @@ wordsBassMidi = \lyricmode {
           <<
             \clef "bass"
             \new Voice \partCombine \tenor \bass
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "vocal-repeat"
+  \score {
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano" shortInstrumentName = #"S"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics \wordsSopOne
+            \addlyrics \wordsSopTwo
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto" shortInstrumentName = #"A"
+          }
+          <<
+            \new Voice \alto
+            \addlyrics \wordsAltoOne
+            \addlyrics \wordsAltoTwo
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor" shortInstrumentName = #"T"
+          }
+          <<
+            \clef "treble_8"
+            \new Voice = "tenor" \tenor
+            \addlyrics \wordsTenorOne
+            \addlyrics \wordsTenorTwo
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass" shortInstrumentName = #"B" }
+          <<
+            \clef "bass"
+            \new Voice = "bass" \bass
+            \addlyrics \wordsBassOne
+            \addlyrics \wordsBassTwo
           >>
         >>
       >>
@@ -858,6 +913,60 @@ wordsBassMidi = \lyricmode {
 }
 
 \book {
+  \bookOutputSuffix "vocal-single"
+  \score {
+    \unfoldRepeats
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano" shortInstrumentName = #"S"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice { \sopranoSingle \bar "|." }
+            \addlyrics \wordsSopSingle
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto" shortInstrumentName = #"A"
+          }
+          <<
+            \new Voice \altoSingle
+            \addlyrics \wordsAltoSingle
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor" shortInstrumentName = #"T"
+          }
+          <<
+            \clef "treble_8"
+            \new Voice = "tenor" \tenorSingle
+            \addlyrics \wordsTenorSingle
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass" shortInstrumentName = #"B" }
+          <<
+            \clef "bass"
+            \new Voice = "bass" \bassSingle
+            \addlyrics \wordsBassSingle
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
   \bookOutputSuffix "singlepage"
   \paper {
     top-margin = 0
@@ -919,6 +1028,69 @@ wordsBassMidi = \lyricmode {
           <<
             \clef "bass"
             \new Voice \partCombine \tenor \bass
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+  \bookOutputSuffix "vocal-singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    paper-height = 950\mm
+    ragged-bottom = true
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano" shortInstrumentName = #"S"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice { \sopranoSingle \bar "|." }
+            \addlyrics \wordsSopSingle
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto" shortInstrumentName = #"A"
+          }
+          <<
+            \new Voice \altoSingle
+            \addlyrics \wordsAltoSingle
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor" shortInstrumentName = #"T"
+          }
+          <<
+            \clef "treble_8"
+            \new Voice = "tenor" \tenorSingle
+            \addlyrics \wordsTenorSingle
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass" shortInstrumentName = #"B" }
+          <<
+            \clef "bass"
+            \new Voice = "bass" \bassSingle
+            \addlyrics \wordsBassSingle
           >>
         >>
       >>
