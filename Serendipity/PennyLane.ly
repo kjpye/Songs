@@ -1603,6 +1603,80 @@ pianoLH = \tripletFeel 8 \relative {
   \bookOutputSuffix "single"
   \score {
     \unfoldRepeats
+    <<
+      <<
+        \new ChordNames { \ChordTrack }
+        \new FretBoards { \ChordTrack }
+      >>
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice = "soprano" \sopranoSingle
+            \new Lyrics \lyricsto "soprano" \wordsSopSingle
+          >>
+                                % Single alto staff
+          \new Dynamics \dynamicsAlto
+          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \new Voice = "alto" \altoSingle
+            \new Lyrics \lyricsto "alto" \wordsAltoSingle
+          >>
+                                % Single tenor staff
+          \new Dynamics \dynamicsTenor
+          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \clef "treble_8"
+            \new Voice = "tenor" \tenorSingle
+            \new Lyrics \lyricsto "tenor" \wordsTenorSingle
+          >>
+                                % Single bass staff
+          \new Dynamics \dynamicsBass
+          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \clef "bass"
+            \new Voice = "bass" \bassSingle
+            \new Lyrics \lyricsto "bass" \wordsBassSingle
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+            \new Voice \pianoRH
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff <<
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+
+\book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    paper-height = 2000\mm
+    ragged-bottom = true
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
 %   \articulate
     <<
       <<
@@ -1670,49 +1744,37 @@ pianoLH = \tripletFeel 8 \relative {
 %   \articulate
     <<
       <<
-        \new ChordNames { \ChordTrack }
-        \new FretBoards { \ChordTrack }
+        \new ChordNames = guitar { \ChordTrack }
       >>
       <<
         \new ChoirStaff <<
                                 % Single soprano staff
-          \new Dynamics \dynamicsSop
-          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+          \new Staff = soprano <<
             \new Voice \TempoTrack
-            \new Voice \RehearsalTrack
-            \new Voice = "soprano" \sopranoSingle
-            \new Lyrics \lyricsto "soprano" \wordsSopMidi
+            \new Voice = "soprano" << \sopranoSingle \dynamicsSop >>
+            \addlyrics \wordsSopMidi
           >>
                                 % Single alto staff
-          \new Dynamics \dynamicsAlto
-          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
-            \new Voice = "alto" \altoSingle
-%            \new Lyrics \lyricsto "alto" \wordsAltoMidi
+          \new Staff = alto <<
+            \new Voice = "alto" << \altoSingle \dynamicsAlto >>
           >>
                                 % Single tenor staff
-          \new Dynamics \dynamicsTenor
-          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
-            \clef "treble_8"
-            \new Voice = "tenor" \tenorSingle
-%            \new Lyrics \lyricsto "tenor" \wordsTenorMidi
+          \new Staff  = tenor <<
+            \new Voice = "tenor" << \tenorSingle \dynamicsTenor >>
           >>
                                 % Single bass staff
           \new Dynamics \dynamicsBass
-          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+          \new Staff = bass <<
             \clef "bass"
-            \new Voice = "bass" \bassSingle
-%            \new Lyrics \lyricsto "bass" \wordsBassMidi
+            \new Voice = "bass" << \bassSingle \dynamicsBass >>
           >>
         >>
         \new PianoStaff <<
-          \new Staff <<
+          \new Staff = piano <<
             \new Voice \pianoRH
             \new Voice \pianoRHone
             \new Voice \pianoRHtwo
-          >>
           \new Dynamics \dynamicsPiano
-          \new Staff <<
-            \clef "bass"
             \new Voice \pianoLH
           >>
         >>
@@ -1729,49 +1791,37 @@ pianoLH = \tripletFeel 8 \relative {
 %   \articulate
     <<
       <<
-        \new ChordNames { \ChordTrack }
-        \new FretBoards { \ChordTrack }
+        \new ChordNames = guitar { \ChordTrack }
       >>
       <<
         \new ChoirStaff <<
                                 % Single soprano staff
-          \new Dynamics \dynamicsSop
-          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+          \new Staff = soprano <<
             \new Voice \TempoTrack
-            \new Voice \RehearsalTrack
-            \new Voice = "soprano" \sopranoSingle
-%            \new Lyrics \lyricsto "soprano" \wordsSopMidi
+            \new Voice = "soprano" << \sopranoSingle \dynamicsSop >>
           >>
                                 % Single alto staff
-          \new Dynamics \dynamicsAlto
-          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
-            \new Voice = "alto" \altoSingle
-            \new Lyrics \lyricsto "alto" \wordsAltoMidi
+          \new Staff = alto <<
+            \new Voice = "alto" << \altoSingle \dynamicsAlto >>
+            \addlyrics \wordsAltoMidi
           >>
                                 % Single tenor staff
-          \new Dynamics \dynamicsTenor
-          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
-            \clef "treble_8"
-            \new Voice = "tenor" \tenorSingle
-%            \new Lyrics \lyricsto "tenor" \wordsTenorMidi
+          \new Staff  = tenor <<
+            \new Voice = "tenor" << \tenorSingle \dynamicsTenor >>
           >>
                                 % Single bass staff
           \new Dynamics \dynamicsBass
-          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+          \new Staff = bass <<
             \clef "bass"
-            \new Voice = "bass" \bassSingle
-%            \new Lyrics \lyricsto "bass" \wordsBassMidi
+            \new Voice = "bass" << \bassSingle \dynamicsBass >>
           >>
         >>
         \new PianoStaff <<
-          \new Staff <<
+          \new Staff = piano <<
             \new Voice \pianoRH
             \new Voice \pianoRHone
             \new Voice \pianoRHtwo
-          >>
           \new Dynamics \dynamicsPiano
-          \new Staff <<
-            \clef "bass"
             \new Voice \pianoLH
           >>
         >>
@@ -1781,7 +1831,6 @@ pianoLH = \tripletFeel 8 \relative {
   }
 }
 
-
 \book {
   \bookOutputSuffix "midi-tenor"
   \score {
@@ -1789,49 +1838,37 @@ pianoLH = \tripletFeel 8 \relative {
 %   \articulate
     <<
       <<
-        \new ChordNames { \ChordTrack }
-        \new FretBoards { \ChordTrack }
+        \new ChordNames = guitar { \ChordTrack }
       >>
       <<
         \new ChoirStaff <<
                                 % Single soprano staff
-          \new Dynamics \dynamicsSop
-          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+          \new Staff = soprano <<
             \new Voice \TempoTrack
-            \new Voice \RehearsalTrack
-            \new Voice = "soprano" \sopranoSingle
-%            \new Lyrics \lyricsto "soprano" \wordsSopMidi
+            \new Voice = "soprano" << \sopranoSingle \dynamicsSop >>
           >>
                                 % Single alto staff
-          \new Dynamics \dynamicsAlto
-          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
-            \new Voice = "alto" \altoSingle
-%            \new Lyrics \lyricsto "alto" \wordsAltoMidi
+          \new Staff = alto <<
+            \new Voice = "alto" << \altoSingle \dynamicsAlto >>
           >>
                                 % Single tenor staff
-          \new Dynamics \dynamicsTenor
-          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
-            \clef "treble_8"
-            \new Voice = "tenor" \tenorSingle
-            \new Lyrics \lyricsto "tenor" \wordsTenorMidi
+          \new Staff  = tenor <<
+            \new Voice = "tenor" << \tenorSingle \dynamicsTenor >>
+            \addlyrics \wordsTenorMidi
           >>
                                 % Single bass staff
           \new Dynamics \dynamicsBass
-          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+          \new Staff = bass <<
             \clef "bass"
-            \new Voice = "bass" \bassSingle
-%            \new Lyrics \lyricsto "bass" \wordsBassMidi
+            \new Voice = "bass" << \bassSingle \dynamicsBass >>
           >>
         >>
         \new PianoStaff <<
-          \new Staff <<
+          \new Staff = piano <<
             \new Voice \pianoRH
             \new Voice \pianoRHone
             \new Voice \pianoRHtwo
-          >>
           \new Dynamics \dynamicsPiano
-          \new Staff <<
-            \clef "bass"
             \new Voice \pianoLH
           >>
         >>
@@ -1845,52 +1882,40 @@ pianoLH = \tripletFeel 8 \relative {
   \bookOutputSuffix "midi-bass"
   \score {
     \unfoldRepeats
- %   \articulate
+%   \articulate
     <<
       <<
-        \new ChordNames { \ChordTrack }
-        \new FretBoards { \ChordTrack }
+        \new ChordNames = guitar { \ChordTrack }
       >>
       <<
         \new ChoirStaff <<
                                 % Single soprano staff
-          \new Dynamics \dynamicsSop
-          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+          \new Staff = soprano <<
             \new Voice \TempoTrack
-            \new Voice \RehearsalTrack
-            \new Voice = "soprano" \sopranoSingle
-%            \new Lyrics \lyricsto "soprano" \wordsSopMidi
+            \new Voice = "soprano" << \sopranoSingle \dynamicsSop >>
           >>
                                 % Single alto staff
-          \new Dynamics \dynamicsAlto
-          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
-            \new Voice = "alto" \altoSingle
-%            \new Lyrics \lyricsto "alto" \wordsAltoMidi
+          \new Staff = alto <<
+            \new Voice = "alto" << \altoSingle \dynamicsAlto >>
           >>
                                 % Single tenor staff
-          \new Dynamics \dynamicsTenor
-          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
-            \clef "treble_8"
-            \new Voice = "tenor" \tenorSingle
-%            \new Lyrics \lyricsto "tenor" \wordsTenorMidi
+          \new Staff  = tenor <<
+            \new Voice = "tenor" << \tenorSingle \dynamicsTenor >>
           >>
                                 % Single bass staff
           \new Dynamics \dynamicsBass
-          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+          \new Staff = bass <<
             \clef "bass"
-            \new Voice = "bass" \bassSingle
-            \new Lyrics \lyricsto "bass" \wordsBassMidi
+            \new Voice = "bass" << \bassSingle \dynamicsBass >>
+            \addlyrics \wordsBassMidi
           >>
         >>
         \new PianoStaff <<
-          \new Staff <<
+          \new Staff = piano <<
             \new Voice \pianoRH
             \new Voice \pianoRHone
             \new Voice \pianoRHtwo
-          >>
           \new Dynamics \dynamicsPiano
-          \new Staff <<
-            \clef "bass"
             \new Voice \pianoLH
           >>
         >>
