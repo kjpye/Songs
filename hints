@@ -17,3 +17,9 @@ or: new Staff \with { printPartCombineTexts = ##f } ...
   \set PianoStaff.connectArpeggios = ##t
 
 \showStaffSwitch ... \hideStaffSwitch
+
+\set tieWaitForNote = ##t
+
+\new X = Y \with { alignAboveContext = Z } <music>
+
+\override Glissando.style = #'zigzag

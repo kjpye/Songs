@@ -1882,7 +1882,7 @@ pianoLH = \tripletFeel 8 \relative {
   \bookOutputSuffix "midi-bass"
   \score {
     \unfoldRepeats
-%   \articulate
+    \articulate
     <<
       <<
         \new ChordNames = guitar { \ChordTrack }

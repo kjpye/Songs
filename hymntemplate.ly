@@ -1,4 +1,4 @@
-\version "2.22.0"
+\version "2.22.1"
 
 \include "articulate.ly"
 
@@ -18,13 +18,13 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 %  meter   arranger
 %  piece       opus
 
-  composer    = "composer"
+  composer    = \markup\smallCaps "composer"
 %  arranger    = "arranger"
 %  opus        = "opus"
 
-  poet        = "poet"
-  meter       = "meter"
-  piece       = "piece"
+  poet        = \markup\smallCaps "poet"
+  meter       = \markup\smallCaps "meter"
+  piece       = \markup\smallCaps "piece"
 
 % centered at bottom
 % tagline     = "tagline" % default lilypond version
@@ -37,13 +37,11 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 global = {
   \key g \major
   \time 3/4
-  \tempo 4=120
   \partial 4
 }
 
 RehearsalTrack = {
 % \set Score.currentBarNumber = #5
-% \mark \markup { \circle "1a" }
   \mark \markup { \box "A" } s2.*6
   \mark \markup { \box "B" } s2.*5
   \mark \markup { \box "C" } s2.*5
@@ -51,27 +49,29 @@ RehearsalTrack = {
 
 TempoTrack = {
   \set Score.tempoHideNote = ##t
+  \tempo 4=120
 }
+
+nl = { \bar "||" \break }
 
 soprano = \relative {
-}
-
-dynamicsWomen = {
-  \override DynamicTextSpanner.style = #'none
+  \autoBeamOff
 }
 
 alto = \relative {
+  \autoBeamOff
 }
 
 tenor = \relative {
+  \autoBeamOff
 }
 
-dynamicsMen = {
-  \override DynamicTextSpanner.style = #'none
+bass = \relative {
+  \autoBeamOff
 }
 
-bass= \relative {
-}
+nom  = {   \set ignoreMelismata = ##t }
+yesm = { \unset ignoreMelismata       }
 
 chorus = \lyricmode {
 }
@@ -103,7 +103,6 @@ wordsSix = \lyricmode {
 wordsMidi = \lyricmode {
 }
   
-nl = { \bar "||" \break }
 \book {
   \bookOutputSuffix "repeat"
 %  \paper {
@@ -119,15 +118,8 @@ nl = { \bar "||" \break }
   \score {
 %    \unfoldRepeats
 %    \articulate
-    \context GrandStaff <<
-%      <<
-%        \new ChordNames { \ChordTrack }
-%        \new FretBoards { \ChordTrack }
-%      >>
-      <<
         \new ChoirStaff <<
                                   % Joint soprano/alto staff
-          \new Dynamics \dynamicsWomen
           \new Staff \with { printPartCombineTexts = ##f }
           <<
             \new Voice \RehearsalTrack
@@ -139,7 +131,7 @@ nl = { \bar "||" \break }
 %               \RehearsalTrack
 %               \RehearsalTrack
 %            }
-%            \new Voice \TempoTrack
+            \new Voice \TempoTrack
 %            \new Voice {
 %              \TempoTrack
 %              \TempoTrack
@@ -169,7 +161,6 @@ nl = { \bar "||" \break }
 %            \new Lyrics \lyricsto "aligner" \wordsMidi
           >>
                                   % Joint tenor/bass staff
-          \new Dynamics \dynamicsMen
           \new Staff \with { printPartCombineTexts = ##f }
           <<
             \clef "bass"
@@ -178,14 +169,12 @@ nl = { \bar "||" \break }
 %                                            { \global \bass \bass \bass \bass \bass \bass }
           >>
         >>
-      >>
-    >>
     \layout {
       indent = 1.5\cm
       \context {
         \Staff \RemoveAllEmptyStaves
       }
     }
-    \midi {}
+%    \midi {}
   }
 }
