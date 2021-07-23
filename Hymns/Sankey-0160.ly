@@ -41,6 +41,8 @@ RehearsalTrack = {
   \mark \markup { \box "B" } s2*17
   \mark \markup { \box "C" } s2*15 s4
   \mark \markup { \box "D" } s4 s2*16
+  \mark \markup { \box "E" } s2*16
+  \mark \markup { \box "F" } s2*15
 }
 
 TempoTrack = {
@@ -69,7 +71,15 @@ soprano = \relative {
   e'2 4(4) d2 b4(4) % D
   c2 gis \slurSolid b2(a)
   g2 f4. d8 c2 d4. e8
-  d1 c
+  d1 c \bar "||" \break
+  e2^\markup {\smallCaps Refrain. \italic "a tempo"} 4. 8 2 4. 8 % E
+  g1^> e
+  g2 4. 8 2 4. 8
+  c1^> g
+  c2^\markup\italic accel. f4. 8 e2 d4. 8 % F
+  c1~2 r
+  c2 b4. a8^\markup\italic Slower. g2 f4 e
+  d1 c2\fermata
 }
 
 sopranoSingle = \relative {
@@ -90,6 +100,14 @@ sopranoSingle = \relative {
   c2 gis b2(a)
   g2 f4. d8 c2 d4. e8
   d1 c
+  e2^\markup {\smallCaps Refrain. \italic "a tempo"} 4. 8 2 4. 8 % E
+  g1^> e
+  g2 4. 8 2 4. 8
+  c1^> g
+  c2^\markup\italic accel. f4. 8 e2 d4. 8 % F
+  c1~2 r
+  c2 b4. a8^\markup\italic Slower. g2 f4 e
+  d1 c2\fermata
 % verse 2
   \partial 2 g'2
   c2 c b e,
@@ -108,6 +126,14 @@ sopranoSingle = \relative {
   c2 gis b2(a)
   g2 f4. d8 c2 d4. e8
   d1 c
+  e2^\markup {\smallCaps Refrain. \italic "a tempo"} 4. 8 2 4. 8 % E
+  g1^> e
+  g2 4. 8 2 4. 8
+  c1^> g
+  c2^\markup\italic accel. f4. 8 e2 d4. 8 % F
+  c1~2 r
+  c2 b4. a8^\markup\italic Slower. g2 f4 e
+  d1 c2\fermata
 % verse 3
   \partial 2 g'2
   c2 c b e,
@@ -126,6 +152,14 @@ sopranoSingle = \relative {
   c2 gis \slurSolid b2(a)
   g2 f4. d8 c2 d4. e8
   d1 c
+  e2^\markup {\smallCaps Refrain. \italic "a tempo"} 4. 8 2 4. 8 % E
+  g1^> e
+  g2 4. 8 2 4. 8
+  c1^> g
+  c2^\markup\italic accel. f4. 8 e2 d4. 8 % F
+  c1~2 r
+  c2 b4. a8^\markup\italic Slower. g2 f4 e
+  d1 c2\fermata
 % verse 4
   \partial 2 g'2
   c2 c b e,
@@ -144,6 +178,14 @@ sopranoSingle = \relative {
   c2 gis \slurSolid b2(a)
   g2 f4. d8 c2 d4. e8
   d1 c
+  e2^\markup {\smallCaps Refrain. \italic "a tempo"} 4. 8 2 4. 8 % E
+  g1^> e
+  g2 4. 8 2 4. 8
+  c1^> g
+  c2^\markup\italic accel. f4. 8 e2 d4. 8 % F
+  c1~2 r
+  c2 b4. a8^\markup\italic Slower. g2 f4 e
+  d1 c2\fermata
 % verse 5
   \partial 2 g'2
   c2 c b e,
@@ -162,6 +204,14 @@ sopranoSingle = \relative {
   c2 gis b2(a)
   g2 f4. d8 c2 d4. e8
   d1 c
+  e2^\markup {\smallCaps Refrain. \italic "a tempo"} 4. 8 2 4. 8 % E
+  g1^> e
+  g2 4. 8 2 4. 8
+  c1^> g
+  c2^\markup\italic accel. f4. 8 e2 d4. 8 % F
+  c1~2 r
+  c2 b4. a8^\markup\italic Slower. g2 f4 e
+  d1 c2\fermata
 }
 
 alto = \relative {
@@ -183,6 +233,14 @@ alto = \relative {
   e2 d \slurSolid d(c)
   cis2 a4. 8 c2 b4. c8
   c2(b) g1
+  c2 4. 8 2 4. 8 % E
+  e1^> c
+  e2 4. 8 2 4. 8
+  e1^> e
+  e2 a4. 8 g2 f4. 8 % F
+  e2 <f a>4 q <e g>2(<d f>)
+  d2 f4. 8 c2 4 4
+  c2(b) g\fermata
 }
 
 altoSingle = \relative {
@@ -203,7 +261,15 @@ altoSingle = \relative {
   g2 2 2 f % D
   e2 d d(c)
   cis2 a4. 8 c2 b4. c8
-  c2(b) g1 \nl
+  c2(b) g1
+  c2 4. 8 2 4. 8 % E
+  e1^> c
+  e2 4. 8 2 4. 8
+  e1^> e
+  e2 a4. 8 g2 f4. 8 % F
+  e2 <f a>4 q <e g>2(<d f>)
+  d2 f4. 8 c2 4 4
+  c2(b) g\fermata \nl
 % verse 2
   g'2
   c2 2 b e,
@@ -221,7 +287,15 @@ altoSingle = \relative {
   g2 2 2 f % D
   e2 d d(c)
   cis2 a4. 8 c2 b4. c8
-  c2(b) g1 \nl
+  c2(b) g1
+  c2 4. 8 2 4. 8 % E
+  e1^> c
+  e2 4. 8 2 4. 8
+  e1^> e
+  e2 a4. 8 g2 f4. 8 % F
+  e2 <f a>4 q <e g>2(<d f>)
+  d2 f4. 8 c2 4 4
+  c2(b) g\fermata \nl
 % verse 3
   g'2
   c2 2 b e,
@@ -239,7 +313,15 @@ altoSingle = \relative {
   g2 4 4 2 f % D
   e2 d \slurSolid d(c)
   cis2 a4. 8 c2 b4. c8
-  c2(b) g1 \nl
+  c2(b) g1
+  c2 4. 8 2 4. 8 % E
+  e1^> c
+  e2 4. 8 2 4. 8
+  e1^> e
+  e2 a4. 8 g2 f4. 8 % F
+  e2 <f a>4 q <e g>2(<d f>)
+  d2 f4. 8 c2 4 4
+  c2(b) g\fermata \nl
 % verse 4
   g'2
   c2 2 b e,
@@ -257,7 +339,15 @@ altoSingle = \relative {
   g2 2 2 f % D
   e2 d \slurSolid d(c)
   cis2 a4. 8 c2 b4. c8
-  c2(b) g1 \nl
+  c2(b) g1
+  c2 4. 8 2 4. 8 % E
+  e1^> c
+  e2 4. 8 2 4. 8
+  e1^> e
+  e2 a4. 8 g2 f4. 8 % F
+  e2 <f a>4 q <e g>2(<d f>)
+  d2 f4. 8 c2 4 4
+  c2(b) g\fermata \nl
 % verse 5
   g'2
   c2 2 b e,
@@ -276,6 +366,14 @@ altoSingle = \relative {
   e2 d \slurSolid d(c)
   cis2 a4. 8 c2 b4. c8
   c2(b) g1
+  c2 4. 8 2 4. 8 % E
+  e1^> c
+  e2 4. 8 2 4. 8
+  e1^> e
+  e2 a4. 8 g2 f4. 8 % F
+  e2 <f a>4 q <e g>2(<d f>)
+  d2 f4. 8 c2 4 4
+  c2(b) g\fermata
 }
 
 tenor = \relative {
@@ -297,6 +395,14 @@ tenor = \relative {
   c2 b \slurSolid gis(a)
   a2 4. 8 g2 4. 8
   g2(f) e1
+  g2 4. 8 2 4. 8 % E
+  g1 1
+  g2 4. 8 2 4. 8
+  g1 1
+  c2 4. 8 2 4. 8 % F
+  c2 4 4 2~2
+  c2 d4. 8 g,2 a4 4
+  d,2(f) e\fermata
 }
 
 tenorSingle = \relative {
@@ -318,6 +424,14 @@ tenorSingle = \relative {
   c2 b gis(a)
   a2 4. 8 g2 4. 8
   g2(f) e1
+  g2 4. 8 2 4. 8 % E
+  g1 1
+  g2 4. 8 2 4. 8
+  g1 1
+  c2 4. 8 2 4. 8 % F
+  c2 4 4 2~2
+  c2 d4. 8 g,2 a4 4
+  d,2(f) e\fermata
 % verse 2
   g2
   c2 2 b e,
@@ -336,6 +450,14 @@ tenorSingle = \relative {
   c2 b gis(a)
   a2 4. 8 g2 4. 8
   g2(f) e1
+  g2 4. 8 2 4. 8 % E
+  g1 1
+  g2 4. 8 2 4. 8
+  g1 1
+  c2 4. 8 2 4. 8 % F
+  c2 4 4 2~2
+  c2 d4. 8 g,2 a4 4
+  d,2(f) e\fermata
 % verse3
   g2
   c2 2 b e,
@@ -354,6 +476,14 @@ tenorSingle = \relative {
   c2 b gis(a)
   a2 4. 8 g2 4. 8
   g2(f) e1
+  g2 4. 8 2 4. 8 % E
+  g1 1
+  g2 4. 8 2 4. 8
+  g1 1
+  c2 4. 8 2 4. 8 % F
+  c2 4 4 2~2
+  c2 d4. 8 g,2 a4 4
+  d,2(f) e\fermata
 % verse 4
   g2
   c2 2 b e,
@@ -372,6 +502,14 @@ tenorSingle = \relative {
   c2 b gis(a)
   a2 4. 8 g2 4. 8
   g2(f) e1
+  g2 4. 8 2 4. 8 % E
+  g1 1
+  g2 4. 8 2 4. 8
+  g1 1
+  c2 4. 8 2 4. 8 % F
+  c2 4 4 2~2
+  c2 d4. 8 g,2 a4 4
+  d,2(f) e\fermata
 % verse 5
   g2
   c2 2 b e,
@@ -390,6 +528,14 @@ tenorSingle = \relative {
   c2 b gis(a)
   a2 4. 8 g2 4. 8
   g2(f) e1
+  g2 4. 8 2 4. 8 % E
+  g1 1
+  g2 4. 8 2 4. 8
+  g1 1
+  c2 4. 8 2 4. 8 % F
+  c2 4 4 2~2
+  c2 d4. 8 g,2 a4 4
+  d,2(f) e\fermata
 }
 
 bass = \relative {
@@ -411,6 +557,14 @@ bass = \relative {
   a2 e f1
   e2 d4. f8 e2 d4. c8
   g1 c
+  c2 4. 8 2 4. 8 % E
+  c1 1
+  c2 4. 8 2 4. 8
+  c1 1
+  c1 1 % F
+  c1~1
+  a'2 d,4. 8 e2 f4 4
+  g,1 c2\fermata
 }
 
 bassSingle = \relative {
@@ -432,6 +586,14 @@ bassSingle = \relative {
   a2 e f1
   e2 d4. f8 e2 d4. c8
   g1 c
+  c2 4. 8 2 4. 8 % E
+  c1 1
+  c2 4. 8 2 4. 8
+  c1 1
+  c1 1 % F
+  c1~1
+  a'2 d,4. 8 e2 f4 4
+  g,1 c2\fermata
 % verse 2
   g'2
   c2 2 b e,
@@ -450,6 +612,14 @@ bassSingle = \relative {
   a2 e f1
   e2 d4. f8 e2 d4. c8
   g1 c
+  c2 4. 8 2 4. 8 % E
+  c1 1
+  c2 4. 8 2 4. 8
+  c1 1
+  c1 1 % F
+  c1~1
+  a'2 d,4. 8 e2 f4 4
+  g,1 c2\fermata
 % verse 3
   g'2
   c2 2 b e,
@@ -468,6 +638,14 @@ bassSingle = \relative {
   a2 e f1
   e2 d4. f8 e2 d4. c8
   g1 c
+  c2 4. 8 2 4. 8 % E
+  c1 1
+  c2 4. 8 2 4. 8
+  c1 1
+  c1 1 % F
+  c1~1
+  a'2 d,4. 8 e2 f4 4
+  g,1 c2\fermata
 % verse 4
   g'2
   c2 2 b e,
@@ -486,6 +664,14 @@ bassSingle = \relative {
   a2 e f1
   e2 d4. f8 e2 d4. c8
   g1 c
+  c2 4. 8 2 4. 8 % E
+  c1 1
+  c2 4. 8 2 4. 8
+  c1 1
+  c1 1 % F
+  c1~1
+  a'2 d,4. 8 e2 f4 4
+  g,1 c2\fermata
 % verse 5
   g'2
   c2 2 b e,
@@ -504,12 +690,45 @@ bassSingle = \relative {
   a2 e f1
   e2 d4. f8 e2 d4. c8
   g1 c
+  c2 4. 8 2 4. 8 % E
+  c1 1
+  c2 4. 8 2 4. 8
+  c1 1
+  c1 1 % F
+  c1~1
+  a'2 d,4. 8 e2 f4 4
+  g,1 c2\fermata
 }
 
 nom  = {   \set ignoreMelismata = ##t }
 yesm = { \unset ignoreMelismata       }
 
 chorus = \lyricmode {
+  What will it be when the King comes!
+  What will it be when the King comes!
+  What will it be when He comes!
+  What will it be when the King comes!
+}
+
+chorusAlto = \lyricmode {
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _
+  when He comes!
+  _ _ _ _ _ _ _ _
+}
+
+chorusBass = \lyricmode {
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  When He comes! __
+  "" _ _ _ _ _ _ _
 }
 
 wordsOne = \lyricmode {
@@ -582,6 +801,10 @@ wordsSingle = \lyricmode {
   When shall the King -- dom be res -- tored,
   And earth and heav'n, with one ac -- cord,
   Ring out the cry that the King comes?
+  What will it be when the King comes!
+  What will it be when the King comes!
+  What will it be when He comes!
+  What will it be when the King comes!
 
   \set stanza = "2."
   The floods have lift -- ed up their voice:
@@ -592,6 +815,10 @@ wordsSingle = \lyricmode {
   Now let the mar -- riage hymn out -- burst!
   And powers of dark -- ness flee, dis -- perst—
   What will it be when the King comes?
+  What will it be when the King comes!
+  What will it be when the King comes!
+  What will it be when He comes!
+  What will it be when the King comes!
 
   \set stanza = "3."
   A ran -- somed earth breaks forth in song,
@@ -602,6 +829,10 @@ wordsSingle = \lyricmode {
   Peace beams forth thro' -- out all the lands;
   The trees of the field shall clap their hands—
   What will it be when the King comes?
+  What will it be when the King comes!
+  What will it be when the King comes!
+  What will it be when He comes!
+  What will it be when the King comes!
 
   \set stanza = "4."
   Now Zi -- on's hill, with glo -- ry crowned,
@@ -612,6 +843,10 @@ wordsSingle = \lyricmode {
   Sing, for the Son of Da -- vid reigns!
   And liv -- ing streams o'er -- flow her plains—
   What will it be when the King comes?
+  What will it be when the King comes!
+  What will it be when the King comes!
+  What will it be when He comes!
+  What will it be when the King comes!
 
   \set stanza = "5."
   O bro -- thers, stand as men that wait,
@@ -622,9 +857,13 @@ wordsSingle = \lyricmode {
   Wor -- thy the Lamb that once was slain!
   We can suf -- fer now, He will know us then—
   What will it be when the King comes?
+  What will it be when the King comes!
+  What will it be when the King comes!
+  What will it be when He comes!
+  What will it be when the King comes!
 }
 
-wordsMidi = \lyricmode {
+wordsSopMidi = \lyricmode {
   \set stanza = "1."
   "They " "come " "and " "go, " "the " sea "sons " "fair, "
   "\nAnd " "bring " "their " "spoil " "to " "vale " "and " "hills; "
@@ -634,6 +873,10 @@ wordsMidi = \lyricmode {
   "\nWhen " "shall " "the " King "dom " "be " res "tored, "
   "\nAnd " "earth " "and " "heav'n, " "with " "one " ac "cord, "
   "\nRing " "out " "the " "cry " "that " "the " "King " "comes? "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhat " "will " "it " "be " "when " "He " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
 
   \set stanza = "2."
   "\nThe " "floods " "have " lift "ed " "up " "their " "voice: "
@@ -644,6 +887,10 @@ wordsMidi = \lyricmode {
   "\nNow " "let " "the " mar "riage " "hymn " out "burst! "
   "\nAnd " "powers " "of " dark "ness " "flee, " dis "perst— "
   "\nWhat " "will " "it " "be " "when " "the " "King " "comes? "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhat " "will " "it " "be " "when " "He " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
 
   \set stanza = "3."
   "\nA " ran "somed " "earth " "breaks " "forth " "in " "song, "
@@ -654,6 +901,10 @@ wordsMidi = \lyricmode {
   "\nPeace " "beams " "forth " thro' "out " "all " "the " "lands; "
   "\nThe " "trees " "of " "the " "field " "shall " "clap " "their " "hands— "
   "\nWhat " "will " "it " "be " "when " "the " "King " "comes? "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhat " "will " "it " "be " "when " "He " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
 
   \set stanza = "4."
   "\nNow " Zi "on's " "hill, " "with " glo "ry " "crowned, "
@@ -664,6 +915,10 @@ wordsMidi = \lyricmode {
   "\nSing, " "for " "the " "Son " "of " Da "vid " "reigns! "
   "\nAnd " liv "ing " "streams " o'er "flow " "her " "plains— "
   "\nWhat " "will " "it " "be " "when " "the " "King " "comes? "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhat " "will " "it " "be " "when " "He " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
 
   \set stanza = "5."
   "\nO " bro "thers, " "stand " "as " "men " "that " "wait, "
@@ -674,6 +929,159 @@ wordsMidi = \lyricmode {
   "\nWor" "thy " "the " "Lamb " "that " "once " "was " "slain! "
   "\nWe " "can " suf "fer " "now, " "He " "will " "know " "us " "then— "
   "\nWhat " "will " "it " "be " "when " "the " "King " "comes? "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhat " "will " "it " "be " "when " "He " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+}
+
+wordsAltoMidi = \lyricmode {
+  \set stanza = "1."
+  "They " "come " "and " "go, " "the " sea "sons " "fair, "
+  "\nAnd " "bring " "their " "spoil " "to " "vale " "and " "hills; "
+  "\nBut " "oh, " "there " "is " wait "ing " "in " "the " "air, "
+  "\nAnd " "a " pas sion "ate " "hope " "the " spi "rit " "fills. "
+  "\nWhy " "doth " "He " tar "ry, " "the " ab "sent " "Lord? "
+  "\nWhen " "shall " "the " King "dom " "be " res "tored, "
+  "\nAnd " "earth " "and " "heav'n, " "with " "one " ac "cord, "
+  "\nRing " "out " "the " "cry " "that " "the " "King " "comes? "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhat " "will " "it " "be " "when " "He " "comes! "
+  "\nWhen " "He " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+
+  \set stanza = "2."
+  "\nThe " "floods " "have " lift "ed " "up " "their " "voice: "
+  "\nThe " "King " "hath " "come " "to " "His " "own— " "His " "own! "
+  "\nThe " lit "tle " "hills " "and " "vales " re "joice, "
+  "\nHis " "right " "it " "is " "to " "take " "the " "crown. "
+  "\nSleep" "ers, " a "wake, " "and " "meet " "Him " "first! "
+  "\nNow " "let " "the " mar "riage " "hymn " out "burst! "
+  "\nAnd " "powers " "of " dark "ness " "flee, " dis "perst— "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes? "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhat " "will " "it " "be " "when " "He " "comes! "
+  "\nWhen " "He " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+
+  \set stanza = "3."
+  "\nA " ran "somed " "earth " "breaks " "forth " "in " "song, "
+  "\nHer " sin- "stained " a "ges " o ver "past; "
+  "\nHer " yearn "ing, " "\"Lord, " "how " "long, " "how " "long?\" "
+  "\nEx" "changed " "for " "joy " "at " "last— " "at " "last! "
+  "\nAn" "gels " car "ry " "the " "royal " com "mands; "
+  "\nPeace " "beams " "forth " thro' "out " "all " "the " "lands; "
+  "\nThe " "trees " "of " "the " "field " "shall " "clap " "their " "hands— "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes? "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhat " "will " "it " "be " "when " "He " "comes! "
+  "\nWhen " "He " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+
+  \set stanza = "4."
+  "\nNow " Zi "on's " "hill, " "with " glo "ry " "crowned, "
+  "\nUp" "lifts " "her " "head " "with " "joy " "once " "more; "
+  "\nAnd " Zi "on's " "King, " "once " "scorned, " dis "owned, "
+  "\nEx" "tends " "her " "rule " "from " "shore " "to " "shore. "
+  "\nSing, " "for " "the " "land " "her " "Lord " re "gains! "
+  "\nSing, " "for " "the " "Son " "of " Da "vid " "reigns! "
+  "\nAnd " liv "ing " "streams " o'er "flow " "her " "plains— "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes? "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhat " "will " "it " "be " "when " "He " "comes! "
+  "\nWhen " "He " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+
+  \set stanza = "5."
+  "\nO " bro "thers, " "stand " "as " "men " "that " "wait, "
+  "\nThe " "dawn " "is " pur "pling " "in " "the " "east, "
+  "\nAnd " ban "ners " "wave " "from " "heav'n's " "high " "gate; "
+  "\nThe " con "flict " "now— " "but " "soon " "the " "feast. "
+  "\nMer" "cy " "and " "truth " "shall " "meet " a "gain; "
+  "\nWor" "thy " "the " "Lamb " "that " "once " "was " "slain! "
+  "\nWe " "can " suf "fer " "now, " "He " "will " "know " "us " "then— "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes? "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhat " "will " "it " "be " "when " "He " "comes! "
+  "\nWhen " "He " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+}
+
+wordsBassMidi = \lyricmode {
+  \set stanza = "1."
+  "They " "come " "and " "go, " "the " sea "sons " "fair, "
+  "\nAnd " "bring " "their " "spoil " "to " "vale " "and " "hills; "
+  "\nBut " "oh, " "there " "is " wait "ing " "in " "the " "air, "
+  "\nAnd " "a " pas sion "ate " "hope " "the " spi "rit " "fills. "
+  "\nWhy " "doth " "He " tar "ry, " "the " ab "sent " "Lord? "
+  "\nWhen " "shall " "the " King "dom " "be " res "tored, "
+  "\nAnd " "earth " "and " "heav'n, " "with " "one " ac "cord, "
+  "\nRing " "out " "the " "cry " "that " "the " "King " "comes? "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhen " "He " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+
+  \set stanza = "2."
+  "\nThe " "floods " "have " lift "ed " "up " "their " "voice: "
+  "\nThe " "King " "hath " "come " "to " "His " "own— " "His " "own! "
+  "\nThe " lit "tle " "hills " "and " "vales " re "joice, "
+  "\nHis " "right " "it " "is " "to " "take " "the " "crown. "
+  "\nSleep" "ers, " a "wake, " "and " "meet " "Him " "first! "
+  "\nNow " "let " "the " mar "riage " "hymn " out "burst! "
+  "\nAnd " "powers " "of " dark "ness " "flee, " dis "perst— "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes? "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhen " "He " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+
+  \set stanza = "3."
+  "\nA " ran "somed " "earth " "breaks " "forth " "in " "song, "
+  "\nHer " sin- "stained " a "ges " o ver "past; "
+  "\nHer " yearn "ing, " "\"Lord, " "how " "long, " "how " "long?\" "
+  "\nEx" "changed " "for " "joy " "at " "last— " "at " "last! "
+  "\nAn" "gels " car "ry " "the " "royal " com "mands; "
+  "\nPeace " "beams " "forth " thro' "out " "all " "the " "lands; "
+  "\nThe " "trees " "of " "the " "field " "shall " "clap " "their " "hands— "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes? "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhen " "He " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+
+  \set stanza = "4."
+  "\nNow " Zi "on's " "hill, " "with " glo "ry " "crowned, "
+  "\nUp" "lifts " "her " "head " "with " "joy " "once " "more; "
+  "\nAnd " Zi "on's " "King, " "once " "scorned, " dis "owned, "
+  "\nEx" "tends " "her " "rule " "from " "shore " "to " "shore. "
+  "\nSing, " "for " "the " "land " "her " "Lord " re "gains! "
+  "\nSing, " "for " "the " "Son " "of " Da "vid " "reigns! "
+  "\nAnd " liv "ing " "streams " o'er "flow " "her " "plains— "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes? "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhen " "He " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+
+  \set stanza = "5."
+  "\nO " bro "thers, " "stand " "as " "men " "that " "wait, "
+  "\nThe " "dawn " "is " pur "pling " "in " "the " "east, "
+  "\nAnd " ban "ners " "wave " "from " "heav'n's " "high " "gate; "
+  "\nThe " con "flict " "now— " "but " "soon " "the " "feast. "
+  "\nMer" "cy " "and " "truth " "shall " "meet " a "gain; "
+  "\nWor" "thy " "the " "Lamb " "that " "once " "was " "slain! "
+  "\nWe " "can " suf "fer " "now, " "He " "will " "know " "us " "then— "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes? "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
+  "\nWhen " "He " "comes! "
+  "\nWhat " "will " "it " "be " "when " "the " "King " "comes! "
 }
 
 \book {
@@ -692,12 +1100,16 @@ wordsMidi = \lyricmode {
             \new Lyrics \lyricsto "aligner"   \wordsThree
             \new Lyrics \lyricsto "aligner"   \wordsFour
             \new Lyrics \lyricsto "aligner"   \wordsFive
+            \new NullVoice \alto
+            \addlyrics \chorusAlto
           >>
                                   % Joint tenor/bass staff
           \new Staff \with { printPartCombineTexts = ##f }
           <<
             \clef "bass"
             \new Voice = "men" \partCombine { \global \tenor } { \global \bass }
+            \new NullVoice \bass
+            \addlyrics \chorusBass
           >>
         >>
     \layout {
@@ -734,6 +1146,8 @@ wordsMidi = \lyricmode {
             \new Voice = "women" \partCombine { \global \sopranoSingle \bar "|." }
                                                { \global \altoSingle }
             \new Lyrics \lyricsto "aligner" \wordsSingle
+            \new NullVoice {\repeat unfold 5 \alto}
+            \addlyrics {\repeat unfold 5 \chorusAlto}
           >>
                                   % Joint tenor/bass staff
           \new Staff \with { printPartCombineTexts = ##f }
@@ -741,6 +1155,8 @@ wordsMidi = \lyricmode {
             \clef "bass"
             \new Voice = "men" \partCombine { \global \tenorSingle }
                                             { \global \bassSingle }
+            \new NullVoice {\repeat unfold 5 \bass}
+            \addlyrics {\repeat unfold 5 \chorusBass}
           >>
         >>
     \layout {
@@ -788,6 +1204,8 @@ wordsMidi = \lyricmode {
             \new Voice = "women" \partCombine { \global \sopranoSingle \bar "|." }
                                                { \global \altoSingle }
             \new Lyrics \lyricsto "aligner" \wordsSingle
+            \new NullVoice {\repeat unfold 5 \alto}
+            \addlyrics { \repeat unfold 5 \chorusAlto }
           >>
                                   % Joint tenor/bass staff
           \new Staff \with { printPartCombineTexts = ##f }
@@ -795,6 +1213,8 @@ wordsMidi = \lyricmode {
             \clef "bass"
             \new Voice = "men" \partCombine { \global \tenorSingle }
                                             { \global \bassSingle }
+            \new NullVoice {\repeat unfold 5 \bass}
+            \addlyrics { \repeat unfold 5 \chorusBass }
           >>
         >>
     \layout {
@@ -807,7 +1227,7 @@ wordsMidi = \lyricmode {
 }
 
 \book {
-  \bookOutputSuffix "midi"
+  \bookOutputSuffix "midi-sop"
   \score {
 %    \articulate
         \new ChoirStaff <<
@@ -822,7 +1242,7 @@ wordsMidi = \lyricmode {
               \TempoTrack
             }
             \new Voice { \global \sopranoSingle \bar "|." }
-            \addlyrics \wordsMidi
+            \addlyrics \wordsSopMidi
           >>
                                   % Alto staff
           \new Staff = alto
@@ -840,6 +1260,86 @@ wordsMidi = \lyricmode {
           <<
             \clef "bass"
             \new Voice { \global \bassSingle }
+          >>
+        >>
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-altotenor"
+  \score {
+%    \articulate
+        \new ChoirStaff <<
+                                  % Soprano staff
+          \new Staff = soprano
+          <<
+            \new Voice {
+              \TempoTrack
+              \TempoTrack
+              \TempoTrack
+              \TempoTrack
+              \TempoTrack
+            }
+            \new Voice { \global \sopranoSingle \bar "|." }
+          >>
+                                  % Alto staff
+          \new Staff = alto
+          <<
+            \new Voice { \global \altoSingle }
+            \addlyrics \wordsAltoMidi
+          >>
+                                  % Tenor staff
+          \new Staff = tenor
+          <<
+            \clef "treble_8"
+            \new Voice { \global \tenorSingle }
+          >>
+                                  % Bass staff
+          \new Staff = bass
+          <<
+            \clef "bass"
+            \new Voice { \global \bassSingle }
+          >>
+        >>
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-bass"
+  \score {
+%    \articulate
+        \new ChoirStaff <<
+                                  % Soprano staff
+          \new Staff = soprano
+          <<
+            \new Voice {
+              \TempoTrack
+              \TempoTrack
+              \TempoTrack
+              \TempoTrack
+              \TempoTrack
+            }
+            \new Voice { \global \sopranoSingle \bar "|." }
+          >>
+                                  % Alto staff
+          \new Staff = alto
+          <<
+            \new Voice { \global \altoSingle }
+          >>
+                                  % Tenor staff
+          \new Staff = tenor
+          <<
+            \clef "treble_8"
+            \new Voice { \global \tenorSingle }
+          >>
+                                  % Bass staff
+          \new Staff = bass
+          <<
+            \clef "bass"
+            \new Voice { \global \bassSingle }
+            \addlyrics \wordsBassMidi
           >>
         >>
     \midi {}
