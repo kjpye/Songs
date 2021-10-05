@@ -76,7 +76,7 @@ yesm = { \unset ignoreMelismata       }
 chorus = \lyricmode {
 }
 
-verses - 6
+verses = 6
 
 wordsOne = \lyricmode {
   \set stanza = "1."
