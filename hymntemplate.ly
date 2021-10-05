@@ -76,6 +76,8 @@ yesm = { \unset ignoreMelismata       }
 chorus = \lyricmode {
 }
 
+verses - 6
+
 wordsOne = \lyricmode {
   \set stanza = "1."
 }
@@ -102,7 +104,7 @@ wordsSix = \lyricmode {
   
 wordsMidi = \lyricmode {
 }
-  
+
 \book {
   \bookOutputSuffix "repeat"
 %  \paper {
@@ -123,28 +125,14 @@ wordsMidi = \lyricmode {
           \new Staff \with { printPartCombineTexts = ##f }
           <<
             \new Voice \RehearsalTrack
-%            \new Voice {
-%               \RehearsalTrack
-%               \RehearsalTrack
-%               \RehearsalTrack
-%               \RehearsalTrack
-%               \RehearsalTrack
-%               \RehearsalTrack
-%            }
+%            \new Voice { \repeat unfold \verses \RehearsalTrack }
             \new Voice \TempoTrack
-%            \new Voice {
-%              \TempoTrack
-%              \TempoTrack
-%              \TempoTrack
-%              \TempoTrack
-%              \TempoTrack
-%              \TempoTrack
-%            }
+%            \new Voice { \repeat unfold \verses \TempoTrack }
             \new NullVoice = "aligner" \soprano
-%            \new NullVoice = "aligner" { \soprano \soprano \soprano \soprano \soprano \soprano }
+%            \new NullVoice = "aligner" { \repeat unfold \verses \soprano }
             \new Voice = "women" \partCombine { \global \soprano \bar "|." } { \global \alto }
-%            \new Voice = "women" \partCombine { \global \soprano \soprano \soprano \soprano \soprano \soprano \bar "|." }
-%                                               { \global \alto \nl \alto \nl \alto \nl \alto \nl \alto \nl \alto }
+%            \new Voice = "women" \partCombine { \global \repeat unfold \verses \soprano \bar "|." }
+%                                               { \global \repeat unfold \verses { \alto \nl } \bar "|." }
             \new Lyrics \lyricsto "aligner" { \wordsOne \chorus }
             \new Lyrics \lyricsto "aligner"   \wordsTwo
             \new Lyrics \lyricsto "aligner"   \wordsThree
@@ -165,8 +153,8 @@ wordsMidi = \lyricmode {
           <<
             \clef "bass"
             \new Voice = "men" \partCombine { \global \tenor } { \global \bass }
-%            \new Voice = "men" \partCombine { \global \tenor \tenor \tenor \tenor \tenor \tenor }
-%                                            { \global \bass \bass \bass \bass \bass \bass }
+%            \new Voice = "men" \partCombine { \global \repeat unfold \verses \tenor }
+%                                            { \global \repeat unfold \verses \bass }
           >>
         >>
     \layout {
