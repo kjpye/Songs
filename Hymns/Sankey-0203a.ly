@@ -157,7 +157,7 @@ wordsFour = \lyricmode {
   
 wordsFive = \lyricmode {
   \set stanza = "5."
-  Let ev -- 'ru kin -- dred, ev -- 'ry tribe,
+  Let ev -- 'ry kin -- dred, ev -- 'ry tribe,
   On this ter -- rest -- rial ball,
   To Him all ma -- jes -- ty a -- scribe,
   And crown Him, crown Him, crown Him, crown Him Lord of all!
