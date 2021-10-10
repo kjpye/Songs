@@ -155,7 +155,6 @@ wordsMidi = \lyricmode {
 %  }
   \score {
 %    \unfoldRepeats
-%    \articulate
         \new ChoirStaff <<
                                   % Joint soprano/alto staff
           \new Staff \with { printPartCombineTexts = ##f }
