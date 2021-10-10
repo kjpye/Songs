@@ -106,6 +106,42 @@ wordsMidi = \lyricmode {
 }
 
 \book {
+  \bookOutputSuffix "midi"
+  \score {
+%    \articulate
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano
+          <<
+            \new Voice { \repeat unfold \verses \RehearsalTrack }
+            \new Voice { \repeat unfold \verses \TempoTrack     }
+            \new Voice { \global \repeat unfold \verses \soprano \bar "|." }
+            \addlyrics \wordsMidi
+          >>
+                                % Alto staff
+          \new Staff = alto
+          <<
+            \new Voice { \global \repeat unfold \verses { \alto \nl } \bar "|." }
+          >>
+                                % Tenor staff
+          \new Staff = tenor
+          <<
+            \clef "treble_8"
+            \new Voice { \global \repeat unfold \verses \tenor }
+          >>
+                                % Bass staff
+          \new Staff = bass
+          <<
+            \clef "bass"
+            \new Voice { \global \repeat unfold \verses \bass }
+          >>
+        >>
+    \layout { }
+%    \midi {}
+  }
+}
+
+\book {
   \bookOutputSuffix "repeat"
 %  \paper {
 %    top-margin = 0
@@ -146,7 +182,6 @@ wordsMidi = \lyricmode {
 %                                              \wordsFive  \chorus
 %                                              \wordsSix   \chorus
 %                                            }
-%            \new Lyrics \lyricsto "aligner" \wordsMidi
           >>
                                   % Joint tenor/bass staff
           \new Staff \with { printPartCombineTexts = ##f }
@@ -163,6 +198,5 @@ wordsMidi = \lyricmode {
         \Staff \RemoveAllEmptyStaves
       }
     }
-%    \midi {}
   }
 }
