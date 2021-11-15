@@ -143,52 +143,110 @@ wordsMidi = \lyricmode {
 
 \book {
   \bookOutputSuffix "repeat"
-%  \paper {
-%    top-margin = 0
-%    left-margin = 7
-%    right-margin = 1
-%    paper-width = 190\mm
-%    paper-height = 2000\mm
-%    ragged-bottom = true
-%    system-system-spacing.basic-distance = #22
-%    system-separator-markup = \slashSeparator
-%  }
   \score {
-%    \unfoldRepeats
         \new ChoirStaff <<
                                   % Joint soprano/alto staff
           \new Staff \with { printPartCombineTexts = ##f }
           <<
             \new Voice \RehearsalTrack
-%            \new Voice { \repeat unfold \verses \RehearsalTrack }
             \new Voice \TempoTrack
-%            \new Voice { \repeat unfold \verses \TempoTrack }
             \new NullVoice = "aligner" \soprano
-%            \new NullVoice = "aligner" { \repeat unfold \verses \soprano }
             \new Voice = "women" \partCombine { \global \soprano \bar "|." } { \global \alto }
-%            \new Voice = "women" \partCombine { \global \repeat unfold \verses \soprano \bar "|." }
-%                                               { \global \repeat unfold \verses { \alto \nl } \bar "|." }
             \new Lyrics \lyricsto "aligner" { \wordsOne \chorus }
             \new Lyrics \lyricsto "aligner"   \wordsTwo
             \new Lyrics \lyricsto "aligner"   \wordsThree
             \new Lyrics \lyricsto "aligner"   \wordsFour
             \new Lyrics \lyricsto "aligner"   \wordsFive
             \new Lyrics \lyricsto "aligner"   \wordsSix
-%            \new Lyrics \lyricsto "aligner" { \wordsOne   \chorus
-%                                              \wordsTwo   \chorus
-%                                              \wordsThree \chorus
-%                                              \wordsFour  \chorus
-%                                              \wordsFive  \chorus
-%                                              \wordsSix   \chorus
-%                                            }
           >>
                                   % Joint tenor/bass staff
           \new Staff \with { printPartCombineTexts = ##f }
           <<
             \clef "bass"
             \new Voice = "men" \partCombine { \global \tenor } { \global \bass }
-%            \new Voice = "men" \partCombine { \global \repeat unfold \verses \tenor }
-%                                            { \global \repeat unfold \verses \bass }
+          >>
+        >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "single"
+  \score {
+        \new ChoirStaff <<
+                                  % Joint soprano/alto staff
+          \new Staff \with { printPartCombineTexts = ##f }
+          <<
+            \new Voice { \repeat unfold \verses \RehearsalTrack }
+            \new Voice { \repeat unfold \verses \TempoTrack }
+            \new NullVoice = "aligner" { \repeat unfold \verses \soprano }
+            \new Voice = "women" \partCombine { \global \repeat unfold \verses \soprano \bar "|." }
+                                               { \global \repeat unfold \verses { \alto \nl } \bar "|." }
+            \new Lyrics \lyricsto "aligner" { \wordsOne   \chorus
+                                              \wordsTwo   \chorus
+                                              \wordsThree \chorus
+                                              \wordsFour  \chorus
+                                              \wordsFive  \chorus
+                                              \wordsSix   \chorus
+                                            }
+          >>
+                                  % Joint tenor/bass staff
+          \new Staff \with { printPartCombineTexts = ##f }
+          <<
+            \clef "bass"
+            \new Voice = "men" \partCombine { \global \repeat unfold \verses \tenor }
+                                            { \global \repeat unfold \verses \bass }
+          >>
+        >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+        \new ChoirStaff <<
+                                  % Joint soprano/alto staff
+          \new Staff \with { printPartCombineTexts = ##f }
+          <<
+            \new Voice { \repeat unfold \verses \RehearsalTrack }
+            \new Voice { \repeat unfold \verses \TempoTrack }
+            \new NullVoice = "aligner" { \repeat unfold \verses \soprano }
+            \new Voice = "women" \partCombine { \global \repeat unfold \verses \soprano \bar "|." }
+                                               { \global \repeat unfold \verses { \alto \nl } \bar "|." }
+            \new Lyrics \lyricsto "aligner" { \wordsOne   \chorus
+                                              \wordsTwo   \chorus
+                                              \wordsThree \chorus
+                                              \wordsFour  \chorus
+                                              \wordsFive  \chorus
+                                              \wordsSix   \chorus
+                                            }
+          >>
+                                  % Joint tenor/bass staff
+          \new Staff \with { printPartCombineTexts = ##f }
+          <<
+            \clef "bass"
+            \new Voice = "men" \partCombine { \global \repeat unfold \verses \tenor }
+                                            { \global \repeat unfold \verses \bass }
           >>
         >>
     \layout {
