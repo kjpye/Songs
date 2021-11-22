@@ -1,5 +1,15 @@
 \version "2.22.0"
 
+% Update usetags below to indicate which songs you want in this version.
+% Choices are"
+% A: Georgy Girl
+% B: Morning Town Ride
+% C:
+% D:
+% E: I'll Never Find Another You
+
+usetags = #'(A B E)
+
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
 
@@ -64,6 +74,11 @@ globalD = {
   \partial 4
 }
 
+globalE = {
+  \key ees \major
+  \time 4/4
+}
+
 tempoTrackA = {
   \tempo Brightly 4=144
   s1*48
@@ -96,11 +111,24 @@ tempoTrackD = {
   \bar "|."
 }
 
+tempoTrackE = {
+  \tempo Moderately 4=114
+  s1*4
+  \set Score.tempoHideNote = ##t
+  \repeat volta 2 {
+    s1*14
+  }
+  \alternative {{s1*2}{s1}}
+  s1*24
+  s2 \tempo 4=40 s4 \tempo 4=120 s4
+}
+
 tempoTrack = {
-  \tempoTrackA
-  \tempoTrackB
-  \tempoTrackC
-  \tempoTrackD
+  \keepWithTag #usetags \tag #'A  \tempoTrackA
+  \keepWithTag #usetags \tag #'B  \tempoTrackB
+  \keepWithTag #usetags \tag #'C  \tempoTrackC
+  \keepWithTag #usetags \tag #'D  \tempoTrackD
+  \keepWithTag #usetags \tag #'E  \tempoTrackE
 }
 
 rehearsalTrackA = {
@@ -168,11 +196,36 @@ rehearsalTrackD = {
   \mark \markup { \box "17c" } s1*5
 }
 
+rehearsalTrackE = {
+  \mark \markup { \box "1a" } s1*3
+  \mark \markup { \box "1b" } s1
+  \repeat volta 2 {
+    s1*2
+    \mark \markup { \box "1c" } s1*4
+    \mark \markup { \box "1d" } s1*4
+    \mark \markup { \box "2a" } s1*4
+  }
+  \alternative {
+    {
+      \mark \markup { \box "2b" } s1*2
+    }
+    { s1 }
+  }
+  s1
+  \mark \markup { \box "2c" } s1*4
+  \mark \markup { \box "2d" } s1*4
+  \mark \markup { \box "3a" } s1*4
+  \mark \markup { \box "3b" } s1*4
+  \mark \markup { \box "3c" } s1*4
+  \mark \markup { \box "3d" } s1*4
+}
+
 rehearsalTrack = {
-  \rehearsalTrackA
-  \rehearsalTrackB
-  \rehearsalTrackC
-  \rehearsalTrackD
+  \keepWithTag #usetags \tag #'A \rehearsalTrackA
+  \keepWithTag #usetags \tag #'B \rehearsalTrackB
+  \keepWithTag #usetags \tag #'C \rehearsalTrackC
+  \keepWithTag #usetags \tag #'D \rehearsalTrackD
+  \keepWithTag #usetags \tag #'E \rehearsalTrackE
 }
 
 chordTrackA = \chordmode {
@@ -370,11 +423,117 @@ chordTrackD = \chordmode {
   d2. a4:7 d1
 }
 
+chordTrackE = \chordmode {
+  ees1 bes ees % 1a
+  bes1 % 1b
+  \repeat volta 2 {
+    ees1 aes
+    f1:7 bes:7 ees g:m % 1c
+    aes1 bes c:m aes % 1d
+    bes2 aes | g2:m aes4 aes:dim | ees2/bes aes/c | aes2:6 bes % 2a
+  }
+  \alternative {{ees2 aes | ees1}{ees2 aes}}
+  ees2. bes4/d
+  c1:m aes ees2/bes bes ees2. bes4/d % 2c
+  c1:m bes2 aes ees1 bes:7 % 2d
+  ees1 aes f:7 bes:7 % 3a
+  ees1 g:m aes bes % 3b
+  c1:m aes bes2 aes g2:m aes4 aes:dim % 3c
+  ees2/bes aes/c aes:6 bes:7 ees aes ees1 % 3d
+}
+
+
 chordTrack = {
-  \chordTrackA
-  \chordTrackB
-  \chordTrackC
-  \chordTrackD
+  \keepWithTag #usetags \tag #'A \chordTrackA
+  \keepWithTag #usetags \tag #'B \chordTrackB
+  \keepWithTag #usetags \tag #'C \chordTrackC
+  \keepWithTag #usetags \tag #'D \chordTrackD
+  \keepWithTag #usetags \tag #'E \chordTrackE
+}
+
+melodyA = {
+  s1*48
+}
+
+melodyB = {
+  s1*41
+}
+
+melodyC = {
+  c'1
+  s1*53
+}
+
+melodyD = {
+  d'1
+  s1*39
+}
+
+melodyE = \relative {
+  \globalE
+  \break
+  R1^\markup "Words and Music by Tom Springfield" ^\markup\bold "I'll Never Find Another You"
+  R1
+  R1
+  r2 ees'4^\markup\smallCaps Tutti f % 1b
+  \repeat volta 2 {
+    g2 2
+    bes4 aes2 g4
+    f4. c8 f ees4 d8~ % 1c
+    d2 ees4 f
+    g2 bes
+    c4 bes2 4
+    c4. bes8 aes c4 bes8~ % 1d
+    bes2 c4 d
+    ees4. 8 8 4 f8~
+    f4 ees2 4
+    d4 4 c8 4. % 2a
+    bes2 ees,4 f
+    g4. bes8 aes g4 f8~
+    f4. ees8 d f4 ees8~
+  }
+  \alternative {
+    {
+      ees1~ % 2b
+      ees2 4 f
+    }
+    {
+      ees1\repeatTie ~
+    }
+  }
+  ees4 r g bes
+  ees2 2 % 2c
+  d4 c2 4
+  bes2 aes4. 8
+  g2 4 bes
+  ees2 4. 8 % 2d
+  d4 4 c c
+  bes1~
+  bes2 4 aes
+  g2 4. 8 % 3a
+  bes4 aes2 g4
+  f4. c8 f ees4 d8~
+  d2 ees4 f
+  g4. bes8 4 ees % 3b
+  c4 bes2 4
+  c4. bes8 aes c4 bes8~
+  bes2 c4 d
+  ees4. 8 8 4 f8~ % 3c
+  f4 ees2 4
+  d4 4 c8 4.
+  bes2 ees,4 f
+  g4. bes8 aes g4 f8~ % 3d
+  f4. ees8 d f4 ees8~
+  ees1~
+  ees2.\fermata r4
+}
+
+melody = {
+  \keepWithTag #usetags \tag #'A \melodyA
+  \keepWithTag #usetags \tag #'B \melodyB
+  \keepWithTag #usetags \tag #'C \melodyC
+  \keepWithTag #usetags \tag #'D \melodyD
+  \keepWithTag #usetags \tag #'E \melodyE
 }
 
 soloSopA = \relative {
@@ -388,8 +547,17 @@ soloSopA = \relative {
   d4. e8~2)
 }
 
+soloSopB = {}
+soloSopC = {}
+soloSopD = {}
+soloSopE = {}
+
 soloSop = {
-  \soloSopA
+  \keepWithTag #usetags \tag #'A \soloSopA
+  \keepWithTag #usetags \tag #'B \soloSopB
+  \keepWithTag #usetags \tag #'C \soloSopC
+  \keepWithTag #usetags \tag #'D \soloSopD
+  \keepWithTag #usetags \tag #'E \soloSopE
 }
 
 wordsSoloA = \lyricmode {
@@ -406,7 +574,7 @@ wordsSoloMidiA = \lyricmode {
 }
 
 wordsSoloMidi = {
-  \wordsSoloMidiA
+%  \wordsSoloMidiA
 }
 
 tramtracks = {
@@ -623,11 +791,21 @@ sopranoD = \relative {
   R1
 }
 
+sopranoE = {
+  s1*4
+  \repeat volta 2 {
+    s1*14
+  }
+  \alternative {{s1*2}{s1}}
+  s1*25
+}
+
 soprano = {
-  \sopranoA
-  \sopranoB \bar "||"
-  \sopranoC
-  \sopranoD
+  \keepWithTag #usetags \tag #'A \sopranoA
+  \keepWithTag #usetags \tag #'B { \sopranoB \bar "||" }
+  \keepWithTag #usetags \tag #'C \sopranoC
+  \keepWithTag #usetags \tag #'D \sopranoD
+  \keepWithTag #usetags \tag #'E \sopranoE
   \bar "|."
 }
 
@@ -1000,39 +1178,161 @@ wordsBassMidiD = \lyricmode {
   "\nlove "  "you " "till " "I " "die. "
 }
 
+wordsEone = \lyricmode {
+  \set stanza = "1."
+  There's a new world some -- where
+  they call the prom -- ised land __
+  and I'll be there some -- day
+  if you will hold my hand. __
+  I still need you there be -- side __ me
+  no mat -- ter what I do,
+  for I know I'll nev -- er find __ an -- oth -- er you. __
+
+  There is _
+
+  It's a long, long jour -- ney, so stay by my side,
+  when I walk through the storm you'll be my guide. __
+  If they gave me a for -- tune,
+  my pleas -- ure would be small. __
+  I could lose it all to -- mor -- row
+  and nev -- er mind at all. __
+  But if I should lose your love, __ dear,
+  I don't know what I'd do,
+  for I know I'll nev -- er find an -- oth -- er you. __
+}
+
+wordsEtwo = \lyricmode {
+  _ _
+  \set stanza = "2."
+  al -- ways some -- one
+  for each of us they say __
+  and you'll be my some -- one
+  for ev -- er and a day. __
+  I could search the whole world o -- ver
+  un --  til my life is through,
+  but I know I'll nev -- er find an -- oth -- er you. __
+}
+
+wordsMelodySingleA = \lyricmode {
+}
+
+wordsMelodySingleB = \lyricmode {
+}
+
+wordsMelodySingleC = \lyricmode {
+}
+
+wordsMelodySingleD = \lyricmode {
+}
+
+wordsMelodySingleE = \lyricmode {
+  \set stanza = "1."
+  There's a new world some -- where
+  they call the prom -- ised land __
+  and I'll be there some -- day
+  if you will hold my hand. __
+  I still need you there be -- side __ me
+  no mat -- ter what I do,
+  for I know I'll nev -- er find __ an -- oth -- er you. __
+
+  \set stanza = "2."
+  There is al -- ways some -- one
+  for each of us they say __
+  and you'll be my some -- one
+  for ev -- er and a day. __
+  I could search the whole world o -- ver
+  un --  til my life is through,
+  but I know I'll nev -- er find an -- oth -- er you. __
+
+  It's a long, long jour -- ney, so stay by my side,
+  when I walk through the storm you'll be my guide. __
+  If they gave me a for -- tune,
+  my pleas -- ure would be small. __
+  I could lose it all to -- mor -- row
+  and nev -- er mind at all. __
+  But if I should lose your love, __ dear,
+  I don't know what I'd do,
+  for I know I'll nev -- er find an -- oth -- er you. __
+}
+
+wordsMelodySingle = {
+  \keepWithTag #usetags \tag #'A \wordsMelodySingleA
+  \keepWithTag #usetags \tag #'B \wordsMelodySingleB
+  \keepWithTag #usetags \tag #'C \wordsMelodySingleC
+  \keepWithTag #usetags \tag #'D \wordsMelodySingleD
+  \keepWithTag #usetags \tag #'E \wordsMelodySingleE
+}
+
+wordsMidiE = \lyricmode {
+  \set stanza = "1."
+  "There's " "a " "new " "world " some "where "
+  "\nthey " "call " "the " prom "ised " "land " 
+  "\nand " "I'll " "be " "there " some "day "
+  "\nif " "you " "will " "hold " "my " "hand. " 
+  "\nI " "still " "need " "you " "there " be "side "  "me "
+  "\nno " mat "ter " "what " "I " "do, "
+  "\nfor " "I " "know " "I'll " nev "er " "find "  an oth "er " "you. " 
+
+  \set stanza = "2."
+  "\nThere " "is " al "ways " some "one "
+  "\nfor " "each " "of " "us " "they " "say " 
+  "\nand " "you'll " "be " "my " some "one "
+  "\nfor " ev "er " "and " "a " "day. " 
+  "\nI " "could " "search " "the " "whole " "world " o "ver "
+  "\nun"  "til " "my " "life " "is " "through, "
+  "\nbut " "I " "know " "I'll " nev "er " "find " an oth "er " "you. " 
+
+  "\nIt's " "a " "long, " "long " jour "ney, " "so " "stay " "by " "my " "side, "
+  "\nwhen " "I " "walk " "through " "the " "storm " "you'll " "be " "my " "guide. " 
+  "\nIf " "they " "gave " "me " "a " for "tune, "
+  "\nmy " pleas "ure " "would " "be " "small. " 
+  "\nI " "could " "lose " "it " "all " to mor "row "
+  "\nand " nev "er " "mind " "at " "all. " 
+  "\nBut " "if " "I " "should " "lose " "your " "love, "  "dear, "
+  "\nI " "don't " "know " "what " "I'd " "do, "
+  "\nfor " "I " "know " "I'll " nev "er " "find " an oth "er " "you. " 
+}
+
+wordsE = {}
+
 words = {
-  \wordsA
-  \wordsB
-  \wordsC
-  \wordsD
+  \keepWithTag #usetags \tag #'A \wordsA
+  \keepWithTag #usetags \tag #'B \wordsB
+  \keepWithTag #usetags \tag #'C \wordsC
+  \keepWithTag #usetags \tag #'D \wordsD
+  \keepWithTag #usetags \tag #'E \wordsE
 }
 
 wordsSopMidi = {
-  \wordsSopMidiA
-  \wordsSopMidiB
-  \wordsSopMidiC
-  \wordsSopMidiD
+  \keepWithTag #usetags \tag #'A \wordsSopMidiA
+  \keepWithTag #usetags \tag #'B \wordsSopMidiB
+  \keepWithTag #usetags \tag #'C \wordsSopMidiC
+  \keepWithTag #usetags \tag #'D \wordsSopMidiD
+  \keepWithTag #usetags \tag #'E \wordsMidiE
 }
 
 wordsAltoMidi = {
-  \wordsAltoMidiA
-  \wordsAltoMidiB
-  \wordsAltoMidiC
-  \wordsAltoMidiD
+  \keepWithTag #usetags \tag #'A \wordsAltoMidiA
+  \keepWithTag #usetags \tag #'B \wordsAltoMidiB
+  \keepWithTag #usetags \tag #'C \wordsAltoMidiC
+  \keepWithTag #usetags \tag #'D \wordsAltoMidiD
+  \keepWithTag #usetags \tag #'E \wordsMidiE
 }
 
 wordsTenorMidi = {
-  \wordsTenorMidiA
-  \wordsTenorMidiB
-  \wordsTenorMidiC
-  \wordsTenorMidiD
+  \keepWithTag #usetags \tag #'A \wordsTenorMidiA
+  \keepWithTag #usetags \tag #'B \wordsTenorMidiB
+  \keepWithTag #usetags \tag #'C \wordsTenorMidiC
+  \keepWithTag #usetags \tag #'D \wordsTenorMidiD
+  \keepWithTag #usetags \tag #'E \wordsMidiE
 }
 
 wordsBassMidi = {
-  \wordsBassMidiA
-  \wordsBassMidiB
-  \wordsBassMidiC
-  \wordsBassMidiD
+  \keepWithTag #usetags \tag #'A \wordsBassMidiA
+  \keepWithTag #usetags \tag #'B \wordsBassMidiB
+  \keepWithTag #usetags \tag #'C \wordsBassMidiC
+  \keepWithTag #usetags \tag #'D \wordsBassMidiD
+  \keepWithTag #usetags \tag #'E \wordsMidiE
 }
 
 wordsSopAboveA = \lyricmode {
@@ -1097,11 +1397,14 @@ wordsSopAboveD = \lyricmode {
   and your kiss __ was sweet as wine. __
 }
 
+wordsSopAboveE = {}
+
 wordsSopAbove = {
-  \wordsSopAboveA
-  \wordsSopAboveB
-  \wordsSopAboveC
-  \wordsSopAboveD
+  \keepWithTag #usetags \tag #'A \wordsSopAboveA
+  \keepWithTag #usetags \tag #'B \wordsSopAboveB
+  \keepWithTag #usetags \tag #'C \wordsSopAboveC
+  \keepWithTag #usetags \tag #'D \wordsSopAboveD
+  \keepWithTag #usetags \tag #'E \wordsSopAboveE
 }
 
 altoA = \relative {
@@ -1301,11 +1604,14 @@ altoD = \relative {
   R1
 }
 
+altoE = {}
+
 alto = {
-  \altoA \bar "||"
-  \altoB \bar "||"
-  \altoC \bar "||"
-  \altoD
+  \keepWithTag #usetags \tag #'A {\altoA \bar "||"}
+  \keepWithTag #usetags \tag #'B {\altoB \bar "||"}
+  \keepWithTag #usetags \tag #'C {\altoC \bar "||"}
+  \keepWithTag #usetags \tag #'D {\altoD \bar "||"}
+  \keepWithTag #usetags \tag #'E {\altoE          }
 }
 
 wordsAlto = \lyricmode {
@@ -1504,11 +1810,14 @@ tenorD = \relative {
   R1
 }
 
+tenorE = {}
+
 tenor = {
-  \tenorA \bar "||"
-  \tenorB \bar "||"
-  \tenorC \bar "||"
-  \tenorD
+  \keepWithTag #usetags \tag #'A {\tenorA \bar "||"}
+  \keepWithTag #usetags \tag #'B {\tenorB \bar "||"}
+  \keepWithTag #usetags \tag #'C {\tenorC \bar "||"}
+  \keepWithTag #usetags \tag #'D {\tenorD \bar "||"}
+  \keepWithTag #usetags \tag #'E {\tenorE          }
 }
 
 wordsTenor = \lyricmode {
@@ -1706,11 +2015,14 @@ bassD = \relative {
   R1
 }
 
+bassE = {}
+
 bass = {
-  \bassA
-  \bassB
-  \bassC
-  \bassD
+  \keepWithTag #usetags \tag #'A \bassA
+  \keepWithTag #usetags \tag #'B \bassB
+  \keepWithTag #usetags \tag #'C \bassC
+  \keepWithTag #usetags \tag #'D \bassD
+  \keepWithTag #usetags \tag #'E \bassE
 }
 
 
@@ -1743,9 +2055,16 @@ wordsBassBelowB = \lyricmode {
   _ _ _ _
 }
 
+wordsBassBelowC = {}
+wordsBassBelowD = {}
+wordsBassBelowE = {}
+
 wordsBassBelow = {
-  \wordsBassBelowA
-  \wordsBassBelowB
+  \keepWithTag #usetags \tag #'A \wordsBassBelowA
+  \keepWithTag #usetags \tag #'B \wordsBassBelowB
+  \keepWithTag #usetags \tag #'C \wordsBassBelowC
+  \keepWithTag #usetags \tag #'D \wordsBassBelowD
+  \keepWithTag #usetags \tag #'E \wordsBassBelowE
 }
 
 pianoRHoneA = \relative {
@@ -1949,11 +2268,70 @@ pianoRHoneD = \relative {
   <fis a d>2\fermata r
 }
 
+pianoRHoneE = \relative {
+  \key ees \major
+  ees'4 g8 bes aes g f bes,~
+  bes2~8 bes d f
+  ees4 g8 bes aes g f bes,~
+  bes8 8 8 8 <c ees>4 <d f> % 1b
+  \repeat volta 2 {
+    <bes g'>2 2
+    <c ees bes'>4 <c ees aes>2 <c ees g>4
+    <a f'>4. c8 q <a ees'>4 <aes d>8~ % 1c
+    q2 ees'4 f
+    <bes, ees g>2 <ees g bes>
+    <d g c>4 <d g bes>2 4
+    <c c'>4. <c bes'>8 <c aes'> <c c'>4 <d bes'>8~ % 1d
+    q2 c'4 d
+    <g, c ees>4. 8 8 4 <aes c f>8~
+    q4 <aes c ees>2 4
+    <f bes d>4 4 <ees aes c>8 4. % 2a
+    <d g bes>2 ees4 f
+    g4. bes8 <aes, ees' aes> g'4 f8~
+    f4. ees8 <aes, d>8 f'4 ees8~
+  }
+  \alternative {
+    {
+      ees1~ % 2b
+      ees2 4 f
+    }
+    {
+      ees4\repeatTie g8 bes aes g f ees~
+    }
+  }
+  ees2 <bes ees g>4 <bes f' bes>
+  <ees g ees'>2 2 % 2c
+  <d bes' d>4 <ees aes c>2 4
+  <ees g bes>2 <d f aes>4. aes'8
+  <bes, ees g>2 4 <bes f' bes>
+  <ees g ees'>2 4. 8 % 2d
+  <f bes d>4 4 <ees aes c>4 4
+  bes'1~
+  bes2 4 aes
+  g2 4. 8 % 3a
+  bes4 <c, ees aes>2 <c ees g>4
+  f4. c8 <a f'> ees'4 <aes, d>8~
+  q2 ees'4 f
+  <bes, ees g>4. bes'8 4 ees % 3b
+  <d, g c>4 <d g bes>2 4
+  <c c'>4. bes'8 <c, aes'> c'4 <d, bes'>8~
+  q2 c'4 d
+  <g, c ees>4. 8 8 4 <aes c f>8~ % 3c
+  q4 <aes c ees>2 4
+  <f bes d>4 4 <ees aes c>8 4.
+  <d g bes>2 ees4 f
+  g4. bes8 <aes, ees' aes>8 g'4 f8~ % 3d
+  f4. ees8 <aes, d> f'4 ees8~
+  ees4 g8 bes aes g f ees~
+  ees2 \acciaccatura f'8 <g, bes ees>4\fermata r4
+}
+
 pianoRHone = {
-  \pianoRHoneA \bar "||"
-  \pianoRHoneB \bar "||"
-  \pianoRHoneC \bar "||"
-  \pianoRHoneD \bar "|."
+  \keepWithTag #usetags \tag #'A {\pianoRHoneA \bar "||"}
+  \keepWithTag #usetags \tag #'B {\pianoRHoneB \bar "||"}
+  \keepWithTag #usetags \tag #'C {\pianoRHoneC \bar "||"}
+  \keepWithTag #usetags \tag #'D {\pianoRHoneD \bar "||"}
+  \keepWithTag #usetags \tag #'E {\pianoRHoneE \bar "||"}
 }
 
 pianoRHtwoA = \relative {
@@ -2012,11 +2390,44 @@ pianoRHtwoD = \relative {
   s1*8
 }
 
+pianoRHtwoE = \relative {
+  s1*4
+  \repeat volta 2 {
+    s1*11
+    s2 aes % 2a+
+    <bes ees>2 s4. c8~
+    c2 s4. g8~
+  }
+  \alternative {
+    {
+      g8 bes bes bes <aes c>4 8 <g bes>~ % 2b
+      q8 8 4 s2
+    }
+    { g4\repeatTie s4 c4. g8~}
+  }
+  g2 s
+  s1*6
+  r4 <bes ees> r q % 2d++
+  r4 <d aes'> \once\partCombineApart r d
+  \once\partCombineApart r4 <bes ees> \once\partCombineApart r q % 3a
+  s1
+  a2 s
+  s1
+  s2 g' % 3b
+  s1*6
+  s2 aes, % 3c+++
+  <bes ees>2 s4. c8~ % 3d
+  c2 s4. g8~
+  g2 c4. g8~
+  g2 s
+}
+
 pianoRHtwo = {
-  \pianoRHtwoA \bar "||"
-  \pianoRHtwoB \bar "||"
-  \pianoRHtwoC \bar "||"
-  \pianoRHtwoD
+  \keepWithTag #usetags \tag #'A {\pianoRHtwoA \bar "||"}
+  \keepWithTag #usetags \tag #'B {\pianoRHtwoB \bar "||"}
+  \keepWithTag #usetags \tag #'C {\pianoRHtwoC \bar "||"}
+  \keepWithTag #usetags \tag #'D {\pianoRHtwoD \bar "||"}
+  \keepWithTag #usetags \tag #'E {\pianoRHtwoE          }
 }
 
 dynamicsPianoA = {
@@ -2080,11 +2491,16 @@ dynamicsPianoD = {
   s1
 }
 
+dynamicsPianoE = {
+  s1\mf
+}
+
 dynamicsPiano = {
-  \dynamicsPianoA
-  \dynamicsPianoB
-  \dynamicsPianoC
-  \dynamicsPianoD
+  \keepWithTag #usetags \tag #'A \dynamicsPianoA
+  \keepWithTag #usetags \tag #'B \dynamicsPianoB
+  \keepWithTag #usetags \tag #'C \dynamicsPianoC
+  \keepWithTag #usetags \tag #'D \dynamicsPianoD
+  \keepWithTag #usetags \tag #'E \dynamicsPianoE
 }
 
 
@@ -2288,11 +2704,71 @@ pianoLHoneD = \relative {
   <d, a' d>2\fermata r
 }
 
+pianoLHoneE = \relative {
+  \globalE
+  <ees g>4 r r2
+  r4 bes8 8 4 r
+  <ees g>4 r r2
+  r8 bes8 8 8 2 % 1b
+  \repeat volta 2 {
+    ees,4. g8 bes bes ees,4
+    aes4. c8 ees ees aes,4
+    aes4 ees'2 4 % 1c
+    bes4 bes, r2
+    c'4 g'2 4
+    aes,4 c ees aes
+    aes,4 ees'2 4 % 1d
+    bes4 bes, r2
+    c'4 g'2 4
+    aes,4 c ees aes
+    bes,4 bes' aes, aes' % 2a
+    g4 g, c b
+    bes2 c
+    aes2 bes4 bes,
+  }
+  \alternative {
+    {
+      <ees bes'>2 <aes ees'>4 8 <ees bes'>8~ % 2a
+      q4 4 r2
+    }
+    {
+      q4 r <aes ees'>2
+    }
+  }
+  ees4 ees' ees d
+  \once
+  \partCombineApart r4 g r g % 2c
+  \partCombineApart aes,4 c ees aes
+  bes4 bes, bes' bes,
+  ees4 bes ees d
+  r4 g r g % 2d
+  bes,4 bes' aes, aes'
+  g,2 ees'4 c
+  f2 bes,
+  ees4 r ees r % 3a
+  aes,4 r aes r
+  c4 r f, r
+  bes4 bes, r2
+  ees4 ees'2 4 % 3b
+  g,4 d' g g,
+  aes4 ees'2 4
+  bes4 bes, r2
+  c'4 g'2 4 % 3c
+  aes,4 c ees aes
+  bes,4 bes' aes, aes'
+  g4 g, c b
+  bes2 c % 3d
+  aes2 bes4 bes,
+  <ees bes>2 <aes ees'>4. <ees bes>8~
+  q2 <ees' bes>4\fermata r
+}
+
 pianoLHone = {
-  \pianoLHoneA \bar "||"
-  \pianoLHoneB \bar "||"
-  \pianoLHoneC
-  \pianoLHoneD
+  \keepWithTag #usetags \tag #'A {\pianoLHoneA \bar "||"}
+  \keepWithTag #usetags \tag #'B {\pianoLHoneB \bar "||"}
+  \keepWithTag #usetags \tag #'C {\pianoLHoneC \bar "||"}
+  \keepWithTag #usetags \tag #'D {\pianoLHoneD \bar "||"}
+  \keepWithTag #usetags \tag #'E {\pianoLHoneE          }
   \bar "|."
 }
 
@@ -2301,7 +2777,7 @@ pianoLHtwoA = \relative {
 }
 
 pianoLHtwoB = \relative {
-  s1*40 s2.
+  s1*41
 }
 
 pianoLHtwoC = \relative {
@@ -2324,7 +2800,7 @@ pianoLHtwoD = \relative {
   s1 % 15c
   s1
   fis2 b
-  s1*3
+ s1*3
   fis2 b % 16b
   s1*7
   fis2 b % 17a++
@@ -2336,19 +2812,44 @@ pianoLHtwoD = \relative {
   s1
 }
 
+pianoLHtwoE = \relative {
+  s1*4
+  \repeat volta 2 {
+    s1*14
+  }
+  \alternative {{s1*2}{s1}}
+  s1
+  c1 % 2c
+  s1*3
+  c1 % 2d
+  s1*19
+}
+
 pianoLHtwo = \relative {
-  \pianoLHtwoA
-  \pianoLHtwoB
-  \pianoLHtwoC
-  \pianoLHtwoD
+  \keepWithTag #usetags \tag #'A \pianoLHtwoA
+  \keepWithTag #usetags \tag #'B \pianoLHtwoB
+  \keepWithTag #usetags \tag #'C \pianoLHtwoC
+  \keepWithTag #usetags \tag #'D \pianoLHtwoD
+  \keepWithTag #usetags \tag #'E \pianoLHtwoE
 }
 
 \book {
-  \bookOutputSuffix "single"
+  \bookOutputSuffix "repeat"
   \score {
     <<
       <<
         \new ChoirStaff <<
+                                % Unison melody staff
+          \new Staff = melody \with {
+            instrumentName        = #"Melody"
+          }
+          <<
+            \new Voice \rehearsalTrack
+            \new Voice \tempoTrack
+            \new Voice \melody
+            \addlyrics \wordsEone
+            \addlyrics \wordsEtwo
+          >>
                                 % Joint soprano/alto staff
           \new Staff = women \with
           {
@@ -2357,8 +2858,6 @@ pianoLHtwo = \relative {
             printPartCombineTexts = ##f
           }
           <<
-            \new Voice \rehearsalTrack
-            \new Voice \tempoTrack
             \new Voice = solo \soloSop
             \new NullVoice = alignerS \soprano
             \new NullVoice = alignerA \alto
@@ -2392,6 +2891,79 @@ pianoLHtwo = \relative {
           <<
             \clef "bass"
             \new Voice \partCombine \pianoLHone \pianoLHtwo
+          >>
+        >>
+        \new ChordNames = guitar \with {alignAboveContext = rh} { \chordTrack }
+%        \new FretBoards \with {alignAboveContext = rh} { \chordTrack }
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "single"
+  \score {
+    \unfoldRepeats
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Unison melody staff
+          \new Staff = melody \with {
+            instrumentName        = #"Melody"
+          }
+          <<
+            \new Voice \rehearsalTrack
+            \new Voice \tempoTrack
+            \new Voice \melody
+            \addlyrics \wordsMelodySingle
+          >>
+                                % Joint soprano/alto staff
+          \new Staff = women \with
+          {
+            instrumentName        = #"Soprano/Alto"
+            shortInstrumentName   = #"SA"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \new Voice = solo \soloSop
+            \new NullVoice = alignerS \soprano
+            \new NullVoice = alignerA \alto
+            \new Voice \partCombine { \voiceOne \soprano } { \voiceTwo \alto    }
+            \new Lyrics \with {alignAboveContext = women} \lyricsto alignerS \wordsSopAbove
+            \new Lyrics \with {alignAboveContext = women} \lyricsto solo \wordsSolo
+          >>
+                                % Joint tenor/bass staff
+          \new Staff = men \with
+          {
+            instrumentName        = #"Tenor/Bass"
+            shortInstrumentName   = #"TB"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \clef "bass"
+            \new NullVoice = alignerT \tenor
+            \new Voice \partCombine \tenor \bass
+            \new NullVoice = alignerB \bass
+            \addlyrics \wordsBassBelow
+          >>
+          \new Lyrics \with {alignAboveContext = men} \lyricsto "alignerS" \words
+        >>
+        \new PianoStaff <<
+          \new Staff = rh \with { printPartCombineTexts = ##f }
+          <<
+            \new Voice \partCombine \unfoldRepeats \pianoRHone \unfoldRepeats \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff = lh \with { printPartCombineTexts = ##f }
+          <<
+            \clef "bass"
+            \new Voice \partCombine \unfoldRepeats \pianoLHone \unfoldRepeats \pianoLHtwo
           >>
         >>
         \new ChordNames = guitar \with {alignAboveContext = rh} { \chordTrack }
@@ -2414,15 +2986,25 @@ pianoLHtwo = \relative {
     left-margin = 7
     right-margin = 1
     paper-width = 190\mm
-    paper-height = 4000\mm
-    ragged-bottom = true
+    page-breaking = #ly:one-page-breaking
     system-system-spacing.basic-distance = #15
     system-separator-markup = \slashSeparator
   }
   \score {
+    \unfoldRepeats
     <<
       <<
         \new ChoirStaff <<
+                                % Unison melody staff
+          \new Staff = melody \with {
+            instrumentName        = #"Melody"
+          }
+          <<
+            \new Voice \rehearsalTrack
+            \new Voice \tempoTrack
+            \new Voice \melody
+            \addlyrics \wordsMelodySingle
+          >>
                                 % Joint soprano/alto staff
           \new Staff = women \with
           {
@@ -2459,13 +3041,13 @@ pianoLHtwo = \relative {
         \new PianoStaff <<
           \new Staff = rh \with { printPartCombineTexts = ##f }
           <<
-            \new Voice \partCombine \pianoRHone \pianoRHtwo
+            \new Voice \partCombine \unfoldRepeats \pianoRHone \unfoldRepeats \pianoRHtwo
           >>
           \new Dynamics \dynamicsPiano
           \new Staff = lh \with { printPartCombineTexts = ##f }
           <<
             \clef "bass"
-            \new Voice \partCombine \pianoLHone \pianoLHtwo
+            \new Voice \partCombine \unfoldRepeats \pianoLHone \unfoldRepeats \pianoLHtwo
           >>
         >>
         \new ChordNames = guitar \with {alignAboveContext = rh} { \chordTrack }
@@ -2488,6 +3070,12 @@ pianoLHtwo = \relative {
     <<
       <<
         \new ChoirStaff <<
+                                % Melody staff
+          \new Staff = melody
+          <<
+            \new Voice = solo \unfoldRepeats \melody
+            \addlyrics \wordsMidiE
+          >>
                                 % Solo staff
           \new Staff = solo
           <<
@@ -2522,11 +3110,12 @@ pianoLHtwo = \relative {
           \new Staff = piano
           <<
             \new Dynamics \dynamicsPiano
-            \new Voice \pianoRHone
-            \new Voice \pianoRHtwo
+            \new Voice \unfoldRepeats \pianoRHone
+            \new Voice \unfoldRepeats \pianoRHtwo
             \new Voice
             \pianoLHone
-            \new Voice \pianoLHtwo
+            \new Voice \unfoldRepeats \pianoLHone
+            \new Voice \unfoldRepeats \pianoLHtwo
           >>
         >>
         \new ChordNames = guitar \with {alignAboveContext = rh} { \chordTrack }
@@ -2540,10 +3129,17 @@ pianoLHtwo = \relative {
 \book {
   \bookOutputSuffix "midi-sop"
   \score {
+    \unfoldRepeats 
 %   \articulate
     <<
       <<
         \new ChoirStaff <<
+                                % Melody staff
+          \new Staff = melody
+          <<
+            \new Voice = solo \unfoldRepeats \melody
+            \addlyrics \wordsMidiE
+          >>
                                 % Solo staff
           \new Staff = solo
           <<
@@ -2582,6 +3178,7 @@ pianoLHtwo = \relative {
             \new Voice \pianoRHtwo
             \new Voice
             \pianoLHone
+            \new Voice \pianoLHone
             \new Voice \pianoLHtwo
           >>
         >>
@@ -2596,10 +3193,17 @@ pianoLHtwo = \relative {
 \book {
   \bookOutputSuffix "midi-alto"
   \score {
+    \unfoldRepeats 
 %   \articulate
     <<
       <<
         \new ChoirStaff <<
+                                % Melody staff
+          \new Staff = melody
+          <<
+            \new Voice = solo \unfoldRepeats \melody
+            \addlyrics \wordsMidiE
+          >>
                                 % Solo staff
           \new Staff = solo
           <<
@@ -2638,6 +3242,7 @@ pianoLHtwo = \relative {
             \new Voice \pianoRHtwo
             \new Voice
             \pianoLHone
+            \new Voice \pianoLHone
             \new Voice \pianoLHtwo
           >>
         >>
@@ -2652,10 +3257,17 @@ pianoLHtwo = \relative {
 \book {
   \bookOutputSuffix "midi-tenor"
   \score {
+    \unfoldRepeats 
 %   \articulate
     <<
       <<
         \new ChoirStaff <<
+                                % Melody staff
+          \new Staff = melody
+          <<
+            \new Voice = solo \unfoldRepeats \melody
+            \addlyrics \wordsMidiE
+          >>
                                 % Solo staff
           \new Staff = solo
           <<
@@ -2694,6 +3306,7 @@ pianoLHtwo = \relative {
             \new Voice \pianoRHtwo
             \new Voice
             \pianoLHone
+            \new Voice \pianoLHone
             \new Voice \pianoLHtwo
           >>
         >>
@@ -2708,10 +3321,17 @@ pianoLHtwo = \relative {
 \book {
   \bookOutputSuffix "midi-bass"
   \score {
+    \unfoldRepeats 
 %   \articulate
     <<
       <<
         \new ChoirStaff <<
+                                % Melody staff
+          \new Staff = melody
+          <<
+            \new Voice = solo \unfoldRepeats \melody
+            \addlyrics \wordsMidiE
+          >>
                                 % Solo staff
           \new Staff = solo
           <<
@@ -2750,6 +3370,7 @@ pianoLHtwo = \relative {
             \new Voice \pianoRHtwo
             \new Voice
             \pianoLHone
+            \new Voice \pianoLHone
             \new Voice \pianoLHtwo
           >>
         >>
