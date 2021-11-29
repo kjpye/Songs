@@ -767,6 +767,75 @@ pianoLHtwo = \relative c' {
         \Staff \RemoveAllEmptyStaves
       }
     }
+  }
+}
+
+\book {
+  #(define output-suffix "singlepage")
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \context GrandStaff <<
+      <<
+        \new ChoirStaff <<
+          \new Voice = tempo \TempoTrack
+                                % Single soprano staff
+          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+%            \set Staff.midiInstrument = "choir aahs"
+            \new Voice \RehearsalTrack
+            \new Voice = "soprano" \soprano
+            \new Lyrics \lyricsto "soprano" \wordsSop
+          >>
+                                % Single alto staff
+          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+%            \set Staff.midiInstrument = "choir aahs"
+            \new Voice = "alto" \alto
+            \new Lyrics \lyricsto "alto" \wordsAlto
+          >>
+                                % Single tenor staff
+          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \clef "treble_8"
+%            \set Staff.midiInstrument = "choir aahs"
+            \new Voice = "tenor" \tenor
+            \new Lyrics \lyricsto "tenor" \wordsTenor
+          >>
+                                % Single bass staff
+          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \clef "bass"
+%            \set Staff.midiInstrument = "choir aahs"
+            \new Voice = "bass" \bass
+            \new Lyrics \lyricsto "bass" \wordsBass
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+            \new Voice \pianoRH
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff <<
+            \new Voice \pianoLH
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+        \new DrumStaff { \global \drummode { bassdrum4 bd bd bd bd bd bd bd } }
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
     \midi {}
   }
 }
