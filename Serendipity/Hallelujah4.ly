@@ -1242,6 +1242,84 @@ pianoLHrhythm = \relative {
   }
 }
 
+
+\book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single Soprano staff
+          \new Staff \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice = "soprano" \soprano
+            \new Lyrics \lyricsto "soprano" \wordsSop
+          >>
+                                % Single Alto staff
+          \new Staff \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \new Voice = "alto" \alto
+            \new Lyrics \lyricsto "alto" \wordsAlto
+          >>
+                                % Single Tenor staff
+          \new Staff \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+            \clef "treble_8"
+            \new Voice = "tenor" \tenor
+            \new Lyrics \lyricsto "tenor" \wordsTenor
+          >>
+                                % Single Bass staff
+          \new Staff \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \clef bass
+            \new Voice = "bass" \bass
+            \new Lyrics \lyricsto "bass" \wordsBass
+          >>
+        >>
+        <<
+          \new ChordNames { \ChordTrack }
+%         \new FretBoard { \ChordTrack }
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+            \new Voice \pianoRH
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff <<
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {}
+  }
+}
+
 \book {
   \bookOutputSuffix "midi-sop"
   \score {
