@@ -886,6 +886,89 @@ pianoLH = \tripletFeel 8 \relative {
 }
 
 \book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+%      \new DrumStaff \with {
+%        instrumentName = #"finger snap"
+%        shortInstrumentName = #"fs"
+%        \override StaffSymbol.line-count = #1
+%        drumStyleTable = #(alist->hash-table mystyle)
+%        drumPitchTable = #(alist->hash-table midiDrumPitches)
+%      } << \FingerSnapTrack >>
+        \new ChoirStaff <<
+                                % Joint soprano/alto staff
+          \new Dynamics \dynamicsWomen
+          \new Staff \with { printPartCombineTexts = ##f } <<
+            \new Voice \RehearsalTrack
+            \new Voice \TempoTrack
+            \new NullVoice = alignerw \soprano
+            \new Voice = "soprano" \partCombine \soprano \alto
+            \new Lyrics \lyricsto "alignerw" \wordsWomen
+          >>
+                                % Joint tenor/bass staff
+          \new Dynamics \dynamicsMen
+          \new Staff \with { printPartCombineTexts = ##f } <<
+            \clef "bass"
+            \new NullVoice = alignerm \tenor
+            \new Voice = "men" \partCombine \tenor \bass
+            \new Lyrics \lyricsto alignerm \wordsMen
+          >>
+        >>
+        <<
+%          \new ChordNames {
+%            \set chordChanges = ##t
+%            \ChordTrack
+%          }
+%          \new FretBoards {
+%            \set chordChanges = ##t
+%            \ChordTrack
+%          }
+        >>
+        \new PianoStaff <<
+          \new Staff = rh <<
+            \new Voice \pianoRH
+            \new Voice = "emptybass" { s1*59 }
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff = lh <<
+            \set Staff.midiInstrument = "acoustic bass"
+            \clef "bass"
+            \new Voice \pianoLH
+            \new Voice = "emptybass" { s1*59 }
+          >>
+        >>
+      >>
+%      \new DrumStaff \with {
+%        \override StaffSymbol.line-count = #1
+%        drumStyleTable = #(alist->hash-table mystyle)
+%        drumPitchTable = #(alist->hash-table midiDrumPitches)
+%      } <<
+%        { \voiceOne \SDTrack }
+%        { \voiceTwo \BSTrack }
+%      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
   \bookOutputSuffix "midi-women"
   \score {
 %   \articulate
