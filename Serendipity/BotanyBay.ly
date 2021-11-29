@@ -15,7 +15,6 @@ global = {
 }
 
 sop = \relative c' {
-  \global
   r2.
   r2.
   \repeat volta 3 {
@@ -47,7 +46,6 @@ sop = \relative c' {
 }
 
 alt = \relative c' {
-  \global
   r2.
   r2.
   \repeat volta 3 {
@@ -79,7 +77,6 @@ alt = \relative c' {
 }
 
 ten = \relative c' {
-  \global
   a8 a a b b b
   a8 a a b b b
   \repeat volta 3 {
@@ -111,7 +108,6 @@ ten = \relative c' {
 }
 
 bas = \relative c {
-  \global
   d8 d d d d d
   d8 d d d d d
   \repeat volta 3 {
@@ -175,7 +171,53 @@ textsopThree = \lyricmode {
   And _ in her emb- race I would die.
 }
 
+textsopSingle = \lyricmode {
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li- ay
+
+  \set stanza = "1." Fare- _ well to old Eng- land for e- _ ver
+  Fare- _ well to my rum culls as well
+  Fare- _ well to the well- known old Bail- _ ey
+  Where I once used to cut such a swell.
+  Sing- ing too- ra- li oo- ra- li add- it- y,
+  Sing- ing too- ra- li oo- ra- li ay.
+  Sing- ing too- ra- li oo- ra- li add- it- y,
+  For we're bound for Bo- ta- ny Bay.
+
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li- ay
+  \set stanza = "2."
+  There's the cap- tain he is our com- man- _ der
+  There's the bo- sun and all the ship's crew
+  There's the first and the sec- ond class pas- sen- gers
+  Knows _ what we poor con- victs go through.
+
+  Sing- ing too- ra- li oo- ra- li add- it- y,
+  Sing- ing too- ra- li oo- ra- li ay.
+  Sing- ing too- ra- li oo- ra- li add- it- y,
+  For we're bound for Bo- ta- ny Bay.
+
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li- ay
+
+  \set stanza = "3." If _ I had the wings of a tur- tle dove
+  It's _ far on my pin- ions I'd fly
+  Right _ back to the arms of my Pol- ly love
+  And _ in her emb- race I would die.
+  Sing- ing too- ra- li oo- ra- li add- it- y,
+  Sing- ing too- ra- li oo- ra- li ay.
+  Sing- ing too- ra- li oo- ra- li add- it- y,
+  For we're bound for Bo- ta- ny Bay.
+}
+
 textaltOne = \lyricmode {
+
   _ _ _ _ _ _ _ _ _ _
   \set stanza = "1." Fare- _ well to old Eng- land for e- _ ver
   Fare- _ well to my rum culls as well
@@ -208,6 +250,49 @@ textaltThree = \lyricmode {
   And _ in her emb- race I would die.
 }
 
+textaltSingle = \lyricmode {
+  Too- ra- li oo- ra- li,
+  Too- ra- li- ay
+  \set stanza = "1." Fare- _ well to old Eng- land for e- _ ver
+  Fare- _ well to my rum culls as well
+  Fare- _ well to the well- known old Bail- _ ey
+  Where I once used to cut such a swell.
+  Sing- ing too- ra- li oo- ra- li add- it- y.
+  Too- ro- li- ay
+  Too- ro- li- ay
+  Sing- ing too- r- li- ay
+  Too- ra- li add- it- y
+  For we're bound for Bo- tan- y Bay.
+
+  Too- ra- li oo- ra- li,
+  Too- ra- li- ay
+  \set stanza = "2."
+  There's the cap- tain he is our com- man- _ der
+  There's the bo- sun and all the ship's crew
+  There's the first and the sec- ond class pas- sen- gers
+  Knows _ what we poor con- victs go through.
+
+  Sing- ing too- ra- li oo- ra- li add- it- y.
+  Too- ro- li- ay
+  Too- ro- li- ay
+  Sing- ing too- r- li- ay
+  Too- ra- li add- it- y
+  For we're bound for Bo- tan- y Bay.
+
+  Too- ra- li oo- ra- li,
+  Too- ra- li- ay
+  \set stanza = "3." If _ I had the wings of a tur- tle dove
+  It's _ far on my pin- ions I'd fly
+  Right _ back to the arms of my Pol- ly love
+  And _ in her emb- race I would die.
+  Sing- ing too- ra- li oo- ra- li add- it- y.
+  Too- ro- li- ay
+  Too- ro- li- ay
+  Sing- ing too- r- li- ay
+  Too- ra- li add- it- y
+  For we're bound for Bo- tan- y Bay.
+}
+
 texttenOne = \lyricmode {
 }
 
@@ -238,6 +323,75 @@ texttenTwo = \lyricmode {
 }
 
 texttenThree = \lyricmode {
+}
+
+texttenSingle = \lyricmode {
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li- ay
+
+  Too- ra- li oo- ra- li
+  Too- ra- li- ay
+  Too- ra- li- ay
+  Too- ra- li oo- ra- li
+  Too- ra- li- ay
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li- ay.
+  Sing- ing too- ra- li oo- ra- li add- it- y.
+  Too- ra- li- ay
+  Too- ra- li- ay
+  Sing- ing too- ra- li- ay
+  Too- ra- li add- it- y
+  For we're bound for Bot- an- y
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li- ay
+
+  Too- ra- li oo- ra- li
+  Too- ra- li- ay
+  Too- ra- li- ay
+  Too- ra- li oo- ra- li
+  Too- ra- li- ay
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li- ay.
+  Sing- ing too- ra- li oo- ra- li add- it- y.
+  Too- ra- li- ay
+  Too- ra- li- ay
+  Sing- ing too- ra- li- ay
+  Too- ra- li add- it- y
+  For we're bound for Bot- an- y
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li- ay
+
+  Too- ra- li oo- ra- li
+  Too- ra- li- ay
+  Too- ra- li- ay
+  Too- ra- li oo- ra- li
+  Too- ra- li- ay
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li- ay.
+  Sing- ing too- ra- li oo- ra- li add- it- y.
+  Too- ra- li- ay
+  Too- ra- li- ay
+  Sing- ing too- ra- li- ay
+  Too- ra- li add- it- y
+  For we're bound for Bot- an- y
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li- ay.  
+
 }
 
 textbasOne = \lyricmode {
@@ -279,29 +433,145 @@ textbasThree = \lyricmode {
   Right _ back to the arms of my Pol- ly love
 }
 
+textbasSingle = \lyricmode {
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li- ay
+  \set stanza = "1."
+  Fare- _ well to old Eng- land for- e- _ ver
+  Fare- _ well to my rum culls as well
+  Fare- _ well to the well- known old Bail- _ ey
+  Sing- ing too- ra- li oo- ra- li add- it- y,
+  Too- ra- li
+  Too- ra- li oo- ra- li ay
+  Sing- ing Too- ra- li oo- ra- li add- it- y,
+  For we're bound for Bo- tan- y
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li- ay
+  \set stanza = "2."
+  There's the cap- tain as is our com- man- _ der
+  There's the bo- sun and all the ship's crew
+  There's the first and the sec- ond class pas- sen- gers
+
+  Sing- ing too- ra- li oo- ra- li add- it- y,
+  Too- ra- li
+  Too- ra- li oo- ra- li ay
+  Sing- ing Too- ra- li oo- ra- li add- it- y,
+  For we're bound for Bo- tan- y
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li- ay
+  \set stanza = "3."
+  If _ I had the wings of a tur- tle dove
+  It's _ far on my pin- ions I'd fly
+  Right _ back to the arms of my Pol- ly love
+  Sing- ing too- ra- li oo- ra- li add- it- y,
+  Too- ra- li
+  Too- ra- li oo- ra- li ay
+  Sing- ing Too- ra- li oo- ra- li add- it- y,
+  For we're bound for Bo- tan- y
+  Too- ra- li oo- ra- li,
+  Too- ra- li oo- ra- li,
+
+  Too- ra- li oo- ra- li- ay
+
+}
+
 \book {
+  \bookOutputSuffix "repeat"
   \score {
     \new ChoirStaff <<
 %      \new Staff = women <<
-      \new Voice = sop << \sop >>
+      \new Voice = sop << \global \sop >>
       \new Lyrics \lyricsto sop \textsopOne
       \new Lyrics \lyricsto sop \textsopTwo
       \new Lyrics \lyricsto sop \textsopThree
-      \new Voice = alt << \alt >>
+      \new Voice = alt << \global \alt >>
       \new Lyrics \lyricsto alt \textaltOne
       \new Lyrics \lyricsto alt \textaltTwo
       \new Lyrics \lyricsto alt \textaltThree
 %      >>
 %      \new Staff = men <<
-      \new Voice = ten << \clef "treble_8" \ten >>
+      \new Voice = ten << \global \clef "treble_8" \ten >>
       \new Lyrics \lyricsto ten \texttenOne
       \new Lyrics \lyricsto ten \texttenTwo
       \new Lyrics \lyricsto ten \texttenThree
-      \new Voice = bas << \clef "bass" \bas >>
+      \new Voice = bas << \global \clef "bass" \bas >>
       \new Lyrics \lyricsto bas \textbasOne
       \new Lyrics \lyricsto bas \textbasTwo
       \new Lyrics \lyricsto bas \textbasThree
 %      >>
+    >>
+    
+    \layout {
+      \context {
+	\Staff
+	\override DynamicText.direction = #UP
+	\override DynamicText.staff-padding = #0
+	\override DynamicLineSpanner.direction = #UP
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "single"
+  \score {
+    \new ChoirStaff <<
+%      \new Staff = women <<
+      \new Voice << \global \unfoldRepeats \sop >>
+      \addlyrics \textsopSingle
+      \new Voice << \global \unfoldRepeats \alt >>
+      \addlyrics \textaltSingle
+      \new Voice << \global \clef "treble_8" \unfoldRepeats \ten >>
+      \addlyrics \texttenSingle
+      \new Voice << \global \clef "bass" \unfoldRepeats \bas >>
+      \addlyrics \textbasSingle
+%      >>
+    >>
+    
+    \layout {
+      \context {
+	\Staff
+	\override DynamicText.direction = #UP
+	\override DynamicText.staff-padding = #0
+	\override DynamicLineSpanner.direction = #UP
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \new ChoirStaff <<
+      \new Voice << \global \unfoldRepeats \sop >>
+      \addlyrics \textsopSingle
+      \new Voice << \global \unfoldRepeats \alt >>
+      \addlyrics \textaltSingle
+      \new Voice << \global \clef "treble_8" \unfoldRepeats \ten >>
+      \addlyrics \texttenSingle
+      \new Voice << \global \clef "bass" \unfoldRepeats \bas >>
+      \addlyrics \textbasSingle
     >>
     
     \layout {
