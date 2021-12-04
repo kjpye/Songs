@@ -24,7 +24,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 
   poet        = \markup\smallCaps "C. Wesley."
   meter       = \markup\smallCaps "7s."
-  piece       = \markup\smallCaps "hart's."
+  piece       = \markup\smallCaps "Hart's."
 
 % centered at bottom
 % tagline     = "tagline" % default lilypond version
