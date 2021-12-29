@@ -1396,12 +1396,6 @@ pianoLHtwo = \relative {
 %        >>
       >>
     >>
-    \layout {
-      indent = 1.5\cm
-      \context {
-        \Staff \RemoveAllEmptyStaves
-      }
-    }
     \midi {}
   }
 }
@@ -1476,12 +1470,6 @@ pianoLHtwo = \relative {
 %        >>
       >>
     >>
-    \layout {
-      indent = 1.5\cm
-      \context {
-        \Staff \RemoveAllEmptyStaves
-      }
-    }
     \midi {}
   }
 }
@@ -1556,12 +1544,6 @@ pianoLHtwo = \relative {
 %        >>
       >>
     >>
-    \layout {
-      indent = 1.5\cm
-      \context {
-        \Staff \RemoveAllEmptyStaves
-      }
-    }
     \midi {}
   }
 }
@@ -1636,12 +1618,6 @@ pianoLHtwo = \relative {
 %        >>
       >>
     >>
-    \layout {
-      indent = 1.5\cm
-      \context {
-        \Staff \RemoveAllEmptyStaves
-      }
-    }
     \midi {}
   }
 }
