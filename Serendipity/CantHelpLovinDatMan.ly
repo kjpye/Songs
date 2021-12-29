@@ -804,6 +804,68 @@ pianoLH = \tripletFeel 8 \relative {
 }
 
 \book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \unfoldRepeats
+%   \articulate
+    <<
+      <<
+        \new Dynamics \TempoTrack
+        \new ChoirStaff <<
+                                % Joint soprano/alto staff
+          \new Dynamics \dynamicsWomen
+          \new Lyrics = "sopabove"
+          \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
+            \new Voice \RehearsalTrack
+            \new Voice = "soprano" { \voiceOne \soprano }
+            \new Voice = "alto"    { \voiceTwo \alto    }
+%            \new Lyrics \lyricsto "soprano" \wordsSop
+            \new Lyrics \lyricsto "alto" \wordsAlto
+          >>
+          \context Lyrics = "sopabove" { \lyricsto "soprano" \wordsSop }
+                                % Joint tenor/bass staff
+          \new Dynamics \dynamicsMen
+          \new Lyrics = "tenorwords"
+          \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
+            \clef "bass"
+            \new Voice = "tenor" \tenor
+            \new Voice = "bass" \bass
+            \context Lyrics = "tenorwords" { \lyricsto tenor \wordsTenor }
+          >>
+          \new Lyrics \lyricsto "bass" \wordsBass
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff <<
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
   \bookOutputSuffix "midi-sop"
   \score {
 %   \articulate
