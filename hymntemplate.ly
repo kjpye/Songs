@@ -168,6 +168,7 @@ wordsMidi = \lyricmode {
         >>
     \layout {
       indent = 1.5\cm
+      \pointAndClickOff
       \context {
         \Staff \RemoveAllEmptyStaves
       }
@@ -205,6 +206,7 @@ wordsMidi = \lyricmode {
         >>
     \layout {
       indent = 1.5\cm
+      \pointAndClickOff
       \context {
         \Staff \RemoveAllEmptyStaves
       }
@@ -251,6 +253,7 @@ wordsMidi = \lyricmode {
         >>
     \layout {
       indent = 1.5\cm
+      \pointAndClickOff
       \context {
         \Staff \RemoveAllEmptyStaves
       }
