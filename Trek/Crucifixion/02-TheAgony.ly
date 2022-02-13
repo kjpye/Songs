@@ -128,7 +128,7 @@ soloBass = \relative c' {
   a2 r4
   a4 a a
   b4. b8 gis e
-  c'4(e,) fis
+  cis'4(e,) fis
   gis2 r4 % 4b
   gis4 gis fis
   e2 cis4
@@ -167,7 +167,7 @@ soloBass = \relative c' {
   a'2 a8 a b cis
   d2 d4 e
   cis2 r4 a
-  g4 e a8(b) cis(d) % 7b
+  gis4 e a8(b) cis(d) % 7b
   e2\fermata e,\fermata
   a,2 r
   \clef "treble_8" \key a \minor r4 e''8.^\markup \bold TENOR e16 f4 e
@@ -178,9 +178,9 @@ soloBass = \relative c' {
   c'2 a8 b c a % 7d
   b8. g16 e4 a d,
   e4 f g8. g16 g4\fermata
-  \clef "treble_8" r4 g8^\markup \bold TENOR g g4. g8
+  \clef "treble_8" r4 a8^\markup\bold TENOR 8 4. 8
   bes4 bes r a8 a % 7e
-  a4 gis8 fis g2\fermata
+  a4 gis8 fis gis2\fermata
   r4 e8 e f2
   f4 e r e % 8a
   cis'8 cis c8. c16 b4 e8 e
@@ -291,6 +291,43 @@ wordsSoloBass = \lyricmode {
   And the sol- diers led Him a- way.
 }
 
+wordsSoloBassMidi = \lyricmode {
+  "Could " "ye " "not " "watch " "with " "Me " "one " "brief " "hour? "
+  "\nCould " "ye " "not " pi "ty " "My " sor "est " "need? "
+  "\nAh! " "if " "ye " "sleep " "while " "the " tem "pests " "lower, "
+  "\nsure" "ly " "My " "friends, " "I " "am " "lone " in "deed. "
+
+  "\nCould " "ye " "not " "watch " "with " "Me " "one " "brief " "hour? "
+  "\nDid " "ye " "not " "say " up "on " Ke "dron's " "slope, "
+  "\nYe " "would " "not " "fall " in "to " "the " Tempt "er's " "power? "
+  "\nDid " "ye " "not " mur "mur " "great " "words " "of " "hope? "
+
+  "\nCould " "ye " "not " "watch " "with " "Me? "
+  "\ne" "ven " "so: "
+  "\nWill" "ing " "in " "heart, " "but " "the " "flesh " "is " "vain. "
+  "\nBack " "to " "mine " a gon "y " "I " "must " "go, "
+  "\nLone" "ly " "to " "pray " "in " bit ter "est " "pain. "
+
+  "\nAnd " "they " "laid " "their " "hands " "on " "Him, " "and " "took " "Him, "
+  "\nand " "led " "him " a "way " "to " "the " "high " "priest. "
+  "\nAnd " "the " "high " "priest " ask "ed " "Him " "and " "said " un "to " "Him, "
+  "\nArt " "Thou " "the " "Christ, " "the " "Son " "of " "the " Bles "sed? "
+  "\nJe" "sus " "said, " "I " "am: "
+  "\nAnd " "ye " "shall " "see " "the " "Son " "of " "man " sit "ting " "on " "the " "right " "hand " "of " "power, "
+  "\nand " com "ing " "in " "the " "clouds " "of " "heaven. "
+
+  "\nThen " "the " "high " "priest " "rent "  "his " "clothes, " "and " "saith: "
+  "\nWhat " "need " "we " an "y " fur "ther " wit ness "es? "
+  "\nYe " "have " "heard " "the " blas pe "my. "
+
+  "\nAnd " "they " "all " con "demned " "Him " "to " "be " guilt "y " "of " "death. "
+  "\nAnd " "they " "bound " Je "sus " "and " car "ried " "Him " a "way " "and " de liv "ered " "Him " "to " Pi "late. "
+  "\nAnd " Pi "late, " wil "ling " "to " con "tent " "the " peo "ple, "
+  "\nre" leas "ed " Bar ab "bas " un "to " "them, " "and " de liv "ered " Je "sus, "
+  "\nwhen " "he " "had " Scourg "ed " "Him, " "to " "be " cru ci "fied. "
+  "\nAnd " "the " sol "diers " "led " "Him " a "way. "
+}
+
 soprano = \relative c' {
   s2.*16
   e4 e r8 e % 2d
@@ -307,7 +344,7 @@ soprano = \relative c' {
   bis4 gis2 % 3b
   bis4 cis dis
   e4 r dis
-  cis4 r bis
+  cis4 r b
   a4(e) fis
   gis2 r4 \bar "||" \break
   s2.*16
@@ -325,7 +362,7 @@ soprano = \relative c' {
   bis4 gis2 % 5a
   bis4 cis dis
   e4 r dis
-  cis4 r bis
+  cis4 r b
   a4(e) fis
   gis2 r4 \bar "||" \break
   s2.*16
@@ -390,11 +427,27 @@ wordsSop = \lyricmode {
   Help us to pray, and watch, and mourn with Thee.
 }
 
+wordsSopMidi = \lyricmode {
+  "Je" "su, " "Lord, " Je "su, "
+  "\nbowed " "in " bit "ter " an "guish, "
+  "\nand " bear "ing " "all " "the " e "vil " "we " "have " "done, "
+  "\nOh, " "teach " "us, "
+  "\nteach " "us " "how " "to " "love " "Thee " "for " "Thy " "love; "
+  "\nHelp " "us " "to " "pray, " "and " "watch, " "and " "mourn " "with " "Thee. "
+
+  "\nJe" "su, " "Lord, " Je "su, "
+  "\nbowed " "in " bit "ter " an "guish, "
+  "\nand " bear "ing " "all " "the " e "vil " "we " "have " "done, "
+  "\nOh, " "teach " "us, "
+  "\nteach " "us " "how " "to " "love " "Thee " "for " "Thy " "love; "
+  "\nHelp " "us " "to " "pray, " "and " "watch, " "and " "mourn " "with " "Thee. "
+}
+
 alto = \relative c' {
   s2.*16
   cis4 cis r8 cis % 2d
   dis4 cis r
-  cis4. e8 e-> d
+  cis4. e8 e-> dis
   cis4 bis gis'
   bis,4 cis dis8. dis16
   e2 e4 % 3a
@@ -448,6 +501,21 @@ wordsAlto = \lyricmode {
   Oh, teach us,
   teach us how to love Thee for Thy love;
   Help us to pray, and watch, and mourn with Thee.
+}
+
+wordsAltoMidi = \lyricmode {
+  "Je" "su, " "Lord, " Je "su, "
+  "\nbowed " "in " bit "ter " an "guish, "
+  "\nand " bear "ing " "all " "the " e "vil " "we " "have " "done, "
+  "\nOh, " "teach " "us, "
+  "\nteach " "us " "how " "to " "love " "Thee " "for " "Thy " "love; "
+  "\nHelp " "us " "to " "pray, " "and " "watch, " "and " "mourn " "with " "Thee. "
+  "\nJe" "su, " "Lord, " Je "su, "
+  "\nbowed " "in " bit "ter " an "guish, "
+  "\nand " bear "ing " "all " "the " e "vil " "we " "have " "done, "
+  "\nOh, " "teach " "us, "
+  "\nteach " "us " "how " "to " "love " "Thee " "for " "Thy " "love; "
+  "\nHelp " "us " "to " "pray, " "and " "watch, " "and " "mourn " "with " "Thee. "
 }
 
 tenor = \relative c' {
@@ -508,7 +576,22 @@ wordsTenor = \lyricmode {
   Help us to pray, and watch, and mourn with Thee.
 }
 
-bass= \relative c {
+wordsTenorMidi = \lyricmode {
+  "Je" "su, " "Lord, " Je "su, "
+  "\nbowed " "in " bit "ter " an "guish, "
+  "\nand " bear "ing " "all " "the " e "vil " "we " "have " "done, "
+  "\nOh, " "teach " "us, "
+  "\nteach " "us " "how " "to " "love " "Thee " "for " "Thy " "love; "
+  "\nHelp " "us " "to " "pray, " "and " "watch, " "and " "mourn " "with " "Thee. "
+  "\nJe" "su, " "Lord, " Je "su, "
+  "\nbowed " "in " bit "ter " an "guish, "
+  "\nand " bear "ing " "all " "the " e "vil " "we " "have " "done, "
+  "\nOh, " "teach " "us, "
+  "\nteach " "us " "how " "to " "love " "Thee " "for " "Thy " "love; "
+  "\nHelp " "us " "to " "pray, " "and " "watch, " "and " "mourn " "with " "Thee. "
+}
+
+bass = \relative c {
   s2.*16
   cis4 cis r8 cis % 2c
   bis4 cis r
@@ -528,18 +611,18 @@ bass= \relative c {
   a,2 a4
   <e e'>2 r4
   s2.*16
-  cis4 cis r8 cis % 3c
+  cis'4 cis r8 cis % 4c
   bis4 cis r
   e4. e8 fis-> fis
   gis4 gis gis
   gis4 gis gis8. gis16
-  cis,2 cis4 % 3d
+  cis,2 cis4 % 4d
   fis4(eis) fis
   gis4 r gis
   gis4 gis r
   gis4 gis gis8 gis
   dis4 dis4. dis8
-  gis4 gis,2 % 4a
+  gis4 gis,2 % 5a
   gis'4 ais bis
   cis4 r gis
   a4 r a
@@ -566,6 +649,21 @@ wordsBass = \lyricmode {
   Oh, teach us,
   teach us how to love Thee for Thy love;
   Help us to pray, and watch, and mourn with Thee.
+}
+
+wordsBassMidi = \lyricmode {
+  "Je" "su, " "Lord, " Je "su, "
+  "\nbowed " "in " bit "ter " an "guish, "
+  "\nand " bear "ing " "all " "the " e "vil " "we " "have " "done, "
+  "\nOh, " "teach " "us, "
+  "\nteach " "us " "how " "to " "love " "Thee " "for " "Thy " "love; "
+  "\nHelp " "us " "to " "pray, " "and " "watch, " "and " "mourn " "with " "Thee. "
+  "\nJe" "su, " "Lord, " Je "su, "
+  "\nbowed " "in " bit "ter " an "guish, "
+  "\nand " bear "ing " "all " "the " e "vil " "we " "have " "done, "
+  "\nOh, " "teach " "us, "
+  "\nteach " "us " "how " "to " "love " "Thee " "for " "Thy " "love; "
+  "\nHelp " "us " "to " "pray, " "and " "watch, " "and " "mourn " "with " "Thee. "
 }
 
 pianoRH = \relative c' {
@@ -1488,8 +1586,9 @@ pianoLHtwo = \relative c {
   <e, e'>2 s
 }
 
-\score {
-  \context GrandStaff <<
+\book {
+  \bookOutputSuffix "single"
+  \score {
     <<
       \new ChoirStaff <<
                                 % Bass Solo staff
@@ -1542,12 +1641,365 @@ pianoLHtwo = \relative c {
         >>
       >>
     >>
-  >>
-  \layout {
-    indent = 1.5\cm
-    \context {
-      \Staff \RemoveAllEmptyStaves
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
     }
   }
-  \midi {}
+}
+
+\book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+
+  \score {
+      <<
+        \new ChoirStaff <<
+                                % Bass Solo staff
+          \new Dynamics \dynamicsSoloBass
+          \new Staff \with { instrumentName = #"Bass Solo" shortInstrumentName = #"Solo" } <<
+            \new Voice \RehearsalTrack
+            \clef bass
+            \new Voice = "solo" { \global \soloBass }
+            \new Lyrics \lyricsto "solo" \wordsSoloBass
+          >>
+                                % Single soprano staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+            \new Voice = "soprano" { \global \soprano }
+            \new Lyrics \lyricsto "soprano" \wordsSop
+          >>
+                                % Single alto staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \new Voice = "alto" { \global \alto }
+            \new Lyrics \lyricsto "alto" \wordsAlto
+          >>
+                                % Single tenor staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \clef "treble_8"
+            \new Voice = "tenor" { \global \tenor }
+            \new Lyrics \lyricsto "tenor" \wordsTenor
+          >>
+                                % Single bass staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \clef "bass"
+            \new Voice = "bass" { \global \bass }
+            \new Lyrics \lyricsto "bass" \wordsBass
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+            \new Voice { \global \pianoRH    }
+            \new Voice { \global \pianoRHone }
+            \new Voice { \global \pianoRHtwo }
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff <<
+            \clef "bass"
+            \new Voice { \global \pianoLH    }
+            \new Voice { \global \pianoLHone }
+            \new Voice { \global \pianoLHtwo }
+          >>
+        >>
+      >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-solo"
+
+  \score {
+      <<
+        \new ChoirStaff <<
+                                % Bass Solo staff
+          \new Dynamics \dynamicsSoloBass
+          \new Staff \with { instrumentName = #"Bass Solo" shortInstrumentName = #"Solo" } <<
+            \new Voice \RehearsalTrack
+            \clef bass
+            \new Voice = "solo" { \global \soloBass }
+            \new Lyrics \lyricsto "solo" \wordsSoloBassMidi
+          >>
+                                % Single soprano staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+            \new Voice = "soprano" { \global \soprano }
+          >>
+                                % Single alto staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \new Voice = "alto" { \global \alto }
+          >>
+                                % Single tenor staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \clef "treble_8"
+            \new Voice = "tenor" { \global \tenor }
+          >>
+                                % Single bass staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \clef "bass"
+            \new Voice = "bass" { \global \bass }
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+            \new Voice { \global \pianoRH    }
+            \new Voice { \global \pianoRHone }
+            \new Voice { \global \pianoRHtwo }
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff <<
+            \clef "bass"
+            \new Voice { \global \pianoLH    }
+            \new Voice { \global \pianoLHone }
+            \new Voice { \global \pianoLHtwo }
+          >>
+        >>
+      >>
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-sop"
+
+  \score {
+      <<
+        \new ChoirStaff <<
+                                % Bass Solo staff
+          \new Dynamics \dynamicsSoloBass
+          \new Staff \with { instrumentName = #"Bass Solo" shortInstrumentName = #"Solo" } <<
+            \new Voice \RehearsalTrack
+            \clef bass
+            \new Voice = "solo" { \global \soloBass }
+          >>
+                                % Single soprano staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+            \new Voice = "soprano" { \global \soprano }
+            \new Lyrics \lyricsto "soprano" \wordsSopMidi
+          >>
+                                % Single alto staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \new Voice = "alto" { \global \alto }
+          >>
+                                % Single tenor staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \clef "treble_8"
+            \new Voice = "tenor" { \global \tenor }
+          >>
+                                % Single bass staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \clef "bass"
+            \new Voice = "bass" { \global \bass }
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+            \new Voice { \global \pianoRH    }
+            \new Voice { \global \pianoRHone }
+            \new Voice { \global \pianoRHtwo }
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff <<
+            \clef "bass"
+            \new Voice { \global \pianoLH    }
+            \new Voice { \global \pianoLHone }
+            \new Voice { \global \pianoLHtwo }
+          >>
+        >>
+      >>
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-alto"
+
+  \score {
+      <<
+        \new ChoirStaff <<
+                                % Bass Solo staff
+          \new Dynamics \dynamicsSoloBass
+          \new Staff \with { instrumentName = #"Bass Solo" shortInstrumentName = #"Solo" } <<
+            \new Voice \RehearsalTrack
+            \clef bass
+            \new Voice = "solo" { \global \soloBass }
+          >>
+                                % Single soprano staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+            \new Voice = "soprano" { \global \soprano }
+          >>
+                                % Single alto staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \new Voice = "alto" { \global \alto }
+            \new Lyrics \lyricsto "alto" \wordsAltoMidi
+          >>
+                                % Single tenor staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \clef "treble_8"
+            \new Voice = "tenor" { \global \tenor }
+          >>
+                                % Single bass staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \clef "bass"
+            \new Voice = "bass" { \global \bass }
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+            \new Voice { \global \pianoRH    }
+            \new Voice { \global \pianoRHone }
+            \new Voice { \global \pianoRHtwo }
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff <<
+            \clef "bass"
+            \new Voice { \global \pianoLH    }
+            \new Voice { \global \pianoLHone }
+            \new Voice { \global \pianoLHtwo }
+          >>
+        >>
+      >>
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-tenor"
+
+  \score {
+      <<
+        \new ChoirStaff <<
+                                % Bass Solo staff
+          \new Dynamics \dynamicsSoloBass
+          \new Staff \with { instrumentName = #"Bass Solo" shortInstrumentName = #"Solo" } <<
+            \new Voice \RehearsalTrack
+            \clef bass
+            \new Voice = "solo" { \global \soloBass }
+          >>
+                                % Single soprano staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+            \new Voice = "soprano" { \global \soprano }
+          >>
+                                % Single alto staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \new Voice = "alto" { \global \alto }
+          >>
+                                % Single tenor staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \clef "treble_8"
+            \new Voice = "tenor" { \global \tenor }
+            \new Lyrics \lyricsto "tenor" \wordsTenorMidi
+          >>
+                                % Single bass staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \clef "bass"
+            \new Voice = "bass" { \global \bass }
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+            \new Voice { \global \pianoRH    }
+            \new Voice { \global \pianoRHone }
+            \new Voice { \global \pianoRHtwo }
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff <<
+            \clef "bass"
+            \new Voice { \global \pianoLH    }
+            \new Voice { \global \pianoLHone }
+            \new Voice { \global \pianoLHtwo }
+          >>
+        >>
+      >>
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-bass"
+
+  \score {
+      <<
+        \new ChoirStaff <<
+                                % Bass Solo staff
+          \new Dynamics \dynamicsSoloBass
+          \new Staff \with { instrumentName = #"Bass Solo" shortInstrumentName = #"Solo" } <<
+            \new Voice \RehearsalTrack
+            \clef bass
+            \new Voice = "solo" { \global \soloBass }
+          >>
+                                % Single soprano staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+            \new Voice = "soprano" { \global \soprano }
+          >>
+                                % Single alto staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \new Voice = "alto" { \global \alto }
+          >>
+                                % Single tenor staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \clef "treble_8"
+            \new Voice = "tenor" { \global \tenor }
+          >>
+                                % Single bass staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \clef "bass"
+            \new Voice = "bass" { \global \bass }
+            \new Lyrics \lyricsto "bass" \wordsBassMidi
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+            \new Voice { \global \pianoRH    }
+            \new Voice { \global \pianoRHone }
+            \new Voice { \global \pianoRHtwo }
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff <<
+            \clef "bass"
+            \new Voice { \global \pianoLH    }
+            \new Voice { \global \pianoLHone }
+            \new Voice { \global \pianoLHtwo }
+          >>
+        >>
+      >>
+    \midi {}
+  }
 }

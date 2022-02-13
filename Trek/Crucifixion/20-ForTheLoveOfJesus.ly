@@ -136,7 +136,7 @@ bass= \relative c {
 }
 
 \book {
-  \bookOutputSuffix "3"
+  \bookOutputSuffix "repeat"
   \score {
     \context GrandStaff <<
       <<
@@ -172,7 +172,51 @@ bass= \relative c {
 }
 
 \book {
-  \bookOutputSuffix "1"
+  \bookOutputSuffix "single"
+  \score {
+    \context GrandStaff <<
+      <<
+        \new ChoirStaff <<
+                                % Joint soprano/alto staff
+          \new Staff <<
+            \new Voice = "soprano" { \global \voiceOne \unfoldRepeats \soprano \bar "|."}
+            \new Voice = "alto"    { \global \voiceTwo \unfoldRepeats \alto    }
+            \new Lyrics \lyricsto "soprano" { \wordsOne  
+                                              \wordsTwo  
+%                                              \wordsThree
+                                              \wordsFour 
+                                              \wordsFive 
+                                            }
+          >>
+                                % Joint tenor/bass staff
+          \new Staff <<
+            \clef "bass"
+            \new Voice = "tenor" { \global \voiceOne \unfoldRepeats \tenor }
+            \new Voice = "bass"  { \global \voiceTwo \unfoldRepeats \bass  }
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
   \score {
     \context GrandStaff <<
       <<
