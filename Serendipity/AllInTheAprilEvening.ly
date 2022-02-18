@@ -211,31 +211,31 @@ wordsSop = \lyricmode {
 
 midiWordsSop = \lyricmode {
   "All " "in " "the " Apr "il " ev "'ning, "
-  A "pril " "airs " "were " a "broad; "
-  "The " "sheep " "with " "their " lit "tle " "lambs "
-  "Pass'd " "me " "by " "on " "the " "road. "
-  "The " "sheep " "with " "their " lit "tle " "lambs "
-  "Pass'd " "me " "by " "on " "the " "road, "
-  "All " "in " "the " Apr "il " ev "'ning, "
-  "I " "thought " "on " "the " "Lamb " "of " "God. "
+  "\nApril " "airs " "were " a "broad; "
+  "\nThe " "sheep " "with " "their " lit "tle " "lambs "
+  "\nPass'd " "me " "by " "on " "the " "road. "
+  "\nThe " "sheep " "with " "their " lit "tle " "lambs "
+  "\nPass'd " "me " "by " "on " "the " "road, "
+  "\nAll " "in " "the " Apr "il " ev "'ning, "
+  "\nI " "thought " "on " "the " "Lamb " "of " "God. "
 
-  "The " "lambs " "were " wea "ry " "and " cry "ing "
-  "With " "a " "weak " hu "man " "cry, "
-  "I " "thought " "on " "the " "Lamb " "of " "God "
-  go "ing " meek "ly " "to " "die. "
-  "Up " "in " "the " "blue " "blue " moun "tains, "
-  Dew "y " pas "tures " "are " "sweet, "
-  "Rest " "for " "the " lit "tle " bod "ies, "
-  "Rest " "for " "the " lit "tle " "feet. "
-  "But " "for " "the " "Lamb, " "the " "Lamb " "of " "God, "
-  "Up " "on " "the " hill "top " "green, "
-  On "ly " "a " "cross, " "a " "cross " "of " "shame, "
-  "Two " "stark " cross "es " be "tween. "
+  "\nThe " "lambs " "were " wea "ry " "and " cry "ing "
+  "\nWith " "a " "weak " hu "man " "cry, "
+  "\nI " "thought " "on " "the " "Lamb " "of " "God "
+  "\ngo" "ing " meek "ly " "to " "die. "
+  "\nUp " "in " "the " "blue " "blue " moun "tains, "
+  "\nDew" "y " pas "tures " "are " "sweet, "
+  "\nRest " "for " "the " lit "tle " bod "ies, "
+  "\nRest " "for " "the " lit "tle " "feet. "
+  "\nBut " "for " "the " "Lamb, " "the " "Lamb " "of " "God, "
+  "\nUp " "on " "the " hill "top " "green, "
+  "\nOn" "ly " "a " "cross, " "a " "cross " "of " "shame, "
+  "\nTwo " "stark " cross "es " be "tween. "
   
-  "All " "in " "the " Apr "il " ev "'ning, "
-  A "pril " "airs " "were " a "broad; "
-  "I " "saw " "the " "sheep " "with " "their " "lambs, "
-  "And " "thought " "on " "the " "Lamb " "of " "God. "
+  "\nAll " "in " "the " Apr "il " ev "'ning, "
+  "\nA" "pril " "airs " "were " a "broad; "
+  "\nI " "saw " "the " "sheep " "with " "their " "lambs, "
+  "\nAnd " "thought " "on " "the " "Lamb " "of " "God. "
 }
 
 alto = \relative c' {
@@ -373,31 +373,31 @@ wordsAlto = \lyricmode {
 
 midiWordsAlto = \lyricmode {
   "All " "in " "the " Apr "il " ev "'ning, "
-  A "pril " "airs " "were " a "broad; "
-  "The " "sheep " "with " "their " lit "tle " "lambs "
-  "Pass'd " "me " "by " "on " "the " "road. "
-  "The " "sheep " "with " "their " lit "tle " "lambs "
-  "Pass'd " "me " "by " "on " "the " "road, "
-  "All " "in " "the " Apr "il " ev "'ning, "
-  "I " "thought " "on " "the " "Lamb " "of " "God. "
+  "\nA" "pril " "airs " "were " a "broad; "
+  "\nThe " "sheep " "with " "their " lit "tle " "lambs "
+  "\nPass'd " "me " "by " "on " "the " "road. "
+  "\nThe " "sheep " "with " "their " lit "tle " "lambs "
+  "\nPass'd " "me " "by " "on " "the " "road, "
+  "\nAll " "in " "the " Apr "il " ev "'ning, "
+  "\nI " "thought " "on " "the " "Lamb " "of " "God. "
 
-  "The " "lambs " "were " wea "ry " "and " cry "ing "
-  "With " "a " "weak " hu "man " "cry, "
-  "I " "thought " "on " "the " "Lamb " "of " "God "
-  go "ing " meek "ly " "to " "die. "
-  "Up " "in " "the " "blue " "blue " moun "tains, "
-  Dew "y " pas "tures " "are " "sweet, "
-  "Rest " "for " "the " lit "tle " bod "ies, "
-  "Rest " "for " "the " lit "tle " "feet. "
-  "But " "for " "the " "Lamb, " "the " "Lamb " "of " "God, "
-  "Up " "on " "the " hill "top " "green, "
-  On "ly " "a " "cross, " "a " "cross " "of " "shame, "
-  "Two " "stark " cross "es " be "tween. "
+  "\nThe " "lambs " "were " wea "ry " "and " cry "ing "
+  "\nWith " "a " "weak " hu "man " "cry, "
+  "\nI " "thought " "on " "the " "Lamb " "of " "God "
+  "\ngo" "ing " meek "ly " "to " "die. "
+  "\nUp " "in " "the " "blue " "blue " moun "tains, "
+  "\nDew" "y " pas "tures " "are " "sweet, "
+  "\nRest " "for " "the " lit "tle " bod "ies, "
+  "\nRest " "for " "the " lit "tle " "feet. "
+  "\nBut " "for " "the " "Lamb, " "the " "Lamb " "of " "God, "
+  "\nUp " "on " "the " hill "top " "green, "
+  "\nOn" "ly " "a " "cross, " "a " "cross " "of " "shame, "
+  "\nTwo " "stark " cross "es " be "tween. "
   
-  "All " "in " "the " Apr "il " ev "'ning, "
-  A "pril " "airs " "were " a "broad; "
-  "I " "saw " "the " "sheep " "with " "their " "lambs, "
-  "And " "thought " "on " "the " "Lamb " "of " "God. "
+  "\nAll " "in " "the " Apr "il " ev "'ning, "
+  "\nA" "pril " "airs " "were " a "broad; "
+  "\nI " "saw " "the " "sheep " "with " "their " "lambs, "
+  "\nAnd " "thought " "on " "the " "Lamb " "of " "God. "
 }
 
 tenor = \relative c' {
@@ -534,31 +534,31 @@ wordsTenor = \lyricmode {
 
 midiWordsTenor = \lyricmode {
   "All " "in " "the " Apr "il " ev "'ning, "
-  A "pril " "airs " "were " a "broad; "
-  "The " "sheep " "with " "their " lit "tle " "lambs "
-  "Pass'd " "me " "by " "on " "the " "road. "
-  "The " "sheep " "with " "their " lit "tle " "lambs "
-  "Pass'd " "me " "by " "on " "the " "road, "
-  "All " "in " "the " Apr "il " ev "'ning, "
-  "I " "thought " "on " "the " "Lamb " "of " "God. "
+  "\nA" "pril " "airs " "were " a "broad; "
+  "\nThe " "sheep " "with " "their " lit "tle " "lambs "
+  "\nPass'd " "me " "by " "on " "the " "road. "
+  "\nThe " "sheep " "with " "their " lit "tle " "lambs "
+  "\nPass'd " "me " "by " "on " "the " "road, "
+  "\nAll " "in " "the " Apr "il " ev "'ning, "
+  "\nI " "thought " "on " "the " "Lamb " "of " "God. "
 
-  "The " "lambs " "were " wea "ry " "and " cry "ing "
-  "With " "a " "weak " hu "man " "cry, "
-  "I " "thought " "on " "the " "Lamb " "of " "God "
-  go "ing " meek "ly " "to " "die. "
-  "Up " "in " "the " "blue " "blue " moun "tains, "
-  Dew "y " pas "tures " "are " "sweet, "
-  "Rest " "for " "the " lit "tle " bod "ies, "
-  "Rest " "for " "the " lit "tle " "feet. "
-  "But " "for " "the " "Lamb " "of " "God, "
-  "Up " "on " "the " hill "top " "green, "
-  On "ly " "a " "cross " "of " "shame, "
-  "Two " "stark " cross "es " be "tween. "
+  "\nThe " "lambs " "were " wea "ry " "and " cry "ing "
+  "\nWith " "a " "weak " hu "man " "cry, "
+  "\nI " "thought " "on " "the " "Lamb " "of " "God "
+  "\ngo" "ing " meek "ly " "to " "die. "
+  "\nUp " "in " "the " "blue " "blue " moun "tains, "
+  "\nDew" "y " pas "tures " "are " "sweet, "
+  "\nRest " "for " "the " lit "tle " bod "ies, "
+  "\nRest " "for " "the " lit "tle " "feet. "
+  "\nBut " "for " "the " "Lamb " "of " "God, "
+  "\nUp " "on " "the " hill "top " "green, "
+  "\nOn" "ly " "a " "cross " "of " "shame, "
+  "\nTwo " "stark " cross "es " be "tween. "
   
-  "All " "in " "the " Apr "il " ev "'ning, "
-  A "pril " "airs " "were " a "broad; "
-  "I " "saw " "the " "sheep " "with " "their " "lambs, "
-  "And " "thought " "on " "the " "Lamb " "of " "God. "
+  "\nAll " "in " "the " Apr "il " ev "'ning, "
+  "\nA" "pril " "airs " "were " a "broad; "
+  "\nI " "saw " "the " "sheep " "with " "their " "lambs, "
+  "\nAnd " "thought " "on " "the " "Lamb " "of " "God. "
 }
 
 bass= \relative c {
@@ -693,33 +693,99 @@ wordsBass = \lyricmode {
 
 midiWordsBass = \lyricmode {
   "All " "in " "the " Apr "il " ev "'ning, "
-  A "pril " "airs " "were " a "broad; "
-  "The " "sheep " "with " "their " lit "tle " "lambs "
-  "Pass'd " "me " "by " "on " "the " "road. "
-  "The " "sheep " "with " "their " "lambs "
-  "Pass'd " "me " "by " "on " "the " "road, "
-  "All " "in " "the " Apr "il " ev "'ning, "
-  "I " "thought " "on " "the " "Lamb " "of " "God. "
+  "\nA" "pril " "airs " "were " a "broad; "
+  "\nThe " "sheep " "with " "their " lit "tle " "lambs "
+  "\nPass'd " "me " "by " "on " "the " "road. "
+  "\nThe " "sheep " "with " "their " "lambs "
+  "\nPass'd " "me " "by " "on " "the " "road, "
+  "\nAll " "in " "the " Apr "il " ev "'ning, "
+  "\nI " "thought " "on " "the " "Lamb " "of " "God. "
 
-  "On " "the " "Lamb " go "ing " "to " "die. "
-  "Up " "in " "the " moun "tains, "
-  Dew "y " pas "tures " "are " "sweet, " 
-  "Rest " "for " "the " lit "tle " bod "ies, "
-  "Rest " "for " "the " lit "tle " "feet. "
-  "But " "for " "the " "Lamb " "of " "God, "
-  "Up " "on " "the " hill "top " "green, "
-  On "ly " "a " "cross " "of " "shame, "
-  "Two " "stark " cross "es " be "tween. "
+  "\nOn " "the " "Lamb " go "ing " "to " "die. "
+  "\nUp " "in " "the " moun "tains, "
+  "\nDew" "y " pas "tures " "are " "sweet, " 
+  "\nRest " "for " "the " lit "tle " bod "ies, "
+  "\nRest " "for " "the " lit "tle " "feet. "
+  "\nBut " "for " "the " "Lamb " "of " "God, "
+  "\nUp " "on " "the " hill "top " "green, "
+  "\nOn" "ly " "a " "cross " "of " "shame, "
+  "\nTwo " "stark " cross "es " be "tween. "
   
-  "In " "the " Apr "il " ev "'ning, "
-  A "pril " "airs " "were " a "broad; "
-  "I " "saw " "the " "sheep " "with " "their " "lambs, "
-  "And " "thought " "on " "the " "Lamb " "of " "God. "
+  "\nIn " "the " Apr "il " ev "'ning, "
+  "\bA" "pril " "airs " "were " a "broad; "
+  "\nI " "saw " "the " "sheep " "with " "their " "lambs, "
+  "\nAnd " "thought " "on " "the " "Lamb " "of " "God. "
 }
 
 \book {
+  \bookOutputSuffix "single"
   \score {
-    #(define output-suffix "single")
+    \context GrandStaff <<
+      <<
+        \new ChoirStaff <<
+                                  % Single soprano staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+            \new Voice \RehearsalTrack
+            \new Voice = "soprano" \soprano
+            \new Lyrics \lyricsto "soprano" \wordsSop
+          >>
+                                  % Single alto staff
+          \new Dynamics \dynamicsAlto
+          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \new Voice = "alto" \alto
+            \new Lyrics \lyricsto "alto" \wordsAlto
+          >>
+                                  % Single tenor staff
+          \new Dynamics \dynamicsTenor
+          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \clef "treble_8"
+            \new Voice = "tenor" \tenor
+            \new Lyrics \lyricsto "tenor" \wordsTenor
+          >>
+                                  % Single bass staff
+          \new Dynamics \dynamicsBass
+          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \clef "bass"
+            \new Voice = "bass" \bass
+            \new Lyrics \lyricsto "bass" \wordsBass
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+	     \new Voice { \voiceOne \soprano }
+	     \new Voice { \voiceTwo \alto    }
+          >>
+          \new Staff <<
+            \clef "bass"
+	     \new Voice { \voiceOne \tenor }
+	     \new Voice { \voiceTwo \bass  }
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+
+\book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
     \context GrandStaff <<
       <<
         \new ChoirStaff <<
@@ -774,68 +840,9 @@ midiWordsBass = \lyricmode {
 }
 
 \book {
+  \bookOutputSuffix "midi-sop"
   \score {
-    #(define output-suffix "midi")
-%    \unfoldRepeats \articulate <<
-    \context GrandStaff <<
-      <<
-        \new ChoirStaff <<
-                                  % Single soprano staff
-          \new Dynamics \dynamicsSop
-          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
-            \new Voice \RehearsalTrack
-            \new Voice = "soprano" \soprano
-            \new Lyrics \lyricsto "soprano" \midiWordsSop
-          >>
-                                  % Single alto staff
-          \new Dynamics \dynamicsAlto
-          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
-            \new Voice = "alto" \alto
-            \new Lyrics \lyricsto "alto" \midiWordsAlto
-          >>
-                                  % Single tenor staff
-          \new Dynamics \dynamicsTenor
-          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
-            \clef "treble_8"
-            \new Voice = "tenor" \tenor
-            \new Lyrics \lyricsto "tenor" \midiWordsTenor
-          >>
-                                  % Single bass staff
-          \new Dynamics \dynamicsBass
-          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
-            \clef "bass"
-            \new Voice = "bass" \bass
-            \new Lyrics \lyricsto "bass" \midiWordsBass
-          >>
-        >>
-        \new PianoStaff <<
-          \new Staff <<
-	     \new Voice { \voiceOne \soprano }
-	     \new Voice { \voiceTwo \alto    }
-          >>
-          \new Staff <<
-            \clef "bass"
-	     \new Voice { \voiceOne \tenor }
-	     \new Voice { \voiceTwo \bass  }
-          >>
-        >>
-      >>
-    >>
-% >>
-    \layout {
-      indent = 1.5\cm
-      \context {
-        \Staff \RemoveAllEmptyStaves
-      }
-    }
-    \midi {}
-  }
-}
-
-\book {
-  \score {
-    #(define output-suffix "sop")
-%    \unfoldRepeats \articulate <<
+%   \articulate
     \context GrandStaff <<
       <<
         \new ChoirStaff <<
@@ -877,21 +884,14 @@ midiWordsBass = \lyricmode {
         >>
       >>
     >>
-% >>
-    \layout {
-      indent = 1.5\cm
-      \context {
-        \Staff \RemoveAllEmptyStaves
-      }
-    }
     \midi {}
   }
 }
 
 \book {
+  \bookOutputSuffix "midi-alto"
   \score {
-    #(define output-suffix "alto")
-%    \unfoldRepeats \articulate <<
+%    \articulate
     \context GrandStaff <<
       <<
         \new ChoirStaff <<
@@ -928,26 +928,20 @@ midiWordsBass = \lyricmode {
           \new Staff <<
             \clef "bass"
 	     \new Voice { \voiceOne \tenor }
-	     \new Voice { \voiceTwo \bass  }
+
+            \new Voice { \voiceTwo \bass  }
           >>
         >>
       >>
     >>
-% >>
-    \layout {
-      indent = 1.5\cm
-      \context {
-        \Staff \RemoveAllEmptyStaves
-      }
-    }
     \midi {}
   }
 }
 
 \book {
+  \bookOutputSuffix "midi-tenor"
   \score {
-    #(define output-suffix "tenor")
-%    \unfoldRepeats \articulate <<
+%    \articulate
     \context GrandStaff <<
       <<
         \new ChoirStaff <<
@@ -989,21 +983,14 @@ midiWordsBass = \lyricmode {
         >>
       >>
     >>
-% >>
-    \layout {
-      indent = 1.5\cm
-      \context {
-        \Staff \RemoveAllEmptyStaves
-      }
-    }
     \midi {}
   }
 }
 
 \book {
+  \bookOutputSuffix "midi-bass"
   \score {
-    #(define output-suffix "bass")
-%    \unfoldRepeats \articulate <<
+%    \articulate
     \context GrandStaff <<
       <<
         \new ChoirStaff <<
@@ -1044,13 +1031,6 @@ midiWordsBass = \lyricmode {
         >>
       >>
     >>
-% >>
-    \layout {
-      indent = 1.5\cm
-      \context {
-        \Staff \RemoveAllEmptyStaves
-      }
-    }
     \midi {}
   }
 }
