@@ -1161,7 +1161,8 @@ pianoLHtwo = \relative {
   s1 % 14c
   s1
   \once\partCombineApart r4 d,2->\dim d'4
-  s1*3 % 15a
+  s1^\mp % 15a
+  s1*2
   s1 % 15b
   s1
   c4-> b a-. d
@@ -1181,6 +1182,58 @@ pianoLHtwo = \relative {
 
 \book {
   \bookOutputSuffix "single"
+  \score {
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single part I staff
+          \new Staff \with { instrumentName = #"Part I" shortInstrumentName = #"I" } <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice = "part1" \partI
+            \new Lyrics \lyricsto "part1" \wordsI
+          >>
+                                % Single part II staff
+          \new Staff \with { instrumentName = #"Part II" shortInstrumentName = #"II" } <<
+            \new Voice = "part2" \partII
+            \new Lyrics \lyricsto "part2" \wordsII
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+            \new Voice \pianoRH
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff \with { printPartCombineTexts = ##f } <<
+            \clef "bass"
+            \new Voice \partCombine \pianoLHone \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+
+\book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
   \score {
     <<
       <<
