@@ -149,6 +149,17 @@ chorus = \lyricmode {
   Through faith in Je -- sus name!
 }
 
+chorusAlt = \lyricmode {
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _
+  we now pro -- claim.
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _
+}
+
 verses = 4
 
 wordsOne = \lyricmode {
@@ -225,8 +236,50 @@ wordsMidi = \lyricmode {
   "\nThrough " "faith " "in " Je "sus " "name! "
 }
 
+wordsMidiMen = \lyricmode {
+  \set stanza = "1."
+  "'Tis " "a " "true " "and " faith "ful " say "ing, "
+  "\nJe" "sus " "died " "for " sin "ful " "men; "
+  "\nTho' " "we've " "told " "the " sto "ry " oft "en, "
+  "\nWe " "must " "tell " "it " "o'er " a "gain. "
+  "\nOh, " "Glad " "and " glo "rious " Gos "pel! "
+  "\nWith " "joy " "we " "now, " "we " "now " pro "claim. "
+  "\nA " "full " "and " "free " sal va "tion, "
+  "\nThrough " "faith " "in " Je "sus " "name! "
+
+  \set stanza = "2."
+  "\nHe " "has " "made " "a " "full " a tone "ment, "
+  "\nNow " "His " sa "ving " "work " "is " "done; "
+  "\nHe " "has "  sat is "fied " "the " Fa "ther, "
+  "\nWho " ac "cepts " "us " "in " "His " "Son. "
+  "\nOh, " "Glad " "and " glo "rious " Gos "pel! "
+  "\nWith " "joy " "we " "now, " "we " "now " pro "claim. "
+  "\nA " "full " "and " "free " sal va "tion, "
+  "\nThrough " "faith " "in " Je "sus " "name! "
+
+  \set stanza = "3."
+  "\nStill " up "on " "His " "hands " "the " nail "prints, "
+  "\nAnd " "the " "scars " up "on " "His " "brow; "
+  "\nOur " re deem "er, " "Lord, " "and " Sa "viour, "
+  "\nIn " "the " glo "ry " stand "eth " "now. "
+  "\nOh, " "Glad " "and " glo "rious " Gos "pel! "
+  "\nWith " "joy " "we " "now, " "we " "now " pro "claim. "
+  "\nA " "full " "and " "free " sal va "tion, "
+  "\nThrough " "faith " "in " Je "sus " "name! "
+
+  \set stanza = "4."
+  "\nBut " re mem "ber, " "this " "same " Je "sus "
+  "\nIn " "the " "clouds " "will " "come " a "gain; "
+  "\nAnd " "with " "Him " "His " blood "bought " peo "ple "
+  "\nEv" er "more " "shall " "live " "and " "reign. "
+  "\nOh, " "Glad " "and " glo "rious " Gos "pel! "
+  "\nWith " "joy " "we " "now, " "we " "now " pro "claim. "
+  "\nA " "full " "and " "free " sal va "tion, "
+  "\nThrough " "faith " "in " Je "sus " "name! "
+}
+
 \book {
-  \bookOutputSuffix "midi"
+  \bookOutputSuffix "midi-women"
   \score {
 %    \articulate
         \new ChoirStaff <<
@@ -260,6 +313,40 @@ wordsMidi = \lyricmode {
 }
 
 \book {
+  \bookOutputSuffix "midi-men"
+  \score {
+%    \articulate
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano
+          <<
+            \new Voice { \repeat unfold \verses \TempoTrack     }
+            \new Voice { \global \repeat unfold \verses \soprano \bar "|." }
+          >>
+                                % Alto staff
+          \new Staff = alto
+          <<
+            \new Voice { \global \repeat unfold \verses { \alto \nl } \bar "|." }
+          >>
+                                % Tenor staff
+          \new Staff = tenor
+          <<
+            \clef "treble_8"
+            \new Voice { \global \repeat unfold \verses \tenor }
+            \addlyrics \wordsMidiMen
+          >>
+                                % Bass staff
+          \new Staff = bass
+          <<
+            \clef "bass"
+            \new Voice { \global \repeat unfold \verses \bass }
+          >>
+        >>
+    \midi {}
+  }
+}
+
+\book {
   \bookOutputSuffix "repeat"
   \score {
         \new ChoirStaff <<
@@ -276,11 +363,13 @@ wordsMidi = \lyricmode {
             \new Lyrics \lyricsto "aligner"   \wordsFour
           >>
                                   % Joint tenor/bass staff
-          \new Staff \with { printPartCombineTexts = ##f }
+          \new Staff = men \with { printPartCombineTexts = ##f }
           <<
             \clef "bass"
             \new Voice = "men" \partCombine { \global \tenor } { \global \bass }
+            \new NullVoice = alignerT \tenor
           >>
+          \new Lyrics \with {alignAboveContext = men} \lyricsto alignerT \chorusAlt
         >>
     \layout {
       indent = 1.5\cm
@@ -311,12 +400,14 @@ wordsMidi = \lyricmode {
                                             }
           >>
                                   % Joint tenor/bass staff
-          \new Staff \with { printPartCombineTexts = ##f }
+          \new Staff = men \with { printPartCombineTexts = ##f }
           <<
             \clef "bass"
-            \new Voice = "men" \partCombine { \global \repeat unfold \verses \tenor }
-                                            { \global \repeat unfold \verses \bass }
+            \new Voice \partCombine { \global \repeat unfold \verses \tenor }
+                                    { \global \repeat unfold \verses \bass }
+            \new NullVoice = alignerT {\repeat unfold \verses \tenor}
           >>
+          \new Lyrics \with {alignAboveContext = men} \lyricsto alignerT {\repeat unfold \verses \chorusAlt}
         >>
     \layout {
       indent = 1.5\cm
@@ -356,12 +447,14 @@ wordsMidi = \lyricmode {
                                             }
           >>
                                   % Joint tenor/bass staff
-          \new Staff \with { printPartCombineTexts = ##f }
+          \new Staff = men \with { printPartCombineTexts = ##f }
           <<
             \clef "bass"
-            \new Voice = "men" \partCombine { \global \repeat unfold \verses \tenor }
-                                            { \global \repeat unfold \verses \bass }
+            \new Voice \partCombine { \global \repeat unfold \verses \tenor }
+                                    { \global \repeat unfold \verses \bass }
+            \new NullVoice = alignerT {\repeat unfold \verses \tenor}
           >>
+          \new Lyrics \with {alignAboveContext = men} \lyricsto alignerT {\repeat unfold \verses \chorusAlt}
         >>
     \layout {
       indent = 1.5\cm
