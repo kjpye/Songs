@@ -61,7 +61,7 @@ wordsThree = \lyricmode {
   \set stanza = "3."
   I a- dore Thee, I a- dore Thee!
   Born of wo- man, yet Div- ine:
-  Stained with sins I kneel be- fore Thee,
+  Stained with sin I kneel be- fore Thee,
   Sweet- est Je- su, I im- plore Thee,
   Make me e- ver on- ly Thine.
 }

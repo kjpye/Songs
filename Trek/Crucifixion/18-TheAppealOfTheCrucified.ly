@@ -623,10 +623,10 @@ alto = \relative c'' {
   f4 f f f
   f2. g4
   g2 g
-  e4 e2 aes4
+  e4 f2 aes4
   aes2 a4 a
   g2. g4
-  f2. f4
+  f2. f4 % 50a
   f4 f2 f4
   f2 d
   d1
