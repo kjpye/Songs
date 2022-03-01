@@ -46,6 +46,11 @@ RehearsalTrack = {
   \mark \markup { \box "B" } s8 s1 s2.
   \mark \markup { \box "C" } s4 s1 s2.
   \mark \markup { \box "D" } s4 s1 s2.
+  \mark \markup { \box "E" } s4 s1 s4 s8.
+  \mark \markup { \box "F" } s16 s2 s1
+  \mark \markup { \box "G" } s1 s2.
+  \mark \markup { \box "H" } s4 s1 s4
+  \mark \markup { \box "I" } s2. s2.
 }
 
 TempoTrack = {
@@ -67,7 +72,15 @@ soprano = \relative {
   \tag #'(v1 v2) {g8 f f8. e16 f4 \bar "|" \break             8 8            }
   \tag #'v3      {g8 f f8. e16 f4 \bar "|" \break             4              }
   ees8 aes c ees ees des aes bes % D
-  c16 8.^\markup\italic rit. 8. bes16 aes4\fermata
+  c16 8.^\markup\italic rit. 8. bes16 aes4\fermata \bar "||" \break f8 aes
+  des16 8. 8. 16 4 f,8 des' % E
+  c16 8. 8. \bar "|" \break 16 4 ees,8 c'
+  bes16 8. 8. 16 8 aes8 8 bes % F
+  c8 aes8 8. f16 ees4 f8 aes % G
+  d16 8. 8. 16 4 \bar "|" \break f,8 des'
+  c16 8. 8. 16 4 aes8 bes % H
+  c8 ees \bar "|" \break ees8 8 8 des16\fermata r aes8 bes % I
+  c16 8. 8.\fermata bes16 aes4\fermata
 }
 
 alto = \relative {
@@ -82,7 +95,15 @@ alto = \relative {
   \tag #'(v1 v2) {des8 8 8. 16 4             8 8            }
   \tag #'v3      {des8 8 8. 16 4             4              }
   c8 ees ges8 8 f f f f % D
-  ees16 8. 8. des16 c4\fermata
+  ees16 8. 8. des16 c4\fermata \once\partCombineApart r4
+  f16 8. 8. 16 4 \once\partCombineApart r4 % E
+  ees16 8. 8. 16 4 c8 ees
+  des16 8. 8. 16 8 c c des % F
+  ees8 c8 8. des16 c4 \once\partCombineApart r4 % G
+  f16 8. 8. 16 4 \once\partCombineApart r4
+  ees16 8. 8. 16 4 8 8 % H
+  ees8 8 ges8 8 f8 16\fermata r16 8 8
+  ees16 8. 8.\fermata des16 c4\fermata
 }
 
 tenor = \relative {
@@ -97,6 +118,14 @@ tenor = \relative {
   \tag #'(v1 v2) {aes8 8 8. 16 4             8 8            }
   \tag #'v3      {aes8 8 8. 16 4             4              }
   aes8 c ees c aes aes aes aes % D
+  aes16 8. 8. ees16 4\fermata r4
+  aes16 8. 8. 16 4 r % E
+  aes16 8. 8. 16 4 ees8 aes
+  g16 8. 8. 16 8 aes8 8 g % F
+  aes8 ees8 8. aes16 4 r % G
+  aes16 8. 8. 16 4 r
+  aes16 8. 8. 16 4 8 g % H
+  aes8 c8 8 8 aes8 16\fermata r16 8 8
   aes16 8. 8. ees16 4\fermata
 }
 
@@ -112,13 +141,29 @@ bass = \relative {
   \tag #'(v1 v2) {des8 8 8. 16 4             8 8            }
   \tag #'v3      {des8 8 8. 16 4             4              }
   aes8 8 aes'8 8 des,8 8 8 8 % D
-  ees16 8. 8. aes,16 4\fermata
+  ees16 8. 8. aes,16 4\fermata r4
+  des16 8. 8. 16 4 r % E
+  aes16 8. 8. 16 4 8 8
+  ees'16 8. 8. 16 8 8 8 8 % F
+  aes,8 8 8. 16 4 r % G
+  des16 8. 8. 16 4 r
+  aes16 8. 8. 16 4 c8 ees % H
+  aes8 8 8 8 des,8 16\fermata r des8 8
+  ees16 8. 8.\fermata 16 aes,4\fermata
 }
 
 nom  = {   \set ignoreMelismata = ##t }
 yesm = { \unset ignoreMelismata       }
 
 chorus = \lyricmode {
+  Are you com -- ing Home to -- night?
+  Are you com -- ing Home to -- night?
+  Are you com -- ing Home to Je -- ses,
+  Out of dark -- ness in to light?
+  Are you com -- ing Home to -- night?
+  Are you com -- ing Home to -- night?
+  To your lov -- ing heaven -- ly Fa -- ther
+  Are you com -- ing Home to -- night?
 }
 
 verses = 3
@@ -169,6 +214,14 @@ wordsSingle = \lyricmode {
   To wash your gar -- ments white?
   Will you trust His pre -- cious pro -- mise?
   Are you com -- ing Home to -- night?
+  Are you com -- ing Home to -- night?
+  Are you com -- ing Home to -- night?
+  Are you com -- ing Home to Je -- ses,
+  Out of dark -- ness in to light?
+  Are you com -- ing Home to -- night?
+  Are you com -- ing Home to -- night?
+  To your lov -- ing heaven -- ly Fa -- ther
+  Are you com -- ing Home to -- night?
 
   \set stanza = "2."
   Are ye com -- ing Home, ye lost ones?
@@ -179,6 +232,14 @@ wordsSingle = \lyricmode {
   Oh, trust His love and might!
   Will you come while He is call -- ing?
   Are you com -- ing Home to --  night?
+  Are you com -- ing Home to -- night?
+  Are you com -- ing Home to -- night?
+  Are you com -- ing Home to Je -- ses,
+  Out of dark -- ness in to light?
+  Are you com -- ing Home to -- night?
+  Are you com -- ing Home to -- night?
+  To your lov -- ing heaven -- ly Fa -- ther
+  Are you com -- ing Home to -- night?
 
   \set stanza = "3."
   Are you com -- ing Home, ye guil -- ty,
@@ -189,6 +250,14 @@ wordsSingle = \lyricmode {
   And dare to trust Him quite?—
   "\"Come" un -- to "Me!\"" saith Je -- sus:
   Are you com -- ing Home to --  night?
+  Are you com -- ing Home to -- night?
+  Are you com -- ing Home to -- night?
+  Are you com -- ing Home to Je -- ses,
+  Out of dark -- ness in to light?
+  Are you com -- ing Home to -- night?
+  Are you com -- ing Home to -- night?
+  To your lov -- ing heaven -- ly Fa -- ther
+  Are you com -- ing Home to -- night?
 }
   
 wordsMidi = \lyricmode {
@@ -201,6 +270,14 @@ wordsMidi = \lyricmode {
   "\nTo " "wash " "your " gar "ments " "white? "
   "\nWill " "you " "trust " "His " pre "cious " pro "mise? "
   "\nAre " "you " com "ing " "Home " to "night? "
+  "\nAre " "you " com "ing " "Home " to "night? "
+  "\nAre " "you " com "ing " "Home " to "night? "
+  "\nAre " "you " com "ing " "Home " "to " Je "ses, "
+  "\nOut " "of " dark "ness " "in " "to " "light? "
+  "\nAre " "you " com "ing " "Home " to "night? "
+  "\nAre " "you " com "ing " "Home " to "night? "
+  "\nTo " "your " lov "ing " heaven "ly " Fa "ther "
+  "\nAre " "you " com "ing " "Home " to "night? "
 
   \set stanza = "2."
   "\nAre " "ye " com "ing " "Home, " "ye " "lost " "ones? "
@@ -211,6 +288,14 @@ wordsMidi = \lyricmode {
   "\nOh, " "trust " "His " "love " "and " "might! "
   "\nWill " "you " "come " "while " "He " "is " call "ing? "
   "\nAre " "you " com "ing " "Home " to  "night? "
+  "\nAre " "you " com "ing " "Home " to "night? "
+  "\nAre " "you " com "ing " "Home " to "night? "
+  "\nAre " "you " com "ing " "Home " "to " Je "ses, "
+  "\nOut " "of " dark "ness " "in " "to " "light? "
+  "\nAre " "you " com "ing " "Home " to "night? "
+  "\nAre " "you " com "ing " "Home " to "night? "
+  "\nTo " "your " lov "ing " heaven "ly " Fa "ther "
+  "\nAre " "you " com "ing " "Home " to "night? "
 
   \set stanza = "3."
   "\nAre " "you " com "ing " "Home, " "ye " guil "ty, "
@@ -221,6 +306,14 @@ wordsMidi = \lyricmode {
   "\nAnd " "dare " "to " "trust " "Him " "quite?— "
   "\n\"Come " un "to " "Me!\" " "saith " Je "sus: "
   "\nAre " "you " com "ing " "Home " to  "night? "
+  "\nAre " "you " com "ing " "Home " to "night? "
+  "\nAre " "you " com "ing " "Home " to "night? "
+  "\nAre " "you " com "ing " "Home " "to " Je "ses, "
+  "\nOut " "of " dark "ness " "in " "to " "light? "
+  "\nAre " "you " com "ing " "Home " to "night? "
+  "\nAre " "you " com "ing " "Home " to "night? "
+  "\nTo " "your " lov "ing " heaven "ly " Fa "ther "
+  "\nAre " "you " com "ing " "Home " to "night? "
 }
 
 \book {
