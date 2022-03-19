@@ -178,6 +178,28 @@ wordsW = \lyricmode {
   as strong as death.
 }
 
+wordsWMidi = \lyricmode {
+  "\nSet " "me " "as " "a " "seal " u "pon " "your " "heart, "
+  "\nas " "a " "seal " u "pon " "your " "arm. "
+  "\nFor " "love " "is " "as " "strong, "
+  "\nfor " "love " "is " "as " "strong "  "as "  "death, "
+  "\nas " "strong " "as " "death. "
+
+  "\nMa" "ny " wa "ters " can "not " "quench " "love, "
+  "\nMa" "ny " wa "ters " can "not " "quench " "love, "
+  "\nfloods " can "not " "drown " "it. "
+  "\nWa" "ters " can "not " "quench " "love, "
+  "\nnei" "ther " "can " "the " "floods "  "drown " "it. "
+
+  "\nSet " "me " "as " "a " "seal " u "pon " "your " "heart, "
+  "\nas " "a " "seal " u "pon " "your " "arm. " 
+  "\nFor " "love, " "is " "as " "strong, "
+  "\nfor " "love " "is " "as " "strong "  "as "  "death. "
+  "\nas " "strong "  "as "  "death, "
+  "\nas " "strong " "as " "death, "
+  "\nas " "strong " "as " "death. "
+}
+
 alto = \relative {
   \global \voiceTwo 
   R1*8
@@ -295,6 +317,28 @@ wordsM = \lyricmode {
   as strong __ as __ death,
   as strong as death,
   as strong as death.
+}
+
+wordsMMidi = \lyricmode {
+  "Set " "me " "as " "a " "seal " u "pon " "your " "heart "
+  "\nas " "a " "seal " u "pon " "your " "arm. "
+  "\nFor " "love " "is " "as " "strong, "
+  "\nfor " "love " "is " "as " "strong "  "as "  "death, "
+  "\nas " "strong " "as " "death. "
+
+  "\nnei" "ther " "can " "floods " "drown " "it. "
+  "\nMa" "ny " wa "ters " can "not " "quench " "love, "
+  "\nfloods " can "not " "drown " "it. "
+  "\nWa" "ters " can "not " "quench " "love, "
+  "\nnei" "ther " "can " "the " "floods "  "drown " "it. "
+
+  "\nSet " "me " "as " "a " "seal " u "pon " "your " "heart, "
+  "\nas " "a " "seal " u "pon " "your " "arm. " 
+  "\nFor " "love, " "is " "as " "strong, "
+  "\nfor " "love " "is " "as " "strong "  "as "  "death. "
+  "\nas " "strong "  "as "  "death, "
+  "\nas " "strong " "as " "death, "
+  "\nas " "strong " "as " "death. "
 }
 
 bass = \relative {
@@ -578,25 +622,12 @@ pianoLHtwo = \relative {
 
 \book {
   \bookOutputSuffix "single"
-%  \paper {
-%    top-margin = 0
-%    left-margin = 7
-%    right-margin = 1
-%    paper-width = 190\mm
-%    page-breaking = #ly:one-page-breaking
-%    system-system-spacing.basic-distance = #22
-%    system-separator-markup = \slashSeparator
-%  }
   \score {
-%   \unfoldRepeats
-%   \articulate
     <<
       <<
                                 % Single trombone staff
           \new Staff = trombone \with {
             instrumentName = #"Trombone"
-%            shortInstrumentName = #"S"
-            midiInstrument = "trombone"
           }
           <<
             \clef bass
@@ -609,7 +640,6 @@ pianoLHtwo = \relative {
           \new Staff = women \with {
             instrumentName = #"Soprano/Alto"
             shortInstrumentName = #"SA"
-            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \RehearsalTrack
@@ -622,7 +652,6 @@ pianoLHtwo = \relative {
           \new Staff = men \with {
             instrumentName = #"Tenor/Bass"
             shortInstrumentName = #"TB"
-            midiInstrument = "choir aahs"
           }
           <<
             \clef "bass"
@@ -630,6 +659,171 @@ pianoLHtwo = \relative {
             \new Voice \bass
             \new NullVoice \tenor
             \addlyrics \wordsM
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh
+          <<
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff = pianolh
+          <<
+            \clef "bass"
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      <<
+                                % Single trombone staff
+          \new Staff = trombone \with {
+            instrumentName = #"Trombone"
+          }
+          <<
+            \clef bass
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \trombone
+          >>
+        \new ChoirStaff <<
+                                % Joint soprano/alto staff
+          \new Staff = women \with {
+            instrumentName = #"Soprano/Alto"
+            shortInstrumentName = #"SA"
+          }
+          <<
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \new Voice \alto
+            \new NullVoice \soprano
+            \addlyrics \wordsW
+          >>
+                                % Joint tenor/bass staff
+          \new Staff = men \with {
+            instrumentName = #"Tenor/Bass"
+            shortInstrumentName = #"TB"
+          }
+          <<
+            \clef "bass"
+            \new Voice \tenor
+            \new Voice \bass
+            \new NullVoice \tenor
+            \addlyrics \wordsM
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh
+          <<
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff = pianolh
+          <<
+            \clef "bass"
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-women"
+  \score {
+%   \articulate
+    <<
+      <<
+                                % Single trombone staff
+          \new Staff = trombone \with {
+            instrumentName = #"Trombone"
+%            shortInstrumentName = #"S"
+            midiInstrument = "trombone"
+          }
+          <<
+            \clef bass
+            \new Voice \TempoTrack
+            \new Voice \trombone
+          >>
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = women \with {
+            instrumentName = #"Soprano/Alto"
+            shortInstrumentName = #"SA"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics \wordsWMidi
+          >>
+                                % Alto staff
+          \new Staff = women \with {
+            instrumentName = #"Soprano/Alto"
+            shortInstrumentName = #"SA"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Voice \alto
+          >>
+                                % Tenor staff
+          \new Staff = men \with {
+            instrumentName = #"Tenor/Bass"
+            shortInstrumentName = #"TB"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \clef "treble_8"
+            \new Voice \tenor
+          >>
+                                % Bass staff
+          \new Staff = men \with {
+            instrumentName = #"Tenor/Bass"
+            shortInstrumentName = #"TB"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \clef "bass"
+            \new Voice \bass
           >>
         >>
         \new PianoStaff = piano <<
@@ -652,15 +846,89 @@ pianoLHtwo = \relative {
         >>
       >>
     >>
-    \layout {
-      indent = 1.5\cm
-      \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
-        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
-        \override BarNumber.break-visibility = ##(#f #t #t)
-      }
-    }
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-men"
+  \score {
+%   \articulate
+    <<
+      <<
+                                % Single trombone staff
+          \new Staff = trombone \with {
+            instrumentName = #"Trombone"
+%            shortInstrumentName = #"S"
+            midiInstrument = "trombone"
+          }
+          <<
+            \clef bass
+            \new Voice \TempoTrack
+            \new Voice \trombone
+          >>
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = women \with {
+            instrumentName = #"Soprano/Alto"
+            shortInstrumentName = #"SA"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+          >>
+                                % Alto staff
+          \new Staff = women \with {
+            instrumentName = #"Soprano/Alto"
+            shortInstrumentName = #"SA"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Voice \alto
+          >>
+                                % Tenor staff
+          \new Staff = men \with {
+            instrumentName = #"Tenor/Bass"
+            shortInstrumentName = #"TB"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics \wordsMMidi
+          >>
+                                % Bass staff
+          \new Staff = men \with {
+            instrumentName = #"Tenor/Bass"
+            shortInstrumentName = #"TB"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \clef "bass"
+            \new Voice \bass
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff = pianolh \with {
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \clef "bass"
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
     \midi {}
   }
 }
