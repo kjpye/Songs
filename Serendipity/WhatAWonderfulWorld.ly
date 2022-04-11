@@ -185,6 +185,91 @@ words = \lyricmode {
   what a won -- der -- ful world. __
 }
 
+words = \lyricmode {
+  I see trees of green, red __ ros -- es too,
+  I see them bloom for me and you,
+  and I think __ to my -- self,
+  what a won -- der -- ful world. __
+
+  I see skies of blue and clouds of white,
+  the bright __ bless -- ed day,
+  the dark __ sa -- cred night,
+  and I think __ to my -- self,
+  what a won -- der -- ful world. __
+
+  The col -- ors __ of the rain -- bow,
+  so pret -- ty in the \set associatedVoice = alignerT sky,
+  are al -- so __ on the fac -- es
+  of peo -- ple go -- in' \set associatedVoice = alignerS by,
+  I see friends shak -- in' hands, __
+  say -- in' "\"How" do you "do!\""
+  They're real -- ly say -- in'
+  "\"I" love "you.\""
+  oo __ watch them grow
+  They'll learn much more
+  than I'll __ ev -- er know
+  and I think __ to my -- self,
+  what a won -- der -- ful world. __
+  Yes, I think __ to my -- self,
+  what a won -- der -- ful world. __
+}
+
+wordsWomenMidi = \lyricmode {
+  "I " "see " "trees " "of " "green, " "red "  ros "es " "too, "
+  "\nI " "see " "them " "bloom " "for " "me " "and " "you, "
+  "\nand " "I " "think "  "to " my "self, "
+  "\nwhat " "a " won der "ful " "world. " 
+
+  "\nI " "see " "skies " "of " "blue " "and " "clouds " "of " "white, "
+  "\nthe " "bright "  bless "ed " "day, "
+  "\nthe " "dark "  sa "cred " "night, "
+  "\nand " "I " "think "  "to " my "self, "
+  "\nwhat " "a " won der "ful " "world. " 
+
+  "\nThe " col "ors "  "of " "the " rain "bow, "
+  "\nso " pret "ty " "in " "the " "sky, "
+  "\nI " "see " "friends " shak "in' " "hands, " 
+  "\nsay" "in' " "\"How " "do " "you " "do!\" "
+  "\nThey're " real "ly " say "in' "
+  "\n\"I " "love " "you.\" "
+  "\noo "  "watch " "them " "grow "
+  "\nThey'll " "learn " "much " "more "
+  "\nthan " "I'll "  ev "er " "know "
+  "\nand " "I " "think "  "to " my "self, "
+  "\nwhat " "a " won der "ful " "world. " 
+  "\nYes, " "I " "think "  "to " my "self, "
+  "\nwhat " "a " won der "ful " "world. " 
+}
+
+
+wordsMenMidi = \lyricmode {
+  "and " "I " "think "  "to " my "self, "
+  "\nwhat " "a " won der "ful " "world. " 
+
+  "\nI " "see " "skies " "of " "blue " "and " "clouds " "of " "white, "
+  "\nthe " "bright "  bless "ed " "day, "
+  "\nthe " "dark "  sa "cred " "night, "
+  "\nand " "I " "think "  "to " my "self, "
+  "\nwhat " "a " won der "ful " "world. " 
+
+  "\nare " al "so "  "on " "the " fac "es "
+  "\nof " peo "ple " go "in' " "by, "
+  "\nI " "see " "friends " shak "in' " "hands, " 
+  "\nsay" "in' " "\"How " "do " "you " "do!\" "
+  "\nThey're " real "ly " say "in' "
+  "\n\"I " "love " "you.\" "
+
+  "\nI " "hear " ba "bies " "cry, "
+  "\nI " "watch " "them " "grow "
+  "\nThey'll " "learn " "much " "more "
+  "\nthan " "I'll "  ev "er " "know "
+  "\nand " "I " "think "  "to " my "self, "
+  "\nwhat " "a " won der "ful " "world. " 
+  "\nYes, " "I " "think "  "to " my "self, "
+  "\nwhat " "a " won der "ful " "world. " 
+}
+
+
 alto = \tripletFeel 8 \relative {
   \global
   R1
@@ -278,6 +363,15 @@ tenor = \relative {
 
 wordsTenor = \lyricmode {
   _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _
+  I hear ba -- bies cry,
+  I watch them grow
 }
 
 bass = \relative {
@@ -450,18 +544,7 @@ pianoLH = \tripletFeel 8 \relative {
 
 \book {
   \bookOutputSuffix "single"
-%  \paper {
-%    top-margin = 0
-%    left-margin = 7
-%    right-margin = 1
-%    paper-width = 190\mm
-%    page-breaking = #ly:one-page-breaking
-%    system-system-spacing.basic-distance = #22
-%    system-separator-markup = \slashSeparator
-%  }
   \score {
-%   \unfoldRepeats
-%   \articulate
     <<
       <<
         \new ChoirStaff <<
@@ -522,11 +605,222 @@ pianoLH = \tripletFeel 8 \relative {
       indent = 1.5\cm
       \pointAndClickOff
       \context {
-%        \Staff \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
       }
     }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Joint soprano/alto staff
+          \new Staff = women \with {
+            instrumentName = #"Soprano/Alto"
+            shortInstrumentName = #"SA"
+            midiInstrument = "choir aahs"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \partCombine \soprano \alto
+            \new NullVoice = alignerT \tenor
+            \new NullVoice = alignerS \soprano
+            \addlyrics \words
+          >>
+                                % Joint tenor/bass staff
+          \new Staff = men \with {
+            instrumentName = #"Tenor/Bass"
+            shortInstrumentName = #"TB"
+            midiInstrument = "choir aahs"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \clef "bass"
+            \new Voice \partCombine \tenor \bass
+            \new NullVoice \tenor
+            \addlyrics \wordsTenor
+          >>
+        >>
+        <<
+          \new ChordNames = guitar { \ChordTrack }
+%          \new FretBoards { \ChordTrack }
+        >>
+        \new PianoStaff = piano \with {connectArpeggios = ##t} <<
+          \new Staff = pianorh \with {
+            printPartCombineTexts = ##f
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \new Voice \partCombine \pianoRHone \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff = pianolh \with {
+            printPartCombineTexts = ##f
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-women"
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \soprano
+            \addlyrics \wordsWomenMidi
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Voice \alto
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \clef "treble_8"
+            \new Voice \tenor
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \clef "bass"
+            \new Voice \bass
+          >>
+        >>
+        <<
+          \new ChordNames = guitar { \ChordTrack }
+%          \new FretBoards { \ChordTrack }
+        >>
+        \new PianoStaff = piano <<
+          \new Staff
+          <<
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+            \new Dynamics \dynamicsPiano
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-men"
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \soprano
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Voice \alto
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics \wordsMenMidi
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \clef "bass"
+            \new Voice \bass
+          >>
+        >>
+        <<
+          \new ChordNames = guitar { \ChordTrack }
+%          \new FretBoards { \ChordTrack }
+        >>
+        \new PianoStaff = piano <<
+          \new Staff
+          <<
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+            \new Dynamics \dynamicsPiano
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
     \midi {}
   }
 }
