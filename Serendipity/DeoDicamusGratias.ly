@@ -698,7 +698,6 @@ sops = {\partCombine \sopranoI \sopranoII}
         \override BarNumber.break-visibility = ##(#f #t #t)
       }
     }
-    \midi {}
   }
 }
 
