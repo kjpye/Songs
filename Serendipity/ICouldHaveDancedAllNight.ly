@@ -126,11 +126,11 @@ wordsOne = \lyricmode {
       indent = 1.5\cm
       \pointAndClickOff
       \context {
-        \Staff \RemoveAllEmptyStaves
+%        \Staff \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
       }
     }
-    \midi {}
+%    \midi {}
   }
 }
