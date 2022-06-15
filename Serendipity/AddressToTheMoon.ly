@@ -1149,6 +1149,78 @@ pianoLHtwo = \relative c' {
 }
 
 \book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+    % \articulate
+    <<
+    \context GrandStaff <<
+      <<
+        \new ChoirStaff <<
+                                  % Single soprano staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+            \new Voice \RehearsalTrack
+            \new Voice = "soprano" \soprano
+            \new Lyrics \lyricsto "soprano" \wordsSop
+          >>
+                                  % Single alto staff
+          \new Dynamics \dynamicsAlto
+          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \new Voice = "alto" \alto
+            \new Lyrics \lyricsto "alto" \wordsAlto
+          >>
+                                  % Single tenor staff
+          \new Dynamics \dynamicsTenor
+          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \clef "treble_8"
+            \new Voice = "tenor" \tenor
+            \new Lyrics \lyricsto "tenor" \wordsTenor
+          >>
+                                  % Single bass staff
+          \new Dynamics \dynamicsBass
+          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \clef "bass"
+            \new Voice = "bass" \bass
+            \new Lyrics \lyricsto "bass" \wordsBass
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+            \new Voice \pianoRH
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff <<
+            \clef "bass"
+            \new Voice \pianoLH
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+ >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
   \bookOutputSuffix "women"
   \score {
     \unfoldRepeats

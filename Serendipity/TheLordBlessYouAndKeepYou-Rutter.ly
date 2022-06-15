@@ -1034,6 +1034,97 @@ pianoLHtwo = \relative {
 }
 
 \book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice = sopranosingle \sopranoSingle
+            \new Lyrics \lyricsto sopranosingle \wordsSopSingle
+          >>
+                                % Single alto staff
+          \new Dynamics \dynamicsAlto
+          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \new Voice = "alto" \altoSingle
+            \new Lyrics \lyricsto "alto" \wordsAltoSingle
+          >>
+                                % Single tenor staff
+          \new Dynamics \dynamicsTenor
+          \new Staff = tenorsingle
+              \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \clef "treble_8"
+            \new Voice = "tenor" \tenorSingle
+            \new Lyrics \lyricsto "tenor" \wordsTenor
+          >>
+                                % Single bass staff
+          \new Dynamics \dynamicsBass
+          \new Staff = basssingle
+              \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \clef "bass"
+            \new Voice = "bass" \bassSingle
+            \new Lyrics \lyricsto "bass" \wordsBassSingle
+          >>
+                                % Joint soprano/alto staff
+          \new Dynamics \dynamicsWomen
+          \new Lyrics = sopabove
+          \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
+            \new Voice \RehearsalTrack
+            \new Voice = "sopranojoint" \sopranoJoint
+            \new Voice = "altojoint"    \altoJoint
+            \new Lyrics \lyricsto "sopranojoint" \wordsSopJoint
+          >>
+          \context Lyrics = sopabove \lyricsto sopranojoint \wordsSopAbove
+                                % Joint tenor/bass staff
+          \new Lyrics = tenorabove
+          \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
+            \clef "bass"
+            \new Voice = "tenorjoint" \tenorJoint
+            \new Voice = "bassjoint" \bassJoint
+            \new Dynamics \dynamicsMen
+            \new Lyrics \lyricsto bassjoint \wordsBass
+          >>
+          \context Lyrics = tenorabove { \lyricsto tenorjoint \wordsTenorAbove }
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+            \new Voice \pianoRH
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff <<
+            \clef "bass"
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
   \bookOutputSuffix "midi-sop"
   \score {
 %   \articulate
