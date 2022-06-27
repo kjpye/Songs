@@ -650,6 +650,81 @@ pianoLHtwo = \relative {
 }
 
 \book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Joint soprano/alto staff
+          \new Lyrics = sopranoLatin
+          \new Lyrics = sopranoEnglish
+          \new Staff \with {
+            instrumentName = #"Soprano/Alto"
+            shortInstrumentName = #"SA"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \new Voice \RehearsalTrack
+            \new Voice \TempoTrack
+            \new NullVoice = alignerA \alto
+            \new NullVoice = alignerS \soprano
+            \new Voice \partCombine \soprano \alto
+            \new Lyrics \lyricsto alignerA \wordsAllLatin
+%            \new Lyrics \lyricsto alignerA \wordsAllEnglish
+          >>
+            \context Lyrics = sopranoLatin { \lyricsto alignerS \wordsSopLatin }
+%            \context Lyrics = sopranoEnglish { \lyricsto alignerS \wordsSopEnglish }
+                                % Joint tenor/bass staff
+          \new Staff \with {
+            instrumentName = #"Tenor/Bass"
+            shortInstrumentName = #"TB"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \clef "bass"
+            \new NullVoice = alignerB \bass
+            \new Voice \partCombine \tenor \bass
+            \new Lyrics \lyricsto alignerB \wordsBassLatin
+%            \new Lyrics \lyricsto alignerB \wordsBassEnglish
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff \with {
+            printPartCombineTexts = ##f
+          }
+          <<
+            \new Voice \partCombine \pianoRHone \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff \with {
+            printPartCombineTexts = ##f
+          }
+          <<
+            \clef "bass"
+            \new Voice \partCombine \pianoLHone \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
   \bookOutputSuffix "midi-sop"
   \score {
 %   \articulate
