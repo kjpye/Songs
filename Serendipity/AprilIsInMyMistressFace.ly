@@ -144,6 +144,21 @@ wordsSop = \lyricmode {
   but in her heart, her heart, a cold De- cem- ber,
 }
 
+wordsSopMidi = \lyricmode {
+  "A" "pril " "is " "in " "my " mis "tress' " "face, "
+  "\nA" "pril " "is " "in " "my " mis "tress' " "face, "
+  "\nmy " mis "tress; " "face, "
+  "\nA" "pril " "is " "in " "my " mis "tress' " "face, "
+  "\nAnd " Ju "ly " "in " "her " "eyes " "hath " "place, "
+  "\nAnd " Ju "ly " "in " "her " "eyes, " "her " "eyes " "hath " "place, "
+  "\nWith" "in " "her " bo "som, "
+  "\nwith" "in " "her " bo "som " "is " Sep tem "ber, "
+  "\nBut " "in " "her " "heart, "
+  "\nbut " "in " "her " "heart, " "her " "heart, " "a " "cold " De cem "ber, "
+  "\nBut " "in " "her " "heart, "
+  "\nbut " "in " "her " "heart, " "her " "heart, " "a " "cold " De cem "ber, "
+}
+
 alto = \relative c'' {
   \global
   bes4 a8 g a4 d,
@@ -196,6 +211,19 @@ wordsAlto = \lyricmode {
   but in her heart, her heart, a cold De- cem- ber,
   But in her heart, her heart
   but in her heart, her heart, a cold De- cem- ber,
+}
+
+wordsAltoMidi = \lyricmode {
+  "A" "pril " "is " "in " "my " mis "tress' " "face, "
+  "\nA" "pril " "is " "in " "my " mis "tress' " "face, "
+  "\nA" "pril " "is " "in " "my " mis "tress' " "face, "
+  "\nAnd " Ju "ly " "in " "her " "eyes " "hath " "place, "
+  "\nAnd " Ju "ly " "in " "her " "eyes, " "her " "eyes " "hath " "place, "
+  "\nWith" "in " "her " bo "som, "
+  "\nwith" "in " "her " bo "som " "is " Sep tem "ber, "
+  "\nbut " "in " "her " "heart, " "her " "heart, " "a " "cold " De cem "ber, "
+  "\nBut " "in " "her " "heart, " "her " "heart "
+  "\nbut " "in " "her " "heart, " "her " "heart, " "a " "cold " De cem "ber, "
 }
 
 dynamicsAlto = {
@@ -286,6 +314,18 @@ wordsTenor = \lyricmode {
   but in her heart, but in her heart, a cold De- cem- ber,
 }
 
+wordsTenorMidi = \lyricmode {
+  "A" "pril " "is " "in " "my " mis "tress' " "face, "
+  "\nA" "pril " "is " "in " "my " mis "tress' " "face, "
+  "\nmy " mis "tress' " "face, "
+  "\nAnd " Ju "ly " "in " "her " "eyes " "hath " "place, "
+  "\nher " "eyes " "hath " "place, "
+  "\nWith" "in " "her " bo "som, "
+  "\nwith" "in " "her " bo "som " "is " Sep tem "ber, "
+  "\nbut " "in " "her " "heart, " "her " "heart, " "a " "cold " De cem "ber, "
+  "\nbut " "in " "her " "heart, " "but " "in " "her " "heart, " "a " "cold " De cem "ber, "
+}
+
 bass= \relative c' {
   \global
   r1
@@ -372,43 +412,248 @@ wordsBass = \lyricmode {
   but in her heart, but in her heart, a cold De- cem- ber,
 }
 
-\score {
-  <<
-    \new ChoirStaff <<
-% Single soprano staff
-      \new Dynamics \dynamicsSop
-      \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
-        \new Voice \RehearsalTrack
-        \new Voice = "soprano" \soprano
-        \new Lyrics \lyricsto "soprano" \wordsSop
-      >>
-% Single alto staff
-      \new Dynamics \dynamicsAlto
-      \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
-        \new Voice = "alto" \alto
-        \new Lyrics \lyricsto "alto" \wordsAlto
-      >>
-% Single tenor staff
-      \new Dynamics \dynamicsTenor
-      \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
-        \clef "treble_8"
-        \new Voice = "tenor" \tenor
-        \new Lyrics \lyricsto "tenor" \wordsTenor
-      >>
-% Single bass staff
-      \new Dynamics \dynamicsBass
-      \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
-        \clef "bass"
-        \new Voice = "bass" \bass
-        \new Lyrics \lyricsto "bass" \wordsBass
+wordsBassMidi = \lyricmode {
+  "A" "pril " "is " "in " "my " mis "tress' " "face, "
+  "\nA" "pril " "is " "in " "my " mis "tress' " "face, "
+  "\nmy " mis "tress' " "face, "
+  "\nAnd " Ju "ly " "in " "her " "eyes " "hath " "place, "
+  "\nher " "eyes " "hath " "place, "
+  "\nWith" "in " "her " bo "som " "is " Sep tem "ber, "
+  "\nbut " "in " "her " "heart, " "but " "in " "her " "heart, " "a " "cold " De cem "ber, "
+  "\nbut " "in " "her " "heart, " "but " "in " "her " "heart, " "a " "cold " De cem "ber, "
+}
+
+\book {
+  \bookOutputSuffix "single"
+  \score {
+    <<
+      \new ChoirStaff <<
+                                % Single soprano staff
+        \new Dynamics \dynamicsSop
+        \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+          \new Voice \RehearsalTrack
+          \new Voice = "soprano" \soprano
+          \new Lyrics \lyricsto "soprano" \wordsSop
+        >>
+                                % Single alto staff
+        \new Dynamics \dynamicsAlto
+        \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+          \new Voice = "alto" \alto
+          \new Lyrics \lyricsto "alto" \wordsAlto
+        >>
+                                % Single tenor staff
+        \new Dynamics \dynamicsTenor
+        \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+          \clef "treble_8"
+          \new Voice = "tenor" \tenor
+          \new Lyrics \lyricsto "tenor" \wordsTenor
+        >>
+                                % Single bass staff
+        \new Dynamics \dynamicsBass
+        \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+          \clef "bass"
+          \new Voice = "bass" \bass
+          \new Lyrics \lyricsto "bass" \wordsBass
+        >>
       >>
     >>
-  >>
-  \layout {
-    indent = 1.5\cm
-    \context {
-      \Staff \RemoveAllEmptyStaves
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
     }
   }
-  \midi {}
+}
+
+\book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      \new ChoirStaff <<
+                                % Single soprano staff
+        \new Dynamics \dynamicsSop
+        \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+          \new Voice \RehearsalTrack
+          \new Voice = "soprano" \soprano
+          \new Lyrics \lyricsto "soprano" \wordsSop
+        >>
+                                % Single alto staff
+        \new Dynamics \dynamicsAlto
+        \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+          \new Voice = "alto" \alto
+          \new Lyrics \lyricsto "alto" \wordsAlto
+        >>
+                                % Single tenor staff
+        \new Dynamics \dynamicsTenor
+        \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+          \clef "treble_8"
+          \new Voice = "tenor" \tenor
+          \new Lyrics \lyricsto "tenor" \wordsTenor
+        >>
+                                % Single bass staff
+        \new Dynamics \dynamicsBass
+        \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+          \clef "bass"
+          \new Voice = "bass" \bass
+          \new Lyrics \lyricsto "bass" \wordsBass
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-sop"
+  \score {
+%    \articulate
+    <<
+      \new ChoirStaff <<
+                                % Single soprano staff
+        \new Dynamics \dynamicsSop
+        \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+          \new Voice = "soprano" \soprano
+          \new Lyrics \lyricsto "soprano" \wordsSopMidi
+        >>
+                                % Single alto staff
+        \new Dynamics \dynamicsAlto
+        \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+          \new Voice = "alto" \alto
+        >>
+                                % Single tenor staff
+        \new Dynamics \dynamicsTenor
+        \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+          \clef "treble_8"
+          \new Voice = "tenor" \tenor
+        >>
+                                % Single bass staff
+        \new Dynamics \dynamicsBass
+        \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+          \clef "bass"
+          \new Voice = "bass" \bass
+        >>
+      >>
+    >>
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-alto"
+  \score {
+%    \articulate
+    <<
+      \new ChoirStaff <<
+                                % Single soprano staff
+        \new Dynamics \dynamicsSop
+        \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+          \new Voice = "soprano" \soprano
+        >>
+                                % Single alto staff
+        \new Dynamics \dynamicsAlto
+        \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+          \new Voice = "alto" \alto
+          \new Lyrics \lyricsto "alto" \wordsAltoMidi
+        >>
+                                % Single tenor staff
+        \new Dynamics \dynamicsTenor
+        \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+          \clef "treble_8"
+          \new Voice = "tenor" \tenor
+        >>
+                                % Single bass staff
+        \new Dynamics \dynamicsBass
+        \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+          \clef "bass"
+          \new Voice = "bass" \bass
+        >>
+      >>
+    >>
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-tenor"
+  \score {
+%    \articulate
+    <<
+      \new ChoirStaff <<
+                                % Single soprano staff
+        \new Dynamics \dynamicsSop
+        \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+          \new Voice = "soprano" \soprano
+        >>
+                                % Single alto staff
+        \new Dynamics \dynamicsAlto
+        \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+          \new Voice = "alto" \alto
+        >>
+                                % Single tenor staff
+        \new Dynamics \dynamicsTenor
+        \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+          \clef "treble_8"
+          \new Voice = "tenor" \tenor
+          \new Lyrics \lyricsto "tenor" \wordsTenorMidi
+        >>
+                                % Single bass staff
+        \new Dynamics \dynamicsBass
+        \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+          \clef "bass"
+          \new Voice = "bass" \bass
+        >>
+      >>
+    >>
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-bass"
+  \score {
+%    \articulate
+    <<
+      \new ChoirStaff <<
+                                % Single soprano staff
+        \new Dynamics \dynamicsSop
+        \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+          \new Voice = "soprano" \soprano
+        >>
+                                % Single alto staff
+        \new Dynamics \dynamicsAlto
+        \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+          \new Voice = "alto" \alto
+        >>
+                                % Single tenor staff
+        \new Dynamics \dynamicsTenor
+        \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+          \clef "treble_8"
+          \new Voice = "tenor" \tenor
+        >>
+                                % Single bass staff
+        \new Dynamics \dynamicsBass
+        \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+          \clef "bass"
+          \new Voice = "bass" \bass
+          \new Lyrics \lyricsto "bass" \wordsBassMidi
+        >>
+      >>
+    >>
+    \midi {}
+  }
 }
