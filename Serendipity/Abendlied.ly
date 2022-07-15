@@ -876,56 +876,113 @@ wordsBassMidi = \lyricmode {
 }
 
 \book {
-  \bookOutputSuffix "repeat"
+  \bookOutputSuffix "single"
   \score {
-%    \unfoldRepeats \articulate <<
-    \context GrandStaff <<
-      <<
-        \new ChoirStaff <<
-                                  % Single soprano staff
-          \new Dynamics \dynamicsSop
-          \new Staff \with { instrumentName = #"Soprano" } <<
-            \new Voice \RehearsalTrack
-            \new Voice = "soprano" \soprano
-            \new Lyrics \lyricsto "soprano" \wordsSop
-          >>
-                                  % Single alto I staff
-          \new Dynamics \dynamicsAltoOne
-          \new Staff \with { instrumentName = #"Alto I" } <<
-            \new Voice = "altoOne" \altoOne
-            \new Lyrics \lyricsto "altoOne" \wordsAltoOne
-          >>
-                                  % Single alto II staff
-          \new Dynamics \dynamicsAltoTwo
-          \new Staff \with { instrumentName = #"Alto II" } <<
-            \new Voice = "altoTwo" \altoTwo
-            \new Lyrics \lyricsto "altoTwo" \wordsAltoTwo
-          >>
-                                  % Single tenor I staff
-          \new Dynamics \dynamicsTenorOne
-          \new Staff \with { instrumentName = #"Tenor I" } <<
-            \clef "treble_8"
-            \new Voice = "tenorOne" \tenorOne
-            \new Lyrics \lyricsto "tenorOne" \wordsTenorOne
-          >>
-                                  % Single tenor II staff
-          \new Dynamics \dynamicsTenorTwo
-          \new Staff \with { instrumentName = #"Tenor II" } <<
-            \clef "treble_8"
-            \new Voice = "tenorTwo" \tenorTwo
-            \new Lyrics \lyricsto "tenorTwo" \wordsTenorTwo
-          >>
-                                  % Single bass staff
-          \new Dynamics \dynamicsBass
-          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
-            \clef "bass"
-            \new Voice = "bass" \bass
-            \new Lyrics \lyricsto "bass" \wordsBass
-          >>
-        >>
+    \new ChoirStaff <<
+                                % Single soprano staff
+      \new Dynamics \dynamicsSop
+      \new Staff \with { instrumentName = #"Soprano" } <<
+        \new Voice \RehearsalTrack
+        \new Voice = "soprano" \soprano
+        \new Lyrics \lyricsto "soprano" \wordsSop
+      >>
+                                % Single alto I staff
+      \new Dynamics \dynamicsAltoOne
+      \new Staff \with { instrumentName = #"Alto I" } <<
+        \new Voice = "altoOne" \altoOne
+        \new Lyrics \lyricsto "altoOne" \wordsAltoOne
+      >>
+                                % Single alto II staff
+      \new Dynamics \dynamicsAltoTwo
+      \new Staff \with { instrumentName = #"Alto II" } <<
+        \new Voice = "altoTwo" \altoTwo
+        \new Lyrics \lyricsto "altoTwo" \wordsAltoTwo
+      >>
+                                % Single tenor I staff
+      \new Dynamics \dynamicsTenorOne
+      \new Staff \with { instrumentName = #"Tenor I" } <<
+        \clef "treble_8"
+        \new Voice = "tenorOne" \tenorOne
+        \new Lyrics \lyricsto "tenorOne" \wordsTenorOne
+      >>
+                                % Single tenor II staff
+      \new Dynamics \dynamicsTenorTwo
+      \new Staff \with { instrumentName = #"Tenor II" } <<
+        \clef "treble_8"
+        \new Voice = "tenorTwo" \tenorTwo
+        \new Lyrics \lyricsto "tenorTwo" \wordsTenorTwo
+      >>
+                                % Single bass staff
+      \new Dynamics \dynamicsBass
+      \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+        \clef "bass"
+        \new Voice = "bass" \bass
+        \new Lyrics \lyricsto "bass" \wordsBass
       >>
     >>
-% >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \new ChoirStaff <<
+                                % Single soprano staff
+      \new Dynamics \dynamicsSop
+      \new Staff \with { instrumentName = #"Soprano" } <<
+        \new Voice \RehearsalTrack
+        \new Voice = "soprano" \soprano
+        \new Lyrics \lyricsto "soprano" \wordsSop
+      >>
+                                % Single alto I staff
+      \new Dynamics \dynamicsAltoOne
+      \new Staff \with { instrumentName = #"Alto I" } <<
+        \new Voice = "altoOne" \altoOne
+        \new Lyrics \lyricsto "altoOne" \wordsAltoOne
+      >>
+                                % Single alto II staff
+      \new Dynamics \dynamicsAltoTwo
+      \new Staff \with { instrumentName = #"Alto II" } <<
+        \new Voice = "altoTwo" \altoTwo
+        \new Lyrics \lyricsto "altoTwo" \wordsAltoTwo
+      >>
+                                % Single tenor I staff
+      \new Dynamics \dynamicsTenorOne
+      \new Staff \with { instrumentName = #"Tenor I" } <<
+        \clef "treble_8"
+        \new Voice = "tenorOne" \tenorOne
+        \new Lyrics \lyricsto "tenorOne" \wordsTenorOne
+      >>
+                                % Single tenor II staff
+      \new Dynamics \dynamicsTenorTwo
+      \new Staff \with { instrumentName = #"Tenor II" } <<
+        \clef "treble_8"
+        \new Voice = "tenorTwo" \tenorTwo
+        \new Lyrics \lyricsto "tenorTwo" \wordsTenorTwo
+      >>
+                                % Single bass staff
+      \new Dynamics \dynamicsBass
+      \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+        \clef "bass"
+        \new Voice = "bass" \bass
+        \new Lyrics \lyricsto "bass" \wordsBass
+      >>
+    >>
     \layout {
       indent = 1.5\cm
       \context {
