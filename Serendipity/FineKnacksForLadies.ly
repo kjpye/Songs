@@ -1,5 +1,19 @@
 \version "2.18.2"
 
+RehearsalTrack = {
+  \repeat volta 3 {
+    \mark \markup \box "60A" s1*4
+    \mark \markup \box "60B" s1*4
+    \mark \markup \box "61A" s1*4
+    \mark \markup \box "61B" s1*4
+    \repeat volta 2 {
+      \mark \markup \box "62A" s1*6
+      \mark \markup \box "62B" s1*5
+    }
+  }
+  \break
+}
+
 global = {
   \time 2/2
   \key f \major
@@ -147,27 +161,91 @@ bass = \relative c {
 }
 
 sopranoWordsOne = \lyricmode {
-  Fine knacks for La- dies cheap, choice, brave and new
+  Fine knacks for La- dies cheap, choice, brave _ and new
   Good pen- ny worths, but mo- ney can- not move!
   I keep a fair, but for the fair to view.
   A beg- gar may be li- ber- al of love.
-  Though all my wares be trash, the heart is true, the heart is true, the heart is true
+  Though all my wares be trash, the heart is true, the heart is true, the heart _ is true
 }
 
 sopranoWordsTwo = \lyricmode {
-  Great gifts are guiles and look for gifts a- gain,
+  Great gifts are guiles and look for gifts _ a- gain,
   My Trif- les come as treas- ures from my mind.
   It is a prec- ious jew- el to be plain.
   Some- times in shells the Or- ient pearls we find.
-  Of oth- ers take a sheaf, of me a grain, of me a grain, of me a grain.
+  Of oth- ers take a sheaf, of me a grain, of me a grain, of me _ a grain.
 }
 
 sopranoWordsThree = \lyricmode {
-  With- in this pack, pins, points, lac- es and gloves
+  With- in this pack, pins, points, lac- es _ and gloves
   and di- vers toys fit- ting a count- ry fair.
   But in this heart where dut- y serves and loves
   Tur- tles and twins courts brood a heav- enly pair,
-  Hap- py the man who thinks of no re- move, of no re- move, of no re- move.
+  Hap- py the man who thinks of no re- move, of no re- move, of no _ re- move.
+}
+
+sopranoWordsSingle = \lyricmode {
+  \set stanza = "1."
+  Fine knacks for La- dies cheap, choice, brave _ and new
+  Good pen- ny worths, but mo- ney can- not move!
+  I keep a fair, but for the fair to view.
+  A beg- gar may be li- ber- al of love.
+  Though all my wares be trash, the heart is true,
+  the heart is true, the heart _ is true
+  Though all my wares be trash, the heart is true,
+  the heart is true, the heart _ is true
+
+  \set stanza = "2."
+  Great gifts are guiles and look for gifts _ a- gain,
+  My Trif- les come as treas- ures from my mind.
+  It is a prec- ious jew- el to be plain.
+  Some- times in shells the Or- ient pearls we find.
+  Of oth- ers take a sheaf, of me a grain,
+  of me a grain, of me _ a grain.
+  Of oth- ers take a sheaf, of me a grain,
+  of me a grain, of me _ a grain.
+
+  \set stanza = "3."
+  With- in this pack, pins, points, lac- es _ and gloves
+  and di- vers toys fit- ting a count- ry fair.
+  But in this heart where dut- y serves and loves
+  Tur- tles and twins courts brood a heav- enly pair,
+  Hap- py the man who thinks of no _ re- move,
+  of no re- move, of no re- move.
+  Hap- py the man who thinks of no _ re- move,
+  of no re- move, of no re- move.
+}
+
+sopranoWordsMidi = \lyricmode {
+  \set stanza = "1."
+  "Fine " "knacks " "for " La "dies " "cheap, " "choice, " "brave " "" "and " "new "
+  "\nGood " pen "ny " "worths, " "but " mo "ney " can "not " "move! "
+  "\nI " "keep " "a " "fair, " "but " "for " "the " "fair " "to " "view. "
+  "\nA " beg "gar " "may " "be " li ber "al " "of " "love. "
+  "\nThough " "all " "my " "wares " "be " "trash, " "the " "heart " "is " "true, "
+  "\nthe " "heart " "is " "true, " "the " "heart " "" "is " "true "
+  "\nThough " "all " "my " "wares " "be " "trash, " "the " "heart " "is " "true, "
+  "\nthe " "heart " "is " "true, " "the " "heart " "" "is " "true\n"
+
+  \set stanza = "2."
+  "\nGreat " "gifts " "are " "guiles " "and " "look " "for " "gifts " "" a "gain, "
+  "\nMy " Trif "les " "come " "as " treas "ures " "from " "my " "mind. "
+  "\nIt " "is " "a " prec "ious " jew "el " "to " "be " "plain. "
+  "\nSome" "times " "in " "shells " "the " Or "ient " "pearls " "we " "find. "
+  "\nOf " oth "ers " "take " "a " "sheaf, " "of " "me " "a " "grain, "
+  "\nof " "me " "a " "grain, " "of " "me " "" "a " "grain. "
+  "\nOf " oth "ers " "take " "a " "sheaf, " "of " "me " "a " "grain, "
+  "\nof " "me " "a " "grain, " "of " "me " "" "a " "grain.\n"
+
+  \set stanza = "3."
+  "\nWith" "in " "this " "pack, " "pins, " "points, " lac "es " "" "and " "gloves "
+  "\nand " di "vers " "toys " fit "ting " "a " count "ry " "fair. "
+  "\nBut " "in " "this " "heart " "where " dut "y " "serves " "and " "loves "
+  "\nTur" "tles " "and " "twins " "courts " "brood " "a " heav "enly " "pair, "
+  "\nHap" "py " "the " "man " "who " "thinks " "of " "no " "" re "move, "
+  "\nof " "no " re "move, " "of " "no " re "move. "
+  "\nHap" "py " "the " "man " "who " "thinks " "of " "no " "" re "move, "
+  "\nof " "no " re "move, " "of " "no " re "move. "
 }
 
 altoWordsOne = \lyricmode {
@@ -195,6 +273,70 @@ altoWordsThree = \lyricmode {
   Hap- py the man who thinks of no re- move, of no re- move, of no re- move re- move.
 }
 
+altoWordsSingle = \lyricmode {
+  \set stanza = "1."
+  Fine knacks for La- dies cheap, choice, brave and new
+  Good pen- ny worths, but mo- ney can- not move!
+  I keep a fair, but for the fair to view.
+  A beg- gar may be li- ber- al of love.
+  Though all my wares be trash, the heart is true,
+  the heart is true, the heart is true, is true.
+  Though all my wares be trash, the heart is true,
+  the heart is true, the heart is true, is true.
+
+  \set stanza = "2."
+  Great gifts are guiles and look for gifts a- gain,
+  My Trif- les come as treas- ures from my mind.
+  It is a prec- ious jew- el to be plain.
+  Some- times in shells the Or- ient pearls we find.
+  Of oth- ers take a sheaf, of me a grain,
+  of me a grain, of me a grain a grain.
+  Of oth- ers take a sheaf, of me a grain,
+  of me a grain, of me a grain a grain.
+
+  \set stanza = "3."
+  With- in this pack, pins, points, lac- es and gloves
+  and di- vers toys fit- ting a count- ry fair.
+  But in this heart where dut- y serves and loves
+  Tur- tles and twins courts brood a heav- enly pair,
+  Hap- py the man who thinks of no re- move,
+  of no re- move, of no re- move re- move.
+  Hap- py the man who thinks of no re- move,
+  of no re- move, of no re- move re- move.
+}
+
+altoWordsMidi = \lyricmode {
+  \set stanza = "1."
+  "Fine " "knacks " "for " La "dies " "cheap, " "choice, " "brave " "and " "new "
+  "\nGood " pen "ny " "worths, " "but " mo "ney " can "not " "move! "
+  "\nI " "keep " "a " "fair, " "but " "for " "the " "fair " "to " "view. "
+  "\nA " beg "gar " "may " "be " li ber "al " "of " "love. "
+  "\nThough " "all " "my " "wares " "be " "trash, " "the " "heart " "is " "true, "
+  "\nthe " "heart " "is " "true, " "the " "heart " "is " "true, " "is " "true. "
+  "\nThough " "all " "my " "wares " "be " "trash, " "the " "heart " "is " "true, "
+  "\nthe " "heart " "is " "true, " "the " "heart " "is " "true, " "is " "true.\n"
+
+  \set stanza = "2."
+  "\nGreat " "gifts " "are " "guiles " "and " "look " "for " "gifts " a "gain, "
+  "\nMy " Trif "les " "come " "as " treas "ures " "from " "my " "mind. "
+  "\nIt " "is " "a " prec "ious " jew "el " "to " "be " "plain. "
+  "\nSome" "times " "in " "shells " "the " Or "ient " "pearls " "we " "find. "
+  "\nOf " oth "ers " "take " "a " "sheaf, " "of " "me " "a " "grain, "
+  "\nof " "me " "a " "grain, " "of " "me " "a " "grain " "a " "grain. "
+  "\nOf " oth "ers " "take " "a " "sheaf, " "of " "me " "a " "grain, "
+  "\nof " "me " "a " "grain, " "of " "me " "a " "grain " "a " "grain.\n"
+
+  \set stanza = "3."
+  "\nWith" "in " "this " "pack, " "pins, " "points, " lac "es " "and " "gloves "
+  "\nand " di "vers " "toys " fit "ting " "a " count "ry " "fair. "
+  "\nBut " "in " "this " "heart " "where " dut "y " "serves " "and " "loves "
+  "\nTur" "tles " "and " "twins " "courts " "brood " "a " heav "enly " "pair, "
+  "\nHap" "py " "the " "man " "who " "thinks " "of " "no " re "move, "
+  "\nof " "no " re "move, " "of " "no " re "move " re "move. "
+  "\nHap" "py " "the " "man " "who " "thinks " "of " "no " re "move, "
+  "\nof " "no " re "move, " "of " "no " re "move " re "move. "
+}
+
 tenorWordsOne = \lyricmode {
   Fine knacks for La- dies cheap, choice, brave and new
   Good pen- ny worths, but mo- ney can- not move!
@@ -218,6 +360,62 @@ tenorWordsThree = \lyricmode {
   But in this heart where dut- y serves and loves
   Tur- tles and twins courts brood a heav- enly pair,
   Hap- py the man who thinks of no, of no re- move, of no, of no re- move, of no, of no re- move, of no re- move.
+}
+
+tenorWordsSingle = \lyricmode {
+  \set stanza = "1."
+  Fine knacks for La- dies cheap, choice, brave and new
+  Good pen- ny worths, but mo- ney can- not move!
+  I keep a fair, but for the fair to view.
+  A beg- gar may be li- ber- al of love.
+  Though all my wares be trash, the heart, the heart is true, the heart, the heart is true,
+  the heart, the heart is true, the heart is true.
+  Though all my wares be trash, the heart, the heart is true, the heart, the heart is true,
+  the heart, the heart is true, the heart is true.
+
+  \set stanza = "2."
+  Great gifts are guiles and look for gifts a- gain,
+  My Trif- les come as treas- ures from my mind.
+  It is a prec- ious jew- el to be plain.
+  Some- times in shells the Or- ient pearls we find.
+  Of oth- ers take a sheaf, of me, of me a grain, of me, of me a grain, of me, of me a grain, of me a grain.
+  Of oth- ers take a sheaf, of me, of me a grain, of me, of me a grain, of me, of me a grain, of me a grain.
+
+  \set stanza = "3."
+  With- in this pack, pins, points, lac- es and gloves
+  and di- vers toys fit- ting a count- ry fair.
+  But in this heart where dut- y serves and loves
+  Tur- tles and twins courts brood a heav- enly pair,
+  Hap- py the man who thinks of no, of no re- move, of no, of no re- move, of no, of no re- move, of no re- move.
+  Hap- py the man who thinks of no, of no re- move, of no, of no re- move, of no, of no re- move, of no re- move.
+}
+
+tenorWordsMidi = \lyricmode {
+  \set stanza = "1."
+  "Fine " "knacks " "for " La "dies " "cheap, " "choice, " "brave " "and " "new "
+  "\nGood " pen "ny " "worths, " "but " mo "ney " can "not " "move! "
+  "\nI " "keep " "a " "fair, " "but " "for " "the " "fair " "to " "view. "
+  "\nA " beg "gar " "may " "be " li ber "al " "of " "love. "
+  "\nThough " "all " "my " "wares " "be " "trash, " "the " "heart, " "the " "heart " "is " "true, " "the " "heart, " "the " "heart " "is " "true, "
+  "\nthe " "heart, " "the " "heart " "is " "true, " "the " "heart " "is " "true. "
+  "\nThough " "all " "my " "wares " "be " "trash, " "the " "heart, " "the " "heart " "is " "true, " "the " "heart, " "the " "heart " "is " "true, "
+  "\nthe " "heart, " "the " "heart " "is " "true, " "the " "heart " "is " "true.\n"
+
+  \set stanza = "2."
+  "\nGreat " "gifts " "are " "guiles " "and " "look " "for " "gifts " a "gain, "
+  "\nMy " Trif "les " "come " "as " treas "ures " "from " "my " "mind. "
+  "\nIt " "is " "a " prec "ious " jew "el " "to " "be " "plain. "
+  "\nSome" "times " "in " "shells " "the " Or "ient " "pearls " "we " "find. "
+  "\nOf " oth "ers " "take " "a " "sheaf, " "of " "me, " "of " "me " "a " "grain, " "of " "me, " "of " "me " "a " "grain, " "of " "me, " "of " "me " "a " "grain, " "of " "me " "a " "grain. "
+  "\nOf " oth "ers " "take " "a " "sheaf, " "of " "me, " "of " "me " "a " "grain, " "of " "me, " "of " "me " "a " "grain, " "of " "me, " "of " "me " "a " "grain, " "of " "me " "a " "grain.\n"
+
+  \set stanza = "3."
+  "\nWith" "in " "this " "pack, " "pins, " "points, " lac "es " "and " "gloves "
+  "\nand " di "vers " "toys " fit "ting " "a " count "ry " "fair. "
+  "\nBut " "in " "this " "heart " "where " dut "y " "serves " "and " "loves "
+  "\nTur" "tles " "and " "twins " "courts " "brood " "a " heav "enly " "pair, "
+  "\nHap" "py " "the " "man " "who " "thinks " "of " "no, " "of " "no " re "move, " "of " "no, " "of " "no " re "move, " "of " "no, " "of " "no " re "move, " "of " "no " re "move. "
+  "\nHap" "py " "the " "man " "who " "thinks " "of " "no, " "of " "no " re "move, " "of " "no, " "of " "no " re "move, " "of " "no, " "of " "no " re "move, " "of " "no " re "move. "
 }
 
 bassWordsOne = \lyricmode {
@@ -245,7 +443,64 @@ bassWordsThree = \lyricmode {
   Hap- py the man who thinks of no re- move, re- move, of no re- move, of no re- move, of no re- move.
 }
 
+bassWordsSingle = \lyricmode {
+  \set stanza = "1."
+  Fine knacks for La- dies cheap, choice, brave and new
+  Good pen- ny worths, but mo- ney can- not move!
+  I keep a fair, but for the fair to view.
+  A beg- gar may be li- ber- al of love.
+  Though all my wares be trash, the heart is true, is true, the heart is true,
+  the heart is true, the heart is true.
+  Though all my wares be trash, the heart is true, is true, the heart is true,
+  the heart is true, the heart is true.
+
+  \set stanza = "2."
+  Great gifts are guiles and look for gifts a- gain,
+  My Trif- les come as treas- ures from my mind.
+  It is a prec- ious jew- el to be plain.
+  Some- times in shells the Or- ient pearls we find.
+  Of oth- ers take a sheaf, of me a grain, a grain, of me a grain, of me a grain, of me a grain.
+  Of oth- ers take a sheaf, of me a grain, a grain, of me a grain, of me a grain, of me a grain.
+
+  \set stanza = "3."
+  With- in this pack, pins, points, lac- es and gloves
+  and di- vers toys fit- ting a count- ry fair.
+  But in this heart where dut- y serves and loves
+  Tur- tles and twins courts brood a heav- enly pair,
+  Hap- py the man who thinks of no re- move, re- move, of no re- move, of no re- move, of no re- move.
+  Hap- py the man who thinks of no re- move, re- move, of no re- move, of no re- move, of no re- move.
+}
+
+bassWordsMidi = \lyricmode {
+  \set stanza = "1."
+  "Fine " "knacks " "for " La "dies " "cheap, " "choice, " "brave " "and " "new "
+  "\nGood " pen "ny " "worths, " "but " mo "ney " can "not " "move! "
+  "\nI " "keep " "a " "fair, " "but " "for " "the " "fair " "to " "view. "
+  "\nA " beg "gar " "may " "be " li ber "al " "of " "love. "
+  "\nThough " "all " "my " "wares " "be " "trash, " "the " "heart " "is " "true, " "is " "true, " "the " "heart " "is " "true, "
+  "\nthe " "heart " "is " "true, " "the " "heart " "is " "true. "
+  "\nThough " "all " "my " "wares " "be " "trash, " "the " "heart " "is " "true, " "is " "true, " "the " "heart " "is " "true, "
+  "\nthe " "heart " "is " "true, " "the " "heart " "is " "true.\n"
+
+  \set stanza = "2."
+  "\nGreat " "gifts " "are " "guiles " "and " "look " "for " "gifts " a "gain, "
+  "\nMy " Trif "les " "come " "as " treas "ures " "from " "my " "mind. "
+  "\nIt " "is " "a " prec "ious " jew "el " "to " "be " "plain. "
+  "\nSome" "times " "in " "shells " "the " Or "ient " "pearls " "we " "find. "
+  "\nOf " oth "ers " "take " "a " "sheaf, " "of " "me " "a " "grain, " "a " "grain, " "of " "me " "a " "grain, " "of " "me " "a " "grain, " "of " "me " "a " "grain. "
+  "\nOf " oth "ers " "take " "a " "sheaf, " "of " "me " "a " "grain, " "a " "grain, " "of " "me " "a " "grain, " "of " "me " "a " "grain, " "of " "me " "a " "grain.\n"
+
+  \set stanza = "3."
+  "\nWith" "in " "this " "pack, " "pins, " "points, " lac "es " "and " "gloves "
+  "\nand " di "vers " "toys " fit "ting " "a " count "ry " "fair. "
+  "\nBut " "in " "this " "heart " "where " dut "y " "serves " "and " "loves "
+  "\nTur" "tles " "and " "twins " "courts " "brood " "a " heav "enly " "pair, "
+  "\nHap" "py " "the " "man " "who " "thinks " "of " "no " re "move, " re "move, " "of " "no " re "move, " "of " "no " re "move, " "of " "no " re "move. "
+  "\nHap" "py " "the " "man " "who " "thinks " "of " "no " re "move, " re "move, " "of " "no " re "move, " "of " "no " re "move, " "of " "no " re "move. "
+}
+
 \book {
+  \bookOutputSuffix "repeat"
   \header {
     title    = "Fine knacks for ladies"
     composer = "John Dowland"
@@ -253,9 +508,11 @@ bassWordsThree = \lyricmode {
   }
 
   \score {
-    \context GrandStaff <<
       \context ChoirStaff <<
-	\new Staff = soprano { \soprano	}
+	\new Staff = soprano <<
+          \new Voice \soprano
+          \new Voice \RehearsalTrack
+        >>
 	\addlyrics \sopranoWordsOne
 	\addlyrics \sopranoWordsTwo
 	\addlyrics \sopranoWordsThree
@@ -272,23 +529,161 @@ bassWordsThree = \lyricmode {
 	\addlyrics \bassWordsTwo
 	\addlyrics \bassWordsThree
       >>
-%      \context PianoStaff <<
-%	    \new Staff <<
-%	      \set Staff.printPartCombineTexts = ##f
-%	      \partcombine
-%              << \soprano >>	      
-%	      << \alto >>
-%	    >>
-%	    \new Staff <<
-%              \clef "bass"
-%	      \set Staff.printPartCombineTexts = ##f
-%	      \partcombine
-%              << \tenor >>	      
-%	      << \bass >>
-%	    >>
-%      >>
-    >>
     \layout {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "single"
+  \header {
+    title    = "Fine knacks for ladies"
+    composer = "John Dowland"
+    opus     = "London 1562 - 1626"
+  }
+
+  \score {
+    \unfoldRepeats
+      \context ChoirStaff <<
+	\new Staff = soprano <<
+          \new Voice \soprano
+          \new Voice \RehearsalTrack
+        >>
+	\addlyrics \sopranoWordsSingle
+	\new Staff = alto { \alto }
+	\addlyrics \altoWordsSingle
+	\new Staff = tenor { \clef "treble_8" \tenor }
+	\addlyrics \tenorWordsSingle
+	\new Staff = bass { \clef "bass" \bass }
+	\addlyrics \bassWordsSingle
+      >>
+    \layout {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage"
+  \header {
+    title    = "Fine knacks for ladies"
+    composer = "John Dowland"
+    opus     = "London 1562 - 1626"
+  }
+
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+      \context ChoirStaff <<
+	\new Staff = soprano <<
+          \new Voice \soprano
+          \new Voice \RehearsalTrack
+        >>
+	\addlyrics \sopranoWordsSingle
+	\new Staff = alto { \alto }
+	\addlyrics \altoWordsSingle
+	\new Staff = tenor { \clef "treble_8" \tenor }
+	\addlyrics \tenorWordsSingle
+	\new Staff = bass { \clef "bass" \bass }
+	\addlyrics \bassWordsSingle
+      >>
+    \layout {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-sop"
+  \header {
+    title    = "Fine knacks for ladies"
+    composer = "John Dowland"
+    opus     = "London 1562 - 1626"
+  }
+
+  \score {
+    \unfoldRepeats
+      \context ChoirStaff <<
+	\new Staff = soprano <<
+          \new Voice \soprano
+        >>
+	\addlyrics \sopranoWordsMidi
+	\new Staff = alto { \alto }
+	\new Staff = tenor { \clef "treble_8" \tenor }
+	\new Staff = bass { \clef "bass" \bass }
+      >>
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-alto"
+  \header {
+    title    = "Fine knacks for ladies"
+    composer = "John Dowland"
+    opus     = "London 1562 - 1626"
+  }
+
+  \score {
+    \unfoldRepeats
+      \context ChoirStaff <<
+	\new Staff = soprano <<
+          \new Voice \soprano
+        >>
+	\new Staff = alto { \alto }
+	\addlyrics \altoWordsMidi
+	\new Staff = tenor { \clef "treble_8" \tenor }
+	\new Staff = bass { \clef "bass" \bass }
+      >>
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-tenor"
+  \header {
+    title    = "Fine knacks for ladies"
+    composer = "John Dowland"
+    opus     = "London 1562 - 1626"
+  }
+
+  \score {
+    \unfoldRepeats
+      \context ChoirStaff <<
+	\new Staff = soprano <<
+          \new Voice \soprano
+        >>
+	\new Staff = alto { \alto }
+	\new Staff = tenor { \clef "treble_8" \tenor }
+	\addlyrics \tenorWordsMidi
+	\new Staff = bass { \clef "bass" \bass }
+      >>
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-bass"
+  \header {
+    title    = "Fine knacks for ladies"
+    composer = "John Dowland"
+    opus     = "London 1562 - 1626"
+  }
+
+  \score {
+    \unfoldRepeats
+      \context ChoirStaff <<
+	\new Staff = soprano <<
+          \new Voice \soprano
+        >>
+	\new Staff = alto { \alto }
+	\new Staff = tenor { \clef "treble_8" \tenor }
+	\new Staff = bass { \clef "bass" \bass }
+	\addlyrics \bassWordsMidi
+      >>
     \midi {}
   }
 }
