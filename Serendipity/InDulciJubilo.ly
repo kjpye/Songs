@@ -76,13 +76,13 @@ soprano = \relative {
     f'2 | f1 2 | a1 bes2 | c1(d2 | c1) 2 | f,1 2 | a1 bes2
     c1(d2 | c1.\fermata) | c1 d2 | c1 bes2 | a1.( | f1) 2 | g1 2 | a1 g2 % 2a
     f1(g2 | a1) 2 | c1 d2 | c1 bes2 | a1. | f1 2 | g1 2 | a1 g2
-    f1(g2 | a1.) | d,1 2 | e1 2 | f1.( | c'1.) | a1 bes2 | g1 2 | fis1\fermata % 4a
+    f1(g2 | a1.) | d,1 2 | e1 2 | f1.( | c'1.) | a1 bes2 | g1 2 | f1\fermata % 4a
   }
   \break r2^\markup\smallCaps Solo | R1. | r2 r2 d' | c1 bes2 | a1 g2 | a1. | r2 r2 d | c1 bes2
   a2.(g4) f2 | g2.(a4 f2 | g1) r2 | r2 r2 c | a1.( | bes2. a4) bes2 % 5a
   e,2 a a | a1 g2 | f1 d'2 | f,2.(a4 f2 | g1) r2 | r2 r2 c | a1.
   bes2. a4 bes2 | e,2 a a | a1 g2 | f1 e2 | d1 r2 | r2 a'^\markup\smallCaps Chorus a
-  a2.(g4) f2 | c'1. | c1 d2 | c1 bes2 | a1 \bar "||" r2 | r2 r2 f' % 6
+  a2.(g4) f2 | c'1. | c1 d2 | c1 bes2 | a1 r2 | r2 r2 f' % 6
   f2.(e4) d2 | c2. bes4 a2 | g1(e2 | f1) f'2~ | f2. e4 d2 | c1 a2 | g1\fermata r2
   c1^\markup\smallCaps Solo d2 | c1 bes2 | a1. | f1. | g1 2 | a1 g2 | f1(g2
   a1) bes2~( | bes2. a4) g2 | c1.~ | c1 2 | f1.~ | f2. e4 d2 | c1 bes2 % 7
@@ -211,10 +211,10 @@ alto = \relative {
   \repeat volta 2 {
     c'2 | d1 c2 | f2.(e4) d2 | c1(f2 | e1) f2 | d1 c2 | f2.(e4) d2
     c1(f2 | e1.\fermata) | f1 2 | e1 g2 | c,1.( | f1) 2 | f1 2 | f1 e2 % 3a
-    f1.( | f1) 2 | f1 2 | e1 g2 | c1. | f1 2 | f1 2 | f1 e2
+    f1.( | f1) 2 | f1 2 | e1 g2 | c,1. | f1 2 | f1 2 | f1 e2
     f1. ~ | f1. | d1 2 | d1 cis2 | d1.( | e1.) | f1 2 | f1 e2 | f1\fermata % 4
   }
-  r2 | R1. | r2 r2 bes, | a2.(g4) f2 | f1 e2 | f1. | r2 r2 bes | a2.(g4) f2
+  r2 | R1. | r2 r2 bes | a2.(g4) f2 | f1 e2 | f1. | r2 r2 bes | a2.(g4) f2
   f2.(e4) d2 | e2 r f~( | f2. e4) d2 | c1.( | f1) e2 | d1.~ % 5
   d2 cis cis | d1 e2 | f1 2 | e2 r f | f2.(e4 d2 | c1.) | f1 e2
   d1.~ | d2 cis cis | d1 e2 | d1 cis2 | d2 2 2 | e1 2
