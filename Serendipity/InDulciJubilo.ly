@@ -134,7 +134,7 @@ wordsSopTwo = \lyricmode {
   O puer op -- ti -- me! __
   My pray -- er, let it reach Thee,
   O prin -- ceps glo -- ri -- a! __
-  Tra -- he ,e post te! __
+  Tra -- he me post te! __
   Tra -- he me post te!
 }
 
@@ -179,7 +179,7 @@ wordsSopMidi = \lyricmode {
   "\nO " "puer " op ti "me! " 
   "\nMy " pray "er, " "let " "it " "reach " "Thee, "
   "\nO " prin "ceps " glo ri "a! " 
-  "\nTra" "he " ",e " "post " "te! " 
+  "\nTra" "he " "me " "post " "te! " 
   "\nTra" "he " "me " "post " "te! "
 
   "\nO " pa "tris " cha ri "tas! "
@@ -270,7 +270,7 @@ wordsAltoTwo = \lyricmode {
   O puer op -- ti -- me! __
   My pray -- er, let it reach Thee,
   O prin -- ceps glo -- ri -- a! __
-  Tra -- he ,e post te! __
+  Tra -- he me post te! __
   Tra -- he me post te!
 }
 
@@ -315,7 +315,7 @@ wordsAltoMidi = \lyricmode {
   "\nO " "puer " op ti "me! " 
   "\nMy " pray "er, " "let " "it " "reach " "Thee, "
   "\nO " prin "ceps " glo ri "a! " 
-  "\nTra" "he " ",e " "post " "te! " 
+  "\nTra" "he " "me " "post " "te! " 
   "\nTra" "he " "me " "post " "te! "
 
   "\nO " pa "tris " cha ri "tas! "
@@ -407,7 +407,7 @@ wordsTenorTwo = \lyricmode {
   O puer op -- ti -- me! __
   My pray -- er, let it reach Thee,
   O prin -- ceps glo -- ri -- a! __
-  Tra -- he ,e post te! __
+  Tra -- he me post te! __
   Tra -- he me post te!
 }
 
@@ -453,7 +453,7 @@ wordsTenorMidi = \lyricmode {
   "\nO " "puer " op ti "me! " 
   "\nMy " pray "er, " "let " "it " "reach " "Thee, "
   "\nO " prin "ceps " glo ri "a! " 
-  "\nTra" "he " ",e " "post " "te! " 
+  "\nTra" "he " "me " "post " "te! " 
   "\nTra" "he " "me " "post " "te! "
 
   "\nO " pa "tris " cha ri "tas! "
@@ -547,7 +547,7 @@ wordsBassTwo = \lyricmode {
   O puer op -- ti -- me! __
   My pray -- er, let it reach Thee,
   O prin -- ceps glo -- ri -- a! __
-  Tra -- he ,e post te! __
+  Tra -- he me post te! __
   Tra -- he me post te!
 }
 
@@ -585,7 +585,7 @@ wordsBassMidi = \lyricmode {
   "\nO " "puer " op ti "me! " 
   "\nMy " pray "er, " "let " "it " "reach " "Thee, "
   "\nO " prin "ceps " glo ri "a! " 
-  "\nTra" "he " ",e " "post " "te! " 
+  "\nTra" "he " "m " "post " "te! " 
   "\nTra" "he " "me " "post " "te! "
 
   "\nO " "that " "we, " "that " "we " "were " "there, "
