@@ -86,7 +86,7 @@ RehearsalTrack = {
 
 soprano = \relative {
   \global
-  \acciaccatura s8 R4.
+  \grace s8 R4.
   R4.
   R4.
   R4.
@@ -286,7 +286,7 @@ wordsMidi = \lyricmode {
 
 alto = \relative {
   \global
-  \acciaccatura s8 R4.
+  \grace s8 R4.
   R4.
   R4.
   R4.
@@ -410,8 +410,8 @@ alto = \relative {
 }
 
 tenor = \relative {
-  \global
-  \acciaccatura s8 R4.
+  \global \clef "treble_8"
+  \grace s8 R4.
   R4.
   R4.
   R4.
@@ -533,8 +533,8 @@ tenor = \relative {
 }
 
 bass = \relative {
-  \global
-  \acciaccatura s8 R4.
+  \global \clef bass
+  \grace s8 R4.
   R4.
   R4.
   R4.
@@ -657,7 +657,7 @@ bass = \relative {
 
 bassAlternate = \relative {
   \tiny \voiceTwo
-  \acciaccatura s8 R4.
+  \grace s8 R4.
   s4.
   s4.
   s4.
@@ -881,7 +881,7 @@ pianoRHone = \relative {
 
 pianoRHtwo = \relative {
   \global
-  \acciaccatura s8 s4. % 142a
+  \grace s8 s4. % 142a
   s4.*3
   b8 e gis
   e4 16 dis
@@ -1032,8 +1032,8 @@ dynamicsPiano = {
 }
 
 pianoLHone = \relative {
-  \global
-  \acciaccatura s8 <e b'>4.-> % 142a
+  \global \clef bass
+  \grace s8 <e b'>4.-> % 142a
   q4.->
   <a cis>4.->
   <e b'>4.
@@ -1160,8 +1160,8 @@ pianoLHone = \relative {
 }
 
 pianoLHtwo = \relative {
-  \global \voiceTwo
-  \acciaccatura s8 s4. % 142a
+  \global \clef bass \voiceTwo
+  \grace s8 s4. % 142a
   s4.*7
   s4 a,8
   gis4 8
@@ -1224,7 +1224,6 @@ pianoLHtwo = \relative {
             shortInstrumentName = #"T"
           }
           <<
-            \clef "treble_8"
             \new Voice \tenor
             \addlyrics \words
           >>
@@ -1234,7 +1233,6 @@ pianoLHtwo = \relative {
             shortInstrumentName = #"B"
           }
           <<
-            \clef "bass"
             \new Voice \bassAlternate
             \new Voice \bass
             \addlyrics \wordsBass
@@ -1255,7 +1253,6 @@ pianoLHtwo = \relative {
             printPartCombineTexts = ##f
           }
           <<
-            \clef "bass"
 %            \new Voice \partCombine \pianoLHone \pianoLHtwo
             \new Voice \pianoLHone
             \new Voice \pianoLHtwo
