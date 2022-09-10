@@ -695,7 +695,7 @@ pianoLHtwo = \relative {
             \new Voice \TempoTrack
 %            \new Voice \RehearsalTrack
             \new Voice \melodyMidi
-            \new NullVoice \melodyMidi
+%            \new NullVoice \melodyMidi
             \addlyrics \wordsMidi
           >>
                                 % Joint soprano/alto staff
