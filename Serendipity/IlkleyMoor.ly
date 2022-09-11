@@ -8,7 +8,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 \header {
 % centered at top
 %  dedication  = "dedication"
-  title       = "Ilkley Mor Baht 'At"
+  title       = "Ilkley Moor Baht 'At"
 %  subtitle    = "subtitle"
 %  subsubtitle = "subsubtitle"
 %  instrument  = "instrument"
@@ -475,7 +475,7 @@ wordsSop = \lyricmode {
   on Ilk -- ley __ Moor \nom baht -- 'at. _ __
 
   Then \yesm we shall have to bur -- y thee __
-  on Ilk -- ley __ Mor __ baht -- 'at, __
+  on Ilk -- ley __ Moor __ baht -- 'at, __
   Then we shall have to bur -- y thee, __
   Then we shall have to bur -- y thee __
   on Ilk -- ley Moor baht -- 'at,
@@ -519,10 +519,10 @@ wordsSopMidi = \lyricmode {
   "\nThou'll " sure "ly " "catch " "thy " "death " "of " "cold, " 
   "\nThou'll " sure "ly " "catch " "thy " "death " "of " "cold, " 
   "\nbaht" "'at, "
-  "\non " Ilk "ley "  "Moor " "\nom " baht "'at. " "" 
+  "\non " Ilk "ley "  "Moor " \nom baht "'at. " "" 
 
-  "\nThen " "\yesm " "we " "shall " "have " "to " bur "y " "thee " 
-  "\non " Ilk "ley "  "Mor "  baht "'at, " 
+  "\nThen " \yesm "we " "shall " "have " "to " bur "y " "thee " 
+  "\non " Ilk "ley "  "Moor "  baht "'at, " 
   "\nThen " "we " "shall " "have " "to " bur "y " "thee, " 
   "\nThen " "we " "shall " "have " "to " bur "y " "thee " 
   "\non " Ilk "ley " "Moor " baht "'at, "
@@ -536,8 +536,8 @@ wordsSopMidi = \lyricmode {
   "\nThen " "ducks " "will " "come " "and " "et " "up " "worms "
   "\non " Ilk "ley " "Moor "  baht "'at, " 
   "\nWorms " "will " "et " "thee " "up, "
-  "\nDucks " "will " "et " "up " "\nom " "worms, "
-  "\nThen " "\yesm " "we'll " "come " "and " "et " "up " "ducks, " "mm, " 
+  "\nDucks " "will " "et " "up " \nom "worms, "
+  "\nThen " \yesm "we'll " "come " "and " "et " "up " "ducks, " "mm, " 
 
   "\nThen " "we " "shall " "have " "our " "loved " "ones " "back "
   "\non " Ilk "ley "  "Moor "  baht "'at, " 
@@ -730,7 +730,7 @@ wordsAlto = \lyricmode {
   on Ilk -- ley __ Moor \nom baht -- 'at. _ __
 
   Then \yesm we shall have to bur -- y thee __
-  on Ilk -- ley __ Mor __ baht -- 'at, __
+  on Ilk -- ley __ Moor __ baht -- 'at, __
   Then we shall have to bur -- y thee, __
   Then we shall have to bur -- y thee __
   on Ilk -- ley Moor baht -- 'at,
@@ -774,10 +774,10 @@ wordsAltoMidi = \lyricmode {
   "\nThou'll " sure "ly " "catch " "thy " "death " "of " "cold, " 
   "\nThou'll " sure "ly " "catch " "thy " "death " "of " "cold, " 
   "\nbaht" "'at, "
-  "\non " Ilk "ley "  "Moor " "\nom " baht "'at. " "" 
+  "\non " Ilk "ley "  "Moor " \nom baht "'at. " "" 
 
-  "\nThen " "\yesm " "we " "shall " "have " "to " bur "y " "thee " 
-  "\non " Ilk "ley "  "Mor "  baht "'at, " 
+  "\nThen " \yesm "we " "shall " "have " "to " bur "y " "thee " 
+  "\non " Ilk "ley "  "Moor "  baht "'at, " 
   "\nThen " "we " "shall " "have " "to " bur "y " "thee, " 
   "\nThen " "we " "shall " "have " "to " bur "y " "thee " 
   "\non " Ilk "ley " "Moor " baht "'at, "
@@ -791,8 +791,8 @@ wordsAltoMidi = \lyricmode {
   "\nThen " "ducks " "will " "come " "and " "et " "up " "worms "
   "\non " Ilk "ley " "Moor "  baht "'at, " 
   "\nWorms " "will " "et " "thee " "up, "
-  "\nDucks " "will " "et " "up " "\nom " "worms, "
-  "\nThen " "\yesm " "we'll " "come " "and " "et " "up " "ducks, " "mm, " 
+  "\nDucks " "will " "et " "up " \nom "worms, "
+  "\nThen " \yesm "we'll " "come " "and " "et " "up " "ducks, " "mm, " 
 
   "\nThen " "we " "shall " "have " "our " "loved " "ones " "back "
   "\non " Ilk "ley "  "Moor "  baht "'at, " 
@@ -1033,10 +1033,10 @@ wordsTenorMidi = \lyricmode {
   "\nThou'll " sure "ly " "catch " "thy " "death " "of " "cold, " 
   "\nThou'll " sure "ly " "catch " "thy " "death " "of " "cold, " 
   "\non " Ilk "ley "  "Moor " baht "'at. " 
-  "\non " Ilk "ley "  "Moor " "\nom " baht "'at. " "" 
+  "\non " Ilk "ley "  "Moor " \nom baht "'at. " "" 
 
-  "\nThen " "\yesm " "we " "shall " "have " "to " bur "y " "thee " 
-  "\nWe'll " bur "y " "thee " "on " Ilk "ley " "Moor " "\nom " with "out " "\yesm " "your " "hat. "
+  "\nThen " \yesm "we " "shall " "have " "to " bur "y " "thee " 
+  "\nWe'll " bur "y " "thee " "on " Ilk "ley " "Moor " \nom with "out " \yesm "your " "hat. "
   "\nThen " "we " "shall " "have " "to " bur "y " "thee, " 
   "\nThen " "we " "shall " "have " "to " bur "y " "thee " 
   "\non " Ilk "ley " "Moor " baht "'at, "
@@ -1050,8 +1050,8 @@ wordsTenorMidi = \lyricmode {
   "\nThen " "ducks " "will " "come " "and " "et " "up " "worms "
   "\non " Ilk "ley " "Moor "  baht "'at, " 
   "\nWorms " "will " "et " "thee " "up, "
-  "\nDucks " "will " "et " "up " "\nom " "worms, "
-  "\nThen " "\yesm " "we'll " "come " "and " "et " "up " "ducks, " "mm, " 
+  "\nDucks " "will " "et " "up " \nom "worms, "
+  "\nThen " \yesm "we'll " "come " "and " "et " "up " "ducks, " "mm, " 
 
   "\nThen " "we " "shall " "have " "our " "loved " "ones " "back, "
   "\nThen " "we " "shall " "have " "our " "loved " "ones " "back, " 
@@ -1291,10 +1291,10 @@ wordsBassMidi = \lyricmode {
   "\nThou'll " sure "ly " "catch " "thy " "death " "of " "cold, " 
   "\nThou'll " sure "ly " "catch " "thy " "death " "of " "cold, " 
   "\non " Ilk "ley "  "Moor " baht "'at. " 
-  "\non " Ilk "ley "  "Moor " "\nom " baht "'at. " "" 
+  "\non " Ilk "ley "  "Moor " \nom baht "'at. " "" 
 
-  "\nThen " "\yesm " "we " "shall " "have " "to " bur "y " "thee " 
-  "\nWe'll " bur "y " "thee " "on " Ilk "ley " "Moor " "\nom " with "out " "\yesm " "your " "hat. "
+  "\nThen " \yesm "we " "shall " "have " "to " bur "y " "thee " 
+  "\nWe'll " bur "y " "thee " "on " Ilk "ley " "Moor " \nom with "out " \yesm "your " "hat. "
   "\nYes, " "then " "we " "shall " "have " "to " bur "y " "thee, " 
   "\nThen " "we " "shall " "have " "to " bur "y " "thee " 
   "\non " Ilk "ley " "Moor " baht "'at, "
@@ -1308,8 +1308,8 @@ wordsBassMidi = \lyricmode {
   "\nThen " "ducks " "will " "come " "and " "et " "up " "worms "
   "\non " Ilk "ley " "Moor "  baht "'at, " 
   "\nWorms " "will " "et " "thee " "up, "
-  "\nDucks " "will " "et " "up " "\nom " "worms, "
-  "\nThen " "\yesm " "we'll " "come " "and " "et " "up " "ducks, " "mm, " 
+  "\nDucks " "will " "et " "up " \nom "worms, "
+  "\nThen " \yesm "we'll " "come " "and " "et " "up " "ducks, " "mm, " 
 
   "\nThen " "we " "shall " "have " "our " "loved " "ones " "back, "
   "\nThen " "we " "shall " "have " "our " "loved " "ones " "back, " 
