@@ -8,7 +8,7 @@
 % D:
 % E: I'll Never Find Another You
 
-usetags = #'(A B E)
+usetags = #'(A B C D E)
 
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
@@ -460,13 +460,11 @@ melodyB = {
 }
 
 melodyC = {
-  c'1
-  s1*53
+  s1*54
 }
 
 melodyD = {
-  d'1
-  s1*39
+  s1*40
 }
 
 melodyE = \relative {
