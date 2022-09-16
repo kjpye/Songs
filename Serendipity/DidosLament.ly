@@ -41,7 +41,7 @@ global = {
 }
 
 TempoTrack = {
-  \tempo 4=120
+  \tempo 4=72
   \set Score.tempoHideNote = ##t
   s4
 }
@@ -91,7 +91,7 @@ soprano = \relative {
     f4 r g g8(f) % 194a
     ees8(d) c(bes) bes4 r8 8
     bes8 8 r4 b8 8 r4
-    c4(a8.) bes16 a4 r8 a
+    c4(a8) bes8 a4 r8 a
     d8 8 r4 d8 c r4 % 194b
     c8(a bes8.) c16 bes4. a16(g)
     \alternative {
@@ -422,7 +422,7 @@ bass = \relative {
   \global
   R1
   \repeat volta 2 {
-    r4 g f(e
+    r4 g f(ees
     d4) c bes g
     c8(d) ees(c) d4 r
     R1 % 191d
