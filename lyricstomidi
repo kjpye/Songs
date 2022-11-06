@@ -34,6 +34,9 @@ for lines() -> $line is copy {
     for $/<cword> -> $word is copy {
         $word ~~ s/\s* '--'/-/;
         given $word {
+            when .starts-with('\\') {
+                print $_;
+            }
             when .ends-with('-') {
                 if $first {
                   s/\-$//;
