@@ -37,6 +37,12 @@ for lines() -> $line is copy {
             when .starts-with('\\') {
                 print $_;
             }
+            when .starts-with('"') {
+                s/^\"/"$first/ if $first;
+                s/\-\"$/"/ or s/\"$/ "/;
+                print $_;
+                $first = '';
+            }
             when .ends-with('-') {
                 if $first {
                   s/\-$//;
@@ -46,12 +52,6 @@ for lines() -> $line is copy {
                   s/\-$//;
                   .print;
                 }
-            }
-            when .starts-with('"') {
-                s/^\"/"$first/ if $first;
-                s/\-\"$/"/ or s/\"$/ "/;
-                print $_;
-                $first = '';
             }
             when '--' {
             }
