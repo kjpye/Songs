@@ -94,7 +94,7 @@ verses = 3
 
 wordsOne = \lyricmode {
   \set stanza = "1."
-  Take Thou my hand, and lead me---
+  Take Thou my hand, and lead me—
   Choose Thou my way!
   "\"Not" as I "will,\"" O Fa -- ther,
   Teach me to say,
@@ -106,12 +106,12 @@ wordsOne = \lyricmode {
   
 wordsTwo = \lyricmode {
   \set stanza = "2."
-  Take Thou my hand, and lead me---
+  Take Thou my hand, and lead me—
   Lord, I am Thine!
   Fill with Thy Ho -- ly Spi -- rit
   This heart of mine:
   The in the hour of tri -- al
-  Strong shall I be---
+  Strong shall I be—
   Rea -- dy to do, or suf -- fer,
   Dear Lord, for Thee.
 }
