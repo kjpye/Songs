@@ -912,10 +912,9 @@ pianoLH = \relative {
     left-margin = 7
     right-margin = 1
     paper-width = 190\mm
-    paper-height = 2500\mm
-    ragged-bottom = true
+    page-breaking = #ly:one-page-breaking
     system-system-spacing.basic-distance = #15
-%    system-separator-markup = \slashSeparator
+    system-separator-markup = \slashSeparator
   }
   \score {
     <<
