@@ -114,7 +114,7 @@ wordsTwo = \lyricmode {
   \set stanza = "2."
   Dome -- times 'mid scenes of deep -- est gloom,
   Some -- times where e -- den's bow -- ers bloom,
-  By wa -- ters calm, o'er trou -- bled sea---
+  By wa -- ters calm, o'er trou -- bled sea—
   Still "'t is" God's hand that lead -- eth me.
 }
   
