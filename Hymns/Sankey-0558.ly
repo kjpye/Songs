@@ -188,7 +188,7 @@ wordsMidiMen = \lyricmode {
 }
 
 \book {
-  \bookOutputSuffix "midi"
+  \bookOutputSuffix "midi-women"
   \score {
 %    \articulate
         \new ChoirStaff <<
@@ -210,6 +210,40 @@ wordsMidiMen = \lyricmode {
             \clef "treble_8"
             \new Voice { \global \repeat unfold \verses \tenor }
             \addlyrics \wordsMidiMen
+          >>
+                                % Bass staff
+          \new Staff = bass
+          <<
+            \clef "bass"
+            \new Voice { \global \repeat unfold \verses \bass }
+          >>
+        >>
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-men"
+  \score {
+%    \articulate
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano
+          <<
+            \new Voice { \repeat unfold \verses \TempoTrack     }
+            \new Voice { \global \repeat unfold \verses \soprano \bar "|." }
+          >>
+                                % Alto staff
+          \new Staff = alto
+          <<
+            \new Voice { \global \repeat unfold \verses { \alto \nl } \bar "|." }
+          >>
+                                % Tenor staff
+          \new Staff = tenor
+          <<
+            \clef "treble_8"
+            \new Voice { \global \repeat unfold \verses \tenor }
+            \addlyrics \wordsMidi
           >>
                                 % Bass staff
           \new Staff = bass
