@@ -60,6 +60,12 @@ for lines() -> $line is copy {
             when '_' {
                 print '""';
             }
+            when '{' {
+                print '{';
+            }
+            when '}' {
+                print '}';
+            }
             when /^\s+$/ {
                 print $_;
             }
