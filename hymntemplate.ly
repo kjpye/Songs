@@ -32,8 +32,6 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   copyright   = \today
 }
 
-% #(set-global-staff-size 16)
-
 global = {
   \key g \major
   \time 3/4
@@ -42,9 +40,9 @@ global = {
 
 RehearsalTrack = {
 % \set Score.currentBarNumber = #5
-  \mark \markup { \box "A" } s2.*6
-  \mark \markup { \box "B" } s2.*5
-  \mark \markup { \box "C" } s2.*5
+  \textMark \markup { \box \bold "A" } s2.*6
+  \textMark \markup { \box \bold "B" } s2.*5
+  \textMark \markup { \box \bold "C" } s2.*5
 }
 
 TempoTrack = {
@@ -158,7 +156,7 @@ wordsMidiMen = \lyricmode {
             \new Voice \RehearsalTrack
             \new Voice \TempoTrack
             \new NullVoice = "aligner" \soprano
-            \new Voice \partCombine { \global \soprano \bar "|." } { \global \alto }
+            \new Voice \partCombine #'(2 . 88) { \global \soprano \bar "|." } { \global \alto }
             \new Lyrics \lyricsto "aligner" { \wordsOne \chorus }
             \new Lyrics \lyricsto "aligner"   \wordsTwo
             \new Lyrics \lyricsto "aligner"   \wordsThree
@@ -170,12 +168,13 @@ wordsMidiMen = \lyricmode {
           \new Staff = men \with { printPartCombineTexts = ##f }
           <<
             \clef "bass"
-            \new Voice \partCombine { \global \tenor } { \global \bass }
+            \new Voice \partCombine #'(2 . 88) { \global \tenor } { \global \bass }
             \new NullVoice = alignerT { \tenor }
           >>
           \new Lyrics \with {alignAboveContext = men} \lyricsto alignerT \chorusMen
         >>
     \layout {
+      #(layout-set-staff-size 20)
       indent = 1.5\cm
       \pointAndClickOff
       \context {
@@ -193,7 +192,7 @@ singlescore = {
             \new Voice { \repeat unfold \verses \RehearsalTrack }
             \new Voice { \repeat unfold \verses \TempoTrack }
             \new NullVoice = "aligner" { \repeat unfold \verses \soprano }
-            \new Voice \partCombine { \global \repeat unfold \verses \soprano \bar "|." }
+            \new Voice \partCombine #'(2 . 88) { \global \repeat unfold \verses \soprano \bar "|." }
                                     { \global \repeat unfold \verses { \alto \nl } \bar "|." }
             \new Lyrics \lyricsto "aligner" { \wordsOne   \chorus
                                               \wordsTwo   \chorus
@@ -207,7 +206,7 @@ singlescore = {
           \new Staff = men \with { printPartCombineTexts = ##f }
           <<
             \clef "bass"
-            \new Voice \partCombine { \global \repeat unfold \verses \tenor }
+            \new Voice \partCombine #'(2 . 88) { \global \repeat unfold \verses \tenor }
                                     { \global \repeat unfold \verses \bass }
             \new NullVoice = alignerT { \repeat unfold \verses \tenor }
           >>
@@ -220,6 +219,7 @@ singlescore = {
   \score {
     \singlescore
     \layout {
+      #(layout-set-staff-size 20)
       indent = 1.5\cm
       \pointAndClickOff
       \context {
@@ -243,6 +243,7 @@ singlescore = {
   \score {
     \singlescore
     \layout {
+      #(layout-set-staff-size 20)
       indent = 1.5\cm
       \pointAndClickOff
       \context {
