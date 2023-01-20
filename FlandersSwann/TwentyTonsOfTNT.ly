@@ -174,7 +174,7 @@ wordsThree = \lyricmode {
   Twen -- ty tons of T. N. T.
   Twen -- ty hun -- dred years of teach -- ing,
   Give to each his leg -- a -- cy,
-  Pla -- to, Bud -- dham Christ or Len -- in,
+  Pla -- to, Bud -- dha Christ or Len -- in,
   Twen -- ty tons of T. N. T.
 }
 
@@ -237,7 +237,7 @@ wordsSingle = \lyricmode {
   Twen -- ty tons of T. N. T.
   Twen -- ty hun -- dred years of teach -- ing,
   Give to each his leg -- a -- cy,
-  Pla -- to, Bud -- dham Christ or Len -- in,
+  Pla -- to, Bud -- dha Christ or Len -- in,
   Twen -- ty tons of T. N. T.
 
   _ _ _ _ _
@@ -295,7 +295,7 @@ midiWords = \lyricmode {
   "\nTwen" "ty " "tons " "of " "T. " "N. " "T. "
   "\nTwen" "ty " hun "dred " "years " "of " teach "ing, "
   "\nGive " "to " "each " "his " leg a "cy, "
-  "\nPla" "to, " Bud "dham " "Christ " "or " Len "in, "
+  "\nPla" "to, " Bud "dha " "Christ " "or " Len "in, "
   "\nTwen" "ty " "tons " "of " "T. " "N. " "T.\n"
 
   "" "" "" "" ""
