@@ -311,7 +311,7 @@ pianoLHtwo = \relative c' {
   \bookOutputSuffix "midi"
   \score {
     \unfoldRepeats
-    \articulate
+%    \articulate
     <<
     \context GrandStaff <<
       <<
