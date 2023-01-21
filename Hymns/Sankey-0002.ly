@@ -37,7 +37,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 global = {
   \key d \major
   \time 4/4
-  \tempo 4=120
+  \tempo 4=110
   \partial 4
 }
 
