@@ -37,7 +37,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 global = {
   \key d \major
   \time 4/4
-  \tempo 4=120
+  \tempo 4=100
   \partial 4
 }
 
@@ -50,17 +50,15 @@ RehearsalTrack = {
 TempoTrack = {
   \partial 4
   \repeat volta 4 {
-    s4\tempo 4=120
+    s4\tempo 4=100
     s1
-    s2\tempo 4=40 s4\tempo 4=120 s
+    s2\tempo 4=33 s4\tempo 4=100 s
     s1
-    s2\tempo 4=40 s4\tempo 4=120 s
+    s2\tempo 4=33 s4\tempo 4=100 s
     s1
-    s2\tempo 4=40 s4\tempo 4=120 s
+    s2\tempo 4=33 s4\tempo 4=100 s
     s1
-    s2\tempo 4=40 s4\tempo 4=120 s
-    s1
-    s1
+    s2\tempo 4=33 s4\tempo 4=100 s
     s1
     s1
     s1
@@ -68,7 +66,9 @@ TempoTrack = {
     s1
     s1
     s1
-    s2\tempo 4=40 s4\tempo 4=120
+    s1
+    s1
+    s2\tempo 4=33 s4\tempo 4=100
   }
 }
 
@@ -210,7 +210,7 @@ wordsThree = \lyricmode {
   And watch- ing to de- vour us,
   We lay it not to heart so sore;
   Not they can o- ver- power us.
-  And let the prince o ill
+  And let the prince of ill
   Look grim as e'er he will,
   He harms us not one whit:
   For why? His doom is writ;
@@ -254,7 +254,7 @@ wordsMidi = \lyricmode {
   "\nAnd " watch "ing " "to " de "vour " "us, "
   "\nWe " "lay " "it " "not " "to " "heart " "so " "sore; "
   "\nNot " "they " "can " o ver "power " "us. "
-  "\nAnd " "let " "the " "prince " "o " "ill "
+  "\nAnd " "let " "the " "prince " "of " "ill "
   "\nLook " "grim " "as " "e'er " "he " "will, "
   "\nHe " "harms " "us " "not " "one " "whit: "
   "\nFor " "why? " "His " "doom " "is " "writ; "
