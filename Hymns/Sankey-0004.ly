@@ -337,7 +337,6 @@ pianoLHtwo = \relative c' {
         \Staff \RemoveAllEmptyStaves
       }
     }
-    \midi {}
   }
 }
 
