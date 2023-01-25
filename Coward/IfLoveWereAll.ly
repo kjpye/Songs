@@ -167,6 +167,21 @@ wordsOne = \lyricmode {
   I've had to furm -- u -- late a creed. __
 }
 
+wordsOneMidi = \lyricmode {
+  "Life " "is " ve "ry " "tough " "and " tum "ble "
+  "\nFor " "a " hum "ble " di "scuse; "
+  "\nOne " "can " be "tray " "one's " trou "bles " nev "er, "
+  "\nWhat" ev "er " oc "curs. "
+  "\nNight " af "ter " "night " "have " "to " "look " "bright "
+  "\nWhe" "ther " "you're " "well " "or " "ill; "
+  "\npeo" "ple " "must " "laugh " "their " "fill " 
+  "\nYou " must "n't " "sleep "  "till " "dawn " "comes " creep "ing. "
+  "\nTho' " "I " nev "er " real "ly " grum "ble, "
+  "\nLife's " "a " jum "ble " in "deed " 
+  "\nAnd " "in " "my " ef "forts " "to " suc "ceed " 
+  "\nI've " "had " "to " furm u "late " "a " "creed.\n" 
+}
+
 wordsTwo = \lyricmode {
   Tho' life buf -- fets me ob -- scene -- ly
   It se -- rene -- ly goes on;
@@ -183,37 +198,53 @@ wordsTwo = \lyricmode {
   De -- ter -- min -- a -- tion helps me through.
 }
 
+wordsTwoMidi = \lyricmode {
+  "Tho' " "life " buf "fets " "me " ob scene "ly "
+  "\nIt " se rene "ly " "goes " "on; "
+  "\nAl" "tho' " "I " ques "tion " "its " con clu "sion, "
+  "\nIl" lu "sion " "is " "gone. "
+  "\nFre" quent "ly " "I " "put " "a " "bit " "by "
+  "\nSafe " "for " "a " rain "y " "day. "
+  "\nBo" bo "dy " "here " "can " "say " 
+  "\nTo " "what " in "deed " 
+  "\nthe " "years " "are " lead "ing. "
+  "\nFate " "may " of "ten " "treat " "me " mean "ly, "
+  "\nBut " "I " keen "ly " pur "sue, " 
+  "\nA " lit "tle " mi "rage " "in " "the " "blue. " 
+  "\nDe" ter min a "tion " "helps " "me " "through.\n"
+}
+
 chorusMidi = \lyricmode {
   \repeat volta 2 {
-    I be -- lieve in do -- ing what I can,
-    In cry -- ing when I must,
-    in laugh -- ing when I choose.
-    Heigh -- o, __
-    If love were all __ I should be lone -- ly.
-    I be -- lieve the more you love a man,
-    The more you give your trust,
-    The more you're bound to lose:
-    Al -- though __ when sha -- dows fall __
-    I think of on -- ly
-    Some -- bo -- dy splen -- did real -- ly need -- ed me,
-    Some -- one af -- fec -- tion -- ate and dear,
-    Cares would be end -- ed if I knew that he
-    Want -- ed to have me near.
-    But I be -- lieve that since ny life be -- gan
-    The nost I've had is just a tal -- ent to a -- muse.
-    Heigh -- o, __
-    If love were
+    "I " be "lieve " "in " do "ing " "what " "I " "can, "
+    "\nIn " cry "ing " "when " "I " "must, "
+    "\nin " laugh "ing " "when " "I " "choose. "
+    "\nHeigh" "o, " 
+    "\nIf " "love " "were " "all "  "I " "should " "be " lone "ly. "
+    "\nI " be "lieve " "the " "more " "you " "love " "a " "man, "
+    "\nThe " "more " "you " "give " "your " "trust, "
+    "\nThe " "more " "you're " "bound " "to " "lose: "
+    "\nAl" "though "  "when " sha "dows " "fall " 
+    "\nI " "think " "of " on "ly "
+    "\nSome" bo "dy " splen "did " real "ly " need "ed " "me, "
+    "\nSome" "one " af fec tion "ate " "and " "dear, "
+    "\nCares " "would " "be " end "ed " "if " "I " "knew " "that " "he "
+    "\nWant" "ed " "to " "have " "me " "near. "
+    "\nBut " "I " be "lieve " "that " "since " "ny " "life " be "gan "
+    "\nThe " "nost " "I've " "had " "is " "just " "a " tal "ent " "to " a "muse. "
+    "\nHeigh" "o, " 
+    "\nIf " "love " "were "
     \alternative {
-      { all. }
-      { all. __ }
+      { "\nall.\n" }
+      { "\nall.\n"  }
     }
   }
 }
 
 midiWords = \lyricmode {
-  \wordsOne
+  \wordsOneMidi
   \chorusMidi
-  \wordsTwo
+  \wordsTwoMidi
   \chorusMidi
 }
 
