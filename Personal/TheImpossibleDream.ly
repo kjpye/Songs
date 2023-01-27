@@ -37,9 +37,9 @@ melody = \relative c {
   ees4.~8 d c ees d c
   ees4.~8 d ees d c bes
   a2.~8 a bes
-  c4.~8 bes a c bes a
+  c4.~8 bes a c bes a % 30
   c4.~8 bes c bes a g
-  ges2. r8 d ees
+  ges2. r8 d\fermata ees\fermata
   f4.~8 d ees f ees d
   f2.~8 ees f
   g4.~8 ees f g f ees
