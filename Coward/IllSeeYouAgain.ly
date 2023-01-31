@@ -561,7 +561,7 @@ pianoLHtwo = \relative {
 }
 
 \book {
-  #(define output-suffix "midi")
+  #(define output-suffix "midi-she")
   \score {
     \unfoldRepeats
 %   \articulate
@@ -575,6 +575,43 @@ pianoLHtwo = \relative {
           <<
             \new Voice = "woman" \woman
             \new Lyrics \lyricsto "woman" { \wordsWomanMidi }
+          >>
+          \new Staff
+          <<
+            \new Voice = "melody" \melody
+          >>
+        >>
+        \new PianoStaff
+        <<
+          \new Staff
+          <<
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+            \new Dynamics \dynamicsPianoSingle
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \midi {}
+  }
+}
+
+\book {
+  #(define output-suffix "midi-he")
+  \score {
+    \unfoldRepeats
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff
+        <<
+          \new Dynamics \TempoTrack
+          \new Dynamics \dynamicsMelody
+          \new Staff
+          <<
+            \new Voice = "woman" \woman
           >>
           \new Staff
           <<
