@@ -1497,6 +1497,134 @@ wordsBassMidi = \lyricmode {
 }
 
 \book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+    <<
+      \new ChoirStaff <<
+                                % Single soprano staff
+        \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+          \new Voice { \RehearsalTrack \RehearsalTrack \RehearsalTrack }
+          \new Voice = "soprano" { \soprano \soprano \soprano }
+          \new Lyrics \lyricsto "soprano" \wordsSopSingle
+        >>
+                                % Single alto staff
+        \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+          \new Voice = "alto" { \alto \alto \alto }
+          \new Lyrics \lyricsto "alto" \wordsAltoSingle
+        >>
+                                % Single tenor one staff
+        \new Staff \with { instrumentName = #"Tenor One" shortInstrumentName = #"T1" } <<
+          \new Voice = "tenorone" { \tenorOne \tenorOne \tenorOne }
+          \new Lyrics \lyricsto "tenorone" \wordsTenorOneSingle
+        >>
+                                % Single tenor two staff
+        \new Staff \with { instrumentName = #"Tenor Two" shortInstrumentName = #"T2" } <<
+          \new Voice = "tenortwo" { \tenorTwo \tenorTwo \tenorTwo }
+          \new Lyrics \lyricsto "tenortwo" \wordsTenorTwoSingle
+        >>
+                                % Single bass staff
+        \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+          \new Voice = "bass" { \bass \bass \bass }
+          \new Lyrics \lyricsto "bass" \wordsBassSingle
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-bass"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+    <<
+      \new ChoirStaff <<
+                                % Single soprano staff
+        \new Staff \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+          \magnifyStaff #4/7
+        }
+        <<
+          \new Voice { \RehearsalTrack \RehearsalTrack \RehearsalTrack }
+          \new Voice = "soprano" { \soprano \soprano \soprano }
+          \new Lyrics \lyricsto "soprano" {\tiny \wordsSopSingle}
+        >>
+                                % Single alto staff
+        \new Staff \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+          \magnifyStaff #4/7
+        }
+        <<
+          \new Voice = "alto" { \alto \alto \alto }
+          \new Lyrics \lyricsto "alto" {\tiny \wordsAltoSingle}
+        >>
+                                % Single tenor one staff
+        \new Staff \with {
+          instrumentName = #"Tenor One"
+          shortInstrumentName = #"T1"
+          \magnifyStaff #4/7
+        }
+        <<
+          \new Voice = "tenorone" { \tenorOne \tenorOne \tenorOne }
+          \new Lyrics \lyricsto "tenorone" {\tiny \wordsTenorOneSingle}
+        >>
+                                % Single tenor two staff
+        \new Staff \with {
+          instrumentName = #"Tenor Two"
+          shortInstrumentName = #"T2"
+          \magnifyStaff #4/7
+        }
+        <<
+          \new Voice = "tenortwo" { \tenorTwo \tenorTwo \tenorTwo }
+          \new Lyrics \lyricsto "tenortwo" {\tiny \wordsTenorTwoSingle}
+        >>
+                                % Single bass staff
+        \new Staff \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+        }
+        <<
+          \new Voice = "bass" { \bass \bass \bass }
+          \new Lyrics \lyricsto "bass" \wordsBassSingle
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
   \bookOutputSuffix "midi-sop"
   \score {
     \unfoldRepeats
