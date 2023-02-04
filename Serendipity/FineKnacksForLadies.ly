@@ -96,7 +96,7 @@ tenor = \relative c' {
     f2 f4 f
     c2 f
     f4 f2 e4
-    d2 d
+    d2 e
     f2 f4 f
     f2. c4
     d4 a c c
