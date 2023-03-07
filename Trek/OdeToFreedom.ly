@@ -33,7 +33,8 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   copyright   = \today
 }
 
-ct = \compoundMeter #'((3 3 2 8))
+%ct = \compoundMeter #'((3 3 2 8))
+ct = \time 4/4
 
 global = {
   \key f \major
@@ -130,11 +131,13 @@ soprano = \relative {
   R2. \section |
   f2.( | aes | c~ | c2~8) r | % 4b
   f,2.( | aes | c~ | c) \ct | % 5a
-  r8 a~16 g bes8~8 a g f | r8 a~16 g bes8~8 a4. | r8 a~16 g bes8~8 a g f | e8. f16 a2 r4 |
+  r8 a~16 g bes8~8 a g f | r8 a~16 g bes8~8 a4. | r8 a~16 g bes8~8 a g f | e8. f16 g2 r4 |
   R1 | r8 bes~16 a c8~8 bes4. | r8 bes8~16 a c8~8 bes a g \time 6/8 | f8. g16 a8~4. \ct | % 6a
   r8 a~16 g bes8~8 a g f \time 6/8 | e8. f16 g8~4 r8 | g8. f16 a8~8 g4 | f4. r8 a4 | d,4. r8 bes'4 \ct |
   a8. g16 bes4 a8 g4 f8 | g8. f16 a4 g8 f4 e8 \time 6/8 | f2. \time 6/8 | r4. r8 a4 | % 7a
-  bes4. r8 d4 \ct | <a c>8. <g c>16 <bes c>4 <a c>8 <g c>4 <f a>8 | g8. f16 a4 g8 f4 e8 \time 6/8 | f2. | R |
+  \tag #'both {bes4. r8 <bes d>4 \ct | <a c>8. <g c>16 <bes c>4 <a c>8 <g c>4 <f a>8 | g8. f16 a4 g8 f4 e8 \time 6/8 | f2. | R |}
+  \tag #'upper {bes4. r8 d4 \ct | c8. 16 4 8 4 a8 | g8. f16 a4 g8 f4 e8 \time 6/8 | f2. | R |}
+  \tag #'lower {bes4. r8 bes4 \ct | a8. g16 bes4 a8 g4 f8 | g8. f16 a4 g8 f4 e8 \time 6/8 | f2. | R |}
   f2.( | aes | c~ | c) | % 8a
   f,2.( | aes | c~ | c~ | c) |
   \bar "|."
@@ -185,6 +188,38 @@ wordsWomenMidi = \lyricmode {
   "\nbe" "ing " priv i "leged " "and " "spoilt " "for " "choice. "
 
   "\nbe " sus pi "cious " "of "  "the " "cause " "to " "which " "I'd " "lend " "my " "voice. "
+  "\nIt's " e lus "ive " "and " "it's " "hard " "to " "hold. "
+  "\nIt's " "a " fleet "ing " "thing. "
+  "\nThat's " "why, " "there " "is " "no " "ode " "to " free "dom "
+  "\ntru" "ly " "worth " re mem ber "ing. "
+  "\nI " "wish " some "one " "would " "write " "an " "ode " "to " free "dom "
+  "\nthat " "we " "all " "could " "sing. "
+  "\nAh "  "Ah " 
+}
+
+wordsJointMidi = \lyricmode {
+  "[M]Mm "  "mm "  "mm "
+  "\n[A]Mm " "mm " "mm "
+  "\nOo "  "oo " \set associatedVoice = women
+  "\nAh " 
+  "\n[W]If " "I " ev "er " "write " \set associatedVoice = men "my "
+  "\n[A]ode " "to " free "dom, "
+  "\nIt " "would " "be "  "in " "prose " "that " "chimes " "with " "me. "
+  "\n[M]It " "would " "be " "a " sim "ple "
+  "\n[A]ode " "to " free "dom, "
+  "\nnot " pre ten "tious " "but " "with " dig ni "ty. "
+  "\nI " "would " "like " "to " "think " "that " free "dom " "is "
+  "\nmore " "than " "just " "a " "word. "
+  "\nIn " "grand " "and " lof "ty " lan "guage "
+  "\nodes " "to " free "dom " of "ten " "go " un "heard. "
+
+  "\nAh "  \set associatedVoice = women "Ah " 
+  "\n[W]If " "I " ev "er " "write " "my "
+  "\n[A]ode " "to " free "dom, "
+  "\nbe" "ing " priv i "leged " "and " "spoilt " "for " \set associatedVoice = men "choice. "
+  "\n[M]Then " "I " "fear " "that " "you " "would "
+  "\n[A]be " sus pi "cious " "of "  "the " "cause "
+  "\nto " "which " "I'd " "lend " "my " "voice. "
   "\nIt's " e lus "ive " "and " "it's " "hard " "to " "hold. "
   "\nIt's " "a " fleet "ing " "thing. "
   "\nThat's " "why, " "there " "is " "no " "ode " "to " free "dom "
@@ -429,7 +464,7 @@ pianoRHone = \relative {
   c8-> e g c,-> e g c,-> bes | % 1c
   g8-> bes d g,-> bes d bes-> g |
   e8-> g c g-> c e c-> g |
-  \time 6/8 f8-> a c f-> a c \compoundMeter #'((3 3 2 8)) |
+  \time 6/8 f8-> a c f-> a c \ct |
   cis,8-> a' cis, g'-> bes e, g-> f \time 6/8 | % 2a
   e8.-> f16 g8 f-> e d |
   cis8.-> d16 e8 cis-> d e |
@@ -640,8 +675,8 @@ pianoLHtwo = \relative {
             \new Dynamics \with {alignAboveContext = women} \dynamicsWomen
             \new Voice \RehearsalTrack
             \new Voice \TempoTrack
-            \new Voice \partCombine \soprano \alto
-            \new NullVoice \soprano
+            \new Voice \partCombine {\keepWithTag #'both \soprano} \alto
+            \new NullVoice {\keepWithTag #'upper \soprano}
             \addlyrics \wordsWomen
           >>
                                 % Joint tenor/bass staff
@@ -719,8 +754,8 @@ pianoLHtwo = \relative {
             \new Dynamics \with {alignAboveContext = women} \dynamicsWomen
             \new Voice \RehearsalTrack
             \new Voice \TempoTrack
-            \new Voice \partCombine \soprano \alto
-            \new NullVoice \soprano
+            \new Voice \partCombine \keepWithTag #'both \soprano \alto
+            \new NullVoice {\keepWithTag #'upper \soprano}
             \addlyrics \wordsWomen
           >>
                                 % Joint tenor/bass staff
@@ -799,8 +834,8 @@ pianoLHtwo = \relative {
             \new Dynamics \with {alignAboveContext = women} \dynamicsWomen
             \new Voice \RehearsalTrack
             \new Voice \TempoTrack
-            \new Voice \partCombine \soprano \alto
-            \new NullVoice \soprano
+            \new Voice \partCombine \keepWithTag #'both \soprano \alto
+            \new NullVoice {\keepWithTag #'upper \soprano}
             \addlyrics \wordsWomen
           >>
                                 % Joint tenor/bass staff
@@ -860,8 +895,8 @@ pianoLHtwo = \relative {
     <<
       <<
         \new ChoirStaff <<
-                                % Soprano staff
-          \new Staff = soprano \with {
+                                % Soprano I staff
+          \new Staff = "soprano1" \with {
             midiInstrument = "choir aahs"
             \accidentalStyle Score.modern-cautionary
           }
@@ -869,7 +904,17 @@ pianoLHtwo = \relative {
             \new Dynamics \dynamicsWomen
             \new Voice \RehearsalTrack
             \new Voice \TempoTrack
-            \new Voice \soprano
+            \new Voice \keepWithTag #'upper \soprano
+            \addlyrics \wordsWomenMidi
+          >>
+                                % Soprano II staff
+          \new Staff = "soprano2" \with {
+            midiInstrument = "choir aahs"
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \new Dynamics \dynamicsWomen
+            \new Voice \keepWithTag #'lower \soprano
             \addlyrics \wordsWomenMidi
           >>
                                 % Alto staff
@@ -931,6 +976,93 @@ pianoLHtwo = \relative {
 }
 
 \book {
+  \bookOutputSuffix "midi-joint"
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano I staff
+          \new Staff = "soprano1" \with {
+            midiInstrument = "acoustic grand piano"
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \new Dynamics \dynamicsWomen
+            \new Voice \RehearsalTrack
+            \new Voice \TempoTrack
+            \new Voice = women \keepWithTag #'upper \soprano
+          >>
+                                % Soprano II staff
+          \new Staff = "soprano2" \with {
+            midiInstrument = "acoustic grand piano"
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \new Dynamics \dynamicsWomen
+            \new Voice = women \keepWithTag #'lower \soprano
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            midiInstrument = "acoustic grand piano"
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \new Dynamics \dynamicsWomen
+            \new Voice \altoApart
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            midiInstrument = "acoustic grand piano"
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \new Dynamics \dynamicsMen
+            \clef "treble_8"
+            \new Voice = men \tenor
+            \addlyrics \wordsJointMidi
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            midiInstrument = "acoustic grand piano"
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \new Dynamics \dynamicsMen
+            \clef "bass"
+            \new Voice \bassApart
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = piano \with {
+            midiInstrument = "acoustic grand piano"
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+            \new Dynamics \dynamicsPiano
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
+  }
+}
+
+\book {
   \bookOutputSuffix "midi-men"
   \score {
 %   \articulate
@@ -946,7 +1078,7 @@ pianoLHtwo = \relative {
             \new Dynamics \dynamicsWomen
             \new Voice \RehearsalTrack
             \new Voice \TempoTrack
-            \new Voice \soprano
+            \new Voice \keepWithTag #'lower \soprano
           >>
                                 % Alto staff
           \new Staff = alto \with {
