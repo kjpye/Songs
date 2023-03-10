@@ -189,7 +189,7 @@ VerseTwo = \lyricmode {
   a wil -- ful lav -- ish land.
   All you who have not loved her,
   you will not un -- der -- stand.
-  Though earth holds ma -- ny splendours,
+  Though earth holds ma -- ny splen -- dours,
   wher -- ev -- er I may die,
   I know to what brown coun -- try
   my hom -- ing thoughts will fly.
@@ -237,7 +237,7 @@ bassVerseTwo = \lyricmode {
 
 }
 
-#(set-global-staff-size 18)
+#(set-global-staff-size 17)
 
 \book {
   \bookOutputSuffix "repeat"
@@ -263,6 +263,72 @@ bassVerseTwo = \lyricmode {
       <<
         \new Voice { \clef bass \bass }
         \addlyrics { \VerseOne }
+      >>
+    >>
+    \layout { indent = 0 }
+  }
+}
+
+\book {
+  \bookOutputSuffix "repeat-women"
+  \score {
+    \new ChoirStaff <<
+      \new Staff
+      <<
+        \new Voice { \soprano \bar ":|." }
+%        \addlyrics { \sopranoVerseOne }
+        \addlyrics { \VerseOne }
+        \addlyrics { \sopVerseTwo }
+      >>
+      \new Staff 
+      <<
+        \new Voice \alto
+%        \addlyrics { \VerseOne }
+      >>
+      \new Staff
+      <<
+        \magnifyStaff #4/7
+        \new Voice { \clef "treble_8" \tenor }
+%        \addlyrics { \VerseOne }
+      >>
+      \new Staff
+      <<
+        \magnifyStaff #4/7
+        \new Voice { \clef bass \bass }
+%        \addlyrics { \VerseOne }
+      >>
+    >>
+    \layout { indent = 0 }
+  }
+}
+
+\book {
+  \bookOutputSuffix "repeat-men"
+  \score {
+    \new ChoirStaff <<
+      \new Staff
+      <<
+        \magnifyStaff #4/7
+        \new Voice { \soprano \bar ":|." }
+%        \addlyrics { \sopranoVerseOne }
+%        \addlyrics { \sopVerseTwo }
+      >>
+      \new Staff 
+      <<
+        \magnifyStaff #4/7
+        \new Voice \alto
+%        \addlyrics { \VerseOne }
+      >>
+      \new Staff
+      <<
+        \new Voice { \clef "treble_8" \tenor }
+        \addlyrics { \VerseOne }
+        \addlyrics { \VerseTwo }
+      >>
+      \new Staff
+      <<
+        \new Voice { \clef bass \bass }
+%        \addlyrics { \VerseOne }
       >>
     >>
     \layout { indent = 0 }
