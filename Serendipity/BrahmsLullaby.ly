@@ -1,4 +1,4 @@
-\version "2.19.82"
+\version "2.25.0"
 
 global = {
   \key ees \major
@@ -82,6 +82,26 @@ verseTwo = \lyricmode {
   schau im Raum's Par- a- dies,
   Schlaf nu se- lig und süß,
   schau im Raum's Pa- ra- dies.
+}
+
+wordsMidi = \lyricmode {
+  "Gu" "ten " A "bend, " "gute " "Nacht, "
+  "\nmit " Ros "en " be "dacht, "
+  "\nmit " Näg "lein " be "steckt, "
+  "\nschlupt " un "ter " "die " "Deck: "
+  "\nMor" "gen " "früh, " "wenn " "Got " "will, "
+  "\nwirst " "du " wie "der " ge "weckt, "
+  "\nmor" "gen " "früh, " "wenn " "Got " "will, "
+  "\nwirst " "du " wei "der " ge "weckt.\n"
+
+  "\nGu" "ten " A "bend, " "gute " "Nacht, "
+  "\nvon " Eng "lein " be "wacht, "
+  "\ndie " zei "gen " "im " "Traum "
+  "\ndir " Christ kind "leins " "Baum: "
+  "\nSchlaf " "nu " se "lig " "und " "süß, "
+  "\nschau " "im " "Raum's " Par a "dies, "
+  "\nSchlaf " "nu " se "lig " "und " "süß, "
+  "\nschau " "im " "Raum's " Pa ra "dies. "
 }
 
 altoNotes = \relative c' {
@@ -299,6 +319,7 @@ pianoLH = \relative c, {
 }
 
 \book {
+  \bookOutputSuffix "single"
   \score { % full score
     <<
       \new ChoirStaff <<
@@ -337,6 +358,88 @@ pianoLH = \relative c, {
       >>
     >>
     \layout{}
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score { % full score
+    <<
+      \new ChoirStaff <<
+	\new Staff <<
+         \new Voice { \rehearsalTrack }
+	  \new Voice = "soprano" <<
+	    \global
+	    \sopranoNotes
+	  >>
+          \new Voice = "alto" <<
+	    \global
+	    \altoNotes
+	  >>
+	  \new Lyrics \lyricsto "soprano" { \verseOne \verseTwo }
+	>>
+	\new Staff <<
+	  \new Voice = "tenor" <<
+            \clef "bass"
+	    \global
+	    \tenorNotes
+	  >>
+	  \new Voice = "bass" <<
+            \clef "bass"
+	    \global
+	    \bassNotes
+	  >>
+	>>
+      >>
+      \new PianoStaff <<
+	\new Staff <<
+	  { \global \pianoRH }
+	>>
+	\new Staff <<
+	  { \clef bass \global \pianoLH }
+	>>
+      >>
+    >>
+    \layout{}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi"
+  \score { % full score
+    <<
+      \new ChoirStaff <<
+	\new Staff = soprano <<
+         \new Voice { \rehearsalTrack }
+	  \new Voice { \global \sopranoNotes }
+	  \addlyrics { \wordsMidi }
+	>>
+	\new Staff = alto <<
+	  \new Voice { \global \altoNotes }
+	>>
+	\new Staff = tenor <<
+	  \new Voice { \clef "treble_8" \global \tenorNotes }
+        >>
+        \new Staff = bass <<
+	  \new Voice { \clef bass \global \bassNotes }
+	>>
+      >>
+      \new PianoStaff <<
+	\new Staff <<
+	  { \global \pianoRH }
+	  { \global \pianoLH }
+	>>
+      >>
+    >>
     \midi  {}
   }
 }
