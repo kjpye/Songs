@@ -1,4 +1,4 @@
-\version "2.19.82"
+\version "2.25.0"
 
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 
@@ -67,22 +67,30 @@ black = {
 }
 
 RehearsalTrack = {
-%  \set Score.currentBarNumber = #5
 %  \mark \markup { \box 5 }
-  \mark \markup { \circle "1a" } s1 s1 s1 s1
-  \mark \markup { \circle "1b" } s1 s1 s1 s1
-  \mark \markup { \circle "2a" } s1 s1
-  \mark \markup { \circle "2b" } s1 s1
-  \mark \markup { \circle "2c" } s1 s1 s1
-  \mark \markup { \circle "2d" } s1 s1 s1
-  \mark \markup { \circle "3a" } s1 s1
-  \mark \markup { \circle "3b" } s1 s1
-  \mark \markup { \circle "3c" } s1 s1 s1
-  \mark \markup { \circle "3d" } s1 s1
-  \mark \markup { \circle "4a" } s1 s1 s1
-  \mark \markup { \circle "4b" } s1 s1 s2. s2.
-  \mark \markup { \circle "4c" } s1 s2. s2. s2. s2.
-  \mark \markup { \circle "4d" } s2. s2. s1 s2.
+  \repeat volta 2 {
+    \set Score.currentBarNumber = #1
+    \textMark \markup { \box "54a" } s1 s1 s1 s1
+    \textMark \markup { \box "54b" } s1 s1
+    \alternative {{s1} {s1}}
+  }
+  \set Score.currentBarNumber = #9
+  \textMark \markup { \box "55a" } s1 s1
+  \textMark \markup { \box "55b" } s1 s1
+  \textMark \markup { \box "55c" } s1 s1 s1
+  \textMark \markup { \box "55d" } s1 s1 s1
+  \repeat volta 2 {
+    \set Score.currentBarNumber = #19
+    \textMark \markup { \box "56a" } s1 s1
+    \textMark \markup { \box "56b" } s1 s1
+    \textMark \markup { \box "56c" } s1 s1 s1
+    \textMark \markup { \box "56d" } s1 s1
+    \textMark \markup { \box "57a" } s1 s1 s1
+    \textMark \markup { \box "57b" } s1 s1 s2. s2.
+    \textMark \markup { \box "57c" } s1 s2. s2. s2. s2.
+    \textMark \markup { \box "57d" } s2. s2.
+    \alternative { {s1} {s2.} }
+}
 }
 
 soprano = \relative c' {
@@ -142,25 +150,69 @@ soprano = \relative c' {
 }
 
 wordsSop = \lyricmode {
-  Fair Phyl- lis I saw sit- ting all a- lone,
-  Feed- ing her flock near to the mount- ain side;
+  \repeat volta 2 {
+    Fair Phyl -- lis I saw sit -- ting all a -- lone,
+    Feed -- ing her flock near to the mount -- ain
+    \alternative {
+      { side; }
+      { side. The }
+    }
+  }
+  
+  shep -- herds knew not,
+  they knew not whi -- ther she was gone.
+  But aft -- er her lov -- er, her lov -- er,
+  but aft -- er her lov -- er A -- myn -- tas hied.
 
-  side. The shep- herds knew not,
-  they knew not whi- ther she was gone.
-  But aft- er her lov- er, her lov- er,
-  but aft- er her lov- er A- myn- tas hied.
+  \repeat volta 2 {
+    Up and down he wan -- dered,
+    up and down he wan -- dered,
+    up and down he wan -- dered,
+    up and down he wan -- dered,
+    up and down he wan -- dered,
+    whilst she was mis -- sing;
+    When he found her,
+    O, then they fell a -- kiss -- ing,
+    a -- kis- sing,
+    O, then they fell a --
+    \alternative {
+      { kiss -- ing, }
+      { kiss -- ing. }
+    }
+  }
+}
 
-  Up and down he wan- dered,
-  up and down he wan- dered,
-  up and down he wan- dered,
-  up and down he wan- dered,
-  up and down he wan- dered,
-  whilst she was mis- sing;
-  When he found her,
-  O, then they fell a- kiss- ing,
-  a- kis- sing,
-  O, then they fell a- kiss- ing,
-  kiss- ing.
+wordsSopMidi = \lyricmode {
+  \repeat volta 2 {
+    "Fair " Phyl "lis " "I " "saw " sit "ting " "all " a "lone, "
+    "\nFeed" "ing " "her " "flock " "near " "to " "the " mount "ain "
+    \alternative {
+      { "\nside; " }
+      { "\nside. " "The " }
+    }
+  }
+  
+  "\nshep" "herds " "knew " "not, "
+  "\nthey " "knew " "not " whi "ther " "she " "was " "gone. "
+  "\nBut " aft "er " "her " lov "er, " "her " lov "er, "
+  "\nbut " aft "er " "her " lov "er " A myn "tas " "hied. "
+
+  \repeat volta 2 {
+    "\nUp " "and " "down " "he " wan "dered, "
+    "\nup " "and " "down " "he " wan "dered, "
+    "\nup " "and " "down " "he " wan "dered, "
+    "\nup " "and " "down " "he " wan "dered, "
+    "\nup " "and " "down " "he " wan "dered, "
+    "\nwhilst " "she " "was " mis "sing; "
+    "\nWhen " "he " "found " "her, "
+    "\nO, " "then " "they " "fell " a- kiss "ing, "
+    "\na-" kis "sing, "
+    "\nO, " "then " "they " "fell " a-
+    \alternative {
+      { kiss "ing, " }
+      { kiss "ing. " }
+    }
+  }
 }
 
 alto = \relative c' {
@@ -220,26 +272,69 @@ alto = \relative c' {
 }
 
 wordsAlto = \lyricmode {
-  Feed- ing her flock near to the mount- ain side;
-  side.
+  \repeat volta 2 {
+    Feed -- ing her flock near to the mount -- ain
+    \alternative {
+      { side; }
+      { side. }
+    }
+  }
 
-  The shep- herds knew not whi- ther she was gone.
-  But aft- er her lov- er, her lov- er,
-  but aft- er her lov- er A- myn- tas hied.
+  The shep -- herds knew not whi -- ther she was gone.
+  But aft -- er her lov -- er, her lov -- er,
+  but aft -- er her lov -- er A -- myn -- tas hied.
 
-  Up and down
-  up and down he wan- dered,
-  up and down he wan- dered,
-  up and down he wan- dered,
-  up and down he wan- dered,
-  he wan- dered,
-  whilst she was mis- sing;
-  When he found her,
-  O, then they fell a- kiss- ing,
-  O, then they fell a- kiss- ing,
-  a- kis- sing,
-  O, then they fell a- kiss- ing,
-  kiss- ing.
+  \repeat volta 2 {
+    Up and down
+    up and down he wan -- dered,
+    up and down he wan -- dered,
+    up and down he wan -- dered,
+    up and down he wan -- dered,
+    he wan -- dered,
+    whilst she was mis -- sing;
+    When he found her,
+    O, then they fell a -- kiss -- ing,
+    O, then they fell a -- kiss -- ing,
+    a -- kis -- sing,
+    O, then they fell a --
+    \alternative {
+      { kiss -- ing, }
+      { kiss -- ing. }
+    }
+  }
+}
+
+wordsAltoMidi = \lyricmode {
+  \repeat volta 2 {
+    "Feed" "ing " "her " "flock " "near " "to " "the " mount "ain "
+    \alternative {
+      { "\nside; " }
+      { "\nside. " }
+    }
+  }
+
+  "\nThe " shep "herds " "knew " "not " whi "ther " "she " "was " "gone. "
+  "\nBut " aft "er " "her " lov "er, " "her " lov "er, "
+  "\nbut " aft "er " "her " lov "er " A myn "tas " "hied. "
+
+  \repeat volta 2 {
+    "\nUp " "and " "down "
+    "\nup " "and " "down " "he " wan "dered, "
+    "\nup " "and " "down " "he " wan "dered, "
+    "\nup " "and " "down " "he " wan "dered, "
+    "\nup " "and " "down " "he " wan "dered, "
+    "\nhe " wan "dered, "
+    "\nwhilst " "she " "was " mis "sing; "
+    "\nWhen " "he " "found " "her, "
+    "\nO, " "then " "they " "fell " a- kiss "ing, "
+    "\nO, " "then " "they " "fell " a- kiss "ing, "
+    "\na-" kis "sing, "
+    "\nO, " "then " "they " "fell " a-
+    \alternative {
+      { kiss "ing, " }
+      { kiss "ing. " }
+    }
+  }
 }
 
 tenor = \relative c' {
@@ -299,30 +394,77 @@ tenor = \relative c' {
 }
 
 wordsTenor = \lyricmode {
-  Feed- ing her flock near to the mount- ain side;
-  side.
+  \repeat volta 2 {
+    Feed -- ing her flock near to the mount -- ain
+    \alternative {
+      { side; }
+      { side. }
+    }
+  }
 
-  The shep- herds knew not,
-  they knew not whi- ther she was gone.
-  But aft- er her lov- er, her lov- er,
-  but aft- er her lov- er A- myn- tas hied.
+  The shep -- herds knew not,
+  they knew not whi -- ther she was gone.
+  But aft -- er her lov -- er, her lov -- er,
+  but aft -- er her lov -- er A -- myn -- tas hied.
 
-  Up and down he wan- dered,
-  up and down
-  up and down he wan- dered,
-  up and down he wan- dered,
-  up and down he wan- dered,
-  up and down he wan- dered,
-  up and down he wan- dered,
-  whilst she was mis- sing;
-  When he found her,
-  O, then they fell a- kiss- ing,
-  O, then they fell a- kiss- ing,
-  a- kis- sing,
-  O, then they fell a- kiss- ing;
   Up and down he
 
-  kiss- ing.
+  \repeat volta 2 {
+    wan -- dered,
+    up and down
+    up and down he wan -- dered,
+    up and down he wan -- dered,
+    up and down he wan -- dered,
+    up and down he wan -- dered,
+    up and down he wan -- dered,
+    whilst she was mis -- sing;
+    When he found her,
+    O, then they fell a -- kiss -- ing,
+    O, then they fell a -- kiss -- ing,
+    a -- kis -- sing,
+    O, then they fell a --
+    \alternative {
+      { kiss -- ing; Up and down he }
+      { kiss -- ing. }
+    }
+  }
+}
+
+wordsTenorMidi = \lyricmode {
+  \repeat volta 2 {
+    "Feed" "ing " "her " "flock " "near " "to " "the " mount "ain "
+    \alternative {
+      { "\nside; " }
+      { "\nside. " }
+    }
+  }
+
+  "\nThe " shep "herds " "knew " "not, "
+  "\nthey " "knew " "not " whi "ther " "she " "was " "gone. "
+  "\nBut " aft "er " "her " lov "er, " "her " lov "er, "
+  "\nbut " aft "er " "her " lov "er " A myn "tas " "hied. "
+
+  "\nUp " "and " "down " "he "
+
+  \repeat volta 2 {
+    "\nwan" "dered, "
+    "\nup " "and " "down "
+    "\nup " "and " "down " "he " wan "dered, "
+    "\nup " "and " "down " "he " wan "dered, "
+    "\nup " "and " "down " "he " wan "dered, "
+    "\nup " "and " "down " "he " wan "dered, "
+    "\nup " "and " "down " "he " wan "dered, "
+    "\nwhilst " "she " "was " mis "sing; "
+    "\nWhen " "he " "found " "her, "
+    "\nO, " "then " "they " "fell " a- kiss "ing, "
+    "\nO, " "then " "they " "fell " a- kiss "ing, "
+    "\na-" kis "sing, "
+    "\nO, " "then " "they " "fell " a-
+    \alternative {
+      { kiss "ing; " "Up " "and " "down " "he " }
+      { kiss "ing. " }
+    }
+  }
 }
 
 bass= \relative c {
@@ -383,29 +525,71 @@ bass= \relative c {
 }
 
 wordsBass = \lyricmode {
-  Feed- ing her flock near to the mount- ain side;
-  side.
+  \repeat volta 2 {
+    Feed -- ing her flock near to the mount -- ain
+    \alternative {
+      { side; }
+      { side. }
+    }
+  }
   
-  The shep- herds knew not whi- ther she was gone.
-  But aft- er her lov- er,
-  but aft- er her lov- er A- myn- tas hied.
+  The shep -- herds knew not whi -- ther she was gone.
+  But aft -- er her lov -- er,
+  but aft -- er her lov -- er A -- myn -- tas hied.
 
-  Up and down he wan- dered,
-  he wan- dered,
-  up and down he wan- dered,
-  whilst she was mis- sing;
-  When he found her,
-  O, then they fell a- kiss- ing,
-  O, then they fell a- kiss- ing,
-  a- kis- sing,
-  O, then they fell a- kiss- ing;
   Up and
-
-  kiss- ing.
+  \repeat volta 2 {
+    down he wan -- dered,
+    he wan -- dered,
+    up and down he wan -- dered,
+    whilst she was mis -- sing;
+    When he found her,
+    O, then they fell a -- kiss -- ing,
+    O, then they fell a -- kiss -- ing,
+    a -- kis -- sing,
+    O, then they fell a --
+    \alternative {
+      { kiss -- ing; Up and }
+      { kiss -- ing. }
+    }
+  }
 }
 
-\score {
-  <<
+wordsBassMidi = \lyricmode {
+  \repeat volta 2 {
+    "Feed" "ing " "her " "flock " "near " "to " "the " "mount" "ain "
+    \alternative {
+      { "\nside; " }
+      { "\nside. " }
+    }
+  }
+  
+  "\nThe " shep "herds " "knew " "not " whi "ther " "she " "was " "gone. "
+  "\nBut " aft "er " "her " lov "er, "
+  "\nbut " aft "er " "her " lov "er " A myn "tas " "hied. "
+
+  "\nUp " "and "
+  \repeat volta 2 {
+    "\ndown " "he " wan "dered, "
+    "\nhe " wan "dered, "
+    "\nup " "and " "down " "he " wan "dered, "
+    "\nwhilst " "she " "was " mis "sing; "
+    "\nWhen " "he " "found " "her, "
+    "\nO, " "then " "they " "fell " a- kiss "ing, "
+    "\nO, " "then " "they " "fell " a- kiss "ing, "
+    "\na-" kis "sing, "
+    "\nO, " "then " "they " "fell " a-
+    \alternative {
+      { kiss "ing; " "Up " "and " }
+      { kiss "ing. " }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "repeat"
+  \score {
+    <<
     \new ChoirStaff <<
 % Single soprano staff
       \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
@@ -430,11 +614,317 @@ wordsBass = \lyricmode {
       >>
     >>
   >>
-  \layout {
-    indent = 1.5\cm
-    \context {
-      \Staff \RemoveAllEmptyStaves
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
     }
   }
-  \midi {}
+}
+
+\book {
+  \bookOutputSuffix "single"
+  \score {
+    \unfoldRepeats
+    <<
+    \new ChoirStaff <<
+% Single soprano staff
+      \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+        \new Voice \RehearsalTrack
+        \new Voice = "soprano" \soprano
+        \new Lyrics \lyricsto "soprano" \wordsSop
+      >>
+% Single alto staff
+      \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+        \new Voice = "alto" \alto
+        \new Lyrics \lyricsto "alto" \wordsAlto
+      >>
+% Single tenor staff
+      \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+        \new Voice = "tenor" \tenor
+        \new Lyrics \lyricsto "tenor" \wordsTenor
+      >>
+% Single bass staff
+      \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+        \new Voice = "bass" \bass
+        \new Lyrics \lyricsto "bass" \wordsBass
+      >>
+    >>
+  >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+    <<
+    \new ChoirStaff <<
+% Single soprano staff
+      \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+        \new Voice \RehearsalTrack
+        \new Voice = "soprano" \soprano
+        \new Lyrics \lyricsto "soprano" \wordsSop
+      >>
+% Single alto staff
+      \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+        \new Voice = "alto" \alto
+        \new Lyrics \lyricsto "alto" \wordsAlto
+      >>
+% Single tenor staff
+      \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+        \new Voice = "tenor" \tenor
+        \new Lyrics \lyricsto "tenor" \wordsTenor
+      >>
+% Single bass staff
+      \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+        \new Voice = "bass" \bass
+        \new Lyrics \lyricsto "bass" \wordsBass
+      >>
+    >>
+  >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-sop"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+    <<
+    \new ChoirStaff <<
+% Single soprano staff
+      \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+        \new Voice \RehearsalTrack
+        \new Voice = "soprano" \soprano
+        \new Lyrics \lyricsto "soprano" \wordsSop
+      >>
+% Single alto staff
+      \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+        \magnifyStaff #4/7
+        \new Voice = "alto" \alto
+        \new Lyrics \lyricsto "alto" {\tiny \wordsAlto}
+      >>
+% Single tenor staff
+      \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+        \magnifyStaff #4/7
+        \new Voice = "tenor" \tenor
+        \new Lyrics \lyricsto "tenor" {\tiny \wordsTenor}
+      >>
+% Single bass staff
+      \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+        \magnifyStaff #4/7
+        \new Voice = "bass" \bass
+        \new Lyrics \lyricsto "bass" {\tiny \wordsBass}
+      >>
+    >>
+  >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-bass"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+    <<
+    \new ChoirStaff <<
+% Single soprano staff
+      \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+        \magnifyStaff #4/7
+        \new Voice \RehearsalTrack
+        \new Voice = "soprano" \soprano
+        \new Lyrics \lyricsto "soprano" {\tiny \wordsSop}
+      >>
+% Single alto staff
+      \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+        \magnifyStaff #4/7
+        \new Voice = "alto" \alto
+        \new Lyrics \lyricsto "alto" {\tiny \wordsAlto}
+      >>
+% Single tenor staff
+      \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+        \magnifyStaff #4/7
+        \new Voice = "tenor" \tenor
+        \new Lyrics \lyricsto "tenor" {\tiny \wordsTenor}
+      >>
+% Single bass staff
+      \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+        \new Voice = "bass" \bass
+        \new Lyrics \lyricsto "bass" \wordsBass
+      >>
+    >>
+  >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-sop"
+  \score {
+    \unfoldRepeats
+    <<
+    \new ChoirStaff <<
+% Single soprano staff
+      \new Staff = soprano \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+        \new Voice \RehearsalTrack
+        \new Voice \soprano
+        \addlyrics \wordsSopMidi
+      >>
+% Single alto staff
+      \new Staff = alto \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+        \new Voice \alto
+      >>
+% Single tenor staff
+      \new Staff = tenor \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+        \new Voice \tenor
+      >>
+% Single bass staff
+      \new Staff = bass \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+        \new Voice \bass
+      >>
+    >>
+  >>
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-alto"
+  \score {
+    \unfoldRepeats
+    <<
+    \new ChoirStaff <<
+% Single soprano staff
+      \new Staff = soprano \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+        \new Voice \RehearsalTrack
+        \new Voice \soprano
+      >>
+% Single alto staff
+      \new Staff = alto \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+        \new Voice \alto
+        \addlyrics \wordsAltoMidi
+      >>
+% Single tenor staff
+      \new Staff = tenor \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+        \new Voice \tenor
+      >>
+% Single bass staff
+      \new Staff = bass \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+        \new Voice \bass
+      >>
+    >>
+  >>
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-tenor"
+  \score {
+    \unfoldRepeats
+    <<
+    \new ChoirStaff <<
+% Single soprano staff
+      \new Staff = soprano \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+        \new Voice \RehearsalTrack
+        \new Voice \soprano
+      >>
+% Single alto staff
+      \new Staff = alto \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+        \new Voice \alto
+      >>
+% Single tenor staff
+      \new Staff = tenor \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+        \new Voice \tenor
+        \addlyrics \wordsTenorMidi
+      >>
+% Single bass staff
+      \new Staff = bass \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+        \new Voice \bass
+
+      >>
+    >>
+  >>
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-bass"
+  \score {
+    \unfoldRepeats
+    <<
+    \new ChoirStaff <<
+% Single soprano staff
+      \new Staff = soprano \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+        \new Voice \RehearsalTrack
+        \new Voice \soprano
+      >>
+% Single alto staff
+      \new Staff = alto \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+        \new Voice \alto
+      >>
+% Single tenor staff
+      \new Staff = tenor \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+        \new Voice \tenor
+      >>
+% Single bass staff
+      \new Staff = bass \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+        \new Voice \bass
+        \addlyrics \wordsBassMidi
+      >>
+    >>
+  >>
+    \midi {}
+  }
 }
