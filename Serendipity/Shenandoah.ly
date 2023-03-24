@@ -136,7 +136,7 @@ wordsSop = \lyricmode {
   I long to hear you,
   a- way, __ you rol- ling riv- er. __
   O Shen- an- do', __
-  I long to see you,
+  I long to hear you,
   a- way, __ we're bound a- way,
   a- cross the wide __ Mis- sour- ri. __
 
@@ -166,7 +166,7 @@ MwordsSop = \lyricmode {
   "\nI " "long " "to " "hear " "you, "
   "\na" "way, "  "you " rol "ling " riv "er. " 
   "\nO " Shen an "do', " 
-  "\nI " "long " "to " "see " "you, "
+  "\nI " "long " "to " "hear " "you, "
   "\na" "way, "  "we're " "bound " a "way, "
   "\na" "cross " "the " "wide "  Mis sour "ri. " 
 
@@ -247,7 +247,7 @@ wordsAlto = \lyricmode {
   I long to hear you,
   a- way, __ you rol- ling riv- er. __
   O Shen- an- do', __
-  I long to see you,
+  I long to hear you,
   a- way, bound a- way,
   a- cross the wide __ Mis- sour- ri. __
 
@@ -350,7 +350,7 @@ tenor = \relative c' {
 
 wordsTenor = \lyricmode {
   O Shen- an- do', __
-  I long to hear you,
+  I long to see you,
   a- way, __ you rol- ling riv- er. __
   O Shen- an- do', __
   I long to see you,
@@ -377,7 +377,7 @@ wordsTenor = \lyricmode {
 
 MwordsTenor = \lyricmode {
   "\nO " Shen an "do', " 
-  "\nI " "long " "to " "hear " "you, "
+  "\nI " "long " "to " "see " "you, "
   "\na" "way, "  "you " rol "ling " riv "er. " 
   "\nO " Shen an "do', " 
   "\nI " "long " "to " "see " "you, "
@@ -450,7 +450,7 @@ bass= \relative c {
 
 wordsBass = \lyricmode {
   O Shen- an- do', __
-  I long to hear you,
+  I long to see you,
   a- way, __ you rol- ling riv- er. __
   O Shen- an- do', __
   I long to see you,
@@ -477,7 +477,7 @@ wordsBass = \lyricmode {
 
 MwordsBass = \lyricmode {
   "\nO " Shen an "do', " 
-  "\nI " "long " "to " "hear " "you, "
+  "\nI " "long " "to " "see " "you, "
   "\na" "way, "  "you " rol "ling " riv "er. " 
   "\nO " Shen an "do', " 
   "\nI " "long " "to " "see " "you, "
