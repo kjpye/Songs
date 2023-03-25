@@ -9,10 +9,8 @@
 soprano = \relative c'' {
   \key f \major
   \time 6/8
-  \oneVoice
   \partial 8 c8 \(
     f4. e8 d c
-    \voiceOne
     d4 a8 <g c>4 \) <e a>8 \(
       f8 g a f4 g8
       a4.~a8 \) r d,
@@ -50,7 +48,7 @@ soprano = \relative c'' {
       d4 a8 <g c>4\) <e a>8\(
 	f8 g a
 	f4 g8
-	a4. ~ a4 \) \( d,8
+	a4. ~ a4 \) d,8 \(
 		       d4 d'8 a \) r f % 40
   d4 bes'8 a4 f8
   d4 f8 d(e) f
@@ -82,7 +80,6 @@ soprano = \relative c'' {
 }
 
 alto = \relative c' {
-  \voiceTwo
   \partial 8 s8
   s2.
   s2.
@@ -154,12 +151,11 @@ alto = \relative c' {
 tenor = \relative c' {
   \key f \major
   \time 6/8
-  \oneVoice
   \partial 8 r8
   r4 r8 r4 c8
   f4. e8 d c
   d4 <a c>8 <bes d>4.
-  \voiceOne d4.(cis8)r d,
+  d4.(cis8)r d,
   d4 bes'8 a r f % 5
   d4 bes'8 a4 f8
   d'4 c8 bes4 a8
@@ -176,10 +172,8 @@ tenor = \relative c' {
   c4 c8 b4 b8
   c4.~c4 c8
   a4.~a8 r r % 20
-  \oneVoice
   r4 r8 r4 c8
   f4. e8 d c
-  \voiceOne
   d4 s8 d4(ees8)
   c4.~c8 r r
   r4 r8 r4 f,8^\p % 25
@@ -189,12 +183,12 @@ tenor = \relative c' {
   c4 a8 e'4 d8
   c4 a8 e'4 d8 % 30
   c4.~c4 b8
-  c4.~c4 \oneVoice r8
+  c4.~c4 r8
   r4 r8 r4 a8
   g4 c,8 c'4.
   r4 r8 r4 c8 % 35
   f4. e8 d c
-  d4 <a c>8 <bes d>4. \voiceOne
+  d4 <a c>8 <bes d>4.
   d4.(cis4) d,8^\p
   d4 bes'8 a r f
   d4 bes'8 a4 f8 % 40
@@ -204,7 +198,7 @@ tenor = \relative c' {
   c4 c8 c(f) e
   d8(c bes a g) f % 45
   e4^\f(g8 c4) bes8
-  a4 bes8c4 a8
+  a4 bes8 c4 a8
   a4 c8 c4 c8^\p
   c4 c8 c4 c8
   d4 d8 d4 d8 % 50
@@ -226,7 +220,6 @@ tenor = \relative c' {
 } 
 
 bass = \relative c' {
-  \voiceTwo
   \partial 8 s8
   s2.
   s2.
@@ -262,17 +255,17 @@ bass = \relative c' {
   c,4.~c4 s8
   s2.
   s2.
-  s2.
+  s2. % 35
   s2.
   s2.
   s4. s4 d8
   d4 bes'8 a r f
-  d4 bes'8 a4 f8
+  d4 bes'8 a4 f8 % 40
   bes4 a8 g4 f8
   e4.~e4 f8
   d4 d8 c4 bes'8
-  a4 gis8 a f a
-  bes8 a g f e d
+  a4 gis8 a(f) a
+  bes8(a g f e) d % 45
   c4.~c4 c8
   d4 bes'8 a4 f8
   d4 bes'8 a4 a8
@@ -296,23 +289,105 @@ bass = \relative c' {
 }
 
 words = \lyricmode {
-  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  The night was dark, the fend- ed flame in Ma- ry's lamp was low, __
-  As from the East the wise men came a- cross the snow. __
-  The cam- els knelt be- fore the babe, the ma- gi- ans out- spread. __
-  The hoard- ed hom- a- ges of Kings be- fore __ his bed.
+  _ _ _ _ _ _ _ _ _ _
+  _ _ _ _ _
+  The night was dark, the fend -- ed flame in Ma -- ry's lamp was low, __
+  As from the East the wise men came a -- cross the snow. __
+  The cam -- els knelt be -- fore the babe, the ma -- gi -- ans out -- spread. __
+  The hoard -- ed hom -- a -- ges of Kings be -- fore __ his bed.
 
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  His ba- by hands stray'd o'er the gold, up- on the myrrh did cling, __
-  A- mid the grains of frank- in- cense groped won- __ der- ing.
+  His ba -- by hands stray'd o'er the gold, up -- on the myrrh did cling, __
+  A -- mid the grains of frank -- in -- cense groped won -- __ der -- ing.
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  The night was dark the fend- ed flame in Ma- ry's lamp was low, __
-  As to the East the Kings re- turned a- cross the snow., __
-  as to the East the Kings re- turned, as to the East the Kings re- turned a- cross __ the snow, __
-  re- turned a- cross the snow, __
-  re- turned a- cross the snow, __
-  re- turned a- cross the snow, __
-  a- cross, the snow. __
+  The night was dark the fend -- ed flame in Ma -- ry's lamp was low, __
+  As to the East the Kings re -- turned a -- cross the snow., __
+  as to the East the Kings re -- turned, as to the East the Kings re -- turned a -- cross __ the snow, __
+  re -- turned a -- cross the snow, __
+  re -- turned a -- cross the snow, __
+  re -- turned a -- cross the snow, __
+  a -- cross, the snow. __
+}
+
+wordsMidiSop = \lyricmode {
+  "" "" "" "" "" "" "" "" "" ""
+  "" "" "" "" ""
+  "The " "night " "was " "dark, " "the " fend "ed " "flame " "in " Ma "ry's " "lamp " "was " "low, " 
+  "\nAs " "from " "the " "East " "the " "wise " "men " "came " a "cross " "the " "snow. " 
+  "\nThe " cam "els " "knelt " be "fore " "the " "babe, " "the " ma gi "ans " out "spread. " 
+  "\nThe " hoard "ed " hom a "ges " "of " "Kings " be "fore "  "his " "bed. "
+
+  "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+  "\nHis " ba "by " "hands " "stray'd " "o'er " "the " "gold, " up "on " "the " "myrrh " "did " "cling, " 
+  "\nA" "mid " "the " "grains " "of " frank in "cense " "groped " won  der "ing. "
+  "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+  "\nThe " "night " "was " "dark " "the " fend "ed " "flame " "in " Ma "ry's " "lamp " "was " "low, " 
+  "\nAs " "to " "the " "East " "the " "Kings " re "turned " a "cross " "the " "snow., " 
+  "\nas " "to " "the " "East " "the " "Kings " re "turned, " "as " "to " "the " "East " "the " "Kings " re "turned " a "cross "  "the " "snow, " 
+  "\nre" "turned " a "cross " "the " "snow, " 
+  "\nre" "turned " a "cross " "the " "snow, " 
+  "\nre" "turned " a "cross " "the " "snow, " 
+  "\na" "cross, " "the " "snow. " 
+}
+
+wordsMidiAlto = \lyricmode {
+  "" "" "" ""
+  "The " "night " "was " "dark, " "the " fend "ed " "flame " "in " Ma "ry's " "lamp " "was " "low, " 
+  "\nAs " "from " "the " "East " "the " "wise " "men " "came " a "cross " "the " "snow. " 
+  "\nThe " cam "els " "knelt " be "fore " "the " "babe, " "the " ma gi "ans " out "spread. " 
+  "\nThe " hoard "ed " hom a "ges " "of " "Kings " be "fore "  "his " "bed. "
+
+  "" "" "" ""
+  "\nup" "on " "the " "myrrh " "did " "cling, " 
+  "\nA" "mid " "the " "grains " "of " frank in "cense " "groped " won  der "ing. "
+  "" "" "" ""
+  "\nThe " "night " "was " "dark " "the " fend "ed " "flame " "in " Ma "ry's " "lamp " "was " "low, " 
+  "\nAs " "to " "the " "East " "the " "Kings " re "turned " a "cross " "the " "snow., " 
+  "\nas " "to " "the " "East " "the " "Kings " re "turned, " "as " "to " "the " "East " "the " "Kings " re "turned " a "cross "  "the " "snow, " 
+  "\nre" "turned " a "cross " "the " "snow, " 
+  "\nre" "turned " a "cross " "the " "snow, " 
+  "\nre" "turned " a "cross " "the " "snow, " 
+  "\na" "cross, " a "cross " "the " "snow. " 
+}
+
+wordsMidiTenor = \lyricmode {
+  "" "" "" "" "" "" "" "" ""
+  "The " "night " "was " "dark, " "the " fend "ed " "flame " "in " Ma "ry's " "lamp " "was " "low, " 
+  "\nAs " "from " "the " "East " "the " "wise " "men " "came " a "cross " "the " "snow. " 
+  "\nThe " cam "els " "knelt " be "fore " "the " "babe, " "the " ma gi "ans " out "spread. " 
+  "\nThe " hoard "ed " hom a "ges " "of " "Kings " be "fore "  "his " "bed. "
+
+  "" "" "" "" "" "" "" ""
+  "\nHis " ba "by " "hands " up "on " "the " "myrrh " "did " "cling, " 
+  "\nA" "mid " "the " "grains " "of " frank in "cense " "groped " won  der "ing. "
+  "" "" "" "" "" "" "" "" "" "" "" "" ""
+  "\nThe " "night " "was " "dark " "the " fend "ed " "flame " "in " Ma "ry's " "lamp " "was " "low, " 
+  "\nAs " "to " "the " "East " "the " "Kings " re "turned " a "cross " "the " "snow., " 
+  "\nas " "to " "the " "East " "the " "Kings " re "turned, " "as " "to " "the " "East " "the " "Kings " re "turned " a "cross "  "the " "snow, " 
+  "\nre" "turned " a "cross " "the " "snow, " 
+  "\nre" "turned " a "cross " "the " "snow, " 
+  "\nre" "turned " a "cross " "the " "snow, " 
+  "\na" "cross, " a "cross " "the " "snow. " 
+}
+
+wordsMidiBass = \lyricmode {
+  ""
+  "The " "night " "was " "dark, " "the " fend "ed " "flame " "in " Ma "ry's " "lamp " "was " "low, " 
+  "\nAs " "from " "the " "East " "the " "wise " "men " "came " a "cross " "the " "snow. " 
+  "\nThe " cam "els " "knelt " be "fore " "the " "babe, " "the " ma gi "ans " out "spread. " 
+  "\nThe " hoard "ed " hom a "ges " "of " "Kings " be "fore "  "his " "bed. "
+
+  "" "" "" ""
+  "\nup" "on " "the " "myrrh " "did " "cling, " 
+  "\nA" "mid " "the " "grains " "of " frank in "cense " "groped " won  der "ing. "
+
+  "\nThe " "night " "was " "dark " "the " fend "ed " "flame " "in " Ma "ry's " "lamp " "was " "low, " 
+  "\nAs " "to " "the " "East " "the " "Kings " re "turned " a "cross " "the " "snow., " 
+  "\nas " "to " "the " "East " "the " "Kings " re "turned, " "as " "to " "the " "East " "the " "Kings " re "turned " a "cross "  "the " "snow, " 
+  "\nre" "turned " a "cross " "the " "snow, " 
+  "\nre" "turned " a "cross " "the " "snow, " 
+  "\nre" "turned " a "cross " "the " "snow, " 
+  "\na" "cross, " a "cross " "the " "snow. " 
 }
 
 altwords = \lyricmode {
@@ -326,18 +401,173 @@ altwords = \lyricmode {
   cross4.
 }
 
-\score {
-  \new Choirstaff <<
-    \new Staff <<
-      \context Voice = soprano { \soprano }
-      \context Voice = alto    { \alto    }
+\book {
+  \bookOutputSuffix "single"
+  \score {
+    \new ChoirStaff <<
+      \new Staff \with {
+        printPartCombineTexts = ##f
+      }
+      <<
+        \new Voice \partCombine #'(0 . 88) \soprano \alto
+        \new NullVoice \soprano
+        \addlyrics \words
+      >>
+      \new Lyrics { \altwords }
+      \new Staff \with {
+        printPartCombineTexts = ##f
+      }
+      <<
+        \clef bass
+        \new Voice \partCombine #'(0 . 88) \tenor \bass
+      >>
     >>
-    \new Lyrics \lyricsto soprano { \words }
-    \new Lyrics { \altwords }
-    \new Staff <<
-      \new Voice = tenor { \clef bass \tenor }
-      \new Voice = bass  { \clef bass \bass  }
+    \layout {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \new ChoirStaff <<
+      \new Staff \with {
+        printPartCombineTexts = ##f
+      }
+      <<
+        \new Voice \partCombine #'(0 . 88) \soprano \alto
+        \new NullVoice \soprano
+        \addlyrics \words
+      >>
+      \new Lyrics { \altwords }
+      \new Staff \with {
+        printPartCombineTexts = ##f
+      }
+      <<
+        \clef bass
+        \new Voice \partCombine #'(0 . 88) \tenor \bass
+      >>
     >>
-  >>
-  \layout {}
+    \layout {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-sop"
+  \score {
+    \new ChoirStaff <<
+      \new Staff = soprano
+      <<
+        \new Voice \soprano
+        \addlyrics \wordsMidiSop
+      >>
+      \new Staff = alto
+      <<
+        \new Voice \alto
+      >>
+      \new Staff = tenor
+      <<
+        \clef "treble_8"
+        \new Voice \tenor
+      >>
+      \new Staff = bass
+      <<
+        \clef bass
+        \new Voice \bass
+      >>
+    >>
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-alto"
+  \score {
+    \new ChoirStaff <<
+      \new Staff = soprano
+      <<
+        \new Voice \soprano
+      >>
+      \new Staff = alto
+      <<
+        \new Voice \alto
+        \addlyrics \wordsMidiAlto
+      >>
+      \new Staff = tenor
+      <<
+        \clef "treble_8"
+        \new Voice \tenor
+      >>
+      \new Staff = bass
+      <<
+        \clef bass
+        \new Voice \bass
+      >>
+    >>
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-tenor"
+  \score {
+    \new ChoirStaff <<
+      \new Staff = soprano
+      <<
+        \new Voice \soprano
+      >>
+      \new Staff = alto
+      <<
+        \new Voice \alto
+      >>
+      \new Staff = tenor
+      <<
+        \clef "treble_8"
+        \new Voice \tenor
+        \addlyrics \wordsMidiTenor
+      >>
+      \new Staff = bass
+      <<
+        \clef bass
+        \new Voice \bass
+      >>
+    >>
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-bass"
+  \score {
+    \new ChoirStaff <<
+      \new Staff = soprano
+      <<
+        \new Voice \soprano
+      >>
+      \new Staff = alto
+      <<
+        \new Voice \alto
+      >>
+      \new Staff = tenor
+      <<
+        \clef "treble_8"
+        \new Voice \tenor
+      >>
+      \new Staff = bass
+      <<
+        \clef bass
+        \new Voice \bass
+        \addlyrics \wordsMidiBass
+      >>
+    >>
+    \midi {}
+  }
 }
