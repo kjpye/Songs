@@ -1,4 +1,4 @@
-\version "2.19.82"
+\version "2.25.0"
 
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 
@@ -45,26 +45,6 @@ global = {
   \time 6/8
   \tempo 4=80
   \partial 8
-}
-
-colour = {
-  \override NoteHead.color   = #red
-  \override Stem.color       = #red
-  \override Beam.color       = #red
-  \override Accidental.color = #red
-  \override Slur.color       = #red
-  \override Tie.color        = #red
-  \override Dots.color       = #red
-}
-
-black = {
-  \override NoteHead.color   = #black
-  \override Stem.color       = #black
-  \override Beam.color       = #black
-  \override Accidental.color = #black
-  \override Slur.color       = #black
-  \override Tie.color        = #black
-  \override Dots.color       = #black
 }
 
 RehearsalTrack = {
@@ -256,7 +236,7 @@ wordsFiveMidi = \lyricmode {
 }
 
 \book {
-  \bookOutputSuffix "multi"
+  \bookOutputSuffix "repeat"
   \score {
     <<
       \new ChoirStaff <<
@@ -264,7 +244,7 @@ wordsFiveMidi = \lyricmode {
         \new Dynamics \dynamicsWomen
         \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
           \new Voice \RehearsalTrack
-          \new Voice = "soprano" { \voiceOne \global \soprano }
+          \new Voice = "soprano" { \voiceOne \global \soprano \bar "|." }
           \new Voice = "alto"    { \voiceTwo \global \alto    }
           \new Lyrics \lyricsto "soprano" \wordsOne
           \new Lyrics \lyricsto "soprano" \wordsTwo
@@ -328,6 +308,54 @@ wordsFiveMidi = \lyricmode {
 }
 
 \book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      \new ChoirStaff <<
+                                % Joint soprano/alto staff
+        \new Dynamics \dynamicsWomen
+        \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
+          \new Voice { \RehearsalTrack \RehearsalTrack \RehearsalTrack }
+          \new Voice = "soprano" { \voiceOne \global \soprano \bar "||" \break
+                                                     \soprano \bar "||" \break
+                                                     \soprano \bar "|." }
+          \new Voice = "alto"    { \voiceTwo \global \alto    \alto    \alto    }
+          \new Lyrics \lyricsto "soprano" {
+            \wordsOne
+            \wordsTwo
+            \wordsThree
+           %\wordsFour
+           %\wordsFive
+          }
+        >>
+                                % Joint tenor/bass staff
+        \new Dynamics \dynamicsMen
+        \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
+          \new Voice = "tenor" { \global \tenor \tenor \tenor }
+          \new Voice = "bass"  { \global \bass  \bass  \bass  }
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi"
   \score {
     <<
       \new ChoirStaff <<
@@ -355,7 +383,6 @@ wordsFiveMidi = \lyricmode {
         >>
       >>
     >>
-    \midi {
-    }
+    \midi { }
   }
 }
