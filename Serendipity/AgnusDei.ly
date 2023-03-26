@@ -37,7 +37,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 global = {
   \key c \major
   \time 4/4
-  \tempo 4=60
+  \tempo Larghetto 4=60
 }
 
 colour = {
@@ -63,19 +63,21 @@ black = {
 RehearsalTrack = {
 %  \set Score.currentBarNumber = #5
 %  \mark \markup { \circle 5 }
-  \mark \markup { \box "78a" } s1*4
-  \mark \markup { \box "78b" } s1*4
-  \mark \markup { \box "78c" } s1*4
-  \mark \markup { \box "79a" } s1*4
-  \mark \markup { \box "79b" } s1*4
-  \mark \markup { \box "80a" } s1*4
-  \mark \markup { \box "80b" } s1*4
-  \mark \markup { \box "81a" } s1*4
-  \mark \markup { \box "81b" } s1*4
-  \mark \markup { \box "82a" } s1*4
-  \mark \markup { \box "82b" } s1*4
-  \mark \markup { \box "83a" } s1*4
-  \mark \markup { \box "83b" } s1*4
+  \textMark \markup { \box "78a" } s1*4
+  \textMark \markup { \box "78b" } s1*4
+  \textMark \markup { \box "78c" } s1*4
+  \textMark \markup { \box "79a" } s1*4
+  \textMark \markup { \box "79b" } s1*2
+  \mark     \markup { \box "A"   } s1*2
+  \textMark \markup { \box "80a" } s1*4
+  \textMark \markup { \box "80b" } s1*4
+  \textMark \markup { \box "81a" } s1*4
+  \textMark \markup { \box "81b" } s1*2
+  \mark     \markup { \box "B"   } s1*2
+  \textMark \markup { \box "82a" } s1*4
+  \textMark \markup { \box "82b" } s1*4
+  \textMark \markup { \box "83a" } s1*4
+  \textMark \markup { \box "83b" } s1*4
 }
 
 soprano = \relative c'' {
@@ -138,7 +140,7 @@ soprano = \relative c'' {
 
 dynamicsSop = {
   \override DynamicTextSpanner.style = #'none
-  s1^\markup \roman Larghetto % 78a
+  s1 % 78a
   s2 s8 s4.\p
   s1
   s1
@@ -156,7 +158,7 @@ dynamicsSop = {
   s1
   s1\mp % 79b
   s2.\> s4\p
-  s4-\markup { \box "A" } s2.\mp
+  s4 s2.\mp
   s1
   s1 % 80a
   s1
@@ -193,35 +195,35 @@ dynamicsSop = {
 }
 
 wordsSop = \lyricmode {
-  A- __ gnus __ De- __ i,
-  A- __ gnus __ De- __ i,
-  qui tol- lis pec- ca- ta mun- di
-  mi- se- __ re- __ re no- __ bis. __
-  A- gnus De- __ i,
-  A- gnus De- __ i,
-  A- gnus De- __ i,
-  A- __ gnus De- __ i,
-  A- __ gnus De- __ i,
-  qui tol- __ lis pec- ca- ta mun- di
-  do- __ na no- __ bis pa- __ cem. __
-  A- __ gnus __ De- __ i,
-  do- __ na no- __ bis pa- __ cem.
+  A -- gnus __ De -- i,
+  A -- gnus __ De -- i,
+  qui tol -- lis pec -- ca -- ta mun -- di
+  mi -- se -- re -- re no -- bis. __
+  A -- gnus De -- i,
+  A -- gnus De -- i,
+  A -- gnus De -- i,
+  A -- gnus De -- i,
+  A -- gnus De -- i,
+  qui tol -- lis pec -- ca -- ta mun -- di
+  do -- na no -- bis pa -- cem. __
+  A -- gnus __ De -- i,
+  do -- na no -- bis pa -- cem.
 }
 
 midiWordsSop = \lyricmode {
   A  "gnus "  De  "i, "
-  A  "gnus "  De  "i, "
-  "qui " tol "lis " pec ca "ta " mun "di "
-  mi se  re  "re " no  "bis. " 
-  A "gnus " De  "i, "
-  A "gnus " De  "i, "
-  A "gnus " De  "i, "
-  A  "gnus " De  "i, "
-  A  "gnus " De  "i, "
-  "qui " tol  "lis " pec ca "ta " mun "di "
-  do  "na " no  "bis " pa  "cem. " 
-  A  "gnus "  De  "i, "
-  do  "na " no  "bis " pa  "cem. "
+  "\nA"  "gnus "  De  "i, "
+  "\nqui " tol "lis " pec ca "ta " mun "di "
+  "\nmi" se  re  "re " no  "bis. " 
+  "\nA" "gnus " De  "i, "
+  "\nA" "gnus " De  "i, "
+  "\nA" "gnus " De  "i, "
+  "\nA"  "gnus " De  "i, "
+  "\n"  "gnus " De  "i, "
+  "\nqui " tol  "lis " pec ca "ta " mun "di "
+  "\ndo"  "na " no  "bis " pa  "cem. " 
+  "\nA"  "gnus "  De  "i, "
+  "\ndo"  "na " no  "bis " pa  "cem. "
 }
 
 alto = \relative c'' {
@@ -325,35 +327,35 @@ dynamicsAlto = {
 }
 
 wordsAlto = \lyricmode{
-  qui tol- lis pec- ca- ta mun- di
-  mi- se- re- re,
-  mi- se- re- re no- bis __
-  A- gnus De- i,
-  A- gnus De- i,
-  A- gnus De- i,
-  A- __ gnus __ de- __ i,
-  A- __ gnus __ de- i,
-  qui tol- __ lis pec- ca- ta mun- di
-  do- na no- bis,
-  do- na no- bis pa- __ cem. __
-  A- __ gnus __ de- __ i,
-  do- na no- __ bis pa- __ cem.
+  qui tol -- lis pec -- ca -- ta mun -- di
+  mi -- se -- re -- re,
+  mi -- se -- re -- re no -- bis __
+  A -- gnus De -- i,
+  A -- gnus De -- i,
+  A -- gnus De -- i,
+  A -- gnus __ de -- i,
+  A -- gnus __ de -- i,
+  qui tol -- lis pec -- ca -- ta mun -- di
+  do -- na no -- bis,
+  do -- na no -- bis pa -- cem. __
+  A -- gnus __ de -- i,
+  do -- na no -- bis pa -- cem.
 }
 
 midiWordsAlto = \lyricmode{
   "qui " tol "lis " pec ca "ta " mun "di "
-  mi se re "re, "
-  mi se re "re " no "bis " 
-  A "gnus " De "i, "
-  A "gnus " De "i, "
-  A "gnus " De "i, "
-  A  "gnus "  de  "i, "
-  A  "gnus "  de "i, "
+  "\nmi" se re "re, "
+  "\nmi" se re "re " no "bis " 
+  "\nA" "gnus " De "i, "
+  "\nA" "gnus " De "i, "
+  "\nA" "gnus " De "i, "
+  "\nA" "gnus "  de  "i, "
+  "\nA"  "gnus "  de "i, "
   "qui " tol  "lis " pec ca "ta " mun "di "
-  do "na " no "bis, "
-  do "na " no "bis " pa  "cem. " 
-  A  "gnus "  de  "i, "
-  do "na " no  "bis " pa  "cem. "
+  "\ndo" "na " no "bis, "
+  "\ndo" "na " no "bis " pa  "cem. " 
+  "\nA"  "gnus "  de  "i, "
+  "\ndo" "na " no  "bis " pa  "cem. "
 }
 
 tenor = \relative c' {
@@ -458,31 +460,31 @@ dynamicsTenor = {
 }
 
 wordsTenor = \lyricmode {
-  qui tol- lis pec- ca- ta mun- di __
-  mi- se- re- re no- __ bis __
-  A- gnus De- __ i,
-  A- gnus De- __ i,
-  A- gnus De- __ i,
-  A- __ gnus __ de- __ i,
-  A- __ gnus __ de- i,
-  qui tol- lis pec- ca- ta mun- di __
-  do- na no- bis pa- __ cem. __
-  A- __ gnus __ de- __ i,
-  do- na no- __ bis pa- __ cem.
+  qui tol -- lis pec -- ca -- ta mun -- di __
+  mi -- se -- re -- re no -- bis __
+  A -- gnus De -- i,
+  A -- gnus De -- i,
+  A -- gnus De -- i,
+  A -- gnus __ de -- i,
+  A -- gnus __ de -- i,
+  qui tol -- lis pec -- ca -- ta mun -- di __
+  do -- na no -- bis pa -- cem. __
+  A -- gnus __ de -- i,
+  do -- na no -- bis pa -- cem.
 }
 
 midiWordsTenor = \lyricmode {
   "qui " tol "lis " pec ca "ta " mun "di " 
-  mi se re "re " no  "bis " 
-  A "gnus " De  "i, "
-  A "gnus " De  "i, "
-  A "gnus " De  "i, "
-  A  "gnus "  de  "i, "
-  A  "gnus "  de "i, "
-  "qui " tol "lis " pec ca "ta " mun "di " 
-  do "na " no "bis " pa  "cem. " 
-  A  "gnus "  de  "i, "
-  do "na " no  "bis " pa  "cem. "
+  "\nmi" se re "re " no  "bis " 
+  "\nA" "gnus " De  "i, "
+  "\nA" "gnus " De  "i, "
+  "\nA" "gnus " De  "i, "
+  "\nA" "gnus "  de  "i, "
+  "\nA" "gnus "  de "i, "
+  "\nqui " tol "lis " pec ca "ta " mun "di " 
+  "\ndo" "na " no "bis " pa  "cem. " 
+  "\nA"  "gnus "  de  "i, "
+  "\ndo" "na " no  "bis " pa  "cem. "
 }
 
 bass = \relative c {
@@ -576,31 +578,31 @@ dynamicsBass = {
 }
 
 wordsBass = \lyricmode {
-  no- __ bis __
-  De- i, De- i,
-  A- __ gnus __ De- __ i,
-  A- __ gnus __ De- __ i,
-  A- __ gnus __ De- i,
-  pa- __ cem. __
-  A- __ gnus __ de- __ i,
-  do- na no- __ bis pa- __ cem.
+  no -- bis __
+  De -- i, De -- i,
+  A -- gnus __ De -- i,
+  A -- gnus __ De -- i,
+  A -- gnus __ De -- i,
+  pa -- cem. __
+  A -- gnus __ de -- i,
+  do -- na no -- bis pa -- cem.
 }
 
 midiWordsBass = \lyricmode {
   no  "bis " 
-  De "i, " De "i, "
-  A  "gnus "  De  "i, "
-  A  "gnus "  De  "i, "
-  A  "gnus "  De "i, "
-  pa  "cem. " 
-  A  "gnus "  de  "i, "
-  do "na " no  "bis " pa  "cem. "
+  "\nDe" "i, " De "i, "
+  "\nA" "gnus "  De  "i, "
+  "\nA" "gnus "  De  "i, "
+  "\nA" "gnus "  De "i, "
+  "\npa"  "cem. " 
+  "\nA"  "gnus "  de  "i, "
+  "\ndo" "na " no  "bis " pa  "cem. "
 }
 
 pianoRH = \relative c {
   \global
   \clef bass
-  <e a c>4-- q-- q-- q-- % 78a
+  <e a c>4--^\markup "(Tbne.)" q-- q-- q-- % 78a
   <c g' c>4-- q-- q-- q--
   <c a' c>4 q <d g c> <d g b>
   <e c'>4 q q r
@@ -796,7 +798,7 @@ dynamicsPiano = {
 pianoLH = \relative c, {
   \global
   \oneVoice
-  <a a'>4-- q-- q-- q-- % 78a
+  <a a'>4--_\markup "(Tuba)" q-- q-- q-- % 78a
   <e e'>4-- q-- q-- q--
   <f f'>4 q <g g'> q
   <c g>4 q q r
@@ -852,7 +854,7 @@ pianoLH = \relative c, {
 }
 
 \book {
-  #(define output-suffix "single")
+  \bookOutputSuffix "single"
   \score {
       <<
         \new ChoirStaff <<
@@ -904,14 +906,21 @@ pianoLH = \relative c, {
         \Staff \RemoveAllEmptyStaves
       }
     }
-    \midi {}
   }
 }
 
 \book {
-  #(define output-suffix "midi")
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
   \score {
-    \articulate \context GrandStaff <<
       <<
         \new ChoirStaff <<
                                   % Single soprano staff
@@ -955,19 +964,88 @@ pianoLH = \relative c, {
           >>
         >>
       >>
-    >>
+%    >>
     \layout {
       indent = 1.5\cm
       \context {
         \Staff \RemoveAllEmptyStaves
       }
     }
-    \midi {}
   }
 }
 
 \book {
-  #(define output-suffix "sop")
+  \bookOutputSuffix "singlepage-bass"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+      <<
+        \new ChoirStaff <<
+                                  % Single soprano staff
+          \new Dynamics \dynamicsSop
+          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+            \magnifyStaff #4/7
+            \new Voice \RehearsalTrack
+            \new Voice = "soprano" \soprano
+            \new Lyrics \lyricsto "soprano" {\tiny \wordsSop}
+          >>
+                                  % Single alto staff
+          \new Dynamics \dynamicsAlto
+          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \magnifyStaff #4/7
+            \new Voice = "alto" \alto
+            \new Lyrics \lyricsto "alto" {\tiny \wordsAlto}
+          >>
+                                  % Single tenor staff
+          \new Dynamics \dynamicsTenor
+          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice = "tenor" \tenor
+            \new Lyrics \lyricsto "tenor" {\tiny \wordsTenor}
+          >>
+                                  % Single bass staff
+          \new Dynamics \dynamicsBass
+          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \clef "bass"
+            \new Voice = "bass" \bass
+            \new Lyrics \lyricsto "bass" \wordsBass
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+%    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-sop"
   \score {
     \context GrandStaff <<
       <<
@@ -1016,7 +1094,7 @@ pianoLH = \relative c, {
 }
 
 \book {
-  #(define output-suffix "alto")
+  \bookOutputSuffix "midi-alto"
   \score {
     \context GrandStaff <<
       <<
@@ -1065,7 +1143,7 @@ pianoLH = \relative c, {
 }
 
 \book {
-  #(define output-suffix "tenor")
+  \bookOutputSuffix "midi-tenor"
   \score {
     \context GrandStaff <<
       <<
@@ -1114,7 +1192,7 @@ pianoLH = \relative c, {
 }
 
 \book {
-  #(define output-suffix "bass")
+  \bookOutputSuffix "midi-bass"
   \score {
     \articulate <<
     \context GrandStaff <<
