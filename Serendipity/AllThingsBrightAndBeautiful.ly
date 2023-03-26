@@ -1,6 +1,29 @@
 \version "2.18.2"
 
-#(set-global-staff-size 18)
+today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
+
+RehearsalTrack = {
+  \textMark \markup \box "6a" s1*4
+  \textMark \markup \box "6b" s1*4
+  \textMark \markup \box "6c" s1*4
+  \textMark \markup \box "6d" s1*4
+  \textMark \markup \box "7a" s1*4
+  \textMark \markup \box "7b" s1*4
+  \textMark \markup \box "7c" s1*4
+  \textMark \markup \box "8a" s1*4
+  \textMark \markup \box "8b" s1*4
+  \textMark \markup \box "8c" s1*4
+  \textMark \markup \box "9a" s1*4
+  \textMark \markup \box "9b" s1*4
+  \textMark \markup \box "9c" s1*4
+  \textMark \markup \box "10a" s1*4
+  \textMark \markup \box "10b" s1*4
+  \textMark \markup \box "10c" s1*4
+  \textMark \markup \box "11a" s1*4
+  \textMark \markup \box "11b" s1*4
+  \textMark \markup \box "11c" s1*3
+  \textMark \markup \box "11d" s1*3
+}
 
 UnisonLyrics = \lyricmode {
   All things bright and beau- ti- ful,
@@ -39,6 +62,42 @@ AltoLyrics = \lyricmode {
   The Lord God made them all.
 }
 
+AltoLyricsMidi = \lyricmode {
+  "All " "things " "bright " "and " beau ti "ful, "
+  "\nAll " crea "tures " "great " "and "  "small, "
+  "\nAll " "things " "wise " "and " won der "ful, "
+  "\nThe " "Lord " "God " "made " "them " "all. "
+
+  "\nEach " lit "tle " "flow'r " "that " o "pens, "
+  "\nEach " lit "tle " "bird " "that " "sings, " 
+  "\nHe " "made " "their " glow "ing " col "ours, "
+  "\nHe " "made " "their " ti "ny " "wings. "
+  
+  "\nAh. " 
+  "\nAh. " 
+  "\nThe " "Lord " "God " "made " "them " "all. "
+
+  "\nThe " "cold " "wind "  "in " "the " win "ter, " 
+  "\nThe " plea "sant " sum "mer " "sun, " 
+  "\nThe " "ripe " "fruits " "in " "the " gar "den, "
+  "\nHe " "made " "them " ev "'ry " "one: "
+
+  "\nAll " "things " "bright " "and " beau ti "ful, "
+  "\nAll " crea "tures " "great " "and "  "small, "
+  "\nAll " "things " "wise " "and " won der "ful, "
+  "\nThe " "Lord " "God " "made " "them " "all. "
+
+  "\nHe " "gave " "us " "eyes " "to " "see "  "them, "
+  "\nAnd " "lips " "that " "we " "might " "tell " 
+  "\nHow " "great " "is " "God " Al might "y, " 
+  "\nWho " "has " "made " "all " "things " "well. "
+  
+  "\nAll " "things " "bright " "and " beau ti "ful, "
+  "\nAll " crea "tures " "great " "and "  "small, "
+  "\nAll " "things " "wise " "and " won der "ful, "
+  "\nThe " "Lord " "God " "made " "them " "all. "
+}
+
 TenorLyrics = \lyricmode {
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
@@ -49,11 +108,85 @@ TenorLyrics = \lyricmode {
   That bright- ens up the sky;
 }
 
+TenorLyricsMidi = \lyricmode {
+  "All " "things " "bright " "and " beau ti "ful, "
+  "\nAll " crea "tures " "great " "and "  "small, "
+  "\nAll " "things " "wise " "and " won der "ful, "
+  "\nThe " "Lord " "God " "made " "them " "all. "
+
+  "\nEach " lit "tle " "flow'r " "that " o "pens, "
+  "\nEach " lit "tle " "bird " "that " "sings, " 
+  "\nHe " "made " "their " glow "ing " col "ours, "
+  "\nHe " "made " "their " ti "ny " "wings. "
+
+  "\nAh "  "Ah "  "Ah " 
+  
+  "\nThe " pur ple head "ed " moun "tain, "
+  "\nThe " riv "er " run "ning " "by, "
+  "\nThe " sun "set " "and " "the " morn "ing, "
+  "\nThat " bright "ens " "up " "the " "sky; "
+
+  "\nThe " "ripe " "fruits " "in " "the " gar "den, "
+  "\nHe " "made " "them " ev "'ry " "one: "
+
+  "\nAll " "things " "bright " "and " beau ti "ful, "
+  "\nAll " crea "tures " "great " "and "  "small, "
+  "\nAll " "things " "wise " "and " won der "ful, "
+  "\nThe " "Lord " "God " "made " "them " "all. "
+
+  "\nHe " "gave " "us " "eyes " "to " "see "  "them, "
+  "\nAnd " "lips " "that " "we " "might " "tell " 
+  "\nHow " "great " "is " "God " Al might "y, " 
+  "\nWho " "has " "made " "all " "things " "well. "
+  
+  "\nAll " "things " "bright " "and " beau ti "ful, "
+  "\nAll " crea "tures " "great " "and "  "small, "
+  "\nAll " "things " "wise " "and " won der "ful, "
+  "\nThe " "Lord " "God " "made " "them " "all. "
+}
+
 BassLyrics = \lyricmode {
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
   _ _
   Ah.
+}
+
+BassLyricsMidi = \lyricmode {
+  "All " "things " "bright " "and " beau ti "ful, "
+  "\nAll " crea "tures " "great " "and "  "small, "
+  "\nAll " "things " "wise " "and " won der "ful, "
+  "\nThe " "Lord " "God " "made " "them " "all. "
+
+  "\nEach " lit "tle " "flow'r " "that " o "pens, "
+  "\nEach " lit "tle " "bird " "that " "sings, " 
+  "\nHe " "made " "their " glow "ing " col "ours, "
+  "\nHe " "made " "their " ti "ny " "wings. "
+
+  "\nAh "  "Ah "  "Ah " 
+  
+  "\nThe " pur ple head "ed " moun "tain, "
+  "\nThe " riv "er " run "ning " "by, "
+  "\nThe " sun "set " "and " "the " morn "ing, "
+  "\nThat " bright "ens " "up " "the " "sky; "
+
+  "\nThe " "ripe " "fruits " "in " "the " gar "den, "
+  "\nHe " "made " "them " ev "'ry " "one: "
+
+  "\nAll " "things " "bright " "and " beau ti "ful, "
+  "\nAll " crea "tures " "great " "and "  "small, "
+  "\nAll " "things " "wise " "and " won der "ful, "
+  "\nThe " "Lord " "God " "made " "them " "all. "
+
+  "\nHe " "gave " "us " "eyes " "to " "see "  "them, "
+  "\nAnd " "lips " "that " "we " "might " "tell " 
+  "\nHow " "great " "is " "God " Al might "y, " 
+  "\nWho " "has " "made " "all " "things " "well. "
+  
+  "\nAll " "things " "bright " "and " beau ti "ful, "
+  "\nAll " crea "tures " "great " "and "  "small, "
+  "\nAll " "things " "wise " "and " won der "ful, "
+  "\nThe " "Lord " "God " "made " "them " "all. "
 }
 
 SopranoLyrics = \lyricmode {
@@ -65,10 +198,47 @@ SopranoLyrics = \lyricmode {
   The Lord God made them all.
 }  
 
-tempotrack = {
+SopranoLyricsMidi = \lyricmode {
+  "All " "things " "bright " "and " beau ti "ful, "
+  "\nAll " crea "tures " "great " "and "  "small, "
+  "\nAll " "things " "wise " "and " won der "ful, "
+  "\nThe " "Lord " "God " "made " "them " "all. "
+
+  "\nEach " lit "tle " "flow'r " "that " o "pens, "
+  "\nEach " lit "tle " "bird " "that " "sings, " 
+  "\nHe " "made " "their " glow "ing " col "ours, "
+  "\nHe " "made " "their " ti "ny " "wings. "
+
+  "\nAll " "things " "bright " "and " beau ti "ful, "
+  "\nAll " crea "tures " "great " "and "  "small, "
+  "\nAll " "things " "wise " "and " won der "ful, "
+  "\nThe " "Lord " "God " "made " "them " "all. "
+
+  "\nThe " "cold " "wind "  "in " "the " win "ter, " 
+  "\nThe " plea "sant " sum "mer " "sun, " 
+  "\nThe " "ripe " "fruits " "in " "the " gar "den, "
+  "\nHe " "made " "them " ev "'ry " "one: "
+
+  "\nAll " "things " "bright " "and " beau ti "ful, "
+  "\nAll " crea "tures " "great " "and "  "small, "
+  "\nAll " "things " "wise " "and " won der "ful, "
+  "\nThe " "Lord " "God " "made " "them " "all. "
+
+  "\nHe " "gave " "us " "eyes " "to " "see "  "them, "
+  "\nAnd " "lips " "that " "we " "might " "tell " 
+  "\nHow " "great " "is " "God " Al might "y, " 
+  "\nWho " "has " "made " "all " "things " "well. "
+  
+  "\nAll " "things " "bright " "and " beau ti "ful, "
+  "\nAll " crea "tures " "great " "and "  "small, "
+  "\nAll " "things " "wise " "and " won der "ful, "
+  "\nThe " "Lord " "God " "made " "them " "all. "
+}  
+
+TempoTrack = {
   \key f \major
   \time 4/4
-  \tempo 4=126
+  \tempo Brightly 4=126
 }
 
 dynamicsWomen = {
@@ -227,7 +397,6 @@ dynamicsPedal = {
 UnisonMusic = \relative c' {
   \key f \major
   \time 4/4
-  \tempo 4=126
   s1
   s1
   s1
@@ -485,28 +654,28 @@ BassMusic = \relative c {
   <g, d'>1
   g'4 g b g
   fis4 fis8 fis~fis4. fis8
-  e4 e e g8 d~
+  e4 e e g8 d~ % 55
   d2. r4
   d8 g a b~ b4 b
   b8(c) a2 a4
   d,8 a'(b)c~c b(a) b~
-  b2. g4
+  b2. g4 % 60
   g4 g g g
   g4. g8~g4 g
   a4 a g g
   f2. r4
   \key bes \major
-  f4 bes c d
+  f4 bes c d % 65
   d8 ees c2 bes4
-  a4 a8 a~a bes c a
+  a4 a8 a~a bes(c a)
   f1
   f4 bes bes bes
-  ees,4 g8 bes~bes2
+  ees,4 g8 bes~bes2 % 70
   r1
   r2 r4 bes4
   f2 f
   f2 f <bes, f'>1
-  s1
+  s1 % 71
   s1
   s1
   \bar "|."
@@ -841,45 +1010,322 @@ PianoLHlow  = \relative c {
 }
 
 \header {
-  title    = "All Things Bright and Beautiful"
-  composer = "John Rutter(1945-)"
-  poet     = "C. F. Alexander (1823-1895)"
+  title     = "All Things Bright and Beautiful"
+  composer  = "John Rutter(1945—)"
+  poet      = "C. F. Alexander (1823—1895)"
+  tagline   = ##f
+  copyright = today
 }
 
-\score {
-  \context GrandStaff <<
-    \context ChoirStaff <<
-      \new Lyrics = "sopranolyrics"
-      \new Dynamics \dynamicsWomen
-      \new Staff <<
-        \new Voice = sopranos { \voiceOne \UnisonMusic \SopranoMusic }
-        \new Voice = altos    { \voiceTwo \UnisonMusic     \AltoMusic }
+\book {
+  \bookOutputSuffix "single"
+  \score {
+    <<
+      \new ChoirStaff <<
+        \new Staff = women <<
+          \new Dynamics \with {alignAboveContext = women} \dynamicsWomen
+          \new Voice \TempoTrack
+          \new Voice \RehearsalTrack
+          \new Voice = soprano { \voiceOne \UnisonMusic \SopranoMusic }
+          \new Lyrics \with {alignAboveContext = women} \lyricsto soprano \SopranoLyrics
+          \new Voice { \voiceTwo \UnisonMusic     \AltoMusic }
+          \addlyrics { \UnisonLyrics \AltoLyrics }
+        >>
+        \new Staff = men <<
+          \clef "bass"
+          \new Dynamics \with {alignAboveContext = men} \dynamicsMen
+          \new Voice = tenor { \voiceOne \transpose c c, \UnisonMusic \TenorMusic }
+          \new Voice = bass  { \voiceTwo \transpose c c, \UnisonMusic \BassMusic }
+          \addlyrics \BassLyrics
+        >>
+        \new Lyrics \with {alignAboveContext = men} \lyricsto tenor { \TenorLyrics }
       >>
-      \new Lyrics \lyricsto altos { \UnisonLyrics \AltoLyrics }
-      \new Lyrics = "tenorlyrics"
-      \new Staff <<
-        \clef "bass"
-        \new Voice = tenors { \voiceOne \transpose c c, \UnisonMusic \TenorMusic }
-        \new Voice = basses { \voiceTwo \transpose c c, \UnisonMusic \BassMusic }
+      \new PianoStaff <<
+        \new Staff = pianorh <<
+          \new Voice { \PianoRHhigh }
+          \new Voice { \PianoRHlow  }
+        >>
+        \new Dynamics \dynamics
+        \new Staff = pianolh <<
+          \new Voice { \PianoLHhigh }
+          \new Voice { \PianoLHlow  }
+        >>
+        \new Dynamics \with {alignBelowContext = pianolh} \dynamicsPedal
       >>
-      \new Dynamics \dynamicsMen
-      \new Lyrics \lyricsto basses { \BassLyrics }
-      \context Lyrics = "sopranolyrics" { \lyricsto sopranos { \SopranoLyrics } }
-      \context Lyrics = "tenorlyrics" { \lyricsto tenors { \TenorLyrics } }
     >>
-    \context PianoStaff <<
-      \new Staff <<
-        \new Voice { \PianoRHhigh }
-        \new Voice { \PianoRHlow  }
+    \layout {
+      #(layout-set-staff-size 17)
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff
+        % \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      \new ChoirStaff <<
+        \new Staff = women <<
+          \new Dynamics \with {alignAboveContext = women} \dynamicsWomen
+          \new Voice \TempoTrack
+          \new Voice \RehearsalTrack
+          \new Voice = soprano { \voiceOne \UnisonMusic \SopranoMusic }
+          \new Lyrics \with {alignAboveContext = women} \lyricsto soprano \SopranoLyrics
+          \new Voice { \voiceTwo \UnisonMusic     \AltoMusic }
+          \addlyrics { \UnisonLyrics \AltoLyrics }
+        >>
+        \new Staff = men <<
+          \clef "bass"
+          \new Dynamics \with {alignAboveContext = men} \dynamicsMen
+          \new Voice = tenor { \voiceOne \transpose c c, \UnisonMusic \TenorMusic }
+          \new Voice = bass  { \voiceTwo \transpose c c, \UnisonMusic \BassMusic }
+          \addlyrics \BassLyrics
+        >>
+        \new Lyrics \with {alignAboveContext = men} \lyricsto tenor { \TenorLyrics }
       >>
-      \new Dynamics \dynamics
-      \new Staff <<
-        \new Voice { \PianoLHhigh }
-	\new Voice { \PianoLHlow  }
+      \new PianoStaff <<
+        \new Staff = pianorh <<
+          \new Voice { \PianoRHhigh }
+          \new Voice { \PianoRHlow  }
+        >>
+        \new Dynamics \dynamics
+        \new Staff = pianolh <<
+          \new Voice { \PianoLHhigh }
+          \new Voice { \PianoLHlow  }
+        >>
+        \new Dynamics \with {alignBelowContext = pianolh} \dynamicsPedal
       >>
-      \new Dynamics \dynamicsPedal
     >>
-  >>
-  \layout {}
-  \midi {}
+    \layout {
+      #(layout-set-staff-size 20)
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff
+        % \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-sop"
+  \score {
+    <<
+      \new ChoirStaff <<
+        \new Staff = soprano <<
+          \new Dynamics \dynamicsWomen
+          \new Voice \TempoTrack
+          \new Voice \RehearsalTrack
+          \new Voice { \voiceOne \UnisonMusic \SopranoMusic }
+          \addlyrics \SopranoLyricsMidi
+        >>
+        \new Staff = alto <<
+          \new Dynamics \dynamicsWomen
+          \new Voice { \UnisonMusic     \AltoMusic }
+        >>
+        \new Staff = tenor <<
+          \clef "treble_8"
+          \new Dynamics \dynamicsMen
+          \new Voice = tenor { \voiceOne \transpose c c, \UnisonMusic \TenorMusic }
+        >>
+        \new Staff = bass <<
+          \clef "bass"
+          \new Dynamics \dynamicsMen
+          \new Voice = bass  { \voiceTwo \transpose c c, \UnisonMusic \BassMusic }
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff = piano <<
+          \new Voice { \PianoRHhigh }
+          \new Voice { \PianoRHlow  }
+          \new Dynamics \dynamics
+          \new Voice { \PianoLHhigh }
+          \new Voice { \PianoLHlow  }
+        >>
+        \new Dynamics \with {alignBelowContext = pianolh} \dynamicsPedal
+      >>
+    >>
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-alto"
+  \score {
+    <<
+      \new ChoirStaff <<
+        \new Staff = soprano <<
+          \new Dynamics \dynamicsWomen
+          \new Voice \TempoTrack
+          \new Voice \RehearsalTrack
+          \new Voice { \voiceOne \UnisonMusic \SopranoMusic }
+        >>
+        \new Staff = alto <<
+          \new Dynamics \dynamicsWomen
+          \new Voice { \UnisonMusic     \AltoMusic }
+          \addlyrics \AltoLyricsMidi
+        >>
+        \new Staff = tenor <<
+          \clef "treble_8"
+          \new Dynamics \dynamicsMen
+          \new Voice = tenor { \voiceOne \transpose c c, \UnisonMusic \TenorMusic }
+        >>
+        \new Staff = bass <<
+          \clef "bass"
+          \new Dynamics \dynamicsMen
+          \new Voice = bass  { \voiceTwo \transpose c c, \UnisonMusic \BassMusic }
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff = piano <<
+          \new Voice { \PianoRHhigh }
+          \new Voice { \PianoRHlow  }
+          \new Dynamics \dynamics
+          \new Voice { \PianoLHhigh }
+          \new Voice { \PianoLHlow  }
+        >>
+        \new Dynamics \with {alignBelowContext = pianolh} \dynamicsPedal
+      >>
+    >>
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-tenor"
+  \score {
+    <<
+      \new ChoirStaff <<
+        \new Staff = soprano <<
+          \new Dynamics \dynamicsWomen
+          \new Voice \TempoTrack
+          \new Voice \RehearsalTrack
+          \new Voice { \voiceOne \UnisonMusic \SopranoMusic }
+        >>
+        \new Staff = alto <<
+          \new Dynamics \dynamicsWomen
+          \new Voice { \UnisonMusic     \AltoMusic }
+        >>
+        \new Staff = tenor <<
+          \clef "treble_8"
+          \new Dynamics \dynamicsMen
+          \new Voice = tenor { \voiceOne \transpose c c, \UnisonMusic \TenorMusic }
+          \addlyrics \TenorLyricsMidi
+        >>
+        \new Staff = bass <<
+          \clef "bass"
+          \new Dynamics \dynamicsMen
+          \new Voice = bass  { \voiceTwo \transpose c c, \UnisonMusic \BassMusic }
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff = piano <<
+          \new Voice { \PianoRHhigh }
+          \new Voice { \PianoRHlow  }
+          \new Dynamics \dynamics
+          \new Voice { \PianoLHhigh }
+          \new Voice { \PianoLHlow  }
+        >>
+        \new Dynamics \with {alignBelowContext = pianolh} \dynamicsPedal
+      >>
+    >>
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-bass"
+  \score {
+    <<
+      \new ChoirStaff <<
+        \new Staff = soprano <<
+          \new Dynamics \dynamicsWomen
+          \new Voice \TempoTrack
+          \new Voice \RehearsalTrack
+          \new Voice { \voiceOne \UnisonMusic \SopranoMusic }
+        >>
+        \new Staff = alto <<
+          \new Dynamics \dynamicsWomen
+          \new Voice { \UnisonMusic     \AltoMusic }
+        >>
+        \new Staff = tenor <<
+          \clef "treble_8"
+          \new Dynamics \dynamicsMen
+          \new Voice = tenor { \voiceOne \transpose c c, \UnisonMusic \TenorMusic }
+        >>
+        \new Staff = bass <<
+          \clef "bass"
+          \new Dynamics \dynamicsMen
+          \new Voice = bass  { \voiceTwo \transpose c c, \UnisonMusic \BassMusic }
+          \addlyrics \BassLyricsMidi
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff = piano <<
+          \new Voice { \PianoRHhigh }
+          \new Voice { \PianoRHlow  }
+          \new Dynamics \dynamics
+          \new Voice { \PianoLHhigh }
+          \new Voice { \PianoLHlow  }
+        >>
+        \new Dynamics \with {alignBelowContext = pianolh} \dynamicsPedal
+      >>
+    >>
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
+  }
 }
