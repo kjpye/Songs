@@ -65,7 +65,7 @@ verse = \lyricmode {
   } {   %\transpose c bf,
         \sopranoVoice }
   \addlyrics { \verse }
-  \layout { \indent = 0.0\mm }
+  \layout { indent = 0.0\mm }
   \midi {
     \context {
       \Score
