@@ -1,4 +1,4 @@
-\version "2.20.2"
+\version "2.25.0"
 
 \include "articulate.ly"
 \include "swing.ly"
@@ -32,8 +32,6 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
  tagline   = ##f
   copyright   = \today
 }
-
-#(set-global-staff-size 18)
 
 global = {
   \key aes \major
@@ -446,70 +444,70 @@ soprano = \relative c' {
        
 wordsAll = \lyricmode {
   \set stanza = "1. (Women only)"
-  In old- en days a glimpse of stock- ing
-  was looked on as some- thing shock- ing,
-  now heav- en knows,
-  an- y- thing goes.
+  In old -- en days a glimpse of stock -- ing
+  was looked on as some -- thing shock -- ing,
+  now heav -- en knows,
+  an -- y -- thing goes.
   \set stanza = "2. (Men)" Good _
 
-  The world has gone mad to- day __
-  and good's bad to- day, __
-  and black's white to- day, __
-  and day's night to- day, __
-  when most guys to- day __
-  that wom- en prize to- day __
-  are just sil- ly gi- go- los; __
+  The world has gone mad to -- day __
+  and good's bad to -- day, __
+  and black's white to -- day, __
+  and day's night to -- day, __
+  when most guys to -- day __
+  that wom -- en prize to -- day __
+  are just sil -- ly gi -- go -- los; __
 
-  So though I'm not a great ro- manc- er,
-  I know that you're bound to an- swer when I pro- pose,
-  an- y- thing goes.
+  So though I'm not a great ro -- manc -- er,
+  I know that you're bound to an -- swer when I pro -- pose,
+  an -- y -- thing goes.
 
-  In old- en days a glimpse of stock- ing
-  was looked on as some- thing shock- ing,
-  now heav- en knows,
-  an- y- thing goes.
+  In old -- en days a glimpse of stock -- ing
+  was looked on as some -- thing shock -- ing,
+  now heav -- en knows,
+  an -- y -- thing goes.
   
   Good    goes.
   
-  The world has gone mad to- day __
-  and good's bad to- day, __
-  and black's white to- day, __
-  and day's night to- day, __
-  when most guys to- day __
-  that wom- en prize to- day __
-  are just sil- ly gi- go- los; __
+  The world has gone mad to -- day __
+  and good's bad to -- day, __
+  and black's white to -- day, __
+  and day's night to -- day, __
+  when most guys to -- day __
+  that wom -- en prize to -- day __
+  are just sil -- ly gi -- go -- los; __
 
-  So though I'm not a great ro- manc- er,
-  I know that you're bound to an- swer when I pro- pose,
-  an- y- thing goes.
+  So though I'm not a great ro -- manc -- er,
+  I know that you're bound to an -- swer when I pro -- pose,
+  an -- y -- thing goes.
 
-  In old- en days a glimpse of stock- ing
-  was looked on as some- thing shock- ing,
-  now heav- en knows,
-  an- y- thing goes.
+  In old -- en days a glimpse of stock -- ing
+  was looked on as some -- thing shock -- ing,
+  now heav -- en knows,
+  an -- y -- thing goes.
   
-  The world has gone mad to- day __
-  and good's bad to- day, __
-  and black's white to- day, __
-  and day's night to- day, __
-  when most guys to- day __
-  that wom- en prize to- day __
-  are just sil- ly gi- go- los; __
+  The world has gone mad to -- day __
+  and good's bad to -- day, __
+  and black's white to -- day, __
+  and day's night to -- day, __
+  when most guys to -- day __
+  that wom -- en prize to -- day __
+  are just sil -- ly gi -- go -- los; __
 
-  So though I'm not a great ro- manc- er,
-  I know that you're bound to an- swer when I pro- pose,
-  an- y- thing goes.
+  So though I'm not a great ro -- manc -- er,
+  I know that you're bound to an -- swer when I pro -- pose,
+  an -- y -- thing goes.
 
-  Now heav- en knows,
-  an- y- thing goes.
+  Now heav -- en knows,
+  an -- y -- thing goes.
 }
 
 wordsAllTwo = \lyricmode {
   \set stanza = "2. (Men only)"
-  Good auth- ors, too, who once knew bet- ter words
-  now on- ly use four- let- ter words
-  writ- ing prose,
-  an- y- thing _ _ goes
+  Good auth -- ors, too, who once knew bet -- ter words
+  now on -- ly use four -- let -- ter words
+  writ -- ing prose,
+  an -- y -- thing _ _ goes
 
   _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _
@@ -518,77 +516,77 @@ wordsAllTwo = \lyricmode {
   _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _
-  Good auth- ors, too, who once knew bet- ter words
-  now on- ly use four- let- ter words
-  writ- ing prose,
-  an- y- thing _ _ goes
+  Good auth -- ors, too, who once knew bet -- ter words
+  now on -- ly use four -- let -- ter words
+  writ -- ing prose,
+  an -- y -- thing _ _ goes
 }
 
 wordsSingleWomen = \lyricmode {
   \set stanza = "1. (Women only)"
-  In old- en days a glimpse of stock- ing
-  was looked on as some- thing shock- ing,
-  now heav- en knows,
-  an- y- thing goes.
+  In old -- en days a glimpse of stock -- ing
+  was looked on as some -- thing shock -- ing,
+  now heav -- en knows,
+  an -- y -- thing goes.
 
-  The world has gone mad to- day __
-  and good's bad to- day, __
-  and black's white to- day, __
-  and day's night to- day, __
-  when most guys to- day __
-  that wom- en prize to- day __
-  are just sil- ly gi- go- los; __
+  The world has gone mad to -- day __
+  and good's bad to -- day, __
+  and black's white to -- day, __
+  and day's night to -- day, __
+  when most guys to -- day __
+  that wom -- en prize to -- day __
+  are just sil -- ly gi -- go -- los; __
 
-  So though I'm not a great ro- manc- er,
-  I know that you're bound to an- swer when I pro- pose,
-  an- y- thing goes.
+  So though I'm not a great ro -- manc -- er,
+  I know that you're bound to an -- swer when I pro -- pose,
+  an -- y -- thing goes.
 
-  In old- en days a glimpse of stock- ing
-  was looked on as some- thing shock- ing,
-  now heav- en knows,
-  an- y- thing goes.
+  In old -- en days a glimpse of stock -- ing
+  was looked on as some -- thing shock -- ing,
+  now heav -- en knows,
+  an -- y -- thing goes.
   
-  Good auth- ors, too, who once knew bet- ter words
-  now on- ly use four- let- ter words
-  writ- ing prose,
-  an- y- thing goes
+  Good auth -- ors, too, who once knew bet -- ter words
+  now on -- ly use four -- let -- ter words
+  writ -- ing prose,
+  an -- y -- thing goes
   
-  The world has gone mad to- day __
-  and good's bad to- day, __
-  and black's white to- day, __
-  and day's night to- day, __
-  when most guys to- day __
-  that wom- en prize to- day __
-  are just sil- ly gi- go- los; __
+  The world has gone mad to -- day __
+  and good's bad to -- day, __
+  and black's white to -- day, __
+  and day's night to -- day, __
+  when most guys to -- day __
+  that wom -- en prize to -- day __
+  are just sil -- ly gi -- go -- los; __
 
-  So though I'm not a great ro- manc- er,
-  I know that you're bound to an- swer when I pro- pose,
-  an- y- thing goes.
+  So though I'm not a great ro -- manc -- er,
+  I know that you're bound to an -- swer when I pro -- pose,
+  an -- y -- thing goes.
 
-  In old- en days a glimpse of stock- ing
-  was looked on as some- thing shock- ing,
-  now heav- en knows,
-  an- y- thing goes.
+  In old -- en days a glimpse of stock -- ing
+  was looked on as some -- thing shock -- ing,
+  now heav -- en knows,
+  an -- y -- thing goes.
   
-  The world has gone mad to- day __
-  and good's bad to- day, __
-  and black's white to- day, __
-  and day's night to- day, __
-  when most guys to- day __
-  that wom- en prize to- day __
-  are just sil- ly gi- go- los; __
+  The world has gone mad to -- day __
+  and good's bad to -- day, __
+  and black's white to -- day, __
+  and day's night to -- day, __
+  when most guys to -- day __
+  that wom -- en prize to -- day __
+  are just sil -- ly gi -- go -- los; __
 
-  So though I'm not a great ro- manc- er,
-  I know that you're bound to an- swer when I pro- pose,
-  an- y- thing goes.
+  So though I'm not a great ro -- manc -- er,
+  I know that you're bound to an -- swer when I pro -- pose,
+  an -- y -- thing goes.
 
-  Now heav- en knows,
-  an- y- thing goes.
+  Now heav -- en knows,
+  an -- y -- thing goes.
 }
 
 wordsSingleWomen = \lyricmode {
   \set stanza = "1. (Women only)"
-  "\nIn " old "en " "days " "a " "glimpse " "of " stock "ing "
+  "In " old "en " "days " "a " "glimpse " "of " stock "ing "
   "\nwas " "looked " "on " "as " some "thing " shock "ing, "
   "\nnow " heav "en " "knows, "
   "\nan" y "thing " "goes. "
@@ -650,68 +648,68 @@ wordsSingleWomen = \lyricmode {
 
 wordsSingleMen = \lyricmode {
   \set stanza = "2. (Men)"
-  Good auth- ors, too, who once knew bet- ter words
-  now on- ly use four- let- ter words
-  writ- ing prose,
-  an- y- thing goes
+  Good auth -- ors, too, who once knew bet -- ter words
+  now on -- ly use four -- let -- ter words
+  writ -- ing prose,
+  an -- y -- thing goes
 
-  The world has gone mad to- day __
-  and good's bad to- day, __
-  and black's white to- day, __
-  and day's night to- day, __
-  wom- en prize just
-  sil- ly gi- go- los; __
+  The world has gone mad to -- day __
+  and good's bad to -- day, __
+  and black's white to -- day, __
+  and day's night to -- day, __
+  wom -- en prize just
+  sil -- ly gi -- go -- los; __
 
-  So though I'm not a great ro- manc- er,
-  I know that you're bound to an- swer when I pro- pose,
-  an- y- thing goes.
+  So though I'm not a great ro -- manc -- er,
+  I know that you're bound to an -- swer when I pro -- pose,
+  an -- y -- thing goes.
 
   Oo a
-  glimpse of stock- ing
-  was looked on as some- thing shock- ing,
-  now heav- en knows,
-  an- y- thing goes.
+  glimpse of stock -- ing
+  was looked on as some -- thing shock -- ing,
+  now heav -- en knows,
+  an -- y -- thing goes.
   
-  too who once knew bet- ter words
-  now on- ly use four- let- ter words
-  writ- ing prose,
-  an- y- thing goes
+  too who once knew bet -- ter words
+  now on -- ly use four -- let -- ter words
+  writ -- ing prose,
+  an -- y -- thing goes
   
-  The world has gone mad to- day __
-  and good's bad to- day, __
-  and black's white to- day, __
-  and day's night to- day, __
-  wom- en prize
-  just sil- ly gi- go- los; __
+  The world has gone mad to -- day __
+  and good's bad to -- day, __
+  and black's white to -- day, __
+  and day's night to -- day, __
+  wom -- en prize
+  just sil -- ly gi -- go -- los; __
 
-  I'm  a great ro- manc- er,
-  I know that you're bound to an- swer when I pro- pose,
-  an- y- thing goes.
+  I'm  a great ro -- manc -- er,
+  I know that you're bound to an -- swer when I pro -- pose,
+  an -- y -- thing goes.
 
-  In old- en days a glimpse of stock- ing
-  was looked on as some- thing shock- ing,
-  now heav- en knows,
-  an- y- thing goes.
+  In old -- en days a glimpse of stock -- ing
+  was looked on as some -- thing shock -- ing,
+  now heav -- en knows,
+  an -- y -- thing goes.
   
-  The world has gone mad to- day __
-  and good's bad to- day, __
-  and black's white to- day, __
-  and day's night to- day, __
-  when most guys to- day __
-  that wom- en prize to- day __
-  are just sil- ly gi- go- los; __
+  The world has gone mad to -- day __
+  and good's bad to -- day, __
+  and black's white to -- day, __
+  and day's night to -- day, __
+  when most guys to -- day __
+  that wom -- en prize to -- day __
+  are just sil -- ly gi -- go -- los; __
 
-  So though I'm not a great ro- manc- er,
-  I know that you're bound to an- swer when I pro- pose,
-  an- y- thing goes.
+  So though I'm not a great ro -- manc -- er,
+  I know that you're bound to an -- swer when I pro -- pose,
+  an -- y -- thing goes.
 
-  Now heav- en knows,
-  an- y- thing goes.
+  Now heav -- en knows,
+  an -- y -- thing goes.
 }
 
 wordsSingleMen = \lyricmode {
   \set stanza = "2. (Men)"
-  "\nGood " auth "ors, " "too, " "who " "once " "knew " bet "ter " "words "
+  "Good " auth "ors, " "too, " "who " "once " "knew " bet "ter " "words "
   "\nnow " on "ly " "use " "four-" let "ter " "words "
   "\nwrit" "ing " "prose, "
   "\nan" y "thing " "goes "
@@ -1234,7 +1232,7 @@ wordsBass = \lyricmode {
   _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _
-  wom- en prize just sil- ly gi- go- los;
+  wom -- en prize just sil -- ly gi -- go -- los;
   _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _
@@ -1242,8 +1240,8 @@ wordsBass = \lyricmode {
   _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _
-  wom- en prize just sil- ly gi- go- los; __
-  I'm a great ro- manc- er,
+  wom -- en prize just sil -- ly gi -- go -- los; __
+  I'm a great ro -- manc -- er,
 }
 
 dynamicsMen = {
@@ -1485,57 +1483,57 @@ pianoLH = \relative c {
     }
     {
       bes,4 r f bes % 6b
-      a4-^ r r8 a4.->
-      d,4-^ r r8 d4.->
-      e4-^ r r8 e4.->
-      f4-^ r r8 f4.-> % 6c
-      e4-^ r r8 a4.->
-      d4 r a r
-      d4 r f, d'
-      c4 r c, f~ % 7a
-      \tripletFeel 8 {f8 f'} ees4 d c
-      \time 3/4 bes2.
-      a2. \time 4/4
-      g4 r f r
-      bes4 r f r % 7b
-      bes4 r d, r
-      ees4 r d r
-      c4 r c' r
-      bes 4 r a r % 7c
-      r4 g->~g g->\fermata \bar "||" \key c \major
-      c4 r b r
-      a4 r g r
-      c4 r g r % 8a
-      c4 r d, e
-      f4 r e r
-      d4 r d' r
-      c4 r g c % 8b
-      b4-^ r r8 b4.->
-      e,4 r e r
-      fis4 r fis r
-      g4 r g r % 8c
-      fis 4 r b r
-      e,4-^ r r8 e4.->
-      e4-^ r r e
-      d4 r a' g~ % 9a
-      \tripletFeel 8 {g8 g} f4 e d
-      c4 r b' r
-      a4 r g r
-      c4 r b r
-      a4 r g c, % 9b
-      d4 r a' r
-      d,4-^ r r2
-      c4 r b' r
-      a4 a g c,
-      d4 r a' r % 9c
-      g4-^ <g, g'>2 g'4
-      c4 r g r
-      c4 r g r
-      c4 r g r
-      c4 r <c, c'>4-> r
     }
   }
-%  \bar "|."
+  a4-^ r r8 a4.->
+  d,4-^ r r8 d4.->
+  e4-^ r r8 e4.->
+  f4-^ r r8 f4.-> % 6c
+  e4-^ r r8 a4.->
+  d4 r a r
+  d4 r f, d'
+  c4 r c, f~ % 7a
+  \tripletFeel 8 {f8 f'} ees4 d c
+  \time 3/4 bes2.
+  a2. \time 4/4
+  g4 r f r
+  bes4 r f r % 7b
+  bes4 r d, r
+  ees4 r d r
+  c4 r c' r
+  bes 4 r a r % 7c
+  r4 g->~g g->\fermata \bar "||" \key c \major
+  c4 r b r
+  a4 r g r
+  c4 r g r % 8a
+  c4 r d, e
+  f4 r e r
+  d4 r d' r
+  c4 r g c % 8b
+  b4-^ r r8 b4.->
+  e,4 r e r
+  fis4 r fis r
+  g4 r g r % 8c
+  fis 4 r b r
+  e,4-^ r r8 e4.->
+  e4-^ r r e
+  d4 r a' g~ % 9a
+  \tripletFeel 8 {g8 g} f4 e d
+  c4 r b' r
+  a4 r g r
+  c4 r b r
+  a4 r g c, % 9b
+  d4 r a' r
+  d,4-^ r r2
+  c4 r b' r
+  a4 a g c,
+  d4 r a' r % 9c
+  g4-^ <g, g'>2 g'4
+  c4 r g r
+  c4 r g r
+  c4 r g r
+  c4 r <c, c'>4-> r
+  \bar "|."
 }
 
 \book {
@@ -1579,17 +1577,21 @@ pianoLH = \relative c {
         >>
       >>
 
-      \new DrumStaff \with {
-        \override StaffSymbol.line-count = #1
-        drumStyleTable = #(alist->hash-table mystyle)
-        drumPitchTable = #(alist->hash-table midiDrumPitches)
-        \remove Ledger_line_engraver
-      } << \DrumTrack >>
+%      \new DrumStaff \with {
+%        \override StaffSymbol.line-count = #1
+%        drumStyleTable = #(alist->hash-table mystyle)
+%        drumPitchTable = #(alist->hash-table midiDrumPitches)
+%        \remove Ledger_line_engraver
+%      } << \DrumTrack >>
     >>
     \layout {
+      #(layout-set-staff-size 18)
       indent = 1.5\cm
+      \pointAndClickOff
       \context {
         \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
       }
     }
   }
@@ -1658,24 +1660,37 @@ pianoLH = \relative c {
           >>
         >>
       >>
-      \new DrumStaff \with {
-        \override StaffSymbol.line-count = #1
-        drumStyleTable = #(alist->hash-table mystyle)
-        drumPitchTable = #(alist->hash-table midiDrumPitches)
-        \remove Ledger_line_engraver
-      } << \DrumTrack >>
+%      \new DrumStaff \with {
+%        \override StaffSymbol.line-count = #1
+%        drumStyleTable = #(alist->hash-table mystyle)
+%        drumPitchTable = #(alist->hash-table midiDrumPitches)
+%        \remove Ledger_line_engraver
+%      } << \DrumTrack >>
     >>
     \layout {
+      #(layout-set-staff-size 18)
       indent = 1.5\cm
+      \pointAndClickOff
       \context {
-%        \Staff \RemoveAllEmptyStaves
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
       }
     }
   }
 }
 
 \book {
-  \bookOutputSuffix "midi-women"
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
   \score {
     \unfoldRepeats
 %   \articulate
@@ -1687,68 +1702,36 @@ pianoLH = \relative c {
           \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice = "soprano" { \voiceOne \global \sopA \sopB \sopCb \sopBb \sopDb \sopE \sopF \sopG \sopF \sopH \sopI }
-            \new Voice = "alto"    { \voiceTwo \global \altoA \altoB \altoCb \altoBb \altoDb \altoE \altoF \altoG \altoF \altoH \altoI }
+            \new Voice = "soprano" { \voiceOne \global
+                                     \sopA \sopB  \sopCb
+                                           \sopBb \sopDb
+                                     \sopE \sopF \sopG
+                                           \sopF \sopH
+                                     \sopI }
+            \new Voice = "alto"    { \voiceTwo \global
+                                     \altoA \altoB  \altoCb
+                                            \altoBb \altoDb
+                                     \altoE \altoF \altoG
+                                            \altoF \altoH
+                                     \altoI }
             \new Lyrics \lyricsto "soprano" \wordsSingleWomen
           >>
                                 % Joint tenor/bass staff
           \new Dynamics \dynamicsMen
           \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
             \clef "bass"
-            \new Voice = "tenor" { \global \voiceOne \tenorAa \tenorBa \tenorCa \tenorB \tenorD \tenorE \tenorF \tenorG \tenorF \tenorH \tenorI }
-            \new Voice = "bass" { \global \voiceTwo \bassAa \bassBa \bassCa \bassB \bassD \bassE \bassF \bassG \bassF \bassH \bassI }
-          >>
-        >>
-        <<
-          \new ChordNames { \ChordTrack }
-                                %          \new FretBoards { \ChordTrack }
-        >>
-        \new PianoStaff <<
-          \new Staff <<
-            \new Voice \pianoRH
-            \new Voice \pianoRHone
-            \new Voice \pianoRHtwo
-          >>
-          \new Dynamics \dynamicsPiano
-          \new Staff <<
-            \clef "bass"
-            \new Voice \pianoLH
-          >>
-        >>
-        \new DrumStaff \with {
-          \override StaffSymbol.line-count = #1
-          drumStyleTable = #(alist->hash-table mystyle)
-          drumPitchTable = #(alist->hash-table midiDrumPitches)
-          \remove Ledger_line_engraver
-        } << \DrumTrack >>
-      >>
-    >>
-    \midi {}
-  }
-}
-
-\book {
-  \bookOutputSuffix "midi-men"
-  \score {
-    \unfoldRepeats
-%   \articulate
-    <<
-      <<
-        \new ChoirStaff <<
-                                % Joint soprano/alto staff
-          \new Dynamics \dynamicsWomen
-          \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
-            \new Voice \TempoTrack
-            \new Voice \RehearsalTrack
-            \new Voice = "soprano" { \voiceOne \global \sopA \sopB \sopCb \sopBb \sopDb \sopE \sopF \sopG \sopF \sopH \sopI }
-            \new Voice = "alto"    { \voiceTwo \global \altoA \altoB \altoCb \altoBb \altoDb \altoE \altoF \altoG \altoF \altoH \altoI }
-          >>
-                                % Joint tenor/bass staff
-          \new Dynamics \dynamicsMen
-          \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
-            \clef "bass"
-            \new Voice = "tenor" { \global \voiceOne \tenorAa \tenorBa \tenorCa \tenorB \tenorD \tenorE \tenorF \tenorG \tenorF \tenorH \tenorI }
-            \new Voice = "bass" { \global \voiceTwo \bassAa \bassBa \bassCa \bassB \bassD \bassE \bassF \bassG \bassF \bassH \bassI }
+            \new Voice = "tenor" { \global \voiceOne
+                                   \tenorAa \tenorBa \tenorCa
+                                            \tenorB  \tenorD
+                                   \tenorE \tenorF \tenorG
+                                           \tenorF \tenorH
+                                   \tenorI }
+            \new Voice = "bass" { \global \voiceTwo
+                                  \bassAa \bassBa \bassCa
+                                          \bassB  \bassD
+                                  \bassE \bassF \bassG
+                                         \bassF \bassH
+                                  \bassI }
             \new Lyrics \lyricsto "bass" \wordsSingleMen
           >>
         >>
@@ -1768,14 +1751,160 @@ pianoLH = \relative c {
             \new Voice \pianoLH
           >>
         >>
-        \new DrumStaff \with {
-          \override StaffSymbol.line-count = #1
-          drumStyleTable = #(alist->hash-table mystyle)
-          drumPitchTable = #(alist->hash-table midiDrumPitches)
-          \remove Ledger_line_engraver
-        } << \DrumTrack >>
       >>
+%      \new DrumStaff \with {
+%        \override StaffSymbol.line-count = #1
+%        drumStyleTable = #(alist->hash-table mystyle)
+%        drumPitchTable = #(alist->hash-table midiDrumPitches)
+%        \remove Ledger_line_engraver
+%      } << \DrumTrack >>
     >>
-    \midi {}
+    \layout {
+      #(layout-set-staff-size 20)
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
   }
 }
+
+\book {
+  \bookOutputSuffix "midi-women"
+  \score {
+    \unfoldRepeats
+%   \articulate
+    <<
+      \new ChoirStaff <<
+                                % Soprano staff
+        \new Staff = soprano \with { instrumentName = #"Soprano" } <<
+          \new Dynamics \dynamicsWomen
+          \new Voice \TempoTrack
+          \new Voice \RehearsalTrack
+          \new Voice = "soprano" { \voiceOne \global \sopA \sopB \sopCb \sopBb \sopDb \sopE \sopF \sopG \sopF \sopH \sopI }
+          \new Lyrics \lyricsto "soprano" \wordsSingleWomen
+        >>
+                                % Alto staff
+        \new Staff = alto \with { instrumentName = #"Alto" } <<
+          \new Dynamics \dynamicsWomen
+          \new Voice = "alto"    { \voiceTwo \global \altoA \altoB \altoCb \altoBb \altoDb \altoE \altoF \altoG \altoF \altoH \altoI }
+        >>
+                                % Tenor staff
+        \new Staff \with { instrumentName = #"Tenor" } <<
+          \new Dynamics \dynamicsMen
+          \clef "treble_8"
+          \new Voice = "tenor" { \global \voiceOne \tenorAa \tenorBa \tenorCa \tenorB \tenorD \tenorE \tenorF \tenorG \tenorF \tenorH \tenorI }
+        >>
+                                % Bass staff
+        \new Staff = bass \with { instrumentName = #"Bass" } <<
+          \new Dynamics \dynamicsMen
+          \clef "bass"
+          \new Voice = "bass" { \global \voiceTwo \bassAa \bassBa \bassCa \bassB \bassD \bassE \bassF \bassG \bassF \bassH \bassI }
+      >>
+    >>
+      <<
+        \new ChordNames { \ChordTrack }
+                                %          \new FretBoards { \ChordTrack }
+    >>
+    \new PianoStaff <<
+      \new Staff <<
+        \new Voice \pianoRH
+        \new Voice \pianoRHone
+        \new Voice \pianoRHtwo
+        \new Dynamics \dynamicsPiano
+        \new Voice \pianoLH
+      >>
+    >>
+    \new DrumStaff \with {
+      \override StaffSymbol.line-count = #1
+      drumStyleTable = #(alist->hash-table mystyle)
+      drumPitchTable = #(alist->hash-table midiDrumPitches)
+      \remove Ledger_line_engraver
+    } << \DrumTrack >>
+  >>
+%     >>
+       \midi {
+         \context {
+           \Staff
+           \consists "Dynamic_performer"
+      }
+         \context {
+           \Voice
+           \remove "Dynamic_performer"
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-men"
+  \score {
+    \unfoldRepeats
+%   \articulate
+    <<
+      \new ChoirStaff <<
+                                % Soprano staff
+        \new Staff = soprano \with { instrumentName = #"Soprano" } <<
+          \new Dynamics \dynamicsWomen
+          \new Voice \TempoTrack
+          \new Voice \RehearsalTrack
+          \new Voice { \voiceOne \global \sopA \sopB \sopCb \sopBb \sopDb \sopE \sopF \sopG \sopF \sopH \sopI }
+          >>
+                                % Alto staff
+        \new Staff = alto \with { instrumentName = #"Alto" } <<
+          \new Dynamics \dynamicsWomen
+          \new Voice = "alto"    { \voiceTwo \global \altoA \altoB \altoCb \altoBb \altoDb \altoE \altoF \altoG \altoF \altoH \altoI }
+        >>
+                                % Tenor staff
+        \new Staff = tenor \with { instrumentName = #"Tenor" } <<
+          \new Dynamics \dynamicsMen
+          \clef "treble_8"
+          \new Voice = "tenor" { \global \voiceOne \tenorAa \tenorBa \tenorCa \tenorB \tenorD \tenorE \tenorF \tenorG \tenorF \tenorH \tenorI }
+        >>
+                                % Bass staff
+        \new Staff = bass \with { instrumentName = #"Bass" } <<
+          \new Dynamics \dynamicsMen
+          \clef "bass"
+          \new Voice = "bass" { \global \voiceTwo \bassAa \bassBa \bassCa \bassB \bassD \bassE \bassF \bassG \bassF \bassH \bassI }
+          \addlyrics \wordsSingleMen
+        >>
+      >>
+      <<
+        \new ChordNames { \ChordTrack }
+                                %          \new FretBoards { \ChordTrack }
+      >>
+      \new PianoStaff <<
+        \new Staff <<
+          \new Voice \pianoRH
+          \new Voice \pianoRHone
+          \new Voice \pianoRHtwo
+        >>
+        \new Dynamics \dynamicsPiano
+        \new Staff <<
+          \clef "bass"
+          \new Voice \pianoLH
+        >>
+      >>
+      \new DrumStaff \with {
+        \override StaffSymbol.line-count = #1
+        drumStyleTable = #(alist->hash-table mystyle)
+        drumPitchTable = #(alist->hash-table midiDrumPitches)
+        \remove Ledger_line_engraver
+      } << \DrumTrack >>
+    >>
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
+  }
+}
+
