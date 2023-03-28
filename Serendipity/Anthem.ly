@@ -32,16 +32,13 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   copyright   = \today
 }
 
-% #(set-global-staff-size 16)
-
 global = {
   \key d \major
   \time 4/4
-  \tempo 4=96
 }
 
 TempoTrack = {
-  \tempo 4 = 96
+  \tempo "With patriotic fervor" 4=96
   s1*56
   \tempo 4=80 % 8a++
   s1*3 % 8b
@@ -242,7 +239,7 @@ wordsAll = \lyricmode {
 }
 
 wordsSopMidi = \lyricmode {
-  "\nNo " "man, "  "no " mad "ness, "
+  "No " "man, "  "no " mad "ness, "
   "\nthough " "their " "sad " pow "er " "may " pre "vail, "
   "\ncan " pos "sess, " con "quer " "my " coun "try's " "heart; "
   "\nthey " "rise "  "to " "fail. "
@@ -267,7 +264,7 @@ wordsSopMidi = \lyricmode {
 }
 
 wordsAllMidi = \lyricmode {
-  "\nNo " "man, "  "no " mad "ness, "
+  "No " "man, "  "no " mad "ness, "
   "\nthough " "their " "sad " pow "er " "may " pre "vail, "
   "\ncan " pos "sess, " con "quer " "my " coun "try's " "heart; "
   "\nthey " "rise "  "to " "fail. "
@@ -860,15 +857,11 @@ pianoLHtwo = \relative c' {
 \book {
   \bookOutputSuffix "single"
   \score {
-    \context GrandStaff <<
-      <<
-        \new ChordNames { \ChordTrack }
-%        \new FretBoards { \ChordTrack }
-      >>
       <<
         \new ChoirStaff <<
                                 % Joint soprano/alto staff
           \new Voice \RehearsalTrack
+          \new Voice \TempoTrack
           \new Dynamics \dynamicsWomen
           \new Lyrics = "sopabove"
           \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
@@ -885,6 +878,10 @@ pianoLHtwo = \relative c' {
             \new Voice = "bass"  { \voiceTwo \bass  }
           >>
         >>
+        <<
+          \new ChordNames { \ChordTrack }
+%        \new FretBoards { \ChordTrack }
+        >>
         \new PianoStaff <<
           \new Staff <<
             \new Voice \pianoRH
@@ -900,10 +897,79 @@ pianoLHtwo = \relative c' {
           >>
         >>
       >>
-    >>
     \layout {
+      #(layout-set-staff-size 19)
+      indent = 1.5\cm
+      \pointAndClickOff
       \context {
         \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+      <<
+        \new ChoirStaff <<
+                                % Joint soprano/alto staff
+          \new Voice \RehearsalTrack
+          \new Voice \TempoTrack
+          \new Dynamics \dynamicsWomen
+          \new Lyrics = "sopabove"
+          \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
+            \new Voice = "soprano" { \voiceOne \soprano }
+            \new Voice = "alto"    { \voiceTwo \alto    }
+            \new Lyrics \lyricsto "alto" \wordsAll
+          >>
+          \context Lyrics = "sopabove" { \lyricsto "soprano" \wordsSopAbove }
+                                % Joint tenor/bass staff
+          \new Dynamics \dynamicsMen
+          \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
+            \clef "bass"
+            \new Voice = "tenor" { \voiceOne \tenor }
+            \new Voice = "bass"  { \voiceTwo \bass  }
+          >>
+        >>
+        <<
+          \new ChordNames { \ChordTrack }
+%        \new FretBoards { \ChordTrack }
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+            \new Voice \pianoRH
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff <<
+            \clef "bass"
+            \new Voice \pianoLH
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    \layout {
+      #(layout-set-staff-size 20)
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
       }
     }
   }
@@ -915,11 +981,6 @@ pianoLHtwo = \relative c' {
    \unfoldRepeats
 %   \articulate
    <<
-    \context GrandStaff <<
-      <<
-        \new ChordNames { \ChordTrack }
-%        \new FretBoards { \ChordTrack }
-      >>
       <<
         \new ChoirStaff <<
                                 % Joint soprano/alto staff
@@ -937,15 +998,16 @@ pianoLHtwo = \relative c' {
             \new Voice = "bass"  { \voiceTwo \bass  }
           >>
         >>
+        <<
+          \new ChordNames { \ChordTrack }
+%        \new FretBoards { \ChordTrack }
+        >>
         \new PianoStaff <<
           \new Staff <<
             \new Voice \pianoRH
             \new Voice \pianoRHone
             \new Voice \pianoRHtwo
-          >>
-          \new Dynamics \dynamicsPiano
-          \new Staff <<
-            \clef "bass"
+            \new Dynamics \dynamicsPiano
             \new Voice \pianoLH
             \new Voice \pianoLHone
             \new Voice \pianoLHtwo
@@ -953,8 +1015,16 @@ pianoLHtwo = \relative c' {
         >>
       >>
     >>
- >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
@@ -963,12 +1033,6 @@ pianoLHtwo = \relative c' {
   \score {
    \unfoldRepeats
 %   \articulate
-   <<
-    \context GrandStaff <<
-      <<
-        \new ChordNames { \ChordTrack }
-%        \new FretBoards { \ChordTrack }
-      >>
       <<
         \new ChoirStaff <<
                                 % Joint soprano/alto staff
@@ -986,23 +1050,31 @@ pianoLHtwo = \relative c' {
             \new Voice = "bass"  { \voiceTwo \bass  }
           >>
         >>
+        <<
+          \new ChordNames { \ChordTrack }
+%        \new FretBoards { \ChordTrack }
+        >>
         \new PianoStaff <<
           \new Staff <<
             \new Voice \pianoRH
             \new Voice \pianoRHone
             \new Voice \pianoRHtwo
-          >>
-          \new Dynamics \dynamicsPiano
-          \new Staff <<
-            \clef "bass"
+            \new Dynamics \dynamicsPiano
             \new Voice \pianoLH
             \new Voice \pianoLHone
             \new Voice \pianoLHtwo
           >>
         >>
       >>
-    >>
- >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
