@@ -1,4 +1,4 @@
-\version "2.20.2"
+\version "2.25.0"
 
 \include "swing.ly"
 \include "articulate.ly"
@@ -23,7 +23,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   arranger    = "Arr. Russ Robinson"
 %  opus        = "opus"
 
-  poet        = "Herman Huffield"
+%  poet        = "Herman Huffield"
 %  meter       = "meter"
 %  piece       = "piece"
 
@@ -33,97 +33,91 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   copyright   = \today
 }
 
-% #(set-global-staff-size 16)
-
 global = {
   \key ees \major
   \time 4/4
   \partial 4
 }
 
-TempoA = {
-  \tempo "Medium Swing" 4=90
-  s4
+TempoTrack = {
   \set Score.tempoHideNote = ##t
+  \tempo \markup{"Medium Swing (" \rhythm {8[8]} = \rhythm{\tuplet 3/2 {4 8}} ) } 4=90
+  s4
   s1*4
   \repeat volta 2 {s1*6} \alternative {{s1 s1}{s1}} % 2b+
   s1
-}
-
-TempoB = {
-  s1*13
-}
-
-TempoC = {
-  s1*7
-  \repeat volta 2 {s1*6} \alternative {{s1 s1}{s1}}
-  s1
-}
-
-TempoD = {
-  s1*3
-  s2. \tempo 4=80 s4 % 8a % 8a
-  s2 \tempo 4=30 s4 \tempo 4=80 s4
-  \tempo 4=90 s1*3
-  s2 \tempo 4=30 s4 \tempo 4=90
-}
-
-TempoTrack = {\TempoA \TempoB \TempoC \TempoD}
-
-RehearsalTrackA = {
-  \mark \markup { \box "2a" } s4 s1*3
-  \mark \markup { \box "2b" } s1
-  \repeat volta 2 { s1*2
-                    \mark \markup { \box "3a" } s1*3
-                    \mark \markup { \box "3b" } s1
-                  }
-  \alternative {
-    { s1*2 }
-    {
-      \mark \markup { \box "3c" } s1
+  \repeat segno 2 {
+    s1*13
+    \alternative {
+      {
+        s1*7
+        \repeat volta 2 {s1*6} \alternative {{s1 s1}{s1}}
+        s1
+      }
+      {
+        s1*3
+        s2. \tempo 4=80 s4 % 8a % 8a
+        s2 \tempo 4=30 s4 \tempo 4=80 s4
+        \tempo 4=90 s1*3
+        s2 \tempo 4=30 s4 \tempo 4=90
+        
+      }
     }
   }
-  s1
 }
 
-RehearsalTrackB = {
-  \mark \markup { \musicglyph #"scripts.segno" } s1*2
-  \mark \markup { \box "4a" } s1*3
-  \mark \markup { \box "4b" } s1*3
-  \mark \markup { \box "4c" } s1*3
-  \mark \markup { \box "5a" } s1*2
-  \once \override Score.RehearsalMark.self-alignment-X = #RIGHT
-  \mark \markup \italic \bold \small {To Coda \musicglyph #"scripts.coda"}
-}
-
-RehearsalTrackC = {
-  s1
-  \mark \markup { \box "5b" } s1*3
-  \mark \markup { \box "5c" } s1*3
+RehearsalTrack = {
+  \textMark \markup { \box "2a" } s4 s1*3
+  \textMark \markup { \box "2b" } s1
   \repeat volta 2 {
-    \mark \markup { \box "6a" } s1*3
-    \mark \markup { \box "6b" } s1*3
-  }
-  \alternative {
-    {
-      \mark \markup { \box "7a" } s1*2
+    s1*2
+    \textMark \markup { \box "3a" } s1*3
+    \textMark \markup { \box "3b" } s1
+    \alternative {
+      { s1*2 }
+      {
+        \textMark \markup { \box "3c" } s1
+      }
     }
-    { s1 }
   }
-  s2..
-  \once \override Score.RehearsalMark.self-alignment-X = #RIGHT
-  \mark \markup \small \italic \bold { D.S. \musicglyph #"scripts.segno" {al Coda}}
-  s8 \break
+  s1
+  \repeat segno 2 {
+    s1*2
+    \textMark \markup { \box "4a" } s1*3
+    \textMark \markup { \box "4b" } s1*3
+    \textMark \markup { \box "4c" } s1*3
+    \textMark \markup { \box "5a" } s1*2
+    \once \override Score.RehearsalMark.self-alignment-X = #RIGHT
+    \mark \markup {\italic \bold \small {To Coda}}
+    \alternative {
+      {
+        s1
+        \textMark \markup { \box "5b" } s1*3
+        \textMark \markup { \box "5c" } s1*3
+        \repeat volta 2 {
+          \textMark \markup { \box "6a" } s1*3
+          \textMark \markup { \box "6b" } s1*3
+          \alternative {
+            {
+              \textMark \markup { \box "7a" } s1*2
+            }
+            { s1 }
+          }
+        }
+        s2..
+%  \once \override Score.RehearsalMark.self-alignment-X = #RIGHT
+%  \textMark \markup \small \italic \bold { D.S. \musicglyph "scripts.segno" {al Coda}}
+        s8 \break
+      }
+      { \section \sectionLabel "Coda"
+        \once \override Score.RehearsalMark.self-alignment-X = #LEFT
+        \textMark \markup \bold \italic { \musicglyph "scripts.coda" Coda} s1*3
+        \textMark \markup { \box "8a" } s1*3
+        \textMark \markup { \box "8b" } s1*3
+      }
+    }
+  }
 }
-
-RehearsalTrackD = {
-  \once \override Score.RehearsalMark.self-alignment-X = #LEFT
-  \mark \markup \bold \italic { \musicglyph #"scripts.coda" Coda} s1*3
-  \mark \markup { \box "8a" } s1*3
-  \mark \markup { \box "8b" } s1*3
-}
-
-RehearsalTrack = { \RehearsalTrackA \RehearsalTrackB \RehearsalTrackC \RehearsalTrackD }
 
 ChordTrackA = \chordmode {
   s4
@@ -207,8 +201,20 @@ ChordTrackD = \chordmode {
   des4:6.9 d8:6.9 ees4.:6.9
 }
 
-ChordTrack = { \ChordTrackA \ChordTrackB \ChordTrackC \ChordTrackD }
-
+ChordTrack = {
+  \ChordTrackA
+  \repeat segno 2 {
+    \ChordTrackB
+    \alternative {
+      {
+        \ChordTrackC
+      }
+      {
+        \ChordTrackD
+      }
+    }
+  }
+}
 soloA = \relative {
   \global
   s4
@@ -240,7 +246,20 @@ soloD = {
   R1*9
 }
 
-solo = {\soloA \soloB \soloC \soloD}
+solo = {
+  \soloA
+  \repeat segno 2 {
+    \soloB
+    \alternative {
+      {
+        \soloC
+      }
+      {
+        \soloD
+      }
+    }
+  }
+}
 
 wordsSoloOne = \lyricmode {
   You must re- mem- ber this,
@@ -367,7 +386,20 @@ sopranoD = \relative {
   \bar "|."
 }
 
-soprano = { \sopranoA \sopranoB \sopranoC \sopranoD }
+soprano = {
+  \sopranoA
+  \repeat segno 2 {
+    \sopranoB
+    \alternative {
+      {
+        \sopranoC
+      }
+      {
+        \sopranoD
+      }
+    }
+  }
+}
 
 altoA = \relative {
   \global
@@ -449,7 +481,20 @@ altoD = \relative {
   \bar "|."
 }
 
-alto = { \altoA \altoB \altoC \altoD }
+alto = {
+  \altoA
+  \repeat segno 2 {
+    \altoB
+    \alternative {
+      {
+        \altoC
+      }
+      {
+        \altoD
+      }
+    }
+  }
+}
 
 wordsWomenOne = \lyricmode {
   You must re- mem- ber this,
@@ -746,7 +791,20 @@ dwD = {
   s1*2 s2.
 }
 
-dynamicsWomen = { \dwA \dwB \dwC \dwD }
+dynamicsWomen = {
+  \dwA
+  \repeat segno 2 {
+    \dwB
+    \alternative {
+      {
+        \dwC
+      }
+      {
+        \dwD
+      }
+    }
+  }
+}
 
 tenorA = \relative {
   \global
@@ -827,7 +885,20 @@ tenorD = \relative {
   \bar "|."
 }
 
-tenor = { \tenorA \tenorB \tenorC \tenorD }
+tenor = {
+  \tenorA
+  \repeat segno 2 {
+    \tenorB
+    \alternative {
+      {
+        \tenorC
+      }
+      {
+        \tenorD
+      }
+    }
+  }
+}
 
 dynamicsTenor = {
   \override DynamicTextSpanner.style = #'none
@@ -913,7 +984,20 @@ bassD = \relative {
   \bar "|."
 }
 
-bass = { \bassA \bassB \bassC \bassD }
+bass = {
+  \bassA
+  \repeat segno 2 {
+    \bassB
+    \alternative {
+      {
+        \bassC
+      }
+      {
+        \bassD
+      }
+    }
+  }
+}
 
 wordsMenOne = \lyricmode {
 % other stuff
@@ -1064,7 +1148,20 @@ dmD = {
   s2.
 }
 
-dynamicsMen = { \dmA \dmB \dmC \dmD }
+dynamicsMen = {
+  \dmA
+  \repeat segno 2 {
+    \dmB
+    \alternative {
+      {
+        \dmC
+      }
+      {
+        \dmD
+      }
+    }
+  }
+}
 
 pianoRHA = \relative {
   \global
@@ -1150,7 +1247,20 @@ pianoRHD = \relative {
   \bar "|."
 }
 
-pianoRH = { \pianoRHA \pianoRHB \pianoRHC \pianoRHD }
+pianoRH = {
+  \pianoRHA
+  \repeat segno 2 {
+    \pianoRHB
+    \alternative {
+      {
+        \pianoRHC
+      }
+      {
+        \pianoRHD
+      }
+    }
+  }
+}
 
 pianoRHoneA = \relative {
   \global
@@ -1231,7 +1341,20 @@ pianoRHoneD = \relative {
   \tripletFeel 8 {f'8 ees d c} d4 ees % 8a
 }
 
-pianoRHone = { \pianoRHoneA \pianoRHoneB \pianoRHoneC \pianoRHoneD }
+pianoRHone = {
+  \pianoRHoneA
+  \repeat segno 2 {
+    \pianoRHoneB
+    \alternative {
+      {
+        \pianoRHoneC
+      }
+      {
+        \pianoRHoneD
+      }
+    }
+  }
+}
 
 pianoRHtwoA = \relative {
   \global
@@ -1312,7 +1435,20 @@ pianoRHtwoD = \relative {
   a'2 a % 8a
 }
 
-pianoRHtwo = { \pianoRHtwoA \pianoRHtwoB \pianoRHtwoC \pianoRHtwoD }
+pianoRHtwo = {
+  \pianoRHtwoA
+  \repeat segno 2 {
+    \pianoRHtwoB
+    \alternative {
+      {
+        \pianoRHtwoC
+      }
+      {
+        \pianoRHtwoD
+      }
+    }
+  }
+}
 
 dpA = {
   \override DynamicTextSpanner.style = #'none
@@ -1357,7 +1493,20 @@ dpD = {
   s1*3
 }
 
-dynamicsPiano = { \dpA \dpB \dpC \dpD }
+dynamicsPiano = {
+  \dpA
+  \repeat segno 2 {
+    \dpB
+    \alternative {
+      {
+        \dpC
+      }
+      {
+        \dpD
+      }
+    }
+  }
+}
 
 pianoLHA = \relative {
   \global
@@ -1440,7 +1589,20 @@ pianoLHD = \relative {
   \bar "|."
 }
 
-pianoLH = { \pianoLHA \pianoLHB \pianoLHC \pianoLHD }
+pianoLH = {
+  \pianoLHA
+  \repeat segno 2 {
+    \pianoLHB
+    \alternative {
+      {
+        \pianoLHC
+      }
+      {
+        \pianoLHD
+      }
+    }
+  }
+}
 
 pianoLHoneA = \relative {
   \global
@@ -1478,7 +1640,20 @@ pianoLHoneC = \relative {
 pianoLHoneD = \relative {
 }
 
-pianoLHone = { \pianoLHoneA \pianoLHoneB \pianoLHoneC \pianoLHoneD }
+pianoLHone = {
+  \pianoLHoneA
+  \repeat segno 2 {
+    \pianoLHoneB
+    \alternative {
+      {
+        \pianoLHoneC
+      }
+      {
+        \pianoLHoneD
+      }
+    }
+  }
+}
 
 pianoLHtwoA = \relative {
   \global
@@ -1516,7 +1691,20 @@ pianoLHtwoC = \relative {
 pianoLHtwoD = \relative {
 }
 
-pianoLHtwo = { \pianoLHtwoA \pianoLHtwoB \pianoLHtwoC \pianoLHtwoD }
+pianoLHtwo = {
+  \pianoLHtwoA
+  \repeat segno 2 {
+    \pianoLHtwoB
+    \alternative {
+      {
+        \pianoLHtwoC
+      }
+      {
+        \pianoLHtwoD
+      }
+    }
+  }
+}
 
 \book {
   \bookOutputSuffix "repeat"
@@ -1575,9 +1763,13 @@ pianoLHtwo = { \pianoLHtwoA \pianoLHtwoB \pianoLHtwoC \pianoLHtwoD }
       >>
     >>
     \layout {
+      #(layout-set-staff-size 16)
       indent = 1.5\cm
+      \pointAndClickOff
       \context {
         \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
       }
     }
   }
@@ -1590,58 +1782,139 @@ pianoLHtwo = { \pianoLHtwoA \pianoLHtwoB \pianoLHtwoC \pianoLHtwoD }
 %   \articulate
     <<
       <<
-        \new Voice { \TempoA \TempoB \TempoC \TempoB \TempoD }
-        \new Voice { \RehearsalTrackA \RehearsalTrackB \RehearsalTrackC \RehearsalTrackB \RehearsalTrackD }
+        \new Voice \TempoTrack
+        \new Voice \RehearsalTrack
         \new ChoirStaff <<
                                   % Single solo staff
           \new Staff \with { instrumentName = #"Solo" shortInstrumentName = #"Solo" } <<
-            \new Voice = "solo" { \soloA \soloB \soloC \soloB \soloD }
+            \new Voice = "solo" \solo
             \new Lyrics \lyricsto "solo" \wordsSoloSingle
           >>
                                   % Joint soprano/alto staff
-          \new Dynamics { \dwA \dwB \dwC \dwB \dwD }
+          \new Dynamics \dynamicsWomen
           \new Lyrics = "sopabove"
-          \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
-            \new Voice = "soprano" { \voiceOne \sopranoA \sopranoB \sopranoC \sopranoB \sopranoD }
-            \new Voice = "alto"    { \voiceTwo \altoA    \altoB    \altoC    \altoB    \altoD    }
-            \new NullVoice = "aligner" { \sopranoA \sopranoB \sopranoC \sopranoB \sopranoD }
+          \new Staff = women \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
+            \new Voice = "soprano" { \voiceOne \soprano }
+            \new Voice = "alto"    { \voiceTwo \alto }
+            \new NullVoice = "aligner" \soprano
             \new Lyrics \lyricsto "aligner" \wordsWomenSingle
             \new Lyrics \lyricsto "alto" \wordsAltoSingle
-            \context Lyrics = "sopabove" \lyricsto "soprano" { \wordsSopranoSingle }
+            \new Lyrics \with {alignAboveContext = women} \lyricsto soprano \wordsSopranoSingle
           >>
                                   % Joint tenor/bass staff
           \new Dynamics \dynamicsMen
           \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
             \clef "bass"
-            \new Voice = "tenor" { \voiceOne \tenorA \tenorB \tenorC \tenorB \tenorD }
-            \new Voice = "bass"  { \voiceTwo \bassA  \bassB  \bassC  \bassB  \bassD  }
+            \new Voice = "tenor" { \voiceOne \tenor }
+            \new Voice = "bass"  { \voiceTwo \bass  }
             \new Lyrics \lyricsto "bass" \wordsMenSingle
           >>
         >>
       <<
-        \new ChordNames { \ChordTrackA \ChordTrackB \ChordTrackC \ChordTrackB \ChordTrackD }
-%        \new FretBoards { \ChordTrackA \ChordTrackB \ChordTrackC \ChordTrackB \ChordTrackD }
+        \new ChordNames \ChordTrack
+%        \new FretBoards \ChordTrack
       >>
         \new PianoStaff <<
           \new Staff <<
-            \new Voice { \pianoRHA \pianoRHB \pianoRHC \pianoRHB \pianoRHD }
-            \new Voice { \pianoRHoneA \pianoRHoneB \pianoRHoneC \pianoRHoneB \pianoRHoneD }
-            \new Voice { \pianoRHtwoA \pianoRHtwoB \pianoRHtwoC \pianoRHtwoB \pianoRHtwoD }
+            \new Voice \pianoRH
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
           >>
-          \new Dynamics { \dpA \dpB \dpC \dpB \dpD }
+          \new Dynamics \dynamicsPiano
           \new Staff <<
             \clef "bass"
-            \new Voice { \pianoLHA \pianoLHB \pianoLHC \pianoLHB \pianoLHD }
-            \new Voice { \pianoLHoneA \pianoLHoneB \pianoLHoneC \pianoLHoneB \pianoLHoneD }
-            \new Voice { \pianoLHtwoA \pianoLHtwoB \pianoLHtwoC \pianoLHtwoB \pianoLHtwoD }
+            \new Voice \pianoLH
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
           >>
         >>
       >>
     >>
     \layout {
+      #(layout-set-staff-size 20)
       indent = 1.5\cm
+      \pointAndClickOff
       \context {
         \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+  \unfoldRepeats
+%   \articulate
+    <<
+      <<
+        \new Voice \TempoTrack
+        \new Voice \RehearsalTrack
+        \new ChoirStaff <<
+                                  % Single solo staff
+          \new Staff \with { instrumentName = #"Solo" shortInstrumentName = #"Solo" } <<
+            \new Voice = "solo" \solo
+            \new Lyrics \lyricsto "solo" \wordsSoloSingle
+          >>
+                                  % Joint soprano/alto staff
+          \new Dynamics \dynamicsWomen
+          \new Lyrics = "sopabove"
+          \new Staff = women \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
+            \new Voice = "soprano" { \voiceOne \soprano }
+            \new Voice = "alto"    { \voiceTwo \alto }
+            \new NullVoice = "aligner" \soprano
+            \new Lyrics \lyricsto "aligner" \wordsWomenSingle
+            \new Lyrics \lyricsto "alto" \wordsAltoSingle
+            \new Lyrics \with {alignAboveContext = women} \lyricsto soprano \wordsSopranoSingle
+          >>
+                                  % Joint tenor/bass staff
+          \new Dynamics \dynamicsMen
+          \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
+            \clef "bass"
+            \new Voice = "tenor" { \voiceOne \tenor }
+            \new Voice = "bass"  { \voiceTwo \bass  }
+            \new Lyrics \lyricsto "bass" \wordsMenSingle
+          >>
+        >>
+      <<
+        \new ChordNames \ChordTrack
+%        \new FretBoards \ChordTrack
+      >>
+        \new PianoStaff <<
+          \new Staff <<
+            \new Voice \pianoRH
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff <<
+            \clef "bass"
+            \new Voice \pianoLH
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      #(layout-set-staff-size 20)
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
       }
     }
   }
@@ -1654,53 +1927,64 @@ pianoLHtwo = { \pianoLHtwoA \pianoLHtwoB \pianoLHtwoC \pianoLHtwoD }
 %   \articulate
     <<
       <<
-        \new Voice { \TempoA \TempoB \TempoC \TempoB \TempoD }
-        \new Voice { \RehearsalTrackA \RehearsalTrackB \RehearsalTrackC \RehearsalTrackB \RehearsalTrackD }
+        \new Voice \TempoTrack
+        \new Voice \RehearsalTrack
         \new ChoirStaff <<
                                   % Single solo staff
-          \new Staff \with { instrumentName = #"Solo" shortInstrumentName = #"Solo" } <<
-            \new Voice = "solo" { \soloA \soloB \soloC \soloB \soloD }
-            \new Lyrics \lyricsto "solo" \wordsSoloSingleMidi
+          \new Staff = solo \with { instrumentName = #"Solo" } <<
+            \new Voice = "solo" \solo
+            \addlyrics \wordsSoloSingleMidi
           >>
-                                  % Joint soprano/alto staff
-          \new Dynamics { \dwA \dwB \dwC \dwB \dwD }
-          \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
-            \new Voice = "soprano" { \voiceOne \sopranoA \sopranoB \sopranoC \sopranoB \sopranoD }
-            \new Voice = "alto"    { \voiceTwo \altoA    \altoB    \altoC    \altoB    \altoD    }
-            \new NullVoice = "aligner" { \sopranoA \sopranoB \sopranoC \sopranoB \sopranoD }
-%            \new Lyrics \lyricsto "aligner" \wordsSopranoSingleMidi
-%            \new Lyrics \lyricsto "alto" \wordsAltoSingleMidi
+                                % Soprano staff
+          \new Staff = soprano \with { instrumentName = #"Soprano" } <<
+            \new Dynamics \dynamicsWomen
+            \new Voice \soprano
           >>
-                                  % Joint tenor/bass staff
+                                % Alto staff
+          \new Staff = alto \with { instrumentName = #"Alto" } <<
+            \new Dynamics \dynamicsWomen
+            \new Voice = "alto" \alto
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with { instrumentName = #"Tenor" } <<
           \new Dynamics \dynamicsMen
-          \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
+            \clef "treble_8"
+            \new Voice = "tenor" \tenor
+          >>
+                                % Bass staff
+          \new Staff = bass \with { instrumentName = #"Bass" } <<
+            \new Dynamics \dynamicsMen
             \clef "bass"
-            \new Voice = "tenor" { \voiceOne \tenorA \tenorB \tenorC \tenorB \tenorD }
-            \new Voice = "bass"  { \voiceTwo \bassA  \bassB  \bassC  \bassB  \bassD  }
-%            \new Lyrics \lyricsto "bass" \wordsMenSingleMidi
+            \new Voice \bass
           >>
         >>
       <<
-        \new ChordNames { \ChordTrackA \ChordTrackB \ChordTrackC \ChordTrackB \ChordTrackD }
-%        \new FretBoards { \ChordTrackA \ChordTrackB \ChordTrackC \ChordTrackB \ChordTrackD }
+%        \new ChordNames \ChordTrack
+%        \new FretBoards \ChordTrack
       >>
         \new PianoStaff <<
-          \new Staff <<
-            \new Voice { \pianoRHA \pianoRHB \pianoRHC \pianoRHB \pianoRHD }
-            \new Voice { \pianoRHoneA \pianoRHoneB \pianoRHoneC \pianoRHoneB \pianoRHoneD }
-            \new Voice { \pianoRHtwoA \pianoRHtwoB \pianoRHtwoC \pianoRHtwoB \pianoRHtwoD }
-          >>
-          \new Dynamics { \dpA \dpB \dpC \dpB \dpD }
-          \new Staff <<
-            \clef "bass"
-            \new Voice { \pianoLHA \pianoLHB \pianoLHC \pianoLHB \pianoLHD }
-            \new Voice { \pianoLHoneA \pianoLHoneB \pianoLHoneC \pianoLHoneB \pianoLHoneD }
-            \new Voice { \pianoLHtwoA \pianoLHtwoB \pianoLHtwoC \pianoLHtwoB \pianoLHtwoD }
+          \new Staff = piano <<
+            \new Voice \pianoRH
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+            \new Dynamics \dynamicsPiano
+            \new Voice \pianoLH
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
           >>
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
@@ -1711,52 +1995,63 @@ pianoLHtwo = { \pianoLHtwoA \pianoLHtwoB \pianoLHtwoC \pianoLHtwoD }
 %   \articulate
     <<
       <<
-        \new Voice { \TempoA \TempoB \TempoC \TempoB \TempoD }
-        \new Voice { \RehearsalTrackA \RehearsalTrackB \RehearsalTrackC \RehearsalTrackB \RehearsalTrackD }
+        \new Voice \TempoTrack
         \new ChoirStaff <<
                                   % Single solo staff
-          \new Staff \with { instrumentName = #"Solo" shortInstrumentName = #"Solo" } <<
-            \new Voice = "solo" { \soloA \soloB \soloC \soloB \soloD }
-%            \new Lyrics \lyricsto "solo" \wordsSoloSingleMidi
+          \new Staff = solo \with { instrumentName = #"Solo" } <<
+            \new Voice \solo
           >>
-                                  % Joint soprano/alto staff
-          \new Dynamics { \dwA \dwB \dwC \dwB \dwD }
-          \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
-            \new Voice = "soprano" { \voiceOne \sopranoA \sopranoB \sopranoC \sopranoB \sopranoD }
-            \new Voice = "alto"    { \voiceTwo \altoA    \altoB    \altoC    \altoB    \altoD    }
-            \new Lyrics \lyricsto "soprano" \wordsSopranoSingleMidi
-%            \new Lyrics \lyricsto "alto" \wordsAltoSingleMidi
+                                % Soprano staff
+          \new Staff = soprano \with { instrumentName = #"Soprano" } <<
+            \new Dynamics \dynamicsWomen
+            \new Voice \soprano
+            \addlyrics \wordsSopranoSingleMidi
           >>
-                                  % Joint tenor/bass staff
-          \new Dynamics \dynamicsMen
-          \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
+                                % Alto staff
+          \new Staff = alto \with { instrumentName = #"Alto" } <<
+            \new Dynamics \dynamicsWomen
+            \new Voice \alto
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with { instrumentName = #"Tenor" } <<
+            \new Dynamics \dynamicsMen
+            \clef "treble_8"
+            \new Voice \tenor
+          >>
+                                % Bass staff
+          \new Staff = bass \with { instrumentName = #"Bass" } <<
+            \new Dynamics \dynamicsMen
             \clef "bass"
-            \new Voice = "tenor" { \voiceOne \tenorA \tenorB \tenorC \tenorB \tenorD }
-            \new Voice = "bass"  { \voiceTwo \bassA  \bassB  \bassC  \bassB  \bassD  }
-%            \new Lyrics \lyricsto "bass" \wordsMenSingleMidi
+            \new Voice \bass
           >>
         >>
       <<
-%        \new ChordNames { \ChordTrackA \ChordTrackB \ChordTrackC \ChordTrackB \ChordTrackD }
-%        \new FretBoards { \ChordTrackA \ChordTrackB \ChordTrackC \ChordTrackB \ChordTrackD }
+%        \new ChordNames \ChordTrack
+%        \new FretBoards \ChordTrack
       >>
         \new PianoStaff <<
-          \new Staff <<
-            \new Voice { \pianoRHA \pianoRHB \pianoRHC \pianoRHB \pianoRHD }
-            \new Voice { \pianoRHoneA \pianoRHoneB \pianoRHoneC \pianoRHoneB \pianoRHoneD }
-            \new Voice { \pianoRHtwoA \pianoRHtwoB \pianoRHtwoC \pianoRHtwoB \pianoRHtwoD }
-          >>
-          \new Dynamics { \dpA \dpB \dpC \dpB \dpD }
-          \new Staff <<
-            \clef "bass"
-            \new Voice { \pianoLHA \pianoLHB \pianoLHC \pianoLHB \pianoLHD }
-            \new Voice { \pianoLHoneA \pianoLHoneB \pianoLHoneC \pianoLHoneB \pianoLHoneD }
-            \new Voice { \pianoLHtwoA \pianoLHtwoB \pianoLHtwoC \pianoLHtwoB \pianoLHtwoD }
+          \new Staff = piano <<
+            \new Voice \pianoRH
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+            \new Dynamics \dynamicsPiano
+            \new Voice \pianoLH
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
           >>
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
@@ -1767,50 +2062,64 @@ pianoLHtwo = { \pianoLHtwoA \pianoLHtwoB \pianoLHtwoC \pianoLHtwoD }
 %   \articulate
     <<
       <<
-        \new Voice { \TempoA \TempoB \TempoC \TempoB \TempoD }
-        \new Voice { \RehearsalTrackA \RehearsalTrackB \RehearsalTrackC \RehearsalTrackB \RehearsalTrackD }
+        \new Voice \TempoTrack
+        \new Voice \RehearsalTrack
         \new ChoirStaff <<
                                   % Single solo staff
-          \new Staff \with { instrumentName = #"Solo" shortInstrumentName = #"Solo" } <<
-            \new Voice = "solo" { \soloA \soloB \soloC \soloB \soloD }
-%            \new Lyrics \lyricsto "solo" \wordsSoloSingleMidi
+          \new Staff = solo \with { instrumentName = #"Solo" } <<
+            \new Voice \solo
           >>
-                                  % Joint soprano/alto staff
-          \new Dynamics { \dwA \dwB \dwC \dwB \dwD }
-          \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
-            \new Voice = "soprano" { \voiceOne \sopranoA \sopranoB \sopranoC \sopranoB \sopranoD }
-            \new Voice = "alto"    { \voiceTwo \altoA    \altoB    \altoC    \altoB    \altoD    }
-            \new Lyrics \lyricsto "alto" \wordsAltoSingleMidi
+                                % Soprano staff
+          \new Staff = soprano \with { instrumentName = #"Soprano/Alto" } <<
+            \new Dynamics \dynamicsWomen
+            \new Voice \soprano
           >>
-                                  % Joint tenor/bass staff
-          \new Dynamics \dynamicsMen
-          \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
+                                % Alto staff
+          \new Staff = alto \with { instrumentName = #"Alto" } <<
+            \new Dynamics \dynamicsWomen
+            \new Voice \alto
+            \addlyrics \wordsAltoSingleMidi
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with { instrumentName = #"Tenor" } <<
+            \new Dynamics \dynamicsMen
+            \clef "treble_8"
+            \new Voice \tenor
+          >>
+                                % Bass staff
+          \new Staff = bass \with { instrumentName = #"Bass" } <<
+            \new Dynamics \dynamicsMen
             \clef "bass"
-            \new Voice = "tenor" { \voiceOne \tenorA \tenorB \tenorC \tenorB \tenorD }
-            \new Voice = "bass"  { \voiceTwo \bassA  \bassB  \bassC  \bassB  \bassD  }
+            \new Voice \bass
           >>
         >>
       <<
-%        \new ChordNames { \ChordTrackA \ChordTrackB \ChordTrackC \ChordTrackB \ChordTrackD }
-%        \new FretBoards { \ChordTrackA \ChordTrackB \ChordTrackC \ChordTrackB \ChordTrackD }
+%        \new ChordNames \ChordTrack
+%        \new FretBoards \ChordTrack
       >>
         \new PianoStaff <<
-          \new Staff <<
-            \new Voice { \pianoRHA \pianoRHB \pianoRHC \pianoRHB \pianoRHD }
-            \new Voice { \pianoRHoneA \pianoRHoneB \pianoRHoneC \pianoRHoneB \pianoRHoneD }
-            \new Voice { \pianoRHtwoA \pianoRHtwoB \pianoRHtwoC \pianoRHtwoB \pianoRHtwoD }
-          >>
-          \new Dynamics { \dpA \dpB \dpC \dpB \dpD }
-          \new Staff <<
-            \clef "bass"
-            \new Voice { \pianoLHA \pianoLHB \pianoLHC \pianoLHB \pianoLHD }
-            \new Voice { \pianoLHoneA \pianoLHoneB \pianoLHoneC \pianoLHoneB \pianoLHoneD }
-            \new Voice { \pianoLHtwoA \pianoLHtwoB \pianoLHtwoC \pianoLHtwoB \pianoLHtwoD }
+          \new Staff = piano <<
+            \new Voice \pianoRH
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+            \new Dynamics \dynamicsPiano
+            \new Voice \pianoLH
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
           >>
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
@@ -1822,50 +2131,64 @@ pianoLHtwo = { \pianoLHtwoA \pianoLHtwoB \pianoLHtwoC \pianoLHtwoD }
 %   \articulate
     <<
       <<
-        \new Voice { \TempoA \TempoB \TempoC \TempoB \TempoD }
-        \new Voice { \RehearsalTrackA \RehearsalTrackB \RehearsalTrackC \RehearsalTrackB \RehearsalTrackD }
+        \new Voice \TempoTrack
+        \new Voice \RehearsalTrack
         \new ChoirStaff <<
                                   % Single solo staff
-          \new Staff \with { instrumentName = #"Solo" shortInstrumentName = #"Solo" } <<
-            \new Voice = "solo" { \soloA \soloB \soloC \soloB \soloD }
+          \new Staff = solo \with { instrumentName = #"Solo" } <<
+            \new Voice = "solo" \solo
           >>
-                                  % Joint soprano/alto staff
-          \new Dynamics { \dwA \dwB \dwC \dwB \dwD }
-          \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
-            \new Voice = "soprano" { \voiceOne \sopranoA \sopranoB \sopranoC \sopranoB \sopranoD }
-            \new Voice = "alto"    { \voiceTwo \altoA    \altoB    \altoC    \altoB    \altoD    }
-            \new NullVoice = "aligner" { \sopranoA \sopranoB \sopranoC \sopranoB \sopranoD }
+                                % Soprano staff
+          \new Staff = soprano \with { instrumentName = #"Soprano" } <<
+            \new Dynamics \dynamicsWomen
+            \new Voice \soprano
           >>
-                                  % Joint tenor/bass staff
-          \new Dynamics \dynamicsMen
-          \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
+                                % Alto staff
+          \new Staff = alto \with { instrumentName = #"Alto" } <<
+            \new Dynamics \dynamicsWomen
+            \new Voice \alto
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with { instrumentName = #"Tenor" } <<
+            \new Dynamics \dynamicsMen
+            \clef "treble_8"
+            \new Voice \tenor
+          >>
+                                % Bass staff
+          \new Staff = bass \with { instrumentName = #"Bass" } <<
+            \new Dynamics \dynamicsMen
             \clef "bass"
-            \new Voice = "tenor" { \voiceOne \tenorA \tenorB \tenorC \tenorB \tenorD }
-            \new Voice = "bass"  { \voiceTwo \bassA  \bassB  \bassC  \bassB  \bassD  }
-            \new Lyrics \lyricsto "bass" \wordsMenSingleMidi
+            \new Voice \bass
+            \addlyrics \wordsMenSingleMidi
           >>
         >>
       <<
-%        \new ChordNames { \ChordTrackA \ChordTrackB \ChordTrackC \ChordTrackB \ChordTrackD }
-%        \new FretBoards { \ChordTrackA \ChordTrackB \ChordTrackC \ChordTrackB \ChordTrackD }
+%        \new ChordNames \ChordTrack
+%        \new FretBoards \ChordTrack
       >>
         \new PianoStaff <<
-          \new Staff <<
-            \new Voice { \pianoRHA \pianoRHB \pianoRHC \pianoRHB \pianoRHD }
-            \new Voice { \pianoRHoneA \pianoRHoneB \pianoRHoneC \pianoRHoneB \pianoRHoneD }
-            \new Voice { \pianoRHtwoA \pianoRHtwoB \pianoRHtwoC \pianoRHtwoB \pianoRHtwoD }
-          >>
-          \new Dynamics { \dpA \dpB \dpC \dpB \dpD }
-          \new Staff <<
-            \clef "bass"
-            \new Voice { \pianoLHA \pianoLHB \pianoLHC \pianoLHB \pianoLHD }
-            \new Voice { \pianoLHoneA \pianoLHoneB \pianoLHoneC \pianoLHoneB \pianoLHoneD }
-            \new Voice { \pianoLHtwoA \pianoLHtwoB \pianoLHtwoC \pianoLHtwoB \pianoLHtwoD }
+          \new Staff = piano <<
+            \new Voice \pianoRH
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+            \new Dynamics \dynamicsPiano
+            \new Voice \pianoLH
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
           >>
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
