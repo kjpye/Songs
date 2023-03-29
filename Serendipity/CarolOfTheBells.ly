@@ -1,34 +1,34 @@
-\version "2.16.2"
+\version "2.25.0"
 \include "english.ly"
 
 #(set-global-staff-size 16)
 
 setStaffElements = {
-  \override Staff.Clef #'font-size = #-2
-  \override Staff.TimeSignature #'font-size = #-1
-  \override Staff.KeySignature #'font-size = #-1.5
-  \override Staff.BarLine #'hair-thickness = #1
-  \override Staff.BarLine #'thick-thickness = #5
-  \override Staff.MultiMeasureRest #'font-size = #-1.5
+  \override Staff.Clef.font-size = #-2
+  \override Staff.TimeSignature.font-size = #-1
+  \override Staff.KeySignature.font-size = #-1.5
+  \override Staff.BarLine.hair-thickness = #1
+  \override Staff.BarLine.thick-thickness = #5
+  \override Staff.MultiMeasureRest.font-size = #-1.5
 }
 
 turnOffMarkup = {
-  \override DynamicText #'stencil = ##f
-  \override Script #'stencil = ##f
-  \override Hairpin #'stencil = ##f
-  \override TextScript #'stencil = ##f
+  \override DynamicText.stencil = ##f
+  \override Script.stencil = ##f
+  \override Hairpin.stencil = ##f
+  \override TextScript.stencil = ##f
 }
 
 setNoteSize = {
-  \override NoteHead #'font-size = #-1.5
-  \override Script #'font-size = #-1.5
-  \override Rest #'font-size = #-1.5
-  \override Accidental #'font-size = #-1.5
-  \override Dots #'font-size = #-1.5
-  \override DynamicText #'font-size = #-1
+  \override NoteHead.font-size = #-1.5
+  \override Script.font-size = #-1.5
+  \override Rest.font-size = #-1.5
+  \override Accidental.font-size = #-1.5
+  \override Dots.font-size = #-1.5
+  \override DynamicText.font-size = #-1
 }
 
-setLyricSize = { \override LyricText #'font-size = #-1.5 }
+setLyricSize = { \override LyricText.font-size = #-1.5 }
 
 ten = \markup { \smaller \italic \halign #-0.5 "ten." }
 dim = \markup { \smaller \italic "dim." }
@@ -50,7 +50,7 @@ all = \markup { "All" }
 %  top-margin = 0.625\in
 %  bottom-margin = 0.625\in
   
-%  markup-system-spacing #'basic-distance = #20
+%  markup-system-spacing.basic-distance = #20
 %  page-count = #3
 %  max-systems-per-page = #2
 %  ragged-last-bottom = ##f
@@ -370,7 +370,7 @@ bassWords = \lyricmode {
 choirStaff = \new ChoirStaff <<
     \new Staff \with {
       instrumentName = \markup {\right-align "S"}
-      \override StaffSymbol #'ledger-line-thickness = #'(0.4 . 0.1)
+      \override StaffSymbol.ledger-line-thickness = #'(0.4 . 0.1)
     } {
       \setStaffElements
       \global \clef treble
@@ -385,12 +385,12 @@ choirStaff = \new ChoirStaff <<
     }
 %    \new Lyrics \lyricsto "sopranos" {
 %      \setLyricSize
-%      \override LyricText #'font-shape = #'italic
+%      \override LyricText.font-shape = #'italic
 %      \sopTransWords
 %    }
     \new Staff \with {
       instrumentName = \markup {\right-align "A"}
-      \override StaffSymbol #'ledger-line-thickness = #'(0.4 . 0.1)
+      \override StaffSymbol.ledger-line-thickness = #'(0.4 . 0.1)
     } {
       \setStaffElements
       \global \clef treble
@@ -404,12 +404,12 @@ choirStaff = \new ChoirStaff <<
     }
 %    \new Lyrics \lyricsto "altos" {
 %      \setLyricSize
-%      \override LyricText #'font-shape = #'italic
+%      \override LyricText.font-shape = #'italic
 %      \altoTransWords
 %    }
     \new Staff \with {
       instrumentName = \markup {\right-align "T"}
-      \override StaffSymbol #'ledger-line-thickness = #'(0.4 . 0.1)
+      \override StaffSymbol.ledger-line-thickness = #'(0.4 . 0.1)
     } {
       \setStaffElements
       \global \clef "treble_8"
@@ -423,12 +423,12 @@ choirStaff = \new ChoirStaff <<
     }
 %    \new Lyrics \lyricsto "tenors" {
 %      \setLyricSize
-%      \override LyricText #'font-shape = #'italic
+%      \override LyricText.font-shape = #'italic
 %      \tenorTransWords
 %    }
     \new Staff \with {
       instrumentName = \markup {\right-align "B"}
-      \override StaffSymbol #'ledger-line-thickness = #'(0.4 . 0.1)
+      \override StaffSymbol.ledger-line-thickness = #'(0.4 . 0.1)
     } {
       \setStaffElements
       \global \clef bass
@@ -442,7 +442,7 @@ choirStaff = \new ChoirStaff <<
     }
 %    \new Lyrics \lyricsto "basses" {
 %      \setLyricSize
-%      \override LyricText #'font-shape = #'italic
+%      \override LyricText.font-shape = #'italic
 %      \bassTransWords
 %    }
   >>
@@ -452,7 +452,7 @@ choirStaff = \new ChoirStaff <<
     \choirStaff
 %    \new PianoStaff \with {
 %      instrumentName = \markup \column { "Piano" \smaller "(for reh." \smaller "only)" }
-%      \override StaffSymbol #'ledger-line-thickness = #'(0.4 . 0.1)
+%      \override StaffSymbol.ledger-line-thickness = #'(0.4 . 0.1)
 %    } <<
 %      \new Staff {
 %        \setStaffElements
