@@ -816,6 +816,17 @@ wordsOne = \lyricmode {
   Since when it grows and smells I swear not of it- self but thee.
 }
 
+wordsOneMidi = \lyricmode {
+  "Drink " "to " "me " on "ly " "with " "thine " "eyes " "and " "I " "will " "pledge " "with " "mine "
+
+  "\nThe " "thirst " "that " "from " "the " "soul " "doth " "rise " "doth " "ask " "a " "drink " di "vine "
+  "\nBut " "might " "I " "of " "love's " nec "tar " "sip " "I " "would " "not " "change " "for " "thine. "
+  "\nI " "sent " "thee " "a " ro "sy " "wreath. "
+  "\nA " "hope " "there " "could " "not " with "ered " "be. "
+  "\nBut " "thou " there "on " "didst " on "ly " "breathe " "and " "sent'st " "it " "back " "to " "me "
+  "\nSince " "when " "it " "grows " "and " "smells " "I " "swear " "not " "of " it "self " "but " "thee. "
+}
+
 wordsTwo = \lyricmode {
   Or leave a kiss with- in the cup and I'll not ask for wine
   The thirst that from the soul doth rise doth ask a drink di- vine
@@ -823,6 +834,15 @@ wordsTwo = \lyricmode {
   As giv- ing it a hope that there it could not with- ered be.
   But thou there- on didst on- ly breathe and sent'st it back to me
   Since when it grows and smells I swear not of it- self but thee.
+}
+
+wordsTwoMidi = \lyricmode {
+  "Or " "leave " "a " "kiss " with "in " "the " "cup " "and " "I'll " "not " "ask " "for " "wine "
+  "\nThe " "thirst " "that " "from " "the " "soul " "doth " "rise " "doth " "ask " "a " "drink " di "vine "
+  "\nBut " "might " "I " "of " "love's " nec "tar " "sip " "I " "would " "not " "change " "for " "thine. "
+  "\nAs " giv "ing " "it " "a " "hope " "that " "there " "it " "could " "not " with "ered " "be. "
+  "\nBut " "thou " there "on " "didst " on "ly " "breathe " "and " "sent'st " "it " "back " "to " "me "
+  "\nSince " "when " "it " "grows " "and " "smells " "I " "swear " "not " "of " it "self " "but " "thee. "
 }
 
 wordsThree = \lyricmode {
@@ -835,43 +855,244 @@ wordsThree = \lyricmode {
   Since when it grows and smells I swear not of it- self but thee, but thee.
 }
 
-\score {
-  <<
-  \new ChoirStaff <<
-    \new Dynamics \dynamicsOne
-    \new Staff \with { instrumentName = #"Nancy"} <<
-      \new Voice = "partone" \partOne
-      \new Lyrics \lyricsto "partone" \wordsOne
+wordsThreeMidi = \lyricmode {
+  "Or " "leave " "a " "kiss " with "in " "the " "cup " "and " "I'll " "not " "ask " "for " "wine "
+  "\nThe " "thirst " "that " "from " "the " "soul " "doth " "rise " "doth " "ask " "a " "drink, " "a " "drink " di "vine "
+  "\nBut " "might " "I " "of " "love's " nec "tar " "sip " "I " "would " "not " "change " "for " "thine. "
+  "\nI " "sent " "thee " "late " "a " ro "sy " "wreath " "not " "so " "much " hon "ouring " "thee. "
+  "\nA " "hope " "it " "could " "not " with "ered " "be. "
+  "\nBut " "thou " there "on " "didst " on "ly " "breathe " "and " "sent'st " "it " "back " "to " "me "
+  "\nSince " "when " "it " "grows " "and " "smells " "I " "swear " "not " "of " it "self " "but " "thee, " "but " "thee. "
+}
+
+\book {
+  \bookOutputSuffix "single"
+  \score {
+    <<
+      \new ChoirStaff <<
+        \new Dynamics \dynamicsOne
+        \new Staff \with { instrumentName = #"Nancy"} <<
+          \new Voice = "partone" \partOne
+          \new Lyrics \lyricsto "partone" \wordsOne
+        >>
+        \new Dynamics \dynamicsTwo
+        \new Staff \with { instrumentName = \markup { \center-column { "Deidre" \line {"June"} \line {"Ruth"} } } } <<
+          \new Voice = "parttwo" \partTwo
+          \new Lyrics \lyricsto "parttwo" \wordsTwo
+        >>
+        \new Dynamics \dynamicsThree
+        \new Staff \with { instrumentName = \markup { \center-column { "Diane" \line {"Gael"} \line {"Irene"} } } }<<
+          \new Voice = "partthree" \partThree
+          \new Lyrics \lyricsto "partthree" \wordsThree
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff <<
+          \new Voice \pianoRH
+        >>
+        \new Dynamics \dynamicsPiano
+        \new Staff <<
+          \new Voice \pianoLH
+          \new Voice \pianoLHone
+          \new Voice \pianoLHtwo
+        >>
+                                %    \new Dynamics \pedal
+      >>
     >>
-    \new Dynamics \dynamicsTwo
-    \new Staff \with { instrumentName = \markup { \center-column { "Deidre" \line {"June"} \line {"Ruth"} } } } <<
-      \new Voice = "parttwo" \partTwo
-      \new Lyrics \lyricsto "parttwo" \wordsTwo
+    \layout {
+      #(layout-set-staff-size 20)
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      \new ChoirStaff <<
+        \new Dynamics \dynamicsOne
+        \new Staff \with { instrumentName = #"Nancy"} <<
+          \new Voice = "partone" \partOne
+          \new Lyrics \lyricsto "partone" \wordsOne
+        >>
+        \new Dynamics \dynamicsTwo
+        \new Staff \with { instrumentName = \markup { \center-column { "Deidre" \line {"June"} \line {"Ruth"} } } } <<
+          \new Voice = "parttwo" \partTwo
+          \new Lyrics \lyricsto "parttwo" \wordsTwo
+        >>
+        \new Dynamics \dynamicsThree
+        \new Staff \with { instrumentName = \markup { \center-column { "Diane" \line {"Gael"} \line {"Irene"} } } }<<
+          \new Voice = "partthree" \partThree
+          \new Lyrics \lyricsto "partthree" \wordsThree
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff <<
+          \new Voice \pianoRH
+        >>
+        \new Dynamics \dynamicsPiano
+        \new Staff <<
+          \new Voice \pianoLH
+          \new Voice \pianoLHone
+          \new Voice \pianoLHtwo
+        >>
+                                %    \new Dynamics \pedal
+      >>
     >>
-    \new Dynamics \dynamicsThree
-    \new Staff \with { instrumentName = \markup { \center-column { "Diane" \line {"Gael"} \line {"Irene"} } } }<<
-      \new Voice = "partthree" \partThree
-      \new Lyrics \lyricsto "partthree" \wordsThree
+    \layout {
+      #(layout-set-staff-size 20)
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-one"
+  \score {
+    <<
+      \new ChoirStaff <<
+        \new Dynamics \dynamicsOne
+        \new Staff \with { instrumentName = #"Nancy"} <<
+          \new Voice = "partone" \partOne
+          \new Lyrics \lyricsto "partone" \wordsOneMidi
+        >>
+        \new Dynamics \dynamicsTwo
+        \new Staff \with { instrumentName = \markup { \center-column { "Deidre" \line {"June"} \line {"Ruth"} } } } <<
+          \new Voice = "parttwo" \partTwo
+        >>
+        \new Dynamics \dynamicsThree
+        \new Staff \with { instrumentName = \markup { \center-column { "Diane" \line {"Gael"} \line {"Irene"} } } }<<
+          \new Voice = "partthree" \partThree
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff <<
+          \new Voice \pianoRH
+          \new Dynamics \dynamicsPiano
+          \new Voice \pianoLH
+          \new Voice \pianoLHone
+          \new Voice \pianoLHtwo
+        >>
+                                %    \new Dynamics \pedal
+      >>
     >>
-  >>
-  \new PianoStaff <<
-    \new Staff <<
-      \new Voice \pianoRH
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-two"
+  \score {
+    <<
+      \new ChoirStaff <<
+        \new Dynamics \dynamicsOne
+        \new Staff \with { instrumentName = #"Nancy"} <<
+          \new Voice = "partone" \partOne
+        >>
+        \new Dynamics \dynamicsTwo
+        \new Staff \with { instrumentName = \markup { \center-column { "Deidre" \line {"June"} \line {"Ruth"} } } } <<
+          \new Voice = "parttwo" \partTwo
+          \new Lyrics \lyricsto "parttwo" \wordsTwoMidi
+        >>
+        \new Dynamics \dynamicsThree
+        \new Staff \with { instrumentName = \markup { \center-column { "Diane" \line {"Gael"} \line {"Irene"} } } }<<
+          \new Voice = "partthree" \partThree
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff <<
+          \new Voice \pianoRH
+          \new Dynamics \dynamicsPiano
+          \new Voice \pianoLH
+          \new Voice \pianoLHone
+          \new Voice \pianoLHtwo
+        >>
+                                %    \new Dynamics \pedal
+      >>
     >>
-    \new Dynamics \dynamicsPiano
-    \new Staff <<
-      \new Voice \pianoLH
-      \new Voice \pianoLHone
-      \new Voice \pianoLHtwo
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-three"
+  \score {
+    <<
+      \new ChoirStaff <<
+        \new Dynamics \dynamicsOne
+        \new Staff \with { instrumentName = #"Nancy"} <<
+          \new Voice = "partone" \partOne
+        >>
+        \new Dynamics \dynamicsTwo
+        \new Staff \with { instrumentName = \markup { \center-column { "Deidre" \line {"June"} \line {"Ruth"} } } } <<
+          \new Voice = "parttwo" \partTwo
+        >>
+        \new Dynamics \dynamicsThree
+        \new Staff \with { instrumentName = \markup { \center-column { "Diane" \line {"Gael"} \line {"Irene"} } } }<<
+          \new Voice = "partthree" \partThree
+          \new Lyrics \lyricsto "partthree" \wordsThreeMidi
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff <<
+          \new Voice \pianoRH
+          \new Dynamics \dynamicsPiano
+          \new Voice \pianoLH
+          \new Voice \pianoLHone
+          \new Voice \pianoLHtwo
+        >>
+                                %    \new Dynamics \pedal
+      >>
     >>
-%    \new Dynamics \pedal
-  >>
-  >>
-  \layout { indent = 1.5\cm }
-  \midi {
-    \context {
-      \Score
-      tempoWholesPerMinute = #(ly:make-moment 100 4)
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
     }
   }
 }
