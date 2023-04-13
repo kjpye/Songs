@@ -574,7 +574,7 @@ pianoLH = \relative {
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
             \new Voice = "melody" \melody
-            \new Lyrics \lyricsto "melody" \wordsSingle
+            \new Lyrics \lyricsto "melody" \words
           >>
           \new PianoStaff <<
             \new Staff <<
