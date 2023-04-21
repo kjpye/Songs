@@ -226,7 +226,7 @@ bassNotes = \relative c {
   ees2 ees8 ees
   ees2 ees8 ees
   bes4 bes bes
-  ees2 r8
+  <ees, ees'>2 r8
   \bar "|."
 }
 
@@ -406,6 +406,69 @@ pianoLH = \relative c, {
 	>>
 	\new Staff <<
 	  { \clef bass \global \pianoLH }
+	>>
+      >>
+    >>
+    \layout{}
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-bass"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score { % full score
+    <<
+      \new ChoirStaff <<
+	\new Staff <<
+         \new Voice { \rehearsalTrack }
+	  \new Voice = "soprano" <<
+            \magnifyStaff #4/7
+	    \global
+	    \sopranoNotes
+	  >>
+          \new Voice = "alto" <<
+            \magnifyStaff #4/7
+	    \global
+	    \altoNotes
+	  >>
+	  \new Lyrics \lyricsto "soprano" { \verseOne \verseTwo }
+	>>
+	\new Staff <<
+	  \new Voice = "tenor" <<
+            \clef "bass"
+	    \global
+	    \tenorNotes
+	  >>
+	  \new Voice = "bass" <<
+            \clef "bass"
+	    \global
+	    \bassNotes
+	  >>
+	>>
+      >>
+      \new PianoStaff <<
+	\new Staff <<
+          {
+            \magnifyStaff #4/7
+	    \global
+            \pianoRH
+          }
+	>>
+	\new Staff <<
+          {
+            \magnifyStaff #4/7
+            \clef bass
+            \global
+            \pianoLH
+          }
 	>>
       >>
     >>
