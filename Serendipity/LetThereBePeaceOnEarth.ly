@@ -9,6 +9,18 @@ global = {
   \time 3/4
 }
 
+solo = {
+  s2.^\markup "First time SOLO"
+  s2.*62
+}
+
+solosingle = {
+  s2.^\markup SOLO
+  s2.*62
+  s2.^\markup TUTTI
+  s2.*62
+}
+
 soprano = \relative c' {
   \global
   \repeat volta 2 {
@@ -333,6 +345,7 @@ bass = \relative c {
           }
           <<
             \new Voice \TempoTrack
+            \new Dynamics \with {alignAboveContext = women} \solo
             \new Voice \partCombine #'(2 . 88) \soprano \alto
             \new NullVoice \soprano
             \addlyrics \words
@@ -375,8 +388,9 @@ bass = \relative c {
           }
           <<
             \new Voice \TempoTrack
+            \new Dynamics \with {alignAboveContext = women} \solosingle
             \new Voice {\partCombine #'(2 . 88) \unfoldRepeats \soprano \unfoldRepeats \alto \bar "|." }
-            \new NullVoice \unfoldRepeats \soprano
+            \new NullVoice \soprano
             \addlyrics {\words \set stanza = "2." \words}
           >>
                                 % Joint tenor/bass staff
@@ -425,6 +439,7 @@ bass = \relative c {
           }
           <<
             \new Voice \TempoTrack
+            \new Dynamics \with {alignAboveContext = women} \solosingle
             \new Voice {\partCombine #'(2 . 88) \unfoldRepeats \soprano \unfoldRepeats \alto \bar "|." }
             \new NullVoice \unfoldRepeats \soprano
             \addlyrics {\words \set stanza = "2." \words}
