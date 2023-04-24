@@ -1,4 +1,4 @@
-\version "2.22.1"
+\version "2.25.0"
 
 \include "articulate.ly"
 
