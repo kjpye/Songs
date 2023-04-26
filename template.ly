@@ -1,4 +1,4 @@
-\version "2.22.0"
+\version "2.25.0"
 
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
@@ -33,32 +33,10 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   copyright   = \today
 }
 
-% #(set-global-staff-size 16)
-
 global = {
   \key f \major
   \time 3/4
   \partial 4
-}
-
-colour = {
-  \override NoteHead.color   = #red
-  \override Stem.color       = #red
-  \override Beam.color       = #red
-  \override Accidental.color = #red
-  \override Slur.color       = #red
-  \override Tie.color        = #red
-  \override Dots.color       = #red
-}
-
-black = {
-  \override NoteHead.color   = #black
-  \override Stem.color       = #black
-  \override Beam.color       = #black
-  \override Accidental.color = #black
-  \override Slur.color       = #black
-  \override Tie.color        = #black
-  \override Dots.color       = #black
 }
 
 drumPitchNames.cc = #'crashcymbal
@@ -80,10 +58,14 @@ TempoTrack = {
 
 RehearsalTrack = {
 %  \set Score.currentBarNumber = #5
-  \mark \markup { \box "1a" } s2.*4
+%  \mark \markup { \box "1a" } s2.*4
+  \textMark \markup { \box "1a" } s2.*4
 }
 
 ChordTrack = \chordmode {
+}
+
+dynamicsSop = {
 }
 
 soprano = \relative {
@@ -96,6 +78,9 @@ wordsSop = \lyricmode {
   words
 }
 
+dynamicsAlto = {
+}
+
 alto = \relative {
   \global
   c4
@@ -106,6 +91,9 @@ wordsAlto = \lyricmode {
   words
 }
 
+dynamicsTenor = {
+}
+
 tenor = \relative {
   \global
   c4
@@ -114,6 +102,9 @@ tenor = \relative {
 
 wordsTenor = \lyricmode {
   words
+}
+
+dynamicsBass = {
 }
 
 bass = \relative {
@@ -162,7 +153,7 @@ pianoLHtwo = \relative {
 %    right-margin = 1
 %    paper-width = 190\mm
 %    page-breaking = #ly:one-page-breaking
-%    system-system-spacing.basic-distance = #22
+%    system-system-spacing.basic-distance = #15
 %    system-separator-markup = \slashSeparator
 %  }
   \score {
@@ -180,8 +171,10 @@ pianoLHtwo = \relative {
             instrumentName = #"Soprano"
             shortInstrumentName = #"S"
             midiInstrument = "choir aahs"
+            \accidentalStyle Score.modern-cautionary
           }
           <<
+            \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
             \new Voice \soprano
@@ -192,8 +185,10 @@ pianoLHtwo = \relative {
             instrumentName = #"Alto"
             shortInstrumentName = #"A"
             midiInstrument = "choir aahs"
+            \accidentalStyle Score.modern-cautionary
           }
           <<
+            \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
             \new Voice \alto
             \addlyrics \wordsAlto
           >>
@@ -202,9 +197,11 @@ pianoLHtwo = \relative {
             instrumentName = #"Tenor"
             shortInstrumentName = #"T"
             midiInstrument = "choir aahs"
+            \accidentalStyle Score.modern-cautionary
           }
           <<
             \clef "treble_8"
+            \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
             \new Voice \tenor
             \addlyrics \wordsTenor
           >>
@@ -213,9 +210,11 @@ pianoLHtwo = \relative {
             instrumentName = #"Bass"
             shortInstrumentName = #"B"
             midiInstrument = "choir aahs"
+            \accidentalStyle Score.modern-cautionary
           }
           <<
             \clef "bass"
+            \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
             \new Voice \bass
             \addlyrics \wordsBass
           >>
@@ -224,8 +223,10 @@ pianoLHtwo = \relative {
             instrumentName = #"Soprano/Alto"
             shortInstrumentName = #"SA"
             midiInstrument = "choir aahs"
+            \accidentalStyle Score.modern-cautionary
           }
           <<
+            \new Voice \TempoTrack
             \new Voice \RehearsalTrack
             \new Voice \partCombine \soprano \alto
             \new NullVoice \soprano
@@ -236,6 +237,7 @@ pianoLHtwo = \relative {
             instrumentName = #"Tenor/Bass"
             shortInstrumentName = #"TB"
             midiInstrument = "choir aahs"
+            \accidentalStyle Score.modern-cautionary
           }
           <<
             \clef "bass"
@@ -246,14 +248,17 @@ pianoLHtwo = \relative {
           \new Staff = pianorh \with {
             printPartCombineTexts = ##f
             midiInstrument = "acoustic grand piano"
+            \accidentalStyle Score.modern-cautionary
           }
           <<
+            \new Voice \TempoTrack
             \new Voice \partCombine \pianoRHone \pianoRHtwo
           >>
           \new Dynamics \dynamicsPiano
           \new Staff = pianolh \with {
             printPartCombineTexts = ##f
             midiInstrument = "acoustic grand piano"
+            \accidentalStyle Score.modern-cautionary
           }
           <<
             \clef "bass"
@@ -268,14 +273,39 @@ pianoLHtwo = \relative {
       } << \DrumTrack >>
     >>
     \layout {
+      #(layout-set-staff-size 20)
       indent = 1.5\cm
       \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+        \remove Staff_collecting_engraver
+      }
       \context {
         \Staff \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
       }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
     }
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
