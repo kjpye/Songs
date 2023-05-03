@@ -382,7 +382,7 @@ pianoRHone = \relative {
   <e a cis>4 <cis e a> r <f d' f>
   <e a cis e>4-. r <f a d> r
   q4-. <e a cis>-> r bes''16(a g f
-  e8) r bes16(a g f e8) r e16_\markup\italic L.H. (fis g a % 6a
+  e8) r bes16(a g f e8) r e16_\markup\italic L.H. (f g a % 6a
   e'16 f g a bes8) r8 r4 <bes,, d bes'>
   q4 r q q
   <a cis a'>4 r <bes d bes'>-> r
