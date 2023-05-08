@@ -279,7 +279,7 @@ pianoLHtwo = \relative {
       \context {
         \Score
         \remove Metronome_mark_engraver
-        \remove Staff_collecting_engraver
+%        \remove Staff_collecting_engraver
       }
       \context {
         \Staff \RemoveAllEmptyStaves
@@ -295,6 +295,10 @@ pianoLHtwo = \relative {
         \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
     \midi {
