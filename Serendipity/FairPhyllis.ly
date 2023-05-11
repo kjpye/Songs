@@ -100,7 +100,7 @@ soprano = \relative c' {
     a4. bes8 c4 c
     bes4 a g f
     c'2 c4. c8
-    c4 f2 c4
+    c4 d2 c4
     bes4 a g g
   }
   \alternative {
