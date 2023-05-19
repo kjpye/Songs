@@ -209,8 +209,7 @@ wordsMidiMen = \lyricmode {
             \new Voice { \global \repeat unfold \verses \bass }
           >>
         >>
-    \layout { }
-%    \midi {}
+    \midi {}
   }
 }
 
