@@ -73,6 +73,7 @@ alto = \relative {
 }
 
 tenor = \relative {
+  \voiceOne
   b2 4 | b(e) d | c g4.(a8) | b(a b c) d4 | d(a) d8(c) | b4.(cis8) d4 | d(cis8 b) a4 |
   a2. | b2 4 | b(e) d | c g4.(a8) | b8(a b c) d4 | d(a) d8(c) | b4.(cis8) d4 | d(cis8 b) a4 | a2. |
   g4 a2 | g4(a) b | c(d) c | b8(c d e) d4 | d(gis,) a | b2 d4 | c(a8 b) c(b) | a2. |
@@ -84,7 +85,8 @@ tenor = \relative {
 }
 
 bass = \relative {
-  g4 s2 | e b4 | c2 4 | g'2 4 | fis2 d4 | g8(fis e4) d | a'2 a,4 |
+  \voiceTwo
+  g4 d2 | e b4 | c2 4 | g'2 4 | fis2 d4 | g8(fis e4) d | a'2 a,4 |
   d2. | g4 d2 | e2 b4 | c2 4 | g'2 4 | fis2 d4 | g8(fis e4) d | b'2 a,4 | d2. |
   d4 2 | b2 e4 | a,4 d2 | g,2 g'4 | f2 4 | e2 d4 | e2 4 | a,4(a' g) |
   fis4 g2 | e2 d4 | c2 cis4 | d2 8(c) |
