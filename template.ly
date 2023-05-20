@@ -66,6 +66,7 @@ ChordTrack = \chordmode {
 }
 
 dynamicsSop = {
+  \override DynamicTextSpanner.style = #'none
 }
 
 soprano = \relative {
@@ -79,6 +80,7 @@ wordsSop = \lyricmode {
 }
 
 dynamicsAlto = {
+  \override DynamicTextSpanner.style = #'none
 }
 
 alto = \relative {
@@ -92,6 +94,7 @@ wordsAlto = \lyricmode {
 }
 
 dynamicsTenor = {
+  \override DynamicTextSpanner.style = #'none
 }
 
 tenor = \relative {
@@ -105,6 +108,7 @@ wordsTenor = \lyricmode {
 }
 
 dynamicsBass = {
+  \override DynamicTextSpanner.style = #'none
 }
 
 bass = \relative {
