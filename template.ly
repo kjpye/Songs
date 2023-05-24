@@ -149,6 +149,8 @@ pianoLHtwo = \relative {
   \bar "|."
 }
 
+#(set-global-staff-size 20)
+
 \book {
   \bookOutputSuffix "repeat"
 %  \paper {
@@ -277,7 +279,6 @@ pianoLHtwo = \relative {
       } << \DrumTrack >>
     >>
     \layout {
-      #(layout-set-staff-size 20)
       indent = 1.5\cm
       \pointAndClickOff
       \context {
