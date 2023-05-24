@@ -177,7 +177,7 @@ pianoLHtwo = \relative {
             instrumentName = #"Soprano"
             shortInstrumentName = #"S"
             midiInstrument = "choir aahs"
-            \accidentalStyle Score.modern-cautionary
+            \accidentalStyle Score.modern
           }
           <<
             \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
@@ -191,7 +191,7 @@ pianoLHtwo = \relative {
             instrumentName = #"Alto"
             shortInstrumentName = #"A"
             midiInstrument = "choir aahs"
-            \accidentalStyle Score.modern-cautionary
+            \accidentalStyle Score.modern
           }
           <<
             \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
@@ -203,7 +203,7 @@ pianoLHtwo = \relative {
             instrumentName = #"Tenor"
             shortInstrumentName = #"T"
             midiInstrument = "choir aahs"
-            \accidentalStyle Score.modern-cautionary
+            \accidentalStyle Score.modern
           }
           <<
             \clef "treble_8"
@@ -216,7 +216,7 @@ pianoLHtwo = \relative {
             instrumentName = #"Bass"
             shortInstrumentName = #"B"
             midiInstrument = "choir aahs"
-            \accidentalStyle Score.modern-cautionary
+            \accidentalStyle Score.modern
           }
           <<
             \clef "bass"
@@ -229,7 +229,7 @@ pianoLHtwo = \relative {
             instrumentName = #"Soprano/Alto"
             shortInstrumentName = #"SA"
             midiInstrument = "choir aahs"
-            \accidentalStyle Score.modern-cautionary
+            \accidentalStyle Score.modern
           }
           <<
             \new Voice \TempoTrack
@@ -243,7 +243,7 @@ pianoLHtwo = \relative {
             instrumentName = #"Tenor/Bass"
             shortInstrumentName = #"TB"
             midiInstrument = "choir aahs"
-            \accidentalStyle Score.modern-cautionary
+            \accidentalStyle Score.modern
           }
           <<
             \clef "bass"
@@ -254,7 +254,7 @@ pianoLHtwo = \relative {
           \new Staff = pianorh \with {
             printPartCombineTexts = ##f
             midiInstrument = "acoustic grand piano"
-            \accidentalStyle Score.modern-cautionary
+            \accidentalStyle Score.modern
           }
           <<
             \new Voice \TempoTrack
@@ -264,7 +264,7 @@ pianoLHtwo = \relative {
           \new Staff = pianolh \with {
             printPartCombineTexts = ##f
             midiInstrument = "acoustic grand piano"
-            \accidentalStyle Score.modern-cautionary
+            \accidentalStyle Score.modern
           }
           <<
             \clef "bass"
