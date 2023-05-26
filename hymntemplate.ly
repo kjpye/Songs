@@ -146,6 +146,8 @@ wordsMidiMen = \lyricmode {
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
   \bookOutputSuffix "repeat"
   \score {
@@ -174,7 +176,6 @@ wordsMidiMen = \lyricmode {
           \new Lyrics \with {alignAboveContext = men} \lyricsto alignerT \chorusMen
         >>
     \layout {
-      #(layout-set-staff-size 20)
       indent = 1.5\cm
       \pointAndClickOff
       \context {
