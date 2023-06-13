@@ -19,7 +19,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 %  meter   arranger
 %  piece       opus
 
-  composer    = "Peter Yarrow and Leonard ipton"
+  composer    = "Peter Yarrow and Leonard Lipton"
   arranger    = "Arr. Ross Hastings"
 %  opus        = "opus"
 
@@ -42,7 +42,7 @@ global = {
 
 TempoTrackA = {
   \tempo "Moderate Bounce" 2=100
-%  \set Score.tempoHideNote = ##t
+  \set Score.tempoHideNote = ##t
   \repeat volta 2 {
     s1*2
   }
@@ -62,7 +62,10 @@ TempoTrackD = {
   \repeat volta 3 {
     s4
     s1*15
-    s2 \tempo 2=25 s4 \tempo 2=100
+    \alternative {
+      {s2.}
+      {s2 \tempo 2=25 s \tempo 2=100}
+    }
   }
 }
 
@@ -120,7 +123,8 @@ RehearsalTrackD = {
     \mark \markup { \box "5a" } s1*4
     \mark \markup { \box "5b" } s1*4
     \mark \markup { \box "6a" } s1*4
-    \mark \markup { \box "6b" } s1*3 s2.
+    \mark \markup { \box "6b" } s1*3
+    \alternative { {s2.} {s1} }
   }
 }
 
@@ -264,7 +268,7 @@ sopranoB = \relative {
     a2 c4 4 % 4a
     g2~4 r
     d'8^\markup\italic "(mockingly)" 8 c c b4-. g-.
-    c8 8 b b a4-. c8 8
+    c8 8 b b a4-. c8 8 \bar "|" \partial 1
 }
 
 sopranoC = \relative {
@@ -272,26 +276,53 @@ sopranoC = \relative {
   c2.
 }
 
-sopranoD = \relative {
-      \repeat volta 3 {
-        g'4\mf
-        c4 4 4 4 % 5a
-        b4 g2 r4
-        R1
-        R1
-        f4 4 g f % 5b
-        e4 g c r
-        R1
-        b4(c d2)
-        e1~( % 6a
-        e2 b)
-        c2(a
-        c2.) g4
-        f4 4 g f % 6b
-        e4 g c c
-        a4 c b d
-        c4-- r g4\fermata\<
-      }
+sopranoDa = \relative {
+  g'4\mf
+  c4 4 4 4 % 5a
+  b4 g2 r4
+  R1
+  R1
+  f4 4 g f % 5b
+  \tag #'dash    {e4  g c r}
+  \tag #'v1      {e,4 g r2}
+  \tag #'(v2 v3) {e4  g c r}
+  R1
+  b4(c d2)
+  e1~( % 6a
+  e2 b)
+  c2(a
+  \tag #'dash    {c2.) g4}
+  \tag #'v1      {c2.) r4}
+  \tag #'(v2 v3) {c2.) g4}
+  f4 4 g f % 6b
+  \tag #'dash    {\slurDashed e4 (g) c c}
+  \tag #'(v1 v3) {            e,4 g  c c}
+  \tag #'v2      {            e,4(g) c c}
+  a4 c b d
+}
+
+sopranoDb = {
+  c''4-- r2
+}
+
+sopranoDc = {
+  c''4-- r g'2\fermata\<
+}
+
+sopranoD = {
+  \repeat volta 3 {
+    \sopranoDa
+    \alternative {
+      { \sopranoDb }
+      { \sopranoDc }
+    }
+  }
+}
+
+sopranoDsingle = {
+  \keepWithTag #'v1 \sopranoDa \sopranoDb
+  \keepWithTag #'v2 \sopranoDa \sopranoDb
+  \keepWithTag #'v3 \sopranoDa \sopranoDc
 }
 
 sopranoE = \relative {
@@ -309,7 +340,7 @@ soprano = \relative {
     \alternative {
       \volta 1 {
         \sopranoC \break
-        \sopranoD
+        \keepWithTag #'dash \sopranoD
       }
       \volta 2 \volta #'() {
         \section
@@ -326,9 +357,20 @@ sopranoNosegno = {
   \repeat volta 2 {R1*2}
   \sopranoA \bar "||"
   \sopranoB
-  \sopranoC \bar "||" \break
-  \sopranoD \bar "||" \partial 1
-  \set Score.currentBarNumber = #85
+  \sopranoC \break
+  \keepWithTag #'dash \sopranoD 
+  \sopranoB
+  \sopranoE
+  \bar "|."
+}
+
+sopranoSingle = {
+  \global \dynamicUp
+  \repeat volta 2 {R1*2}
+  \sopranoA \bar "||"
+  \sopranoB
+  \sopranoC \break
+  \sopranoDsingle
   \sopranoB
   \sopranoE
   \bar "|."
@@ -407,8 +449,7 @@ wordsSopVThree = \lyricmode {
   Puff no long -- er went to play
   "" "" ""
   So Puff that might -- y drag -- on,
-  sad -- ly slipped in -- to his cave.
-  Oh!
+  sad -- ly slipped in -- to his _ cave. Oh!
 }
 
 wordsSopD = \lyricmode {
@@ -489,17 +530,16 @@ wordsSopSingle = \lyricmode {
   land called Ho -- nah Lee, __
 
   To -- geth -- er they would trav -- el
-  Jack -- ie kept a look -- out _
+  Jack -- ie kept a look -- out
   Ah! __ Ah! __ Ah! __
-  _ Pi -- rate ships would low'r their flag
-  when Puff roared out his name. _
+  Pi -- rate ships would low'r their flag
+  when Puff roared out his name.
 
   A drag -- on lives for -- ev -- er
   Paint -- ed wings and gi -- ant rings
   Ah! __ Ah! __ Ah! __
-  And Puff that might -- y drag -- on, ""
+  And Puff that might -- y drag -- on,
   he ceased his fear -- less roar.
-  _
 
   His head was bent in sor -- row
   Puff no long -- er went to play
@@ -514,7 +554,7 @@ wordsSopSingle = \lyricmode {
   Oh, Puff, the dra -- gon lived by the sea __
   La -- la la -- la la la,
   la -- la la -- la la in a
-  land called Ho -- nah Lee, __
+  land called Ho -- nah Lee. __
 }
 
 wordsSopMidi = \lyricmode {
@@ -525,35 +565,7 @@ wordsSopMidi = \lyricmode {
   "\nLit" "tle " Jack "ie " Pa "per "
   "\nloved " "that " ras "cal " "Puff "
   "\nAnd " "brought " "him " "strings " "and " seal "ing " "wax "
-  "\nand " oth "er " fan "cy " "stuff. " "Oh!\n"
-
-  "\nPuff. " "the " dra "gon " "lived " "by " "the " "sea "
-  "\nAnd " fro "licked " "in " "the " au "tumn " "mist "
-  "\nin " "a " "land " "called " Ho "nah " "Lee, "
-  "\nOh, " "Puff, " "the " dra "gon " "lived " "by " "the " "sea " 
-  "\nLa" "la " la "la " "la " "la, "
-  "\nla" "la " la "la " "la " "in " "a "
-  "\nland " "called " Ho "nah " "Lee,\n" 
-
-  "\nTo" geth "er " "they " "would " trav "el "
-  "\nJack" "ie " "kept " "a " look "out " ""
-  "\nAh! "  "Ah! "  "Ah! " 
-  "" "\nPi" "rate " "ships " "would " "low'r " "their " "flag "
-  "\nwhen " "Puff " "roared " "out " "his " "name.\n" ""
-
-  "\nA " drag "on " "lives " for ev "er "
-  "\nPaint" "ed " "wings " "and " gi "ant " "rings "
-  "\nAh! "  "Ah! "  "Ah! " 
-  "\nAnd " "Puff " "that " might "y " drag "on, " " "
-  "\nhe " "ceased " "his " fear "less " "roar.\n"
-  ""
-
-  "\nHis " "head " "was " "bent " "in " sor "row "
-  "\nPuff " "no " long "er " "went " "to " "play "
-  "\nAh! "  "Ah! "  "Ah! " 
-  "\nSo " "Puff " "that " might "y " drag "on, "
-  "\nsad" "ly " "slipped " in "to " "his " "cave. "
-  "\nOh!\n"
+  "\nand " oth "er " fan "cy " "stuff. " "Oh! "
 
   "\nPuff. " "the " dra "gon " "lived " "by " "the " "sea "
   "\nAnd " fro "licked " "in " "the " au "tumn " "mist "
@@ -562,6 +574,33 @@ wordsSopMidi = \lyricmode {
   "\nLa" "la " la "la " "la " "la, "
   "\nla" "la " la "la " "la " "in " "a "
   "\nland " "called " Ho "nah " "Lee, " 
+
+  "\nTo" geth "er " "they " "would " trav "el "
+  "\nJack" "ie " "kept " "a " look "out "
+  "\nAh! "  "Ah! "  "Ah! " 
+  "\nPi" "rate " "ships " "would " "low'r " "their " "flag "
+  "\nwhen " "Puff " "roared " "out " "his " "name. "
+
+  "\nA " drag "on " "lives " for ev "er "
+  "\nPaint" "ed " "wings " "and " gi "ant " "rings "
+  "\nAh! "  "Ah! "  "Ah! " 
+  "\nAnd " "Puff " "that " might "y " drag "on, "
+  "\nhe " "ceased " "his " fear "less " "roar. "
+
+  "\nHis " "head " "was " "bent " "in " sor "row "
+  "\nPuff " "no " long "er " "went " "to " "play "
+  "\nAh! "  "Ah! "  "Ah! " 
+  "\nSo " "Puff " "that " might "y " drag "on, "
+  "\nsad" "ly " "slipped " in "to " "his " "cave. "
+  "\nOh! "
+
+  "\nPuff. " "the " dra "gon " "lived " "by " "the " "sea "
+  "\nAnd " fro "licked " "in " "the " au "tumn " "mist "
+  "\nin " "a " "land " "called " Ho "nah " "Lee, "
+  "\nOh, " "Puff, " "the " dra "gon " "lived " "by " "the " "sea " 
+  "\nLa" "la " la "la " "la " "la, "
+  "\nla" "la " la "la " "la " "in " "a "
+  "\nland " "called " Ho "nah " "Lee. " 
 }
 
 altoTiny = \relative {
@@ -630,26 +669,53 @@ altoC = \relative {
   e2 r4
 }
 
-altoD = \relative {
+altoDa = \relative {
+  g'4\mf
+  e4 4 4 4 % 5a
+  g4 e2 r4
+  R1
+  R1
+  d4 4 b d % 5b
+  \tag #'dash    {c4 d e r}
+  \tag #'v1      {c4 d r2}
+  \tag #'(v2 v3) {c4 d e r}
+  R1
+  g4(a b2)
+  g1~( % 6a
+  g2 e)
+  f1(
+  \tag #'dash    {e2.) g4}
+  \tag #'v1      {e2.) r4}
+  \tag #'(v2 v3) {e2.) g4}
+  f4 d b d % 6b
+  \tag #'dash    {\slurDashed c4(d) \slurSolid e e}
+  \tag #'(v1 v3) {            c4 d             e e}
+  \tag #'v2      {            c4(d)            e e}
+  fis4 4 f f
+}
+
+altoDb = \relative c' {
+  e4-- r2
+}
+
+altoDc = \relative c' {
+  e4-- r g2\fermata\<
+}
+
+altoD = {
   \repeat volta 3 {
-    g'4\mf
-    e4 4 4 4 % 5a
-    g4 e2 r4
-    R1
-    R1
-    d4 4 b d % 5b
-    c4 d e r
-    R1
-    g4(a b2)
-    g1~( % 6a
-    g2 e)
-    f1(
-    e2.) g4
-    f4 d b d % 6b
-    e4 g c c
-    c4 a g b
-    c4-- r g\fermata\<
+    \keepWithTag #'dash \altoDa
+    \alternative {
+      { \altoDb }
+      { \altoDc }
+    }
   }
+}
+
+altoDsingle = {
+  \keepWithTag #'v1 \altoDa \altoDb
+  \keepWithTag #'v2 \altoDa \altoDb
+  \keepWithTag #'v3 \altoDa \altoDc
 }
 
 altoE = \relative {
@@ -666,7 +732,7 @@ alto = \relative {
     \altoB
     \volta 1 {
       \altoC
-      \altoD
+      \keepWithTag #'dash \altoD
     }
     \volta 2 {
       \altoE
@@ -682,6 +748,18 @@ altoNosegno = \relative {
   \altoB
   \altoC
   \altoD
+  \altoB
+  \altoE
+  \bar "|."
+}
+
+altoSingle = \relative {
+  \global \dynamicUp
+  \repeat volta 2 {R1*2}
+  \altoA
+  \altoB
+  \altoC
+  \altoDsingle
   \altoB
   \altoE
   \bar "|."
@@ -756,7 +834,7 @@ wordsAltoVThree = \lyricmode {
   Puff no long -- er went to play
   _ _ _
   So Puff that might -- y drag -- on,
-  sad -- ly slipped in -- to his cave.
+  sad -- ly slipped in -- to his _ cave.
   Oh!
 }
 
@@ -838,16 +916,16 @@ wordsAltoSingle = \lyricmode {
   land called Ho -- nah Lee, __
 
   To -- geth -- er they would trav -- el
-  Jack -- ie kept a look -- out _
+  Jack -- ie kept a look -- out
   Ah! __ Ah! __ Ah! __
-  _ Pi -- rate ships would low'r their flag
-  when Puff roared out his name. _
+  Pi -- rate ships would low'r their flag
+  when Puff roared out his name.
 
   A drag -- on lives for -- ev -- er
   Paint -- ed wings and gi -- ant rings
   Ah! __ Ah! __ Ah! __
   And Puff that might -- y dra -- gon,
-  _ he ceased his fear -- less roar. _
+  he ceased his fear -- less roar.
 
   His head was bent in sor -- row
   Puff no long -- er went to play
@@ -873,7 +951,7 @@ wordsAltoMidi = \lyricmode {
   "\nLit" "tle " Jack "ie " Pa "per "
   "\nloved " "that " ras "cal " "Puff "
   "\nAnd " "brought " "him " "strings " "and " seal "ing " "wax "
-  "\nand " oth "er " fan "cy " "stuff. " "Oh!\n"
+  "\nand " oth "er " fan "cy " "stuff. " "Oh! "
 
   "\nPuff. " "the " dra "gon " "lived " "by " "the " "sea "
   "\nAnd " fro "licked " "in " "the " au "tumn " "mist "
@@ -881,26 +959,26 @@ wordsAltoMidi = \lyricmode {
   "\nOh, " "Puff, " "the " dra "gon " "lived " "by " "the " "sea " 
   "\nLa" "la " la "la " "la " "la, "
   "\nla" "la " la "la " "la " "in " "a "
-  "\nland " "called " Ho "nah " "Lee,\n" 
+  "\nland " "called " Ho "nah " "Lee, " 
 
   "\nTo" geth "er " "they " "would " trav "el "
-  "\nJack" "ie " "kept " "a " look "out " ""
+  "\nJack" "ie " "kept " "a " look "out "
   "\nAh! "  "Ah! "  "Ah! " 
-  "" "\nPi" "rate " "ships " "would " "low'r " "their " "flag "
-  "\nwhen " "Puff " "roared " "out " "his " "name.\n" ""
+  "\nPi" "rate " "ships " "would " "low'r " "their " "flag "
+  "\nwhen " "Puff " "roared " "out " "his " "name. "
 
   "\nA " drag "on " "lives " for ev "er "
   "\nPaint" "ed " "wings " "and " gi "ant " "rings "
   "\nAh! "  "Ah! "  "Ah! " 
   "\nAnd " "Puff " "that " might "y " dra "gon, "
-  "" "\nhe " "ceased " "his " fear "less " "roar.\n" ""
+  "\nhe " "ceased " "his " fear "less " "roar. "
 
   "\nHis " "head " "was " "bent " "in " sor "row "
   "\nPuff " "no " long "er " "went " "to " "play "
   "\nAh! "  "Ah! "  "Ah! " 
   "\nSo " "Puff " "that " might "y " drag "on, "
   "\nsad" "ly " "slipped " in "to " "his " "cave. "
-  "\nOh!\n"
+  "\nOh! "
 
   "\nPuff. " "the " dra "gon " "lived " "by " "the " "sea "
   "\nAnd " fro "licked " "in " "the " au "tumn " "mist "
@@ -955,7 +1033,7 @@ tenorA = \relative {
 }
 
 tenorB = \relative {
-    c4\f r r e % 3a
+    c'4\f r r e % 3a
     e2 2
     a,2 4 4
     c2. b4
@@ -976,26 +1054,63 @@ tenorC = \relative {
   c4 r r
 }
 
-tenorD = \relative {
+tenorDa = \relative {
+  r4
+  R1 % 5a
+  \tag #'dash {r2 r4 \slurDashed g8\mf~8 \slurSolid}
+  \tag #'v1   {r2 r4             g8\mf 8           }
+  \tag #'v2   {r2 r4             g4\mf             }
+  \tag #'v3   {R1                                  }
+  \tag #'dash    {a4    4 c8 4.}
+  \tag #'(v1 v2) {a4    4 c8 4.}
+  \tag #'v3      {a4\mf 4 c8 4.}
+  g1
+  R1 % 5b
+  \tag #'dash    {r2 c4 c4}
+  \tag #'v1      {r2 c4 c4}
+  \tag #'(v2 v3) {r2 r4 c4}
+  c4 a b c
+  \tag #'dash    {d2 ~4 g,}
+  \tag #'(v1 v2) {d'2~4 r }
+  \tag #'v3      {d2 ~4 g,}
+  c4 4 4 4 % 6a
+  \tag #'dash {\slurDashed b4(g2) 8(8) \slurSolid}
+  \tag #'v1   {            b4 g2  4              }
+  \tag #'v2   {            b4 g2  8 8            }
+  \tag #'v3   {            b4(g2) r4             }
+  a4 4 c c
+  \tag #'dash    {g2.  4}
+  \tag #'v1      {g2. r4}
+  \tag #'(v2 v3) {g2.  4}
+  f4 4 g f % 6b
+  \tag #'dash    {\slurDashed e4 (g) \slurSolid c c}
+  \tag #'(v1 v3) {            e,4 g             c c}
+  \tag #'v2      {            e,4(g)            c c}
+  c4 a g b
+}
+
+tenorDb = \relative {
+  c'4-- r2
+}
+
+tenorDc = \relative {
+  c'4-- r g2\fermata\<
+}
+
+tenorD = {
   \repeat volta 3 {
-    r4
-    R1 % 5a
-    r2 r4 \slurDashed g8\mf~8 \slurSolid
-    a4 4 c8 4.
-    g1
-    R1 % 5b
-    r2 c4 4
-    c4 a b c
-    d2~4 g,
-    c4 4 4 4 % 6a
-    \slurDashed b4(g2) 8~8 \slurSolid
-    a4 4 c c
-    g2. 4
-    f4 4 g f % 6b
-    e4 g c c
-    c4 a g b
-    c4-- r g4\fermata\<
+    \keepWithTag #'dash \tenorDa
+    \alternative {
+      { \tenorDb }
+      { \tenorDc }
+    }
   }
+}
+
+tenorDsingle = {
+  \keepWithTag #'v1 \tenorDa \tenorDb
+  \keepWithTag #'v2 \tenorDa \tenorDb
+  \keepWithTag #'v3 \tenorDa \tenorDc
 }
 
 tenorE = \relative {
@@ -1027,6 +1142,17 @@ tenorNosegno = \relative {
   \tenorB
   \tenorC
   \tenorD
+  \tenorB
+  \tenorE
+}
+
+tenorSingle = \relative {
+  \global \dynamicUp
+  \repeat volta 2 {R1*2}
+  \tenorA
+  \tenorB
+  \tenorC
+  \tenorDsingle
   \tenorB
   \tenorE
 }
@@ -1103,7 +1229,7 @@ wordsTenorVThree = \lyricmode {
   With -- out his life long friend __
   "" Puff could not be brave
   So Puff that might -- y drag -- on
-  sad -- ly slipped in -- to his cave.
+  sad -- ly slipped in -- to his _ cave.
   Oh!
 }
 
@@ -1184,24 +1310,24 @@ wordsTenorSingle = \lyricmode {
   la -- la la -- la la in a
   land called Ho -- nah Lee, __
 
-  \nom on a \yesm boat with bil -- lowed sail,
+  on a boat with bil -- lowed sail,
   perched on Puff's gi -- gan -- tic tail, __
-  "" No -- ble kings and \nom princ -- es \yesm
+  No -- ble kings and princ -- es
   would bow when -- e'er they came,
-  "" Pi -- rate ships would low'r their flag
-  when Puff roared out his name. _
+  Pi -- rate ships would low'r their flag
+  when Puff roared out his name.
 
   but __ not so lit -- tle boys,
-  _ make way for oth -- er toys. __
-  "" One grey night it \nom hap -- pened, \yesm
-  \nom Jack -- ie \yesm Pa -- per came no more
-  And Puff that might -- y drag -- _ on,
-  he ceased his fear -- less roar. _
+  make way for oth -- er toys. __
+  One grey night it hap -- pened,
+  Jack -- ie Pa -- per came no more
+  And Puff that might -- y drag -- on,
+  he ceased his fear -- less roar.
 
-  _ green scales fell like rain,
-  _ a -- long the cher -- ry lane. __
+  green scales fell like rain,
+  a -- long the cher -- ry lane. __
   With -- out his life long friend __
-  "" Puff could not be brave
+  Puff could not be brave
   So Puff that might -- y drag -- on
   sad -- ly slipped in -- to his cave.
   Oh!
@@ -1223,7 +1349,7 @@ wordsTenorMidi = \lyricmode {
   "\nLit" "tle " Jack "ie " Pa "per "
   "\nloved " "that " ras "cal " "Puff "
   "\nAnd " "brought " "him " "strings " "and " seal "ing " "wax "
-  "\nand " oth "er " fan "cy " "stuff. " "Oh!\n"
+  "\nand " oth "er " fan "cy " "stuff. " "Oh! "
 
   "\nPuff. " "the " dra "gon " "lived " "by " "the " "sea "
   "\nAnd " fro "licked " "in " "the " au "tumn " "mist "
@@ -1231,29 +1357,29 @@ wordsTenorMidi = \lyricmode {
   "\nOh, " "Puff, " "the " dra "gon " "lived " "by " "the " "sea " 
   "\nLa" "la " la "la " "la " "la, "
   "\nla" "la " la "la " "la " "in " "a "
-  "\nland " "called " Ho "nah " "Lee,\n" 
+  "\nland " "called " Ho "nah " "Lee, " 
 
-  \nom "on " "a " \yesm "boat " "with " bil -- "lowed " "sail, "
-  "\nperched " "on " "Puff's " gi gan "tic " "tail,\n" 
-  "" No "ble " "kings " "and " \nom princ "es " \yesm
+  "\non " "a " "boat " "with " bil "lowed " "sail, "
+  "\nperched " "on " "Puff's " gi gan "tic " "tail, " 
+  "\nNo" "ble " "kings " "and " princ "es "
   "\nwould " "bow " when "e'er " "they " "came, "
-  "\n " Pi "rate " "ships " "would " "low'r " "their " "flag "
-  "\nwhen " "Puff " "roared " "out " "his " "name.\n" ""
+  "\nPi" "rate " "ships " "would " "low'r " "their " "flag "
+  "\nwhen " "Puff " "roared " "out " "his " "name. "
 
   "\nbut "  "not " "so " lit "tle " "boys, "
-  "" "\nmake " "way " "for " oth "er " "toys. " 
-  "\n " "One " "grey " "night " "it " \nom hap "pened, " \yesm
-  \nom Jack -- "ie " \yesm Pa -- "per " "came " "no " "more "
-  "\nAnd " "Puff " "that " might "y " drag "" "on, "
-  "\nhe " "ceased " "his " fear "less " "roar.\n" ""
+  "\nmake " "way " "for " oth "er " "toys. " 
+  "\nOne " "grey " "night " "it " hap "pened, "
+  "\nJack" "ie " Pa "per " "came " "no " "more "
+  "\nAnd " "Puff " "that " might "y " drag "on, "
+  "\nhe " "ceased " "his " fear "less " "roar. "
 
-  "" "\ngreen " "scales " "fell " "like " "rain, "
-  "" "\na" "long " "the " cher "ry " "lane. " 
+  "\ngreen " "scales " "fell " "like " "rain, "
+  "\na" "long " "the " cher "ry " "lane. " 
   "\nWith" "out " "his " "life " "long " "friend " 
-  "\n " "Puff " "could " "not " "be " "brave "
+  "\nPuff " "could " "not " "be " "brave "
   "\nSo " "Puff " "that " might "y " drag "on "
   "\nsad" "ly " "slipped " in "to " "his " "cave. "
-  "\nOh!\n"
+  "\nOh! "
 
   "\nPuff. " "the " dra "gon " "lived " "by " "the " "sea "
   "\nAnd " fro "licked " "in " "the " au "tumn " "mist "
@@ -1329,26 +1455,62 @@ bassC = \relative {
   c4 r r
 }
 
-bassD = \relative {
+bassDa = \relative {
+  r4
+  R1 % 5a
+  \tag #'dash {r2 r4 \slurDashed g8\mf ~8 \slurSolid}
+  \tag #'v1   {r2 r4             g8\mf  8           }
+  \tag #'v2   {r2 r4             g4\mf              }
+  \tag #'v3   {R1                                   }
+  f4 4 a8 a4.
+  e1
+  R1 % 5b
+  \tag #'(dash v1) {r2 c'4 b}
+  \tag #'(v2 v3)   {r2 r4 b}
+  a4 fis d fis
+  \tag #'(dash v3) {f2~4 g}
+  \tag #'(v1 v2) {f2~4 r}
+  c'4 4 4 4 % 6a
+  \tag #'dash    {\slurDashed b4(g2) \slurSolid}
+  \tag #'(v1 v2) {            b4 g2            }
+  \tag #'v3      {            b4(g2)           }
+  \tag #'dash {\slurDashed 8(8) \slurSolid}
+  \tag #'v1   {            4              }
+  \tag #'v2   {            8 8            }
+  \tag #'v3   {           r4              }
+  a4 4 c c
+  \tag #'dash    {g2. g4}
+  \tag #'v1      {g2. r4}
+  \tag #'(v2 v3) {g2. g4}
+  f4 d b d % 6b
+  \tag #'dash    {c4  \slurDashed d(e) \slurSolid a}
+  \tag #'(v1 v3) {c,4             d e             a}
+  \tag #'v2      {c,4            (d)e             a}
+  d,4 4 g g,
+}
+
+bassDb = {
+  c4-- r2
+}
+
+bassDc = {
+  c4-- r g2\fermata
+}
+
+bassD = {
   \repeat volta 3 {
-    r4
-    R1 % 5a
-    r2 r4 \slurDashed g8\mf ~8 \slurSolid
-    f4 4 a a
-    e1
-    R1 % 5b
-    r2 c'4 b
-    a4 fis d fis
-    f2~4 g
-    c4 4 4 4 % 6a
-    \slurDashed b4(g2) 8(8) \slurSolid
-    a4 4 c c
-    g2. 4
-    f4 d b d % 6b
-    c4 d e a
-    d,4 4 g g,
-    c4-- r g'4\fermata
+    \keepWithTag #'dash \bassDa
+    \alternative {
+      { \bassDb }
+      { \bassDc }
+    }
   }
+}
+
+bassDsingle = {
+  \keepWithTag #'v1 \bassDa \bassDb
+  \keepWithTag #'v2 \bassDa \bassDb
+  \keepWithTag #'v3 \bassDa \bassDc
 }
 
 bassE = \relative {
@@ -1380,6 +1542,17 @@ bassNosegno = {
   \bassB
   \bassC
   \bassD
+  \bassB
+  \bassE
+}
+
+bassSingle = {
+  \global \dynamicUp
+  \repeat volta 2 {R1*2}
+  \bassA
+  \bassB
+  \bassC
+  \bassDsingle
   \bassB
   \bassE
 }
@@ -1454,7 +1627,7 @@ wordsBassVThree = \lyricmode {
   With -- out his life long friend __
   "" Puff could not be brave
   So Puff that might -- y drag -- on
-  sad -- ly slipped in -- to his cave.
+  sad -- ly slipped in -- to his _ cave.
   Oh!
 }
 
@@ -1517,6 +1690,53 @@ wordsBassNosegnoThree = {
   \wordsBassD
 }
 
+wordsBassNosegnoSingle = \lyricmode {
+  Puff, the mag -- ic drag -- on
+  lived by the sea.
+  And fro -- licked in the au -- tumn mist
+  in a land called Ho -- nah Lee,
+  Jack -- ie Pa -- per
+  loved that ras -- cal Puff
+  And brought him strings and seal -- ing wax
+  and oth -- er fan -- cy stuff. Oh!
+
+  Puff, the ma -- gic dra -- gon lived by the sea
+  And fro -- licked in the au -- tumn mist
+  Ho -- nah Lee,
+  Oh, Puff, the ma -- gic dra -- gon lived by the sea __
+  And fro -- licked in the au -- tumn mist in a
+  land called Ho -- nah Lee, __
+
+  \nom on a \yesm boat with bil -- lowed sail,
+  perched on Puff's gi -- gan -- tic tail, __
+  _ No -- ble kings and \nom princ -- es \yesm
+  would bow when -- e'er they came,
+  Pi -- rate ships would low'r their flag
+  when Puff roared out his name.
+
+  but not so lit -- tle boys,
+  make way for oth -- er toys. __
+  One grey night it hap -- pened,
+  Jack -- ie Pa -- per came no more
+  And Puff that might -- y drag -- on,
+  he ceased his fear -- less roar.
+
+  green scales fell like rain,
+  a -- long the cher -- ry lane. __
+  With -- out his life long friend __
+  Puff could not be brave
+  So Puff that might -- y drag -- on
+  sad -- ly slipped in -- to his cave.
+  Oh!
+
+  Puff, the ma -- gic dra -- gon lived by the sea
+  And fro -- licked in the au -- tumn mist
+  Ho -- nah Lee,
+  Oh, Puff, the ma -- gic dra -- gon lived by the sea __
+  And fro -- licked in the au -- tumn mist in a
+  land called Ho -- nah Lee, __
+}
+
 wordsBassSingle = \lyricmode {
   Puff, the mag -- ic drag -- on
   lived by the sea.
@@ -1534,24 +1754,24 @@ wordsBassSingle = \lyricmode {
   And fro -- licked in the au -- tumn mist in a
   land called Ho -- nah Lee, __
 
-    \nom on a \yesm boat with bil -- lowed sail,
+  on a boat with bil -- lowed sail,
   perched on Puff's gi -- gan -- tic tail, __
-  "" No -- ble kings and \nom princ -- es \yesm
+  No -- ble kings and princ -- es
   would bow when -- e'er they came,
-  "" Pi -- rate ships would low'r their flag
-  when Puff roared out his name. _
+  Pi -- rate ships would low'r their flag
+  when Puff roared out his name.
 
-  but __ not so lit -- tle boys,
-  _ make way for oth -- er toys. __
-  "" One grey night it \nom hap -- pened, \yesm
-  \nom Jack -- ie \yesm Pa -- per came no more
-  And Puff that might -- y drag -- _ on,
-  he ceased his fear -- less roar. _
+  but not so lit -- tle boys,
+  make way for oth -- er toys. __
+  One grey night it hap -- pened,
+  Jack -- ie Pa -- per came no more
+  And Puff that might -- y drag -- on,
+  he ceased his fear -- less roar.
 
-  _ green scales fell like rain,
-  _ a -- long the cher -- ry lane. __
+  green scales fell like rain,
+  a -- long the cher -- ry lane. __
   With -- out his life long friend __
-  "" Puff could not be brave
+  Puff could not be brave
   So Puff that might -- y drag -- on
   sad -- ly slipped in -- to his cave.
   Oh!
@@ -1572,36 +1792,7 @@ wordsBassMidi = \lyricmode {
   "\nJack" "ie " Pa "per "
   "\nloved " "that " ras "cal " "Puff "
   "\nAnd " "brought " "him " "strings " "and " seal "ing " "wax "
-  "\nand " oth "er " fan "cy " "stuff. " "Oh!\n"
-
-  "\nPuff, " "the " ma "gic " dra "gon " "lived " "by " "the " "sea "
-  "\nAnd " fro "licked " "in " "the " au "tumn " "mist "
-  "\nHo" "nah " "Lee, "
-  "\nOh, " "Puff, " "the " ma "gic " dra "gon " "lived " "by " "the " "sea " 
-  "\nAnd " fro "licked " "in " "the " au "tumn " "mist " "in " "a "
-  "\nland " "called " Ho "nah " "Lee,\n" 
-
-  \nom "on " "a " \yesm "boat " "with " bil -- "lowed " "sail, "
-  "\nperched " "on " "Puff's " gi gan "tic " "tail, " 
-  "\n " No "ble " "kings " "and " \nom princ "es " \yesm
-  "\nwould " "bow " when "e'er " "they " "came, "
-  "\n " Pi "rate " "ships " "would " "low'r " "their " "flag "
-  "\nwhen " "Puff " "roared " "out " "his " "name.\n" ""
-
-  "\nbut "  "not " "so " lit "tle " "boys, "
-  "" "\nmake " "way " "for " oth "er " "toys. " 
-  "\n " "One " "grey " "night " "it " \nom hap "pened, " \yesm
-  \nom Jack -- "ie " \yesm Pa -- "per " "came " "no " "more "
-  "\nAnd " "Puff " "that " might "y " drag "" "on, "
-  "\nhe " "ceased " "his " fear "less " "roar.\n" ""
-
-  "" "\ngreen " "scales " "fell " "like " "rain, "
-  "" "\na" "long " "the " cher "ry " "lane. " 
-  "\nWith" "out " "his " "life " "long " "friend " 
-  "\n " "Puff " "could " "not " "be " "brave "
-  "\nSo " "Puff " "that " might "y " drag "on "
-  "\nsad" "ly " "slipped " in "to " "his " "cave. "
-  "\nOh!\n"
+  "\nand " oth "er " fan "cy " "stuff. " "Oh! "
 
   "\nPuff, " "the " ma "gic " dra "gon " "lived " "by " "the " "sea "
   "\nAnd " fro "licked " "in " "the " au "tumn " "mist "
@@ -1609,6 +1800,35 @@ wordsBassMidi = \lyricmode {
   "\nOh, " "Puff, " "the " ma "gic " dra "gon " "lived " "by " "the " "sea " 
   "\nAnd " fro "licked " "in " "the " au "tumn " "mist " "in " "a "
   "\nland " "called " Ho "nah " "Lee, " 
+
+  "\non " "a " "boat " "with " bil "lowed " "sail, "
+  "\nperched " "on " "Puff's " gi gan "tic " "tail, " 
+  "\nNo" "ble " "kings " "and " princ "es "
+  "\nwould " "bow " when "e'er " "they " "came, "
+  "\nPi" "rate " "ships " "would " "low'r " "their " "flag "
+  "\nwhen " "Puff " "roared " "out " "his " "name. "
+
+  "\nbut " "not " "so " lit "tle " "boys, "
+  "\nmake " "way " "for " oth "er " "toys. " 
+  "\nOne " "grey " "night " "it " hap "pened, "
+  "\nJack" "ie " Pa "per " "came " "no " "more "
+  "\nAnd " "Puff " "that " might "y " drag "on, "
+  "\nhe " "ceased " "his " fear "less " "roar. "
+
+  "\ngreen " "scales " "fell " "like " "rain, "
+  "\na" "long " "the " cher "ry " "lane. " 
+  "\nWith" "out " "his " "life " "long " "friend " 
+  "\nPuff " "could " "not " "be " "brave "
+  "\nSo " "Puff " "that " might "y " drag "on "
+  "\nsad" "ly " "slipped " in "to " "his " "cave. "
+  "\nOh! "
+
+  "\nPuff, " "the " ma "gic " dra "gon " "lived " "by " "the " "sea "
+  "\nAnd " fro "licked " "in " "the " au "tumn " "mist "
+  "\nHo" "nah " "Lee, "
+  "\nOh, " "Puff, " "the " ma "gic " dra "gon " "lived " "by " "the " "sea " 
+  "\nAnd " fro "licked " "in " "the " au "tumn " "mist " "in " "a "
+  "\nland " "called " Ho "nah " "Lee." 
 }
 
 pianoRHoneA = \relative {
@@ -1636,7 +1856,7 @@ pianoRHoneB = \relative {
     r4 e,(<c' e> g)
     r4 g(<e' g> b)
     r4 s <f' a> s % 4a
-    g4^(f e) r
+    g4^(f e) s
     c8(f aes c <d, f b>4-.) r
     c8(g' b g <c, e a>4-.) r
   }
@@ -1665,7 +1885,10 @@ pianoRHoneD = \relative {
     <c e>4 <d g> <e c'>2)
     <c e a>2->
     <d f a b>->
-    <e g a c>4-. r \ottava #1 dis'''\fermata^\markup\italic "black key gliss." \glissando \ottava #0
+    \alternative {
+      {<e g a c>4-. r2}
+      { <e g a c>4-. r \ottava #1 dis'''2\fermata^\markup\italic "black key gliss." \glissando \ottava #0 }
+    }
   }
 }
 
@@ -1741,7 +1964,10 @@ pianoRHtwoD = \relative {
     r4 c(b2) % 6b
     s1
     s1
-    s2.
+    \alternative {
+      {s2.}
+      {s1}
+    }
   }
 }
 
@@ -1887,7 +2113,10 @@ pianoLHoneD = \relative {
     e4-. g-. a-. g-.
     \voiceOne r4 a(g2) g2(a4 g) % 6b
     <d fis>2-^ <g, d' g>-^
-    \oneVoice <c g'>4-. <g, g'>2\fermata
+    \alternative {
+      {\oneVoice <c g'>4-. r2\fermata}
+      {\oneVoice <c g'>4-. <g, g'>2.\fermata}
+    }
   }
 }
 
@@ -1947,7 +2176,9 @@ pianoLHtwoD = \relative {
     d2(g,) % 6b
     c4(b a2)
     s1
-    s2.
+    \alternative {
+      {s2.} {s1}
+    }
   }
 }
 
@@ -2214,7 +2445,7 @@ pianoLHtwoNosegno = {
           <<
             \new Voice \TempoTrackNosegno
             \new Voice \RehearsalTrackNosegno
-            \new Voice \sopranoNosegno
+            \new Voice \sopranoSingle
             \addlyrics \wordsSopSingle
           >>
                                 % Single alto staff
@@ -2224,9 +2455,11 @@ pianoLHtwoNosegno = {
             midiInstrument = "choir aahs"
           }
           <<
-            \new Voice \altoNosegno
+            \new Voice \altoSingle
             \addlyrics \wordsAltoSingle
           >>
+
+
                                 % Single tenor staff
           \new Staff = tenor \with {
             instrumentName = #"Tenor"
@@ -2235,7 +2468,7 @@ pianoLHtwoNosegno = {
           }
           <<
             \clef "treble_8"
-            \new Voice \tenorNosegno
+            \new Voice \tenorSingle
             \addlyrics \wordsTenorSingle
           >>
                                 % Single bass staff
@@ -2246,7 +2479,7 @@ pianoLHtwoNosegno = {
           }
           <<
             \clef "bass"
-            \new Voice \bassNosegno
+            \new Voice \bassSingle
             \addlyrics \wordsBassSingle
           >>
         >>
@@ -2257,8 +2490,8 @@ pianoLHtwoNosegno = {
           <<
             \new Voice \pianoRHoneNosegno
             \new Voice \pianoRHtwoNosegno
-            \new Voice {\tiny \repeat volta 2 {s1*2} \sopranoTiny}
-            \new Voice {\tiny \repeat volta 2 {s1*2} \altoTiny}
+            \new Voice \partCombine #'(0 . 88) {\tiny \repeat volta 2 {s1*2} \sopranoTiny}
+                                               {\tiny \repeat volta 2 {s1*2} \altoTiny}
           >>
           \new Dynamics \dynamicsPianoNosegno
           \new Staff = pianolh \with {
@@ -2268,8 +2501,8 @@ pianoLHtwoNosegno = {
             \clef "bass"
             \new Voice \pianoLHoneNosegno
             \new Voice \pianoLHtwoNosegno
-            \new Voice {\tiny \repeat volta 2 {s1*2} \sopranoTiny}
-            \new Voice {\tiny \repeat volta 2 {s1*2} \altoTiny}
+            \new Voice \partCombine #'(0 . 88) {\tiny \repeat volta 2 {s1*2} \tenorTiny}
+                                    {\tiny \repeat volta 2 {s1*2} \bassTiny}
           >>
         >>
       >>
@@ -2316,7 +2549,7 @@ pianoLHtwoNosegno = {
           <<
             \new Voice \TempoTrackNosegno
             \new Voice \RehearsalTrackNosegno
-            \new Voice \sopranoNosegno
+            \new Voice \sopranoSingle
             \addlyrics \wordsSopSingle
           >>
                                 % Single alto staff
@@ -2326,7 +2559,7 @@ pianoLHtwoNosegno = {
             midiInstrument = "choir aahs"
           }
           <<
-            \new Voice \altoNosegno
+            \new Voice \altoSingle
             \addlyrics \wordsAltoSingle
           >>
                                 % Single tenor staff
@@ -2337,7 +2570,7 @@ pianoLHtwoNosegno = {
           }
           <<
             \clef "treble_8"
-            \new Voice \tenorNosegno
+            \new Voice \tenorSingle
             \addlyrics \wordsTenorSingle
           >>
                                 % Single bass staff
@@ -2348,7 +2581,7 @@ pianoLHtwoNosegno = {
           }
           <<
             \clef "bass"
-            \new Voice \bassNosegno
+            \new Voice \bassSingle
             \addlyrics \wordsBassSingle
           >>
         >>
@@ -2368,6 +2601,220 @@ pianoLHtwoNosegno = {
           }
           <<
             \clef "bass"
+            \new Voice \pianoLHoneNosegno
+            \new Voice \pianoLHtwoNosegno
+            \new Voice {\tiny \repeat volta 2 {s1*2} \sopranoTiny}
+            \new Voice {\tiny \repeat volta 2 {s1*2} \altoTiny}
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-sop"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+   \unfoldRepeats
+%   \articulate
+    <<
+      <<
+        \new ChordNames { \ChordTrack }
+%        \new FretBoards { \ChordTrack }
+      >>
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Voice \TempoTrackNosegno
+            \new Voice \RehearsalTrackNosegno
+            \new Voice \sopranoSingle
+            \addlyrics \wordsSopSingle
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \altoSingle
+            \addlyrics { \tiny \wordsAltoSingle }
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenorSingle
+            \addlyrics { \tiny \wordsTenorSingle }
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bassSingle
+            \addlyrics { \tiny \wordsBassSingle }
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRHoneNosegno
+            \new Voice \pianoRHtwoNosegno
+            \new Voice {\tiny \repeat volta 2 {s1*2} \sopranoTiny}
+            \new Voice {\tiny \repeat volta 2 {s1*2} \altoTiny}
+          >>
+          \new Dynamics \dynamicsPianoNosegno
+          \new Staff = pianolh \with {
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \clef "bass"
+            \magnifyStaff #4/7
+            \new Voice \pianoLHoneNosegno
+            \new Voice \pianoLHtwoNosegno
+            \new Voice {\tiny \repeat volta 2 {s1*2} \sopranoTiny}
+            \new Voice {\tiny \repeat volta 2 {s1*2} \altoTiny}
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-bass"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+   \unfoldRepeats
+%   \articulate
+    <<
+      <<
+        \new ChordNames { \ChordTrack }
+%        \new FretBoards { \ChordTrack }
+      >>
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrackNosegno
+            \new Voice \RehearsalTrackNosegno
+            \new Voice \sopranoSingle
+            \addlyrics { \tiny \wordsSopSingle }
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \altoSingle
+            \addlyrics { \tiny \wordsAltoSingle }
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenorSingle
+            \addlyrics { \tiny \wordsTenorSingle }
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \clef "bass"
+            \new Voice \bassSingle
+            \addlyrics \wordsBassSingle
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRHoneNosegno
+            \new Voice \pianoRHtwoNosegno
+            \new Voice {\tiny \repeat volta 2 {s1*2} \sopranoTiny}
+            \new Voice {\tiny \repeat volta 2 {s1*2} \altoTiny}
+          >>
+          \new Dynamics \dynamicsPianoNosegno
+          \new Staff = pianolh \with {
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \clef "bass"
+            \magnifyStaff #4/7
             \new Voice \pianoLHoneNosegno
             \new Voice \pianoLHtwoNosegno
             \new Voice {\tiny \repeat volta 2 {s1*2} \sopranoTiny}
@@ -2409,7 +2856,7 @@ pianoLHtwoNosegno = {
           <<
             \new Voice \TempoTrackNosegno
             \new Voice \RehearsalTrackNosegno
-            \new Voice \sopranoNosegno
+            \new Voice \sopranoSingle
             \addlyrics \wordsSopMidi
           >>
                                 % Single alto staff
@@ -2419,7 +2866,7 @@ pianoLHtwoNosegno = {
             midiInstrument = "choir aahs"
           }
           <<
-            \new Voice \altoNosegno
+            \new Voice \altoSingle
           >>
                                 % Single tenor staff
           \new Staff = tenor \with {
@@ -2429,7 +2876,7 @@ pianoLHtwoNosegno = {
           }
           <<
             \clef "treble_8"
-            \new Voice \tenorNosegno
+            \new Voice \tenorSingle
           >>
                                 % Single bass staff
           \new Staff = bass \with {
@@ -2439,7 +2886,7 @@ pianoLHtwoNosegno = {
           }
           <<
             \clef "bass"
-            \new Voice \bassNosegno
+            \new Voice \bassSingle
           >>
         >>
         \new PianoStaff = piano <<
@@ -2491,7 +2938,7 @@ pianoLHtwoNosegno = {
           <<
             \new Voice \TempoTrackNosegno
             \new Voice \RehearsalTrackNosegno
-            \new Voice \sopranoNosegno
+            \new Voice \sopranoSingle
           >>
                                 % Single alto staff
           \new Staff = alto \with {
@@ -2500,7 +2947,7 @@ pianoLHtwoNosegno = {
             midiInstrument = "choir aahs"
           }
           <<
-            \new Voice \altoNosegno
+            \new Voice \altoSingle
             \addlyrics \wordsAltoMidi
           >>
                                 % Single tenor staff
@@ -2511,7 +2958,7 @@ pianoLHtwoNosegno = {
           }
           <<
             \clef "treble_8"
-            \new Voice \tenorNosegno
+            \new Voice \tenorSingle
           >>
                                 % Single bass staff
           \new Staff = bass \with {
@@ -2521,7 +2968,7 @@ pianoLHtwoNosegno = {
           }
           <<
             \clef "bass"
-            \new Voice \bassNosegno
+            \new Voice \bassSingle
           >>
         >>
         \new PianoStaff = piano <<
@@ -2573,7 +3020,7 @@ pianoLHtwoNosegno = {
           <<
             \new Voice \TempoTrackNosegno
             \new Voice \RehearsalTrackNosegno
-            \new Voice \sopranoNosegno
+            \new Voice \sopranoSingle
           >>
                                 % Single alto staff
           \new Staff = alto \with {
@@ -2582,7 +3029,7 @@ pianoLHtwoNosegno = {
             midiInstrument = "choir aahs"
           }
           <<
-            \new Voice \altoNosegno
+            \new Voice \altoSingle
           >>
                                 % Single tenor staff
           \new Staff = tenor \with {
@@ -2592,7 +3039,7 @@ pianoLHtwoNosegno = {
           }
           <<
             \clef "treble_8"
-            \new Voice \tenorNosegno
+            \new Voice \tenorSingle
             \addlyrics \wordsTenorMidi
           >>
                                 % Single bass staff
@@ -2603,7 +3050,7 @@ pianoLHtwoNosegno = {
           }
           <<
             \clef "bass"
-            \new Voice \bassNosegno
+            \new Voice \bassSingle
           >>
         >>
         \new PianoStaff = piano <<
@@ -2655,7 +3102,7 @@ pianoLHtwoNosegno = {
           <<
             \new Voice \TempoTrackNosegno
             \new Voice \RehearsalTrackNosegno
-            \new Voice \sopranoNosegno
+            \new Voice \sopranoSingle
           >>
                                 % Single alto staff
           \new Staff = alto \with {
@@ -2664,7 +3111,7 @@ pianoLHtwoNosegno = {
             midiInstrument = "choir aahs"
           }
           <<
-            \new Voice \altoNosegno
+            \new Voice \altoSingle
           >>
                                 % Single tenor staff
           \new Staff = tenor \with {
@@ -2674,7 +3121,7 @@ pianoLHtwoNosegno = {
           }
           <<
             \clef "treble_8"
-            \new Voice \tenorNosegno
+            \new Voice \tenorSingle
           >>
                                 % Single bass staff
           \new Staff = bass \with {
@@ -2684,7 +3131,7 @@ pianoLHtwoNosegno = {
           }
           <<
             \clef "bass"
-            \new Voice \bassNosegno
+            \new Voice \bassSingle
             \addlyrics \wordsBassMidi
           >>
         >>
