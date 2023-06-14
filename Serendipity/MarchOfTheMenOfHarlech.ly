@@ -42,10 +42,34 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 %   top-margin = 10\mm
 % }
 
+RehearsalTrack = {
+  \textMark \markup { \box "16a" } s1*2
+  \repeat volta 2 {
+    s1
+    \textMark \markup { \box "16b" } s1*4
+    \textMark \markup { \box "16c" } s1*3
+  }
+  \textMark \markup { \box "17a" } s1*4
+  \textMark \markup { \box "17b" } s1*4
+  \textMark \markup { \box "17c" } s1*4
+  \textMark \markup { \box "17d" } s1*4
+  \repeat volta 2 {
+    \textMark \markup { \box "18a" } s1*4
+    \textMark \markup { \box "18b" } s1*4
+  }
+  \textMark \markup { \box "18c" } s1*4
+  \textMark \markup { \box "19a" } s1*4
+  \textMark \markup { \box "19b" } s1*4
+  \textMark \markup { \box "19c" } s1*4
+}
+
+TempoTrack = {
+  \tempo "In march time" 4=120
+}
+
 global = {
   \key f \major
   \time 4/4
-  \tempo 4=150
 %  \partial 4
 }
 
@@ -87,9 +111,8 @@ alto = \relative c' {
 dynamicsAlto = {
 }
 
-tenor = \relative c {
+tenorOne = \relative c {
   \global
-  \clef "treble_8"
   r1
   r1
   \repeat volta 2 {
@@ -118,6 +141,9 @@ tenor = \relative c {
   r1
   r1
   r1
+}
+
+tenorTwo = \relative {
   \repeat volta 2 {
     f4 f d' d
     c4 bes a c
@@ -147,66 +173,35 @@ tenor = \relative c {
   \bar "|."
 }
 
+tenor = { \tenorOne \tenorTwo }
+
 dynamicsTenor = {
-  s1
-  s1
+  \dynamicUp
+  s1*2
   \repeat volta 2 {
-    s1
-    s1
-    s1
-    s1
-    s1
-    s1
-    s1
-    s1
+    s1*8
   }
-  s1
-  s1
-  s1
-  s1
-  s1
-  s1
-  s1
-  s1
-  s1
-  s1
-  s1
-  s1
-  s1
-  s1
-  s1
-  s1
+  s1*16
   \repeat volta 2 {
     s1^\mf^\markup{DESCANT}
-    s1
-    s1
-    s1
-    s1
-    s1 \>
+    s1*4
+    s1 \<
     s1 \!
     s1
   }
   s1^\mf
-  s1
-  s1
-  s1
+  s1*3
   s1^\cresc
-  s1
-  s1
-  s1
+  s1*3
   s1^\f
-  s1
-  s1
-  s1
-  s1
+  s1*4
   s1^\cresc
-  s1^\ff ^\markup{rall.}
+  s1^\ff ^\markup\upright rall.
   s1
 }
 
-bass= \relative c {
+bassOne = \relative c {
   \global
-  \clef bass
   R1
   R1
   \repeat volta 2 {
@@ -216,7 +211,7 @@ bass= \relative c {
     e4 d e c
     f4.. e16 d4.. e16
     f4 g a d
-    c16 a8.(a4)g4.. a16
+    c16-> a8.(a4)g4.. a16
     f2. r4
   }
   g4.. f16 e4.. f16
@@ -234,7 +229,10 @@ bass= \relative c {
   f4.. e16 d4.. e16
   f4 g a d
   c16 a8.(a4) g4..-> a16
-  f2.-> r4
+  f2.-> r4 \break
+}
+
+bassTwo = \relative {
   \repeat volta 2 {
     f4.. e16 d4.. e16
     f4 g a f
@@ -264,8 +262,11 @@ bass= \relative c {
   \bar "|."
 }
 
+bass = { \bassOne \bassTwo }
+
 dynamicsBass = {
-  s1^\markup \upright \bold {In march time}
+  \dynamicUp
+  s1
   s1
   \repeat volta 2 {
     s1^\mf
@@ -294,7 +295,7 @@ dynamicsBass = {
   s1^\ff \!
   s1
   \repeat volta 2 {
-    s1^\f^\markup \roman MELODY
+    s1^\f^\markup \upright MELODY
     s1
     s1
     s1
@@ -309,13 +310,13 @@ dynamicsBass = {
   s1
   s1
   s1
-  s1^\f
+  s1^\ff
   s1
   s1
   s1
   s1
   s1^\cresc
-  s1^\ff^\markup \roman rall.
+  s1^\fff
   s1
 }
 
@@ -539,7 +540,6 @@ pianoRHtwo = \relative c' {
 
 pianoLH = \relative c {
   \global
-  \clef bass
   \oneVoice
   <c c'>2 c
   <f, f'>4 <c c'> <f, f'> r
@@ -600,7 +600,6 @@ pianoLH = \relative c {
 
 pianoLHone = \relative c {
   \global
-  \clef bass
   \voiceOne
   s1*2
   \repeat volta 2 { s1*8 }
@@ -620,7 +619,6 @@ pianoLHone = \relative c {
 
 pianoLHtwo = \relative c {
   \global
-  \clef bass
   \voiceTwo
   s1*2
   \repeat volta 2 { s1*8 }
@@ -699,7 +697,26 @@ wordsTwoC = \lyricmode {
 }
 
 wordsTenorMidi = \lyricmode {
-  "Rock" "y " "steeps " "and " pass "es " nar "row "
+  "Men " "of " Har "lech! " "in " "the " hol "low, "
+  "\nDo " "ye " "hear, " "like " rush "ing " bil "low, "
+  "\nWave " "on " "wave " "that " surg "ing " fol "low, "
+  "\nBat" "tle's " dis "tant " "sound? "
+
+  "\n'Tis " "the " "tramp " "of " Sax "on " foe "men, "
+  "\nSax" "on " spear "men, " Sax "on " bow "men "
+  "\nBe " "they " "knights, " "or " "hinds, " "or " yeo "men, "
+  "\nThey " "shall " "bite " "the " "ground! "
+
+  "\nLoose " "the " "folds " a sun "der, "
+  "\nFlag " "we " con "quer " un "der! "
+  "\nThe " pla "cid " "sky, " "now " "bright " "on " "high, "
+  "\nShall " "launch " "its " "bolt " "in " thun "der! "
+  "\nOn" "ward! " "'tis " "our " coun "try " "needs " "us! "
+  "\nHe " "is " bra "vest, " "he " "who " "leads " "us! "
+  "\nHon" "our's " "self " "now " proud "ly " "heads " "us! "
+  "\nCam" "bria, " "God, " "and " "Right!\n"
+
+  "\nRock" "y " "steeps " "and " pass "es " nar "row "
   "\nFlash " "with " "spear " "and " "flight " "of " ar "row, "
   "\nWho " "would " "think " "of " "death " "or " sor "row! "
   "\nGlo" "ry " "crowns " "us " "now! "
@@ -766,15 +783,19 @@ wordsBassMidi = \lyricmode {
 %  \articulate
     <<
       \new ChoirStaff <<
-        \new Dynamics \dynamicsTenor
-        \new Staff \with { instrumentName = #"Tenor" } <<
+        \new Staff = tenor \with { instrumentName = #"Tenor" } <<
+          \clef "treble_8"
+          \new Voice \RehearsalTrack
+          \new Voice \TempoTrack
+          \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
           \new Voice = "tenor" \tenor
           \new Lyrics \lyricsto "tenor" { \wordsTwoA \wordsTwoC }
           \new Lyrics \lyricsto "tenor" { \wordsTwoB            }
         >>
-        \new Dynamics \dynamicsBass
-        \new Staff \with { instrumentName = #"Bass" } <<
+        \new Staff = bass \with { instrumentName = #"Bass" } <<
+          \clef bass
           \new Voice = "bass" \bass
+          \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
           \new Lyrics \lyricsto "bass" { \wordsOneA \wordsOneC  \wordsTwoA \wordsTwoC }
           \new Lyrics \lyricsto "bass" { \wordsOneB \wordsEmpty \wordsTwoB            }
         >>
@@ -787,6 +808,7 @@ wordsBassMidi = \lyricmode {
         >>
         \new Dynamics \dynamicsPiano
         \new Staff <<
+          \clef bass
           \new Voice \pianoLH
           \new Voice \pianoLHone
           \new Voice \pianoLHtwo
@@ -794,10 +816,15 @@ wordsBassMidi = \lyricmode {
       >>
     >>
     \layout {
-      \context { \Staff \RemoveAllEmptyStaves }
+      #(layout-set-staff-size 20)
       indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
     }
-    \midi {}
   }
 }
 
@@ -808,13 +835,17 @@ wordsBassMidi = \lyricmode {
 %  \articulate
     <<
       \new ChoirStaff <<
-        \new Dynamics \dynamicsTenor
-        \new Staff \with { instrumentName = #"Tenor" } <<
+        \new Staff = tenor \with { instrumentName = #"Tenor" } <<
+          \clef "treble_8"
+          \new Voice \RehearsalTrack
+          \new Voice \TempoTrack
+          \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
           \new Voice = "tenor" \tenor
           \new Lyrics \lyricsto "tenor" { \wordsTwoA \wordsTwoB \wordsTwoC }
         >>
-        \new Dynamics \dynamicsBass
-        \new Staff \with { instrumentName = #"Bass" } <<
+        \new Staff = bass \with { instrumentName = #"Bass" } <<
+          \clef bass
+          \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
           \new Voice = "bass" \bass
           \new Lyrics \lyricsto "bass" { \wordsOneA \wordsOneB \wordsOneC  \wordsTwoA \wordsTwoB \wordsTwoC }
         >>
@@ -827,6 +858,7 @@ wordsBassMidi = \lyricmode {
         >>
         \new Dynamics \dynamicsPiano
         \new Staff <<
+          \clef bass
           \new Voice \pianoLH
           \new Voice \pianoLHone
           \new Voice \pianoLHtwo
@@ -834,10 +866,136 @@ wordsBassMidi = \lyricmode {
       >>
     >>
     \layout {
-      \context { \Staff \RemoveAllEmptyStaves }
+      #(layout-set-staff-size 20)
       indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
     }
-    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+  \unfoldRepeats
+%  \articulate
+    <<
+      \new ChoirStaff <<
+        \new Staff = tenor \with { instrumentName = #"Tenor" } <<
+          \clef "treble_8"
+          \new Voice \RehearsalTrack
+          \new Voice \TempoTrack
+          \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
+          \new Voice = "tenor" \tenor
+          \new Lyrics \lyricsto "tenor" { \wordsTwoA \wordsTwoB \wordsTwoC }
+        >>
+        \new Staff = bass \with { instrumentName = #"Bass" } <<
+          \clef bass
+          \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
+          \new Voice = "bass" \bass
+          \new Lyrics \lyricsto "bass" { \wordsOneA \wordsOneB \wordsOneC  \wordsTwoA \wordsTwoB \wordsTwoC }
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff <<
+          \new Voice \pianoRH
+          \new Voice \pianoRHone
+          \new Voice \pianoRHtwo
+        >>
+        \new Dynamics \dynamicsPiano
+        \new Staff <<
+          \clef bass
+          \new Voice \pianoLH
+          \new Voice \pianoLHone
+          \new Voice \pianoLHtwo
+        >>
+      >>
+    >>
+    \layout {
+      #(layout-set-staff-size 20)
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-bass"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+  \unfoldRepeats
+%  \articulate
+    <<
+      \new ChoirStaff <<
+        \new Staff = tenor \with { instrumentName = #"Tenor" } <<
+          \clef "treble_8"
+          \new Voice \RehearsalTrack
+          \new Voice \TempoTrack
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
+          \new Voice = "tenor" \tenor
+          \addlyrics { \tiny \wordsTwoA \wordsTwoB \wordsTwoC }
+        >>
+        \new Staff = bass \with { instrumentName = #"Bass" } <<
+          \clef bass
+          \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
+          \new Voice = "bass" \bass
+          \addlyrics { \wordsOneA \wordsOneB \wordsOneC  \wordsTwoA \wordsTwoB \wordsTwoC }
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff <<
+          \magnifyStaff #4/7
+          \new Voice \pianoRH
+          \new Voice \pianoRHone
+          \new Voice \pianoRHtwo
+        >>
+        \new Dynamics \dynamicsPiano
+        \new Staff <<
+          \magnifyStaff #4/7
+          \clef bass
+          \new Voice \pianoLH
+          \new Voice \pianoLHone
+          \new Voice \pianoLHtwo
+        >>
+      >>
+    >>
+    \layout {
+      #(layout-set-staff-size 20)
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
   }
 }
 
@@ -848,13 +1006,15 @@ wordsBassMidi = \lyricmode {
 %  \articulate
     <<
       \new ChoirStaff <<
-        \new Dynamics \dynamicsTenor
         \new Staff \with { instrumentName = #"Tenor" } <<
+          \clef "treble_8"
+          \new Voice \TempoTrack
           \new Voice = "tenor" \tenor
 %          \new Lyrics \lyricsto "tenor" \wordsTenorMidi
         >>
         \new Dynamics \dynamicsBass
         \new Staff \with { instrumentName = #"Bass" } <<
+          \clef bass
           \new Voice = "bass" \bass
           \new Lyrics \lyricsto "bass" \wordsBassMidi
         >>
@@ -864,16 +1024,23 @@ wordsBassMidi = \lyricmode {
           \new Voice \pianoRH
           \new Voice \pianoRHone
           \new Voice \pianoRHtwo
-        >>
-        \new Dynamics \dynamicsPiano
-        \new Staff <<
+          \new Dynamics \dynamicsPiano
           \new Voice \pianoLH
           \new Voice \pianoLHone
           \new Voice \pianoLHtwo
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
@@ -884,13 +1051,16 @@ wordsBassMidi = \lyricmode {
 %  \articulate
     <<
       \new ChoirStaff <<
-        \new Dynamics \dynamicsTenor
         \new Staff \with { instrumentName = #"Tenor" } <<
-          \new Voice = "tenor" \tenor
+          \clef "treble_8"
+          \new Voice \TempoTrack
+          \new Dynamics \dynamicsTenor
+          \new Voice = "tenor" {\bassOne \tenorTwo}
           \new Lyrics \lyricsto "tenor" \wordsTenorMidi
         >>
-        \new Dynamics \dynamicsBass
         \new Staff \with { instrumentName = #"Bass" } <<
+          \clef bass
+          \new Dynamics \dynamicsBass
           \new Voice = "bass" \bass
 %          \new Lyrics \lyricsto "bass" \wordsBassMidi
         >>
@@ -900,15 +1070,22 @@ wordsBassMidi = \lyricmode {
           \new Voice \pianoRH
           \new Voice \pianoRHone
           \new Voice \pianoRHtwo
-        >>
-        \new Dynamics \dynamicsPiano
-        \new Staff <<
+          \new Dynamics \dynamicsPiano
           \new Voice \pianoLH
           \new Voice \pianoLHone
           \new Voice \pianoLHtwo
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
