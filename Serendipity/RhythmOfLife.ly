@@ -1,4 +1,4 @@
-\version "2.20.0"
+\version "2.25.0"
 
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 
@@ -30,8 +30,6 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   copyright   = \today
 }
 
- #(set-global-staff-size 16)
-
 % \paper {
 %   #(set-paper-size "a4")
 %   line-width = 180\mm
@@ -47,64 +45,227 @@ global = {
 }
 
 RehearsalTrack = {
-  s2*4
-  \repeat volta 2 {
-    \mark \markup { \circle "1a" } s2*4
-  }
-  \set Score.currentBarNumber = #5
+%  \repeat volta 2 {
+    \textMark \markup { \circle "3a" } s2*4
+%  }
+%  \set Score.currentBarNumber = #5
+  \textMark \markup { \circle "3b" }
   \mark \markup { \box    "A"  } s2*4
-  \mark \markup { \circle "3c" } s2*4
+  \textMark \markup { \circle "3c" } s2*4
+  \textMark \markup { \circle "4a" }
   \mark \markup { \box    "B"  } s2*4
-  \mark \markup { \circle "4b" } s2*4
+  \textMark \markup { \circle "4b" } s2*4
+  \textMark \markup { \circle "4c" }
   \mark \markup { \box    "C"  } s2*4
-  \mark \markup { \circle "5a"  } s2*4
+  \textMark \markup { \circle "5a"  } s2*4 \break
+  \textMark \markup { \circle "5b" }
   \mark \markup { \box    "D" } s2*4
-  \mark \markup { \circle "5c"  } s2*4
+  \textMark \markup { \circle "5c"  } s2*4 \break
+  \textMark \markup { \circle "6a" }
   \mark \markup { \box    "E" } s2*4
-  \mark \markup { \circle "6b"  } s2*4
+  \textMark \markup { \circle "6b"  } s2*4 \break
+  \textMark \markup { \circle "7a" }
   \mark \markup { \box    "F"  } s2*4
-  \mark \markup { \circle "7b" } s2*4
+  \textMark \markup { \circle "7b" } s2*4 \break
+  \textMark \markup { \circle "7c" }
   \mark \markup { \box    "G"  } s2*4
-  \mark \markup { \circle "8a" } s2*4
-  \repeat volta 2 {
+  \textMark \markup { \circle "8a" } s2*4 \break
+%  \repeat volta 2 {
+  \textMark \markup { \circle "8b" }
     \mark \markup { \box    "H"  } s2*4
-    \mark \markup { \circle "8c" } s2*4
-  }
+    \textMark \markup { \circle "8c" } s2*4
+%  }
+  \textMark \markup { \circle "9a" }
   \mark \markup { \box    "I"  } s2*4
-  \mark \markup { \circle "9b" } s2*4
+  \textMark \markup { \circle "9b" } s2*4
+  \textMark \markup { \circle "9c" }
   \mark \markup { \box    "J"   } s2*4
-  \mark \markup { \circle "10a" } s2*4
+  \textMark \markup { \circle "10a" } s2*4 \break
+  \textMark \markup { \circle "10b" }
   \mark \markup { \box    "K"   } s2*4
-  \mark \markup { \circle "10c" } s2*4
+  \textMark \markup { \circle "10c" } s2*4 \break
   \repeat volta 2 {
+  \textMark \markup { \circle "11a" }
     \mark \markup { \box    "L"   } s2*4
-    \mark \markup { \circle "11b" } s2*3
+    \textMark \markup { \circle "11b" } s2*3
   }
-  \alternative { { s2 } { s2 } }
+  \alternative { { s2 } { s2 } } \break
+  \textMark \markup { \circle "12a" }
   \mark \markup { \box    "M"   } s2*4
-  \mark \markup { \circle "12b" } s2*4
+  \textMark \markup { \circle "12b" } s2*4 \break
+  \textMark \markup { \circle "12c" }
   \mark \markup { \box    "N"   } s2*4
-  \mark \markup { \circle "13a" } s2*4
+  \textMark \markup { \circle "13a" } s2*4 \break
+  \textMark \markup { \circle "13b" }
   \mark \markup { \box    "O"   } s2*4
-  \mark \markup { \circle "14a" } s2*4
+  \textMark \markup { \circle "14a" } s2*4 \break
+  \textMark \markup { \circle "14b" }
   \mark \markup { \box    "P"   } s2*4
-  \mark \markup { \circle "15a" } s2*4
-  \mark \markup { \box    "Q"   } s2*6
-  \mark \markup { \circle "16a" } s2*4
-  \mark \markup { \box    "16b" } s2*4
+  \textMark \markup { \circle "15a" } s2*4
+  \textMark \markup { \circle "15b" }
+  \mark \markup { \box    "Q"   } s2*6 \break
+  \textMark \markup { \circle "16a" } s2*4
+  \textMark \markup { \box    "16b" } s2*4
 }
 
-soprano = \relative c' {
-  \global
+TempoTrack = {
+}
+
+dynamicsOneAbove = {
+%  \repeat volta 2 {
   s2*4
+%  }
+  s2\mp^\markup "ALL VOICES UNISON" |
+  s2*3 |
+  s2\mf | % 3c
+  s2*10 |
+  s4. s8\omit\mp-\markup{\dynamic mp \italic intensely} | % 4b+++
+  s2*7 |
+  s4. s8^\markup "(Sop. tacet)" |
+  s8^\markup SOPRANO s4.\mf |
+  s2*15
+  s2\p^\markup "ALL VOICES UNISON"
+  s2*7
+  s2\omit\p-\markup{\dynamic p \italic lightly}^\markup "SOPRANO and ALTO (unis.)"
+  s2*7
+%  \repeat volta 2 {
+    s2^\markup "(S. and A.)" | s2*7
+%  }
+  s8^\markup "ALL VOICES UNISON" s4.\mp% 9a
+  s2*7
+  s8^\markup "(S. and T.)" s4.\mf % 9c
+  s2*7
+  s8^\markup "(Sop. I & Tenor)" s\f s4 | % 10b
+  s2*6
+  s2\> |
   \repeat volta 2 {
-    s2*4
+    s2\mp^\markup{\italic lightly \bold\upright "Second time only"} | % 11a
+    s2*6
+    \alternative {
+      {s2} {s2}
+    }
   }
-  d16^\mp e d cis d8 a' % 3b
+  s2^\markup "ALL VOICES UNISON" | % 12a
+  s2*6
+  s4. s8\mf^\markup\italic "(Alto tacet)"
+  s2^\markup "SOPRANO, TENOR & BASS" | % 12c
+  s2*6
+  s4. s8^\markup\italic "(Slowly)" |
+  s2\mf^\markup SOPRANO | % 13b
+  s2*7 |
+  s8^\markup "(S.1 & Ten.)" s4.\f | % 14b
+  s2*6 |
+  s4.\< s8\! |
+  s4 s\ff | % 15b
+  s2*5 |
+  s2^\markup "(S.)"  s4 s^\markup\italic "(S. div.)" | % 16a
+  s2*7 |
+}
+
+dynamicsOneBelow = {
+%  \repeat volta 2 {
+  s2*4
+%}
+  s2*56
+%  \repeat volta 2 {
+    s2*8
+%  }
+  s2*8 |
+  s2-\markup "(A. and B.)" | % 9c
+  s2*7 |
+  s2-\markup "(Sop. II & Bar.)"  % 10b
+  s2*7 |
+  \repeat volta 2 {
+    s2-\markup "(A., T.)" | % 11a
+    s2*6
+    \alternative {
+      {s2} {s4. s8-\markup\italic "(Ten. 8va)" }
+    }
+  }
+  s2*24 |
+  s2-\markup "(S. II & Bar.)" | % 14b
+  s2*13
+  s2-\markup "(A.)" | % 16a
+  s2*5
+  s2-\markup\italic "(A. div.)" |
+  s2*2 |
+}
+
+dynamicsTwoAbove = {
+%  \repeat volta 2 {
+    s2*4
+%  }
+  s2*24
+  s2^\markup "ALL OTHER VOICES UNISON"
+  s2*6
+  s4. s8^\markup "(Bass tacet)"
+  s2-\markup "(A. and T.)" | % 6a
+  s2*23
+%  \repeat volta 2 {
+    s2-\markup {"TENOR and BASS" \italic "(unis.)"} | % 8b
+    s2*7
+%  }
+  s2*16
+  s2-\markup "(Alto & Bass)" | % 10b
+  s2*7
+  \repeat volta 2 {
+    s2\omit\p-\markup{\dynamic pp - \dynamic mp} | % 11a
+    s2*6
+    \alternative { {s2} {s4. s8\mf} }
+  }
+  s2*8
+  s8-\markup ALTO s4.\f | % 12c
+  s2*7
+  s8-\markup ALTO s4.\mf | % 13b
+  s2*7
+  s8-\markup "(Alto & Bass)" s4.\f | % 14b
+  s2*6
+  s4.\< s8\! | % 15a+++
+  s4 s\ff | % 15b
+  s2*5
+  s2-\markup "(T.)" | % 16a
+  s2*5
+  s2-\markup "(T. div.)" |
+  s2*2 |
+}
+
+dynamicsTwoBelow = {
+%  \repeat volta 2 {
+    s2*4
+%  }
+  s2*56
+%  \repeat volta 2 {
+    s2*8
+%  }
+  s2*24
+  \repeat volta 2 { s2*7 \alternative {{s2}{s2}}}
+  s2*38
+  s2-\markup "(B.)" | % 16a
+  s4 s-\markup\italic "(B. div.)"
+  s2*7
+}
+
+dynamicsThree = {
+%  \repeat volta 2 {
+    s2*4
+%  }
+  s2*56
+%  \repeat volta 2 {
+    s2*8
+%  }
+  s2*24
+  \repeat volta 2 { s2*7 \alternative {{s2}{s2}}}
+  s2*16
+  s2-\markup "TENOR and BASS" | % 13b
+  s2*30
+}
+
+partOne = \relative {
+  d'16 e d cis d8 a' % 3b
   a8 g f e
   d16 e d cis d8 e
   e8 f f4
-  f16^\mf g f e f8 c' % 3c
+  f16 g f e f8 c' % 3c
   c8 bes a g
   f16 g f e f8 g
   g8 a a bes16[c]
@@ -115,7 +276,7 @@ soprano = \relative c' {
   bes16 bes bes8 c16 bes a g % 4b
   a16 a a8 d4
   g,8 g16 g a g f e
-  e16 f f8 f f16^\markup{\dynamic mp \italic intensely} g \bar "||" \key aes \major
+  e16 f f8 f f16 g \bar "||" \key aes \major
   aes16 aes aes8 aes g16 f % 4c
   aes16 aes aes8 bes8 aes16 f
   g16 g g g g f ees f
@@ -123,8 +284,19 @@ soprano = \relative c' {
   f16 f f f f8 des % 5a
   f16 f f f g8 g16 f
   e16 e e8 e d16 e
-  e16 f f8 f r8 %%% other parts differ
-  r8 c'^\mf c c % 5b
+  e16 f f8 f
+}
+
+partOneE = {
+%  \repeat volta 2 {
+    R2*4
+%  }
+  R2*16 \section \key aes \major
+  R2*8
+}
+
+partTwoS = \relative {
+  r8 c'' c c % 5b
   c16 des des8 des4
   r8 bes bes bes
   bes16 c c8 c4
@@ -140,7 +312,49 @@ soprano = \relative c' {
   aes16 aes aes aes bes8 aes
   r8 g8 g g
   g16 aes aes g g8 r \key f \major \bar "||"
-  d16^\p e d cis d8 a' % 7a %%% all voices back together again
+}
+
+partTwoATB = \relative {
+  aes'16 16 8 8 g16 ees | % 5b
+  aes16 16 8 bes aes16 f | g16 g g g g f ees f | g g g g aes8 r |
+  f16 f f f f8 des % 5c
+  f16 f f f g8 g16 f
+  e16 e e8 e d16 e
+  e16 f f8 f
+}
+
+partTwoE = {
+  R2*8
+}
+
+partThreeAT = \relative {
+  aes'16 aes aes8 aes g16 f % 6a
+  aes16 aes aes8 bes aes16 f
+  g16 g g g g f ees f
+  g16 g g g aes8 r
+  f16 f f f f8 des % 6b
+  f16 f f f g8 g16 f
+  e16 e e8 e d16 e
+  e16 f f8 e r \key f \major \bar "||"
+}
+
+partThreeB = \relative {
+  aes4^\mf g % 6a
+  f2
+  g4 f
+  ees2
+  f4 ees % 6b
+  des4 bes
+  c4 e
+  f4 r \key f \major \bar "||"
+}
+
+partThreeE = {
+  R2*8 \key f \major \section
+}
+
+partFour = \relative {
+  d'16 e d cis d8 a' % 7a
   a8 g f e
   d16 e d cis d d e8
   e8 f f4
@@ -148,7 +362,15 @@ soprano = \relative c' {
   c8 bes a g
   f16 g f e f g f g
   g8 a a r
-  bes16^\markup{\dynamic p \italic lightly} c bes a g a g f % 7c %%% sop and alto only
+  
+}
+
+partFourE = {
+  R2*8
+}
+
+partFiveSA = \relative {
+  bes'16 c bes a g a g f % 7c
   e16 f e dis e fis g gis
   a16 b a g fis g fis e
   d8 fis a r
@@ -156,7 +378,14 @@ soprano = \relative c' {
   c16 d c b c d dis e
   f16 g f d e f e cis
   d8 cis d4
-  \repeat volta 2 {
+}
+
+partFiveE = {
+  R2*8
+}
+
+partSixSA = \relative {
+%  \repeat volta 2 {
     bes'16 c b a  g a g f % 8b
     e16 f e dis e fis g gis
     a16 b a g fis g fis e
@@ -165,9 +394,37 @@ soprano = \relative c' {
     c16 d c b c d dis e
     f16 g f d e f e cis
     d8-> cis-> d-> r
-  }
+%  }
   \key d \major
-  r8 fis16^\mp fis fis8 fis % 9a %%% all parts
+}
+
+partSixTB = \relative {
+%  \repeat volta 2 {
+    \set melismaBusyProperties = #'()
+    \slurDashed
+    r8 d'16^\p d d8(d) % 8b
+    \slurSolid
+    \unset melismaBusyProperties
+    d8 d e d
+    r8 c16 c c8 c
+    d8 d d c
+    r8 bes16 bes bes8 bes % 8c
+    c8 c c bes
+    a8(d) cis(e)
+    d8-> cis-> d-> r
+%  }
+  \key d \major
+}
+
+partSixE = {
+% \repeat volta 2 {
+  R2*8
+% }
+  \key d \major
+}
+
+partSeven = \relative {
+  r8 fis'16 fis fis8 fis % 9a
   fis8 g g16( fis e8)
   r8 g16 g g8 g
   g8 a a16(g fis8)
@@ -175,7 +432,14 @@ soprano = \relative c' {
   a8 b b16(a g8)
   cis8(a) b(cis)
   d8 cis b(a)
-  r8 a16^\mf a a8 a % 9c %%% sop and tenor only
+}
+
+partSevenE = {
+  R2*8
+}
+
+partEightST = \relative {
+  a'16 a a8 a % 9c
   a8 b b16(a g8)
   r8 b16 b b8 b
   b8 cis cis16(b a8)
@@ -183,16 +447,59 @@ soprano = \relative c' {
   cis8 d d16(cis b8)
   e8(cis) d(e)
   fis8 e d(cis)
-  r8 d16^\f d d8 d % 10b %% SopI and tenor only
+}
+
+partEightAB = \relative {
+  fis'16 fis fis8 fis % 9c
+  fis8 g g16(fis e8)
+  r8 g16 g g8 g
+  g8 a a16(g fis8)
+  r8 a16 a a8 a % 10a
+  a8 b b16(a g8)
+  cis8(a) b(cis)
+  d8 cis b(a)
+}
+
+partEightE = { R2*8 }
+
+partNineSiT = \relative {
+  d''16 d d8 d % 10b
   d8 e e16(d cis8)
   r8 e16 e e8 e
   e8 fis fis16(e d8)
   r8 fis16 fis fis8 fis % 10c
   fis8 g g16(fis e8)
   fis8(e) fis(g)
-  a8(^\> g fis e) \key f \major
+  a8(g fis e) \key f \major \section
+}
+
+partNineSiiBi = \relative {
+  a'16 a a8 a % 10b
+  a8 b b16(a g8)
+  r8 b16 b b8 b
+  b8 cis cis16(b a8)
+  r8 cis16 cis cis8 cis % 10c
+  cis8 d d16(cis b8)
+  cis8(b) cis(d)
+  e8(d cis b) \key f \major \section
+}
+
+partNineABii = \relative {
+  fis'16^\f fis fis8 fis % 10b -K-
+  fis8 g g16(fis e8)
+  r8 g16 g g8 g
+  g8 a a16(g fis8)
+  r8 a16 a a8 a % 10c
+  a8 b b16(a g8)
+  a8(g) a(b)
+  cis8(b a g) \key f \major \section
+}
+
+partNineE = { R2*8 \key f \major }
+
+partTenS = \relative {
   \repeat volta 2 {
-    d16\!^\markup{\dynamic p - \dynamic mp \italic lightly} e d c bes c bes a % 11a %%% sop only
+    d''16 e d c bes c bes a % 11a
     g16 a g fis g8 bes
     c16 d c bes a bes a g
     f16 g f e f8 a
@@ -202,162 +509,42 @@ soprano = \relative c' {
   }
   \alternative {
     {
-      e16 d d cis d8 r
+      R2
+%      e16 d d cis d8 r
     }
     {
       e16 d d cis d8 a16^\mf b
     }
   }
-  \bar "||" \key c \major
-  c16 c c8 c b16 a % 12a %%% all voices
-  c16 c c8 d c16 a
-  b16 b b b b a g a
-  b16 b b b c8 r
-  a16 a a a a8 f % 12b
-  a16 a a a b8 b16 a
-  gis16 gis gis8 gis fis16 gis
-  gis16 a a8 a a16^\mf bes %%% alto tacet at end
-  c16 c c8 c b16 a % 12c
-  c16 c c8 d c16 a
-  b16 b b b b a g a
-  b16 b b b c8 r
-  a16 a a a a8 f % 13a
-  a16 a a a b8 b16 a
-  gis16 gis gis8 gis fis16 gis
-  gis16 a a8 a a16 b %%% sop only at end
-  c16^\mf c c8 c b16 a % 13b
-  c16 c c8 d c16 a
-  b16 b b b b a g a
-  b16 b b b c8 r
-  a16 a a a a8 f % 14a
-  a16 a a a b8 b16 a
-  gis16 gis gis8 gis fis16 gis
-  gis16 a a8 a r \bar "||" \key f \major
-  r8 f'^\f f f % 14b
-  f16 g g8 g4
-  r8 e e e
-  e16 f f8 f4
-  r8 d d d % 15a
-  d16 d d d e8 d
-  r8 cis cis cis
-  cis8^\< cis d e
-  r4\! f4~^\ff % 15b
-  f2
-  r4 f~
-  f2
-  r4 f~
-  f2
-  a,16 a a8 a a % 16a
-  r4 <d f>8 <cis e>
-  r4 <d f>8 <cis e>
-  r4 <d f>8 <cis e>
-  r4 <d f>16 q <cis e>8 % 16b
-  <d fis>2~(
-  q4 <fis a>~
-  q2~
-  q4) r
-  \bar "|."
+  \section \key c \major
 }
 
-alto = \relative c' {
-  \global
-  s2*4
+partTenSSingle = \relative {
+  R2*8
+%  \repeat volta 2 {
+    d''16 e d c bes c bes a % 11a
+    g16 a g fis g8 bes
+    c16 d c bes a bes a g
+    f16 g f e f8 a
+    bes16 c bes a g a g f % 11b
+    e16 f e d e8 g
+    d16 e f g a b cis d
+%  }
+%  \alternative {
+%    {
+%      R2
+%      e16 d d cis d8 r
+%    }
+%    {
+      e16 d d cis d8 a16^\mf b
+%    }
+%  }
+  \section \key c \major
+}
+
+partTenAT = \relative {
   \repeat volta 2 {
-    s2*4
-  }
-  d16^\mp e d cis d8 a' % 3b
-  a8 g f e
-  d16 e d cis d8 e
-  e8 f f4
-  f16^\mf g f e f8 c' % 3c
-  c8 bes a g
-  f16 g f e f8 g
-  g8 a a bes16[c]
-  d8 d d16 c bes c % 4a
-  d8 d e d
-  c16 c c c c8 a
-  c8 c d c
-  bes16 bes bes8 c16 bes a g % 4b
-  a16 a a8 d4
-  g,8 g16 g a g f e
-  e16 f f8 f f16^\markup {\dynamic mp \italic intensely} g \bar "||" \key aes \major
-  aes16 aes aes8 aes g16 f % 4c
-  aes16 aes aes8 bes8 aes16 f
-  g16 g g g g f ees f
-  g16 g g g aes8 r
-  f16 f f f f8 des % 5a
-  f16 f f f g8 g16 f
-  e16 e e8 e d16 e
-  e16 f f8 f f16^\mf g
-  aes16 aes aes8 aes g16 f % 5b
-  aes16 aes aes8 bes aes16 f
-  g16 g g g g f ees f
-  g16 g g g aes8 r
-  f16 f f f f8 des % 5c
-  f16 f f f g8 g16 f
-  e16 e e8 e d16 e
-  e16 f f8 f f16 g %%% bass drops out
-  aes16 aes aes8 aes g16 f % 6a
-  aes16 aes aes8 bes aes16 f
-  g16 g g g g f ees f
-  g16 g g g aes8 r
-  f16 f f f f8 des % 6b
-  f16 f f f g8 g16 f
-  e16 e e8 e d16 e
-  e16 f f8 e r \key f \major \bar "||"
-  d16^\p e d cis d8 a' % 7a %%% all voices back together again
-  a8 g f e
-  d16 e d cis d d e8
-  e8 f f4
-  f16 g f e f8 c' % 7b
-  c8 bes a g
-  f16 g f e f g f g
-  g8 a a r
-  bes16^\markup{\dynamic p \italic lightly} c bes a g a g f % 7c %%% sop and alto only
-  e16 f e dis e fis g gis
-  a16 b a g fis g fis e
-  d8 fis a r
-  g16 a g(f) e f e d % 8a
-  c16 d c b c d dis e
-  f16 g f d e f e cis
-  d8 cis d4
-  \repeat volta 2 {
-    bes'16 c bes a  g a g f % 8b
-    e16 f e dis e fis g gis
-    a16 b a g fis g fis e
-    d8 fis a r
-    g16 a g(f) e f e d % 8c
-    c16 d c b c d dis e
-    f16 g f d e f e cis
-    d8-> cis-> d-> r
-  }
-  \key d \major
-  r8 fis16^\mp fis fis8 fis % 9a %%% all parts
-  fis8 g g16( fis e8)
-  r8 g16 g g8 g
-  g8 a a16(g fis8)
-  r8 a16 a a8 a % 9b
-  a8 b b16(a g8)
-  cis8(a) b(cis)
-  d8 cis b(a)
-  r8 fis16^\mf fis fis8 fis % 9c %%% alto and bass
-  fis8 g g16(fis e8)
-  r8 g16 g g8 g
-  g8 a a16(g fis8)
-  r8 a16 a a8 a % 10a
-  a8 b b16(a g8)
-  cis8(a) b(cis)
-  d8 cis b(a)
-  r8 fis16^\f fis fis8 fis % 10b -K-
-  fis8 g g16(fis e8)
-  r8 g16 g g8 g
-  g8 a a16(g fis8)
-  r8 a16 a a8 a % 10c
-  a8 b b16(a g8)
-  a8(g) a(b)
-  cis8(b a g) \key f \major
-  \repeat volta 2 {
-    f16\!^\markup {\dynamic mp \italic lightly} g f e d e d c % 11a %%% alto and tenor
+    f'16 g f e d e d c % 11a
     bes16 c bes a bes8 d
     e16 f e d c d c bes
     a16 bes a g a8 c
@@ -367,52 +554,190 @@ alto = \relative c' {
   }
   \alternative {
     {
-      g16 f f e f8 r
+      R2
+%      g16 f f e f8 r
     }
     {
-      g16 f f e f8 a16^\mf b
+      g16 f f e f8 a16 b
+    }
+  }
+  \section \key c \major
+}
+
+partTenATSingle = \relative {
+  R2*8
+%  \repeat volta 2 {
+    f'16 g f e d e d c % 11a
+    bes16 c bes a bes8 d
+    e16 f e d c d c bes
+    a16 bes a g a8 c
+    d16 e d c bes c bes a % 11b
+    g16 a g f g8 bes
+    f16 g a b cis d e f
+%  }
+%  \alternative {
+%    {
+%      R2
+%%      g16 f f e f8 r
+%    }
+%    {
+      g16 f f e f8 a16 b
+%    }
+%  }
+  \section \key c \major
+}
+
+partTenB = \relative {
+  \repeat volta 2 {
+    d4 f % 11a
+    g4 bes,
+    c4 e
+    f4 a,
+    bes4 d % 11b
+    e4 g,
+    a4 cis
+    \alternative {
+      { d2 }
+      { d4. a'16 b }
     }
   }
   \bar "||" \key c \major
-  c16 c c8 c b16 a % 12a %%% all voices
+}
+
+partTenE = {
+  \repeat volta 2 {
+    R2*7
+    \alternative { {R2} {R2} }
+  }
+  \key c \major
+}
+
+partEleven = \relative {
+  c''16 c c8 c b16 a % 12a
   c16 c c8 d c16 a
   b16 b b b b a g a
   b16 b b b c8 r
   a16 a a a a8 f % 12b
   a16 a a a b8 b16 a
   gis16 gis gis8 gis fis16 gis
-  gis16 a a8 a r %%% alto only
-  r8 e^\f e e % 12c
+  gis16 a a8 a
+}
+
+partElevenE = { R2*8 }
+
+partTwelveSTB = \relative {
+  c''16 c c8 c b16 a % 12c
+  c16 c c8 d c16 a
+  b16 b b b b a g a
+  b16 b b b c8 r
+  a16 a a a a8 f % 13a
+  a16 a a a b8 b16 a
+  gis16 gis gis8 gis fis16 gis
+  gis16 a a8 a
+}
+
+partTwelveA = \relative {
+  r8 e' e e % 12c
   e16 f f8 f r
   r8 d d d
   d16 e e8 e r
   r8 c c c % 13a
   c16 c c c d8 c
   r8 b b b
-  b16 c c b c8 r
-  r8 e^\mf e e % 13b
+  b16 c c b c8
+}
+
+partTwelveE = { R2*8 }
+
+partThirteenS = \relative {
+  c''16 c c8 c b16 a % 13b
+  c16 c c8 d c16 a
+  b16 b b b b a g a
+  b16 b b b c8 r
+  a16 a a a a8 f % 14a
+  a16 a a a b8 b16 a
+  gis16 gis gis8 gis fis16 gis
+  gis16 a a8 a r \section \key f \major
+}
+
+partThirteenA = \relative {
+  r8 e' e e % 13b
   e16 f f8 f r
   r8 d8 d d
   d16 e e8 e r
   r8 c c c % 14a
   c16 c c c d8 c
   r8 b b b
-  b16 c c b c8 r \bar "||" \key f \major
-  r8 a'^\f a a % 14b %%% with bass
+  b16 c c b c8 r \section \key f \major
+}
+
+partThirteenTB = \relative {
+  c'4^\f b % 13b
+  a2
+  b4 a
+  g2
+  a4 g % 14a
+  f4 d
+  e4 gis
+  a4. r8 \key f \major \bar "||"
+}
+
+partFourteenSiT = \relative {
+  f''8 f f % 14b
+  f16 g g8 g4
+  r8 e e e
+  e16 f f8 f4
+  r8 d d d % 15a
+  d16 d d d e8 d
+  r8 cis cis cis
+  cis8 cis d e
+  r4 f4~ % 15b
+  f2
+  r4 f~
+  f2
+  r4 f~
+  f2
+}
+
+partFourteenSiiBi = \relative {
+  d''8 8 8 | 16 16 8 4 | s8 c c c | 16 16 8 4 | % 14b
+  s8 bes8 8 8 | 16 16 16 16 c8 bes | s a a a  a a b cis |
+  s4 d~ | 2 | s4 d~ | 2  s4 d~ | 2 |
+}
+
+partFourteenABii = \relative {
+  a'8 a a % 14b
   a16 bes bes8 bes4
-  r8g g g
+  r8 g g g
   g16 a a8 a4
   r8 f f f % 15a
   f16 f f f g8 f
   r8 e e e
-  e8^\< e f g
-  r4\! a~^\ff % 15b
+  e8 e f g
+  r4 a~ % 15b
   a2
   r4 a~
   a2
   r4 a~
   a2
-  a16 a a8 a a % 16a
+}
+
+partFourteenE = { R2*14 }
+
+partFifteenS = \relative {
+  a'16 a a8 a a % 16a
+  r4 <d f>8 <cis e>
+  r4 <d f>8 <cis e>
+  r4 <d f>8 <cis e>
+  r4 <d f>16 q <cis e>8 % 16b
+  <d fis>2~(
+  q4 <fis a>~
+  q4~ <fis a \tweak font-size #-2 d> ~ |
+  q4) r
+}
+
+partFifteenA = \relative {
+  a'16 a a8 a a % 16a
   r4 a8 a
   r4 a8 a
   r4 a8 a
@@ -421,167 +746,10 @@ alto = \relative c' {
   a4~<a d>~
   q2~
   q4 r
-  \bar "|."
 }
 
-tenor = \relative c {
-  \global
-  s2*4
-  \repeat volta 2 {
-    s2*4
-  }
-  d16^\mp e d cis d8 a' % 3b
-  a8 g f e
-  d16 e d cis d8 e
-  e8 f f4
-  f16^\mf g f e f8 c' % 3c
-  c8 bes a g
-  f16 g f e f8 g
-  g8 a a bes16[c]
-  d8 d d16 c bes c % 4a
-  d8 d e d
-  c16 c c c c8 a
-  c8 c d c
-  bes16 bes bes8 c16 bes a g % 4b
-  a16 a a8 d4
-  g,8 g16 g a g f e
-  e16 f f8 f f16^\markup{\dynamic mp \italic intensely}  g \bar "||" \key aes \major
-  aes16 aes aes8 aes g16 f % 4c
-  aes16 aes aes8 bes8 aes16 f
-  g16 g g g g f ees f
-  g16 g g g aes8 r
-  f16 f f f f8 des % 5a
-  f16 f f f g8 g16 f
-  e16 e e8 e d16 e
-  e16 f f8 f f16^\mf g
-  aes16 aes aes8 aes g16 f % 5b
-  aes16 aes aes8 bes aes16 f
-  g16 g g g g f ees f
-  g16 g g g aes8 r
-  f16 f f f f8 des % 5c
-  f16 f f f g8 g16 f
-  e16 e e8 e d16 e
-  e16 f f8 f f16 g %%% bass drops out
-  aes16 aes aes8 aes g16 f % 6a
-  aes16 aes aes8 bes aes16 f
-  g16 g g g g f ees f
-  g16 g g g aes8 r
-  f16 f f f f8 des % 6b
-  f16 f f f g8 g16 f
-  e16 e e8 e d16 e
-  e16 f f8 e r \key f \major \bar "||"
-  d16^\p e d cis d8 a' % 7a %%% all voices back together again
-  a8 g f e
-  d16 e d cis d d e8
-  e8 f f4
-  f16 g f e f8 c' % 7b
-  c8 bes a g
-  f16 g f e f g f g
-  g8 a a r
-  r2 % 7c %%% tenor and bass tacet
-  r2
-  r2
-  r2
-  r2 % 8a
-  r2
-  r2
-  r2
-  \repeat volta 2 {
-    \set melismaBusyProperties = #'()
-    \slurDashed
-    r8 d16^\p d d8(d) % 8b
-    \slurSolid
-    \unset melismaBusyProperties
-    d8 d e d
-    r8 c16 c c8 c
-    d8 d d c
-    r8 bes16 bes bes8 bes % 8c
-    c8 c c bes
-    a8(d) cis(e)
-    d8-> cis-> d-> r
-  }
-  \key d \major
-  r8 fis,16^\mp fis fis8 fis % 9a %%% all parts
-  fis8 g g16( fis e8)
-  r8 g16 g g8 g
-  g8 a a16(g fis8)
-  r8 a16 a a8 a % 9b
-  a8 b b16(a g8)
-  cis8(a) b(cis)
-  d8 cis b(a)
-  r8 a16^\mf a a8 a % 9c %%% sop and tenor only
-  a8 b b16(a g8)
-  r8 b16 b b8 b
-  b8 cis cis16(b a8)
-  r8 cis16 cis cis8 cis % 10a
-  cis8 d d16(cis b8)
-  e8(cis) d(e)
-  fis8 e d(cis)
-  r8 a16^\f a a8 a % 10b
-  a8 b b16(a g8)
-  r8 b16 b b8 b
-  b8 cis cis16(b a8)
-  r8 cis16 cis cis8 cis % 10c
-  cis8 d d16(cis b8)
-  cis8(b) cis(d)
-  e8(d cis b) \key f \major
-  \repeat volta 2 {
-    d,4\!^\markup{\dynamic pp - \dynamic p - \dynamic mp \italic lightly} f % 11a
-    g4 bes,
-    c4 e
-    f4 a,
-    bes4 d % 11b
-    e4 g,
-    a4 cis
-  }
-  \alternative {
-    {
-      d2
-    }
-    {
-      d4. a'16^\mf b
-    }
-  }
-  \bar "||" \key c \major
-  c16 c c8 c b16 a % 12a %%% all voices
-  c16 c c8 d c16 a
-  b16 b b b b a g a
-  b16 b b b c8 r
-  a16 a a a a8 f % 12b
-  a16 a a a b8 b16 a
-  gis16 gis gis8 gis fis16 gis
-  gis16 a a8 a a16^\mf bes %%% alto tacet at end
-  c16 c c8 c b16 a % 12c
-  c16 c c8 d c16 a
-  b16 b b b b a g a
-  b16 b b b c8 r
-  a16 a a a a8 f % 13a
-  a16 a a a b8 b16 a
-  gis16 gis gis8 gis fis16 gis
-  gis16 a a8 a r %%% sop only at end
-  c4^\f b % 13b
-  a2
-  b4 a
-  g2
-  a4 g % 14a
-  f4 d
-  e4 gis
-  a4. r8 \key f \major \bar "||"
-  r8 f'^\f f f % 14b
-  f16 g g8 g4
-  r8 e e e
-  e16 f f8 f4
-  r8 d d d % 15a
-  d16 d d d e8 d
-  r8 cis cis cis
-  cis8^\< cis d e
-  r4\! f4~^\ff % 15b
-  f2
-  r4 f~
-  f2
-  r4 f~
-  f2
-  a,16 a a8 a a % 16a
+partFifteenT = \relative {
+  a16 a a8 a a % 16a
   r4 f'8 e
   r4 f8 e
   r4 f8 e
@@ -590,159 +758,9 @@ tenor = \relative c {
   d4~<d fis>~
   q2~
   q4) r
-  \bar "|."
 }
 
-bass= \relative c {
-  \global
-  s2*4
-  \repeat volta 2 {
-    s2*4
-  }
-  d16^\mp e d cis d8 a' % 1b
-  a8 g f e
-  d16 e d cis d8 e
-  e8 f f4
-  f16^\mf g f e f8 c' % 3c
-  c8 bes a g
-  f16 g f e f8 g
-  g8 a a bes16[c]
-  d8 d d16 c bes c % 4a
-  d8 d e d
-  c16 c c c c8 a
-  c8 c d c
-  bes16 bes bes8 c16 bes a g % 4b
-  a16 a a8 d4
-  g,8 g16 g a g f e
-  e16 f f8 f f16^\markup{\dynamic mp \italic intensely}  g \bar "||" \key aes \major
-  aes16 aes aes8 aes g16 f % 4c
-  aes16 aes aes8 bes8 aes16 f
-  g16 g g g g f ees f
-  g16 g g g aes8 r
-  f16 f f f f8 des % 5a
-  f16 f f f g8 g16 f
-  e16 e e8 e d16 e
-  e16 f f8 f f16^\mf g
-  aes16 aes aes8 aes g16 f % 5b
-  aes16 aes aes8 bes aes16 f
-  g16 g g g g f ees f
-  g16 g g g aes8 r
-  f16 f f f f8 des % 5c
-  f16 f f f g8 g16 f
-  e16 e e8 e d16 e
-  e16 f f8 f r
-  aes4^\mf g % 6a
-  f2
-  g4 f
-  ees2
-  f4 ees % 6b
-  des4 bes
-  c4 e
-  f4 r \key f \major \bar "||"
-  d16^\p e d cis d8 a' % 7a %%% all voices back together again
-  a8 g f e
-  d16 e d cis d d e8
-  e8 f f4
-  f16 g f e f8 c' % 7b
-  c8 bes a g
-  f16 g f e f g f g
-  g8 a a r
-  R2*8
-  \repeat volta 2 {
-    \set melismaBusyProperties = #'()
-    \slurDashed
-    r8 d,16^\p d d8(d) % 8b
-    \slurSolid
-    \unset melismaBusyProperties
-    d8 d e d
-    r8 c16 c c8 c
-    d8 d d c
-    r8 bes16 bes bes8 bes % 8c
-    c8 c c bes
-    a8(d) cis(e)
-    d8-> cis-> d-> r
-  }
-  \key d \major
-  r8 fis16^\mp fis fis8 fis % 9a %%% all parts
-  fis8 g g16( fis e8)
-  r8 g16 g g8 g
-  g8 a a16(g fis8)
-  r8 a16 a a8 a % 9b
-  a8 b b16(a g8)
-  cis8(a) b(cis)
-  d8 cis b(a)
-  r8 fis16^\mf fis fis8 fis % 9c %%% alto and bass
-  fis8 g g16(fis e8)
-  r8 g16 g g8 g
-  g8 a a16(g fis8)
-  r8 a16 a a8 a % 10a
-  a8 b b16(a g8)
-  cis8(a) b(cis)
-  d8 cis b(a)
-  r8 fis16^\f fis fis8 fis % 10b -K-
-  fis8 g g16(fis e8)
-  r8 g16 g g8 g
-  g8 a a16(g fis8)
-  r8 a16 a a8 a % 10c
-  a8 b b16(a g8)
-  a8(g) a(b)
-  cis8(b a g) \key f \major
-  \repeat volta 2 {
-    d4\!^\markup{\dynamic pp - \dynamic p - \dynamic mp \italic lightly} f % 11a
-    g4 bes,
-    c4 e
-    f4 a,
-    bes4 d % 11b
-    e4 g,
-    a4 cis
-  }
-  \alternative {
-    {
-      d2
-    }
-    {
-      d4. a'16^\mf b
-    }
-  }
-  \bar "||" \key c \major
-  c16 c c8 c b16 a % 12a %%% all voices
-  c16 c c8 d c16 a
-  b16 b b b b a g a
-  b16 b b b c8 r
-  a16 a a a a8 f % 12b
-  a16 a a a b8 b16 a
-  gis16 gis gis8 gis fis16 gis
-  gis16 a a8 a a16^\mf bes %%% alto tacet at end
-  c16 c c8 c b16 a % 12c
-  c16 c c8 d c16 a
-  b16 b b b b a g a
-  b16 b b b c8 r
-  a16 a a a a8 f % 13a
-  a16 a a a b8 b16 a
-  gis16 gis gis8 gis fis16 gis
-  gis16 a a8 a r
-  c4^\f b % 13b
-  a2
-  b4 a
-  g2
-  a4 g % 14a
-  f4 d
-  e4 gis
-  a4. r8 \key f \major \bar "||"
-  r8 a^\f a a % 14b %%% with alto
-  a16 bes bes8 bes4
-  r8g g g
-  g16 a a8 a4
-  r8 f f f % 15a
-  f16 f f f g8 f
-  r8 e e e
-  e8^\< e f g
-  r4\! a~^\ff % 15b
-  a2
-  r4 a~
-  a2
-  r4 a~
-  a2
+partFifteenB = \relative {
   a16 a a8 a a % 16a
   r4 <a d>8 <a cis>
   r4 <a d>8 <a cis>
@@ -752,19 +770,678 @@ bass= \relative c {
   q2~
   q2~
   q4 r
+}
+
+partFifteenE = { R2*9 }
+
+musicOne = \relative {
+  \global
+  \clef treble
+%  \repeat volta 2 {
+    s2*4
+%  }
+  \partOne f'16 g
+  \partTwoS
+  \partFour
+  \partFiveSA
+  \partSixSA
+  \partSeven
+  <<{r8 \voiceOne \partEightST} \new Voice {\voiceTwo s8 \partEightAB} >> \oneVoice
+  <<{r8 \voiceOne \partNineSiT} \new Voice {\voiceTwo s8 \partNineSiiBi} >> \oneVoice
+  <<{\voiceOne \partTenS} \new Voice {\voiceTwo \partTenAT} >> \oneVoice
+  \partEleven a16 bes
+  \partTwelveSTB a16 b
+  \partThirteenS
+  <<{r8 \voiceOne \partFourteenSiT} \new Voice {\voiceTwo s8 \partFourteenSiiBi} >> \oneVoice
+  <<{\voiceOne \partFifteenS} \new Voice {\voiceTwo \partFifteenA} >> \oneVoice
   \bar "|."
 }
 
-pianoOneRH = \relative c''' {
+musicOneSingle = \relative {
   \global
-  s2*4
-  \ottava #1
+  \clef treble
+%  \repeat volta 2 {
+    s2*4
+%  }
+  \partOne f'16 g
+  \partTwoS
+  \partFour
+  \partFiveSA
+  \partSixSA
+  \partSeven
+  <<{r8 \voiceOne \partEightST} \new Voice {\voiceTwo s8 \partEightAB} >> \oneVoice
+  <<{r8 \voiceOne \partNineSiT} \new Voice {\voiceTwo s8 \partNineSiiBi} >> \oneVoice
+  <<{\voiceOne \partTenSSingle} \new Voice {\voiceTwo \partTenATSingle} >> \oneVoice
+  \partEleven a16 bes
+  \partTwelveSTB a16 b
+  \partThirteenS
+  <<{r8 \voiceOne \partFourteenSiT} \new Voice {\voiceTwo s8 \partFourteenSiiBi} >> \oneVoice
+  <<{\voiceOne \partFifteenS} \new Voice {\voiceTwo \partFifteenA} >> \oneVoice
+  \bar "|."
+}
+
+musicTwo = \relative {
+  \global \clef treble
+  \partOneE
+  \partTwoATB f'16 g
+  \partThreeAT
+  \partFourE
+  \partFiveE
+  \clef bass \partSixTB
+  \partSevenE
+  \partEightE \clef treble
+  r8 \partNineABii \clef bass
+  \partTenB \clef treble
+  \partElevenE
+  \partTwelveA r8
+  \partThirteenA
+  r8 \partFourteenABii \clef bass
+  <<{\voiceOne \partFifteenT} \new Voice {\voiceTwo \partFifteenB} >> \oneVoice
+}
+
+musicThree = \relative {
+  \global \clef bass
+  \partOneE
+  \partTwoE
+  \partThreeB
+  \partFourE
+  \partFiveE
+  \partSixE
+  \partSevenE
+  \partEightE
+  \partNineE
+  \partTenE
+  \partElevenE
+  \partTwelveE
+  \partThirteenTB
+  \partFourteenE
+  \partFourteenE
+}
+
+dynamicsSop = {
+%  \repeat volta 2 {
+    s2*4
+%  } |
+  s2\mp | s2*3 |
+  s2\mf | s2*3 |
+  s2*4 | % 4a
+  s2 | s | s | s4. s8\omit\mp-\markup{\dynamic mp \italic intensely} |
+  s2*4 |
+  s2*4 | % 5a
+  s8 s4.\mf | s2 | s | s |
+  s2*4 |
+  s2*8 | % 6
+  s2\p | s | s | s | % 7a
+  s2*4 |
+  s2\omit\p-\markup{\dynamic p \italic lightly} | s | s | s |
+  s2*4 | % 8a
+%    \repeat volta 2 {
+      s2*8
+%    }
+  s8 s4.\mp | s2 | s | s | % 9a
+  s2*4 |
+  s8 s4.\mf | s2 | s | s |
+  s2*4 | % 10a
+  s2*4 |
+  s2 | s | s | s\> |
   \repeat volta 2 {
-    r8 d4->(e8-.)
+    s2\!\mp | s | s | s | % 11a
+    s2 | s | s |
+    \alternative { {s2} {s4. s8\mf} }
+  }
+  s2*4 | % 12a
+  s2 | s | s | s4. s8\mf |
+  s2*4 |
+  s2*4 | % 13a
+  s2\mf | s | s | s |
+  s2*4 | % 14a
+  s8 s4.\f | s2 | s | s |
+  s2 | s | s | s4.\< s8\! | % 15a
+  s4 s\ff | s2 | s | s | s | s |
+  s2*9 | % 16
+}
+
+dynamicsSopSingle = {
+%  \repeat volta 2 {
+    s2*4
+%  } |
+  s2\mp | s2*3 |
+  s2\mf | s2*3 |
+  s2*4 | % 4a
+  s2 | s | s | s4. s8\omit\mp-\markup{\dynamic mp \italic intensely} |
+  s2*4 |
+  s2*4 | % 5a
+  s8 s4.\mf | s2 | s | s |
+  s2*4 |
+  s2*8 | % 6
+  s2\p | s | s | s | % 7a
+  s2*4 |
+  s2\omit\p-\markup{\dynamic p \italic lightly} | s | s | s |
+  s2*4 | % 8a
+%    \repeat volta 2 {
+      s2*8
+%    }
+  s8 s4.\mp | s2 | s | s | % 9a
+  s2*4 |
+  s8 s4.\mf | s2 | s | s |
+  s2*4 | % 10a
+  s2*4 |
+  s2 | s | s | s\> |
+  s2\! | s | s | s | % 11a
+  s2*4 |
+  s2\mp | s | s | s | % 11a
+  s2 | s | s | s |
+  s2*4 | % 12a
+  s2 | s | s | s4. s8\mf |
+  s2*4 |
+  s2*4 | % 13a
+  s2\mf | s | s | s |
+  s2*4 | % 14a
+  s8 s4.\f | s2 | s | s |
+  s2 | s | s | s4.\< s8\! | % 15a
+  s4 s\ff | s2 | s | s | s | s |
+  s2*9 | % 16
+}
+
+soprano = \relative c' {
+  \global
+  % \repeat volta 2 {
+    s2*4
+  % }
+  \partOne r8
+  \partTwoS
+  \partFour
+  \partFiveSA
+  \partSixSA
+  \partSeven
+  r8 \partEightST
+  r8 \partCombine \partNineSiT \partNineSiiBi
+  \partTenS
+  \partEleven a'16 bes
+  \partTwelveSTB a16 b
+  \partThirteenS
+  r8 \partCombine \partFourteenSiT \partFourteenSiiBi
+  \partFifteenS
+  \bar "|."
+}
+
+sopranoSingle = \relative c' {
+  \global
+%  \repeat volta 2 {
+    s2*4
+%  }
+  \partOne r8
+  \partTwoS
+  \partFour
+  \partFiveSA
+  \partSixSA
+  \partSeven
+  r8 \partEightST
+  r8 \partCombine \partNineSiT \partNineSiiBi
+  \partTenSSingle
+  \partEleven a'16 bes
+  \partTwelveSTB a16 b
+  \partThirteenS
+  r8 \partCombine \partFourteenSiT \partFourteenSiiBi
+  \partFifteenS
+  \bar "|."
+}
+
+sopranoAligner = \relative c' {
+  \global
+%  \repeat volta 2 {
+    s2*4
+%  }
+  \partOne r8
+  \partTwoS
+  \partFour
+  \partFiveSA
+  \partSixSA
+  \partSeven
+  r8 \partEightST
+  r8 \partNineSiT
+  \partTenS
+  \partEleven a16 bes
+  \partTwelveSTB a16 b
+  \partThirteenS
+  r8 \partFourteenSiT
+  \partFifteenS
+  \bar "|."
+}
+
+sopranoAlignerSingle = \relative c' {
+%  \repeat volta 2 {
+  s2*4
+%  }
+  \partOne r8
+  \partTwoS
+  \partFour
+  \partFiveSA
+  \partSixSA
+  \partSeven
+  r8 \partEightST
+  r8 \partNineSiT
+  \partTenSSingle
+  \partEleven a'16 bes
+  \partTwelveSTB a16 b
+  \partThirteenS
+  r8 \partFourteenSiT
+  \partFifteenS
+  \bar "|."
+}
+
+dynamicsAlto = {
+%  \repeat volta 2 {
+    s2*4
+%  } |
+  s2\mp | s2*3 |
+  s2\mf | s2*3 |
+  s2*4 | % 4a
+  s2 | s | s | s4. s8\omit\mp-\markup{\dynamic mp \italic intensely} |
+  s2*4 |
+  s2 | s | s | s4. s8\mf | % 5a
+  s2*4 |
+  s2*4 |
+  s2*8 | % 6
+  s2\p | s | s | s | % 7a
+  s2*4 |
+  s2\omit\p-\markup{\dynamic p \italic lightly} | s | s | s |
+  s2*4 | % 8a
+%    \repeat volta 2 {
+      s2*8
+%    }
+  s8 s4.\mp | s2 | s | s | % 9a
+  s2*4 |
+  s8 s4.\mf | s2 | s | s |
+  s2*4 | % 10a
+  s2*4 |
+  s2 | s | s | s\> |
+  \repeat volta 2 {
+    s2\!\mp | s | s | s | % 11a
+    s2 | s | s |
+    \alternative { {s2} {s4. s8\mf} }
+  }
+  s2*4 | % 12a
+  s2*4 |
+  s8 s4.\f | s2 | s | s |
+  s2*4 | % 13a
+  s8 s4.\mf | s2 | s | s |
+  s2*4 | % 14a
+  s8 s4.\f | s2 | s | s |
+  s2 | s | s | s4.\< s8\! | % 15a
+  s4 s\ff | s2 | s | s | s | s |
+  s2*9 | % 16
+}
+
+dynamicsAltoSingle = {
+%  \repeat volta 2 {
+    s2*4
+%  } |
+  s2\mp | s2*3 |
+  s2\mf | s2*3 |
+  s2*4 | % 4a
+  s2 | s | s | s4. s8\omit\mp-\markup{\dynamic mp \italic intensely} |
+  s2*4 |
+  s2 | s | s | s4. s8\mf | % 5a
+  s2*4 |
+  s2*4 |
+  s2*8 | % 6
+  s2\p | s | s | s | % 7a
+  s2*4 |
+  s2\omit\p-\markup{\dynamic p \italic lightly} | s | s | s |
+  s2*4 | % 8a
+%    \repeat volta 2 {
+      s2*8
+%    }
+  s8 s4.\mp | s2 | s | s | % 9a
+  s2*4 |
+  s8 s4.\mf | s2 | s | s |
+  s2*4 | % 10a
+  s2*4 |
+  s2 | s | s | s\> |
+  s2\! | s | s | s | % 11a
+  s2*4 |
+  s2\!\mp | s | s | s | % 11a
+  s2 | s | s | s |
+  s2*4 | % 12a
+  s2*4 |
+  s8 s4.\f | s2 | s | s |
+  s2*4 | % 13a
+  s8 s4.\mf | s2 | s | s |
+  s2*4 | % 14a
+  s8 s4.\f | s2 | s | s |
+  s2 | s | s | s4.\< s8\! | % 15a
+  s4 s\ff | s2 | s | s | s | s |
+  s2*9 | % 16
+}
+
+alto = \relative c' {
+  \global
+%  \repeat volta 2 {
+    s2*4
+%  }
+  \partOne f16 g |
+  \partTwoATB f16 g
+  \partThreeAT
+  \partFour
+  \partFiveSA
+  \partSixSA
+  \partSeven
+  r8 \partEightAB |
+  r8 \partNineABii |
+  \partTenAT
+  \partEleven r8
+  \partTwelveA r8
+  \partThirteenA
+  r8 \partFourteenABii
+  \partFifteenA
+  \bar "|."
+}
+
+altoSingle = \relative c' {
+  \global
+%  \repeat volta 2 {
+    s2*4
+%  }
+  \partOne f16 g |
+  \partTwoATB f16 g
+  \partThreeAT
+  \partFour
+  \partFiveSA
+  \partSixSA
+  \partSeven
+  r8 \partEightAB |
+  r8 \partNineABii |
+  \partTenATSingle
+  \partEleven r8
+  \partTwelveA r8
+  \partThirteenA
+  r8 \partFourteenABii
+  \partFifteenA
+  \bar "|."
+}
+
+dynamicsTenor = {
+%  \repeat volta 2 {
+    s2*4
+%  } |
+  s2\mp | s2*3 |
+  s2\mf | s2*3 |
+  s2*4 | % 4a
+  s2 | s | s | s4. s8\omit\mp-\markup{\dynamic mp \italic intensely} |
+  s2*4 |
+  s2 | s | s | s4. s8\mf | % 5a
+  s2*4 |
+  s2*4 |
+  s2*8 | % 6
+  s2\p | s | s | s | % 7a
+  s2*4 |
+  s2*4 |
+  s2*4 | % 8a
+%  \repeat volta 2 {
+    s8 4.\p | s2 | s | s |
+    s2*4 |
+%  }
+  s8 s4.\mp | s2 | s | s | % 9a
+  s2*4 |
+  s8 s4.\mf | s2 | s | s |
+  s2*4 | % 10a
+  s2*4 |
+  s2 | s | s | s\> |
+  \repeat volta 2 {
+    s2\!\mp | s | s | s | % 11a
+    s2 | s | s |
+    \alternative { {s2} {s4. s8\mf} }
+  }
+  s2*4 | % 12a
+  s2*4 |
+  s2*4 |
+  s2*4 | % 13a
+  s2\f | s | s | s |
+  s2*4 | % 14a
+  s8 s4.\f | s2 | s | s |
+  s2 | s | s | s4.\< s8\! | % 15a
+  s4 s\ff | s2 | s | s | s | s |
+  s2*9 | % 16
+}
+
+dynamicsTenorSingle = {
+%  \repeat volta 2 {
+    s2*4
+%  } |
+  s2\mp | s2*3 |
+  s2\mf | s2*3 |
+  s2*4 | % 4a
+  s2 | s | s | s4. s8\omit\mp-\markup{\dynamic mp \italic intensely} |
+  s2*4 |
+  s2 | s | s | s4. s8\mf | % 5a
+  s2*4 |
+  s2*4 |
+  s2*8 | % 6
+  s2\p | s | s | s | % 7a
+  s2*4 |
+  s2*4 |
+  s2*4 | % 8a
+%  \repeat volta 2 {
+    s8 4.\p | s2 | s | s |
+    s2*4 |
+%  }
+  s8 s4.\mp | s2 | s | s | % 9a
+  s2*4 |
+  s8 s4.\mf | s2 | s | s |
+  s2*4 | % 10a
+  s2*4 |
+  s2 | s | s | s\> |
+  s2\! | s | s | s | % 11a
+  s2 | s | s | s |
+  s2\mp | s | s | s | % 11a
+  s2 | s | s | s4. s8\mf |
+  s2*4 | % 12a
+  s2*4 |
+  s2*4 |
+  s2*4 | % 13a
+  s2\f | s | s | s |
+  s2*4 | % 14a
+  s8 s4.\f | s2 | s | s |
+  s2 | s | s | s4.\< s8\! | % 15a
+  s4 s\ff | s2 | s | s | s | s |
+  s2*9 | % 16
+}
+
+tenor = \relative c {
+  \global
+%  \repeat volta 2 {
+    s2*4
+%  }
+  \transpose c c, \partOne f16 g |
+  \transpose c c, \partTwoATB f16 g
+  \transpose c c, \partThreeAT
+  \transpose c c, \partFour
+  \partFiveE
+  \partSixTB
+  \transpose c c, \partSeven
+  r8 \transpose c c, \partEightST
+  r8 \transpose c c, \partNineSiT
+  \transpose c c, \partTenAT
+  \transpose c c, \partEleven a16 bes
+  \transpose c c, \partTwelveSTB r8
+  \partThirteenTB
+  r8 \transpose c c, \partFourteenSiT
+  \partFifteenT
+  \bar "|."
+}
+
+tenorSingle = \relative c {
+  \global
+%  \repeat volta 2 {
+    s2*4
+%  }
+  \transpose c c, \partOne f16 g |
+  \transpose c c, \partTwoATB f16 g
+  \transpose c c, \partThreeAT
+  \transpose c c, \partFour
+  \partFiveE
+  \partSixTB
+  \transpose c c, \partSeven
+  r8 \transpose c c, \partEightST
+  r8 \transpose c c, \partNineSiT
+  \transpose c c, \partTenATSingle
+  \transpose c c, \partEleven a16 bes
+  \transpose c c, \partTwelveSTB r8
+  \partThirteenTB
+  r8 \transpose c c, \partFourteenSiT
+  \partFifteenT
+  \bar "|."
+}
+
+dynamicsBass = {
+%  \repeat volta 2 {
+    s2*4
+%  } |
+  s2\mp | s2*3 |
+  s2\mf | s2*3 |
+  s2*4 | % 4a
+  s2 | s | s | s4. s8\omit\mp-\markup{\dynamic mp \italic intensely} |
+  s2*4 |
+  s2 | s | s | s4. s8\mf | % 5a
+  s2*4 |
+  s2*4 |
+  s2\mf | s | s | s | % 6a
+  s2*4 |
+  s2\p | s | s | s | % 7a
+  s2*4 |
+  s2*4 |
+  s2*4 | % 8a
+%  \repeat volta 2 {
+    s8 4.\p | s2 | s | s |
+    s2*4 |
+%  }
+  s8 s4.\mp | s2 | s | s | % 9a
+  s2*4 |
+  s8 s4.\mf | s2 | s | s |
+  s2*4 | % 10a
+  s2*4 |
+  s2 | s | s | s\> |
+  \repeat volta 2 {
+    s2\!\omit\mp-\markup{\dynamic pp - \dynamic mp} | s | s | s | % 11a
+    s2 | s | s |
+    \alternative { {s2} {s4. s8\mf} }
+  }
+  s2*4 | % 12a
+  s2*4 |
+  s2*4 |
+  s2*4 | % 13a
+  s2\f | s | s | s |
+  s2*4 | % 14a
+  s8 s4.\f | s2 | s | s |
+  s2 | s | s | s4.\< s8\! | % 15a
+  s4 s\ff | s2 | s | s | s | s |
+  s2*9 | % 16
+}
+
+dynamicsBassSingle = {
+%  \repeat volta 2 {
+    s2*4
+%  } |
+  s2\mp | s2*3 |
+  s2\mf | s2*3 |
+  s2*4 | % 4a
+  s2 | s | s | s4. s8\omit\mp-\markup{\dynamic mp \italic intensely} |
+  s2*4 |
+  s2 | s | s | s4. s8\mf | % 5a
+  s2*4 |
+  s2*4 |
+  s2\mf | s | s | s | % 6a
+  s2*4 |
+  s2\p | s | s | s | % 7a
+  s2*4 |
+  s2*4 |
+  s2*4 | % 8a
+%  \repeat volta 2 {
+    s8 4.\p | s2 | s | s |
+    s2*4 |
+%  }
+  s8 s4.\mp | s2 | s | s | % 9a
+  s2*4 |
+  s8 s4.\mf | s2 | s | s |
+  s2*4 | % 10a
+  s2*4 |
+  s2 | s | s | s\> |
+  s2\!\pp | s | s | s | % 11a
+  s2 | s | s | s |
+  s2\mp | s | s | s | % 11a
+  s2 | s | s | s4. s8\mf
+  s2*4 | % 12a
+  s2*4 |
+  s2*4 |
+  s2*4 | % 13a
+  s2\f | s | s | s |
+  s2*4 | % 14a
+  s8 s4.\f | s2 | s | s |
+  s2 | s | s | s4.\< s8\! | % 15a
+  s4 s\ff | s2 | s | s | s | s |
+  s2*9 | % 16
+}
+
+bass = \relative c {
+  \global
+%  \repeat volta 2 {
+    s2*4
+%  }
+  \transpose c c, \partOne f16 g |
+  \transpose c c, \partTwoATB r8
+                  \partThreeB
+  \transpose c c, \partFour
+                  \partFiveE
+                  \partSixTB
+  \transpose c c, \partSeven
+  r8 \transpose c c, \partEightAB
+  r8 \transpose c c, \partCombine \partNineSiiBi \partNineABii
+  \partTenB
+  \transpose c c, \partEleven a16 bes
+  \transpose c c, \partTwelveSTB r8
+  \partThirteenTB
+  r8 \transpose c c, \partCombine \partFourteenSiiBi \partFourteenABii
+  \partFifteenB
+  \bar "|."
+}
+
+bassAligner = \relative c {
+  \global
+%  \repeat volta 2 {
+    s2*4
+%  }
+  \transpose c c, \partOne f16 g |
+  \transpose c c, \partTwoATB r8
+                  \partThreeB
+  \transpose c c, \partFour
+                  \partFiveE
+                  \partSixTB
+  \transpose c c, \partSeven
+  r8 \transpose c c, \partEightAB
+  r8 \transpose c c, \partNineSiiBi
+  \partTenB
+  \transpose c c, \partEleven a16 bes
+  \transpose c c, \partTwelveSTB r8
+  \partThirteenTB
+  r8 \transpose c c, \partFourteenSiiBi
+  \partFifteenB
+  \bar "|."
+}
+
+rhI  = { \change Staff = rhI  }
+rhII = { \change Staff = rhII }
+lhII = { \change Staff = lhII }
+
+pianoOneRH = \relative {
+  \global \voiceOne
+  \ottava #1
+%  \repeat volta 2 {
+    r8^\markup\italic "R.H." d'''4->(e8-.)
     f8.->( e16~e8 a,-.)
     r8 d4->( e8-.)
     f16-> g8 a16->~a4
-  }
+%  }
   d,16(e d cis d8-.) a'-.
   a8->(g-.) f-. e-.
   d16(e d cis d8-.) e-.
@@ -821,7 +1498,7 @@ pianoOneRH = \relative c''' {
   c16(d c b c d dis e)
   f16( g f d e f e cis
   d8) cis-. d4-. \ottava #0
-  \repeat volta 2 {
+%  \repeat volta 2 {
     r8 <g, bes d> r q %8b -H-
     R2
     r8 <e a c> r q
@@ -830,7 +1507,7 @@ pianoOneRH = \relative c''' {
     R2
     r8 <d f a> r <e a cis>
     d'8-> cis-> d-> r
-  }
+%  }
   \key d \major \ottava #1
   r8 fis16 fis fis8-. fis-. % 9a -I-
   fis8(g-.) g16(fis e8)
@@ -905,9 +1582,9 @@ pianoOneRH = \relative c''' {
   r8 <f bes d>-. q-. q-. % 15a
   q16 q q q(<g c e>8-.) <f bes d>-.
   r8 <e a cis>-. q-. q-.
-  q8-. q-. <f b d>-. <g cis e>-. \ottava #0
+  q8-. q-. <f b d>-. <g cis e>-.
   R2 % 15b -Q-
-  <d f a>8-> q-> <f a d>4->
+  <d' f a>8-> q-> <f a d>4->
   R2
   <d f a>8-> q-> <f a d>4->
   R2
@@ -925,14 +1602,13 @@ pianoOneRH = \relative c''' {
 }
 
 dynamicsOnePiano = {
-  s2*4
   \override DynamicTextSpanner.style = #'none
-  \repeat volta 2 {
+%  \repeat volta 2 {
     s8 s4.^\markup{\dynamic f - \dynamic mp} % 3a
     s2
     s2
     s2
-  }
+%  }
   s2\mp % 3b
   s2
   s2
@@ -989,7 +1665,7 @@ dynamicsOnePiano = {
   s2
   s2
   s2
-  \repeat volta 2 {
+%  \repeat volta 2 {
     s2 % 8b -H-
     s2
     s2
@@ -998,7 +1674,7 @@ dynamicsOnePiano = {
     s2
     s2
     s2
-  }
+%  }
   s8 s4.\mp % 9a -I-
   s2
   s2
@@ -1082,16 +1758,180 @@ dynamicsOnePiano = {
   s2
 }
 
-pianoOneLH = \relative c'' {
+dynamicsOnePianoSingle = {
+  \override DynamicTextSpanner.style = #'none
+  s8 s4.\f % 3a
+  s2
+  s2
+  s2
+%  s8 s4.\mp % 3a
+%  s2
+%  s2
+%  s2
+  s2\mp % 3b
+  s2
+  s2
+  s2
+  s2\mf
+  s2
+  s2
+  s2
+  s2 % 4a -B-
+  s2
+  s2
+  s2
+  s2 % 4b
+  s2
+  s2
+  s4. s8\mp
+  s2 % 4c -C-
+  s2
+  s2
+  s2
+  s2 % 5a
+  s2
+  s2
+  s2
+  s8 s4.\mf % 5b -D-
+  s2
+  s2
+  s2
+  s2 % 5c
+  s2
+  s2
+  s2
+  s2 % 6a -E-
+  s2
+  s2
+  s2
+  s2 % 6b
+  s2
+  s2
+  s4 s\>
+  s2\p % 7a -F-
+  s2
+  s2
+  s2
+  s2 % 7b
+  s2
+  s2
+  s2
+  s2\p % 7c -G-
+  s2
+  s2
+  s2
+  s2 % 8a
+  s2
+  s2
+  s2
+%  \repeat volta 2 {
+    s2 % 8b -H-
+    s2
+    s2
+    s2
+    s2 % 8c
+    s2
+    s2
+    s2
+%  }
+  s8 s4.\mp % 9a -I-
+  s2
+  s2
+  s2
+  s2 % 9b
+  s2
+  s2
+  s2
+  s8 s4.\mf % 9c -J-
+  s2
+  s2
+  s2
+  s2 % 10a
+  s2
+  s2
+  s2
+  s8 s4.\f % 10b -K-
+  s2
+  s2
+  s2
+  s2 % 10c
+  s2
+  s2
+  s2\>
+  s2\!\pp % 11a
+  s2
+  s2
+  s2
+  s2 % 11b
+  s2
+  s2
+  s2
+  s2\mp % 11a
+  s2
+  s2
+  s2
+  s2 % 11b
+  s2
+  s2
+  s2
+  s2\mf % 12a -M-
+  s2
+  s2
+  s2
+  s2 % 12b
+  s2
+  s2
+  s2
+  s8 s4.\mf %12c -N-
+  s2
+  s2
+  s2
+  s2 % 13a
+  s2
+  s2
+  s2
+  s2\f % 13b -O-
+  s2
+  s2
+  s2
+  s2 % 14a
+  s2
+  s2
+  s2
+  s8 s4.\f % 14b -P-
+  s2
+  s2
+  s2
+  s2 % 15a
+  s2
+  s2
+  s2
+  s2 % 15b -Q-
+  s2\ff
+  s2
+  s2
+  s2
+  s2
+  s2-\markup{\italic{sempre marcato}} % 16a
+  s2
+  s2
+  s2
+  s2 % 16b
+  s2
+  s2
+  s2
+  s2
+}
+
+pianoOneLH = \relative {
   \global
-  s2*4
-  \oneVoice
-  \repeat volta 2 {
-    r8 d4->(e8-.) % 3a
+  \voiceTwo
+%  \repeat volta 2 {
+    r8_\markup\italic "L.H." d''4->(e8-.) % 3a
     f8.->( e16~e8 a,-.)
     r8 d4->( e8-.)
     f16-> g8 a16->~a4
-  }
+%  }
   d,16(e d cis d8-.) a'-. % 3b
   a8->(g-.) f-. e-.
   d16(e d cis d8-.) e-.
@@ -1148,7 +1988,7 @@ pianoOneLH = \relative c'' {
   c16(d c b c d dis e)
   f16( g f d e f e cis
   d8) cis-. d4-.
-  \repeat volta 2 {
+%  \repeat volta 2 {
     d4 d % 8b -H-
     d8 d e d
     c4 c
@@ -1157,23 +1997,9 @@ pianoOneLH = \relative c'' {
     c8 c c bes
     a4 cis
     d8-> cis-> d-> r
-  } \key d \major
-  r8 fis16 fis fis8-. fis-. % 9a -I-
-  fis8(g-.) g16(fis e8)
-  r8 g16 g g8-. g-.
-  g8(a-.) a16(g fis8)
-  r8 a16 a a8-. a-. % 9b
-  a8(b-.) b16( a g8)
-  cis8(a-.) b(cis-.)
-  d8(cis b a)
-  r8 <fis a>16 q q8-. q-. % 9c -J-
-  q8(<g b>-.) q16(<fis a> <e g>8)
-  r8 <g b>16 q q8-. q-.
-  q8(<a cis>-.) q16(<g b> <fis a>8)
-  r8 <a cis>16 q q8-. q-. % 10a
-  q8(<b d>-.) q16-.(<a cis> <g b>8)
-  <cis e>8(<a cis>-.) <b d>(<cis e>-.)
-  <d fis>8(<cis e> <b d> <a cis>)
+%  }
+  \key d \major
+  s2_\markup\italic "L.H. loco" | s2*15 |
   \ottava #1
   r8 fis16 fis fis8-. fis-. % 10b -K-
   fis8(g-.) g16(fis e8)
@@ -1182,7 +2008,7 @@ pianoOneLH = \relative c'' {
   r8 a16 a a8-. a-. % 10c
   a8(b) b16(a g8)
   a8(g) a(b)
-  cis8(b a g) \key f \major \ottava 0
+  cis8(b a g) \key f \major
   \repeat volta 2 {
     d'16(e d c bes c bes a % 11a -L-
     g16 a g fis)g8-. bes
@@ -1225,34 +2051,20 @@ pianoOneLH = \relative c'' {
   d4 b
   c4 eis
   a4.) r8 \bar "||" \key f \major
-  R2*8
-  R2 % 15b -Q-
-  <d, f a>8-> q-> <f a d>4->
-  R2
-  <d f a>8-> q-> <f a d>4->
-  R2
-  <d f a>8-> q-> <f a d>4->
-  a16 a a8 a a % 16a
-  a8 a <a d f> <a cis e>
-  a8 a <a d f> <a cis e>
-  a8 a <a d f> <a cis e>
-  a8 a <a d f> <a cis e> % 16b
-  r8 <d, fis a> r q
-  r8 <fis a d> r q
-  <a d fis>4 <fis a d>8-> q16-> q->
-  a4-> r
+  s2*8
+  s2_\markup\italic "L.H. loco to end" % 15b -Q-
+  s2*14
   \bar "|."
 }
 
 pianoTwoRH = \relative c {
-  \global
-  s2*4
-  \repeat volta 2 {
-    r8 <f a d> r q % 3a
+  \global \voiceOne \clef bass
+%  \repeat volta 2 {
+    r8^\markup\italic "R.H." <f a d> r q % 3a
     r8 q r <e a cis>
     r8 <f a d> r q
     r8 q r <e a cis>
-  }
+%  }
   r8 <f a d> r q % 3b -A-
   r8 <g bes d> r <g a cis>
   r8 <f a d> q <g a cis e>
@@ -1261,7 +2073,7 @@ pianoTwoRH = \relative c {
   r8 <bes d f> r <bes c e>
   r8 <a c f> r <bes e g>
   r8 <c f a> r4
-  \clef treble
+  \oneVoice \clef treble
   r8 <d f bes> r q % 4a -B-
   r8 <f bes d> r <e gis d'>
   r8 <e a c> r q
@@ -1278,6 +2090,7 @@ pianoTwoRH = \relative c {
   r8 q r q
   r8 <bes c e> r q
   r8 <aes c f> r q
+  \voiceOne \clef bass
   r8 <c f aes> r q % 5b -D-
   r8 <des f aes> r q
   r8 <des ees g> r q
@@ -1310,7 +2123,7 @@ pianoTwoRH = \relative c {
   e8 <c e g> r <bes e g>
   r8 <a d f> r <g cis e>
   <a d> <e a cis> <f a d> r
-  \repeat volta 2 {
+%  \repeat volta 2 {
     r8 <bes d  g> r q % 8b -H-
     R2
     r8 <g c e> r q
@@ -1319,7 +2132,7 @@ pianoTwoRH = \relative c {
     r8 <c e g> r <bes e g>
     r8 <a d f> r <g cis e>
     <f a d>8-> <e a cis>-> <f a d>-> r
-  }
+%  }
   \key d \major
   r8 <a d fis> r q % 9a -I-
   r8 <b d g> r q
@@ -1362,13 +2175,11 @@ pianoTwoRH = \relative c {
       r8 <a d f> q-> r
     }
   }
-  \bar "||" \key c \major \clef bass
-  R2*8
-  r8 e4 r8 % 12c -N-
-  r8 d4 r8
-  r8 <d g>4 r8
-  r8 a4 r8
-  \clef treble r8 <a' e'>4 r8 % 13a
+  \section \key c \major \oneVoice \clef treble
+  <c e a c>8 r q r | <c f a c> r q r | <b f' b> r q r | <b e b'> r r q | % 12a
+  <a c f a>8 r q r | <a d f a> r r q | <gis d' e gis> r q r | <a c e a>4 r |
+  r8 <a c e>4 r8 | r <a c f a>4 r8 | r <b f'>4 r8 | r <g b e>4 r8 | % 12c -N-
+  r8 <a e'>4 r8 % 13a
   r8 <f a d>4 r8
   r8 <gis d'>4 r8
   r8 <a c e>4 r8
@@ -1387,7 +2198,7 @@ pianoTwoRH = \relative c {
   r8 <bes d f bes>4 q8 % 15a
   r8 q4 a8
   r8 <a cis e a>4 q8
-  <a a'>8 <g g'> <f f'> \change Staff = pianoTwoLH <e e'> \change Staff = pianoTwoRH
+  <a a'>8 <g g'> <f f'> <e e'>
   d'8-> d-> <d f a>4~ % 15b -Q-
   q2
   d8-> d-> q4->~
@@ -1407,30 +2218,15 @@ pianoTwoRH = \relative c {
 }
 
 dynamicsTwoPiano = {
-  s2*4
   \override DynamicTextSpanner.style = #'none
-  \repeat volta 2 {
+%  \repeat volta 2 {
     s2^\markup{\dynamic f - \dynamic mp} % 3a
-    s2
-    s2
-    s2
-  }
-  s2\mp % 3b
-  s2
-  s2
-  s2
-  s2\mf
-  s2
-  s2
-  s2
-  s2 % 4a -B-
-  s2
-  s2
-  s2
-  s2 % 4b
-  s2
-  s2
-  s4 s\mp
+    s2 | s2 | s2
+%  }
+  s2\mp | s | s | s | % 3b
+  s2\mf | s | s | s | % 3c
+  s2*4 % 4a -B-
+  s2 | s | s | s4 s\mp | % 4b
   s2 % 4c -C-
   s2
   s2
@@ -1471,7 +2267,7 @@ dynamicsTwoPiano = {
   s2
   s2
   s2
-  \repeat volta 2 {
+%  \repeat volta 2 {
     s2 % 8b -H-
     s2
     s2
@@ -1480,7 +2276,7 @@ dynamicsTwoPiano = {
     s2
     s2
     s2
-  }
+%  }
   s2\mp % 9a -I-
   s2
   s2
@@ -1564,16 +2360,163 @@ dynamicsTwoPiano = {
   s2
 }
 
+dynamicsTwoPianoSingle = {
+  \override DynamicTextSpanner.style = #'none
+  s2\f % 3a
+  s2 | s2 | s2
+%  s2\mp % 3a
+%  s2 | s2 | s2
+  s2\mp | s | s | s | % 3b
+  s2\mf | s | s | s | % 3c
+  s2*4 % 4a -B-
+  s2 | s | s | s4 s\mp | % 4b
+  s2 % 4c -C-
+  s2
+  s2
+  s2
+  s2 % 5a
+  s2
+  s2
+  s2
+  s2\mf % 5b -D-
+  s2
+  s2
+  s2
+  s2 % 5c
+  s2
+  s2
+  s2
+  s2 % 6a -E-
+  s2
+  s2
+  s2
+  s2 % 6b
+  s2
+  s2
+  s4 s\>
+  s2\p % 7a -F-
+  s2
+  s2
+  s2
+  s2 % 7b
+  s2
+  s2
+  s2
+  s2\p % 7c -G-
+  s2
+  s2
+  s2
+  s2 % 8a
+  s2
+  s2
+  s2
+%  \repeat volta 2 {
+    s2 % 8b -H-
+    s2
+    s2
+    s2
+    s2 % 8c
+    s2
+    s2
+    s2
+%  }
+  s2\mp % 9a -I-
+  s2
+  s2
+  s2
+  s2 % 9b
+  s2
+  s2
+  s2
+  s2\mf % 9c -J-
+  s2
+  s2
+  s2
+  s2 % 10a
+  s2
+  s2
+  s2
+  s2\f % 10b -K-
+  s2
+  s2
+  s2
+  s2 % 10c
+  s2
+  s2
+  s2\>
+  s2\!\pp % 11a
+  s2
+  s2
+  s2
+  s2 % 11b
+  s2
+  s2
+  s2
+  s2\mp % 11a
+  s2
+  s2
+  s2
+  s2 % 11b
+  s2
+  s2
+  s2
+  s2\mf % 12a -M-
+  s2
+  s2
+  s2
+  s2 % 12b
+  s2
+  s2
+  s2
+  s2\mf %12c -N-
+  s2
+  s2
+  s2
+  s2 % 13a
+  s2
+  s2
+  s2
+  s2\mf % 13b -O-
+  s2
+  s2
+  s2
+  s2 % 14a
+  s2
+  s2
+  s2
+  s2 % 14b -P-
+  s2
+  s2
+  s2
+  s2 % 15a
+  s2
+  s2
+  s2
+  s2\ff % 15b -Q-
+  s2
+  s2
+  s2
+  s2
+  s2
+  s2^\markup{\italic {sempre marcato}} % 16a
+  s2
+  s2
+  s2
+  s2 % 16b
+  s2
+  s2
+  s2
+  s2
+}
+
 pianoTwoLH = \relative c, {
-  \global
-  s2*4
-  \oneVoice
-  \repeat volta 2 {
-    <d d'>4 <c c'> % 3a
+  \global \voiceTwo
+%  \repeat volta 2 {
+    <d d'>4_\markup\italic "L.H." <c c'> % 3a
     <bes bes'>8. <a a'>16~q8 q
     <d d'>4 <c c'>
     <bes bes'>8. <a a'>16~q8 q
-  }
+%  }
   <d d'>4 <f f'> % 3b -A-
   <e e'>4 <a, a'>
   <d d'>4 <a a'>
@@ -1582,6 +2525,7 @@ pianoTwoLH = \relative c, {
   <g g'>4 <c, c'>
   <f f'>4 <c c'>
   <f f'>4 q
+  \lhII \key f \major \oneVoice \clef bass
   <bes bes'>4 q % 4a -B-
   <g g'>8 <f f'> <e e'> <gis gis'>
   <a a'>4 <g g'>
@@ -1598,6 +2542,7 @@ pianoTwoLH = \relative c, {
   q4 <bes bes'>
   <c c'> q
   <f f'> q
+  \voiceTwo \rhII
   <f f'>4 q % 5b -D-
   <bes, bes'>4 q
   <ees ees'>4 q
@@ -1630,7 +2575,7 @@ pianoTwoLH = \relative c, {
   <e e'>4 <c c'>
   <d d'>4 <a a'>
   <d d'>8 <a a'> <d d'> r
-  \repeat volta 2 {
+%  \repeat volta 2 {
     <g g'>4 <f f'> % 8b -H-
     <e e'>4 q8 <gis gis'>
     <a a'>4 <a, a'>
@@ -1639,7 +2584,7 @@ pianoTwoLH = \relative c, {
     <e e'>4 <c c'>
     <d d'>4 <a a'>
     <d d'>8-> <a a'>-> <d d'>-> r
-  }
+%  }
   \key d \major
   q4 q % 9a -I-
   <e e'>4 q
@@ -1682,7 +2627,7 @@ pianoTwoLH = \relative c, {
       <d d'>4 q8-> r
     }
   }
-  \bar "||" \key c \major
+  \section \lhII \key c \major \oneVoice
   <a' e' a>8 r q r % 12a -M-
   <d, a' d>8 r q r
   <g d' g>8 r q r
@@ -1691,37 +2636,28 @@ pianoTwoLH = \relative c, {
   <b, b'>8 r r q
   <e e'>8 r q r
   <a e'>4 r8 a
-  \ottava #-1
-  <a, a'>4. q8 % 12c -N-
-  <d, d'>4. q8
-  <g g'>4. q8
-  <c, c'>4. q8
-  <f f'>4. q8 % 13a
-  <b, b'>4. q8
-  <e e'>4. q8
-  <a a'>4. q8
-  q4. <g g'>8 % 13b -O-
-  <f f'>4 r
-  <g g'>4 <f f'>
-  <e e'>4 r
-  <f f'>4 <e e'> % 14a
-  <d d'>4 <b b'>
-  <e e'>4 q
-  <a a'>4 q8 <a e' a> \bar "||" \key f \major
-  <d, d'>4. <d a' d>8 % 14b -P-
-  <g g'>4. <g d' g>8
-  <c, c'>4. <c g' c>8
-  <f f'>4. <f c' f>8
-  <bes, bes'>4. q8 % 15a
-  <d d'>4. q8 \ottava #0
-  <a' a'>4. q8
-  q8 <g g'> \voiceTwo <f f'> <e e'> \oneVoice
-  <d' d'>8-> q-> <d' a'>4->~ % 15b -Q-
-  q2
-  <d, d'>8-> q-> <d' a'>4->~ % 15b -Q-
-  q2
-  <d, d'>8-> q-> <d' a'>4->~
-  q2
+  <<
+    {
+      \voiceOne r8 e'4 r8 | r d4 r8 | r <d g>4 r8 | r c4 r8 | % 12c -N-
+      r8 <c f>4 r8 | r b4 r8 | r <b e>4 r8 | r e4 r8 | % 13a
+      r8 <e a> r <d g> | r <c f>4 <f, c' f>8 | r <d' g> r <c f> | r e4 <e, e'>8 | % -O-
+      r8 <c' f> r c | r d r d | r <b e> r <b e gis> | r <e a>4 r8 \section \key f \major | % 14a
+      r8 <d a>4 r8 | r <d g>4 r8 | r <e bes'>4 r8 | r <c f>4 r8 | % -P-
+      r8 <bes f'>4 r8 | r <bes f'>4 r8 | r e4 r8 | s2 | % 15a
+    }
+    \new Voice {
+      \voiceTwo a,4. 8 | d,4. 8 | g4. 8 | c,4. 8 | % 12c -N-
+      f4. 8 | b,4. 8 | e4. 8 | a4. 8 | % 13a
+      a4 g | f r | g f | e r |
+      f4 e | d b | e e | a4 8 <a, e' a> \section \key f \major | % 14a
+      d4. <d a' d>8 | g4. <g d' g>8 | c,4. <c g' c>8 | f4. <d c' f>8 | % -P-
+      bes4. 8 | d4. <d d'>8 | <a a'>4. 8 | q <g g'> <f f'> <e e'> | % 15a
+    }
+  >>
+  \oneVoice
+  <d' d'>8-> q-> <d' a'>4->~ | 2 | % 15b -Q-
+  <d, d'>8-> q-> <d' a'>4->~ | 2 |
+  <d, d'>8-> q-> <d' a'>4->~ | 2 |
   <a a'>16 q q8 q q % 16a
   <a, a'>8 q <a' f'> <a e'>
   <a, a'>8 q <a' f'> <a e'>
@@ -1734,15 +2670,33 @@ pianoTwoLH = \relative c, {
   \bar "|."
 }
 
+pianoTwoLHempty = {
+  \key f \major
+%  \repeat volta 2 {
+    s2*4
+%  }
+  s2*16 \section \key aes \major
+  s2*24 \section \key f \major
+  s2*16
+%  \repeat volta 2 {
+    s2*8
+%  }
+  \key d \major
+  s2*24 \section \key f \major
+  \repeat volta 2 { s2*7 \alternative {{s2}{s2}}} \section \key c \major
+  s2*24 \section \key f \major
+  s2*23
+}
+
 wordsStart = \lyricmode {
-  When I start- ed down the street last Sun- day,
-  Feel- in' might- y low and kind- a mean,
-  Sud- den- ly a voice said, "\"Go " forth, neigh- bor!
-  Spread the pic- ture on a wid- er "screen!\""
-  And the voice said, "\"Neigh-" bor, there's a mil- lion rea- sons
-  Why you should be glad in all four sea- sons!
-  Hit the road, neigh- bor leave your wor- ries and strife!
-  Spread the rel- ig- ion of the rhy- thm of "life.\" "
+  When I start -- ed  down the street last Sun -- day,
+  Feel -- in' might -- y low and kind -- a mean,
+  Sud --  den -- ly a voice said, "\"Go "forth, neigh -- bor!
+  Spread the pic -- ture on a  wid -- er  "screen!\""
+  And the voice said, "\"Neigh" -- bor, there's a mil -- lion rea -- sons
+  Why you should be glad in all four sea -- sons!
+  Hit the road, neigh -- bor leave your wor -- ries and strife!
+  Spread the rel -- ig -- ion of the rhy -- thm of "life.\""
 }
 
 MwordsStart = \lyricmode {
@@ -1757,10 +2711,10 @@ MwordsStart = \lyricmode {
 }
 
 rol = \lyricmode {
-  the rhy- thm of life is a pow- er- ful beat, % Usually has "For" or "O" before
-  Puts a tin- gle in your fin- gers and a tin- gle in your feet!
-  Rhy- thm on the in- side, rhy- thm on the street,
-  And the rhy- thm of life is a pow- er- ful beat!
+  rhy -- thm of life is a pow -- er -- ful beat, % Usually has "For" or "O" before
+  Puts a tin -- gle in your fin -- gers and a tin -- gle in your feet!
+  Rhy -- thm on the in -- side, rhy -- thm on the street,
+  And the rhy -- thm of life is a pow -- er -- ful beat!
 }
 
 Mrol = \lyricmode {
@@ -1772,24 +2726,24 @@ Mrol = \lyricmode {
 }
 
 tfrl = \lyricmode {
-  To feel the rhy- thm of life,
-  To feel the pow er- ful beat,
-  To feel the tin- gle in your fin- gers,
-  To feel the tin- gle in your % usually followed by "feet!" but sometimes "life!"
+  To feel the rhy -- thm of life,
+  To feel the pow er -- ful beat,
+  To feel the tin -- gle in your fin -- gers,
+  To feel the tin -- gle in your % usually followed by "feet!" but sometimes "life!"
 }
 
 Mtfrl = \lyricmode {
   "\nTo " "feel " "the " rhy "thm " "of " "life, "
-  "\nTo " "feel " "the " "pow " er "ful " "beat, "
+  "\nTo " "feel " "the " pow er "ful " "beat, "
   "\nTo " "feel " "the " tin "gle " "in " "your " fin "gers, "
   "\nTo " "feel " "the " tin "gle " "in " "your "
 }
 
 stg = \lyricmode {
-  Go and spread the gos- pel in Mil- wau- kee;
-  Take a walk- ie talk- ie to Rock- y Ridge!
-  All the way to Can- ton, then to Scran- ton,
-  Ev- en tell it un- der the Man- hat- tan Bridge.
+  Go and spread the gos -- pel in Mil -- wau -- kee;
+  Take a walk -- ie talk -- ie to Rock -- y Ridge!
+  All the way to Can -- ton, then to Scran -- ton,
+  Ev -- en tell it un -- der the Man -- hat -- tan Bridge.
 }
 
 Mstg = \lyricmode {
@@ -1800,12 +2754,12 @@ Mstg = \lyricmode {
 }
 
 mns = \lyricmode {
-  You will make a new sens- a- tion,
-  Have a grow- ing con- gre- ga- tion,
-  Build a glow- ing op- er- a- tion here be- low!
-  Like a Pied __ Pip- er blow- ing,
-  Lead and keep the mus- ic flow- ing,
-  Keep the rhy- thm go, go, go- ing;
+  You will make a new sens -- a -- tion,
+  Have a grow -- ing con -- gre -- ga -- tion,
+  Build a glow -- ing op -- er -- a -- tion here be -- low!
+  Like a Pied __ Pip -- er blow -- ing,
+  Lead and keep the mus -- ic flow -- ing,
+  Keep the rhy -- thm go, go, go -- ing;
   go, go, go!
 }
 
@@ -1820,7 +2774,7 @@ Mmns = \lyricmode {
 }
 
 db = \lyricmode {
-  doo- bi,
+  doo -- bi,
   }
 
 Mdb = \lyricmode {
@@ -1866,8 +2820,8 @@ Mfyw = \lyricmode {
 }
 
 ygr = \lyricmode {
-  Neigh- bour, you've got the rhy- thm,
-  rhy- thm, rhy- thm, rhy- thm of life! __
+  Neigh -- bour, you've got the rhy -- thm,
+  rhy -- thm, rhy -- thm, rhy -- thm of life! __
 }
 
 Mygr = \lyricmode {
@@ -1877,7 +2831,7 @@ Mygr = \lyricmode {
 
 wordsSopA = \lyricmode {
   \wordsStart
-  For \rol
+  For the \rol
   \tfrl feet!
   \tfrl feet!
   \stg
@@ -1894,7 +2848,9 @@ MwordsSopA = \lyricmode {
 }
 
 wordsSopB = \lyricmode {
-  \mns
+%  \repeat volta 2 {
+    \mns
+%  }
 }
 
 MwordsSopB = \lyricmode {
@@ -1962,9 +2918,9 @@ MwordsSopDc = \lyricmode {
 }
 
 wordsSopE = \lyricmode {  
-  O \rol
-  O \rol
-  O \rol
+  O the \rol
+  O the \rol
+  O the \rol
   \tfrl life! __ life! __ life! __
   \ygr
 }
@@ -1981,31 +2937,26 @@ wordsSopRepeat = \lyricmode {
   \wordsSopA
   \wordsSopB
   \wordsSopC
-  \wordsSopDa
-  \wordsSopDb
-  \wordsSopDc
+  \repeat volta 2 {
+    \doobie \doobie \doobie \db \db \db \db
+    \alternative { { } { \db \db doo! } }
+  }
   \wordsSopE
 }
 
 wordsSopSingle = \lyricmode {
   \wordsSopA
-  \wordsSopB
-  \wordsSopB
-  \wordsSopC
-  \wordsSopDaE
-  \wordsSopDbE
+  \mns % \mns
+  \fyw
   \wordsSopDa
   \wordsSopDc
   \wordsSopE
 }
 
-MwordsSopSingle = \lyricmode {
+wordsSopMidi = \lyricmode {
   \MwordsSopA
-  \MwordsSopB
-  \MwordsSopB
-  \MwordsSopC
-  \MwordsSopDaE
-  \MwordsSopDbE
+  \Mmns \Mmns
+  \Mfyw
   \MwordsSopDa
   \MwordsSopDc
   \MwordsSopE
@@ -2014,9 +2965,9 @@ MwordsSopSingle = \lyricmode {
 wordsAltoA = \lyricmode {
   \wordsStart
 
-  For \rol
-  For \rol
-  For \rol
+  For the \rol
+  For the \rol
+  For the \rol
   \stg
   \mns
 }
@@ -2032,7 +2983,7 @@ MwordsAltoA = \lyricmode {
 }
 
 wordsAltoE = \lyricmode {
-  O \rol
+  O the \rol
   \tfrl feet!
   \tfrl feet!
   \tfrl life! __ life! __ life! __
@@ -2051,31 +3002,26 @@ wordsAltoRepeat = \lyricmode {
   \wordsAltoA
   \wordsSopB
   \wordsSopC
-  \wordsSopDa
-  \wordsSopDb
-  \wordsSopDc
+  \repeat volta 2 {
+    \doobie \doobie \doobie \db \db \db \db
+    \alternative { { } { \db \db doo! } }
+  }
   \wordsAltoE
 }
 
 wordsAltoSingle = \lyricmode {
   \wordsAltoA
-  \wordsSopB
-  \wordsSopB
-  \wordsSopC
-  \wordsSopDaE
-  \wordsSopDbE
+  \mns % \mns
+  \fyw
   \wordsSopDa
   \wordsSopDc
   \wordsAltoE
 }
 
-MwordsAltoSingle = \lyricmode {
+wordsAltoMidi = \lyricmode {
   \MwordsAltoA
-  \MwordsSopB
-  \MwordsSopB
-  \MwordsSopC
-  \MwordsSopDaE
-  \MwordsSopDbE
+  \Mmns \Mmns
+  \Mfyw
   \MwordsSopDa
   \MwordsSopDc
   \MwordsAltoE
@@ -2084,9 +3030,9 @@ MwordsAltoSingle = \lyricmode {
 wordsTenorA = \lyricmode {
   \wordsStart
 
-  For \rol
-  For \rol
-  For \rol
+  For the \rol
+  For the \rol
+  For the \rol
   \stg
 }
 
@@ -2100,9 +3046,9 @@ MwordsTenorA = \lyricmode {
 }
 
 wordsTenorB = \lyricmode {
-  You will make a new sens- a- tion,
-  Have a grow- ing con- gre- ga- tion,
-  Build a glow- ing op- er- a- tion here be- low!
+  You will make a new sens -- a -- tion,
+  Have a grow -- ing con -- gre -- ga -- tion,
+  Build a glow -- ing op -- er -- a -- tion here be -- low!
   go, go!
 }
 
@@ -2113,12 +3059,26 @@ MwordsTenorB = \lyricmode {
   "\ngo, " "go! "
 }
 
+wordsTenorBtwo = \lyricmode {
+  Like a Pied _ __ Pip -- er blow -- ing,
+  Load and keep the mu -- sic flow -- ing,
+  Keep the rhy -- thm go, go, go -- ing,
+  go, __ go, __ go, go, go!
+}
+
+MwordsTenorBtwo = \lyricmode {
+  "Like " "a " "Pied " ""  Pip "er " blow "ing, "
+  "\nLoad " "and " "keep " "the " mu "sic " flow "ing, "
+  "\nKeep " "the " rhy "thm " "go, " "go, " go "ing, "
+  "\ngo, "  "go, "  "go, " "go, " "go! "
+}
+
 wordsTenorE = \lyricmode {  
-  O \rol
-  O \rol
+  O the \rol
+  O the \rol
   Go, go, go!
   Go, go, go!
-  Tell them ev- 'ry- thing you know!
+  Tell them ev -- 'ry -- thing you know!
   
   \tfrl life! __ life! __ life! __
 
@@ -2157,47 +3117,50 @@ wordsTenorRepeat = \lyricmode {
   \wordsTenorA
   \wordsTenorB
   \wordsSopC
-  \wordsBassDa
-  \wordsBassDb
-  \wordsBassDb
+  \repeat volta 2 {
+    \doobie \doobie \doobie \db \db \db \db
+    \alternative { { } { \db \db doo! } }
+  }
   \wordsTenorE
+}
+
+wordsTenorRepeatTwo = \lyricmode {
+  \repeat unfold 273 _
+  Like a Pied _ Pip -- er blow -- ing,
+  Lead and keep the mu -- sic flow -- ing,
+  Keep the rhy -- thm go, go, go -- ing,
+  go, __ go, __ go, go, go!
+%  \repeat unfold 100 _
 }
 
 wordsTenorSingle = \lyricmode {
   \wordsTenorA
   \wordsTenorB
-  \wordsTenorB
+%  \wordsTenorBtwo
   \wordsSopC
-  \wordsBassDa
-  \wordsBassDb
-  \wordsBassDa
-  \wordsBassDb
+  \wordsSopDa
+  \wordsSopDb
   \wordsTenorE
 }
 
-MwordsTenorSingle = \lyricmode {
+wordsTenorMidi = \lyricmode {
   \MwordsTenorA
   \MwordsTenorB
-  \MwordsTenorB
+  \MwordsTenorBtwo
   \MwordsSopC
-  \MwordsBassDa
-  \MwordsBassDb
-  \MwordsBassDa
-  \MwordsBassDb
+  \MwordsSopDa
+  \MwordsSopDb
   \MwordsTenorE
-}
-
-MwordsTenor = \lyricmode {
 }
 
 wordsBassA = \lyricmode {
   \wordsStart
 
-  For \rol
-  For \rol
+  For the \rol
+  For the \rol
   Go, go, go!
   Go, go, go!
-  Tell them ev- 'ry- thing you know!
+  Tell them ev -- 'ry -- thing you know!
   
   \stg
 }
@@ -2224,10 +3187,19 @@ wordsBassRepeat = \lyricmode {
   \wordsTenorE
 }
 
+wordsBassRepeatTwo = \lyricmode {
+  \repeat unfold 236 _
+  Like a Pied _ Pip -- er blow -- ing,
+  Lead and keep the mu -- sic flow -- ing,
+  Keep the rhy -- thm go, go, go -- ing,
+  go, __ go, __ go, go, go!
+%  \repeat unfold 100 _
+}
+
 wordsBassSingle = \lyricmode {
   \wordsBassA
   \wordsTenorB
-  \wordsTenorB
+%  \wordsTenorBtwo
   \wordsSopC
   \wordsBassDa
   \wordsBassDb
@@ -2236,10 +3208,10 @@ wordsBassSingle = \lyricmode {
   \wordsTenorE
 }
 
-MwordsBassSingle = \lyricmode {
+wordsBassMidi = \lyricmode {
   \MwordsBassA
   \MwordsTenorB
-  \MwordsTenorB
+  \MwordsTenorBtwo
   \MwordsSopC
   \MwordsBassDa
   \MwordsBassDb
@@ -2249,63 +3221,205 @@ MwordsBassSingle = \lyricmode {
 }
 
 wordsVerseTwo = \lyricmode {
-  Like a Pied __ Pip- er blow- ing,
-  Lead and keep the mus- ic flow- ing,
-  Keep the rhy- thm go, go, go- ing;
+  Like a Pied __ Pip -- er blow -- ing,
+  Lead and keep the mus -- ic flow -- ing,
+  Keep the rhy -- thm go, go, go -- ing;
   go, __ go, __ go, go, go!
 }
+
+wordsPartOne = \lyricmode {
+  When I start -- ed down the street last Sun -- day,
+  Feel -- in' might -- y low and kind -- a mean,
+  Sud -- den -- ly a voice said, "\"Go " forth, neigh -- bor!
+  Spread the pic -- ture on a wid -- er "screen!\""
+  And the voice said, "\"Neigh-" bor, there's a mil -- lion rea -- sons
+  Why you should be glad in all four sea -- sons!
+  Hit the road, neigh -- bor leave your wor -- ries and strife!
+  Spread the rel -- ig -- ion of the rhy -- thm of "life.\" "
+}
+
+wordsOne = \lyricmode {
+  % unison
+  \wordsPartOne
+  For the \rol
+  For the
+  % soprano
+  \tfrl feet!
+  \tfrl feet!
+  % unison
+  \stg
+  \mns
+  % SA
+%  \repeat volta 2 {
+    \mns
+%  }
+  % unison 9a
+  \fyw
+  % S/AT % 11a
+  \repeat volta 2 {
+    \doobie
+    \doobie
+    \doobie
+    \db \db \db \db
+    \alternative {
+      { }
+      {\db \db doo!}
+    }
+  }
+  % unison
+  O the \rol
+  O the \rol
+  O the \rol
+  \tfrl life! __ life! __ life! __
+  \ygr
+}
+
+wordsOneSingle = \lyricmode {
+  % unison
+  \wordsPartOne
+  For the \rol
+  For the
+  % soprano
+  \tfrl feet!
+  \tfrl feet!
+  % unison
+  \stg
+  \mns
+  % SA
+%  \repeat volta 2 {
+    \mns
+%  }
+  % unison 9a
+  \fyw
+                                % S/AT % 11a
+%  \repeat volta 2 {
+    \doobie
+    \doobie
+    \doobie
+    \db \db \db \db
+%    \alternative {
+%      { }
+      {\db \db doo!}
+%    }
+%  }
+  % unison
+  O the \rol
+  O the \rol
+  O the \rol
+  \tfrl life! __ life! __ life! __
+  \ygr
+}
+
+wordsTwo = \lyricmode {
+  \rol
+  For the \rol
+  You will make a new sens -- a -- tion,
+  Have a grow -- ing con -- gre -- ga -- tion,
+  Build a glow -- ing op -- er -- a -- tion here be -- low!
+  go, go!
+  \repeat unfold 24 _
+  \doobie doo!
+  Doo! O, the
+  \tfrl feet!
+  \tfrl feet!
+  \tfrl life! __ life! __ life! __
+}
+
+wordsTwoSingle = \lyricmode {
+  \rol
+  For the \rol
+  You will make a new sens -- a -- tion,
+  Have a grow -- ing con -- gre -- ga -- tion,
+  Build a glow -- ing op -- er -- a -- tion here be -- low!
+  go, go!
+%  Like a Pied _ Pip -- er blow -- ing,
+%  Lead and keep the mu -- sic flow -- ing,
+%  Keep the rhy -- thm go, go, go -- ing,
+%  go, __ go, __ go, go, go!
+  \repeat unfold 24 _
+  \doobie doo!
+  \doobie doo!
+  O, the \tfrl feet!
+  \tfrl feet!
+  \tfrl life! __ life! __ life! __
+}
+
+wordsThree = \lyricmode {
+  Go, go, go!
+  Go, go, go!
+  Tell them ev -- 'ry -- thing you know!
+  Go, go, go!
+  Go, go, go!
+  Tell them ev -- 'ry -- thing you know!
+}
+
+wordsThreeSingle = \lyricmode {
+  Go, go, go!
+  Go, go, go!
+  Tell them ev -- 'ry -- thing you know!
+  Go, go, go!
+  Go, go, go!
+  Tell them ev -- 'ry -- thing you know!
+}
+
+#(set-global-staff-size 18)
 
 \book {
   #(define output-suffix "repeat")
   \score {
-    \context GrandStaff <<
+    <<
+      \new ChoirStaff <<
+                                % Staff one
+        \new Staff = staffOne <<
+          \new Voice \RehearsalTrack
+          \new Dynamics \with {alignAboveContext = staffOne} \dynamicsOneAbove
+          \new Dynamics \with {alignBelowContext = staffOne} \dynamicsOneBelow
+          \new Voice \musicOne
+          \addlyrics \wordsOne
+        >>
+                                % Staff two
+        \new Staff = staffTwo <<
+          \new Dynamics \with {alignAboveContext = staffTwo} \dynamicsTwoAbove
+          \new Dynamics \with {alignBelowContext = staffTwo} \dynamicsTwoBelow
+          \new Voice \musicTwo
+          \addlyrics \wordsTwo
+        >>
+                                % Staff three
+        \new Staff = staffThree <<
+          \new Dynamics \with {alignAboveContext = staffThree} \dynamicsThree
+          \new Voice \musicThree
+          \addlyrics \wordsThree
+        >>
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Primo"
+        shortInstrumentName = "I"
+      }
       <<
-        \new ChoirStaff <<
-                                % Single soprano staff
-          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
-            \new Voice \RehearsalTrack
-            \new Voice = "soprano" \soprano
-            \new Lyrics \lyricsto "soprano" \wordsSopRepeat
-          >>
-                                % Single alto staff
-          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
-            \new Voice = "alto" \alto
-            \new Lyrics \lyricsto "alto" \wordsAltoRepeat
-          >>
-                                % Single tenor staff
-          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
-            \clef "treble_8"
-            \new Voice = "tenor" \tenor
-            \new Lyrics \lyricsto "tenor" \wordsTenorRepeat
-          >>
-                                % Single bass staff
-          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
-            \clef "bass"
-            \new Voice = "bass" \bass
-            \new Lyrics \lyricsto "bass" \wordsBassRepeat
-          >>
+        \new Staff = rhI <<
+          \magnifyStaff #4/7
+          \new Voice \pianoOneRH
+          \new Voice \pianoOneLH
         >>
-        \new PianoStaff <<
-          \new Staff <<
-            \new Voice \pianoOneRH
-          >>
-          \new Dynamics \dynamicsOnePiano
-          \new Staff <<
-            \new Voice \pianoOneLH
-          >>
+        \new Dynamics \dynamicsOnePiano
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Secondo"
+        shortInstrumentName = #"II"
+      }
+      <<
+        \new Staff = rhII <<
+          \magnifyStaff #4/7
+%          \clef "bass"
+          \new Voice \pianoTwoRH
+          \new Voice \pianoTwoLH
         >>
-        \new PianoStaff <<
-          \new Staff = pianoTwoRH <<
-            \clef "bass"
-            \new Voice \pianoTwoRH
-          >>
-          \new Dynamics \dynamicsTwoPiano
-          \new Staff = pianoTwoLH <<
-            \clef "bass"
-            \new Voice \pianoTwoLH
-          >>
+        \new Dynamics \dynamicsTwoPiano
+        \new Staff = lhII <<
+          \magnifyStaff #4/7
+                                %           \new Voice \pianoTwoLH
+          \pianoTwoLHempty
         >>
-        \new DrumStaff { \global \drummode { bassdrum4 bd bd bd bd bd bd bd } }
       >>
     >>
     \layout {
@@ -2314,99 +3428,629 @@ wordsVerseTwo = \lyricmode {
         \Staff \RemoveAllEmptyStaves
       }
     }
-%    \midi {}
+  }
+}
+
+#(set-global-staff-size 19)
+
+\book {
+  #(define output-suffix "repeat-sep")
+  \score {
+    <<
+      \new ChoirStaff <<
+                                % Soprano staff
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \new Voice \RehearsalTrack
+          \new Voice \TempoTrack
+          \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
+          \new Voice \soprano
+          \new NullVoice \sopranoAligner
+          \addlyrics \wordsSopRepeat
+        >>
+                                % Alto staff
+        \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
+          \new Voice \alto
+          \addlyrics \wordsAltoRepeat
+        >>
+                                % Tenor staff
+        \new Staff = tenor \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
+          \new Voice \tenor
+          \addlyrics \wordsTenorRepeat
+          \addlyrics \wordsTenorRepeatTwo
+        >>
+                                % Bass staff
+        \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \clef bass
+          \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
+          \new Voice \bass
+          \new NullVoice \bassAligner
+          \addlyrics \wordsBassRepeat
+          \addlyrics \wordsBassRepeatTwo
+        >>
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Primo"
+        shortInstrumentName = "I"
+      }
+      <<
+        \new Staff = rhI <<
+          \magnifyStaff #4/7
+          \new Voice \pianoOneRH
+          \new Voice \pianoOneLH
+        >>
+        \new Dynamics \dynamicsOnePiano
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Secondo"
+        shortInstrumentName = #"II"
+      }
+      <<
+        \new Staff = rhII <<
+          \magnifyStaff #4/7
+%          \clef "bass"
+          \new Voice \pianoTwoRH
+          \new Voice \pianoTwoLH
+        >>
+        \new Dynamics \dynamicsTwoPiano
+        \new Staff = lhII <<
+          \magnifyStaff #4/7
+                                %           \new Voice \pianoTwoLH
+          \pianoTwoLHempty
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context { \PianoStaff
+                 \remove Keep_alive_together_engraver
+               }
+      \context { \Staff
+                 \RemoveAllEmptyStaves
+      }
+    }
   }
 }
 
 \book {
-  #(define output-suffix "single")
+  #(define output-suffix "repeat-sep-sop")
   \score {
-    \context GrandStaff <<
+    <<
+      \new ChoirStaff <<
+                                % Soprano staff
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \new Voice \RehearsalTrack
+          \new Voice \TempoTrack
+          \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
+          \new Voice \soprano
+          \new NullVoice \sopranoAligner
+          \addlyrics \wordsSopRepeat
+        >>
+                                % Alto staff
+        \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
+          \new Voice \alto
+          \addlyrics {\tiny \wordsAltoRepeat}
+        >>
+                                % Tenor staff
+        \new Staff = tenor \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \magnifyStaff #4/7
+          \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
+          \new Voice \tenor
+          \addlyrics {\tiny \wordsTenorRepeat}
+          \addlyrics {\tiny \wordsTenorRepeatTwo}
+        >>
+                                % Bass staff
+        \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \magnifyStaff #4/7
+          \clef bass
+          \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
+          \new Voice \bass
+          \new NullVoice \bassAligner
+          \addlyrics {\tiny \wordsBassRepeat}
+          \addlyrics {\tiny \wordsBassRepeatTwo}
+        >>
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Primo"
+        shortInstrumentName = "I"
+      }
       <<
-        \new ChoirStaff <<
-                                % Single soprano staff
-          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
-            \new Voice \unfoldRepeats \RehearsalTrack
-            \new Voice = "soprano" \unfoldRepeats \soprano
-            \new Lyrics \lyricsto "soprano" \wordsSopSingle
-          >>
-                                % Single alto staff
-          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
-            \new Voice = "alto" \unfoldRepeats \alto
-            \new Lyrics \lyricsto "alto" \wordsAltoSingle
-          >>
-                                % Single tenor staff
-          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
-            \clef "treble_8"
-            \new Voice = "tenor" \unfoldRepeats \tenor
-            \new Lyrics \lyricsto "tenor" \wordsTenorSingle
-          >>
-                                % Single bass staff
-          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
-            \clef "bass"
-            \new Voice = "bass" \unfoldRepeats \bass
-            \new Lyrics \lyricsto "bass" \wordsBassSingle
-          >>
+        \new Staff = rhI <<
+          \magnifyStaff #4/7
+          \new Voice \pianoOneRH
+          \new Voice \pianoOneLH
         >>
-        \new PianoStaff <<
-          \new Staff <<
-            \new Voice \unfoldRepeats \pianoOneRH
-          >>
-          \new Dynamics \unfoldRepeats \dynamicsOnePiano
-          \new Staff <<
-            \new Voice \unfoldRepeats \pianoOneLH
-          >>
+        \new Dynamics \dynamicsOnePiano
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Secondo"
+        shortInstrumentName = #"II"
+      }
+      <<
+        \new Staff = rhII <<
+          \magnifyStaff #4/7
+%          \clef "bass"
+          \new Voice \pianoTwoRH
+          \new Voice \pianoTwoLH
         >>
-        \new PianoStaff <<
-          \new Staff = pianoTwoRH <<
-            \clef "bass"
-            \new Voice \unfoldRepeats \pianoTwoRH
-          >>
-          \new Dynamics \unfoldRepeats \dynamicsTwoPiano
-          \new Staff = pianoTwoLH <<
-            \clef "bass"
-            \new Voice \unfoldRepeats \pianoTwoLH
-          >>
+        \new Dynamics \dynamicsTwoPiano
+        \new Staff = lhII <<
+          \magnifyStaff #4/7
+                                %           \new Voice \pianoTwoLH
+          \pianoTwoLHempty
         >>
-        \new DrumStaff { \global \drummode { bassdrum4 bd bd bd bd bd bd bd } }
       >>
     >>
     \layout {
       indent = 1.5\cm
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \PianoStaff
+                 \remove Keep_alive_together_engraver
+               }
+      \context { \Staff
+                 \RemoveAllEmptyStaves
       }
     }
-    \midi {}
+  }
+}
+
+\book {
+  #(define output-suffix "repeat-sep-alto")
+  \score {
+    <<
+      \new ChoirStaff <<
+                                % Soprano staff
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \magnifyStaff #4/7
+          \new Voice \RehearsalTrack
+          \new Voice \TempoTrack
+          \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
+          \new Voice \soprano
+          \new NullVoice \sopranoAligner
+          \addlyrics {\tiny \wordsSopRepeat}
+        >>
+                                % Alto staff
+        \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
+          \new Voice \alto
+          \addlyrics \wordsAltoRepeat
+        >>
+                                % Tenor staff
+        \new Staff = tenor \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \magnifyStaff #4/7
+          \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
+          \new Voice \tenor
+          \addlyrics {\tiny \wordsTenorRepeat}
+          \addlyrics {\tiny \wordsTenorRepeatTwo}
+        >>
+                                % Bass staff
+        \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \magnifyStaff #4/7
+          \clef bass
+          \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
+          \new Voice \bass
+          \new NullVoice \bassAligner
+          \addlyrics {\tiny \wordsBassRepeat}
+          \addlyrics {\tiny \wordsBassRepeatTwo}
+        >>
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Primo"
+        shortInstrumentName = "I"
+      }
+      <<
+        \new Staff = rhI <<
+          \magnifyStaff #4/7
+          \new Voice \pianoOneRH
+          \new Voice \pianoOneLH
+        >>
+        \new Dynamics \dynamicsOnePiano
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Secondo"
+        shortInstrumentName = #"II"
+      }
+      <<
+        \new Staff = rhII <<
+          \magnifyStaff #4/7
+%          \clef "bass"
+          \new Voice \pianoTwoRH
+          \new Voice \pianoTwoLH
+        >>
+        \new Dynamics \dynamicsTwoPiano
+        \new Staff = lhII <<
+          \magnifyStaff #4/7
+                                %           \new Voice \pianoTwoLH
+          \pianoTwoLHempty
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context { \PianoStaff
+                 \remove Keep_alive_together_engraver
+               }
+      \context { \Staff
+                 \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  #(define output-suffix "repeat-sep-tenor")
+  \score {
+    <<
+      \new ChoirStaff <<
+                                % Soprano staff
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \magnifyStaff #4/7
+          \new Voice \RehearsalTrack
+          \new Voice \TempoTrack
+          \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
+          \new Voice \soprano
+          \new NullVoice \sopranoAligner
+          \addlyrics {\tiny \wordsSopRepeat}
+        >>
+                                % Alto staff
+        \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
+          \new Voice \alto
+          \addlyrics {\tiny \wordsAltoRepeat}
+        >>
+                                % Tenor staff
+        \new Staff = tenor \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
+          \new Voice \tenor
+          \addlyrics \wordsTenorRepeat
+          \addlyrics \wordsTenorRepeatTwo
+        >>
+                                % Bass staff
+        \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \magnifyStaff #4/7
+          \clef bass
+          \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
+          \new Voice \bass
+          \new NullVoice \bassAligner
+          \addlyrics {\tiny \wordsBassRepeat}
+          \addlyrics {\tiny \wordsBassRepeatTwo}
+        >>
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Primo"
+        shortInstrumentName = "I"
+      }
+      <<
+        \new Staff = rhI <<
+          \magnifyStaff #4/7
+          \new Voice \pianoOneRH
+          \new Voice \pianoOneLH
+        >>
+        \new Dynamics \dynamicsOnePiano
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Secondo"
+        shortInstrumentName = #"II"
+      }
+      <<
+        \new Staff = rhII <<
+          \magnifyStaff #4/7
+%          \clef "bass"
+          \new Voice \pianoTwoRH
+          \new Voice \pianoTwoLH
+        >>
+        \new Dynamics \dynamicsTwoPiano
+        \new Staff = lhII <<
+          \magnifyStaff #4/7
+                                %           \new Voice \pianoTwoLH
+          \pianoTwoLHempty
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context { \PianoStaff
+                 \remove Keep_alive_together_engraver
+               }
+      \context { \Staff
+                 \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  #(define output-suffix "repeat-sep-bass")
+  \score {
+    <<
+      \new ChoirStaff <<
+                                % Soprano staff
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \magnifyStaff #4/7
+          \new Voice \RehearsalTrack
+          \new Voice \TempoTrack
+          \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
+          \new Voice \soprano
+          \new NullVoice \sopranoAligner
+          \addlyrics {\tiny \wordsSopRepeat}
+        >>
+                                % Alto staff
+        \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
+          \new Voice \alto
+          \addlyrics {\tiny \wordsAltoRepeat}
+        >>
+                                % Tenor staff
+        \new Staff = tenor \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \magnifyStaff #4/7
+          \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
+          \new Voice \tenor
+          \addlyrics {\tiny \wordsTenorRepeat}
+          \addlyrics {\tiny \wordsTenorRepeatTwo}
+        >>
+                                % Bass staff
+        \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \clef bass
+          \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
+          \new Voice \bass
+          \new NullVoice \bassAligner
+          \addlyrics \wordsBassRepeat
+          \addlyrics \wordsBassRepeatTwo
+        >>
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Primo"
+        shortInstrumentName = "I"
+      }
+      <<
+        \new Staff = rhI <<
+          \magnifyStaff #4/7
+          \new Voice \pianoOneRH
+          \new Voice \pianoOneLH
+        >>
+        \new Dynamics \dynamicsOnePiano
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Secondo"
+        shortInstrumentName = #"II"
+      }
+      <<
+        \new Staff = rhII <<
+          \magnifyStaff #4/7
+%          \clef "bass"
+          \new Voice \pianoTwoRH
+          \new Voice \pianoTwoLH
+        >>
+        \new Dynamics \dynamicsTwoPiano
+        \new Staff = lhII <<
+          \magnifyStaff #4/7
+                                %           \new Voice \pianoTwoLH
+          \pianoTwoLHempty
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context { \PianoStaff
+                 \remove Keep_alive_together_engraver
+               }
+      \context { \Staff
+                 \RemoveAllEmptyStaves
+      }
+    }
   }
 }
 
 \book {
   #(define output-suffix "acc")
   \score {
-    \context GrandStaff <<
+    <<
+      \new PianoStaff \with {
+        instrumentName = #"Primo"
+        shortInstrumentName = "I"
+      }
       <<
-        \new PianoStaff <<
-          \new Staff <<
-            \new Voice \unfoldRepeats \pianoOneRH
-          >>
-          \new Dynamics \unfoldRepeats \dynamicsOnePiano
-          \new Staff <<
-            \new Voice \unfoldRepeats \pianoOneLH
-          >>
+        \new Staff = rhI <<
+          \new Voice \RehearsalTrack
+          \new Voice \pianoOneRH
+          \new Voice \pianoOneLH
         >>
-        \new PianoStaff <<
-          \new Staff = pianoTwoRH <<
-            \clef "bass"
-            \new Voice \unfoldRepeats \pianoTwoRH
-          >>
-          \new Dynamics \unfoldRepeats \dynamicsTwoPiano
-          \new Staff = pianoTwoLH <<
-            \clef "bass"
-            \new Voice \unfoldRepeats \pianoTwoLH
-          >>
+        \new Dynamics \dynamicsOnePiano
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Secondo"
+        shortInstrumentName = #"II"
+      }
+      <<
+        \new Staff = rhII <<
+%          \clef "bass"
+          \new Voice \pianoTwoRH
+          \new Voice \pianoTwoLH
         >>
-        \new DrumStaff { \global \drummode { bassdrum4 bd bd bd bd bd bd bd } }
+        \new Dynamics \dynamicsTwoPiano
+        \new Staff = lhII <<
+%           \new Voice \pianoTwoLH
+          \pianoTwoLHempty
+        >>
+      >>
+    >>
+%    \layout {
+%      indent = 1.5\cm
+%      \context { \Staff
+%                 \RemoveAllEmptyStaves
+%      }
+%    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  #(define output-suffix "single")
+  \score {
+    \unfoldRepeats
+    <<
+      \new ChoirStaff <<
+                                % Staff one
+        \new Staff = staffOne <<
+          \new Voice \RehearsalTrack
+          \new Dynamics \with {alignAboveContext = staffOne} \dynamicsOneAbove
+          \new Dynamics \with {alignBelowContext = staffOne} \dynamicsOneBelow
+          \new Voice \musicOneSingle
+          \addlyrics \wordsOneSingle
+        >>
+                                % Staff two
+        \new Staff = staffTwo <<
+          \new Dynamics \with {alignAboveContext = staffTwo} \dynamicsTwoAbove
+          \new Dynamics \with {alignBelowContext = staffTwo} \dynamicsTwoBelow
+          \new Voice \musicTwo
+          \addlyrics \wordsTwoSingle
+        >>
+                                % Staff three
+        \new Staff = staffThree <<
+          \new Dynamics \with {alignAboveContext = staffThree} \dynamicsThree
+          \new Voice \musicThree
+          \addlyrics \wordsThreeSingle
+        >>
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Primo"
+        shortInstrumentName = "I"
+      }
+      <<
+        \new Staff = rhI <<
+          \magnifyStaff #4/7
+          \new Voice \pianoOneRH
+          \new Voice \pianoOneLH
+        >>
+        \new Dynamics \dynamicsOnePianoSingle
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Secondo"
+        shortInstrumentName = #"II"
+      }
+      <<
+        \new Staff = rhII <<
+          \magnifyStaff #4/7
+%          \clef "bass"
+          \new Voice \pianoTwoRH
+          \new Voice \pianoTwoLH
+        >>
+        \new Dynamics \dynamicsTwoPianoSingle
+        \new Staff = lhII <<
+          \magnifyStaff #4/7
+                                %           \new Voice \pianoTwoLH
+          \pianoTwoLHempty
+        >>
       >>
     >>
     \layout {
@@ -2415,61 +4059,77 @@ wordsVerseTwo = \lyricmode {
         \Staff \RemoveAllEmptyStaves
       }
     }
-    \midi {}
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  #(define output-suffix "soprano")
+  #(define output-suffix "singlepage")
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
   \score {
-    \context GrandStaff <<
+    \unfoldRepeats
+    <<
+      \new ChoirStaff <<
+                                % Staff one
+        \new Staff = staffOne <<
+          \new Voice \RehearsalTrack
+          \new Dynamics \with {alignAboveContext = staffOne} \dynamicsOneAbove
+          \new Dynamics \with {alignBelowContext = staffOne} \dynamicsOneBelow
+          \new Voice \musicOneSingle
+          \addlyrics \wordsOneSingle
+        >>
+                                % Staff two
+        \new Staff = staffTwo <<
+          \new Dynamics \with {alignAboveContext = staffTwo} \dynamicsTwoAbove
+          \new Dynamics \with {alignBelowContext = staffTwo} \dynamicsTwoBelow
+          \new Voice \musicTwo
+          \addlyrics \wordsTwoSingle
+        >>
+                                % Staff three
+        \new Staff = staffThree <<
+          \new Dynamics \with {alignAboveContext = staffThree} \dynamicsThree
+          \new Voice \musicThree
+          \addlyrics \wordsThreeSingle
+        >>
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Primo"
+        shortInstrumentName = "I"
+      }
       <<
-        \new ChoirStaff <<
-                                % Single soprano staff
-          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
-            \new Voice \unfoldRepeats \RehearsalTrack
-            \new Voice = "soprano" \unfoldRepeats \soprano
-            \new Lyrics \lyricsto "soprano" \MwordsSopSingle
-          >>
-                                % Single alto staff
-          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
-            \new Voice = "alto" \unfoldRepeats \alto
-%            \new Lyrics \lyricsto "alto" \wordsAltoSingle
-          >>
-                                % Single tenor staff
-          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
-            \clef "treble_8"
-            \new Voice = "tenor" \unfoldRepeats \tenor
-%            \new Lyrics \lyricsto "tenor" \wordsTenorSingle
-          >>
-                                % Single bass staff
-          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
-            \clef "bass"
-            \new Voice = "bass" \unfoldRepeats \bass
-%            \new Lyrics \lyricsto "bass" \wordsBassSingle
-          >>
+        \new Staff = rhI <<
+          \magnifyStaff #4/7
+          \new Voice \pianoOneRH
+          \new Voice \pianoOneLH
         >>
-        \new PianoStaff <<
-          \new Staff <<
-            \new Voice \unfoldRepeats \pianoOneRH
-          >>
-          \new Dynamics \unfoldRepeats \dynamicsOnePiano
-          \new Staff <<
-            \new Voice \unfoldRepeats \pianoOneLH
-          >>
+        \new Dynamics \dynamicsOnePianoSingle
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Secondo"
+        shortInstrumentName = #"II"
+      }
+      <<
+        \new Staff = rhII <<
+          \magnifyStaff #4/7
+%          \clef "bass"
+          \new Voice \pianoTwoRH
+          \new Voice \pianoTwoLH
         >>
-        \new PianoStaff <<
-          \new Staff = pianoTwoRH <<
-            \clef "bass"
-            \new Voice \unfoldRepeats \pianoTwoRH
-          >>
-          \new Dynamics \unfoldRepeats \dynamicsTwoPiano
-          \new Staff = pianoTwoLH <<
-            \clef "bass"
-            \new Voice \unfoldRepeats \pianoTwoLH
-          >>
+        \new Dynamics \dynamicsTwoPianoSingle
+        \new Staff = lhII <<
+          \magnifyStaff #4/7
+                                %           \new Voice \pianoTwoLH
+          \pianoTwoLHempty
         >>
-        \new DrumStaff { \global \drummode { bassdrum4 bd bd bd bd bd bd bd } }
       >>
     >>
     \layout {
@@ -2478,433 +4138,766 @@ wordsVerseTwo = \lyricmode {
         \Staff \RemoveAllEmptyStaves
       }
     }
-    \midi {}
   }
 }
 
+#(set-global-staff-size 19)
+
 \book {
-  #(define output-suffix "alto")
+  #(define output-suffix "single-sep")
   \score {
-    \context GrandStaff <<
+    \unfoldRepeats
+    <<
+      \new ChoirStaff <<
+                                % Soprano staff
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \new Voice \RehearsalTrack
+          \new Voice \TempoTrack
+          \new Dynamics \with {alignAboveContext = soprano} \dynamicsSopSingle
+          \new Voice \sopranoSingle
+          \new NullVoice \sopranoAlignerSingle
+          \addlyrics \wordsSopSingle
+        >>
+                                % Alto staff
+        \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \new Dynamics \with {alignAboveContext = alto} \dynamicsAltoSingle
+          \new Voice \altoSingle
+          \addlyrics \wordsAltoSingle
+        >>
+                                % Tenor staff
+        \new Staff = tenor \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenorSingle
+          \new Voice \tenorSingle
+          \addlyrics \wordsTenorSingle
+        >>
+                                % Bass staff
+        \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \clef bass
+          \new Dynamics \with {alignAboveContext = bass} \dynamicsBassSingle
+          \new Voice \bass
+          \new NullVoice \bassAligner
+          \addlyrics \wordsBassSingle
+        >>
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Primo"
+        shortInstrumentName = "I"
+      }
       <<
-        \new ChoirStaff <<
-                                % Single soprano staff
-          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
-            \new Voice \unfoldRepeats \RehearsalTrack
-            \new Voice = "soprano" \unfoldRepeats \soprano
-%            \new Lyrics \lyricsto "soprano" \wordsSopSingle
-          >>
-                                % Single alto staff
-          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
-            \new Voice = "alto" \unfoldRepeats \alto
-            \new Lyrics \lyricsto "alto" \MwordsAltoSingle
-          >>
-                                % Single tenor staff
-          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
-            \clef "treble_8"
-            \new Voice = "tenor" \unfoldRepeats \tenor
-%            \new Lyrics \lyricsto "tenor" \wordsTenorSingle
-          >>
-                                % Single bass staff
-          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
-            \clef "bass"
-            \new Voice = "bass" \unfoldRepeats \bass
-%            \new Lyrics \lyricsto "bass" \wordsBassSingle
-          >>
+        \new Staff = rhI <<
+          \magnifyStaff #4/7
+          \new Voice \pianoOneRH
+          \new Voice \pianoOneLH
         >>
-        \new PianoStaff <<
-          \new Staff <<
-            \new Voice \unfoldRepeats \pianoOneRH
-          >>
-          \new Dynamics \unfoldRepeats \dynamicsOnePiano
-          \new Staff <<
-            \new Voice \unfoldRepeats \pianoOneLH
-          >>
+        \new Dynamics \dynamicsOnePianoSingle
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Secondo"
+        shortInstrumentName = #"II"
+      }
+      <<
+        \new Staff = rhII <<
+          \magnifyStaff #4/7
+%          \clef "bass"
+          \new Voice \pianoTwoRH
+          \new Voice \pianoTwoLH
         >>
-        \new PianoStaff <<
-          \new Staff = pianoTwoRH <<
-            \clef "bass"
-            \new Voice \unfoldRepeats \pianoTwoRH
-          >>
-          \new Dynamics \unfoldRepeats \dynamicsTwoPiano
-          \new Staff = pianoTwoLH <<
-            \clef "bass"
-            \new Voice \unfoldRepeats \pianoTwoLH
-          >>
+        \new Dynamics \dynamicsTwoPianoSingle
+        \new Staff = lhII <<
+          \magnifyStaff #4/7
+                                %           \new Voice \pianoTwoLH
+          \pianoTwoLHempty
         >>
-        \new DrumStaff { \global \drummode { bassdrum4 bd bd bd bd bd bd bd } }
       >>
     >>
     \layout {
       indent = 1.5\cm
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \PianoStaff
+                 \remove Keep_alive_together_engraver
+               }
+      \context { \Staff
+                 \RemoveAllEmptyStaves
       }
     }
-    \midi {}
   }
 }
 
 \book {
-  #(define output-suffix "tenor")
+  #(define output-suffix "singlepage-sep")
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
   \score {
-    \context GrandStaff <<
+    \unfoldRepeats
+    <<
+      \new ChoirStaff <<
+                                % Soprano staff
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \new Voice \RehearsalTrack
+          \new Voice \TempoTrack
+          \new Dynamics \with {alignAboveContext = soprano} \dynamicsSopSingle
+          \new Voice \sopranoSingle
+          \new NullVoice \sopranoAlignerSingle
+          \addlyrics \wordsSopSingle
+        >>
+                                % Alto staff
+        \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \new Dynamics \with {alignAboveContext = alto} \dynamicsAltoSingle
+          \new Voice \altoSingle
+          \addlyrics \wordsAltoSingle
+        >>
+                                % Tenor staff
+        \new Staff = tenor \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenorSingle
+          \new Voice \tenorSingle
+          \addlyrics \wordsTenorSingle
+        >>
+                                % Bass staff
+        \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \clef bass
+          \new Dynamics \with {alignAboveContext = bass} \dynamicsBassSingle
+          \new Voice \bass
+          \new NullVoice \bassAligner
+          \addlyrics \wordsBassSingle
+        >>
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Primo"
+        shortInstrumentName = "I"
+      }
       <<
-        \new ChoirStaff <<
-                                % Single soprano staff
-          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
-            \new Voice \unfoldRepeats \RehearsalTrack
-            \new Voice = "soprano" \unfoldRepeats \soprano
-%            \new Lyrics \lyricsto "soprano" \wordsSopSingle
-          >>
-                                % Single alto staff
-          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
-            \new Voice = "alto" \unfoldRepeats \alto
-%           \new Lyrics \lyricsto "alto" \wordsAltoSingle
-          >>
-                                % Single tenor staff
-          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
-            \clef "treble_8"
-            \new Voice = "tenor" \unfoldRepeats \tenor
-            \new Lyrics \lyricsto "tenor" \MwordsTenorSingle
-          >>
-                                % Single bass staff
-          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
-            \clef "bass"
-            \new Voice = "bass" \unfoldRepeats \bass
-%            \new Lyrics \lyricsto "bass" \wordsBassSingle
-          >>
+        \new Staff = rhI <<
+          \magnifyStaff #4/7
+          \new Voice \pianoOneRH
+          \new Voice \pianoOneLH
         >>
-        \new PianoStaff <<
-          \new Staff <<
-            \new Voice \unfoldRepeats \pianoOneRH
-          >>
-          \new Dynamics \unfoldRepeats \dynamicsOnePiano
-          \new Staff <<
-            \new Voice \unfoldRepeats \pianoOneLH
-          >>
+        \new Dynamics \dynamicsOnePianoSingle
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Secondo"
+        shortInstrumentName = #"II"
+      }
+      <<
+        \new Staff = rhII <<
+          \magnifyStaff #4/7
+%          \clef "bass"
+          \new Voice \pianoTwoRH
+          \new Voice \pianoTwoLH
         >>
-        \new PianoStaff <<
-          \new Staff = pianoTwoRH <<
-            \clef "bass"
-            \new Voice \unfoldRepeats \pianoTwoRH
-          >>
-          \new Dynamics \unfoldRepeats \dynamicsTwoPiano
-          \new Staff = pianoTwoLH <<
-            \clef "bass"
-            \new Voice \unfoldRepeats \pianoTwoLH
-          >>
+        \new Dynamics \dynamicsTwoPianoSingle
+        \new Staff = lhII <<
+          \magnifyStaff #4/7
+                                %           \new Voice \pianoTwoLH
+          \pianoTwoLHempty
         >>
-        \new DrumStaff { \global \drummode { bassdrum4 bd bd bd bd bd bd bd } }
       >>
     >>
     \layout {
       indent = 1.5\cm
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \PianoStaff
+                 \remove Keep_alive_together_engraver
+               }
+      \context { \Staff
+                 \RemoveAllEmptyStaves
       }
     }
-    \midi {}
   }
 }
 
 \book {
-  #(define output-suffix "bass")
+  #(define output-suffix "singlepage-sep-sop")
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
   \score {
-    \context GrandStaff <<
+    \unfoldRepeats
+    <<
+      \new ChoirStaff <<
+                                % Soprano staff
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \new Voice \RehearsalTrack
+          \new Voice \TempoTrack
+          \new Dynamics \with {alignAboveContext = soprano} \dynamicsSopSingle
+          \new Voice \sopranoSingle
+          \new NullVoice \sopranoAlignerSingle
+          \addlyrics \wordsSopSingle
+        >>
+                                % Alto staff
+        \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = alto} \dynamicsAltoSingle
+          \new Voice \altoSingle
+          \addlyrics {\tiny \wordsAltoSingle}
+        >>
+                                % Tenor staff
+        \new Staff = tenor \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \magnifyStaff #4/7
+          \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenorSingle
+          \new Voice \tenorSingle
+          \addlyrics {\tiny \wordsTenorSingle}
+        >>
+                                % Bass staff
+        \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \magnifyStaff #4/7
+          \clef bass
+          \new Dynamics \with {alignAboveContext = bass} \dynamicsBassSingle
+          \new Voice \bass
+          \new NullVoice \bassAligner
+          \addlyrics {\tiny \wordsBassSingle}
+        >>
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Primo"
+        shortInstrumentName = "I"
+      }
       <<
-        \new ChoirStaff <<
-                                % Single soprano staff
-          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
-            \new Voice \unfoldRepeats \RehearsalTrack
-            \new Voice = "soprano" \unfoldRepeats \soprano
-%            \new Lyrics \lyricsto "soprano" \wordsSopSingle
-          >>
-                                % Single alto staff
-          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
-            \new Voice = "alto" \unfoldRepeats \alto
-%            \new Lyrics \lyricsto "alto" \wordsAltoSingle
-          >>
-                                % Single tenor staff
-          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
-            \clef "treble_8"
-            \new Voice = "tenor" \unfoldRepeats \tenor
-%            \new Lyrics \lyricsto "tenor" \wordsTenorSingle
-          >>
-                                % Single bass staff
-          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
-            \clef "bass"
-            \new Voice = "bass" \unfoldRepeats \bass
-            \new Lyrics \lyricsto "bass" \MwordsBassSingle
-          >>
+        \new Staff = rhI <<
+          \magnifyStaff #4/7
+          \new Voice \pianoOneRH
+          \new Voice \pianoOneLH
         >>
-        \new PianoStaff <<
-          \new Staff <<
-            \new Voice \unfoldRepeats \pianoOneRH
-          >>
-          \new Dynamics \unfoldRepeats \dynamicsOnePiano
-          \new Staff <<
-            \new Voice \unfoldRepeats \pianoOneLH
-          >>
+        \new Dynamics \dynamicsOnePianoSingle
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Secondo"
+        shortInstrumentName = #"II"
+      }
+      <<
+        \new Staff = rhII <<
+          \magnifyStaff #4/7
+%          \clef "bass"
+          \new Voice \pianoTwoRH
+          \new Voice \pianoTwoLH
         >>
-        \new PianoStaff <<
-          \new Staff = pianoTwoRH <<
-            \clef "bass"
-            \new Voice \unfoldRepeats \pianoTwoRH
-          >>
-          \new Dynamics \unfoldRepeats \dynamicsTwoPiano
-          \new Staff = pianoTwoLH <<
-            \clef "bass"
-            \new Voice \unfoldRepeats \pianoTwoLH
-          >>
+        \new Dynamics \dynamicsTwoPianoSingle
+        \new Staff = lhII <<
+          \magnifyStaff #4/7
+                                %           \new Voice \pianoTwoLH
+          \pianoTwoLHempty
         >>
-        \new DrumStaff { \global \drummode { bassdrum4 bd bd bd bd bd bd bd } }
       >>
     >>
     \layout {
       indent = 1.5\cm
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \PianoStaff
+                 \remove Keep_alive_together_engraver
+               }
+      \context { \Staff
+                 \RemoveAllEmptyStaves
       }
     }
-    \midi {}
   }
 }
 
 \book {
-  #(define output-suffix "sopacc")
+  #(define output-suffix "singlepage-sep-bass")
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
   \score {
-    \context GrandStaff <<
+    \unfoldRepeats
+    <<
+      \new ChoirStaff <<
+                                % Soprano staff
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \magnifyStaff $3/7
+          \new Voice \RehearsalTrack
+          \new Voice \TempoTrack
+          \new Dynamics \with {alignAboveContext = soprano} \dynamicsSopSingle
+          \new Voice \sopranoSingle
+          \new NullVoice \sopranoAlignerSingle
+          \addlyrics {\tiny \wordsSopSingle}
+        >>
+                                % Alto staff
+        \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \magnifyStaff $3/7
+          \new Dynamics \with {alignAboveContext = alto} \dynamicsAltoSingle
+          \new Voice \altoSingle
+          \addlyrics {\tiny \wordsAltoSingle}
+        >>
+                                % Tenor staff
+        \new Staff = tenor \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \magnifyStaff $3/7
+          \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenorSingle
+          \new Voice \tenorSingle
+          \addlyrics {\tiny \wordsTenorSingle}
+        >>
+                                % Bass staff
+        \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \clef bass
+          \new Dynamics \with {alignAboveContext = bass} \dynamicsBassSingle
+          \new Voice \bass
+          \new NullVoice \bassAligner
+          \addlyrics \wordsBassSingle
+        >>
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Primo"
+        shortInstrumentName = "I"
+      }
       <<
-        \new ChoirStaff <<
-                                % Single soprano staff
-          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
-            \new Voice \unfoldRepeats \RehearsalTrack
-            \new Voice = "soprano" \unfoldRepeats \soprano
-%            \new Lyrics \lyricsto "soprano" \wordsSopSingle
-          >>
+        \new Staff = rhI <<
+          \magnifyStaff #4/7
+          \new Voice \pianoOneRH
+          \new Voice \pianoOneLH
         >>
-        \new PianoStaff <<
-          \new Staff <<
-            \new Voice \unfoldRepeats \pianoOneRH
-          >>
-          \new Dynamics \unfoldRepeats \dynamicsOnePiano
-          \new Staff <<
-            \new Voice \unfoldRepeats \pianoOneLH
-          >>
+        \new Dynamics \dynamicsOnePianoSingle
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Secondo"
+        shortInstrumentName = #"II"
+      }
+      <<
+        \new Staff = rhII <<
+          \magnifyStaff #4/7
+%          \clef "bass"
+          \new Voice \pianoTwoRH
+          \new Voice \pianoTwoLH
         >>
-        \new PianoStaff <<
-          \new Staff = pianoTwoRH <<
-            \clef "bass"
-            \new Voice \unfoldRepeats \pianoTwoRH
-          >>
-          \new Dynamics \unfoldRepeats \dynamicsTwoPiano
-          \new Staff = pianoTwoLH <<
-            \clef "bass"
-            \new Voice \unfoldRepeats \pianoTwoLH
-          >>
+        \new Dynamics \dynamicsTwoPianoSingle
+        \new Staff = lhII <<
+          \magnifyStaff #4/7
+                                %           \new Voice \pianoTwoLH
+          \pianoTwoLHempty
         >>
-        \new DrumStaff { \global \drummode { bassdrum4 bd bd bd bd bd bd bd } }
       >>
     >>
-    \midi {}
+    \layout {
+      indent = 1.5\cm
+      \context { \PianoStaff
+                 \remove Keep_alive_together_engraver
+               }
+      \context { \Staff
+                 \RemoveAllEmptyStaves
+      }
+    }
   }
 }
 
 \book {
-  #(define output-suffix "altoacc")
+  #(define output-suffix "midi-sop")
   \score {
-    \context GrandStaff <<
+    \unfoldRepeats
+    <<
+      \new ChoirStaff <<
+                                % Soprano staff
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \new Voice \RehearsalTrack
+          \new Voice \TempoTrack
+          \new Dynamics \with {alignAboveContext = soprano} \dynamicsSopSingle
+          \new Voice \sopranoSingle
+          \new NullVoice \sopranoAlignerSingle
+          \addlyrics \wordsSopMidi
+        >>
+                                % Alto staff
+        \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \new Dynamics \with {alignAboveContext = alto} \dynamicsAltoSingle
+          \new Voice \altoSingle
+        >>
+                                % Tenor staff
+        \new Staff = tenor \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenorSingle
+          \new Voice \tenorSingle
+        >>
+                                % Bass staff
+        \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \clef bass
+          \new Dynamics \with {alignAboveContext = bass} \dynamicsBassSingle
+          \new Voice \bass
+          \new NullVoice \bassAligner
+        >>
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Primo"
+        shortInstrumentName = "I"
+      }
       <<
-        \new ChoirStaff <<
-                                % Single alto staff
-          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
-            \new Voice = "alto" \unfoldRepeats \alto
-%            \new Lyrics \lyricsto "alto" \wordsAltoSingle
-          >>
+        \new Staff = piano <<
+          \new Voice \pianoOneRH
+          \new Voice \pianoOneLH
+          \new Dynamics \dynamicsOnePianoSingle
+          \new Voice \pianoTwoRH
+          \new Voice \pianoTwoLH
         >>
-        \new PianoStaff <<
-          \new Staff <<
-            \new Voice \unfoldRepeats \pianoOneRH
-          >>
-          \new Dynamics \unfoldRepeats \dynamicsOnePiano
-          \new Staff <<
-            \new Voice \unfoldRepeats \pianoOneLH
-          >>
-        >>
-        \new PianoStaff <<
-          \new Staff = pianoTwoRH <<
-            \clef "bass"
-            \new Voice \unfoldRepeats \pianoTwoRH
-          >>
-          \new Dynamics \unfoldRepeats \dynamicsTwoPiano
-          \new Staff = pianoTwoLH <<
-            \clef "bass"
-            \new Voice \unfoldRepeats \pianoTwoLH
-          >>
-        >>
-        \new DrumStaff { \global \drummode { bassdrum4 bd bd bd bd bd bd bd } }
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
 \book {
-  #(define output-suffix "tenoracc")
+  #(define output-suffix "midi-alto")
   \score {
-    \context GrandStaff <<
+    \unfoldRepeats
+    <<
+      \new ChoirStaff <<
+                                % Soprano staff
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \new Voice \RehearsalTrack
+          \new Voice \TempoTrack
+          \new Dynamics \with {alignAboveContext = soprano} \dynamicsSopSingle
+          \new Voice \sopranoSingle
+          \new NullVoice \sopranoAlignerSingle
+        >>
+                                % Alto staff
+        \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \new Dynamics \with {alignAboveContext = alto} \dynamicsAltoSingle
+          \new Voice \altoSingle
+          \addlyrics \wordsAltoMidi
+        >>
+                                % Tenor staff
+        \new Staff = tenor \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenorSingle
+          \new Voice \tenorSingle
+        >>
+                                % Bass staff
+        \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \clef bass
+          \new Dynamics \with {alignAboveContext = bass} \dynamicsBassSingle
+          \new Voice \bass
+          \new NullVoice \bassAligner
+        >>
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Primo"
+        shortInstrumentName = "I"
+      }
       <<
-        \new ChoirStaff <<
-                                % Single tenor staff
-          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
-            \clef "treble_8"
-            \new Voice = "tenor" \unfoldRepeats \tenor
-%            \new Lyrics \lyricsto "tenor" \wordsTenorSingle
-          >>
+        \new Staff = piano <<
+          \magnifyStaff #4/7
+          \new Voice \pianoOneRH
+          \new Voice \pianoOneLH
+          \new Dynamics \dynamicsOnePiano
+          \new Voice \pianoTwoRH
+          \new Voice \pianoTwoLH
         >>
-        \new PianoStaff <<
-          \new Staff <<
-            \new Voice \unfoldRepeats \pianoOneRH
-          >>
-          \new Dynamics \unfoldRepeats \dynamicsOnePiano
-          \new Staff <<
-            \new Voice \unfoldRepeats \pianoOneLH
-          >>
-        >>
-        \new PianoStaff <<
-          \new Staff = pianoTwoRH <<
-            \clef "bass"
-            \new Voice \unfoldRepeats \pianoTwoRH
-          >>
-          \new Dynamics \unfoldRepeats \dynamicsTwoPiano
-          \new Staff = pianoTwoLH <<
-            \clef "bass"
-            \new Voice \unfoldRepeats \pianoTwoLH
-          >>
-        >>
-        \new DrumStaff { \global \drummode { bassdrum4 bd bd bd bd bd bd bd } }
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
 \book {
-  #(define output-suffix "bassacc")
+  #(define output-suffix "midi-tenor")
   \score {
-    \context GrandStaff <<
+    \unfoldRepeats
+    <<
+      \new ChoirStaff <<
+                                % Soprano staff
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \new Voice \RehearsalTrack
+          \new Voice \TempoTrack
+          \new Dynamics \with {alignAboveContext = soprano} \dynamicsSopSingle
+          \new Voice \sopranoSingle
+          \new NullVoice \sopranoAlignerSingle
+        >>
+                                % Alto staff
+        \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \new Dynamics \with {alignAboveContext = alto} \dynamicsAltoSingle
+          \new Voice \altoSingle
+        >>
+                                % Tenor staff
+        \new Staff = tenor \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenorSingle
+          \new Voice \tenorSingle
+          \addlyrics \wordsTenorMidi
+        >>
+                                % Bass staff
+        \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \clef bass
+          \new Dynamics \with {alignAboveContext = bass} \dynamicsBassSingle
+          \new Voice \bass
+          \new NullVoice \bassAligner
+        >>
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Primo"
+        shortInstrumentName = "I"
+      }
       <<
-        \new ChoirStaff <<
-                                % Single bass staff
-          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
-            \clef "bass"
-            \new Voice = "bass" \unfoldRepeats \bass
-            \new Lyrics \lyricsto "bass" \MwordsBassSingle
-          >>
+        \new Staff = piano <<
+          \magnifyStaff #4/7
+          \new Voice \pianoOneRH
+          \new Voice \pianoOneLH
+          \new Dynamics \dynamicsOnePiano
+          \new Voice \pianoTwoRH
+          \new Voice \pianoTwoLH
         >>
-        \new PianoStaff <<
-          \new Staff <<
-            \new Voice \unfoldRepeats \pianoOneRH
-          >>
-          \new Dynamics \unfoldRepeats \dynamicsOnePiano
-          \new Staff <<
-            \new Voice \unfoldRepeats \pianoOneLH
-          >>
-        >>
-        \new PianoStaff <<
-          \new Staff = pianoTwoRH <<
-            \clef "bass"
-            \new Voice \unfoldRepeats \pianoTwoRH
-          >>
-          \new Dynamics \unfoldRepeats \dynamicsTwoPiano
-          \new Staff = pianoTwoLH <<
-            \clef "bass"
-            \new Voice \unfoldRepeats \pianoTwoLH
-          >>
-        >>
-        \new DrumStaff { \global \drummode { bassdrum4 bd bd bd bd bd bd bd } }
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
 \book {
-  #(define output-suffix "soponly")
+  #(define output-suffix "midi-bass")
   \score {
-    \context GrandStaff <<
-      <<
-        \new ChoirStaff <<
-                                % Single soprano staff
-          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
-            \new Voice \unfoldRepeats \RehearsalTrack
-            \new Voice = "soprano" \unfoldRepeats \soprano
-%            \new Lyrics \lyricsto "soprano" \wordsSopSingle
-          >>
+    \unfoldRepeats
+    <<
+      \new ChoirStaff <<
+                                % Soprano staff
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \new Voice \RehearsalTrack
+          \new Voice \TempoTrack
+          \new Dynamics \with {alignAboveContext = soprano} \dynamicsSopSingle
+          \new Voice \sopranoSingle
         >>
-        \new DrumStaff { \global \drummode { bassdrum4 bd bd bd bd bd bd bd } }
+                                % Alto staff
+        \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \new Dynamics \with {alignAboveContext = alto} \dynamicsAltoSingle
+          \new Voice \altoSingle
+        >>
+                                % Tenor staff
+        \new Staff = tenor \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenorSingle
+          \new Voice \tenorSingle
+        >>
+                                % Bass staff
+        \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+          printPartCombineTexts = ##f
+        }
+        <<
+          \clef bass
+          \new Dynamics \with {alignAboveContext = bass} \dynamicsBassSingle
+          \new Voice \bass
+          \new NullVoice \bassAligner
+          \addlyrics \wordsBassMidi
+        >>
+      >>
+      \new PianoStaff \with {
+        instrumentName = #"Primo"
+        shortInstrumentName = "I"
+      }
+      <<
+        \new Staff = piano <<
+          \magnifyStaff #4/7
+          \new Voice \pianoOneRH
+          \new Voice \pianoOneLH
+          \new Dynamics \dynamicsOnePiano
+          \new Voice \pianoTwoRH
+          \new Voice \pianoTwoLH
+        >>
       >>
     >>
-    \midi {}
-  }
-}
-
-\book {
-  #(define output-suffix "altoonly")
-  \score {
-    \context GrandStaff <<
-      <<
-        \new ChoirStaff <<
-                                % Single alto staff
-          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
-            \new Voice = "alto" \unfoldRepeats \alto
-%            \new Lyrics \lyricsto "alto" \wordsAltoSingle
-          >>
-        >>
-        \new DrumStaff { \global \drummode { bassdrum4 bd bd bd bd bd bd bd } }
-      >>
-    >>
-    \midi {}
-  }
-}
-
-\book {
-  #(define output-suffix "tenoronly")
-  \score {
-    \context GrandStaff <<
-      <<
-        \new ChoirStaff <<
-                                % Single tenor staff
-          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
-            \clef "treble_8"
-            \new Voice = "tenor" \unfoldRepeats \tenor
-%            \new Lyrics \lyricsto "tenor" \wordsTenorSingle
-          >>
-        >>
-        \new DrumStaff { \global \drummode { bassdrum4 bd bd bd bd bd bd bd } }
-      >>
-    >>
-    \midi {}
-  }
-}
-
-\book {
-  #(define output-suffix "bassonly")
-  \score {
-    \context GrandStaff <<
-      <<
-        \new ChoirStaff <<
-                                % Single bass staff
-          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
-            \clef "bass"
-            \new Voice = "bass" \unfoldRepeats \bass
-            \new Lyrics \lyricsto "bass" \MwordsBassSingle
-          >>
-        >>
-        \new DrumStaff { \global \drummode { bassdrum4 bd bd bd bd bd bd bd } }
-      >>
-    >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
