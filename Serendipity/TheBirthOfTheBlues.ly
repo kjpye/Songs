@@ -212,7 +212,7 @@ words = \lyricmode {
   start of the blues.
   And from a jail came the wail __
   of a down -- heart -- ed frail, __
-  and the played that __ as part of the blues,
+  and they played that __ as part of the blues,
   of the blues.
   From a whip -- poor -- will, high on a hill, __
   they took a new __ \set associatedVoice = alignerT note. __
@@ -378,7 +378,7 @@ wordsMidiSop = \lyricmode {
   "\nand " "they " "made " "that "  "the " "start " "of " "the " "blues. " % 6a
   "\nAnd " "from " "a " "jail " "came " "the " "wail " 
   "\nof " "a " down heart "ed " "frail, " 
-  "\nand " "the " "played " "that "  "as " "part " "of " "the " "blues. "
+  "\nand " "they " "played " "that "  "as " "part " "of " "the " "blues. "
                                 % 7a
   "\nFrom " "a " whip poor "will, " "high " "on " "a " "hill, " 
   "\nthey " "took " "a " "new "  "note. " 
@@ -414,7 +414,7 @@ wordsMidiAlto = \lyricmode {
   "\nstart " "of " "the " "blues. "
   "\nAnd " "from " "a " "jail " "came " "the " "wail " 
   "\nof " "a " down heart "ed " "frail, " 
-  "\nand " "the " "played " "that "  "as " "part " "of " "the " "blues, "
+  "\nand " "they " "played " "that "  "as " "part " "of " "the " "blues, "
   "\nof " "the " "blues. "
   "\nFrom " "a " whip poor "will, " "high " "on " "a " "hill, " 
   "\nthey " "took " "a " "new "  "note. " 
@@ -449,7 +449,7 @@ wordsMidiTenor = \lyricmode {
   "\nand " "they " "made " "that "  "the " "start " "of " "the " "blues. "
   "\nAnd " "from " "a " "jail " "came " "the " "wail " 
   "\nof " "a " down heart "ed " "frail, " 
-  "\nand " "the " "played " "that "  "as " "part " "of " "the " "blues. "
+  "\nand " "they " "played " "that "  "as " "part " "of " "the " "blues. "
   "\nPushed " "it " "through " "a " "horn " "'til " "it " "was " "worn "  in "to " "a " "blue "  "note. "
   "\nAnd " "then " "they " "nursed " "it, " re "hearsed "  "it, " 
   "\nand " "gave "  "out "  "the " "news "  "that " "the " South "land " 
@@ -483,7 +483,7 @@ wordsMidiBass = \lyricmode {
   "\nstart " "of " "the " "blues. "
   "\nAnd " "from " "a " "jail " "came " "the " "wail " 
   "\nof " "a " down heart "ed " "frail, " 
-  "\nand " "the " "played " "that "  "as " "part " "of " "the " "blues, "
+  "\nand " "they " "played " "that "  "as " "part " "of " "the " "blues, "
   "\nof " "the " "blues. "
   "\nPushed " "it " "through " "a " "horn " "'til " "it " "was " "worn "  in "to " "a " "blue "  "note. "
   "\nAnd " "then " "they " "nursed " "it, " re "hearsed "  "it, " 
