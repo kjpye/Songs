@@ -174,7 +174,8 @@ soprano = \relative {
       \volta 2 {
         r8 bes'4. 4 b | c4. aes8 f d4. | r8 c'4. 4 cis % 7a
         d4. bes8 aes g4. | r8 c,4. ees4 f8 g~ | g4\glissando r8 bes,^\markup Unis. g'4-. 8 ees~ | ees1 ~
-        ees2. r4 | g4-. g-- bes-. bes-- | \tuplet 3/2 {f8 g aes} \tuplet 3/2 {bes c d} ees4-. r
+        ees2. r4_\markup\bold\italic STOP | \bar "|." g4-. g-- bes-. bes-- | \tuplet 3/2 {f8 g aes} \tuplet 3/2 {bes c d} ees4-. 
+r
       }
     }
   }
@@ -388,7 +389,7 @@ tenor = \relative {
       \volta 2 {
         r8 bes4. 4 g | aes4. 8 c aes4. | r8 d4. 4 4 % 7a
         d4. 8 8 4. | r8 aes4. 4 c8 8~ | 4\glissando r8 g^\markup Unis. bes4 8 g(~ | g1
-        aes2.) r4 | g4-. g-- bes-. bes-- | \tuplet 3/2 {f8 g aes} \tuplet 3/2 {bes c d} ees4 r
+        aes2.) r4^\markup\bold\italic STOP | g4-. g-- bes-. bes-- | \tuplet 3/2 {f8 g aes} \tuplet 3/2 {bes c d} ees4 r
         
       }
     }
