@@ -42,9 +42,9 @@ global = {
 }
 
 TempoTrack = {
-  \set Score.tempoHideNote = ##t
-  \tempo 4=100
+  \tempo Driving 2=100
   s4
+  \set Score.tempoHideNote = ##t
 }
 
 RehearsalTrack = {
@@ -879,8 +879,30 @@ pianoLH = \relative {
     >>
     \layout {
       indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
       \context {
         \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
@@ -927,23 +949,44 @@ pianoLH = \relative {
     >>
     \layout {
       indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
       \context {
         \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
 \book {
-  \bookOutputSuffix "single-page"
+  \bookOutputSuffix "singlepage"
   \paper {
     top-margin = 0
     left-margin = 7
     right-margin = 1
     paper-width = 190\mm
-    paper-height = 2000\mm
-    ragged-bottom = true
-    system-system-spacing.basic-distance = #22
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
     system-separator-markup = \slashSeparator
   }
   \score {
@@ -986,8 +1029,196 @@ pianoLH = \relative {
     >>
     \layout {
       indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
       \context {
         \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-i"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+   \unfoldRepeats
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single part I staff
+          \new Dynamics \dynamicsI
+          \new Staff \with { instrumentName = #"Part I" shortInstrumentName = #"I" } <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice = "parti" \partI
+            \new Lyrics \lyricsto "parti" \wordsSingle
+          >>
+                                % Single part II staff
+          \new Dynamics \dynamicsII
+          \new Staff \with { instrumentName = #"Part II" shortInstrumentName = #"II" } <<
+            \magnifyStaff #4/7
+            \new Voice = "partii" \partII
+          >>
+        >>
+        <<
+          \new ChordNames { \ChordTrack }
+%          \new FretBoards { \ChordTrack }
+        >>
+        \new PianoStaff <<
+          \new Staff \with { printPartCombineTexts = ##f }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \partCombine \pianoRHone \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff \with { printPartCombineTexts = ##f }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-ii"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+   \unfoldRepeats
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single part I staff
+          \new Dynamics \dynamicsI
+          \new Staff \with { instrumentName = #"Part I" shortInstrumentName = #"I" } <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice = "parti" \partI
+          >>
+                                % Single part II staff
+          \new Dynamics \dynamicsII
+          \new Staff \with { instrumentName = #"Part II" shortInstrumentName = #"II" } <<
+            \new Voice = "partii" \partII
+            \addlyrics \wordsSingle
+          >>
+        >>
+        <<
+          \new ChordNames { \ChordTrack }
+%          \new FretBoards { \ChordTrack }
+        >>
+        \new PianoStaff <<
+          \new Staff \with { printPartCombineTexts = ##f }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \partCombine \pianoRHone \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff \with { printPartCombineTexts = ##f }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
@@ -1028,6 +1259,15 @@ pianoLH = \relative {
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
