@@ -64,7 +64,7 @@ soprano = \relative {
 alto = \relative {
   \autoBeamOff
   fis'8. g16 fis8 d | fis8. g16 fis8 g | fis8. g16 fis8 d | cis4 r |
-  fis8. g16 fis8 d | fis8. g16 fis8 8 | e8. fis16 e8 8 | cis2 |
+  fis8. g16 fis8 d | fis8. g16 fis8 8 | e8. fis16 e8 8 | cis2 | \section
   fis8. 16 8. 16 | 8 8 d fis | g8. 16 8 8 | e4. r8 |
   fis8. 16 8 8 | g g g g | fis8 8 g8. 16 | fis4. r8 |
 }
@@ -72,7 +72,7 @@ alto = \relative {
 tenor = \relative {
   \autoBeamOff
   d'8. 16 8 a | a8. 16 8 d | 8. 16 8 a | 4 r |
-  d8. 16 8 a | 8. 16 8 b | a8. 16 8 gis | a2 |
+  d8. 16 8 a | 8. 16 8 b | a8. 16 8 gis | a2 | \section
   a8. 16 8. 16 | d8 8 8 8 | 8. 16 8 b | a4. r8 |
   a8. 16 8 8 | b b cis d | d d cis8. e16 | d4. r8 |
 }
@@ -80,7 +80,7 @@ tenor = \relative {
 bass = \relative {
   \autoBeamOff
   d8. 16 8 8 | 8. 16 8 8 | 8. 16 8 8 | a'4 r |
-  d,8. 16 8 8 | 8. 16 8 8 | e8. 16 8 8 | a,2 |
+  d,8. 16 8 8 | 8. 16 8 8 | e8. 16 8 8 | a,2 | \section
   d8. 16 8. 16 | 8 8 8 8 | g8. 16 8 8 | a4. r8 |
   d,8. 16 8 8 | g g g g | a a a8. 16 | d,4. r8 |
 }
