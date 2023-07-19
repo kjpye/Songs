@@ -2,6 +2,7 @@
 
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
+\include "swing.ly"
 
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 
@@ -1443,7 +1444,7 @@ dynamicsPiano = {
           \new Dynamics \with {alignAboveContext = solo} \dynamicsSolo
           \new Voice \TempoTrack
           \new Voice \RehearsalTrack
-          \new Voice \solo
+          \new Voice \tripletFeel 8 \solo
           \addlyrics \wordsSoloMidi
         >>
         \new ChoirStaff <<
@@ -1456,8 +1457,8 @@ dynamicsPiano = {
           }
           <<
             \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
-            \new Voice = sopsolo \sopranoSolo
-            \new Voice \soprano
+            \new Voice = sopsolo \tripletFeel 8 \sopranoSolo
+            \new Voice \tripletFeel 8 \soprano
           >>
                                 % Single alto staff
           \new Staff = alto \with {
@@ -1468,8 +1469,8 @@ dynamicsPiano = {
           }
           <<
             \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
-            \new Voice \altoTwo
-            \new Voice \alto
+            \new Voice \tripletFeel 8 \altoTwo
+            \new Voice \tripletFeel 8 \alto
           >>
                                 % Single tenor staff
           \new Staff = tenor \with {
@@ -1481,7 +1482,7 @@ dynamicsPiano = {
           <<
             \clef "treble_8"
             \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
-            \new Voice \tenor
+            \new Voice \tripletFeel 8 \tenor
           >>
                                 % Single bass staff
           \new Staff = bass \with {
@@ -1493,8 +1494,8 @@ dynamicsPiano = {
           <<
             \clef "bass"
             \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
-            \new Voice = basstwo \bassTwo
-            \new Voice = bass \bass
+            \new Voice = basstwo \tripletFeel 8 \bassTwo
+            \new Voice = bass \tripletFeel 8 \bass
           >>
         >>
       >>
