@@ -1,6 +1,6 @@
 % Original from John Lemcke
 
-\version "2.14.0"
+\version "2.25.0"
 
 \include "english.ly"
 
@@ -10,21 +10,7 @@
   tagline = ##f
 }
 
-\paper {
-  #(set-paper-size "a4")
-  top-margin = 10\mm
-  bottom-margin = 5\mm
-  line-width = 180\mm
-  left-margin = 15\mm
-  %ragged-bottom = ##t
-  %check-consistency = ##t
-  %two-sided = ##t
-  %inner-margin = 20\mm
-
-}
-
-#(set-global-staff-size 15)
-
+#(set-global-staff-size 17)
 
 global = {
   \key bf \major
@@ -44,11 +30,11 @@ global = {
 soprano = \relative c'' {
   \global
   % Music follows here.
-  r4 r1 r1 r1 r1 r1 r1 r1 r1 r1 r1 r1 r1 r1 r1 r1
+  r4 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1
   % bar 18
   f,1^\p f~f2 g(~g2. a4 bf2)
   d2(~d2. c4) c2. (bf4) bf2 ( g2~g4-> f4~f8) r8 r4
-  r1 r1 r1 r1 r1 r1 r1
+  R1 R1 R1 R1 R1 R1 R1
 
   %bar 34 3/4
   r2. g8(f)
@@ -75,11 +61,11 @@ soprano = \relative c'' {
 alto = \relative c' {
   \global
   % Music follows here.
-  r4 r1 r1 r1 r1 r1 r1 r1 r1 r1 r1 r1 r1 r1 r1 r1
+  r4 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1
   %bar 18
   d2.^\p (<c ef>4) d2 (ef d) f4(ef8 d c4 ef2.) ef4 (d) f2( g4 a8 bf g2)
   f4 (g8 a f2) g2 ef2 (~ef4-> d4~d8) r8 r4
-  r1 r1 r1 r1 r1 r1 r1
+  R1 R1 R1 R1 R1 R1 R1
 
   %bar 34 3/4
   r2. d4
@@ -102,7 +88,7 @@ alto = \relative c' {
 tenor = \relative c {
   \global
   % Music follows here.
-  r4 r1 r1 r1 r1 r1 r1 r1 r2.^"All Men"
+  r4 R1 R1 R1 R1 R1 R1 R1 r2.^"All Men"
 
   %bar 10 3/4
   f8 (ef) d4 bf' bf a8 g d ef f2
@@ -208,6 +194,27 @@ sopranoVerse = \lyricmode {
 
 }
 
+sopranoVerseMidi = \lyricmode {
+  % Lyrics follow here.
+  %bar 16
+  "Mm "     
+  %bar 32 3/4
+  "\nNon " no "bis " do mi "ne " do mi "ne, " "non " no "bis " do mi "ne, "
+  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
+
+  %bar 40 3/4
+  %  Non no -- bis do -- mi -- ne do -- mi -- ne, non no -- bis do -- mi -- ne,
+  %  sed no -- mi -- ni, sed no -- mi -- ni, tu o da glo -- ri -- am,
+  "\nNon " no "bis " do mi "ne, " "Non " no "bis " do mi "ne, "
+  "\nno" mi "ni " no mi "ni, " "o " "da " glo ri "am. "
+
+  %bar 48 3/4
+  "\nNon " no "bis " do mi "ne " do mi "ne, " "non " no "bis " do mi "ne, "
+  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
+  "\ntu " "o " "da " glo ri "am. "
+
+}
+
 altoVerse = \lyricmode {
   % Lyrics follow here.
   %bar 16
@@ -224,6 +231,24 @@ altoVerse = \lyricmode {
   Non no -- bis do -- mi -- ne do -- mi -- ne, non no -- bis do -- mi -- ne,
   sed no -- mi -- ni, sed no -- mi -- ni, tu o da glo -- ri -- am,
   tu o da glo -- ri -- am.
+}
+
+altoVerseMidi = \lyricmode {
+  % Lyrics follow here.
+  %bar 16
+  "Mm "       
+  %bar 32 3/4
+  "\nNon " no "bis " do mi "ne, " do mi "ne, " "non " no "bis " do mi "ne, "
+  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
+
+  %bar 40 3/4
+  "\nNon " no "bis " do mi "ne " do mi "ne, " "non " no "bis " do mi "ne, "
+  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
+
+  %bar 48 3/4
+  "\nNon " no "bis " do mi "ne " do mi "ne, " "non " no "bis " do mi "ne, "
+  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
+  "\ntu " "o " "da " glo ri "am. "
 }
 
 tenorVerse = \lyricmode {
@@ -249,6 +274,31 @@ tenorVerse = \lyricmode {
   Non no -- bis do -- mi -- ne do -- mi -- ne, non no -- bis do -- mi -- ne,
   sed no -- mi -- ni, sed no -- mi -- ni, tu o da glo -- ri -- am,
   tu o da glo -- ri -- am.
+}
+
+tenorVerseMidi = \lyricmode {
+  % Lyrics follow here.
+  "Non " no "bis " do mi "ne, " do mi "ne, " "non " no "bis " do mi "ne, "
+  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
+
+  "\nNon " no "bis " do mi "ne, " do mi "ne, " "non " no "bis " do mi "ne, "
+  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
+
+  "\nNon " no "bis " do mi "ne, " "Non " no "bis " do mi "ne, "
+  "\nno" mi "ni " no mi "ni, " "o " "da " glo ri "am. "
+
+  "\nNon " no "bis " do mi "ne, " do mi "ne, " do mi "ne, "
+  "\nno" "bis " do mi "ne, "
+  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
+
+  %bar 40 3/4
+  "\nNon " no "bis " do mi "ne " do mi "ne, " "non " no "bis " do mi "ne, "
+  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
+
+  %bar 48 3/4
+  "\nNon " no "bis " do mi "ne " do mi "ne, " "non " no "bis " do mi "ne, "
+  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
+  "\ntu " "o " "da " glo ri "am. "
 }
 
 bassVerse = \lyricmode {
@@ -281,8 +331,38 @@ bassVerse = \lyricmode {
   tu o da glo -- ri -- am.
 }
 
+bassVerseMidi = \lyricmode {
+  % Lyrics follow here.
+  "Non " no "bis " do mi "ne, " do mi "ne, " "non " no "bis " do mi "ne, "
+  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
+  "\nNon " no "bis " do mi "ne, " do mi "ne, " "non " no "bis " do mi "ne, "
+  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo "ri "
+  %o da glo -- ri -- am,
+
+  %bar 16
+  "\nMm "       
+
+  %bar 24 3/4
+  "\nNon " no "bis " do mi "ne, " do mi "ne, " "non " no "bis " do mi "ne, "
+  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
+
+  %bar 32 3/4
+  "\nNon " no "bis " do mi "ne, " do mi "ne, "
+  "\nnon " no "bis " do mi "ne, " do mi "ne, "
+  "\nno" mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
+
+  %bar 40 3/4
+  "\nNon " no "bis " do mi "ne " do mi "ne, " "non " no "bis " do mi "ne, "
+  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
+
+  %bar 48 3/4
+  "\nNon " no "bis " do mi "ne " do mi "ne, " "non " no "bis " do mi "ne, "
+  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
+  "\ntu " "o " "da " glo ri "am. "
+}
+
 rehearsalMidi = #(define-music-function
-  (parser location name midiInstrument lyrics) (string? string? ly:music?)
+  (name midiInstrument lyrics) (string? string? ly:music?)
   #{
     \unfoldRepeats <<
       \new Staff = "soprano" \new Voice = "soprano" { s1*0\f \soprano }
@@ -292,7 +372,7 @@ rehearsalMidi = #(define-music-function
       \context Staff = $name {
         \set Score.midiMinimumVolume = #0.5
         \set Score.midiMaximumVolume = #0.5
-        \set Score.tempoWholesPerMinute = #(ly:make-moment 88 4)
+        \set Score.tempoWholesPerMinute = #(ly:make-moment 88/4)
         \set Staff.midiMinimumVolume = #0.8
         \set Staff.midiMaximumVolume = #1.0
         \set Staff.midiInstrument = $midiInstrument
@@ -325,7 +405,7 @@ rightOne = \relative c'' {
   <a d f>4 <f' a f'> <e g e'>8 <d f d'> <c e c'> <b d b'>
   %  \tieDown
   %  <c c'>2 ~ <c c'>8
-  \override TieColumn #'tie-configuration =
+  \override TieColumn.tie-configuration =
   #'((2.0 . 1) (-7.0 . -1))
   <c c'>2~<c c'>8
 
@@ -349,7 +429,7 @@ rightOne = \relative c'' {
   <a, d f>4 <f' a f'> <e gs e'>8 d' <d, gs c> b'
   <c, a' c>4 <a d> (<g cs>) <a a'>8 g'
   <a, d f>2 <d f a f'> <e g e'>4 (<d f d'>) <c a' c> (<b g'b>)
-  \override TieColumn #'tie-configuration =
+  \override TieColumn.tie-configuration =
   #'((2.0 . 1) (-7.0 . -1))
   <c c'>1~<c e g c>1
 
@@ -358,12 +438,12 @@ rightOne = \relative c'' {
 rightTwo = \relative c' {
   \global
   % Music follows here.
-  r4 r1 r1 r1 r1 r1 r1 r1 r1 r1 r1 r1 r1 r1 r1 r1
+  r4 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1
   s1 d2 ef d f4 ef8 d c4 ef2. ef4 (d) f2 g4 a8 bf g2
   f4 g8 a f2 g2 ef2~ef4 d4~d8 r8 r4
 
   %bar 25
-  r1 r1 r1 r1 r1 r1 r1 r2.
+  R1 R1 R1 R1 R1 R1 R1 r2.
 
   %bar32 3/4
   <b! d>4
@@ -373,12 +453,12 @@ rightTwo = \relative c' {
   s1
   s1
   s2
-  \once \override NoteColumn #'force-hshift = #1.9 gs'8 f8
-  \once \override NoteColumn #'force-hshift = #1.9 e8 [f8]
+  \once \override NoteColumn.force-hshift = #1.9 gs'8 f8
+  \once \override NoteColumn.force-hshift = #1.9 e8 [f8]
   s2
-  \once \override NoteColumn #'force-hshift = #1.9 d8 c s4
+  \once \override NoteColumn.force-hshift = #1.9 d8 c s4
   s1
-  \once \override NoteColumn #'force-hshift = #1.9 f4 e4 ~ e8
+  \once \override NoteColumn.force-hshift = #1.9 f4 e4 ~ e8
 
   %bar 40 3/4
   r8 r4 s1 s1 s1 s1 s1 s1 s1 s2. s4
@@ -394,20 +474,20 @@ rightTwo = \relative c' {
   s1
   s1
   s1
-  \once \override NoteColumn #'force-hshift = #1.9 <f g a>2^"Rit." <e g>4 <d f> s1
+  \once \override NoteColumn.force-hshift = #1.9 <f g a>2^"Rit." <e g>4 <d f> s1
 
 }
 
 left = \relative c {
   \global
   % Music follows here.
-  r4 r1 r1 r1 r1 r1 r1 r1 r1 r1 r1 r1 r1 r1 r1 r1
+  r4 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1
   r2 f2 bf2. (c4) c (bf2.~bf2) bf4 (c bf2)
   bf2~bf4 c8 d ef2
   a,4 bf8 c d2 c f,4 g8 a bf2~bf8 r8 r4
 
   %bar 25
-  r1 r1 r1 r1 r1 r1 r1 r2.
+  R1 R1 R1 R1 R1 R1 R1 r2.
 
   %bar32 3/4
   <g, g'>4
@@ -424,7 +504,7 @@ left = \relative c {
   <c c,>2~<c c,>8
 
   %bar 40 3/4
-  r8 r4 r1 r1 r1 r1 r1 r1 r1 r2.
+  r8 r4 R1 R1 R1 R1 R1 R1 R1 r2.
 
   %bar 48 3/4
   <g g,>4
@@ -478,7 +558,7 @@ pianoPart = \new PianoStaff <<
 %  \set PianoStaff.instrumentName = #"Piano"
   {
     << \rightOne \\ \rightTwo >>
-    %  \partcombine \rightOne \rightTwo
+    %  \partCombine \rightOne \rightTwo
   }
   \new Staff = "left" \with {
     midiInstrument = "acoustic grand"
@@ -486,6 +566,19 @@ pianoPart = \new PianoStaff <<
 >>
 
 \book {
+  \bookOutputSuffix "single"
+  \paper {
+    #(set-paper-size "a4")
+    top-margin = 10\mm
+    bottom-margin = 5\mm
+    line-width = 180\mm
+    left-margin = 15\mm
+    %ragged-bottom = ##t
+    %check-consistency = ##t
+    %two-sided = ##t
+    %inner-margin = 20\mm
+  }
+
   \score {
     <<
       \choirPart
@@ -494,48 +587,205 @@ pianoPart = \new PianoStaff <<
     \layout {
       \context {
         %    \Staff \RemoveEmptyStaves
-        %    \override VerticalAxisGroup #'remove-first = ##t
+        %    \override VerticalAxisGroup.remove-first = ##t
       }
     }
+  }
+}
 
-    \midi {
+\book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+
+  \score {
+    <<
+      \choirPart
+      \pianoPart
+    >>
+    \layout {
       \context {
-        \Score
-        tempoWholesPerMinute = #(ly:make-moment 88 4)
+        %    \Staff \RemoveEmptyStaves
+        %    \override VerticalAxisGroup.remove-first = ##t
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-sop"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+
+  \score {
+    <<
+      \new ChoirStaff
+      <<
+        \new Staff \with {
+          midiInstrument = "flute"
+          instrumentName = "S"
+        }
+        { \soprano }
+        \addlyrics { \sopranoVerse }
+        
+        \new Staff \with {
+          midiInstrument = "oboe"
+          instrumentName = "A"
+        }
+        { \magnifyStaff #4/7 \alto }
+        \addlyrics { \tiny \altoVerse }
+        
+        \new Staff \with {
+          midiInstrument = "clarinet"
+          instrumentName = "T"
+        }
+        { \magnifyStaff #4/7 \clef "treble_8" \tenor }
+        \addlyrics { \tiny \tenorVerse }
+        
+        \new Staff \with {
+          midiInstrument = "bassoon"
+          instrumentName = "B"
+        }
+        { \magnifyStaff #4/7 \clef bass \bass }
+        \addlyrics { \tiny \bassVerse }
+      >>
+      \new PianoStaff <<
+        \new Staff = "right" \with {
+          midiInstrument = "acoustic grand"
+          printPartCombineTexts = ##f
+        }
+                                %  \set PianoStaff.instrumentName = #"Piano"
+        {
+          \magnifyStaff #4/7
+          << \rightOne \\ \rightTwo >>
+                                %  \partCombine \rightOne \rightTwo
+        }
+        \new Staff = "left" \with {
+          midiInstrument = "acoustic grand"
+        } { \magnifyStaff #4/7 \clef bass \left }
+      >>
+    >>
+    \layout {
+      \context {
+                                %    \Staff \RemoveEmptyStaves
+        %    \override VerticalAxisGroup.remove-first = ##t
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-bass"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+
+  \score {
+    <<
+      \new ChoirStaff
+      <<
+        \new Staff \with {
+          midiInstrument = "flute"
+          instrumentName = "S"
+        }
+        { \magnifyStaff #4/7 \soprano }
+        \addlyrics { \tiny \sopranoVerse }
+        
+        \new Staff \with {
+          midiInstrument = "oboe"
+          instrumentName = "A"
+        }
+        { \magnifyStaff #4/7 \alto }
+        \addlyrics { \tiny \altoVerse }
+        
+        \new Staff \with {
+          midiInstrument = "clarinet"
+          instrumentName = "T"
+        }
+        { \magnifyStaff #4/7 \clef "treble_8" \tenor }
+        \addlyrics { \tiny \tenorVerse }
+        
+        \new Staff \with {
+          midiInstrument = "bassoon"
+          instrumentName = "B"
+        }
+        { \clef bass \bass }
+        \addlyrics { \bassVerse }
+      >>
+      \new PianoStaff <<
+        \new Staff = "right" \with {
+          midiInstrument = "acoustic grand"
+          printPartCombineTexts = ##f
+        }
+                                %  \set PianoStaff.instrumentName = #"Piano"
+        {
+          \magnifyStaff #4/7
+          << \rightOne \\ \rightTwo >>
+                                %  \partCombine \rightOne \rightTwo
+        }
+        \new Staff = "left" \with {
+          midiInstrument = "acoustic grand"
+        } { \magnifyStaff #4/7 \clef bass \left }
+      >>
+    >>
+    \layout {
+      \context {
+                                %    \Staff \RemoveEmptyStaves
+        %    \override VerticalAxisGroup.remove-first = ##t
       }
     }
   }
 }
 
 % Rehearsal MIDI files:
-#(define output-suffix "soprano")
+#(define output-suffix "midi-soprano")
 \book {
   \score {
-    \rehearsalMidi "soprano" "soprano sax" \sopranoVerse
+    \rehearsalMidi "soprano" "soprano sax" \sopranoVerseMidi
     \midi { }
   }
 }
 
-#(define output-suffix "alto")
+#(define output-suffix "midi-alto")
 \book {
   \score {
-    \rehearsalMidi "alto" "soprano sax" \altoVerse
+    \rehearsalMidi "alto" "soprano sax" \altoVerseMidi
     \midi { }
   }
 }
 
-#(define output-suffix "tenor")
+#(define output-suffix "midi-tenor")
 \book {
   \score {
-    \rehearsalMidi "tenor" "tenor sax" \tenorVerse
+    \rehearsalMidi "tenor" "tenor sax" \tenorVerseMidi
     \midi { }
   }
 }
 
-#(define output-suffix "bass")
+#(define output-suffix "midi-bass")
 \book {
   \score {
-    \rehearsalMidi "bass" "tenor sax" \bassVerse
+    \rehearsalMidi "bass" "tenor sax" \bassVerseMidi
     \midi { }
   }
 }
