@@ -1,4 +1,4 @@
-\version "2.19.80"
+\version "2.25.0"
 
 tempotrack = {
   \key f \major
@@ -33,58 +33,58 @@ tempotrack = {
 
 RehearsalTrack = {
 %  \set Score.currentBarNumber = #5
-%  \mark \markup { \box 5 }
-  \mark \markup { \circle "1a" }
+%  \textMark \markup { \box 5 }
+  \textMark \markup { \box "1a" }
   s2 s2
-  \mark \markup { \circle "2a" }
+  \textMark \markup { \box "2a" }
   s2 s2 s2
-  \mark \markup { \circle "2b" }
+  \textMark \markup { \box "2b" }
   s2 s2 s2
-  \mark \markup { \circle "3a" }
+  \textMark \markup { \box "3a" }
   s2 s2 s2
-  \mark \markup { \circle "3b" }
+  \textMark \markup { \box "3b" }
   s2 s2 s2
-  \mark \markup { \circle "4a" }
+  \textMark \markup { \box "4a" }
   s2 s2
-  \mark \markup { \circle "4b" }
+  \textMark \markup { \box "4b" }
   s2 s2
-  \mark \markup { \circle "5a" }
+  \textMark \markup { \box "5a" }
   s2 s2 s2
-  \mark \markup { \circle "5b" }
+  \textMark \markup { \box "5b" }
   s2 s2 s2
-  \mark \markup { \circle "3a" } % back to the chorus
+  \textMark \markup { \box "3a" } % back to the chorus
   s2 s2 s2
-  \mark \markup { \circle "3b" }
+  \textMark \markup { \box "3b" }
   s2 s2 s2
-  \mark \markup { \circle "4a" }
+  \textMark \markup { \box "4a" }
   s2 s2
-  \mark \markup { \circle "6a" } % forward to page 6 for the third verse
+  \textMark \markup { \box "6a" } % forward to page 6 for the third verse
   s2 s2
-  \mark \markup { \circle "6b" }
+  \textMark \markup { \box "6b" }
   s2 s2 s2
-  \mark \markup { \circle "7a" }
+  \textMark \markup { \box "7a" }
   s2 s2
-  \mark \markup { \circle "7b" }
+  \textMark \markup { \box "7b" }
   s2 s2 s2
-  \mark \markup { \circle "8a" }
+  \textMark \markup { \box "8a" }
   s2 s2 s2
-  \mark \markup { \circle "8b" }
+  \textMark \markup { \box "8b" }
   s2 s2
-  \mark \markup { \circle "9a" }
+  \textMark \markup { \box "9a" }
   s2 s2 s2
-  \mark \markup { \circle "9b" }
+  \textMark \markup { \box "9b" }
   s2 s2 s2
-  \mark \markup { \circle "10a" }
+  \textMark \markup { \box "10a" }
   s2 s2 s2 s2 s2 s2
-  \mark \markup { \circle "10b" }
+  \textMark \markup { \box "10b" }
   s2 s2 s2 s2 s2 s2
-  \mark \markup { \circle "11a" }
+  \textMark \markup { \box "11a" }
   s2 s2
-  \mark \markup { \circle "11b" }
+  \textMark \markup { \box "11b" }
   s2 s2
-  \mark \markup { \circle "12a" }
+  \textMark \markup { \box "12a" }
   s2 s2
-  \mark \markup { \circle "12b" }
+  \textMark \markup { \box "12b" }
 }
 
 SopranoTempo = \relative c'' {
@@ -115,7 +115,7 @@ SopranoTempo = \relative c'' {
   s16 s s s s^. s^. s8^-
   s8^\mf s s^^ s
   s8 s^-^\mp s4
-  s8^\mf \< s16 s s8 s % stsrt shorus
+  s8^\mf^\< s16 s s8 s % start chorus
   s8^\f \! s16 s s8 s % 10
   s8 s16 s16 s8 s16 s
   s8 ^\> s16 s \! s8^\fermata ^\mf s16^\mp s
@@ -356,6 +356,41 @@ SopranoLyrics = \lyricmode {
   'You'll come a- waltz- ing, Ma- til- da, with me!'
 }
 
+SopranoLyricsMidi = \lyricmode {
+  "Once " "a " jol "ly " swag "man " "camped " "by " "a " bil la "bong, "
+  "\nUn" "der " "the " "shade " "of " "a " cool i "bah " "tree; "
+  "\nAnd " "he " "sang " "as " "he " "watched " "and " wait "ed " "till " "his " bil "ly " "boiled; "
+  "\n'You'll " "come " a waltz "ing " Ma til "da, " "with " "me!' "
+  "\nWaltz" "ing " Ma til "da, " Waltz "ing " Ma til "da, " % start chorus
+  "\nYou'll " "come " a waltz "ing " Ma til "da, " "with " "me; "
+  "\nAnd " "he " "sang " "as " "he " "watched " "and " wait "ed " "till " "his " bil "ly " "boiled: "
+  "\n'You'll " "come " a waltz "ing, " Ma til "da, " "with " "me!' " % end chorus
+  \set stanza = "2."
+  "\nDown " "came " "a " jol "ly " jol "ly " jum "buck "
+  "\nUp " "jumped " "the " swag "man "
+  "\nAnd " "he " "sang " "and " "stowed " "that " jum "buck " "in " "his " tuck er "bag, "
+  "\n'You'll " "come " "with " "me!' "
+  "\nWaltz" "ing " Ma til "da, " Waltz "ing " Ma til "da, " % start chorus
+  "\nYou'll " "come " a waltz "ing " Ma til "da, " "with " "me; "
+  "\nAnd " "he " "sang " "as " "he " "stowed " "that " jum "buck " "in " "his " tuck er "bag: "
+  "\n'You'll " "come " a waltz "ing, " Ma til "da, " "with " "me!' " % end chorus
+  \set stanza = "3."
+  "\nTroop" "ers! " "One, " "two, " "three, "
+  "\n'You'll " "come " a waltz "ing, " Ma til "da, " "with " "me!' "
+  \set stanza = "4."
+  "\nWaltz" "ing " Ma til "da, "
+  "\nWaltz" "ing " Ma til "da, "
+  "\nYou'll " "come " a waltz "ing " a til "da " "with " "me; "
+  "\nYou'll " "come " "with " "me!' "
+  "\nAh "
+  \set stanza = "7."
+  "\nWaltz" "ing " Ma til "da, " Waltz "ing " Ma til "da, "
+  "\nYou'll " "come " a waltz "ing, " a til "da, " "with " "me; "
+  "\nAnd " "his " "ghost " "may " "be " "heard " "as " "you " "pass " "by " "that " bil la "bong: "
+  "\n'You'll " "come " a waltz "ing, " Ma til "da, " "with " "me!' "
+}
+
+
 AltoTempo = \relative c' {
   \key f \major
   \time 2/4
@@ -564,7 +599,7 @@ AltoMusic = \relative c' {
   a8 g16 f e4
   r2 % page 8b
   r2
-  c'8 (a) a (g16) f % page 9
+  c'8(a) a (g16) f % page 9
   e8 e16 e f4
   r2
   r2
@@ -598,7 +633,7 @@ AltoLyrics = \lyricmode {
   Un- der the shade of a cool- i- bah tree;
   And he sang and watched and wait- ed till his bil- ly boiled;
   "'You'll" come you'll come with "me!'"
-  Waltz- inf Ma- til- da, Waltz- ing Ma- til- da, % start chorus
+  Waltz- ing Ma- til- da, Waltz- ing Ma- til- da, % start chorus
   You'll come a- waltz- ing Ma- til- da, with me;
   And he sang as he watched and wait- ed till his bil- ly boiled:
   'You'll come. with me! % end chorus
@@ -606,7 +641,7 @@ AltoLyrics = \lyricmode {
   Up jumped the swag- man and grabbed him with glee,
   And he sang as he stowed that jum- buck in his tuck- er- bag,
   'You'll come a- waltz- ing, Ma- til- da with me!'
-  Waltz- inf Ma- til- da, Waltz- ing Ma- til- da, % start chorus
+  Waltz- ing Ma- til- da, Waltz- ing Ma- til- da, % start chorus
   You'll come a- waltz- ing Ma- til- da, with me;
   And he sang as he stowed that jum- buck in his tuck- er- bag:
   'You'll come. with me! % end chorus
@@ -623,6 +658,43 @@ AltoLyrics = \lyricmode {
   Waltz- ing Ma- til- da,
   You'll come a- waltz- ing, Ma- til- da, with me;
   with me!'
+}
+
+AltoLyricsMidi = \lyricmode {
+  "Once " "a " swag "man " "camped " "by " "a " bil la "bong, "
+  "\nUn" "der " "the " "shade " "of " "a " cool i "bah " "tree; "
+  "\nAnd " "he " "sang " "and " "watched " "and " wait "ed " "till " "his " bil "ly " "boiled; "
+  "\n'You'll " "come " "you'll " "come " "with " "me!' "
+  "\nWaltz" "ing " Ma til "da, " Waltz "ing " Ma til "da, " % start chorus
+  "\nYou'll " "come " a waltz "ing " Ma til "da, " "with " "me; "
+  "\nAnd " "he " "sang " "as " "he " "watched " "and " wait "ed " "till " "his " bil "ly " "boiled: "
+  "\n'You'll " "come. " "with " "me! " % end chorus
+  \set stanza = "2."
+  "\nDown " "came " "a " jum "buck " "to " "drink " "at " "the " bil la "bong, "
+  "\nUp " "jumped " "the " swag "man " "and " "grabbed " "him " "with " "glee, "
+  "\nAnd " "he " "sang " "as " "he " "stowed " "that " jum "buck " "in " "his " tuck er "bag, "
+  "\n'You'll " "come " a waltz "ing, " Ma til "da " "with " "me!' "
+  "\nWaltz" "ing " Ma til "da, " Waltz "ing " Ma til "da, " % start chorus
+  "\nYou'll " "come " a waltz "ing " Ma til "da, " "with " "me; "
+  "\nAnd " "he " "sang " "as " "he " "stowed " "that " jum "buck " "in " "his " tuck er "bag: "
+  "\n'You'll " "come. " "with " "me! " % end chorus
+  \set stanza = "3."
+  "\nTroop" "ers! " "One, " "two, " "three: "
+  "\nYou'll " "come " a waltz "ing, " Ma til "da, " "with " "me!' "
+  \set stanza = "4."
+  "\nWaltz" "ing " Ma til "da, "
+  "\nWaltz" "ing " Ma til "da, "
+  "\nYou'll " "come " a waltz "ing " Ma til "da, " "with " "me; "
+  "\nYou'll " "come " Ma til "da, " "with " "me!' "
+  \set stanza = "6."
+  "\nAnd " "his "
+  "\nghost " "may " "be " "heard " "as " "you " "pass " "by " "that " bil la "bong: "
+  "\nAh "
+  \set stanza = "7."
+  "\nWaltz" "ing " Ma til "da, "
+  "\nWaltz" "ing " Ma til "da, "
+  "\nYou'll " "come " a waltz "ing, " Ma til "da, " "with " "me; "
+  "\nwith " "me!' "
 }
 
 TenorTempo = \relative c {
@@ -893,6 +965,41 @@ TenorLyrics = \lyricmode {
   with me!'
 }
 
+TenorLyricsMidi = \lyricmode {
+  "Once " "a " jol "ly " swag "man " "camped " "by " "a " bil la "bong, "
+  "\nUn" "der " "the " "shade " "of " "a " cool i "bah " "tree; "
+  "\nAnd " "sang " "and " "watched " "and " wait "ed " "till " "his " bil "ly " "boiled; "
+  "\n'You'll " "come " a waltz "ing " Ma til "da, " "with " "me!' "
+  "\nWaltz" "ing " Ma til "da, " Waltz "ing " a til "da, " % start chorus
+  "\nYou'll " "come, " "you'll " "come " "with " "me; "
+  "\nand " wait "ed " "till " "his " bil "ly " "boiled; "
+  "\n'You'll " "come, " "with " "me!' " % end chorus
+  \set stanza = "2."
+  "\nDown " "came " "a " jol "ly " jol "ly " jum "buck "
+  "\nUp " "with " "glee " "sang "
+  "\n'You'll " "come " "with " "me!' "
+  "\nWaltz" "ing " Ma til "da, " Waltz "ing " a til "da, " % start chorus
+  "\nYou'll " "come, " "you'll " "come " "with " "me; "
+  "\nthat " jum "buck " "in " "his " tuc "ker " "bag: "
+  "\n'You'll " "come, " "with " "me!' " % end chorus
+  \set stanza = "3."
+  "\nUp " "rode " "the " squat "ter, " mount "ed " "on " "his " thor ough "bred, "
+  "\nUp " "rode " "the " troop "ers, " "One, " "two, " "three: "
+  "\n'Whose " "is " "that " jum "buck " "you've " "got " "in " "your " tuck er "bag? "
+  "\nYou'll " "come " a waltz "ing, " Ma til "da, " "with " "me!' "
+  \set stanza = "4."
+  "\nWaltz" "ing " Ma til "da, "
+  "\nWaltz" "ing " Ma til "da, "
+  "\nYou'll " "come, " "you'll " "come " "with " "me; "
+  "\n'Whose " "is " "that " jum "buck " "you've " "got " "in " "your " tuck er "bag? "
+  "\nYou'll " "come " a waltz "ing, " Ma til "da, " "with " "me!' "
+  "\nAh "
+  \set stanza = "7."
+  "\nWaltz" "ing " Ma til "da, " Waltz "ing " Ma til "da, "
+  "\nYou'll " "come, " "you'll " "come " "with " "me; "
+  "\nwith " "me!' "
+}
+
 BassTempo = \relative c {
   \key f \major
   \time 2/4
@@ -1142,7 +1249,7 @@ BassLyrics = \lyricmode {
   'You'll come with me!'
   come, come You'll come, you'll come with me; % start chorus
   'You'll come, with me!' % end chorus
-  \set stanza = "3." Up rode the squat- ter, mount- ed on hos thor- ough- bred,
+  \set stanza = "3." Up rode the squat- ter, mount- ed on his thor- ough- bred,
   Up rode the troop- ers, One, two, three:
   'Whose is that jum- buck
   you've got in your tuck- er- bag?
@@ -1159,6 +1266,40 @@ BassLyrics = \lyricmode {
   with me!
 }
 
+BassLyricsMidi = \lyricmode {
+  "Once " "a " swag "man " "camped " "by " "a " bil la "bong, "
+  "\nUn" "der " "the " "shade " "of " "a " cool i "bah " "tree; "
+  "\nAnd " "sang " "and " "watched " "and " wait "ed " "till " "his " bil "ly " "boiled; "
+  "\n'You'll " "come " "with " "me!' "
+  "\ncome, " "come " "You'll " "come, " "you'll " "come " "with " "me; " % start chorus
+  "\n'You'll " "come, " "with " "me!' " % end chorus
+  \set stanza = "2."
+  "\nDown " "came " "a " jum "buck "
+  "\nUp " "with " "glee "
+  "\n'You'll " "come " "with " "me!' "
+  "\ncome, " "come " "You'll " "come, " "you'll " "come " "with " "me; " % start chorus
+  "\n'You'll " "come, " "with " "me!' " % end chorus
+  \set stanza = "3."
+  "\nUp " "rode " "the " squat "ter, " mount "ed " "on " "his " thor ough "bred, "
+  "\nUp " "rode " "the " troop "ers, " "One, " "two, " "three: "
+  "\n'Whose " "is " "that " jum "buck "
+  "\nyou've " "got " "in " "your " tuck er "bag? "
+  "\nYou'll " "come " a waltz "ing, " ma til "da, " "with " "me!' "
+  \set stanza = "4."
+  "\nCome, "
+  "\ncome, " "You'll " "come, " "you'll " "come " "with " "me; "
+  "\n'Whose " "is " "that " jum "buck " "you've " "got " "in " "your " tuck er "bag? "
+  "\nYou'll " "come " a waltz "ing, " Ma til "da, " "with " "me!' "
+  \set stanza = "5."
+  "\nUp " "jumped " "the " swag "man " "and " "sprang " in "to " "the " bil la "bong, "
+  "\n'You'll " ne "ver " "take " "me " a "live.' " "said " "he. "
+  "\n'Ne" "ver " "take " "me " a "live! " "He! " "He!' "
+  \set stanza = "7."
+  "\nCome, " "come "
+  "\nYou'll " "come, " "you'll " "come " "with " "me; "
+  "\nwith " "me! "
+}
+
 PianoDynamics = {
   \tempo Gaily 4=88
   s2
@@ -1169,7 +1310,7 @@ PianoDynamics = {
   s2
   s2
   s2
-  s2^\mf\<
+  s2^\mf^\<
   s2\!^\f
   s2
   s4\> s8^\mf\! s^\mp
@@ -1255,6 +1396,7 @@ global = {
 }
 
 \book {
+  \bookOutputSuffix "single"
   \score {
     <<
       \new ChoirStaff <<
@@ -1283,7 +1425,7 @@ global = {
 				%    \new PianoStaff <<
       \new Staff <<
         \set Staff.printPartCombineTexts = ##f
-        \partcombine
+        \partCombine
         << \global \SopranoMusic >>
         << \global \AltoMusic >>
       >>
@@ -1291,16 +1433,44 @@ global = {
       \new Staff <<
         \clef bass
         \set Staff.printPartCombineTexts = ##f
-        \partcombine
+        \partCombine
         << \global \TenorMusic >>
         << \global \BassMusic >>
       >>
     >>
-    \layout{}
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
   }
 }
 
 \book {
+  \bookOutputSuffix "single-noacc"
   \score {
     <<
       \new ChoirStaff <<
@@ -1327,7 +1497,399 @@ global = {
 	>>
       >>
     >>
-    \layout{}
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-noacc"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      \new ChoirStaff <<
+	\new Staff = "sopranos" <<
+	  \new Voice \RehearsalTrack
+	  \new Voice \SopranoTempo
+	  \new Voice = "sopranos" { << \global \SopranoMusic >> }
+	  \context Lyrics = "sopranos" \lyricsto "sopranos" \SopranoLyrics
+	>>
+	\new Staff = "altos" <<
+          \new Voice \AltoTempo
+	  \new Voice = "altos" { << \global \AltoMusic >> }
+	  \context Lyrics = "altos" \lyricsto "altos" \AltoLyrics
+	>>
+	\new Staff = "tenori" <<
+          \new Voice \TenorTempo
+	  \new Voice = "tenors" { \clef "treble_8" << \global \TenorMusic >> }
+	  \context Lyrics = "tenors" \lyricsto "tenors" \TenorLyrics
+	>>
+	\new Staff = "basses" <<
+          \new Voice \BassTempo
+	  \new Voice = "basses" { \clef bass << \global \BassMusic >> }
+	  \context Lyrics = "basses" \lyricsto "basses" \BassLyrics
+	>>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-noacc-sop"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      \new ChoirStaff <<
+	\new Staff = "sopranos" <<
+	  \new Voice \RehearsalTrack
+	  \new Voice \SopranoTempo
+	  \new Voice = "sopranos" { << \global \SopranoMusic >> }
+	  \context Lyrics = "sopranos" \lyricsto "sopranos" \SopranoLyrics
+	>>
+	\new Staff = "altos" <<
+          \magnifyStaff #4/7
+          \new Voice \AltoTempo
+	  \new Voice = "altos" { << \global \AltoMusic >> }
+	  \context Lyrics = "altos" \lyricsto "altos" {\tiny \AltoLyrics}
+	>>
+	\new Staff = "tenori" <<
+          \magnifyStaff #4/7
+          \new Voice \TenorTempo
+	  \new Voice = "tenors" { \clef "treble_8" << \global \TenorMusic >> }
+	  \context Lyrics = "tenors" \lyricsto "tenors" {\tiny \TenorLyrics}
+	>>
+	\new Staff = "basses" <<
+          \magnifyStaff #4/7
+          \new Voice \BassTempo
+	  \new Voice = "basses" { \clef bass << \global \BassMusic >> }
+	  \context Lyrics = "basses" \lyricsto "basses" {\tiny \BassLyrics}
+	>>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+\book {
+  \bookOutputSuffix "singlepage-noacc-bass"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      \new ChoirStaff <<
+	\new Staff = "sopranos" <<
+          \magnifyStaff #4/7
+	  \new Voice \RehearsalTrack
+	  \new Voice \SopranoTempo
+	  \new Voice = "sopranos" { << \global \SopranoMusic >> }
+	  \context Lyrics = "sopranos" \lyricsto "sopranos" {\tiny \SopranoLyrics}
+	>>
+	\new Staff = "altos" <<
+          \magnifyStaff #4/7
+          \new Voice \AltoTempo
+	  \new Voice = "altos" { << \global \AltoMusic >> }
+	  \context Lyrics = "altos" \lyricsto "altos" {\tiny \AltoLyrics}
+	>>
+	\new Staff = "tenori" <<
+          \magnifyStaff #4/7
+          \new Voice \TenorTempo
+	  \new Voice = "tenors" { \clef "treble_8" << \global \TenorMusic >> }
+	  \context Lyrics = "tenors" \lyricsto "tenors" {\tiny \TenorLyrics}
+	>>
+	\new Staff = "basses" <<
+          \new Voice \BassTempo
+	  \new Voice = "basses" { \clef bass << \global \BassMusic >> }
+	  \context Lyrics = "basses" \lyricsto "basses" \BassLyrics
+	>>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+
+\book {
+  \bookOutputSuffix "midi-sop"
+  \score {
+    <<
+      \new ChoirStaff <<
+	\new Staff = "sopranos" <<
+	  \new Voice \RehearsalTrack
+	  \new Voice \SopranoTempo
+	  \new Voice = "sopranos" { << \global \SopranoMusic >> }
+	  \context Lyrics = "sopranos" \lyricsto "sopranos" \SopranoLyricsMidi
+	>>
+	\new Staff = "altos" <<
+          \new Voice \AltoTempo
+	  \new Voice = "altos" { << \global \AltoMusic >> }
+	>>
+	\new Staff = "tenori" <<
+          \new Voice \TenorTempo
+	  \new Voice = "tenors" { \clef "treble_8" << \global \TenorMusic >> }
+	>>
+	\new Staff = "basses" <<
+          \new Voice \BassTempo
+	  \new Voice = "basses" { \clef bass << \global \BassMusic >> }
+	>>
+      >>
+    >>
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
+  }
+}
+
+
+\book {
+  \bookOutputSuffix "midi-alto"
+  \score {
+    <<
+      \new ChoirStaff <<
+	\new Staff = "sopranos" <<
+	  \new Voice \RehearsalTrack
+	  \new Voice \SopranoTempo
+	  \new Voice = "sopranos" { << \global \SopranoMusic >> }
+	>>
+	\new Staff = "altos" <<
+          \new Voice \AltoTempo
+	  \new Voice = "altos" { << \global \AltoMusic >> }
+	  \context Lyrics = "altos" \lyricsto "altos" \AltoLyricsMidi
+	>>
+	\new Staff = "tenori" <<
+          \new Voice \TenorTempo
+	  \new Voice = "tenors" { \clef "treble_8" << \global \TenorMusic >> }
+	>>
+	\new Staff = "basses" <<
+          \new Voice \BassTempo
+	  \new Voice = "basses" { \clef bass << \global \BassMusic >> }
+	>>
+      >>
+    >>
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
+  }
+}
+
+
+\book {
+  \bookOutputSuffix "midi-tenor"
+  \score {
+    <<
+      \new ChoirStaff <<
+	\new Staff = "sopranos" <<
+	  \new Voice \RehearsalTrack
+	  \new Voice \SopranoTempo
+	  \new Voice = "sopranos" { << \global \SopranoMusic >> }
+	>>
+	\new Staff = "altos" <<
+          \new Voice \AltoTempo
+	  \new Voice = "altos" { << \global \AltoMusic >> }
+	>>
+	\new Staff = "tenori" <<
+          \new Voice \TenorTempo
+	  \new Voice = "tenors" { \clef "treble_8" << \global \TenorMusic >> }
+	  \context Lyrics = "tenors" \lyricsto "tenors" \TenorLyricsMidi
+	>>
+	\new Staff = "basses" <<
+          \new Voice \BassTempo
+	  \new Voice = "basses" { \clef bass << \global \BassMusic >> }
+	>>
+      >>
+    >>
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
+  }
+}
+
+
+\book {
+  \bookOutputSuffix "midi-bass"
+  \score {
+    <<
+      \new ChoirStaff <<
+	\new Staff = "sopranos" <<
+	  \new Voice \RehearsalTrack
+	  \new Voice \SopranoTempo
+	  \new Voice = "sopranos" { << \global \SopranoMusic >> }
+        >>
+	\new Staff = "altos" <<
+          \new Voice \AltoTempo
+	  \new Voice = "altos" { << \global \AltoMusic >> }
+        >>
+	\new Staff = "tenori" <<
+          \new Voice \TenorTempo
+	  \new Voice = "tenors" { \clef "treble_8" << \global \TenorMusic >> }
+        >>
+	\new Staff = "basses" <<
+          \new Voice \BassTempo
+	  \new Voice = "basses" { \clef bass << \global \BassMusic >> }
+	  \context Lyrics = "basses" \lyricsto "basses" \BassLyricsMidi
+	>>
+      >>
+    >>
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
