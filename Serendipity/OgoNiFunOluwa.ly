@@ -1,4 +1,4 @@
-\version "2.19.80"
+\version "2.25.0"
 
 global = {
   \key f \major
@@ -10,60 +10,60 @@ global = {
 rehearsalTrack = {
   \partial 8 s8
   \set Score.currentBarNumber = #5
-  \mark \markup { \box 5 }
+  \textMark \markup { \box 5 }
   s2. s2. s2. s2.
-  \mark \markup { \circle "4a" }
+  \textMark \markup { \box "4a" }
   s2. s2. s2. s2.
-  \mark \markup { \circle "4b" }
+  \textMark \markup { \box "4b" }
   s2. s2. s2. s2.
-  \mark \markup { \circle "4c" }
+  \textMark \markup { \box "4c" }
   s2. s2. s2. s2.
-  \mark \markup { \circle "5a" }
+  \textMark \markup { \box "5a" }
   s2. s2. s2. s2.
-  \mark \markup { \circle "5b" }
+  \textMark \markup { \box "5b" }
   s2. s2. s2. s2.
-  \mark \markup { \circle "6a" }
+  \textMark \markup { \box "6a" }
   s2. s2. s2. s2.
-  \mark \markup { \circle "6b" }
+  \textMark \markup { \box "6b" }
   s2. s2. s2. s2.
-  \mark \markup { \circle "7a" }
+  \textMark \markup { \box "7a" }
   s2. s2. s2. s2.
-  \mark \markup { \circle "7b" }
+  \textMark \markup { \box "7b" }
   s2. s2. s2. s2.
-  \mark \markup { \circle "8a" }
+  \textMark \markup { \box "8a" }
   s2. s2. s2. s2.
-  \mark \markup { \circle "8b" }
+  \textMark \markup { \box "8b" }
   s2. s2. s2. s2.
-  \mark \markup { \circle "9a" }
+  \textMark \markup { \box "9a" }
   s2. s2. s2. s2. s2.
   \set Score.currentBarNumber = #63
-  \mark \markup { \box "63(10a)" }
+  \textMark \markup { \box "63(10a)" }
   s2. s2. s2. s2. s2.
-  \mark \markup { \circle "10b" }
+  \textMark \markup { \box "10b" }
   s2. s2.
   \set Score.currentBarNumber = #71
-  \mark \markup { \box "71" }
+  \textMark \markup { \box "71" }
   s2.
-  \mark \markup { \circle "11a" }
+  \textMark \markup { \box "11a" }
   s2. s2. s2. s2.
-  \mark \markup { \circle "11b" }
+  \textMark \markup { \box "11b" }
   s2. s2. s2.
   \set Score.currentBarNumber = #80
-  \mark \markup { \box "80(12a)" }
+  \textMark \markup { \box "80(12a)" }
   s2.
   \set Score.currentBarNumber = #94
-  \mark \markup { \box "94(13b)" }
+  \textMark \markup { \box "94(13b)" }
   s2. s2. s2. s2.
-  \mark \markup { \circle "14a" }
+  \textMark \markup { \box "14a" }
   s2. s2. s2. s2.
-  \mark \markup { \circle "14b" }
+  \textMark \markup { \box "14b" }
   s2. s2. s2. s2.
-  \mark \markup { \circle "15a" }
+  \textMark \markup { \box "15a" }
   s2. s2.
   \set Score.currentBarNumber = #109
-  \mark \markup { \box "109" }
+  \textMark \markup { \box "109" }
   s2.
-  \mark \markup { \circle "15b" }
+  \textMark \markup { \box "15b" }
   s2. s2. s2. s2. s2.
   \bar "|."
 }
@@ -173,38 +173,73 @@ sopranoOneNotes = \relative c' {
 }
 
 sopranoOneWords = \lyricmode {
-  E- yo! E- yo! O- go ni fun O- lu- wa!
-  E- yo! E- yo! O- go ni fun O- lu- wa!
-  O- go ni fun O- lu- wa!
-  O- go ni fun O- lu- wa!
-  O- go ni fun O- lu- wa!
-  O- go ni fun O- lu- wa!
-  E- yo! E- yo! O- go ni fun O- lu- wa!
-  E- yo! E- yo! O- go ni fun O- lu- wa!
-  O- go ni fun O- lu- wa!
-  O- go ni fun O- lu- wa!
-  O- go ni fun O- lu- wa!
-  O- go ni fun O- lu- wa!
-  E- jo! E- jo! O- go ni fun O- lu- wa!
-  E- jo! E- jo! O- go ni fun O- lu- wa!
-  O- go ni fun O- lu- wa!
-  O- go ni fun O- lu- wa!
-  O- go ni fun O- lu- wa!
-  O- go ni fun O- lu- wa!
-  A- bi Je- su Kris- ti!
-  A- la- fia! I- re- po! E- pà- te- wö!
-  E- yo! E- yo! E- jo! E- jo! E- yo! E- yo! E- jo! E- jo!
-  A- bi Je- su Kris- ti!
-  E- jo! E- jo!
-  A- bi Je- su Kris- ti!
-  O- go ni fun O- lu wa!
-  E- jo! E- jo! O- go ni fun O- lu- wa!
-  E- jo! E- jo! O- go ni fun O- lu- wa!
-  O- go ni fun O- lu- wa!
-  O- go ni fun O- lu- wa!
-  O- go ni fun O- lu- wa!
-  O- go ni fun O- lu- wa!
-  O- go ni fun O- lu- wa!
+  E -- yo! E -- yo! O -- go ni fun O -- lu -- wa!
+  E -- yo! E -- yo! O -- go ni fun O -- lu -- wa!
+  O -- go ni fun O -- lu -- wa!
+  O -- go ni fun O -- lu -- wa!
+  O -- go ni fun O -- lu -- wa!
+  O -- go ni fun O -- lu -- wa!
+  E -- yo! E -- yo! O -- go ni fun O -- lu -- wa!
+  E -- yo! E -- yo! O -- go ni fun O -- lu -- wa!
+  O -- go ni fun O -- lu -- wa!
+  O -- go ni fun O -- lu -- wa!
+  O -- go ni fun O -- lu -- wa!
+  O -- go ni fun O -- lu -- wa!
+  E -- jo! E -- jo! O -- go ni fun O -- lu -- wa!
+  E -- jo! E -- jo! O -- go ni fun O -- lu -- wa!
+  O -- go ni fun O -- lu -- wa!
+  O -- go ni fun O -- lu -- wa!
+  O -- go ni fun O -- lu -- wa!
+  O -- go ni fun O -- lu -- wa!
+  A -- bi Je -- su Kris -- ti!
+  A -- la -- fia! I -- re -- po! E -- pà -- te -- wö!
+  E -- yo! E -- yo! E -- jo! E -- jo! E -- yo! E -- yo! E -- jo! E -- jo!
+  A -- bi Je -- su Kris -- ti!
+  E -- jo! E -- jo!
+  A -- bi Je -- su Kris -- ti!
+  O -- go ni fun O -- lu wa!
+  E -- jo! E -- jo! O -- go ni fun O -- lu -- wa!
+  E -- jo! E -- jo! O -- go ni fun O -- lu -- wa!
+  O -- go ni fun O -- lu -- wa!
+  O -- go ni fun O -- lu -- wa!
+  O -- go ni fun O -- lu -- wa!
+  O -- go ni fun O -- lu -- wa!
+  O -- go ni fun O -- lu -- wa!
+}
+
+sopranoOneWordsMidi = \lyricmode {
+  "E" "yo! " E "yo! " O "go " "ni " "fun " O lu "wa! "
+  "\nE" "yo! " E "yo! " O "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nE" "yo! " E "yo! " O "go " "ni " "fun " O lu "wa! "
+  "\nE" "yo! " E "yo! " O "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nE" "jo! " E "jo! " O "go " "ni " "fun " O lu "wa! "
+  "\nE" "jo! " E "jo! " O "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nA" "bi " Je "su " Kris "ti! "
+  "\nA" la "fia! " I re "po! " E pà te "wö! "
+  "\nE" "yo! " E "yo! " E "jo! " E "jo! " E "yo! " E "yo! " E "jo! " E "jo! "
+  "\nA" "bi " Je "su " Kris "ti! "
+  "\nE" "jo! " E "jo! "
+  "\nA" "bi " Je "su " Kris "ti! "
+  "\nO" "go " "ni " "fun " O "lu " "wa! "
+  "\nE" "jo! " E "jo! " O "go " "ni " "fun " O lu "wa! "
+  "\nE" "jo! " E "jo! " O "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
 }
 
 sopranoTwoNotes = \relative c' {
@@ -345,6 +380,40 @@ sopranoTwoWords = \lyricmode {
   O- go ni fun O- lu- wa!
 }
 
+sopranoTwoWordsMidi = \lyricmode {
+  "E" "yo! " E "yo! " O "go " "ni " "fun " O lu "wa! "
+  "\nE" "yo! " E "yo! " O "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nE" "yo! " E "yo! " O "go " "ni " "fun " O lu "wa! "
+  "\nE" "yo! " E "yo! " O "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nE" "jo! " E "jo! " O "go " "ni " "fun " O lu "wa! "
+  "\nE" "jo! " E "jo! " O "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nA" "bi " Je "su " Kris "ti! "
+  "\nA" la "fia! " I re "po! " E pà te "wö! "
+  "\nE" "yo! " E "yo! " E "jo! " E "jo! "
+  "\nE" "yo! " E "yo! " E "jo! " E "jo! "
+  "\nE" "yo! " E "yo! " E "jo! " E "jo! "
+  "\nE" "yo! " E "yo! " E "jo! " O lu "wa! "
+  "\nE" "jo! " E "jo! " O "go " "ni " "fun " O lu "wa! "
+  "\nE" "jo! " E "jo! " O "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+}
+
 altoOneNotes = \relative c' {
   \partial 8 f8^\mf
   a4.~ a8 r f
@@ -479,6 +548,36 @@ altoOneWords = \lyricmode {
   O- go ni fun O- lu- wa!
 }
 
+altoOneWordsMidi = \lyricmode {
+  "E" "yo! " E "yo! " O "go " "ni " "fun " O lu "wa! "
+  "\nE" "yo! " E "yo! " O "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nE" "yo! " E "yo! " O "go " "ni " "fun " O lu "wa! "
+  "\nE" "yo! " E "yo! " O "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! " O lu "wa! "
+  "\nE" "jo! " E "jo! " O "go " "ni " "fun " O lu "wa! "
+  "\nE" "jo! " E "jo! " O "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! " O lu "wa! "
+  "\nA" "bi " Je "su " Kris "ti! "
+  "\nA" la "fia! " I re "po! " E pà te "wö! "
+  "\nE" "yo! " E "yo! " E "jo! " E "jo! "
+  "\nE" "yo! " E "yo! " E "jo! " E "jo! "
+  "\nA" "bi " Je "su " Kris "ti! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nA" "bi " Je "su " Kris "ti! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nE" "jo! " E "jo! " O "go " "ni " "fun " O lu "wa! "
+  "\nE" "jo! " E "jo! " O "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! " O lu "wa! "
+  "\nO" "go " "ni " "fun " O "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+}
+
 altoTwoNotes = \relative c' {
   \partial 8 f8^\mf
   a4.~ a8 r f
@@ -609,6 +708,33 @@ altoTwoWords = \lyricmode {
   O- go ni fun O- lu- wa!
 }
 
+altoTwoWordsMidi = \lyricmode {
+  "E" "yo! " E "yo! " O "go " "ni " "fun " O lu "wa! "
+  "\nE" "yo! " E "yo! " O "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+  "\nE" "yo! " E "yo! " O "go " "ni " "fun " O lu "wa! "
+  "\nE" "yo! " E "yo! " O "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! " O lu "wa! "
+  "\nE" "jo! " E "jo! " O "go " "ni " "fun " O lu "wa! "
+  "\nE" "jo! " E "jo! " O "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! " O lu "wa! "
+  "\nA" la "fia! " I re "po! " E pà te "wö! "
+  "\nE" "yo! " E "yo! " E "jo! " E "jo! "
+  "\nE" "yo! " E "yo! " E "jo! " E "jo! "
+  "\nE" "yo! " E "yo! " E "jo! " E "jo! "
+  "\nE" "yo! " E "yo! " E "jo! " O lu "wa! "
+  "\nE" "jo! " E "jo! " O "go " "ni " "fun " O lu "wa! "
+  "\nE" "jo! " E "jo! " O "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! " O lu "wa! "
+  "\nO" "go " "ni " "fun " O "go " "ni " "fun " O lu "wa! "
+  "\nO" "go " "ni " "fun " O lu "wa! "
+}
+
 \header {
   title    = "Ogo ni fun Oluwa"
   subtitle = "Glory to God in the Highest"
@@ -617,10 +743,11 @@ altoTwoWords = \lyricmode {
 }
 
 \book {
+  \bookOutputSuffix "single"
   \score { % full score
     <<
       \new ChoirStaff <<
-	\new Staff <<
+	\new Staff = soprano <<
 	  \new Voice { \rehearsalTrack }
 	  \new Voice = "sopranoOne" <<
 	    \global
@@ -628,21 +755,21 @@ altoTwoWords = \lyricmode {
 	  >>
 	  \new Lyrics \lyricsto "sopranoOne" \sopranoOneWords
 	>>
-	\new Staff <<
+	\new Staff = alto <<
 	  \new Voice = "sopranoTwo" <<
 	    \global
 	    \sopranoTwoNotes
 	  >>
 	  \new Lyrics \lyricsto "sopranoTwo" \sopranoTwoWords
 	>>
-	\new Staff <<
+	\new Staff = tenor <<
 	  \new Voice = "altoOne" <<
 	    \global
 	    \altoOneNotes
 	  >>
 	  \new Lyrics \lyricsto "altoOne" \altoOneWords
 	>>
-	\new Staff <<
+	\new Staff = bass <<
 	  \new Voice = "altoTwo" <<
 	    \global
 	    \altoTwoNotes
@@ -651,181 +778,512 @@ altoTwoWords = \lyricmode {
 	>>
       >>
       \new PianoStaff <<
-	\new Staff <<
+	\new Staff = pianorh <<
 	  \set Staff.printPartCombineTexts = ##f
-	  \partcombine
+	  \partCombine
 	  << { \global \sopranoOneNotes } >>
 	  << { \global \sopranoTwoNotes } >>
 	>>
-	\new Staff <<
+	\new Staff = pianolh <<
 	  \set Staff.printPartCombineTexts = ##f
-	  \partcombine
+	  \partCombine
 	  << { \global \altoOneNotes } >>
 	  << { \global \altoTwoNotes } >>
 	>>
       >>
     >>
-    \layout{}
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
   }
 }
 
 \book {
-\score { % vocal score
-  \new ChoirStaff <<
-    \new Staff <<
-      \new Voice { \rehearsalTrack }
-      \new Voice = "sopranoOne" <<
-        \global
-        \sopranoOneNotes
+  \bookOutputSuffix "noacc"
+  \score { % vocal score
+    \new ChoirStaff <<
+      \new Staff <<
+        \new Voice { \rehearsalTrack }
+        \new Voice = "sopranoOne" <<
+          \global
+          \sopranoOneNotes
+        >>
+        \new Lyrics \lyricsto "sopranoOne" \sopranoOneWords
       >>
-      \new Lyrics \lyricsto "sopranoOne" \sopranoOneWords
-    >>
-    \new Staff <<
-      \new Voice = "sopranoTwo" <<
-        \global
-        \sopranoTwoNotes
+      \new Staff <<
+        \new Voice = "sopranoTwo" <<
+          \global
+          \sopranoTwoNotes
+        >>
+        \new Lyrics \lyricsto "sopranoTwo" \sopranoTwoWords
       >>
-      \new Lyrics \lyricsto "sopranoTwo" \sopranoTwoWords
-    >>
-    \new Staff <<
-      \new Voice = "altoOne" <<
-        \global
-        \altoOneNotes
+      \new Staff <<
+        \new Voice = "altoOne" <<
+          \global
+          \altoOneNotes
+        >>
+        \new Lyrics \lyricsto "altoOne" \altoOneWords
       >>
-      \new Lyrics \lyricsto "altoOne" \altoOneWords
-    >>
-    \new Staff <<
-      \new Voice = "altoTwo" <<
-        \global
-        \altoTwoNotes
+      \new Staff <<
+        \new Voice = "altoTwo" <<
+          \global
+          \altoTwoNotes
+        >>
+        \new Lyrics \lyricsto "altoTwo" \altoTwoWords
       >>
-      \new Lyrics \lyricsto "altoTwo" \altoTwoWords
     >>
-  >>
-  \layout{}
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
 }
 
-\score { % soprano 1 midi
-  \new ChoirStaff <<
-    \new Staff <<
-      \new Voice = "sopranoOne" <<
-        \global
-        \sopranoOneNotes
+\book {
+  \bookOutputSuffix "singlepage-noacc"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score { % vocal score
+    \new ChoirStaff <<
+      \new Staff <<
+        \new Voice { \rehearsalTrack }
+        \new Voice = "sopranoOne" <<
+          \global
+          \sopranoOneNotes
+        >>
+        \new Lyrics \lyricsto "sopranoOne" \sopranoOneWords
       >>
-      \new Lyrics \lyricsto "sopranoOne" \sopranoOneWords
-    >>
-    \new Staff <<
-      \new Voice = "sopranoTwo" <<
-        \global
-        \sopranoTwoNotes
+      \new Staff <<
+        \new Voice = "sopranoTwo" <<
+          \global
+          \sopranoTwoNotes
+        >>
+        \new Lyrics \lyricsto "sopranoTwo" \sopranoTwoWords
+      >>
+      \new Staff <<
+        \new Voice = "altoOne" <<
+          \global
+          \altoOneNotes
+        >>
+        \new Lyrics \lyricsto "altoOne" \altoOneWords
+      >>
+      \new Staff <<
+        \new Voice = "altoTwo" <<
+          \global
+          \altoTwoNotes
+        >>
+        \new Lyrics \lyricsto "altoTwo" \altoTwoWords
       >>
     >>
-    \new Staff <<
-      \new Voice = "altoOne" <<
-        \global
-        \altoOneNotes
-      >>
-    >>
-    \new Staff <<
-      \new Voice = "altoTwo" <<
-        \global
-        \altoTwoNotes
-      >>
-    >>
-  >>
-  \midi{}
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
 }
 
-\score { % soprano 2 midi
-  \new ChoirStaff <<
-    \new Staff <<
-      \new Voice = "sopranoOne" <<
-        \global
-        \sopranoOneNotes
+\book {
+  \bookOutputSuffix "singlepage-noacc-sop"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score { % vocal score
+    \new ChoirStaff <<
+      \new Staff <<
+        \new Voice { \rehearsalTrack }
+        \new Voice = "sopranoOne" <<
+          \global
+          \sopranoOneNotes
+        >>
+        \new Lyrics \lyricsto "sopranoOne" \sopranoOneWords
+      >>
+      \new Staff <<
+        \magnifyStaff #4/7
+        \new Voice = "sopranoTwo" <<
+          \global
+          \sopranoTwoNotes
+        >>
+        \new Lyrics \lyricsto "sopranoTwo" {\tiny \sopranoTwoWords}
+      >>
+      \new Staff <<
+        \magnifyStaff #4/7
+        \new Voice = "altoOne" <<
+          \global
+          \altoOneNotes
+        >>
+        \new Lyrics \lyricsto "altoOne" {\tiny \altoOneWords}
+      >>
+      \new Staff <<
+        \magnifyStaff #4/7
+        \new Voice = "altoTwo" <<
+          \global
+          \altoTwoNotes
+        >>
+        \new Lyrics \lyricsto "altoTwo" {\tiny \altoTwoWords}
       >>
     >>
-    \new Staff <<
-      \new Voice = "sopranoTwo" <<
-        \global
-        \sopranoTwoNotes
-      >>
-      \new Lyrics \lyricsto "sopranoTwo" \sopranoTwoWords
-    >>
-    \new Staff <<
-      \new Voice = "altoOne" <<
-        \global
-        \altoOneNotes
-      >>
-    >>
-    \new Staff <<
-      \new Voice = "altoTwo" <<
-        \global
-        \altoTwoNotes
-      >>
-    >>
-  >>
-  \midi{}
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
 }
 
-\score { % alto 1 midi
-  \new ChoirStaff <<
-    \new Staff <<
-      \new Voice = "sopranoOne" <<
-        \global
-        \sopranoOneNotes
+\book {
+  \bookOutputSuffix "singlepage-noacc-bass"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score { % vocal score
+    \new ChoirStaff <<
+      \new Staff <<
+        \magnifyStaff #4/7
+        \new Voice { \rehearsalTrack }
+        \new Voice = "sopranoOne" <<
+          \global
+          \sopranoOneNotes
+        >>
+        \new Lyrics \lyricsto "sopranoOne" {\tiny \sopranoOneWords}
+      >>
+      \new Staff <<
+        \magnifyStaff #4/7
+        \new Voice = "sopranoTwo" <<
+          \global
+          \sopranoTwoNotes
+        >>
+        \new Lyrics \lyricsto "sopranoTwo" {\tiny \sopranoTwoWords}
+      >>
+      \new Staff <<
+        \magnifyStaff #4/7
+        \new Voice = "altoOne" <<
+          \global
+          \altoOneNotes
+        >>
+        \new Lyrics \lyricsto "altoOne" {\tiny \altoOneWords}
+      >>
+      \new Staff <<
+        \new Voice = "altoTwo" <<
+          \global
+          \altoTwoNotes
+        >>
+        \new Lyrics \lyricsto "altoTwo" \altoTwoWords
       >>
     >>
-    \new Staff <<
-      \new Voice = "sopranoTwo" <<
-        \global
-        \sopranoTwoNotes
-      >>
-    >>
-    \new Staff <<
-      \new Voice = "altoOne" <<
-        \global
-        \altoOneNotes
-      >>
-      \new Lyrics \lyricsto "altoOne" \altoOneWords
-    >>
-    \new Staff <<
-      \new Voice = "altoTwo" <<
-        \global
-        \altoTwoNotes
-      >>
-    >>
-  >>
-  \midi{}
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
 }
 
-\score { % Alto 2 midi
-  \new ChoirStaff <<
-    \new Staff <<
-      \new Voice = "sopranoOne" <<
-        \global
-        \sopranoOneNotes
+\book {
+  \bookOutputSuffix "midi-sop"
+  \score { % soprano 1 midi
+    \new ChoirStaff <<
+      \new Staff <<
+        \new Voice = "sopranoOne" <<
+          \global
+          \sopranoOneNotes
+        >>
+        \new Lyrics \lyricsto "sopranoOne" \sopranoOneWordsMidi
+      >>
+      \new Staff <<
+        \new Voice = "sopranoTwo" <<
+          \global
+          \sopranoTwoNotes
+        >>
+      >>
+      \new Staff <<
+        \new Voice = "altoOne" <<
+          \global
+          \altoOneNotes
+        >>
+      >>
+      \new Staff <<
+        \new Voice = "altoTwo" <<
+          \global
+          \altoTwoNotes
+        >>
       >>
     >>
-    \new Staff <<
-      \new Voice = "sopranoTwo" <<
-        \global
-        \sopranoTwoNotes
-      >>
-    >>
-    \new Staff <<
-      \new Voice = "altoOne" <<
-        \global
-        \altoOneNotes
-      >>
-    >>
-    \new Staff <<
-      \new Voice = "altoTwo" <<
-        \global
-        \altoTwoNotes
-      >>
-      \new Lyrics \lyricsto "altoTwo" \altoTwoWords
-    >>
-  >>
-  \midi{}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
+  }
 }
+
+\book {
+  \bookOutputSuffix "midi-alto"
+  \score { % soprano 2 midi
+    \new ChoirStaff <<
+      \new Staff <<
+        \new Voice = "sopranoOne" <<
+          \global
+          \sopranoOneNotes
+        >>
+      >>
+      \new Staff <<
+        \new Voice = "sopranoTwo" <<
+          \global
+          \sopranoTwoNotes
+        >>
+        \new Lyrics \lyricsto "sopranoTwo" \sopranoTwoWordsMidi
+      >>
+      \new Staff <<
+        \new Voice = "altoOne" <<
+          \global
+          \altoOneNotes
+        >>
+      >>
+      \new Staff <<
+        \new Voice = "altoTwo" <<
+          \global
+          \altoTwoNotes
+        >>
+      >>
+    >>
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-tenor"
+  \score { % alto 1 midi
+    \new ChoirStaff <<
+      \new Staff <<
+        \new Voice = "sopranoOne" <<
+          \global
+          \sopranoOneNotes
+        >>
+      >>
+      \new Staff <<
+        \new Voice = "sopranoTwo" <<
+          \global
+          \sopranoTwoNotes
+        >>
+      >>
+      \new Staff <<
+        \new Voice = "altoOne" <<
+          \global
+          \altoOneNotes
+        >>
+        \new Lyrics \lyricsto "altoOne" \altoOneWordsMidi
+      >>
+      \new Staff <<
+        \new Voice = "altoTwo" <<
+          \global
+          \altoTwoNotes
+        >>
+      >>
+    >>
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-bass"
+  \score { % Alto 2 midi
+    \new ChoirStaff <<
+      \new Staff <<
+        \new Voice = "sopranoOne" <<
+          \global
+          \sopranoOneNotes
+        >>
+      >>
+      \new Staff <<
+        \new Voice = "sopranoTwo" <<
+          \global
+          \sopranoTwoNotes
+        >>
+      >>
+      \new Staff <<
+        \new Voice = "altoOne" <<
+          \global
+          \altoOneNotes
+        >>
+      >>
+      \new Staff <<
+        \new Voice = "altoTwo" <<
+          \global
+          \altoTwoNotes
+        >>
+        \new Lyrics \lyricsto "altoTwo" \altoTwoWordsMidi
+      >>
+    >>
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
+  }
 }
