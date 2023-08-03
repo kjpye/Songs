@@ -282,7 +282,7 @@ wordsMenSingle = \lyricmode {
   Still war -- bles the black -- bird its note from the tree.
   Still trem -- bles the moon -- beam on stream -- let and foun -- tain,
   But what are the beau -- ties of na -- ture to me?
-  \nom Sor -- row, \yesm my bo -- som is la -- den,
+  Sor -- row, my bo -- som is la -- den,
   All day __ in search of my love!
   Ye e -- choes! oh tell me, where sweet is the mai -- den?
   “She sleeps 'neath the green turf down by the Ash Grove.”
