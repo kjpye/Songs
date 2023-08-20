@@ -1,4 +1,4 @@
-\version "2.20.0"
+\version "2.25.0"
 
 \include "predefined-guitar-fretboards.ly"
 
@@ -32,10 +32,8 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   copyright   = \today
 }
 
-% #(set-global-staff-size 16)
-
 global = {
-  \override BreathingSign.text = \markup { \musicglyph #"scripts.caesura.straight" }
+  \override BreathingSign.text = \markup { \musicglyph "scripts.caesura.straight" }
   \key f \major
   \time 4/4
 }
@@ -161,54 +159,55 @@ ChordTrack = \chordmode {
   f
 }
 
-melody = \relative {
-  \global
-  R1*4
-  \repeat volta 2 {
-    a'4 c, f g % 1b
-    a4 c bes a
-    g4 d e f
-    g4 e d des
-    c4 f g a % 1c
-    bes4 f c' bes
-    a4 gis a f
-    g4 a \slurDotted g(g) \slurSolid
-    a4 c, f g % 1d
-    a4 c bes a
-    g4 d e f
-    g4 e d des
-    c4 f g a % 2a
-    bes4 f c' bes
-    a4 f bes g
-  }
-  \alternative {
-    {
-      f4 e f4. f8
-      c'4 c c4. d8 % 2b
-      c4 bes bes4. f8
-      bes4 bes bes4. c8
-      bes4 a a a
-      a4 a a a % 2c
-      a4 g g4. f8
-      e8 dis e4 f8 e f4
-      g4 a bes4.\fermata gis8
-    }
-    {
-      f4 e f2 \bar "||" % 2d
-      c4 f f4. e8
-    }
-  }
-  f4 a a(g)
+melodyA = \relative {
+  a'4 c, f g % 1b
+  a4 c bes a
+  g4 d e f
+  g4 e d des
+  c4 f g a % 1c
+  bes4 f c' bes
+  a4 gis a f
+  \tag #'dash {g4 a \slurDashed g(g) \slurSolid}
+  \tag #'v1   {g4 a             g2             }
+  \tag #'v2   {g4 a             g g            }
+  a4 c, f g % 1d
+  a4 c bes a
+  g4 d e f
+  g4 e d des
+  c4 f g a % 2a
+  bes4 f c' bes
+  a4 f bes g
+}
+
+melodyB = \relative {
+  f'4 e f4. f8
+  c'4 c c4. d8 % 2b
+  c4 bes bes4. f8
+  bes4 bes bes4. c8
+  bes4 a a a
+  a4 a a a % 2c
+  a4 g g4. f8
+  e8 dis e4 f8 e f4
+  g4 a bes4.\fermata gis8
+}
+
+melodyC = \relative {
+  f'4 e f2 \section % 2d
+  c4 f f4. e8
+}
+
+melodyD = \relative {
+  f'4 a a(g)
   c4 c c4. bes8
-  a4 g a4. \breathe d,8
+  a4 g a4. \caesura d,8
   d4 a' a g % 3a
   f4 e d c
   d4 e f g
-  a1 \breathe
+  a1 \caesura
   a4 a a c
   c4. bes8 a2 % 3b
   a4 g a c
-  a4. g8 f4 \breathe g4\fermata
+  a4. g8 f4 \caesura g4\fermata
   a4 c, f g
   a4 c bes a % 3c
   g4 d e f
@@ -219,6 +218,30 @@ melody = \relative {
   a4 r g r
   f2 r
   R1
+  \bar "|."
+}
+
+
+melody = \relative {
+  \global
+  R1*4
+  \repeat volta 2 {
+    \keepWithTag #'dash \melodyA
+  }
+  \alternative {
+    { \melodyB }
+    { \melodyC }
+  }
+  \melodyD
+  \bar "|."
+}
+
+melodySingle = \relative {
+  \global
+  R1*4
+  \keepWithTag #'v1 \melodyA \melodyB
+  \keepWithTag #'v2 \melodyA \melodyC
+  \melodyD
   \bar "|."
 }
 
@@ -359,11 +382,11 @@ pianoRH = \relative {
   }
   <c f>4 <c f a> s2
   s1
-  q4 <c e g> <c f a>4. \breathe d8
+  q4 <c e g> <c f a>4. \caesura d8
   d4 <f a> <e a> <cis g'> % 3a
   <d f>4 <c e> <bes d> <a d>
   <bes d>4 <cis e> <d f> <d g>
-  <cis a'>1 \breathe
+  <cis a'>1 \caesura
   <f a>4 q q <f c'>
   s2 <f a> % 3b
   <f a>4 <e g> <f a> <f c'>
@@ -373,50 +396,50 @@ pianoRH = \relative {
   <a c f>4-. r r2
 }
 
-pianoRHone = \relative {
-  \global
-  \voiceOne
-  s1*4
-  \repeat volta 2 {
-    a'4 c, f g % 1b
-    a4 c bes a
-    g4 d e f
-    g4 e d des
-    c4 f g a % 1c
-    bes4 f c' bes
-    a4 gis a f
-    g4 a \slurDotted g(g) \slurSolid
-    a4 c, f g % 1d
-    a4 c bes a
-    g4 d e f
-    g4 e d des
-    c4 f g a % 2a
-    bes4 f c' bes
-    a4 f bes g
-  }
-  \alternative {
-    {
-      f4 e f4. f8
-      c'4 c c4. d8 % 2b
-      c4 bes bes4. f8
-      bes4 bes bes4. c8
-      bes4 a a a
-      a4 a a a % 2c
-      a4 g g4. f8
-      s1
-      s1
-    }
-    {
-      f4 e f2 \bar "||" % 2d
-      s1
-    }
-  }
-  s2 <f a>4 <e g>
+pianoRHoneA = \relative {
+  a'4 c, f g % 1b
+  a4 c bes a
+  g4 d e f
+  g4 e d des
+  c4 f g a % 1c
+  bes4 f c' bes
+  a4 gis a f
+  \tag #'dash {g4 a \slurDashed g(g) \slurSolid}
+  \tag #'v1   {g4 a             g2             }
+  \tag #'v2   {g4 a             g g            }
+  a4 c, f g % 1d
+  a4 c bes a
+  g4 d e f
+  g4 e d des
+  c4 f g a % 2a
+  bes4 f c' bes
+  a4 f bes g
+}
+
+pianoRHoneB = \relative {
+  f'4 e f4. f8
+  c'4 c c4. d8 % 2b
+  c4 bes bes4. f8
+  bes4 bes bes4. c8
+  bes4 a a a
+  a4 a a a % 2c
+  a4 g g4. f8
+  s1
+  s1
+}
+
+pianoRHoneC = \relative {
+  f'4 e f2 \section % 2d
+  s1
+}
+
+pianoRHoneD = \relative {
+  s2 <f' a>4 <e g>
   c'4 c c4. bes8
   s1*6
   c4. bes8 s2 % 3b
   s1
-  a4. g8 f4 \breathe g4\fermata
+  a4. g8 f4 \caesura g4\fermata
   a4 c, f g
   a4 c bes a % 3c
   g4 d e f
@@ -427,6 +450,31 @@ pianoRHone = \relative {
   s1
   s1
   s1
+  \bar "|."
+}
+
+pianoRHone = \relative {
+  \global
+  \voiceOne
+  s1*4
+  \repeat volta 2 {
+    \keepWithTag #'dash \pianoRHoneA
+  }
+  \alternative {
+    \pianoRHoneB
+    \pianoRHoneC
+  }
+  \pianoRHoneD
+  \bar "|."
+}
+
+pianoRHoneSingle = \relative {
+  \global
+  \voiceOne
+  s1*4
+  \keepWithTag #'v1 \pianoRHoneA \pianoRHoneB
+  \keepWithTag #'v2 \pianoRHoneA \pianoRHoneC
+  \pianoRHoneD
   \bar "|."
 }
 
@@ -463,7 +511,7 @@ pianoRHtwo = \relative {
       s1*2
     }
     {
-      <bes c>2 <a c> \bar "||" % 2d
+      <bes c>2 <a c> \section % 2d
       s1
     }
   }
@@ -545,11 +593,11 @@ pianoLH = \relative {
   f8 e d4 <cis e> <a a'> % 3a
   <d a'>4 <a a'> <bes f'> <a f'>
   <bes f'>4 <a a'> <d a'> <bes g'>
-  <a e'>1 \breathe
+  <a e'>1 \caesura
   <f' c'>4 q q <a c>
   <g d'>4 c <f, c'>2 % 3b
   <f c'>4 <c c'> <f c'> <a c>
-  <c, c'>4 <c bes'> <f a> \breathe r4\fermata
+  <c, c'>4 <c bes'> <f a> \caesura r4\fermata
   f4 r c r
   f4 ees d r % 3c
   g4 r d r
@@ -564,9 +612,8 @@ pianoLH = \relative {
 }
 
 \book {
-  #(define output-suffix "repeat")
+  \bookOutputSuffix "repeat"
   \score {
-    \context GrandStaff
     <<
       <<
         \new ChordNames { \ChordTrack }
@@ -579,9 +626,9 @@ pianoLH = \relative {
           \new Staff \with { \consists "Volta_engraver" }
           <<
             \new Voice \RehearsalTrack
-            \new Voice = "melody" \melody
-            \new Lyrics \lyricsto "melody" \wordsOne
-            \new Lyrics \lyricsto "melody" \wordsTwo
+            \new Voice = "melody" \keepWithTag #'dash \melody
+            \addlyrics \wordsOne
+            \addlyrics \wordsTwo
           >>
         >>
         \new PianoStaff
@@ -589,7 +636,7 @@ pianoLH = \relative {
           \new Staff
           <<
             \new Voice \pianoRH
-            \new Voice \pianoRHone
+            \new Voice \keepWithTag #'dash \pianoRHone
             \new Voice \pianoRHtwo
           >>
           \new Dynamics \dynamicsPiano
@@ -603,34 +650,53 @@ pianoLH = \relative {
     >>
     \layout {
       indent = 1.5\cm
+      \pointAndClickOff
       \context {
         \Score
-        \remove "Volta_engraver"
-        }
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
       \context {
         \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  #(define output-suffix "single")
+  \bookOutputSuffix "single"
   \score {
-    \unfoldRepeats
     <<
       <<
-        \new ChordNames \ChordTrack
-        \new FretBoards \ChordTrack
+        \new ChordNames \unfoldRepeats \ChordTrack
+%        \new FretBoards \unfoldRepeats \ChordTrack
       >>
       <<
         \new ChoirStaff
         <<
-          \new Dynamics \TempoTrack
+          \new Dynamics \unfoldRepeats \TempoTrack
           \new Staff
           <<
-            \new Voice \RehearsalTrack
-            \new Voice = "melody" \melody
+            \new Voice \unfoldRepeats \RehearsalTrack
+            \new Voice = "melody" \melodySingle
             \new Lyrics \lyricsto "melody" \wordsSingle
           >>
         >>
@@ -638,30 +704,130 @@ pianoLH = \relative {
         <<
           \new Staff
           <<
-            \new Voice \pianoRH
-            \new Voice \pianoRHone
-            \new Voice \pianoRHtwo
+            \new Voice \unfoldRepeats \pianoRH
+            \new Voice                \pianoRHoneSingle
+            \new Voice \unfoldRepeats \pianoRHtwo
           >>
-          \new Dynamics \dynamicsPiano
+          \new Dynamics \unfoldRepeats \dynamicsPiano
           \new Staff
           <<
             \clef "treble"
-            \new Voice \pianoLH
+            \new Voice \unfoldRepeats \pianoLH
           >>
         >>
       >>
     >>
     \layout {
       indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
       \context {
         \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      <<
+        \new ChordNames \unfoldRepeats \ChordTrack
+%        \new FretBoards \unfoldRepeats \ChordTrack
+      >>
+      <<
+        \new ChoirStaff
+        <<
+          \new Dynamics \unfoldRepeats \TempoTrack
+          \new Staff
+          <<
+            \new Voice \unfoldRepeats \RehearsalTrack
+            \new Voice = "melody" \melodySingle
+            \new Lyrics \lyricsto "melody" \wordsSingle
+          >>
+        >>
+        \new PianoStaff
+        <<
+          \new Staff
+          <<
+            \new Voice \unfoldRepeats \pianoRH
+            \new Voice                \pianoRHoneSingle
+            \new Voice \unfoldRepeats \pianoRHtwo
+          >>
+          \new Dynamics \unfoldRepeats \dynamicsPiano
+          \new Staff
+          <<
+            \clef "treble"
+            \new Voice \unfoldRepeats \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
 \book {
-  #(define output-suffix "midi")
+  \bookOutputSuffix "midi"
   \score {
     \unfoldRepeats
     <<
@@ -695,6 +861,15 @@ pianoLH = \relative {
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
