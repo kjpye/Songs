@@ -287,9 +287,11 @@ pianoLHtwo = \relative {
 %        \remove Staff_collecting_engraver
       }
       \context {
-        \Staff \RemoveAllEmptyStaves
+        \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
       }
       \context {
         \ChoirStaff
