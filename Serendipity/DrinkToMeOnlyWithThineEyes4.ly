@@ -129,9 +129,6 @@ wordsMidi = \lyricmode {
   "\nNot " "of " it "self " "but " "thee. "
 }
 
-wordsMidiMen = \lyricmode {
-}
-
 \book {
   \bookOutputSuffix "midi"
   \score {
@@ -155,7 +152,6 @@ wordsMidiMen = \lyricmode {
           <<
             \clef "treble_8"
             \new Voice { \global \repeat unfold \verses \tenor }
-            \addlyrics \wordsMidiMen
           >>
                                 % Bass staff
           \new Staff = bass
@@ -164,7 +160,6 @@ wordsMidiMen = \lyricmode {
             \new Voice { \global \repeat unfold \verses \bass }
           >>
         >>
-    \layout { }
     \midi {}
   }
 }
