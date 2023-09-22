@@ -122,7 +122,7 @@ wordsFour = \lyricmode {
 wordsFive = \lyricmode {
   \set stanza = "5."
   Bless, bless the Con -- queror slain—
-  Salin by div -- ine dec -- ree—
+  Slain by div -- ine dec -- ree—
   Who lived, who died, who lives a -- gain,
   For thee, His saint, for thee!
 }
