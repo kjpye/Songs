@@ -16,7 +16,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 %  meter   arranger
 %  piece       opus
 
-  composer    = "Tom Morley (c. 1557-1603)"
+  composer    = "Thomas Morley (c. 1557-1602)"
 %  arranger    = "arranger"
 %  opus        = "opus"
 
@@ -473,7 +473,7 @@ bass= \relative c' {
       g4 g8 g g4 c,
       g'2 g
       g4 g8 g g4 d
-      g2 d
+      a2 d
       g4. g8 fis4. fis8
       e4 e d d
       e4 c g' g,
