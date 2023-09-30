@@ -759,6 +759,106 @@ wordsBassMidi = \lyricmode {
 }
 
 \book {
+  \bookOutputSuffix "singlepage-alto"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+    <<
+    \new ChoirStaff <<
+% Single soprano staff
+      \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+        \magnifyStaff #4/7
+        \new Voice \RehearsalTrack
+        \new Voice \soprano
+        \addlyrics {\tiny \wordsSop}
+      >>
+% Single alto staff
+      \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+        \new Voice = "alto" \alto
+        \addlyrics \wordsAlto
+      >>
+% Single tenor staff
+      \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+        \magnifyStaff #4/7
+        \new Voice = "tenor" \tenor
+        \new Lyrics \lyricsto "tenor" {\tiny \wordsTenor}
+      >>
+% Single bass staff
+      \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+        \magnifyStaff #4/7
+        \new Voice = "bass" \bass
+        \new Lyrics \lyricsto "bass" {\tiny \wordsBass}
+      >>
+    >>
+  >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-tenor"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+    <<
+    \new ChoirStaff <<
+% Single soprano staff
+      \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+        \magnifyStaff #4/7
+        \new Voice \RehearsalTrack
+        \new Voice = "soprano" \soprano
+        \new Lyrics \lyricsto "soprano" {\tiny \wordsSop}
+      >>
+% Single alto staff
+      \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+        \magnifyStaff #4/7
+        \new Voice = "alto" \alto
+        \new Lyrics \lyricsto "alto" {\tiny \wordsAlto}
+      >>
+% Single tenor staff
+      \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+        \new Voice = "tenor" \tenor
+        \new Lyrics \lyricsto "tenor" \wordsTenor
+      >>
+% Single bass staff
+      \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+        \magnifyStaff #4/7
+        \new Voice = "bass" \bass
+        \new Lyrics \lyricsto "bass" {\tiny \wordsBass}
+      >>
+    >>
+  >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
   \bookOutputSuffix "singlepage-bass"
   \paper {
     top-margin = 0

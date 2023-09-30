@@ -171,6 +171,28 @@ wordsTwoB = \lyricmode {
   \nom So _ those \yesm shall be re -- nowned for love.
 }
   
+wordsSingleB = \lyricmode {
+  \set stanza = "1."
+  Fair -- est Isle, all isles ex -- cell -- ing,
+  Seat of pleas -- ures and of loves,
+  Ven -- us here will choose her dwell -- ing,
+  And for -- sake her Cyp -- rian groves.
+  Cu -- pid from his fav' -- rite nat -- ion
+  Care and en -- vy will re -- move.
+  Jeal -- ous -- y that pois -- ons pass -- ion,
+  And des -- pair that dies for love.
+
+  \set stanza = "2."
+  Gen -- tle mur -- murs, sweet com -- plain -- ing,
+  Sighs that blow the fire of love,
+  Soft re -- puls -- es, kind dis -- dain -- ing,
+  Shall be all the pains you prove.
+  Ev' -- ry swain shall pay his du -- ty,
+  Grate -- ful ev' -- ry nymph shall prove,
+  And as they ex -- cel in beau -- ty
+  So those shall be re -- nowned for love.
+}
+  
 wordsMidiB = \lyricmode {
   \set stanza = "1."
   "Fair" "est " "Isle, " "all " "isles " ex cell "ing, "
@@ -416,7 +438,7 @@ singlescoreB = {
             \new NullVoice = "aligner" { \keepWithTag #'v1 \soprano \keepWithTag #'v2 \soprano }
             \new Voice \partCombine #'(2 . 88) { \global \keepWithTag #'v1 \soprano \keepWithTag #'v2 \soprano \bar "|." }
                                     { \global \keepWithTag #'v1 \alto \nl \keepWithTag #'v2 \alto \bar "|." }
-            \new Lyrics \lyricsto "aligner" { \wordsOneB \wordsTwoB }
+            \new Lyrics \lyricsto "aligner" \wordsSingleB
           >>
                                   % Joint tenor/bass staff
           \new Staff = men \with { printPartCombineTexts = ##f }
@@ -456,6 +478,234 @@ singlescoreB = {
   }
   \score {
     \singlescoreB
+    \layout {
+      #(layout-set-staff-size 20)
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-sop"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \new ChoirStaff <<
+                                %  Soprano staff
+      \new Staff = soprano
+      <<
+        \new Voice { \repeat unfold \verses \RehearsalTrack }
+        \new Voice { \repeat unfold \verses \TempoTrack }
+        \new Voice { \global \keepWithTag #'v1 \soprano \keepWithTag #'v2 \soprano \bar "|." }
+        \addlyrics \wordsSingleB
+      >>
+                                % Alto staff
+      \new Staff = alto
+      <<
+        \magnifyStaff #4/7
+        \new Voice { \global \keepWithTag #'v1 \alto \nl \keepWithTag #'v2 \alto \bar "|." }
+        \addlyrics { \tiny \wordsSingleB }
+      >>
+                                % Tenor staff
+      \new Staff = tenor
+      <<
+        \magnifyStaff #4/7
+        \clef "treble_8"
+        \new Voice { \global \keepWithTag #'v1 \tenor \keepWithTag #'v2 \tenor }
+        \addlyrics { \tiny { \wordsSingleB } }
+      >>
+%    >>
+                                % Bass staff
+      \new Staff = bass
+      <<
+        \magnifyStaff #4/7
+        \clef "bass"
+        \new Voice { \global \keepWithTag #'v1 \bass \keepWithTag #'v2 \bass }
+        \addlyrics { \tiny { \wordsSingleB } }
+      >>
+    >>
+    \layout {
+      #(layout-set-staff-size 20)
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-alto"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \new ChoirStaff <<
+                                %  Soprano staff
+      \new Staff = soprano
+      <<
+        \magnifyStaff #4/7
+        \new Voice { \repeat unfold \verses \RehearsalTrack }
+        \new Voice { \repeat unfold \verses \TempoTrack }
+        \new Voice { \global \keepWithTag #'v1 \soprano \keepWithTag #'v2 \soprano \bar "|." }
+        \addlyrics { \tiny {\wordsSingleB } }
+      >>
+                                % Alto staff
+      \new Staff = alto
+      <<
+        \new Voice { \global \keepWithTag #'v1 \alto \nl \keepWithTag #'v2 \alto \bar "|." }
+        \addlyrics { \wordsSingleB }
+      >>
+                                % Tenor staff
+      \new Staff = tenor
+      <<
+        \magnifyStaff #4/7
+        \clef "treble_8"
+        \new Voice { \global \keepWithTag #'v1 \tenor \keepWithTag #'v2 \tenor }
+        \addlyrics { \tiny { \wordsSingleB } }
+      >>
+%    >>
+                                % Bass staff
+      \new Staff = bass
+      <<
+        \magnifyStaff #4/7
+        \clef "bass"
+        \new Voice { \global \keepWithTag #'v1 \bass \keepWithTag #'v2 \bass }
+        \addlyrics { \tiny { \wordsSingleB } }
+      >>
+    >>
+    \layout {
+      #(layout-set-staff-size 20)
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-tenor"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \new ChoirStaff <<
+                                %  Soprano staff
+      \new Staff = soprano
+      <<
+        \magnifyStaff #4/7
+        \new Voice { \repeat unfold \verses \RehearsalTrack }
+        \new Voice { \repeat unfold \verses \TempoTrack }
+        \new Voice { \global \keepWithTag #'v1 \soprano \keepWithTag #'v2 \soprano \bar "|." }
+        \addlyrics { \tiny {\wordsSingleB } }
+      >>
+                                % Alto staff
+      \new Staff = alto
+      <<
+        \magnifyStaff #4/7
+        \new Voice { \global \keepWithTag #'v1 \alto \nl \keepWithTag #'v2 \alto \bar "|." }
+        \addlyrics { \tiny { \wordsSingleB } }
+      >>
+                                % Tenor staff
+      \new Staff = tenor
+      <<
+        \clef "treble_8"
+        \new Voice { \global \keepWithTag #'v1 \tenor \keepWithTag #'v2 \tenor }
+        \addlyrics { \wordsSingleB }
+      >>
+%    >>
+                                % Bass staff
+      \new Staff = bass
+      <<
+        \magnifyStaff #4/7
+        \clef "bass"
+        \new Voice { \global \keepWithTag #'v1 \bass \keepWithTag #'v2 \bass }
+        \addlyrics { \tiny \wordsSingleB }
+      >>
+    >>
+    \layout {
+      #(layout-set-staff-size 20)
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-bass"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \new ChoirStaff <<
+                                %  Soprano staff
+      \new Staff = soprano
+      <<
+        \magnifyStaff #4/7
+        \new Voice { \repeat unfold \verses \RehearsalTrack }
+        \new Voice { \repeat unfold \verses \TempoTrack }
+        \new Voice { \global \keepWithTag #'v1 \soprano \keepWithTag #'v2 \soprano \bar "|." }
+        \addlyrics { \tiny \wordsSingleB }
+      >>
+                                % Alto staff
+      \new Staff = alto
+      <<
+        \magnifyStaff #4/7
+        \new Voice { \global \keepWithTag #'v1 \alto \nl \keepWithTag #'v2 \alto \bar "|." }
+        \addlyrics { \tiny { \wordsSingleB } }
+      >>
+                                % Tenor staff
+      \new Staff = tenor
+      <<
+        \magnifyStaff #4/7
+        \clef "treble_8"
+        \new Voice { \global \keepWithTag #'v1 \tenor \keepWithTag #'v2 \tenor }
+        \addlyrics { \tiny { \wordsSingleB } }
+      >>
+%    >>
+                                % Bass staff
+      \new Staff = bass
+      <<
+        \clef "bass"
+        \new Voice { \global \keepWithTag #'v1 \bass \keepWithTag #'v2 \bass }
+        \addlyrics { \wordsSingleB }
+      >>
+    >>
     \layout {
       #(layout-set-staff-size 20)
       indent = 1.5\cm
