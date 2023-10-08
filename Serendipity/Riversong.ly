@@ -1091,7 +1091,7 @@ pianoLH = \relative {
           >>
         >>
         <<
-          \new ChordNames { \ChordTrack }
+%          \new ChordNames { \ChordTrack }
 %          \new FretBoards { \ChordTrack }
         >>
         \new PianoStaff <<
@@ -1174,7 +1174,7 @@ pianoLH = \relative {
           >>
         >>
         <<
-          \new ChordNames { \ChordTrack }
+%          \new ChordNames { \ChordTrack }
 %          \new FretBoards { \ChordTrack }
         >>
         \new PianoStaff <<
