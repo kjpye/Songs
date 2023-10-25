@@ -1666,6 +1666,149 @@ global = {
     }
   }
 }
+
+\book {
+  \bookOutputSuffix "singlepage-noacc-alto"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      \new ChoirStaff <<
+	\new Staff = "sopranos" <<
+          \magnifyStaff #4/7
+	  \new Voice \RehearsalTrack
+	  \new Voice \SopranoTempo
+	  \new Voice { << \global \SopranoMusic >> }
+	  \addlyrics {\tiny \SopranoLyrics}
+	>>
+	\new Staff = "altos" <<
+          \new Voice \AltoTempo
+	  \new Voice { << \global \AltoMusic >> }
+	  \addlyrics \AltoLyrics
+	>>
+	\new Staff = "tenori" <<
+          \magnifyStaff #4/7
+          \new Voice \TenorTempo
+	  \new Voice = "tenors" { \clef "treble_8" << \global \TenorMusic >> }
+	  \context Lyrics = "tenors" \lyricsto "tenors" {\tiny \TenorLyrics}
+	>>
+	\new Staff = "basses" <<
+          \magnifyStaff #4/7
+          \new Voice \BassTempo
+	  \new Voice = "basses" { \clef bass << \global \BassMusic >> }
+	  \context Lyrics = "basses" \lyricsto "basses" {\tiny \BassLyrics}
+	>>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-noacc-tenor"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      \new ChoirStaff <<
+	\new Staff = "sopranos" <<
+          \magnifyStaff #4/7
+	  \new Voice \RehearsalTrack
+	  \new Voice \SopranoTempo
+	  \new Voice { << \global \SopranoMusic >> }
+	  \addlyrics {\tiny \SopranoLyrics}
+	>>
+	\new Staff = "altos" <<
+          \magnifyStaff #4/7
+          \new Voice \AltoTempo
+	  \new Voice = "altos" { << \global \AltoMusic >> }
+	  \context Lyrics = "altos" \lyricsto "altos" {\tiny \AltoLyrics}
+	>>
+	\new Staff = "tenori" <<
+          \new Voice \TenorTempo
+	  \new Voice { \clef "treble_8" << \global \TenorMusic >> }
+	  \addlyrics \TenorLyrics
+	>>
+	\new Staff = "basses" <<
+          \magnifyStaff #4/7
+          \new Voice \BassTempo
+	  \new Voice = "basses" { \clef bass << \global \BassMusic >> }
+	  \context Lyrics = "basses" \lyricsto "basses" {\tiny \BassLyrics}
+	>>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
 \book {
   \bookOutputSuffix "singlepage-noacc-bass"
   \paper {
