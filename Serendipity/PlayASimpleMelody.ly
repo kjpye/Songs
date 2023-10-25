@@ -1,4 +1,4 @@
-\version "2.22.0"
+\version "2.25.9"
 
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
@@ -100,6 +100,39 @@ soprano = \relative {
   \bar "|."
 }
 
+wordsSopSep = \lyricmode {
+  One with good old -- fash -- ioned har -- mon -- y,
+  play a sim -- ple mel -- o -- dy?
+
+  if you will play from a cop -- y of a tune that is chop -- py,
+  you'll get all my ap -- plause
+  and that is sim -- ply be -- cause __
+  I want to lis -- ten to rag.
+
+  Come on and hear,
+  Come on and hear,
+  Al -- ex -- an -- der's Rag -- time Band,
+  come on and hear,
+  come on and hear,
+  it's the best band in the land. __
+  And if you care to hear that Swan -- ee Riv -- er played in rag -- time,
+  come on and hear,
+  come on and hear Al -- ex -- an -- der's Rag -- time Band.
+
+  Mu -- si -- cal de -- mon,
+  set your hon -- ey a  -- dream -- in',
+  won't you play me a rag? __
+  Just change that clas -- si -- cal nag __
+  to some sweet beau -- ti -- ful drag __
+  if you will play from a co -- py of a tune that is chop -- py,
+  you'll get all my ap -- plause,
+  and that is sim -- ply be -- cause
+  I want to lis -- ten to rag.
+  Play a tune with all that razz -- a -- ma -- tazz,
+  I want to hear __ a sim -- ple mel -- o -- dy.
+  Al -- ex -- an -- der's Rag -- time Band.
+}
+
 wordsSopMidi = \lyricmode {
   "One " "with " "good " old- fash "ioned " har mon "y, "
   "\nplay " "a " sim "ple " mel o "dy? "
@@ -158,6 +191,39 @@ alto = \relative {
 }
 
 wordsAlto = \lyricmode {
+  One with good old -- fash -- ioned har -- mon -- y,
+  play a sim -- ple mel -- o -- dy?
+
+  if you will play from a cop -- y of a tune that is chop -- py,
+  you'll get all my ap -- plause
+  and that is sim -- ply be -- cause __
+  I want to lis -- ten to rag.
+
+  Come on and hear,
+  Come on and hear,
+  Al -- ex -- an -- der's Rag -- time Band,
+  come on and hear,
+  come on and hear,
+  it's the best band in the land. __
+  And if you care to hear that Swan -- ee Riv -- er played in rag -- time,
+  come on and hear,
+  come on and hear Al -- ex -- an -- der's Rag -- time Band.
+
+  Mu -- si -- cal de -- mon,
+  set your hon -- ey a  -- dream -- in',
+  won't you play me a rag? __
+  Just change that clas -- si -- cal nag __
+  to some sweet beau -- ti -- ful drag __
+  if you will play from a co -- py of a tune that is chop -- py,
+  you'll get all my ap -- plause,
+  and that is sim -- ply be -- cause
+  I want to lis -- ten to rag.
+  Play a tune with all that razz -- a -- ma -- tazz,
+  I want to hear __ a sim -- ple mel -- o -- dy.
+  Al -- ex -- an -- der's Rag -- time Band.
+}
+
+wordsAltoSep = \lyricmode {
   One with good old -- fash -- ioned har -- mon -- y,
   play a sim -- ple mel -- o -- dy?
 
@@ -277,6 +343,39 @@ wordsTenor = \lyricmode {
   _ _ _ _ _ _ _
 }
 
+wordsTenorSep = \lyricmode {
+  Won't you play a sim -- ple mel -- o -- dy
+  like my moth -- er sang to me?
+  Oo, -- O won't you play a sim -- ple mel -- o -- dy?
+  Mu -- si -- cal de -- mon,
+  set your hon -- ey a dream -- in',
+  won't you play me a rag? 
+  Just change that clas -- si -- cal nag 
+  to some sweet beau ti -- ful drag. 
+  Oo, -- and that is sim -- ply be -- cause 
+  I want to lis -- ten to rag.
+  Come on and hear,
+  come on and hear,
+  Al -- ex -- an -- der's Rag -- time Band,
+  come on and hear, come on and hear,
+  it's the best band in the land. 
+  And if you care to hear that Swan -- ee Riv -- er
+  played in rag -- time,
+  come on and hear, come on and hear,
+  Al -- ex -- an -- der's Rag -- time Band.
+  Won't you play, Won't you play,
+  Won't you play a mel -- o -- dy? 
+  Like my moth -- er 
+  like my moth -- er sang for me. 
+  Play a tune, play a tune,
+  play a tune with har mo -- ny.
+  Play it sim -- ple,
+  I want to lis -- ten to rag.
+  Play a tune with all that razz -- a -- ma -- tazz.
+  I want to hear a sim -- ple mel -- o -- dy.
+  Al -- ex -- and -- er's Rag -- time Band.
+}
+
 wordsTenorMidi = \lyricmode {
   "Won't " "you " "play " "a " sim "ple " mel o "dy "
   "\nlike " "my " moth "er " "sang " "to " "me? "
@@ -289,10 +388,10 @@ wordsTenorMidi = \lyricmode {
   "\nOo, "  "and " "that " "is " sim "ply " be "cause " 
   "\nI " "want " "to " lis "ten " "to " "rag. "
   "\nCome " "on " "and " "hear, "
-  "\nsome " "on " "and " "hear, "
+  "\ncome " "on " "and " "hear, "
   "\nAl" ex an "der's " Rag "time " "Band, "
   "\ncome " "on " "and " "hear, " "come " "on " "and " "hear, "
-  "\nit's " "the " "best " "nand " "in " "the " "land. " 
+  "\nit's " "the " "best " "band " "in " "the " "land. " 
   "\nAnd " "if " "you " "care " "to " "hear " "that " Swan "ee " Riv "er "
   "\nplayed " "in " rag "time, "
   "\ncome " "on " "and " "hear, " "come " "on " "and " "hear, "
@@ -350,11 +449,40 @@ wordsBass = \lyricmode {
   Oo, __ "" _ _ _ _ _ _
   _ _ _ _ _ _ _
   Come on and hear,
-  some on and hear,
+  come on and hear,
   Al -- ex -- an -- der's Rag -- time Band,
   come on and hear, come on and hear,
-  it's the best nand in the land. __
+  it's the best band in the land. __
   "" _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  come on and hear, come on and hear,
+  Al -- ex -- an -- der's Rag -- time Band.
+
+  Won't you play a sim -- ple mel -- o -- dy,
+  Like my moth -- er sang to me.
+  One with good old- fas -- ioned har -- mo -- ny.
+  Play a sim -- ple mel -- o -- dy.
+  Play a tune with all that razz -- a -- ma -- tazz.
+  I want to hear a sim -- ple mel -- o -- dy. __
+}
+
+wordsBassSep = \lyricmode {
+  Won't you play a sim -- ple mel -- o -- dy
+  like my moth -- er sang to me?
+  Oo, __ O won't you play a sim -- ple mel -- o -- dy?
+  Mu -- si -- cal de -- mon,
+  set your hon -- ey a dream -- in',
+  won't you play me a rag? __
+  Just change that clas -- si -- cal nag __
+  to some sweet beau -- ti -- ful drag. __
+  Oo, __ and that is sim -- ply be -- cause
+  I want to lis -- ten to rag.
+  Come on and hear,
+  come on and hear,
+  Al -- ex -- an -- der's Rag -- time Band,
+  come on and hear, come on and hear,
+  it's the best band in the land. __
+  And if you care to hear that Swan -- ee Riv -- er
+  played in rag -- time,
   come on and hear, come on and hear,
   Al -- ex -- an -- der's Rag -- time Band.
 
@@ -379,10 +507,10 @@ wordsBassMidi = \lyricmode {
   "\nI " "want " "to " lis "ten " "to " "rag. "
 
   "\nCome " "on " "and " "hear, "
-  "\nsome " "on " "and " "hear, "
+  "\ncome " "on " "and " "hear, "
   "\nAl" ex an "der's " Rag "time " "Band, "
   "\ncome " "on " "and " "hear, " "come " "on " "and " "hear, "
-  "\nit's " "the " "best " "nand " "in " "the " "land. " 
+  "\nit's " "the " "best " "band " "in " "the " "land. " 
   "\nAnd " "if " "you " "want " "to " "hear " "that " Swan "ee " Riv "er "
   "\nplayed " "in " rag "time, "
   "\ncome " "on " "and " "hear, " "come " "on " "and " "hear, "
@@ -655,6 +783,492 @@ pianoLH = \relative {
             midiInstrument = "acoustic grand piano"
           }
           <<
+%            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-sep"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics \wordsSopSep
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \alto
+            \addlyrics \wordsAltoSep
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics \wordsTenorSep
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics \wordsBassSep
+          >>
+          \new Lyrics \with {alignAboveContext = men} \lyricsto alignerT \wordsTenor
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff = pianolh \with {
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+%            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-sop"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics \wordsSopSep
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAltoSep}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsTenorSep}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBassSep}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = pianolh \with {
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+%            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-alto"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSopSep}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \alto
+            \addlyrics \wordsAltoSep
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsTenorSep}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBassSep}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = pianolh \with {
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+%            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-tenor"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSopSep}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAltoSep}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics \wordsTenorSep
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBassSep}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = pianolh \with {
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+%            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-bass"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSopSep}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAltoSep}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsTenorSep}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics \wordsBassSep
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = pianolh \with {
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
 %            \clef "bass"
             \new Voice \pianoLH
           >>
