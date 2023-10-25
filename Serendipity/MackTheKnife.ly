@@ -1305,6 +1305,214 @@ pianoLH = \relative c, {
 }
 
 \book {
+  \bookOutputSuffix "singlepage-alto"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      \new ChoirStaff <<
+                                % Single soprano staff
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+        }
+        <<
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsSop}
+          \new Voice \RehearsalTrack
+          \new Voice \TempoTrack
+          \new Voice = "soprano" \soprano
+          \addlyrics {\tiny \wordsSop}
+        >>
+                                % Single alto staff
+        \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+        }
+        <<
+          \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
+          \new Voice = "alto" \alto
+          \addlyrics \wordsAlto
+        >>
+                                % Single tenor staff
+        \new Staff = tenor \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+        }
+        <<
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = tenor} {\tiny \dynamicsTenor}
+          \new Voice = "tenor" { \clef "treble_8" \tenor }
+          \addlyrics {\tiny \wordsTenor}
+        >>
+                                % Single bass staff
+        \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+        }
+        <<
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = bass} {\tiny \dynamicsBass}
+          \new Voice = "bass" { \clef bass \bass }
+          \addlyrics {\tiny \wordsBass}
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff <<
+          \magnifyStaff #4/7
+          \new Voice \pianoRH
+        >>
+        \new Dynamics {\tiny \dynamicsPiano}
+        \new Staff <<
+          \magnifyStaff #4/7
+          \clef bass
+          \new Voice \pianoLH
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-tenor"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      \new ChoirStaff <<
+                                % Single soprano staff
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+        }
+        <<
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsSop}
+          \new Voice \RehearsalTrack
+          \new Voice \TempoTrack
+          \new Voice = "soprano" \soprano
+          \addlyrics {\tiny \wordsSop}
+        >>
+                                % Single alto staff
+        \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+        }
+        <<
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = alto} {\tiny \dynamicsAlto}
+          \new Voice = "alto" \alto
+          \addlyrics {\tiny \wordsAlto}
+        >>
+                                % Single tenor staff
+        \new Staff = tenor \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+        }
+        <<
+          \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
+          \new Voice = "tenor" { \clef "treble_8" \tenor }
+          \addlyrics \wordsTenor
+        >>
+                                % Single bass staff
+        \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+        }
+        <<
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = bass} {\tiny \dynamicsBass}
+          \new Voice = "bass" { \clef bass \bass }
+          \addlyrics {\tiny \wordsBass}
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff <<
+          \magnifyStaff #4/7
+          \new Voice \pianoRH
+        >>
+        \new Dynamics {\tiny \dynamicsPiano}
+        \new Staff <<
+          \magnifyStaff #4/7
+          \clef bass
+          \new Voice \pianoLH
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+\book {
   \bookOutputSuffix "singlepage-sop"
   \paper {
     top-margin = 0
