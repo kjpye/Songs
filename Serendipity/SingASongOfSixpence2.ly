@@ -667,6 +667,154 @@ pianoLH = \relative {
 }
 
 \book {
+  \bookOutputSuffix "singlepage-sop"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice = descant {\voiceThree \descant}
+            \new Voice \soprano
+            \addlyrics \wordsSop
+          >>
+          \new Lyrics \with{alignAboveContext = soprano} \lyricsto descant \descantwords
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAlto}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            printPartCombineTexts = ##f
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \partCombine \pianoRHone \pianoRHtwo
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = pianolh \with {
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+%        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-alto"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice = descant {\voiceThree \descant}
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSop}
+          >>
+          \new Lyrics \with{alignAboveContext = soprano} \lyricsto descant {\tiny \descantwords}
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Voice \alto
+            \addlyrics \wordsAlto
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            printPartCombineTexts = ##f
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \partCombine \pianoRHone \pianoRHtwo
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = pianolh \with {
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+%        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+\book {
   \bookOutputSuffix "midi-sop"
   \score {
 %   \articulate
