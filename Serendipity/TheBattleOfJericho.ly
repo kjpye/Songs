@@ -1,4 +1,4 @@
-\version "2.22.0"
+\version "2.25.9"
 
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
@@ -1409,6 +1409,270 @@ pianoLHtwo = \relative {
             midiInstrument = "acoustic grand piano"
           }
           <<
+            \clef "bass"
+            \new Voice \partCombine \pianoLHone \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-i"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single part I staff
+          \new Staff = "part1" \with {
+            instrumentName = #"Part I"
+            shortInstrumentName = #"I"
+%            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \partIsingle
+            \addlyrics \wordsIsingle
+          >>
+                                % Single Part II staff
+          \new Staff = "part2" \with {
+            instrumentName = #"Part II"
+            shortInstrumentName = #"II"
+%            midiInstrument = "choir aahs"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \partIIsingle
+            \addlyrics {\tiny \wordsIIsingle}
+          >>
+                                % Single Part III staff
+          \new Staff = "part3" \with {
+            instrumentName = #"Part III"
+            shortInstrumentName = #"III"
+%            midiInstrument = "choir aahs"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \partIIIsingle
+            \addlyrics {\tiny \wordsIIIsingle}
+          >>
+        >>
+%      <<
+%        \new ChordNames { \ChordTrack }
+%        \new FretBoards { \ChordTrack }
+%      >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            printPartCombineTexts = ##f
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \partCombine \pianoRHone \pianoRHtwo
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = pianolh \with {
+            printPartCombineTexts = ##f
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \partCombine \pianoLHone \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-ii"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single part I staff
+          \new Staff = "part1" \with {
+            instrumentName = #"Part I"
+            shortInstrumentName = #"I"
+%            midiInstrument = "choir aahs"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \partIsingle
+            \addlyrics {\tiny \wordsIsingle}
+          >>
+                                % Single Part II staff
+          \new Staff = "part2" \with {
+            instrumentName = #"Part II"
+            shortInstrumentName = #"II"
+%            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Voice \partIIsingle
+            \addlyrics \wordsIIsingle
+          >>
+                                % Single Part III staff
+          \new Staff = "part3" \with {
+            instrumentName = #"Part III"
+            shortInstrumentName = #"III"
+%            midiInstrument = "choir aahs"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \partIIIsingle
+            \addlyrics {\tiny \wordsIIIsingle}
+          >>
+        >>
+%      <<
+%        \new ChordNames { \ChordTrack }
+%        \new FretBoards { \ChordTrack }
+%      >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            printPartCombineTexts = ##f
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \partCombine \pianoRHone \pianoRHtwo
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = pianolh \with {
+            printPartCombineTexts = ##f
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \partCombine \pianoLHone \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-iii"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single part I staff
+          \new Staff = "part1" \with {
+            instrumentName = #"Part I"
+            shortInstrumentName = #"I"
+%            midiInstrument = "choir aahs"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \partIsingle
+            \addlyrics {\tiny \wordsIsingle}
+          >>
+                                % Single Part II staff
+          \new Staff = "part2" \with {
+            instrumentName = #"Part II"
+            shortInstrumentName = #"II"
+%            midiInstrument = "choir aahs"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \partIIsingle
+            \addlyrics {\tiny \wordsIIsingle}
+          >>
+                                % Single Part III staff
+          \new Staff = "part3" \with {
+            instrumentName = #"Part III"
+            shortInstrumentName = #"III"
+%            midiInstrument = "choir aahs"
+          }
+          <<
+            \clef "bass"
+            \new Voice \partIIIsingle
+            \addlyrics \wordsIIIsingle
+          >>
+        >>
+%      <<
+%        \new ChordNames { \ChordTrack }
+%        \new FretBoards { \ChordTrack }
+%      >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            printPartCombineTexts = ##f
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \partCombine \pianoRHone \pianoRHtwo
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = pianolh \with {
+            printPartCombineTexts = ##f
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
             \clef "bass"
             \new Voice \partCombine \pianoLHone \pianoLHtwo
           >>
