@@ -158,18 +158,18 @@ soprano = \relative {
   R1
   r2 r8\fermata
   \repeat volta \verses {
-    s4.
-    s1*7
-    s2 s8
+    r4.
+    R1*7
+    r2 r8
     bes'8^\markup\smallCaps Soprano c d % 40d
     ees4. d8 8 c bes g
-    bes8[g] ees4 \oneVoice r8 \voiceOne bes' c d
+    bes8[g] ees4 r8 bes' c d
     ees4. d8 8 c bes g % 40e
     f2~8 bes^\cresc bes bes
     g'4.^\f f8 8 ees c ees
-    bes8[g] ees4 \oneVoice r8 \voiceOne d ees f % 41a
+    bes8[g] ees4 r8 d ees f % 41a
     g8 c bes g f ees c d
-    ees2 \oneVoice r8
+    ees2 r8
   }
   \bar "|."
 }
@@ -255,18 +255,18 @@ alto = \relative {
   R1
   r2 r8\fermata
   \repeat volta \verses {
-    s4.
-    s1*7
-    s2 s8
+    r4.
+    R1*7
+    r2 r8
     ees'8_\markup\smallCaps Alto 8 f
     ees4. bes'8 8 aes ees ees % 40d
-    d4 ees s8 ees ees f
+    d4 ees r8 ees ees f
     ees4. g8 8 8 8 ees % 40e
     f4(ees d8) d\omit\cresc ees aes
     g4.^\omit\f 8 aes aes ees ees
-    ees4 4 s8 bes ees ees % 41a
+    ees4 4 r8 bes ees ees % 41a
     ees8 8 8 8 c8 8 8 bes
-    bes2 s8
+    bes2 r8
   }
   \bar "|."
 }
@@ -277,18 +277,18 @@ tenor = \relative {
   R1
   r2 r8\fermata
   \repeat volta \verses {
-    s4.
-    s1*7
-    s2 s8
+    r4.
+    R1*7
+    r2 r8
     g8^\markup\smallCaps Tenor c bes
     bes4. ees8 8 8 bes bes
-    aes4 g \oneVoice r8 \voiceOne bes aes aes
+    aes4 g r8 bes aes aes
     g4. b8 8 c des des % 40e
     c2(bes8) bes^\cresc c d
     des4.^\f 8 c c aes c
-    bes4 4 \oneVoice r8 \voiceOne 8 a a % 41a
+    bes4 4 r8 8 a a % 41a
     bes8 aes g bes g8 8 aes aes
-    g2 \oneVoice r8
+    g2 r8
   }
   \bar "|."
 }
@@ -299,18 +299,18 @@ bass = \relative {
   R1
   r2 r8\fermata
   \repeat volta \verses {
-    s4.
-    s1*7
-    s2 s8
+    r4.
+    R1*7
+    r2 r8
     ees8_\markup\smallCaps Bass aes aes
     g4. 8 aes8 8 g ees
-    bes4 c s8 g' aes f
+    bes4 c r8 g' aes f
     c4. f8 ees ees ees ees % 40e
     aes,4(a bes8) aes'\omit\cresc g f
     ees4.\omit\f 8 aes aes aes aes
-    g4 4 s8 g c,8 8 % 41a
+    g4 4 r8 g c,8 8 % 41a
     bes8 8 8 8 c8 8 f bes,
-    ees2 s8
+    ees2 r8
   }
   \bar "|."
 }
@@ -507,11 +507,12 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
-        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
-        \override BarNumber.break-visibility = ##(#f #t #t)
-      }
+      \context { \Staff
+                 \RemoveAllEmptyStaves
+                 barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+                 \override BarNumber.break-visibility = ##(#f #t #t)
+                 \consists Merge_rests_engraver
+               }
     }
   }
 }
@@ -584,11 +585,12 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
-        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
-        \override BarNumber.break-visibility = ##(#f #t #t)
-      }
+      \context { \Staff
+                 \RemoveAllEmptyStaves
+                 barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+                 \override BarNumber.break-visibility = ##(#f #t #t)
+                 \consists Merge_rests_engraver
+               }
     }
   }
 }
@@ -670,11 +672,12 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
-        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
-        \override BarNumber.break-visibility = ##(#f #t #t)
-      }
+      \context { \Staff
+                 \RemoveAllEmptyStaves
+                 barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+                 \override BarNumber.break-visibility = ##(#f #t #t)
+                 \consists Merge_rests_engraver
+               }
     }
   }
 }
@@ -745,11 +748,12 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
-        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
-        \override BarNumber.break-visibility = ##(#f #t #t)
-      }
+      \context { \Staff
+                 \RemoveAllEmptyStaves
+                 barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+                 \override BarNumber.break-visibility = ##(#f #t #t)
+                 \consists Merge_rests_engraver
+               }
     }
     \midi {}
   }
