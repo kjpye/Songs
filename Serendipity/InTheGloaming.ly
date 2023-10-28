@@ -912,6 +912,276 @@ wordsBassSepMidi = \lyricmode {
 }
 
 \book {
+  \bookOutputSuffix "singlepage-sep-sop"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      \new ChoirStaff <<
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+        }
+        <<
+          \new Voice \TempoTrack
+          \new Voice \RehearsalTrack
+          \new Dynamics \with {alignAboveContext = soprano} \dynamicsWomen
+          \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
+          \new Voice = soprano \soprano
+          \addlyrics \wordsSopSep
+        >>
+        \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+        }
+        <<
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = alto} {\teeny \dynamicsWomen}
+          \new Dynamics \with {alignAboveContext = alto} {\teeny \dynamicsAlto}
+          \new Voice \alto
+          \addlyrics {\tiny \wordsAltoSep}
+        >>
+        \new Staff = tenor \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+        }
+        <<
+          \clef "treble_8"
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = tenor} {\teeny \dynamicsMen}
+          \new Dynamics \with {alignAboveContext = tenor} {\teeny \dynamicsTenor}
+          \new Voice \tenor
+          \addlyrics {\tiny \wordsTenorSep}
+        >>
+        \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+        }
+        <<
+          \magnifyStaff #4/7
+          \clef bass
+          \new Dynamics \with {alignAboveContext = bass} {\teeny \dynamicsMen}
+          \new Dynamics \with {alignAboveContext = bass} {\teeny \dynamicsBass}
+          \new Voice \bass
+          \addlyrics {\tiny \wordsBassSep}
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff = pianorh <<
+          \magnifyStaff #4/7
+          \new Voice \pianoRHone
+          \new Voice \pianoRHtwo
+        >>
+        \new Dynamics {\teeny \dynamicsPiano}
+        \new Staff = pianolh <<
+          \clef bass
+          \magnifyStaff #4/7
+          \new Voice \pianoLHone
+          \new Voice \pianoLHtwo
+        >>
+      >>
+    >>
+    \layout {
+      #(layout-set-staff-size 20)
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-sep-alto"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      \new ChoirStaff <<
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+        }
+        <<
+          \magnifyStaff #4/7
+          \new Voice \TempoTrack
+          \new Voice \RehearsalTrack
+          \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsWomen}
+          \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsSop}
+          \new Voice = soprano \soprano
+          \addlyrics {\tiny \wordsSopSep}
+        >>
+        \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+        }
+        <<
+          \new Dynamics \with {alignAboveContext = alto} \dynamicsWomen
+          \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
+          \new Voice \alto
+          \addlyrics \wordsAltoSep
+        >>
+        \new Staff = tenor \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+        }
+        <<
+          \clef "treble_8"
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = tenor} {\teeny \dynamicsMen}
+          \new Dynamics \with {alignAboveContext = tenor} {\teeny \dynamicsTenor}
+          \new Voice \tenor
+          \addlyrics {\tiny \wordsTenorSep}
+        >>
+        \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+        }
+        <<
+          \magnifyStaff #4/7
+          \clef bass
+          \new Dynamics \with {alignAboveContext = bass} {\teeny \dynamicsMen}
+          \new Dynamics \with {alignAboveContext = bass} {\teeny \dynamicsBass}
+          \new Voice \bass
+          \addlyrics {\tiny \wordsBassSep}
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff = pianorh <<
+          \magnifyStaff #4/7
+          \new Voice \pianoRHone
+          \new Voice \pianoRHtwo
+        >>
+        \new Dynamics {\teeny \dynamicsPiano}
+        \new Staff = pianolh <<
+          \clef bass
+          \magnifyStaff #4/7
+          \new Voice \pianoLHone
+          \new Voice \pianoLHtwo
+        >>
+      >>
+    >>
+    \layout {
+      #(layout-set-staff-size 20)
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-sep-tenor"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      \new ChoirStaff <<
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+        }
+        <<
+          \magnifyStaff #4/7
+          \new Voice \TempoTrack
+          \new Voice \RehearsalTrack
+          \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsWomen}
+          \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsSop}
+          \new Voice = soprano \soprano
+          \addlyrics {\tiny \wordsSopSep}
+        >>
+        \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+        }
+        <<
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = alto} {\teeny \dynamicsWomen}
+          \new Dynamics \with {alignAboveContext = alto} {\teeny \dynamicsAlto}
+          \new Voice \alto
+          \addlyrics {\tiny \wordsAltoSep}
+        >>
+        \new Staff = tenor \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+        }
+        <<
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = tenor} \dynamicsMen
+          \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
+          \new Voice \tenor
+          \addlyrics \wordsTenorSep
+        >>
+        \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+        }
+        <<
+          \magnifyStaff #4/7
+          \clef bass
+          \new Dynamics \with {alignAboveContext = bass} {\teeny \dynamicsMen}
+          \new Dynamics \with {alignAboveContext = bass} {\teeny \dynamicsBass}
+          \new Voice \bass
+          \addlyrics {\tiny \wordsBassSep}
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff = pianorh <<
+          \magnifyStaff #4/7
+          \new Voice \pianoRHone
+          \new Voice \pianoRHtwo
+        >>
+        \new Dynamics {\teeny \dynamicsPiano}
+        \new Staff = pianolh <<
+          \clef bass
+          \magnifyStaff #4/7
+          \new Voice \pianoLHone
+          \new Voice \pianoLHtwo
+        >>
+      >>
+    >>
+    \layout {
+      #(layout-set-staff-size 20)
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+\book {
   \bookOutputSuffix "singlepage-sep-bass"
   \paper {
     top-margin = 0
@@ -933,8 +1203,8 @@ wordsBassSepMidi = \lyricmode {
           \magnifyStaff #4/7
           \new Voice \TempoTrack
           \new Voice \RehearsalTrack
-          \new Dynamics \with {alignAboveContext = soprano} \dynamicsWomen
-          \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
+          \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsWomen}
+          \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsSop}
           \new Voice = soprano \soprano
           \addlyrics {\tiny \wordsSopSep}
         >>
@@ -944,12 +1214,11 @@ wordsBassSepMidi = \lyricmode {
         }
         <<
           \magnifyStaff #4/7
-          \new Dynamics \with {alignAboveContext = alto} \dynamicsWomen
-          \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
+          \new Dynamics \with {alignAboveContext = alto} {\teeny \dynamicsWomen}
+          \new Dynamics \with {alignAboveContext = alto} {\teeny \dynamicsAlto}
           \new Voice \alto
           \addlyrics {\tiny \wordsAltoSep}
         >>
-        \new Dynamics \dynamicsTenor
         \new Staff = tenor \with {
           instrumentName = #"Tenor"
           shortInstrumentName = #"T"
@@ -957,8 +1226,8 @@ wordsBassSepMidi = \lyricmode {
         <<
           \clef "treble_8"
           \magnifyStaff #4/7
-          \new Dynamics \with {alignAboveContext = tenor} \dynamicsMen
-          \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
+          \new Dynamics \with {alignAboveContext = tenor} {\teeny \dynamicsMen}
+          \new Dynamics \with {alignAboveContext = tenor} {\teeny \dynamicsTenor}
           \new Voice \tenor
           \addlyrics {\tiny \wordsTenorSep}
         >>
@@ -980,7 +1249,7 @@ wordsBassSepMidi = \lyricmode {
           \new Voice \pianoRHone
           \new Voice \pianoRHtwo
         >>
-        \new Dynamics \dynamicsPiano
+        \new Dynamics {\teeny \dynamicsPiano}
         \new Staff = pianolh <<
           \clef bass
           \magnifyStaff #4/7
