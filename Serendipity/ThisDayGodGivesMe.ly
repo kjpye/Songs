@@ -1,4 +1,4 @@
-\version "2.19.82"
+\version "2.25.9"
 
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 
@@ -73,9 +73,8 @@ RehearsalTrack = {
   s2 s2
 }
 
-soprano = \relative c' {
-  \global
-  c4 e g c2. d
+soprano = \relative {
+  c'4 e g c2. d
   b4 a g a2. g
   c,4 d e g2. a
   g4 e c d2.~d
@@ -83,12 +82,10 @@ soprano = \relative c' {
   g4 e c c2. d
   e4 d e g2. a
   d,4 e d c2.~c
-  \bar "|."
 }
 
-alto = \relative c' {
-  \global
-  c4 c e g2. a
+alto = \relative {
+  c'4 c e g2. a
   d,4 d d fis2. d
   c4 d e g2. f
   e4 d c d2.~d
@@ -96,11 +93,9 @@ alto = \relative c' {
   e4 c g a2. a
   c4 d e b2. c
   a4 b b c2.~c
-  \bar "|."
 }
 
-tenor = \relative c {
-  \global
+tenor = \relative {
   e4 g c c2. a
   g4 a b d2. b
   e,4 f g c2. c
@@ -109,12 +104,9 @@ tenor = \relative c {
   c4 g e e2. f
   g4 g g e2.e
   a4 g g e2.~e
-  \bar "|."
 }
 
-bass= \relative c {
-  \global
-  \clef bass
+bass= \relative {
   c4 c c e2. f
   g4 fis g d2. g
   c,4 c c e2. f
@@ -123,54 +115,15 @@ bass= \relative c {
   c4 c c a2. d
   c4 b c e2. a,
   f4 g g c2.~c
-  \bar "|."
 }
 
 pianoRH = \relative c' {
   \global
   c4
-  \bar "|."
-}
-
-pianoRHone = \relative c' {
-  \global
-  \clef bass
-  \voiceOne
-  c4
-  \bar "|."
-}
-
-pianoRHtwo = \relative c' {
-  \global
-  \voiceTwo
-  c4
-  \bar "|."
-}
-
-pianoLH = \relative c' {
-  \global
-  \oneVoice
-  c4
-  \bar "|."
-}
-
-pianoLHone = \relative c' {
-  \global
-  \clef bass
-  \voiceOne
-  c4
-  \bar "|."
-}
-
-pianoLHtwo = \relative c' {
-  \global
-  \clef bass
-  \voiceTwo
-  c4
-  \bar "|."
 }
 
 wordsOne = \lyricmode {
+  \set stanza = "1."
   This day God gives me strength of high heav- en,
   Sun and moon shin- ing, flame in my hearth.
   Flash- ing of light- ning, wind in its swift- ness,
@@ -178,52 +131,266 @@ wordsOne = \lyricmode {
 }
 
 wordsTwo = \lyricmode {
+  \set stanza = "2."
   This day God sends me strength to sus- tain me,
   Might to up- hold me, wis- dom to guide.
-  Your eues are wach- ful, your ears are lis- tening,
+  Your eyes are watch- ful, your ears are lis- tening,
   Your lips are speak- ing, friend at my side.
 }
 
 wordsThree = \lyricmode {
-  God's way is my way, God's shield is round me,
+  \set stanza = "3." 
+ God's way is my way, God's shield is round me,
   God's host def- end me, sav- ing from ill.
   An- gels of heav- en drive from me al- ways
   All that would harm me, stand by me still.
 }
 
 wordsFour = \lyricmode {
+  \set stanza = "4."
   Ris- ing, I thank you, might- y and strong One,
   King of cre- a- tion, giv- er of rest.
   Firm- ly con- fess- ing three- ness of per- sons,
   One- ness of God- head, tri- ni- ty blest.
 }
 
-\score {
-  <<
-    \new ChoirStaff <<
-% Joint soprano/alto staff
-      \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
-        \new Voice \RehearsalTrack
-        \new Voice = "soprano" { \voiceOne \soprano }
-        \new Voice = "alto"    { \voiceTwo \alto    }
-        \new Lyrics \lyricsto "soprano" \wordsOne
-        \new Lyrics \lyricsto "soprano" \wordsTwo
-        \new Lyrics \lyricsto "soprano" \wordsThree
-        \new Lyrics \lyricsto "soprano" \wordsFour
-      >>
-% Joint tenor/bass staff
-      \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
-        \new Voice = "tenor" { \voiceOne \tenor }
-        \new Voice = "bass"  { \voiceTwo \bass}
+wordsMidi = \lyricmode {
+  \set stanza = "1."
+  "This " "day " "God " "gives " "me " "strength " "of " "high " heav "en, "
+  "\nSun " "and " "moon " shin "ing, " "flame " "in " "my " "hearth. "
+  "\nFlash" "ing " "of " light "ning, " "wind " "in " "its " swift "ness, "
+  "\nDeeps " "of " "the " o "cean, " firm "ness " "of " "earth.\n"
+
+  \set stanza = "2."
+  "\nThis " "day " "God " "sends " "me " "strength " "to " sus "tain " "me, "
+  "\nMight " "to " up "hold " "me, " wis "dom " "to " "guide. "
+  "\nYour " "eyes " "are " watch "ful, " "your " "ears " "are " lis "tening, "
+  "\nYour " "lips " "are " speak "ing, " "friend " "at " "my " "side.\n"
+
+  \set stanza = "3." 
+ "\nGod's " "way " "is " "my " "way, " "God's " "shield " "is " "round " "me, "
+  "\nGod's " "host " def "end " "me, " sav "ing " "from " "ill. "
+  "\nAn" "gels " "of " heav "en " "drive " "from " "me " al "ways "
+  "\nAll " "that " "would " "harm " "me, " "stand " "by " "me " "still.\n"
+
+  \set stanza = "4."
+  "\nRis" "ing, " "I " "thank " "you, " might "y " "and " "strong " "One, "
+  "\nKing " "of " cre a "tion, " giv "er " "of " "rest. "
+  "\nFirm" "ly " con fess "ing " three "ness " "of " per "sons, "
+  "\nOne" "ness " "of " God "head, " tri ni "ty " "blest. "
+}
+
+\book {
+  \bookOutputSuffix "repeat"
+  \score {
+    <<
+      \new ChoirStaff <<
+                                % Joint soprano/alto staff
+        \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
+          \new Voice \RehearsalTrack
+          \new Voice = "soprano" { \global \voiceOne \soprano \bar "|." }
+          \new Voice = "alto"    { \global \voiceTwo \alto    }
+          \new Lyrics \lyricsto "soprano" \wordsOne
+          \new Lyrics \lyricsto "soprano" \wordsTwo
+          \new Lyrics \lyricsto "soprano" \wordsThree
+          \new Lyrics \lyricsto "soprano" \wordsFour
+        >>
+                                % Joint tenor/bass staff
+        \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
+          \clef bass
+          \new Voice = "tenor" { \global \voiceOne \tenor }
+          \new Voice = "bass"  { \global \voiceTwo \bass}
+        >>
       >>
     >>
-  >>
-  \layout {
-    indent = 1.5\cm
-    \context {
-      \Staff \RemoveAllEmptyStaves
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
     }
   }
-  \midi {
+}
+
+\book {
+  \bookOutputSuffix "single"
+  \score {
+    <<
+      \new ChoirStaff <<
+                                % Joint soprano/alto staff
+        \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
+          \new Voice \RehearsalTrack
+          \new Voice = "soprano" { \global \voiceOne \repeat unfold 4 \soprano \bar "|." }
+          \new Voice = "alto"    { \global \voiceTwo
+                                   \alto \section \break
+                                   \alto \section \break
+                                   \alto \section \break
+                                   \alto
+                                 }
+          \new Lyrics \lyricsto "soprano" {\wordsOne \wordsTwo \wordsThree \wordsFour}
+        >>
+                                % Joint tenor/bass staff
+        \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
+          \clef bass
+          \new Voice = "tenor" { \global \voiceOne \repeat unfold 4 \tenor }
+          \new Voice = "bass"  { \global \voiceTwo \repeat unfold 4 \bass}
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      \new ChoirStaff <<
+                                % Joint soprano/alto staff
+        \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
+          \new Voice \RehearsalTrack
+          \new Voice = "soprano" { \global \voiceOne \repeat unfold 4 \soprano \bar "|." }
+          \new Voice = "alto"    { \global \voiceTwo
+                                   \alto \section \break
+                                   \alto \section \break
+                                   \alto \section \break
+                                   \alto
+                                 }
+          \new Lyrics \lyricsto "soprano" {\wordsOne \wordsTwo \wordsThree \wordsFour}
+        >>
+                                % Joint tenor/bass staff
+        \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
+          \clef bass
+          \new Voice = "tenor" { \global \voiceOne \repeat unfold 4 \tenor }
+          \new Voice = "bass"  { \global \voiceTwo \repeat unfold 4 \bass}
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi"
+  \score {
+    <<
+      \new ChoirStaff <<
+                                % Soprano staff
+        \new Staff = soprano \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+          \new Voice \RehearsalTrack
+          \new Voice = "soprano" { \global \voiceOne \repeat unfold 4 \soprano \bar "|." }
+          \addlyrics \wordsMidi
+        >>
+                                % Alto staff
+        \new Staff = alto \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+          \new Voice = "alto"    { \global \voiceTwo \repeat unfold 4 \alto}
+        >>
+                                % Tenor staff
+        \new Staff = tenor \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+          \clef "treble_8"
+          \new Voice = "tenor" { \global \voiceOne \repeat unfold 4 \tenor }
+        >>
+                                % Bass staff
+        \new Staff = bass \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+          \clef bass
+             \new Voice = "bass"  { \global \voiceTwo \repeat unfold 4 \bass}
+        >>
+      >>
+    >>
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
