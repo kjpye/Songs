@@ -43,6 +43,8 @@ RehearsalTrack = {
   \textMark \markup { \box \bold "B" } s2.*4
   \textMark \markup { \box \bold "C" } s2.*4
   \textMark \markup { \box \bold "D" } s2.*4
+  \textMark \markup { \box \bold "E" } s2.*4
+  \textMark \markup { \box \bold "F" } s2.*4
 }
 
 TempoTrack = {
@@ -58,6 +60,9 @@ soprano = \relative {
   b8. a16 g8 4 d8 | e4. g4 a8 | b8. c16 b8 4 a8 | g4.~4 r8 |
   f8. g16 a8 4 c8 | b4. g4 8 | fis g a d4 c8 | b4.~4 8 |
   b8 c b8 4 a8 | g4. e4 8 | d g fis b4 a8 | g4.~4 r8 |
+  \section \sectionLabel \markup\smallCaps Chorus. \break
+  d'8 8 8 4 c8 | b4. 4 r8 | 8 8 8 4 a8 | g4.~4 r8 |
+  g8 fis e8 4 ees8 | d4. g4 a8 | b b c b4 a8 | g4.~4 r8 |
 }
 
 alto = \relative {
@@ -66,6 +71,8 @@ alto = \relative {
   d8. 16 8 4 8 | c4. e4 ees8 | d8. e16 d8 4 c8 | b4.~4 r8 |
   \partCombineApart R2. | R | R | r4 r8 r4 \partCombineAutomatic d8 |
   d8 e d dis4 8 | e4. c4 8 | b d d d4 c8 | b4.~4 r8 |
+  g'8 8 8 4 8 | 4. 4 r8 | dis8 8 8 4 fis8 | e4.~4 r8 |
+  e8 d c8 4 8 | b4. d4 ees8 | d d e d4 c8 | b4.~4 r8 |
 }
 
 tenor = \relative {
@@ -74,6 +81,8 @@ tenor = \relative {
   g8. c16 b8 4 g8 | 4. c4 g8 | 8. 16 8 fis4 8 | g4.~4 r8 |
   a8. b16 c8 4 e8 | d4. b4 8 | a b c fis4 e8 | d4.~4 g,8 |
   g8 8 8 fis4 b8 | g4. 4 8 | 8 b a g4 fis8 | g4.~4 r8 |
+  b8 8 8 4 e8 | d4. 4 r8 | b8 fis8 8 4 b8 | 4.~4 r8 |
+  c8 g g g4 8 | 4. 4 8 | 8 8 8 fis4 8 | g4.~4 r8 |
 }
 
 bass = \relative {
@@ -82,12 +91,18 @@ bass = \relative {
   g8. 16 8 4 b,8 | c4. 4 8 | d8. 16 8 4 8 | g,4.~4 r8 |
   \partCombineApart R2. | R | R | r4 r8 r4 \partCombineAutomatic g'8 |
   g8 8 8 b,4 8 | c4. 4 8 | d8 8 8 4 8 | g,4.~4 r8 |
+  g8 8 8 4 8 | 4. 4 r8 | b,8 8 8 4 8 | e4.~4 r8 |
+  c8 8 8 4 8 | g4. b4 c8 | d d d d4 8 | g,4.~4 r8 |
 }
 
 nom  = {   \set ignoreMelismata = ##t }
 yesm = { \unset ignoreMelismata       }
 
 chorus = \lyricmode {
+  On -- ly a word for Je -- sus—
+  On -- ly a whis -- pered prayer—
+  O -- ver some grief- worn spi -- rit
+  May rest like a sun -- beam fair!
 }
 
 chorusMen = \lyricmode {
@@ -114,7 +129,7 @@ wordsTwo = \lyricmode {
   Where, o -- ver a fa -- ding rose -- bud,
   A mo -- ther her vi -- gil kept.
   “On -- ly a beam of sun -- shine”
-  That miled thro' her fall -- ing tears,
+  That smiled thro' her fall -- ing tears,
   And showed her the bow of pro -- mise,
   For -- got -- ten per -- haps for years.
 }
@@ -140,7 +155,11 @@ wordsMidi = \lyricmode {
   "\n“On" "ly " "a " "beam " "of " sun "shine”— "
   "\nThat " "fell " "from " "the " "arch " a "bove: "
   "\nAnd " ten der "ly, " soft "ly " whis "pered "
-  "\nA " mes "sage " "of " "peace " "and " "love.\n"
+  "\nA " mes "sage " "of " "peace " "and " "love."
+  "\nOn" "ly " "a " "word " "for " Je "sus— "
+  "\nOn" "ly " "a " whis "pered " "prayer— "
+  "\nO" "ver " "some " grief- "worn " spi "rit "
+  "\nMay " "rest " "like " "a " sun "beam " "fair!\n"
 
   \set stanza = "2."
   "\n“On" "ly " "a " "beam " "of " sun "shine” "
@@ -148,9 +167,13 @@ wordsMidi = \lyricmode {
   "\nWhere, " o "ver " "a " fa "ding " rose "bud, "
   "\nA " mo "ther " "her " vi "gil " "kept. "
   "\n“On" "ly " "a " "beam " "of " sun "shine” "
-  "\nThat " "miled " "thro' " "her " fall "ing " "tears, "
+  "\nThat " "smiled " "thro' " "her " fall "ing " "tears, "
   "\nAnd " "showed " "her " "the " "bow " "of " pro "mise, "
-  "\nFor" got "ten " per "haps " "for " "years.\n"
+  "\nFor" got "ten " per "haps " "for " "years."
+  "\nOn" "ly " "a " "word " "for " Je "sus— "
+  "\nOn" "ly " "a " whis "pered " "prayer— "
+  "\nO" "ver " "some " grief- "worn " spi "rit "
+  "\nMay " "rest " "like " "a " sun "beam " "fair!\n"
 
   \set stanza = "3."
   "\nOn" "ly " "a " "word " "for " Je "sus, "
@@ -161,6 +184,10 @@ wordsMidi = \lyricmode {
   "\nYour " mis "sion " "of " "joy " ful "fil; "
   "\nRe" mem "ber " "the " Sa "viour's " pro "mise, "
   "\nThat " "He " "will " "be " "with " "you " "still. "
+  "\nOn" "ly " "a " "word " "for " Je "sus— "
+  "\nOn" "ly " "a " whis "pered " "prayer— "
+  "\nO" "ver " "some " grief- "worn " spi "rit "
+  "\nMay " "rest " "like " "a " sun "beam " "fair!\n"
 }
 
 wordsMidiMen = \lyricmode {
