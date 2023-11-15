@@ -1,4 +1,4 @@
-\version "2.20.2"
+\version "2.25.9"
 
 \include "articulate.ly"
 
@@ -856,12 +856,12 @@ pedal = {
             \new Lyrics \lyricsto "partII" \wordsIIsingle
           >>
                                 % Joint staff
-          \new Staff \with { printPartCombineTexts = ##f } <<
-            \new Voice \RehearsalTrack
-            \new Voice = "partI"  { \partCombine \partIjoint \partIIjoint }
-            \new NullVoice = aligner { \partIjoint }
-            \new Lyrics \lyricsto "aligner" \wordsJoint
-          >>
+%          \new Staff \with { printPartCombineTexts = ##f } <<
+%            \new Voice \RehearsalTrack
+%            \new Voice = "partI"  { \partCombine \partIjoint \partIIjoint }
+%            \new NullVoice = aligner { \partIjoint }
+%            \new Lyrics \lyricsto "aligner" \wordsJoint
+%          >>
         >>
         \new PianoStaff <<
           \new Staff <<
@@ -871,6 +871,76 @@ pedal = {
           >>
           \new Dynamics \dynamicsPiano
           \new Staff \with {pedalSustainStyle = #'bracket } <<
+            \clef "bass"
+            \new Voice \pianoLH
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+            \new Dynamics \pedal
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+    \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+   \unfoldRepeats
+%   \articulate
+    <<
+      <<
+        \new ChordNames { \ChordTrack }
+%        \new FretBoards { \ChordTrack }
+      >>
+      <<
+        \new ChoirStaff <<
+                                % Single part I staff
+          \new Staff <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice = "partI" { \partIjoint \partIsingle }
+            \new Lyrics \lyricsto "partI" \wordsIsingle
+          >>
+                                % Single part II staff
+          \new Staff <<
+            \new Voice = "partII" { \partIIjoint \partIIsingle }
+            \new Lyrics \lyricsto "partII" \wordsIIsingle
+          >>
+                                % Joint staff
+%          \new Staff \with { printPartCombineTexts = ##f } <<
+%            \new Voice \RehearsalTrack
+%            \new Voice = "partI"  { \partCombine \partIjoint \partIIjoint }
+%            \new NullVoice = aligner { \partIjoint }
+%            \new Lyrics \lyricsto "aligner" \wordsJoint
+%          >>
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff \with {pedalSustainStyle = #'bracket } <<
+            \magnifyStaff #4/7
             \clef "bass"
             \new Voice \pianoLH
             \new Voice \pianoLHone
