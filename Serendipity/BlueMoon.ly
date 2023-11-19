@@ -1,4 +1,4 @@
-\version "2.22.0"
+\version "2.25.9"
 
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
@@ -128,9 +128,9 @@ DrumTrack = \drummode {
 }
 
 TempoTrack = {
-  \tempo 4=152
-  \set Score.tempoHideNote = ##t
+  \tempo \markup {"Upbeat swing (" \rhythm { 8[8] } " = " \rhythm { \tuplet 3/2 { 4 8} } ")" } 4=152
   s1
+  \set Score.tempoHideNote = ##t
 }
 
 RehearsalTrack = {
@@ -284,7 +284,7 @@ wordsWomen = \lyricmode {
   \markup\italic Oo __ \markup\italic Oo __
   \markup\italic Ah __ \markup\italic Ah __
   I heard some -- bod -- y whis -- per,
-  "\"Please" a -- dore "me.\""
+  “Please a -- dore me.”
   And when I looked the moon had turned to gold! __
   Blue __ Moon,
   Now I'm no long -- er a -- lone, __
@@ -316,7 +316,7 @@ wordsWomenMidi = \lyricmode {
   \markup\italic "\nOo " \markup\italic "Oo "
   \markup\italic "Ah " \markup\italic "Ah "
   "\nI " "heard " some bod "y " whis "per, "
-  "\n\"Please " a "dore " "me.\" "
+  "\n“Please " a "dore " "me.” "
   "\nAnd " "when " "I " "looked " "the " "moon " "had " "turned " "to " "gold! " 
   "\nBlue "  "Moon, "
   "\nNow " "I'm " "no " long "er " a "lone, " 
@@ -504,7 +504,7 @@ wordsMen = \lyricmode {
   And then there sud -- den -- ly ap -- pear'd be -- fore __ me
   the on -- ly one my arms will ev -- er hold; __
   I heard some -- bod -- y whis -- per,
-  "\"Please" a -- dore "me.\""
+  “Please a -- dore me.”
   And when I looked the moon had turned to gold! __
   Blue __ Moon,
   Now I'm no long -- er a -- lone, __
@@ -514,7 +514,7 @@ wordsMen = \lyricmode {
   Sud -- den -- ly ap -- peared be -- fore me
   the on -- ly one my arms will ev -- er hold. __
   I heard some -- bod -- y whis -- per,
-  "\"Please" a -- dore "me,\""
+  “Please a -- dore me,”
   And when I looked the moon had turned to gold! __
   Blue __ Moon, __
   Now I'm no long -- er a -- lone, __
@@ -540,7 +540,7 @@ wordsMenMidi = \lyricmode {
   "\nAnd " "then " "there " sud den "ly " ap "pear'd " be "fore "  "me "
   "\nthe " on "ly " "one " "my " "arms " "will " ev "er " "hold; " 
   "\nI " "heard " some bod "y " whis "per, "
-  "\n\"Please " a "dore " "me.\" "
+  "\n“Please " a "dore " "me.” "
   "\nAnd " "when " "I " "looked " "the " "moon " "had " "turned " "to " "gold! " 
   "\nBlue "  "Moon, "
   "\nNow " "I'm " "no " long "er " a "lone, " 
@@ -550,7 +550,7 @@ wordsMenMidi = \lyricmode {
   "\nSud" den "ly " ap "peared " be "fore " "me "
   "\nthe " on "ly " "one " "my " "arms " "will " ev "er " "hold. " 
   "\nI " "heard " some bod "y " whis "per, "
-  "\n\"Please " a "dore " "me,\" "
+  "\n“Please " a "dore " "me,” "
   "\nAnd " "when " "I " "looked " "the " "moon " "had " "turned " "to " "gold! " 
   "\nBlue "  "Moon, " 
   "\nNow " "I'm " "no " long "er " a "lone, " 
@@ -623,10 +623,6 @@ bass= \tripletFeel 8 \relative {
   c1\omit\fp~
   c1
   \bar "|."
-}
-
-wordsBass = \lyricmode {
-
 }
 
 dynamicsMen = {
@@ -860,7 +856,6 @@ pianoLH = \tripletFeel 8 \relative {
           >>
           \new Dynamics \dynamicsPiano
           \new Staff = lh <<
-            \set Staff.midiInstrument = "acoustic bass"
             \clef "bass"
             \new Voice \pianoLH
             \new Voice = "emptybass" { s1*59 }
@@ -870,7 +865,6 @@ pianoLH = \tripletFeel 8 \relative {
       \new DrumStaff \with {
         \override StaffSymbol.line-count = #1
         drumStyleTable = #(alist->hash-table mystyle)
-        drumPitchTable = #(alist->hash-table midiDrumPitches)
       } <<
         { \voiceOne \SDTrack }
         { \voiceTwo \BSTrack }
@@ -878,8 +872,559 @@ pianoLH = \tripletFeel 8 \relative {
     >>
     \layout {
       indent = 1.5\cm
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \pointAndClickOff
+      \context { \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+                 \RemoveAllEmptyStaves
+                 barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+                 \override BarNumber.break-visibility = ##(#f #t #t)
+                 \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-sop"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+%      \new DrumStaff \with {
+%        instrumentName = #"finger snap"
+%        shortInstrumentName = #"fs"
+%        \override StaffSymbol.line-count = #1
+%        drumStyleTable = #(alist->hash-table mystyle)
+%        drumPitchTable = #(alist->hash-table midiDrumPitches)
+%      } << \FingerSnapTrack >>
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = "Soprano"
+            shortInstrumentName = "S"
+          }
+          <<
+            \new Voice \RehearsalTrack
+            \new Voice \TempoTrack
+            \new Dynamics \with {alignAboveContext = soprano} \dynamicsWomen
+            \new Voice \soprano
+            \addlyrics \wordsWomen
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = "Alto"
+            shortInstrumentName = "A"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = alto} {\teeny \dynamicsWomen}
+            \new Voice \alto
+            \addlyrics {\tiny \wordsWomen}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = "Tenor"
+            shortInstrumentName = "T"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Dynamics \with {alignAboveContext = tenor} {\teeny \dynamicsMen}
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsMen}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = "Bass"
+            shortInstrumentName = "B"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Dynamics \with {alignAboveContext = bass} {\teeny \dynamicsMen}
+            \new Voice \bass
+            \addlyrics {\tiny \wordsMen}
+          >>
+          >>
+        <<
+%          \new ChordNames {
+%            \set chordChanges = ##t
+%            \ChordTrack
+%          }
+%          \new FretBoards {
+%            \set chordChanges = ##t
+%            \ChordTrack
+%          }
+        >>
+        \new PianoStaff <<
+          \new Staff = rh <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+            \new Voice = "emptybass" { s1*59 }
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = lh <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+            \new Voice = "emptybass" { s1*59 }
+          >>
+        >>
+      >>
+%      \new DrumStaff \with {
+%        \override StaffSymbol.line-count = #1
+%        drumStyleTable = #(alist->hash-table mystyle)
+%        drumPitchTable = #(alist->hash-table midiDrumPitches)
+%      } <<
+%        { \voiceOne \SDTrack }
+%        { \voiceTwo \BSTrack }
+%      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+                 \RemoveAllEmptyStaves
+                 barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+                 \override BarNumber.break-visibility = ##(#f #t #t)
+                 \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-alto"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+%      \new DrumStaff \with {
+%        instrumentName = #"finger snap"
+%        shortInstrumentName = #"fs"
+%        \override StaffSymbol.line-count = #1
+%        drumStyleTable = #(alist->hash-table mystyle)
+%        drumPitchTable = #(alist->hash-table midiDrumPitches)
+%      } << \FingerSnapTrack >>
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = "Soprano"
+            shortInstrumentName = "S"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \RehearsalTrack
+            \new Voice \TempoTrack
+            \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsWomen}
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsWomen}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = "Alto"
+            shortInstrumentName = "A"
+          }
+          <<
+            \new Dynamics \with {alignAboveContext = alto} \dynamicsWomen
+            \new Voice \alto
+            \addlyrics \wordsWomen
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = "Tenor"
+            shortInstrumentName = "T"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Dynamics \with {alignAboveContext = tenor} {\teeny \dynamicsMen}
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsMen}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = "Bass"
+            shortInstrumentName = "B"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Dynamics \with {alignAboveContext = bass} {\teeny \dynamicsMen}
+            \new Voice \bass
+            \addlyrics {\tiny \wordsMen}
+          >>
+          >>
+        <<
+%          \new ChordNames {
+%            \set chordChanges = ##t
+%            \ChordTrack
+%          }
+%          \new FretBoards {
+%            \set chordChanges = ##t
+%            \ChordTrack
+%          }
+        >>
+        \new PianoStaff <<
+          \new Staff = rh <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+            \new Voice = "emptybass" { s1*59 }
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = lh <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+            \new Voice = "emptybass" { s1*59 }
+          >>
+        >>
+      >>
+%      \new DrumStaff \with {
+%        \override StaffSymbol.line-count = #1
+%        drumStyleTable = #(alist->hash-table mystyle)
+%        drumPitchTable = #(alist->hash-table midiDrumPitches)
+%      } <<
+%        { \voiceOne \SDTrack }
+%        { \voiceTwo \BSTrack }
+%      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+                 \RemoveAllEmptyStaves
+                 barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+                 \override BarNumber.break-visibility = ##(#f #t #t)
+                 \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-tenor"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+%      \new DrumStaff \with {
+%        instrumentName = #"finger snap"
+%        shortInstrumentName = #"fs"
+%        \override StaffSymbol.line-count = #1
+%        drumStyleTable = #(alist->hash-table mystyle)
+%        drumPitchTable = #(alist->hash-table midiDrumPitches)
+%      } << \FingerSnapTrack >>
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = "Soprano"
+            shortInstrumentName = "S"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \RehearsalTrack
+            \new Voice \TempoTrack
+            \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsWomen}
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsWomen}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = "Alto"
+            shortInstrumentName = "A"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = alto} {\teeny \dynamicsWomen}
+            \new Voice \alto
+            \addlyrics {\tiny \wordsWomen}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = "Tenor"
+            shortInstrumentName = "T"
+          }
+          <<
+            \clef "bass"
+            \new Dynamics \with {alignAboveContext = tenor} \dynamicsMen
+            \new Voice \tenor
+            \addlyrics \wordsMen
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = "Bass"
+            shortInstrumentName = "B"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Dynamics \with {alignAboveContext = bass} {\teeny \dynamicsMen}
+            \new Voice \bass
+            \addlyrics {\tiny \wordsMen}
+          >>
+          >>
+        <<
+%          \new ChordNames {
+%            \set chordChanges = ##t
+%            \ChordTrack
+%          }
+%          \new FretBoards {
+%            \set chordChanges = ##t
+%            \ChordTrack
+%          }
+        >>
+        \new PianoStaff <<
+          \new Staff = rh <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+            \new Voice = "emptybass" { s1*59 }
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = lh <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+            \new Voice = "emptybass" { s1*59 }
+          >>
+        >>
+      >>
+%      \new DrumStaff \with {
+%        \override StaffSymbol.line-count = #1
+%        drumStyleTable = #(alist->hash-table mystyle)
+%        drumPitchTable = #(alist->hash-table midiDrumPitches)
+%      } <<
+%        { \voiceOne \SDTrack }
+%        { \voiceTwo \BSTrack }
+%      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+                 \RemoveAllEmptyStaves
+                 barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+                 \override BarNumber.break-visibility = ##(#f #t #t)
+                 \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-bass"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+%      \new DrumStaff \with {
+%        instrumentName = #"finger snap"
+%        shortInstrumentName = #"fs"
+%        \override StaffSymbol.line-count = #1
+%        drumStyleTable = #(alist->hash-table mystyle)
+%        drumPitchTable = #(alist->hash-table midiDrumPitches)
+%      } << \FingerSnapTrack >>
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = "Soprano"
+            shortInstrumentName = "S"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \RehearsalTrack
+            \new Voice \TempoTrack
+            \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsWomen}
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsWomen}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = "Alto"
+            shortInstrumentName = "A"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = alto} {\teeny \dynamicsWomen}
+            \new Voice \alto
+            \addlyrics {\tiny \wordsWomen}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = "Tenor"
+            shortInstrumentName = "T"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Dynamics \with {alignAboveContext = tenor} {\teeny \dynamicsMen}
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsMen}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = "Bass"
+            shortInstrumentName = "B"
+          }
+          <<
+            \clef "bass"
+            \new Dynamics \with {alignAboveContext = bass} \dynamicsMen
+            \new Voice \bass
+            \addlyrics \wordsMen
+          >>
+          >>
+        <<
+%          \new ChordNames {
+%            \set chordChanges = ##t
+%            \ChordTrack
+%          }
+%          \new FretBoards {
+%            \set chordChanges = ##t
+%            \ChordTrack
+%          }
+        >>
+        \new PianoStaff <<
+          \new Staff = rh <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+            \new Voice = "emptybass" { s1*59 }
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = lh <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+            \new Voice = "emptybass" { s1*59 }
+          >>
+        >>
+      >>
+%      \new DrumStaff \with {
+%        \override StaffSymbol.line-count = #1
+%        drumStyleTable = #(alist->hash-table mystyle)
+%        drumPitchTable = #(alist->hash-table midiDrumPitches)
+%      } <<
+%        { \voiceOne \SDTrack }
+%        { \voiceTwo \BSTrack }
+%      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+                 \RemoveAllEmptyStaves
+                 barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+                 \override BarNumber.break-visibility = ##(#f #t #t)
+                 \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
@@ -938,12 +1483,13 @@ pianoLH = \tripletFeel 8 \relative {
         >>
         \new PianoStaff <<
           \new Staff = rh <<
+            \magnifyStaff #4/7
             \new Voice \pianoRH
             \new Voice = "emptybass" { s1*59 }
           >>
-          \new Dynamics \dynamicsPiano
+          \new Dynamics {\teeny \dynamicsPiano}
           \new Staff = lh <<
-            \set Staff.midiInstrument = "acoustic bass"
+            \magnifyStaff #4/7
             \clef "bass"
             \new Voice \pianoLH
             \new Voice = "emptybass" { s1*59 }
@@ -961,8 +1507,27 @@ pianoLH = \tripletFeel 8 \relative {
     >>
     \layout {
       indent = 1.5\cm
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \pointAndClickOff
+      \context { \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+                 \RemoveAllEmptyStaves
+                 barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+                 \override BarNumber.break-visibility = ##(#f #t #t)
+                 \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
@@ -982,28 +1547,40 @@ pianoLH = \tripletFeel 8 \relative {
         drumPitchTable = #(alist->hash-table midiDrumPitches)
       } << \FingerSnapTrack >>
         \new ChoirStaff <<
-                                % Joint soprano/alto staff
-          \new Dynamics \dynamicsWomen
-          \new Staff \with { printPartCombineTexts = ##f } <<
+                                % Soprano staff
+          \new Staff = soprano
+          <<
             \new Voice \RehearsalTrack
             \new Voice \TempoTrack
-            \new NullVoice = alignerw \soprano
-            \new Voice = "soprano" \partCombine \soprano \alto
-            \new Lyrics \lyricsto "alignerw" \wordsWomenMidi
+            \new Dynamics \dynamicsWomen
+            \new Voice = "soprano" \tripletFeel 8 \soprano
+            \addlyrics \wordsWomenMidi
           >>
-                                % Joint tenor/bass staff
-          \new Dynamics \dynamicsMen
-          \new Staff \with { printPartCombineTexts = ##f } <<
+                                % Alto staff
+          \new Staff = alto
+          <<
+            \new Dynamics \dynamicsWomen
+            \new Voice = "alto" \tripletFeel 8 \alto
+          >>
+                                % Tenor staff
+          \new Staff = tenor
+          <<
             \clef "bass"
-            \new NullVoice = alignerm \tenor
-            \new Voice = "men" \partCombine \tenor \bass
-%            \new Lyrics \lyricsto alignerm \wordsMenMidi
+            \new Dynamics \dynamicsMen
+            \new Voice = tenor \tripletFeel 8 \tenor
+          >>
+                                % Bass staff
+          \new Staff = bass
+          <<
+            \clef "bass"
+            \new Dynamics \dynamicsMen
+            \new Voice = bass \tripletFeel 8 \bass
           >>
         >>
         <<
           \new ChordNames {
             \set chordChanges = ##t
-            \ChordTrack
+            \tripletFeel 8 \ChordTrack
           }
 %          \new FretBoards {
 %            \set chordChanges = ##t
@@ -1012,14 +1589,14 @@ pianoLH = \tripletFeel 8 \relative {
         >>
         \new PianoStaff <<
           \new Staff = rh <<
-            \new Voice \pianoRH
+            \new Voice \tripletFeel 8 \pianoRH
             \new Voice = "emptybass" { s1*59 }
           >>
           \new Dynamics \dynamicsPiano
           \new Staff = lh <<
             \set Staff.midiInstrument = "acoustic bass"
             \clef "bass"
-            \new Voice \pianoLH
+            \new Voice \tripletFeel 8 \pianoLH
             \new Voice = "emptybass" { s1*59 }
           >>
         >>
@@ -1029,11 +1606,20 @@ pianoLH = \tripletFeel 8 \relative {
         drumStyleTable = #(alist->hash-table mystyle)
         drumPitchTable = #(alist->hash-table midiDrumPitches)
       } <<
-        { \voiceOne \SDTrack }
-        { \voiceTwo \BSTrack }
+        { \voiceOne \tripletFeel 8 \SDTrack }
+        { \voiceTwo \tripletFeel 8 \BSTrack }
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
@@ -1051,28 +1637,40 @@ pianoLH = \tripletFeel 8 \relative {
         drumPitchTable = #(alist->hash-table midiDrumPitches)
       } << \FingerSnapTrack >>
         \new ChoirStaff <<
-                                % Joint soprano/alto staff
-          \new Dynamics \dynamicsWomen
-          \new Staff \with { printPartCombineTexts = ##f } <<
+                                % Soprano staff
+          \new Staff = soprano
+          <<
             \new Voice \RehearsalTrack
             \new Voice \TempoTrack
-            \new NullVoice = alignerw \soprano
-            \new Voice = "soprano" \partCombine \soprano \alto
-%            \new Lyrics \lyricsto "alignerw" \wordsWomenMidi
+            \new Dynamics \dynamicsWomen
+            \new Voice = soprano \tripletFeel 8 \soprano
           >>
-                                % Joint tenor/bass staff
-          \new Dynamics \dynamicsMen
-          \new Staff \with { printPartCombineTexts = ##f } <<
+                                % Alto staff
+          \new Staff = alto
+          <<
+            \new Dynamics \dynamicsWomen
+            \new Voice = alto \tripletFeel 8 \alto
+          >>
+                                % Tenor staff
+          \new Staff = tenor
+          <<
+            \clef "treble_8"
+            \new Dynamics \dynamicsMen
+            \new Voice = tenor \tripletFeel 8 \tenor
+            \addlyrics \wordsMenMidi
+          >>
+                                % Bass staff
+          \new Staff = bass
+          <<
             \clef "bass"
-            \new NullVoice = alignerm \tenor
-            \new Voice = "men" \partCombine \tenor \bass
-            \new Lyrics \lyricsto alignerm \wordsMenMidi
+            \new Dynamics \dynamicsMen
+            \new Voice = bass \tripletFeel 8 \bass
           >>
         >>
         <<
           \new ChordNames {
             \set chordChanges = ##t
-            \ChordTrack
+            \tripletFeel 8 \ChordTrack
           }
 %          \new FretBoards {
 %            \set chordChanges = ##t
@@ -1081,14 +1679,14 @@ pianoLH = \tripletFeel 8 \relative {
         >>
         \new PianoStaff <<
           \new Staff = rh <<
-            \new Voice \pianoRH
+            \new Voice \tripletFeel 8 \pianoRH
             \new Voice = "emptybass" { s1*59 }
           >>
           \new Dynamics \dynamicsPiano
           \new Staff = lh <<
             \set Staff.midiInstrument = "acoustic bass"
             \clef "bass"
-            \new Voice \pianoLH
+            \new Voice \tripletFeel 8 \pianoLH
             \new Voice = "emptybass" { s1*59 }
           >>
         >>
@@ -1098,11 +1696,19 @@ pianoLH = \tripletFeel 8 \relative {
         drumStyleTable = #(alist->hash-table mystyle)
         drumPitchTable = #(alist->hash-table midiDrumPitches)
       } <<
-        { \voiceOne \SDTrack }
-        { \voiceTwo \BSTrack }
+        { \voiceOne \tripletFeel 8 \SDTrack }
+        { \voiceTwo \tripletFeel 8 \BSTrack }
       >>
     >>
-    \layout {}
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
