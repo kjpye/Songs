@@ -1,4 +1,4 @@
-\version "2.22.0"
+\version "2.25.9"
 
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
@@ -71,15 +71,28 @@ HighhatTrack = \drummode {
 }
 
 tempoFast = {
-  \tempo 4=192 % 4=144 is another possibility
+  \tempo \markup {"Straight Ahead Swing("
+                  \rhythm { 8[8] }
+                  " and "
+                  \rhythm { 8. [16] }
+                  " = " \rhythm { \tuplet 3/2 { 4 8 } }
+                  ")" }
+                  4=192 % 4=144 is another possibility
+  s1
   \set Score.tempoHideNote = ##t
-  s1*35
+  s1*34
   s1*28
   s2 \tempo 4=48 s2
 }
 
 tempoSlow = {
-  \tempo 4=144
+  \tempo \markup {"Straight Ahead Swing("
+                  \rhythm { 8[8] }
+                  " and "
+                  \rhythm { 8. [16] }
+                  " = " \rhythm { \tuplet 3/2 { 4 8 } }
+                  ")" }
+  4=144
   \set Score.tempoHideNote = ##t
   s1*35
   s1*28
@@ -155,7 +168,7 @@ ChordTrack = \chordmode {
 
 sopranoJoint = \tripletFeel 8 \relative {
   \global
-  R1*4^\markup\bold "Straight Ahead Swing"
+  R1*4
   d'4.^\mp a'8~2 ~ % 2b
   a2 g8 f g a~
   a1~
@@ -949,6 +962,434 @@ bassguitar = \tripletFeel 8 \relative {
 }
 
 \book {
+  \bookOutputSuffix "singlepage-sop"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice { \global \sopranoJoint \sopranoSingle }
+            \addlyrics {\words \wordsSop}
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice { \global \altoJoint \altoSingle }
+            \addlyrics {\tiny \words \wordsAlto}
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice { \global \tenorJoint \tenorSingle }
+            \addlyrics {\tiny \words \wordsTenor}
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice { \global \bassJoint \bassSingle }
+            \addlyrics {\tiny \words \wordsBass}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          <<
+            \new ChordNames { \ChordTrack }
+%            \new FretBoards { \ChordTrack }
+          >>
+%      \new Staff = acousticguitar {
+%        \new Voice \ChordTrack
+%      }
+          \new Staff = pianorh \with {
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = pianolh \with {
+          }
+          <<
+            \clef "bass"
+            \magnifyStaff #4/7
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+      \new Staff = bassguitar \with {
+      }
+      <<
+        \magnifyStaff #4/7
+        \clef bass
+        \new Voice \bassguitar
+      >>
+%      \new DrumStaff \with {
+%        \override StaffSymbol.line-count = #1
+%        drumStyleTable = #(alist->hash-table mystyle)
+%        drumPitchTable = #(alist->hash-table midiDrumPitches)
+%      } << \BrushesTrack \HighhatTrack >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-alto"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice { \global \sopranoJoint \sopranoSingle }
+            \addlyrics {\tiny \words \wordsSop}
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \new Voice { \global \altoJoint \altoSingle }
+            \addlyrics {\words \wordsAlto}
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice { \global \tenorJoint \tenorSingle }
+            \addlyrics {\tiny \words \wordsTenor}
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice { \global \bassJoint \bassSingle }
+            \addlyrics {\tiny \words \wordsBass}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          <<
+            \new ChordNames { \ChordTrack }
+%            \new FretBoards { \ChordTrack }
+          >>
+%      \new Staff = acousticguitar {
+%        \new Voice \ChordTrack
+%      }
+          \new Staff = pianorh \with {
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = pianolh \with {
+          }
+          <<
+            \clef "bass"
+            \magnifyStaff #4/7
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+      \new Staff = bassguitar \with {
+      }
+      <<
+        \magnifyStaff #4/7
+        \clef bass
+        \new Voice \bassguitar
+      >>
+%      \new DrumStaff \with {
+%        \override StaffSymbol.line-count = #1
+%        drumStyleTable = #(alist->hash-table mystyle)
+%        drumPitchTable = #(alist->hash-table midiDrumPitches)
+%      } << \BrushesTrack \HighhatTrack >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-tenor"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice { \global \sopranoJoint \sopranoSingle }
+            \addlyrics {\tiny \words \wordsSop}
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice { \global \altoJoint \altoSingle }
+            \addlyrics {\tiny \words \wordsAlto}
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+            \clef "treble_8"
+            \new Voice { \global \tenorJoint \tenorSingle }
+            \addlyrics {\words \wordsTenor}
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice { \global \bassJoint \bassSingle }
+            \addlyrics {\tiny \words \wordsBass}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          <<
+            \new ChordNames { \ChordTrack }
+%            \new FretBoards { \ChordTrack }
+          >>
+%      \new Staff = acousticguitar {
+%        \new Voice \ChordTrack
+%      }
+          \new Staff = pianorh \with {
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = pianolh \with {
+          }
+          <<
+            \clef "bass"
+            \magnifyStaff #4/7
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+      \new Staff = bassguitar \with {
+      }
+      <<
+        \magnifyStaff #4/7
+        \clef bass
+        \new Voice \bassguitar
+      >>
+%      \new DrumStaff \with {
+%        \override StaffSymbol.line-count = #1
+%        drumStyleTable = #(alist->hash-table mystyle)
+%        drumPitchTable = #(alist->hash-table midiDrumPitches)
+%      } << \BrushesTrack \HighhatTrack >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-bass"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice { \global \sopranoJoint \sopranoSingle }
+            \addlyrics {\tiny \words \wordsSop}
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice { \global \altoJoint \altoSingle }
+            \addlyrics {\tiny \words \wordsAlto}
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice { \global \tenorJoint \tenorSingle }
+            \addlyrics {\tiny \words \wordsTenor}
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \clef "bass"
+            \new Voice { \global \bassJoint \bassSingle }
+            \addlyrics {\words \wordsBass}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          <<
+            \new ChordNames { \ChordTrack }
+%            \new FretBoards { \ChordTrack }
+          >>
+%      \new Staff = acousticguitar {
+%        \new Voice \ChordTrack
+%      }
+          \new Staff = pianorh \with {
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = pianolh \with {
+          }
+          <<
+            \clef "bass"
+            \magnifyStaff #4/7
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+      \new Staff = bassguitar \with {
+      }
+      <<
+        \magnifyStaff #4/7
+        \clef bass
+        \new Voice \bassguitar
+      >>
+%      \new DrumStaff \with {
+%        \override StaffSymbol.line-count = #1
+%        drumStyleTable = #(alist->hash-table mystyle)
+%        drumPitchTable = #(alist->hash-table midiDrumPitches)
+%      } << \BrushesTrack \HighhatTrack >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
   \bookOutputSuffix "midi-women"
   \score {
 %   \articulate
@@ -963,7 +1404,7 @@ bassguitar = \tripletFeel 8 \relative {
           }
           <<
             \new Voice \TempoTrack
-            \new Voice { \global \sopranoJoint \sopranoSingle }
+            \new Voice \tripletFeel 8 { \global \sopranoJoint \sopranoSingle }
             \addlyrics \wordsMidi
           >>
                                 % Single alto staff
@@ -973,7 +1414,7 @@ bassguitar = \tripletFeel 8 \relative {
             midiInstrument = "choir aahs"
           }
           <<
-            \new Voice { \global \altoJoint \altoSingle }
+            \new Voice \tripletFeel 8 { \global \altoJoint \altoSingle }
           >>
                                 % Single tenor staff
           \new Staff = tenor \with {
@@ -983,7 +1424,7 @@ bassguitar = \tripletFeel 8 \relative {
           }
           <<
             \clef "treble_8"
-            \new Voice { \global \tenorJoint \tenorSingle }
+            \new Voice \tripletFeel 8 { \global \tenorJoint \tenorSingle }
           >>
                                 % Single bass staff
           \new Staff = bass \with {
@@ -993,20 +1434,20 @@ bassguitar = \tripletFeel 8 \relative {
           }
           <<
             \clef "bass"
-            \new Voice { \global \bassJoint \bassSingle }
+            \new Voice \tripletFeel 8 { \global \bassJoint \bassSingle }
           >>
         >>
         \new Staff = guitar \with { midiInstrument = "acoustic guitar" }
         {
-          \new Voice \ChordTrack
+          \new Voice \tripletFeel 8 \ChordTrack
         }
         \new Staff = piano \with {
             midiInstrument = "acoustic grand piano"
           }
           <<
-            \new Voice \pianoRH
+            \new Voice \tripletFeel 8 \pianoRH
             \new Dynamics \dynamicsPiano
-            \new Voice \pianoLH
+            \new Voice \tripletFeel 8 \pianoLH
           >>
       >>
       \new Staff = bassguitar \with {
@@ -1014,7 +1455,7 @@ bassguitar = \tripletFeel 8 \relative {
       }
       <<
         \clef bass
-        \new Voice \bassguitar
+        \new Voice \tripletFeel 8 \bassguitar
       >>
 %      \new DrumStaff \with {
 %        \override StaffSymbol.line-count = #1
@@ -1041,7 +1482,7 @@ bassguitar = \tripletFeel 8 \relative {
           }
           <<
             \new Voice \TempoTrack
-            \new Voice { \global \sopranoJoint \sopranoSingle }
+            \new Voice \tripletFeel 8 { \global \sopranoJoint \sopranoSingle }
           >>
                                 % Single alto staff
           \new Staff = alto \with {
@@ -1050,7 +1491,7 @@ bassguitar = \tripletFeel 8 \relative {
             midiInstrument = "choir aahs"
           }
           <<
-            \new Voice { \global \altoJoint \altoSingle }
+            \new Voice \tripletFeel 8 { \global \altoJoint \altoSingle }
           >>
                                 % Single tenor staff
           \new Staff = tenor \with {
@@ -1060,7 +1501,7 @@ bassguitar = \tripletFeel 8 \relative {
           }
           <<
             \clef "treble_8"
-            \new Voice { \global \tenorJoint \tenorSingle }
+            \new Voice \tripletFeel 8 { \global \tenorJoint \tenorSingle }
             \addlyrics \wordsMidi
           >>
                                 % Single bass staff
@@ -1071,20 +1512,20 @@ bassguitar = \tripletFeel 8 \relative {
           }
           <<
             \clef "bass"
-            \new Voice { \global \bassJoint \bassSingle }
+            \new Voice \tripletFeel 8 { \global \bassJoint \bassSingle }
           >>
         >>
         \new Staff = guitar \with { midiInstrument = "acoustic guitar" }
         {
-          \new Voice \ChordTrack
+          \new Voice \tripletFeel 8 \ChordTrack
         }
         \new Staff = piano \with {
             midiInstrument = "acoustic grand piano"
           }
           <<
-            \new Voice \pianoRH
+            \new Voice \tripletFeel 8 \pianoRH
             \new Dynamics \dynamicsPiano
-            \new Voice \pianoLH
+            \new Voice \tripletFeel 8 \pianoLH
           >>
       >>
       \new Staff = bassguitar \with {
@@ -1092,7 +1533,7 @@ bassguitar = \tripletFeel 8 \relative {
       }
       <<
         \clef bass
-        \new Voice \bassguitar
+        \new Voice \tripletFeel 8 \bassguitar
       >>
 %      \new DrumStaff \with {
 %        \override StaffSymbol.line-count = #1
