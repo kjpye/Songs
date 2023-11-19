@@ -1,4 +1,4 @@
-\version "2.22.1"
+\version "2.25.9"
 
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
@@ -49,7 +49,7 @@ global = {
 }
 
 TempoTrack = {
-  \tempo Moderato 4=72
+  \tempo \markup {"Moderato(" \rhythm {8[8]} " = " \rhythm {\tuplet 3/2 {4 8}} ")" } 4=72
   s1
   \set Score.tempoHideNote = ##t
   s1
@@ -203,6 +203,29 @@ words = \lyricmode {
   Wise men say on -- ly fools rush in,
   but I can't help fall -- ing in love with __ you.
   Shall I stay? __ Would it be a __ sin? __
+  If I can't help fall -- ing in love with you.
+
+  Like a __ riv -- er flows __
+  on -- ly __ to the sea, __
+  dar -- ling, __ so it goes __
+  some -- things __ are meant to be, __
+  Take my hand, take my whole life too
+  For I can't help fall -- ing in love with you.
+  For I can't help fall -- ing in love with you.
+
+  Like a __ riv -- er flows __
+  on -- ly __ to the sea, __
+  dar -- ling, __ so it goes __
+  some -- things __ are meant to be, __ to be. __
+  Take my hand, take my whole life too
+  For I can't help fall -- ing in love with you.
+  For I can't help fall -- ing in love __ with __ you. __
+}
+
+wordsBass = \lyricmode {
+  Wise men say on -- ly fools rush in,
+  but I can't help fall -- ing in love with __ you.
+%  Shall I stay? __ Would it be a __ sin? __
   If I can't help fall -- ing in love with you.
 
   Like a __ riv -- er flows __
@@ -698,6 +721,362 @@ pianoLH = \relative {
           \new Dynamics \dynamicsPiano
           \new Staff = lh
           <<
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-sop"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \new Voice \RehearsalTrack
+            \new Voice \TempoTrack
+            \new Voice \soprano
+            \addlyrics \words
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \alto
+            \addlyrics {\tiny \words}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics {\tiny \words}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBass}
+          >>
+        >>
+        <<
+          \new ChordNames { \ChordTrack }
+%          \new FretBoards { \ChordTrack }
+        >>
+        \new PianoStaff <<
+          \new Staff = rh
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = lh
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-alto"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \RehearsalTrack
+            \new Voice \TempoTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \words}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \new Voice \alto
+            \addlyrics \words
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics {\tiny \words}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBass}
+          >>
+        >>
+        <<
+          \new ChordNames { \ChordTrack }
+%          \new FretBoards { \ChordTrack }
+        >>
+        \new PianoStaff <<
+          \new Staff = rh
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = lh
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-tenor"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \RehearsalTrack
+            \new Voice \TempoTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \words}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \alto
+            \addlyrics {\tiny \words}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics \words
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBass}
+          >>
+        >>
+        <<
+          \new ChordNames { \ChordTrack }
+%          \new FretBoards { \ChordTrack }
+        >>
+        \new PianoStaff <<
+          \new Staff = rh
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = lh
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-bass"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \RehearsalTrack
+            \new Voice \TempoTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \words}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \alto
+            \addlyrics {\tiny \words}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics {\tiny \words}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics \wordsBass
+          >>
+        >>
+        <<
+          \new ChordNames { \ChordTrack }
+%          \new FretBoards { \ChordTrack }
+        >>
+        \new PianoStaff <<
+          \new Staff = rh
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = lh
+          <<
+            \magnifyStaff #4/7
             \clef "bass"
             \new Voice \pianoLH
           >>
