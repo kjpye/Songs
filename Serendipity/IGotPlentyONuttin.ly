@@ -1,4 +1,4 @@
-\version "2.22.0"
+\version "2.25.9"
 
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
@@ -651,7 +651,7 @@ bassC = \relative {
 bassR = {
   \global
   R1*5
-  r2 r4 f'^\p
+  r2 r4 f^\p
   \repeat volta 2 {
     \keepWithTag #'both \bassA
     \alternative {
@@ -664,7 +664,7 @@ bassR = {
 bassS = {
   \global
   R1*5
-  r2 r4 f'^\p
+  r2 r4 f^\p
   \keepWithTag #'v1 \bassA
   \bassB
   \keepWithTag #'v2 \bassA
@@ -1292,6 +1292,390 @@ pianoLH = \relative {
            midiInstrument = "acoustic grand piano"
          }
          <<
+           \clef "bass"
+           \new Voice \pianoLH
+         >>
+       >>
+     >>
+   >>
+   \layout {
+     indent = 1.5\cm
+     \pointAndClickOff
+     \context {
+       \Staff \RemoveAllEmptyStaves
+       barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+       \override BarNumber.break-visibility = ##(#f #t #t)
+     }
+   }
+ }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-sop"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+   \unfoldRepeats
+%   \articulate
+   <<
+     \new ChoirStaff <<
+                                % Single soprano staff
+       \new Staff = soprano \with {
+         instrumentName = #"Soprano"
+         shortInstrumentName = #"S"
+         midiInstrument = "choir aahs"
+       }
+       <<
+         \new Voice \TempoTrack
+         \new Voice \RehearsalTrack
+         \new Voice \sopranoS
+         \addlyrics \wordsSopSingle
+       >>
+                                % Single alto staff
+       \new Staff = alto \with {
+         instrumentName = #"Alto"
+         shortInstrumentName = #"A"
+         midiInstrument = "choir aahs"
+       }
+       <<
+         \magnifyStaff #4/7
+         \new Voice \altoS
+         \addlyrics {\tiny \wordsAltoSingle}
+       >>
+                                % Single tenor staff
+       \new Staff = tenor \with {
+         instrumentName = #"Tenor"
+         shortInstrumentName = #"T"
+         midiInstrument = "choir aahs"
+       }
+       <<
+         \magnifyStaff #4/7
+         \clef "treble_8"
+         \new Voice \tenorS
+         \addlyrics {\tiny \wordsTenorSingle}
+       >>
+                                % Single bass staff
+       \new Staff = bass \with {
+         instrumentName = #"Bass"
+         shortInstrumentName = #"B"
+         midiInstrument = "choir aahs"
+       }
+       <<
+         \magnifyStaff #4/7
+         \clef "bass"
+         \new Voice \bassS
+         \addlyrics {\tiny \wordsBassSingle}
+       >>
+       \new PianoStaff = piano <<
+         \new Staff = pianorh \with {
+           printPartCombineTexts = ##f
+           midiInstrument = "acoustic grand piano"
+         }
+         <<
+         \magnifyStaff #4/7
+           \new Voice \partCombine \pianoRHone \pianoRHtwo
+         >>
+         \new Dynamics {\teeny \dynamicsPiano}
+         \new Staff = pianolh \with {
+           midiInstrument = "acoustic grand piano"
+         }
+         <<
+         \magnifyStaff #4/7
+           \clef "bass"
+           \new Voice \pianoLH
+         >>
+       >>
+     >>
+   >>
+   \layout {
+     indent = 1.5\cm
+     \pointAndClickOff
+     \context {
+       \Staff \RemoveAllEmptyStaves
+       barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+       \override BarNumber.break-visibility = ##(#f #t #t)
+     }
+   }
+ }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-alto"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+   \unfoldRepeats
+%   \articulate
+   <<
+     \new ChoirStaff <<
+                                % Single soprano staff
+       \new Staff = soprano \with {
+         instrumentName = #"Soprano"
+         shortInstrumentName = #"S"
+         midiInstrument = "choir aahs"
+       }
+       <<
+         \magnifyStaff #4/7
+         \new Voice \TempoTrack
+         \new Voice \RehearsalTrack
+         \new Voice \sopranoS
+         \addlyrics {\tiny \wordsSopSingle}
+       >>
+                                % Single alto staff
+       \new Staff = alto \with {
+         instrumentName = #"Alto"
+         shortInstrumentName = #"A"
+         midiInstrument = "choir aahs"
+       }
+       <<
+         \new Voice \altoS
+         \addlyrics \wordsAltoSingle
+       >>
+                                % Single tenor staff
+       \new Staff = tenor \with {
+         instrumentName = #"Tenor"
+         shortInstrumentName = #"T"
+         midiInstrument = "choir aahs"
+       }
+       <<
+         \magnifyStaff #4/7
+         \clef "treble_8"
+         \new Voice \tenorS
+         \addlyrics {\tiny \wordsTenorSingle}
+       >>
+                                % Single bass staff
+       \new Staff = bass \with {
+         instrumentName = #"Bass"
+         shortInstrumentName = #"B"
+         midiInstrument = "choir aahs"
+       }
+       <<
+         \magnifyStaff #4/7
+         \clef "bass"
+         \new Voice \bassS
+         \addlyrics {\tiny \wordsBassSingle}
+       >>
+       \new PianoStaff = piano <<
+         \new Staff = pianorh \with {
+           printPartCombineTexts = ##f
+           midiInstrument = "acoustic grand piano"
+         }
+         <<
+         \magnifyStaff #4/7
+           \new Voice \partCombine \pianoRHone \pianoRHtwo
+         >>
+         \new Dynamics {\teeny \dynamicsPiano}
+         \new Staff = pianolh \with {
+           midiInstrument = "acoustic grand piano"
+         }
+         <<
+         \magnifyStaff #4/7
+           \clef "bass"
+           \new Voice \pianoLH
+         >>
+       >>
+     >>
+   >>
+   \layout {
+     indent = 1.5\cm
+     \pointAndClickOff
+     \context {
+       \Staff \RemoveAllEmptyStaves
+       barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+       \override BarNumber.break-visibility = ##(#f #t #t)
+     }
+   }
+ }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-tenor"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+   \unfoldRepeats
+%   \articulate
+   <<
+     \new ChoirStaff <<
+                                % Single soprano staff
+       \new Staff = soprano \with {
+         instrumentName = #"Soprano"
+         shortInstrumentName = #"S"
+         midiInstrument = "choir aahs"
+       }
+       <<
+         \magnifyStaff #4/7
+         \new Voice \TempoTrack
+         \new Voice \RehearsalTrack
+         \new Voice \sopranoS
+         \addlyrics {\tiny \wordsSopSingle}
+       >>
+                                % Single alto staff
+       \new Staff = alto \with {
+         instrumentName = #"Alto"
+         shortInstrumentName = #"A"
+         midiInstrument = "choir aahs"
+       }
+       <<
+         \magnifyStaff #4/7
+         \new Voice \altoS
+         \addlyrics {\tiny \wordsAltoSingle}
+       >>
+                                % Single tenor staff
+       \new Staff = tenor \with {
+         instrumentName = #"Tenor"
+         shortInstrumentName = #"T"
+         midiInstrument = "choir aahs"
+       }
+       <<
+         \clef "treble_8"
+         \new Voice \tenorS
+         \addlyrics \wordsTenorSingle
+       >>
+                                % Single bass staff
+       \new Staff = bass \with {
+         instrumentName = #"Bass"
+         shortInstrumentName = #"B"
+         midiInstrument = "choir aahs"
+       }
+       <<
+         \magnifyStaff #4/7
+         \clef "bass"
+         \new Voice \bassS
+         \addlyrics {\tiny \wordsBassSingle}
+       >>
+       \new PianoStaff = piano <<
+         \new Staff = pianorh \with {
+           printPartCombineTexts = ##f
+           midiInstrument = "acoustic grand piano"
+         }
+         <<
+         \magnifyStaff #4/7
+           \new Voice \partCombine \pianoRHone \pianoRHtwo
+         >>
+         \new Dynamics {\teeny \dynamicsPiano}
+         \new Staff = pianolh \with {
+           midiInstrument = "acoustic grand piano"
+         }
+         <<
+         \magnifyStaff #4/7
+           \clef "bass"
+           \new Voice \pianoLH
+         >>
+       >>
+     >>
+   >>
+   \layout {
+     indent = 1.5\cm
+     \pointAndClickOff
+     \context {
+       \Staff \RemoveAllEmptyStaves
+       barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+       \override BarNumber.break-visibility = ##(#f #t #t)
+     }
+   }
+ }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-bass"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+   \unfoldRepeats
+%   \articulate
+   <<
+     \new ChoirStaff <<
+                                % Single soprano staff
+       \new Staff = soprano \with {
+         instrumentName = #"Soprano"
+         shortInstrumentName = #"S"
+         midiInstrument = "choir aahs"
+       }
+       <<
+         \magnifyStaff #4/7
+         \new Voice \TempoTrack
+         \new Voice \RehearsalTrack
+         \new Voice \sopranoS
+         \addlyrics {\tiny \wordsSopSingle}
+       >>
+                                % Single alto staff
+       \new Staff = alto \with {
+         instrumentName = #"Alto"
+         shortInstrumentName = #"A"
+         midiInstrument = "choir aahs"
+       }
+       <<
+         \magnifyStaff #4/7
+         \new Voice \altoS
+         \addlyrics {\tiny \wordsAltoSingle}
+       >>
+                                % Single tenor staff
+       \new Staff = tenor \with {
+         instrumentName = #"Tenor"
+         shortInstrumentName = #"T"
+         midiInstrument = "choir aahs"
+       }
+       <<
+         \magnifyStaff #4/7
+         \clef "treble_8"
+         \new Voice \tenorS
+         \addlyrics {\tiny \wordsTenorSingle}
+       >>
+                                % Single bass staff
+       \new Staff = bass \with {
+         instrumentName = #"Bass"
+         shortInstrumentName = #"B"
+         midiInstrument = "choir aahs"
+       }
+       <<
+         \clef "bass"
+         \new Voice \bassS
+         \addlyrics \wordsBassSingle
+       >>
+       \new PianoStaff = piano <<
+         \new Staff = pianorh \with {
+           printPartCombineTexts = ##f
+           midiInstrument = "acoustic grand piano"
+         }
+         <<
+         \magnifyStaff #4/7
+           \new Voice \partCombine \pianoRHone \pianoRHtwo
+         >>
+         \new Dynamics {\teeny \dynamicsPiano}
+         \new Staff = pianolh \with {
+           midiInstrument = "acoustic grand piano"
+         }
+         <<
+         \magnifyStaff #4/7
            \clef "bass"
            \new Voice \pianoLH
          >>
