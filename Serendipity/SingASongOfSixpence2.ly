@@ -1,4 +1,4 @@
-\version "2.22.0"
+\version "2.25.9"
 
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
