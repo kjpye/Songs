@@ -4,11 +4,11 @@
 % Choices are"
 % A: Georgy Girl
 % B: Morning Town Ride
-% C:
-% D:
+% C: A World of Our Own
+% D: The Carnival is Over
 % E: I'll Never Find Another You
 
-usetags = #'(A B C D E)
+usetags = #'(A B C E)
 
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
@@ -76,7 +76,7 @@ globalD = {
 
 globalE = {
   \key ees \major
-  \time 4/4
+  \partial 1 \time 4/4
 }
 
 tempoTrackA = {
@@ -559,7 +559,7 @@ soloSop = {
 }
 
 wordsSoloA = \lyricmode {
-  _ _ _ _ _ _ _ % why?????
+  _ _ _ _ _ _ _ %%% Why?
   Oo __ Oo __ Oo __
 }
 
@@ -804,6 +804,15 @@ soprano = {
   \keepWithTag #usetags \tag #'C \sopranoC
   \keepWithTag #usetags \tag #'D \sopranoD
   \keepWithTag #usetags \tag #'E \sopranoE
+  \bar "|."
+}
+
+sopranoSep = {
+  \keepWithTag #usetags \tag #'A \sopranoA
+  \keepWithTag #usetags \tag #'B { \sopranoB \bar "||" }
+  \keepWithTag #usetags \tag #'C \sopranoC
+  \keepWithTag #usetags \tag #'D \sopranoD
+  \keepWithTag #usetags \tag #'E \melodyE
   \bar "|."
 }
 
@@ -1405,6 +1414,338 @@ wordsSopAbove = {
   \keepWithTag #usetags \tag #'E \wordsSopAboveE
 }
 
+wordsSopSepA = \lyricmode {
+  Hey there! __ Geor -- gy girl, __
+  Swing -- ing down the street so fan -- cy free. __
+  No -- bod -- y you meet could ev -- er see the lone -- li -- ness there __
+  In -- side you.
+  Hey there! __ Geor -- gy girl. __
+  Why do all the boys just pass you by? __
+  Could it be you just don't try,
+  or is it the clothes you wear? __
+  You're al -- ways win -- dow shop -- ping but nev -- er stop -- ping to buy.
+  So shed those dow -- dy feath -- ers and fly a lit -- tle bit.
+  Hey there! __ Geor -- gy girl, __
+  There's a -- noth -- er Geor -- gy deep in -- side: __
+  Bring out all the love you hide and oh, what a change there'd be. __
+  The world would see a new __ Geor -- gy girl.
+  Come on __ Geor -- gy girl!
+  Wake up __ Geor -- gy girl!
+  \set associatedVoice = alignerS
+  Come on __ Geor -- gy girl! __
+}
+
+wordsSopSepB= \lyricmode {
+  Train whis -- tle blow -- in' makes a sleep -- y noise,
+  Un -- der -- neath the blank -- ets for all the girls and boys.
+  Rock -- in' roll -- in' rid -- in',
+  Out a -- long the bay,
+  All bound for Morn -- ing Town, ma -- ny miles a -- way. __
+  Dri -- ver at the en -- gine,
+  Fire -- man rings the bell,
+  Sand -- man swings the lan -- tern to show that all is well.
+  Rock -- in' roll -- in' rid -- in',
+  Out a -- long the bay,
+  All bound for Mor -- ning Town,
+  Ma -- ny miles a -- way. __
+  Oo __ Oo __
+  All bound for Mor -- ning Town,
+  Ma -- ny miles a -- way. __
+}
+
+wordsSopSepC = \lyricmode {
+  \wordsC
+}
+
+wordsSopSepD = \lyricmode {
+  Say good -- bye __ my own true lov -- er
+  as we sing __ a lov -- er's song.
+  How it breaks __ my heart to leave you,
+  Now the car -- ni -- val is gone.
+  High a -- bove __ the dawn is wak -- ing
+  and my tears __ are fal -- ling rain,
+  For the car -- ni -- val is o -- ver __
+  We may nev -- er meet a -- gain.
+  Like a drum __ my heart was beat -- ing
+  and your kiss __ was sweet as wine. __
+  But the joys __ of love are fleet -- ing __
+  for Pier -- rot __ and Col -- um -- bine. __
+  Now the har -- bour light is call -- ing,
+  This will be our last good -- bye. __
+  Though the car -- ni -- val is o -- ver __
+  I will love __ you till I die.
+  Though the car -- ni -- val is o -- ver __
+  I will love __ you till I die.
+}
+
+wordsSepE = \lyricmode {
+  \set stanza = "1."
+  There's a new world some -- where
+  they call the prom -- ised land __
+  and I'll be there some -- day
+  if you will hold my hand. __
+  I still need you there be -- side __ me
+  no mat -- ter what I do,
+  for I know I'll nev -- er find __ an -- oth -- er you. __
+
+  \set stanza = "2."
+  There is al -- ways some -- one
+  for each of us they say __
+  and you'll be my some -- one
+  for ev -- er and a day. __
+  I could search the whole world o -- ver
+  un --  til my life is through,
+  but I know I'll nev -- er find an -- oth -- er you. __
+
+  It's a long, long jour -- ney, so stay by my side,
+  when I walk through the storm you'll be my guide. __
+  If they gave me a for -- tune,
+  my pleas -- ure would be small. __
+  I could lose it all to -- mor -- row
+  and nev -- er mind at all. __
+  But if I should lose your love, __ dear,
+  I don't know what I'd do,
+  for I know I'll nev -- er find an -- oth -- er you. __
+}
+
+wordsSopSepE = { \wordsSepE }
+
+wordsSopSep = {
+  \keepWithTag #usetags \tag #'A \wordsSopSepA
+  \keepWithTag #usetags \tag #'B \wordsSopSepB
+  \keepWithTag #usetags \tag #'C \wordsSopSepC
+  \keepWithTag #usetags \tag #'D \wordsSopSepD
+  \keepWithTag #usetags \tag #'E \wordsSopSepE
+}
+
+wordsAltoSepA = \lyricmode {
+  Hey there! __ Geor -- gy girl, __
+  Swing -- ing down the street so fan -- cy free. __
+
+  No -- bod -- y you meet could ev -- er see the lone -- li -- ness there __
+  Hey there! __ Geor -- gy girl. __
+  Why do all the boys just pass you by? __
+  Could it be you just don't try,
+  or is it the clothes you wear? __
+  Oo __
+  So shed those dow -- dy feath -- ers and fly
+  Hey there! __ Geor -- gy girl, __
+  There's a -- noth -- er Geor -- gy deep in -- side: __
+  Bring out all the love you hide and oh, what a change there'd be. __
+  The world would see a new __ Geor -- gy girl.
+  Come on __ Geor -- gy girl!
+  Wake up __ Geor -- gy girl!
+
+  Come on __ Geor -- gy girl! __
+}
+
+wordsAltoSepB= \lyricmode {
+  Train whis -- tle blow -- in' makes a sleep -- y noise,
+  Un -- der -- neath the blank -- ets for all the girls and boys.
+  Rock -- in' roll -- in' rid -- in',
+  Out a -- long the bay,
+  All bound for Morn -- ing Town, ma -- ny miles a -- way. __
+  Dri -- ver at the en -- gine,
+
+  Mm __
+  Sand -- man swings the lan -- tern to show that all is well.
+  Rock -- in' roll -- in' rid -- in',
+  Out a -- long the bay,
+  All bound for Mor -- ning Town,
+
+  Ma -- ny miles a -- way. __
+  Oo __ Oo __
+  All bound for Mor -- ning Town,
+
+  Ma -- ny miles a -- way. __
+}
+
+wordsAltoSepC = \lyricmode {
+  \wordsC
+}
+
+wordsAltoSepD = \lyricmode {
+  Say good -- bye __ my own true lov -- er
+  as we sing __ a lov -- er's song.
+  How it breaks __ my heart to leave you,
+  Now the car -- ni -- val is gone.
+  High a -- bove __ the dawn is wak -- ing
+  and my tears __ are fal -- ling rain,
+  For the car -- ni -- val is o -- ver __
+
+  We may nev -- er meet a -- gain.
+  Aah __ Aah __ Aah. __
+
+  But the joys __ of love are fleet -- ing __
+  for Pier -- rot __ and Col -- um -- bine. __
+  Now the har -- bour light is call -- ing,
+  This will be our last good -- bye. __
+  Though the car -- ni -- val is o -- ver __
+  I will love __ you till I die.
+  Though the car -- ni -- val is o -- ver __
+  I will love __ you till I die.
+}
+
+wordsAltoSepE = \lyricmode {
+  \wordsSepE
+}
+
+wordsAltoSep = {
+  \keepWithTag #usetags \tag #'A \wordsAltoSepA
+  \keepWithTag #usetags \tag #'B \wordsAltoSepB
+  \keepWithTag #usetags \tag #'C \wordsAltoSepC
+  \keepWithTag #usetags \tag #'D \wordsAltoSepD
+  \keepWithTag #usetags \tag #'E \wordsAltoSepE
+}
+
+wordsTenorSepA = \lyricmode {
+  Hey there! __ Geor -- gy girl, __
+  Swing -- ing down the street so fan -- cy free. __
+
+  No -- bod -- y you meet could ev -- er see the lone -- li -- ness there __
+  Hey there! __ Geor -- gy girl. __
+  Why do all the boys just pass you by? __
+  Could it be you just don't try,
+  or is it the clothes you wear? __
+  Oo __
+  So shed those dow -- dy feath -- ers and fly
+  Hey there! __ Geor -- gy girl, __
+  There's a -- noth -- er Geor -- gy deep in -- side: __
+  Bring out all the love you hide and oh, what a change there'd be. __
+  The world would see a new __ Geor -- gy girl.
+  Come on __ Geor -- gy girl!
+  Wake up __ Geor -- gy girl!
+
+  Come on __ Geor -- gy girl! __
+}
+
+wordsTenorSepB= \lyricmode {
+  Train whis -- tle blow -- in' makes a sleep -- y noise,
+  Un -- der -- neath the blank -- ets for all the girls and boys.
+  Rock -- in' roll -- in' rid -- in',
+  Out a -- long the bay,
+  All bound for Morn -- ing Town, ma -- ny miles a -- way. __
+  Mm __ Mm __ Mm __ Mm __
+  Rock -- in' roll -- in' rid -- in',
+  Out a -- long the bay,
+  All bound for Mor -- ning Town,
+
+  Ma -- ny miles a -- way. __
+  Rock -- in' roll -- in rid -- in',
+  Out a -- long the bay,
+  All bound for Mor -- ning Town,
+
+  Ma -- ny miles a -- way. __
+}
+
+wordsTenorSepC = \lyricmode {
+  \wordsC
+}
+
+wordsTenorSepD = \lyricmode {
+  High a -- bove __ the dawn is wak -- ing
+  and my tears __ are fal -- ling rain,
+  For the car -- ni -- val is o -- ver __
+
+  nev -- er meet a -- gain.
+  Aah __ Aah __ Aah. __
+
+  But the joys __ of love are fleet -- ing __
+  for Pier -- rot __ and Col -- um -- bine. __
+  Now the har -- bour light is call -- ing,
+  This will be our last good -- bye. __
+  Though the car -- ni -- val is o -- ver __
+  love __ you till I die.
+  Though the car -- ni -- val is o -- ver __
+  love __ you till I die.
+}
+
+wordsTenorSepE = \lyricmode {
+  \wordsSepE
+}
+
+wordsTenorSep = {
+  \keepWithTag #usetags \tag #'A \wordsTenorSepA
+  \keepWithTag #usetags \tag #'B \wordsTenorSepB
+  \keepWithTag #usetags \tag #'C \wordsTenorSepC
+  \keepWithTag #usetags \tag #'D \wordsTenorSepD
+  \keepWithTag #usetags \tag #'E \wordsTenorSepE
+}
+
+wordsBassSepA = \lyricmode {
+  Hey there! __ Geor -- gy girl, __
+  Swing -- ing down the street so fan -- cy free. __
+
+  No -- bod -- y you meet could ev -- er see the lone -- li -- ness there __
+  Hey there! __ Geor -- gy girl. __
+  Why do all the boys just pass you by? __
+  Could it be you just don't try,
+  or is it the clothes you wear? __
+  Oo __
+  So shed those dow -- dy feath -- ers and fly
+  Hey there! __ Geor -- gy girl, __
+  There's a -- noth -- er Geor -- gy deep in -- side: __
+  Bring out all the love you hide and oh, what a change there'd be. __
+  The world would see a new __ Geor -- gy girl.
+  Come on __ Geor -- gy girl!
+  Wake up __ Geor -- gy girl!
+
+  Come on __ Geor -- gy girl! __
+}
+
+wordsBassSepB= \lyricmode {
+  Train whis -- tle blow -- in' makes a sleep -- y noise,
+  Un -- der -- neath the blank -- ets for all the girls and boys.
+  Rock -- in' roll -- in' rid -- in',
+  Out a -- long the bay,
+  All bound for Morn -- ing Town, ma -- ny miles a -- way. __
+  Mm __ Mm __ Mm __ Mm __
+  Rock -- in' roll -- in' rid -- in',
+  Out a -- long the bay,
+  All bound for Mor -- ning Town,
+
+  Ma -- ny miles a -- way. __
+  Rock -- in' roll -- in rid -- in',
+  Out a -- long the bay,
+  All bound for Mor -- ning Town,
+
+  Ma -- ny miles a -- way. __
+}
+
+wordsBassSepC = \lyricmode {
+  \wordsC
+}
+
+wordsBassSepD = \lyricmode {
+  High a -- bove __ the dawn is wak -- ing
+  and my tears __ are fal -- ling rain,
+  For the car -- ni -- val is o -- ver __
+
+  nev -- er meet a -- gain.
+  Aah __ Aah __ Aah. __
+
+  But the joys __ of love are fleet -- ing __
+  for Pier -- rot __ and Col -- um -- bine. __
+  Now the har -- bour light is call -- ing,
+  This will be our last good -- bye. __
+  Though the car -- ni -- val is o -- ver __
+  love __ you till I die.
+  Though the car -- ni -- val is o -- ver __
+  love __ you till I die.
+}
+
+wordsBassSepE = \lyricmode {
+  \wordsSepE
+}
+
+wordsBassSep = {
+  \keepWithTag #usetags \tag #'A \wordsBassSepA
+  \keepWithTag #usetags \tag #'B \wordsBassSepB
+  \keepWithTag #usetags \tag #'C \wordsBassSepC
+  \keepWithTag #usetags \tag #'D \wordsBassSepD
+  \keepWithTag #usetags \tag #'E \wordsBassSepE
+}
+
 altoA = \relative {
   \globalA
   R1*4
@@ -1610,6 +1951,14 @@ alto = {
   \keepWithTag #usetags \tag #'C {\altoC \bar "||"}
   \keepWithTag #usetags \tag #'D {\altoD \bar "||"}
   \keepWithTag #usetags \tag #'E {\altoE          }
+}
+
+altoSep = {
+  \keepWithTag #usetags \tag #'A {\altoA \bar "||"}
+  \keepWithTag #usetags \tag #'B {\altoB \bar "||"}
+  \keepWithTag #usetags \tag #'C {\altoC \bar "||"}
+  \keepWithTag #usetags \tag #'D {\altoD \bar "||"}
+  \keepWithTag #usetags \tag #'E {\melodyE        }
 }
 
 wordsAlto = \lyricmode {
@@ -1818,6 +2167,14 @@ tenor = {
   \keepWithTag #usetags \tag #'E {\tenorE          }
 }
 
+tenorSep = {
+  \keepWithTag #usetags \tag #'A {\tenorA \bar "||"}
+  \keepWithTag #usetags \tag #'B {\tenorB \bar "||"}
+  \keepWithTag #usetags \tag #'C {\tenorC \bar "||"}
+  \keepWithTag #usetags \tag #'D {\tenorD \bar "||"}
+  \keepWithTag #usetags \tag #'E {\transpose c c, \melodyE }
+}
+
 wordsTenor = \lyricmode {
 }
 
@@ -2021,6 +2378,15 @@ bass = {
   \keepWithTag #usetags \tag #'C \bassC
   \keepWithTag #usetags \tag #'D \bassD
   \keepWithTag #usetags \tag #'E \bassE
+}
+
+bassSep = {
+  \keepWithTag #usetags \tag #'A \bassA \section
+  \keepWithTag #usetags \tag #'B \bassB \section
+  \keepWithTag #usetags \tag #'C \bassC \section
+  \keepWithTag #usetags \tag #'D \bassD \section
+  \keepWithTag #usetags \tag #'E \transpose c c, \melodyE
+  \bar "|."
 }
 
 
@@ -3044,6 +3410,378 @@ pianoLHtwo = \relative {
           \new Dynamics \dynamicsPiano
           \new Staff = lh \with { printPartCombineTexts = ##f }
           <<
+            \clef "bass"
+            \new Voice \partCombine \unfoldRepeats \pianoLHone \unfoldRepeats \pianoLHtwo
+          >>
+        >>
+        \new ChordNames = guitar \with {alignAboveContext = rh} { \chordTrack }
+%        \new FretBoards \with {alignAboveContext = rh} { \chordTrack }
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-sop"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with
+          {
+            instrumentName        = #"Soprano"
+            shortInstrumentName   = #"S"
+          }
+          <<
+            \new Voice \rehearsalTrack
+            \new Voice \tempoTrack
+            \new Voice \sopranoSep
+            \addlyrics \wordsSopSep
+            \new Voice = solo \soloSop
+            \new Lyrics \with {alignAboveContext = soprano} \lyricsto solo {\lyricmode { Oo __ Oo __ Oo __ }}
+          >>
+                                % Alto staff
+          \new Staff = alto \with
+          {
+            instrumentName        = #"Alto"
+            shortInstrumentName   = #"A"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \altoSep
+            \addlyrics {\tiny \wordsAltoSep}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with
+          {
+            instrumentName        = #"Tenor"
+            shortInstrumentName   = #"T"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenorSep
+            \addlyrics {\tiny \wordsTenorSep}
+          >>
+                                % Bass staff
+          \new Staff = bass \with
+          {
+            instrumentName        = #"Bass"
+            shortInstrumentName   = #"B"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bassSep
+            \addlyrics {\tiny \wordsBassSep}
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff = rh \with { printPartCombineTexts = ##f }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \partCombine \unfoldRepeats \pianoRHone \unfoldRepeats \pianoRHtwo
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = lh \with { printPartCombineTexts = ##f }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \partCombine \unfoldRepeats \pianoLHone \unfoldRepeats \pianoLHtwo
+          >>
+        >>
+        \new ChordNames = guitar \with {alignAboveContext = rh} { \chordTrack }
+%        \new FretBoards \with {alignAboveContext = rh} { \chordTrack }
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-alto"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with
+          {
+            instrumentName        = #"Soprano"
+            shortInstrumentName   = #"S"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \rehearsalTrack
+            \new Voice \tempoTrack
+            \new Voice \sopranoSep
+            \addlyrics {\tiny \wordsSopSep}
+            \new Voice = solo \soloSop
+            \new Lyrics \with {alignAboveContext = soprano} \lyricsto solo {\lyricmode { \tiny Oo __ Oo __ Oo __ }}
+          >>
+                                % Alto staff
+          \new Staff = alto \with
+          {
+            instrumentName        = #"Alto"
+            shortInstrumentName   = #"A"
+          }
+          <<
+            \new Voice \altoSep
+            \addlyrics \wordsAltoSep
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with
+          {
+            instrumentName        = #"Tenor"
+            shortInstrumentName   = #"T"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenorSep
+            \addlyrics {\tiny \wordsTenorSep}
+          >>
+                                % Bass staff
+          \new Staff = bass \with
+          {
+            instrumentName        = #"Bass"
+            shortInstrumentName   = #"B"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bassSep
+            \addlyrics {\tiny \wordsBassSep}
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff = rh \with { printPartCombineTexts = ##f }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \partCombine \unfoldRepeats \pianoRHone \unfoldRepeats \pianoRHtwo
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = lh \with { printPartCombineTexts = ##f }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \partCombine \unfoldRepeats \pianoLHone \unfoldRepeats \pianoLHtwo
+          >>
+        >>
+        \new ChordNames = guitar \with {alignAboveContext = rh} { \chordTrack }
+%        \new FretBoards \with {alignAboveContext = rh} { \chordTrack }
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-tenor"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with
+          {
+            instrumentName        = #"Soprano"
+            shortInstrumentName   = #"S"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \rehearsalTrack
+            \new Voice \tempoTrack
+            \new Voice \sopranoSep
+            \addlyrics {\tiny \wordsSopSep}
+            \new Voice = solo \soloSop
+            \new Lyrics \with {alignAboveContext = soprano} \lyricsto solo {\lyricmode { \tiny Oo __ Oo __ Oo __ }}
+          >>
+                                % Alto staff
+          \new Staff = alto \with
+          {
+            instrumentName        = #"Alto"
+            shortInstrumentName   = #"A"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \altoSep
+            \addlyrics {\tiny \wordsAltoSep}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with
+          {
+            instrumentName        = #"Tenor"
+            shortInstrumentName   = #"T"
+          }
+          <<
+            \clef "treble_8"
+            \new Voice \tenorSep
+            \addlyrics \wordsTenorSep
+          >>
+                                % Bass staff
+          \new Staff = bass \with
+          {
+            instrumentName        = #"Bass"
+            shortInstrumentName   = #"B"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bassSep
+            \addlyrics {\tiny \wordsBassSep}
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff = rh \with { printPartCombineTexts = ##f }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \partCombine \unfoldRepeats \pianoRHone \unfoldRepeats \pianoRHtwo
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = lh \with { printPartCombineTexts = ##f }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \partCombine \unfoldRepeats \pianoLHone \unfoldRepeats \pianoLHtwo
+          >>
+        >>
+        \new ChordNames = guitar \with {alignAboveContext = rh} { \chordTrack }
+%        \new FretBoards \with {alignAboveContext = rh} { \chordTrack }
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-bass"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with
+          {
+            instrumentName        = #"Soprano"
+            shortInstrumentName   = #"S"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \rehearsalTrack
+            \new Voice \tempoTrack
+            \new Voice \sopranoSep
+            \addlyrics {\tiny \wordsSopSep}
+            \new Voice = solo \soloSop
+            \new Lyrics \with {alignAboveContext = soprano} \lyricsto solo {\lyricmode { \tiny Oo __ Oo __ Oo __ }}
+          >>
+                                % Alto staff
+          \new Staff = alto \with
+          {
+            instrumentName        = #"Alto"
+            shortInstrumentName   = #"A"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \altoSep
+            \addlyrics {\tiny \wordsAltoSep}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with
+          {
+            instrumentName        = #"Tenor"
+            shortInstrumentName   = #"T"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenorSep
+            \addlyrics {\tiny \wordsTenorSep}
+          >>
+                                % Bass staff
+          \new Staff = bass \with
+          {
+            instrumentName        = #"Bass"
+            shortInstrumentName   = #"B"
+          }
+          <<
+            \clef "bass"
+            \new Voice \bassSep
+            \addlyrics \wordsBassSep
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff = rh \with { printPartCombineTexts = ##f }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \partCombine \unfoldRepeats \pianoRHone \unfoldRepeats \pianoRHtwo
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = lh \with { printPartCombineTexts = ##f }
+          <<
+            \magnifyStaff #4/7
             \clef "bass"
             \new Voice \partCombine \unfoldRepeats \pianoLHone \unfoldRepeats \pianoLHtwo
           >>
