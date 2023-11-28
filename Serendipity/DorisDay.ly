@@ -1,4 +1,4 @@
-\version "2.22.0"
+\version "2.25.9"
 
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
@@ -656,6 +656,66 @@ bassC = \relative {
 wordsBass = \lyricmode {
 }
 
+wordsSopSep = \lyricmode {
+  Take me back to the Black Hills,
+  The Black Hills of Da -- ko -- ta,
+  To the beau -- ti -- ful In -- di -- an coun -- try that I love! __
+  Lost my heart in the Black Hills,
+  The Black Hills of Da -- ko -- ta
+  Where the pines are so high that they kiss the sky a -- bove! __
+  And when I get that lone -- some feel -- ing,
+  And I'm miles a -- way from home,
+  I hear the voice of the my -- stic moun -- tains call -- ing me back home __
+  Take me back to the Black Hills,
+  the Black Hills of Da -- ko -- ta,
+  to the beau -- ti -- ful In -- di -- an coun -- try that I love. __
+}
+
+wordsAltoSep = \lyricmode {
+  Take me back to the Black Hills,
+  The Black Hills of Da -- ko -- ta,
+  To the beau -- ti -- ful In -- di -- an coun -- try that I love! __
+  Lost my heart in the Black Hills,
+  The Black Hills of Da -- ko -- ta
+  Where the pines are so high that they kiss the sky a -- bove! __
+  And when I get that lone -- some feel -- ing,
+  And I'm miles a -- way from home,
+  I hear the voice of the my -- stic moun -- tains call -- ing me back home __
+  Take me back,
+  The Black Hills of Da -- ko -- ta,
+  to the beau -- ti -- ful In -- di -- an coun -- try that I love. __
+}
+
+wordsTenorSep = \lyricmode {
+  Take me back to the Black Hills,
+  The Black Hills of Da -- ko -- ta,
+  To the beau -- ti -- ful In -- di -- an coun -- try that I love! __
+  Lost my heart in the Black Hills,
+  The Black Hills of Da -- ko -- ta
+  Where the pines are so high that they kiss the sky a -- bove! __
+  And when I get that lone -- some feel -- ing,
+  And I'm miles a -- way from home,
+  I hear the voice of the my -- stic moun -- tains call -- ing me back home __
+  Take me back to the Black Hills,
+  the Black Hills of Da -- ko -- ta,
+  to the beau -- ti -- ful In -- di -- an coun -- try that I love. __
+}
+
+wordsBassSep = \lyricmode {
+  Take me back to the Black Hills,
+  The Black Hills of Da -- ko -- ta,
+  To the beau -- ti -- ful In -- di -- an coun -- try that I love! __
+  Lost my heart in the Black Hills,
+  The Black Hills of Da -- ko -- ta
+  Where the pines are so high that they kiss the sky a -- bove! __
+  And when I get that lone -- some feel -- ing,
+  And I'm miles a -- way from home,
+  I hear the voice of the my -- stic moun -- tains call -- ing me back home __
+  Take me back,
+  The Black Hills of Da -- ko -- ta,
+  to the beau -- ti -- ful In -- di -- an coun -- try that I love. __
+}
+
 pianoRHoneA = \relative {
   \tripletFeel 8 {
     g'2 fis8 g fis e
@@ -769,11 +829,11 @@ pianoRHoneB = \relative {
   <a, c>2( <bes d>
   <a c>1)
   <a c>2( <bes d> % 3a
-  <a f'>4 <bes e>2.
+  <a f'>4 <bes e>2.)
   c2(d
   c2 d4 e)
   <a, f'>4(<f' a>8. <a c>16 <bes d>4 <g bes>
-  <c, f a>8) r <a c e>4(<a c g'> <a c f>
+  <c, f a>8) r <a c e>4(<a c g'> <a c f>)
 }
 
 pianoRHtwoB = \relative {
@@ -1073,7 +1133,7 @@ pianoLHoneC = \relative {
 
 pianoLHtwoC = \relative {
   s1*18
-  s4. a,8~8 des e g,~ % 4a
+  s4. a,8~8 des e g, % 4a
   a2 s
   s1
   s1 % 4b
@@ -1238,6 +1298,426 @@ pianoLHtwoC = \relative {
             printPartCombineTexts = ##f
           }
           <<
+            \clef "bass"
+            \new Voice \partCombine {\globalC \pianoLHoneC \globalB \pianoLHoneB \globalA \pianoLHoneA} {\pianoLHtwoC \pianoLHtwoB \pianoLHtwoA}
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-sop"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+   \unfoldRepeats
+    <<
+%      <<
+%        \new ChordNames { \ChordTrackC \ChordTrackB \ChordTrackA }
+%        \new FretBoards { \ChordTrackC \ChordTrackB \ChordTrackA }
+%      >>
+      <<
+        \new ChoirStaff <<
+                                % Single melody staff
+          \new Staff = melody \with {
+            instrumentName = #"All"
+            shortInstrumentName = #"All"
+          }
+          <<
+            \new Voice {\TempoTrackC \TempoTrackB \TempoTrackA}
+            \new Voice {\RehearsalTrackC \RehearsalTrackB \RehearsalTrackA}
+            \new Voice {\globalC \melodyC \melodyB \globalA \melodyA}
+            \addlyrics {\wordsMelodyC \wordsMelodyB \wordsMelodyA}
+          >>
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \new Voice {\sopranoC \break \globalB \sopranoB \break \sopranoA}
+            \addlyrics \wordsSopSep
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice {\altoC    \altoB    \altoA}
+            \addlyrics {\tiny \wordsC \wordsB \wordsA}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice {\tenorC \tenorB \tenorA}
+            \addlyrics {\tiny \wordsTenorSep}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice {\bassC \bassB \bassA}
+            \addlyrics {\tiny \wordsBassSep}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \partCombine {\globalC \pianoRHoneC \globalB \pianoRHoneB \globalA \pianoRHoneA} {\globalC \pianoRHtwoC \pianoRHtwoB \pianoRHtwoA}
+          >>
+          \new Dynamics {\teeny \dynamicsPianoC \dynamicsPianoB \dynamicsPianoA}
+          \new Staff = pianolh \with {
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \partCombine {\globalC \pianoLHoneC \globalB \pianoLHoneB \globalA \pianoLHoneA} {\pianoLHtwoC \pianoLHtwoB \pianoLHtwoA}
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-alto"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+   \unfoldRepeats
+    <<
+%      <<
+%        \new ChordNames { \ChordTrackC \ChordTrackB \ChordTrackA }
+%        \new FretBoards { \ChordTrackC \ChordTrackB \ChordTrackA }
+%      >>
+      <<
+        \new ChoirStaff <<
+                                % Single melody staff
+          \new Staff = melody \with {
+            instrumentName = #"All"
+            shortInstrumentName = #"All"
+          }
+          <<
+            \new Voice {\TempoTrackC \TempoTrackB \TempoTrackA}
+            \new Voice {\RehearsalTrackC \RehearsalTrackB \RehearsalTrackA}
+            \new Voice {\globalC \melodyC \melodyB \globalA \melodyA}
+            \addlyrics {\wordsMelodyC \wordsMelodyB \wordsMelodyA}
+          >>
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice {\sopranoC \break \globalB \sopranoB \break \sopranoA}
+            \addlyrics {\tiny \wordsSopSep}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \new Voice {\altoC    \altoB    \altoA}
+            \addlyrics {\wordsC \wordsB \wordsA}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice {\tenorC \tenorB \tenorA}
+            \addlyrics {\tiny \wordsTenorSep}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice {\bassC \bassB \bassA}
+            \addlyrics {\tiny \wordsBassSep}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \partCombine {\globalC \pianoRHoneC \globalB \pianoRHoneB \globalA \pianoRHoneA} {\globalC \pianoRHtwoC \pianoRHtwoB \pianoRHtwoA}
+          >>
+          \new Dynamics {\teeny \dynamicsPianoC \dynamicsPianoB \dynamicsPianoA}
+          \new Staff = pianolh \with {
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \partCombine {\globalC \pianoLHoneC \globalB \pianoLHoneB \globalA \pianoLHoneA} {\pianoLHtwoC \pianoLHtwoB \pianoLHtwoA}
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-tenor"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+   \unfoldRepeats
+    <<
+%      <<
+%        \new ChordNames { \ChordTrackC \ChordTrackB \ChordTrackA }
+%        \new FretBoards { \ChordTrackC \ChordTrackB \ChordTrackA }
+%      >>
+      <<
+        \new ChoirStaff <<
+                                % Single melody staff
+          \new Staff = melody \with {
+            instrumentName = #"All"
+            shortInstrumentName = #"All"
+          }
+          <<
+            \new Voice {\TempoTrackC \TempoTrackB \TempoTrackA}
+            \new Voice {\RehearsalTrackC \RehearsalTrackB \RehearsalTrackA}
+            \new Voice {\globalC \melodyC \melodyB \globalA \melodyA}
+            \addlyrics {\wordsMelodyC \wordsMelodyB \wordsMelodyA}
+          >>
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice {\sopranoC \break \globalB \sopranoB \break \sopranoA}
+            \addlyrics {\tiny \wordsSopSep}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice {\altoC    \altoB    \altoA}
+            \addlyrics {\tiny \wordsC \wordsB \wordsA}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+            \clef "treble_8"
+            \new Voice {\tenorC \tenorB \tenorA}
+            \addlyrics \wordsTenorSep
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice {\bassC \bassB \bassA}
+            \addlyrics {\tiny \wordsBassSep}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \partCombine {\globalC \pianoRHoneC \globalB \pianoRHoneB \globalA \pianoRHoneA} {\globalC \pianoRHtwoC \pianoRHtwoB \pianoRHtwoA}
+          >>
+          \new Dynamics {\teeny \dynamicsPianoC \dynamicsPianoB \dynamicsPianoA}
+          \new Staff = pianolh \with {
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \partCombine {\globalC \pianoLHoneC \globalB \pianoLHoneB \globalA \pianoLHoneA} {\pianoLHtwoC \pianoLHtwoB \pianoLHtwoA}
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-bass"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+   \unfoldRepeats
+    <<
+%      <<
+%        \new ChordNames { \ChordTrackC \ChordTrackB \ChordTrackA }
+%        \new FretBoards { \ChordTrackC \ChordTrackB \ChordTrackA }
+%      >>
+      <<
+        \new ChoirStaff <<
+                                % Single melody staff
+          \new Staff = melody \with {
+            instrumentName = #"All"
+            shortInstrumentName = #"All"
+          }
+          <<
+            \new Voice {\TempoTrackC \TempoTrackB \TempoTrackA}
+            \new Voice {\RehearsalTrackC \RehearsalTrackB \RehearsalTrackA}
+            \new Voice {\globalC \melodyC \melodyB \globalA \melodyA}
+            \addlyrics {\wordsMelodyC \wordsMelodyB \wordsMelodyA}
+          >>
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice {\sopranoC \break \globalB \sopranoB \break \sopranoA}
+            \addlyrics {\tiny \wordsSopSep}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice {\altoC    \altoB    \altoA}
+            \addlyrics {\tiny \wordsC \wordsB \wordsA}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice {\tenorC \tenorB \tenorA}
+            \addlyrics {\tiny \wordsTenorSep}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \clef "bass"
+            \new Voice {\bassC \bassB \bassA}
+            \addlyrics \wordsBassSep
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \partCombine {\globalC \pianoRHoneC \globalB \pianoRHoneB \globalA \pianoRHoneA} {\globalC \pianoRHtwoC \pianoRHtwoB \pianoRHtwoA}
+          >>
+          \new Dynamics {\teeny \dynamicsPianoC \dynamicsPianoB \dynamicsPianoA}
+          \new Staff = pianolh \with {
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
             \clef "bass"
             \new Voice \partCombine {\globalC \pianoLHoneC \globalB \pianoLHoneB \globalA \pianoLHoneA} {\pianoLHtwoC \pianoLHtwoB \pianoLHtwoA}
           >>
