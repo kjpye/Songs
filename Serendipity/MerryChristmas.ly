@@ -118,7 +118,7 @@ wordsTwo = \lyricmode {
   “Wel -- come Christ -- mas morn -- ing”
 
   \set stanza = "3."
-  So with joy, Man and boy,
+  So with joy, Girl and boy,
   Sing with us to -- geth -- er;
   On this morn, Christ __ was born,
   Mer -- ry, mer -- ry, mer -- ry Christ -- mas.
@@ -150,7 +150,7 @@ wordsMidi = \lyricmode {
   "\n“Wel" "come " Christ "mas " morn "ing”\n"
 
   \set stanza = "3."
-  "\nSo " "with " "joy, " "Man " "and " "boy, "
+  "\nSo " "with " "joy, " "Girl " "and " "boy, "
   "\nSing " "with " "us " to geth "er; "
   "\nOn " "this " "morn, " "Christ "  "was " "born, "
   "\nMer" "ry, " mer "ry, " mer "ry " Christ "mas. "
