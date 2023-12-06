@@ -1,4 +1,4 @@
-\version "2.13.53"
+\version "2.25.9"
 
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 
@@ -129,7 +129,7 @@ Mthirdverse = \lyricmode {
       \context {
 				% a little smaller so lyrics
 				% can be closer to the staff
-	\Staff \override VerticalAxisGroup #'minimum-Y-extent = #'(-3 . 3)
+	\Staff \override VerticalAxisGroup.minimum-Y-extent = #'(-3 . 3)
       }
     }
   }
@@ -163,10 +163,7 @@ Mthirdverse = \lyricmode {
 	\Voice
 	\consists "Staff_performer"
       }
-      \context {
-	\Score
-	tempoWholesPerMinute = #(ly:make-moment 100 4)
-      }
+      \tempo 4 = 100
     }
   }
 }
