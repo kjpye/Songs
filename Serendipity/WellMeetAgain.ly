@@ -1,4 +1,4 @@
-\version "2.20.0"
+\version "2.25.9"
 
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 
@@ -74,9 +74,6 @@ RehearsalTrack = {
   s2 s2
 }
 
-ChordTrack = \chordmode {
-}
-
 soprano = \relative c'' {
   \global
   fis8 g
@@ -114,37 +111,79 @@ soprano = \relative c'' {
     b2 bes4 b
     g'2. fis8 g
     fis4 e e d
-    d4 b fis' fis
-  }
-  \alternative {
-    {
-      d1
-    }
-    {
-      d1~
-      d1
+    d4 b fis' fis |
+    \alternative {
+      \volta 1 { d1 | }
+      \volta 2 { d1~ | d1 }
     }
   }
 %  \bar "|."
 }
 
-dynamicsSop = {
-  \override DynamicTextSpanner.style = #'none
+wordsSop = \lyricmode {
+  But I know we'll meet a -- gain some sun -- ny day. __
+  We'll meet a -- gain don't know where don't know when
+  But I know we'll meet a -- gain some sun -- ny day
+  Keep smi -- ling through, just like you al -- ways do,
+  Till the blue skies drive the dark clouds far a -- way.
+  So will you please say hel -- lo __ to the folks that I know __
+  Tell them I won't be long __
+  They'll be hap -- py to know that as you saw me go, __
+  I was sing -- ing this song.
+  We'll meet a -- gain don't know where don't know when
+  But I know we'll meet a -- gain some sun -- ny day.
+
+  day!
 }
 
-wordsSop = \lyricmode {
-  But I know we'll meet a- gain some sun- ny day. __
-  We'll meet a- gain don't know where don't know when
-  But I know we'll meet a- gain some sun- ny day
-  Keep smi- ling through, just like you al- ways do,
-  Till the blue skies drive the dark clouds far a- way.
-  So will you please say hel- lo __ to the folks that I know __
+wordsSopSingle = \lyricmode {
+  But I know we'll meet a -- gain some sun -- ny day. __
+  We'll meet a -- gain don't know where don't know when
+  But I know we'll meet a -- gain some sun -- ny day
+  Keep smi -- ling through, just like you al -- ways do,
+  Till the blue skies drive the dark clouds far a -- way.
+  So will you please say hel -- lo __ to the folks that I know __
   Tell them I won't be long __
-  They'll be hap- py to know that as you saw me go, __
-  I was sing- ing this song.
-  We'll meet a- gain don't know where don't know when
-  But I know we'll meet a- gain some sun- ny day.
-  day!
+  They'll be hap -- py to know that as you saw me go, __
+  I was sing -- ing this song.
+  We'll meet a -- gain don't know where don't know when
+  But I know we'll meet a -- gain some sun -- ny day.
+
+  We'll meet a -- gain don't know where don't know when
+  But I know we'll meet a -- gain some sun -- ny day
+  Keep smi -- ling through, just like you al -- ways do,
+  Till the blue skies drive the dark clouds far a -- way.
+  So will you please say hel -- lo __ to the folks that I know __
+  Tell them I won't be long __
+  They'll be hap -- py to know that as you saw me go, __
+  I was sing -- ing this song.
+  We'll meet a -- gain don't know where don't know when
+  But I know we'll meet a -- gain some sun -- ny day!
+}
+
+wordsSopMidi = \lyricmode {
+  "But " "I " "know " "we'll " "meet " a "gain " "some " sun "ny " "day. " 
+  "\nWe'll " "meet " a "gain " "don't " "know " "where " "don't " "know " "when "
+  "\nBut " "I " "know " "we'll " "meet " a "gain " "some " sun "ny " "day "
+  "\nKeep " smi "ling " "through, " "just " "like " "you " al "ways " "do, "
+  "\nTill " "the " "blue " "skies " "drive " "the " "dark " "clouds " "far " a "way. "
+  "\nSo " "will " "you " "please " "say " hel "lo "  "to " "the " "folks " "that " "I " "know " 
+  "\nTell " "them " "I " "won't " "be " "long " 
+  "\nThey'll " "be " hap "py " "to " "know " "that " "as " "you " "saw " "me " "go, " 
+  "\nI " "was " sing "ing " "this " "song. "
+  "\nWe'll " "meet " a "gain " "don't " "know " "where " "don't " "know " "when "
+  "\nBut " "I " "know " "we'll " "meet " a "gain " "some " sun "ny " "day.\n"
+
+  "\nWe'll " "meet " a "gain " "don't " "know " "where " "don't " "know " "when "
+  "\nBut " "I " "know " "we'll " "meet " a "gain " "some " sun "ny " "day "
+  "\nKeep " smi "ling " "through, " "just " "like " "you " al "ways " "do, "
+  "\nTill " "the " "blue " "skies " "drive " "the " "dark " "clouds " "far " a "way. "
+  "\nSo " "will " "you " "please " "say " hel "lo "  "to " "the " "folks " "that " "I " "know " 
+  "\nTell " "them " "I " "won't " "be " "long " 
+  "\nThey'll " "be " hap "py " "to " "know " "that " "as " "you " "saw " "me " "go, " 
+  "\nI " "was " sing "ing " "this " "song. "
+  "\nWe'll " "meet " a "gain " "don't " "know " "where " "don't " "know " "when "
+  "\nBut " "I " "know " "we'll " "meet " a "gain " "some " sun "ny " "day! "
 }
 
 alto = \relative c' {
@@ -184,36 +223,74 @@ alto = \relative c' {
     ees2 d4 ees
     e2(ees)
     d4 cis2 b4
-    b4 g cis cis
-  }
-  \alternative {
-    {
-      a'1
-    }
-    {
-      r4 e fis g
-      a1
+    b4 g cis cis |
+    \alternative {
+      \volta 1 { a'1 | }
+      \volta 2 { r4 e fis g | a1 }
     }
   }
 %  \bar "|."
 }
 
-dynamicsAlto = {
-  \override DynamicTextSpanner.style = #'none
-}
-
 wordsAlto = \lyricmode {
-  a- gain some sun- ny day. __
-  We'll meet a- gain don't know where don't know when
-  know we'll meet a- gain some sun- ny day
-  Keep smi- ling through __ just like you al- ways do, __
-  drive the dark __ clouds a- way, __
+  a -- gain some sun -- ny day. __
+  We'll meet a -- gain don't know where don't know when
+  know we'll meet a -- gain some sun -- ny day
+  Keep smi -- ling through __ just like you al -- ways do, __
+  drive the dark __ clouds a -- way, __
   So will you say hello to the folks
   Tell them I won't be long __
-  be hap -py to know that I was sing- ing this song,
-  We'll meet a- gain don't know where don't know when
-  we'll meet a- gain some sun- ny day.
-  some sun- ny day!
+  be hap -py to know that I was sing -- ing this song,
+  We'll meet a -- gain don't know where don't know when
+  we'll meet a -- gain some sun -- ny day.
+
+  some sun -- ny day!
+}
+
+wordsAltoSingle = \lyricmode {
+  a -- gain some sun -- ny day. __
+  We'll meet a -- gain don't know where don't know when
+  know we'll meet a -- gain some sun -- ny day
+  Keep smi -- ling through __ just like you al -- ways do, __
+  drive the dark __ clouds a -- way, __
+  So will you say hello to the folks
+  Tell them I won't be long __
+  be hap -py to know that I was sing -- ing this song,
+  We'll meet a -- gain don't know where don't know when
+  we'll meet a -- gain some sun -- ny day.
+
+  We'll meet a -- gain don't know where don't know when
+  know we'll meet a -- gain some sun -- ny day
+  Keep smi -- ling through __ just like you al -- ways do, __
+  drive the dark __ clouds a -- way, __
+  So will you say hello to the folks
+  Tell them I won't be long __
+  be hap -py to know that I was sing -- ing this song,
+  We'll meet a -- gain don't know where don't know when
+  we'll meet a -- gain some sun -- ny, some sun -- ny day!
+}
+
+wordsAltoMidi = \lyricmode {
+  "a" "gain " "some " sun "ny " "day. " 
+  "\nWe'll " "meet " a "gain " "don't " "know " "where " "don't " "know " "when "
+  "\nknow " "we'll " "meet " a "gain " "some " sun "ny " "day "
+  "\nKeep " smi "ling " "through "  "just " "like " "you " al "ways " "do, " 
+  "\ndrive " "the " "dark "  "clouds " a "way, " 
+  "\nSo " "will " "you " "say " "hello " "to " "the " "folks "
+  "\nTell " "them " "I " "won't " "be " "long " 
+  "\nbe " "hap " "-py " "to " "know " "that " "I " "was " sing "ing " "this " "song, "
+  "\nWe'll " "meet " a "gain " "don't " "know " "where " "don't " "know " "when "
+  "\nwe'll " "meet " a "gain " "some " sun "ny " "day.\n"
+
+  "\nWe'll " "meet " a "gain " "don't " "know " "where " "don't " "know " "when "
+  "\nknow " "we'll " "meet " a "gain " "some " sun "ny " "day "
+  "\nKeep " smi "ling " "through "  "just " "like " "you " al "ways " "do, " 
+  "\ndrive " "the " "dark "  "clouds " a "way, " 
+  "\nSo " "will " "you " "say " "hello " "to " "the " "folks "
+  "\nTell " "them " "I " "won't " "be " "long " 
+  "\nbe " "hap " "-py " "to " "know " "that " "I " "was " sing "ing " "this " "song, "
+  "\nWe'll " "meet " a "gain " "don't " "know " "where " "don't " "know " "when "
+  "\nwe'll " "meet " a "gain " "some " sun "ny, " "some " sun "ny " "day! "
 }
 
 tenor = \relative c' {
@@ -253,150 +330,836 @@ tenor = \relative c' {
     fis2 f4 fis
     c'2(b)
     aes2 aes
-    g2 a
-  }
-  \alternative {
-    {
-      fis'1
-    }
-    {
-      r4 cis4 d e
-      fis1
+    g2 a |
+    \alternative {
+      \volta 1 { fis'1 | }
+      \volta 2 { r4 cis4 d e | fis1 | }
     }
   }
-%  \bar "|."
-}
-
-dynamicsTenor = {
-  \override DynamicTextSpanner.style = #'none
 }
 
 wordsTenor = \lyricmode {
-  a- gain some sun- ny day. __
-  We'll meet a- gain don't know where don't know when
-  know meet some sun- ny day
-  Keep smi- ling through just like you al- ways do, __
-  drive the __ dark clouds a- way,
-  please say hel- lo,
+  a -- gain some sun -- ny day. __
+  We'll meet a -- gain don't know where don't know when
+  know meet some sun -- ny day
+  Keep smi -- ling through just like you al -- ways do, __
+  drive the __ dark clouds a -- way,
+  please say hel -- lo,
   Tell them I won't be long __
-  They'll be hap -py to know I was sing- ing this song __
-  We'll meet a- gain don't know where don't know when __
-  again some sun- ny day.
-  some sun- ny day.
+  They'll be hap -py to know I was sing -- ing this song __
+  We'll meet a -- gain don't know where don't know when __
+  again some sun -- ny day.
+
+  some sun -- ny day!
+}
+
+
+wordsTenorSingle = \lyricmode {
+  a -- gain some sun -- ny day. __
+  We'll meet a -- gain don't know where don't know when
+  know meet some sun -- ny day
+  Keep smi -- ling through just like you al -- ways do, __
+  drive the __ dark clouds a -- way,
+  please say hel -- lo,
+  Tell them I won't be long __
+  They'll be hap -py to know I was sing -- ing this song __
+  We'll meet a -- gain don't know where don't know when __
+  again some sun -- ny day.
+
+  We'll meet a -- gain don't know where don't know when
+  know meet some sun -- ny day
+  Keep smi -- ling through just like you al -- ways do, __
+  drive the __ dark clouds a -- way,
+  please say hel -- lo,
+  Tell them I won't be long __
+  They'll be hap -py to know I was sing -- ing this song __
+  We'll meet a -- gain don't know where don't know when __
+  again some sun -- ny, some sun -- ny day!
+}
+
+wordsTenorMidi = \lyricmode {
+  "a" "gain " "some " sun "ny " "day. " 
+  "\nWe'll " "meet " a "gain " "don't " "know " "where " "don't " "know " "when "
+  "\nknow " "meet " "some " sun "ny " "day "
+  "\nKeep " smi "ling " "through " "just " "like " "you " al "ways " "do, " 
+  "\ndrive " "the "  "dark " "clouds " a "way, "
+  "\nplease " "say " hel "lo, "
+  "\nTell " "them " "I " "won't " "be " "long " 
+  "\nThey'll " "be " "hap " "-py " "to " "know " "I " "was " sing "ing " "this " "song " 
+  "\nWe'll " "meet " a "gain " "don't " "know " "where " "don't " "know " "when " 
+  "\nagain " "some " sun "ny " "day.\n"
+
+  "\nWe'll " "meet " a "gain " "don't " "know " "where " "don't " "know " "when "
+  "\nknow " "meet " "some " sun "ny " "day "
+  "\nKeep " smi "ling " "through " "just " "like " "you " al "ways " "do, " 
+  "\ndrive " "the "  "dark " "clouds " a "way, "
+  "\nplease " "say " hel "lo, "
+  "\nTell " "them " "I " "won't " "be " "long " 
+  "\nThey'll " "be " "hap " "-py " "to " "know " "I " "was " sing "ing " "this " "song " 
+  "\nWe'll " "meet " a "gain " "don't " "know " "where " "don't " "know " "when " 
+  "\nagain " "some " sun "ny, " "some " sun "ny " "day! "
 }
 
 
 bass= \relative c {
   \global
-  r4
-  e1 % 
-  e2 bes4 a
-  d2 c2(
-  d2.) r4
+  r4 | e1 | e2 bes4 a | d2 c2( | d2.) r4 |
   \repeat volta 2 {
-    d4 d2 d4 % 5
-    fis4 fis,2 fis4
-    b2 bes4 b
-    c2(b)
-    e2. b4
-    e2. e4 % 10 % 10
-    e2 e
-    e4 cis a(cis)
-    d4 d2 d4
-    fis4(fis,) a bes
-    b2 bes4 b % 15
-    c2(b)
-    e2. b'4
-    a2.(g4)
-    d2 c
-    d4 r r2 % 20
-    d2 a
-    d2 a
-    g2 d'
-    d2 fis4 f
-    e2 b
-    e2 b
-    a2 e'4 ees
-    e2(a,)
-    d4 d2 d4
-    fis4 fis,2 fis4
-    b2 bes4 b
-    c2(b)
-    e1
-    e4(b)a2
-  }
-  \alternative {
-    {
-      d1
-    }
-    {
-      r4 a'2 a4
-      d,1
+    d4 d2 d4 | % 5
+    fis4 fis,2 fis4 | b2 bes4 b | c2(b) | e2. b4 | e2. e4 | % 10
+    e2 e | e4 cis a(cis) | d4 d2 d4 | fis4(fis,) a bes | b2 bes4 b | % 15
+    c2(b) | e2. b'4 | a2.(g4) | d2 c | d4 r r2 | % 20
+    d2 a | d2 a | g2 d' | d2 fis4 f | e2 b | % 25
+    e2 b | a2 e'4 ees | e2(a,) | d4 d2 d4 | fis4 fis,2 fis4 | % 30
+    b2 bes4 b | c2(b) e1 | e4(b) a2 |
+    \alternative {
+      \volta 1 { | d1 | }
+      \volta 2 { r4 a'2 a4 | d,1 | }
     }
   }
   \bar "|."
 }
 
-dynamicsBass = {
-  \override DynamicTextSpanner.style = #'none
-}
-
 wordsBass = \lyricmode {
-  a- gain some sun- ny day. __
-  We'll meet a- gain don't know where don't know when
-  know we'll meet a- gain some sun- ny day
-  Keep smi- ling through just like you al- ways do, __
-  drive the dark __ clouds a- way,
+  a -- gain some sun -- ny day. __
+  We'll meet a -- gain don't know where don't know when
+  know we'll meet a -- gain some sun -- ny day
+  Keep smi -- ling through just like you al -- ways do, __
+  drive the dark __ clouds a -- way,
   say hello, to folks, I won't be long.
-  hap- py that I was sing- ing this song. __
-  We'll meet a- gain don't know where don't know when
-  some sun- ny day.
-  sun- ny day!
+  hap -- py that I was sing -- ing this song. __
+  We'll meet a -- gain don't know where don't know when
+  some sun -- ny day,
+
+  sun -- ny day!
 }
 
-\score {
-  \context GrandStaff <<
+wordsBassSingle = \lyricmode {
+  a -- gain some sun -- ny day. __
+  We'll meet a -- gain don't know where don't know when
+  know we'll meet a -- gain some sun -- ny day
+  Keep smi -- ling through just like you al -- ways do, __
+  drive the dark __ clouds a -- way,
+  say hello, to folks, I won't be long.
+  hap -- py that I was sing -- ing this song. __
+  We'll meet a -- gain don't know where don't know when
+  some sun -- ny day.
+
+  We'll meet a -- gain don't know where don't know when
+  know we'll meet a -- gain some sun -- ny day
+  Keep smi -- ling through just like you al -- ways do, __
+  drive the dark __ clouds a -- way,
+  say hello, to folks, I won't be long.
+  hap -- py that I was sing -- ing this song. __
+  We'll meet a -- gain don't know where don't know when
+  some sun -- ny, sun -- ny day!
+}
+
+wordsBassMidi = \lyricmode {
+  "a" "gain " "some " sun "ny " "day. " 
+  "\nWe'll " "meet " a "gain " "don't " "know " "where " "don't " "know " "when "
+  "\nknow " "we'll " "meet " a "gain " "some " sun "ny " "day "
+  "\nKeep " smi "ling " "through " "just " "like " "you " al "ways " "do, " 
+  "\ndrive " "the " "dark "  "clouds " a "way, "
+  "\nsay " "hello, " "to " "folks, " "I " "won't " "be " "long. "
+  "\nhap" "py " "that " "I " "was " sing "ing " "this " "song. " 
+  "\nWe'll " "meet " a "gain " "don't " "know " "where " "don't " "know " "when "
+  "\nsome " sun "ny " "day.\n"
+
+  "\nWe'll " "meet " a "gain " "don't " "know " "where " "don't " "know " "when "
+  "\nknow " "we'll " "meet " a "gain " "some " sun "ny " "day "
+  "\nKeep " smi "ling " "through " "just " "like " "you " al "ways " "do, " 
+  "\ndrive " "the " "dark "  "clouds " a "way, "
+  "\nsay " "hello, " "to " "folks, " "I " "won't " "be " "long. "
+  "\nhap" "py " "that " "I " "was " sing "ing " "this " "song. " 
+  "\nWe'll " "meet " a "gain " "don't " "know " "where " "don't " "know " "when "
+  "\nsome " sun "ny, " sun "ny " "day! "
+}
+
+\book {
+  \bookOutputSuffix "repeat"
+  \score {
     <<
-      \new ChordNames { \ChordTrack }
-      \new FretBoards { \ChordTrack }
-    >>
-    <<
-      \new ChoirStaff <<
+      <<
+        \new ChoirStaff <<
                                 % Single soprano staff
-        \new Dynamics \dynamicsSop
-        \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
-          \new Voice \RehearsalTrack
-          \new Voice = "soprano" \soprano
-          \new Lyrics \lyricsto "soprano" \wordsSop
-        >>
+          \new Staff \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+%            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics \wordsSop
+          >>
                                 % Single alto staff
-        \new Dynamics \dynamicsAlto
-        \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
-          \new Voice = "alto" \alto
-          \new Lyrics \lyricsto "alto" \wordsAlto
-        >>
+          \new Staff \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \new Voice = "alto" \alto
+            \addlyrics \wordsAlto
+          >>
                                 % Single tenor staff
-        \new Dynamics \dynamicsTenor
-        \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
-          \clef "treble_8"
-          \new Voice = "tenor" \tenor
-          \new Lyrics \lyricsto "tenor" \wordsTenor
-        >>
+          \new Staff \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics \wordsTenor
+          >>
                                 % Single bass staff
-        \new Dynamics \dynamicsBass
-        \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
-          \clef "bass"
-          \new Voice = "bass" \bass
-          \new Lyrics \lyricsto "bass" \wordsBass
+          \new Staff \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics \wordsBass
+          >>
         >>
       >>
     >>
-  >>
-  \layout {
-    indent = 1.5\cm
-    \context {
-      \Staff \RemoveAllEmptyStaves
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+                 \remove Metronome_mark_engraver
+%                 \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+                 \RemoveAllEmptyStaves
+                 barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+                 \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context { \ChoirStaff
+                 \consists Metronome_mark_engraver
+                 \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+                 \consists Metronome_mark_engraver
+                 \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+                                %        \consists Ambitus_engraver
+      }
     }
   }
-  \midi {}
+}
+
+\book {
+  \bookOutputSuffix "single"
+  \score {
+    \unfoldRepeats
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+%            \new Voice \RehearsalTrack
+            \new Voice = "soprano" \soprano
+            \new Lyrics \lyricsto "soprano" \wordsSopSingle
+          >>
+                                % Single alto staff
+          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \new Voice = "alto" \alto
+            \new Lyrics \lyricsto "alto" \wordsAltoSingle
+          >>
+                                % Single tenor staff
+          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \clef "treble_8"
+            \new Voice = "tenor" \tenor
+            \new Lyrics \lyricsto "tenor" \wordsTenorSingle
+          >>
+                                % Single bass staff
+          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \clef "bass"
+            \new Voice = "bass" \bass
+            \new Lyrics \lyricsto "bass" \wordsBassSingle
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+                                %        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+                                %        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+%            \new Voice \RehearsalTrack
+            \new Voice = "soprano" \soprano
+            \new Lyrics \lyricsto "soprano" \wordsSopSingle
+          >>
+                                % Single alto staff
+          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \new Voice = "alto" \alto
+            \new Lyrics \lyricsto "alto" \wordsAltoSingle
+          >>
+                                % Single tenor staff
+          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \clef "treble_8"
+            \new Voice = "tenor" \tenor
+            \new Lyrics \lyricsto "tenor" \wordsTenorSingle
+          >>
+                                % Single bass staff
+          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \clef "bass"
+            \new Voice = "bass" \bass
+            \new Lyrics \lyricsto "bass" \wordsBassSingle
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+                                %        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+                                %        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-sop"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+%            \new Voice \RehearsalTrack
+            \new Voice = "soprano" \soprano
+            \new Lyrics \lyricsto "soprano" \wordsSopSingle
+          >>
+                                % Single alto staff
+          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \magnifyStaff #4/7
+            \new Voice = "alto" \alto
+            \new Lyrics \lyricsto "alto" {\tiny \wordsAltoSingle}
+          >>
+                                % Single tenor staff
+          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice = "tenor" \tenor
+            \new Lyrics \lyricsto "tenor" {\tiny \wordsTenorSingle}
+          >>
+                                % Single bass staff
+          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice = "bass" \bass
+            \new Lyrics \lyricsto "bass" {\tiny \wordsBassSingle}
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+                                %        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+                                %        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-alto"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+            \magnifyStaff #4/7
+%            \new Voice \RehearsalTrack
+            \new Voice = "soprano" \soprano
+            \new Lyrics \lyricsto "soprano" {\tiny \wordsSopSingle}
+          >>
+                                % Single alto staff
+          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \new Voice = "alto" \alto
+            \new Lyrics \lyricsto "alto" \wordsAltoSingle
+          >>
+                                % Single tenor staff
+          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice = "tenor" \tenor
+            \new Lyrics \lyricsto "tenor" {\tiny \wordsTenorSingle}
+          >>
+                                % Single bass staff
+          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice = "bass" \bass
+            \new Lyrics \lyricsto "bass" {\tiny \wordsBassSingle}
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+                                %        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+                                %        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-tenor"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+            \magnifyStaff #4/7
+%            \new Voice \RehearsalTrack
+            \new Voice = "soprano" \soprano
+            \new Lyrics \lyricsto "soprano" {\tiny \wordsSopSingle}
+          >>
+                                % Single alto staff
+          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \magnifyStaff #4/7
+            \new Voice = "alto" \alto
+            \new Lyrics \lyricsto "alto" {\tiny \wordsAltoSingle}
+          >>
+                                % Single tenor staff
+          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \clef "treble_8"
+            \new Voice = "tenor" \tenor
+            \new Lyrics \lyricsto "tenor" \wordsTenorSingle
+          >>
+                                % Single bass staff
+          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice = "bass" \bass
+            \new Lyrics \lyricsto "bass" {\tiny \wordsBassSingle}
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+                                %        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+                                %        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "singlepage-bass"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+            \magnifyStaff #4/7
+%            \new Voice \RehearsalTrack
+            \new Voice = "soprano" \soprano
+            \new Lyrics \lyricsto "soprano" {\tiny \wordsSopSingle}
+          >>
+                                % Single alto staff
+          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \magnifyStaff #4/7
+            \new Voice = "alto" \alto
+            \new Lyrics \lyricsto "alto" {\tiny \wordsAltoSingle}
+          >>
+                                % Single tenor staff
+          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice = "tenor" \tenor
+            \new Lyrics \lyricsto "tenor" {\tiny \wordsTenorSingle}
+          >>
+                                % Single bass staff
+          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \clef "bass"
+            \new Voice = "bass" \bass
+            \new Lyrics \lyricsto "bass" \wordsBassSingle
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+                                %        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+                                %        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-sop"
+  \score {
+    \unfoldRepeats
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+%            \new Voice \RehearsalTrack
+            \new Voice = "soprano" \soprano
+            \new Lyrics \lyricsto "soprano" \wordsSopMidi
+          >>
+                                % Single alto staff
+          \new Staff = alto \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \new Voice = "alto" \alto
+          >>
+                                % Single tenor staff
+          \new Staff = tenor\with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \clef "treble_8"
+            \new Voice = "tenor" \tenor
+          >>
+                                % Single bass staff
+          \new Staff = bass \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \clef "bass"
+            \new Voice = "bass" \bass
+          >>
+        >>
+      >>
+    >>
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-alto"
+  \score {
+    \unfoldRepeats
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+%            \new Voice \RehearsalTrack
+            \new Voice = "soprano" \soprano
+          >>
+                                % Single alto staff
+          \new Staff = alto \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \new Voice = "alto" \alto
+            \new Lyrics \lyricsto "alto" \wordsAltoMidi
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \clef "treble_8"
+            \new Voice = "tenor" \tenor
+          >>
+                                % Single bass staff
+          \new Staff = bass \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \clef "bass"
+            \new Voice = "bass" \bass
+          >>
+        >>
+      >>
+    >>
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-tenor"
+  \score {
+    \unfoldRepeats
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+%            \new Voice \RehearsalTrack
+            \new Voice = "soprano" \soprano
+          >>
+                                % Single alto staff
+          \new Staff = alto \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \new Voice = "alto" \alto
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \clef "treble_8"
+            \new Voice = "tenor" \tenor
+            \new Lyrics \lyricsto "tenor" \wordsTenorMidi
+          >>
+                                % Single bass staff
+          \new Staff = bass \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \clef "bass"
+            \new Voice = "bass" \bass
+          >>
+        >>
+      >>
+    >>
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix "midi-bass"
+  \score {
+    \unfoldRepeats
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+%            \new Voice \RehearsalTrack
+            \new Voice = "soprano" \soprano
+          >>
+                                % Single alto staff
+          \new Staff = alto \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \new Voice = "alto" \alto
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \clef "treble_8"
+            \new Voice = "tenor" \tenor
+          >>
+                                % Single bass staff
+          \new Staff = bass \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \clef "bass"
+            \new Voice = "bass" \bass
+            \new Lyrics \lyricsto "bass" \wordsBassMidi
+          >>
+        >>
+      >>
+    >>
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
+  }
 }
