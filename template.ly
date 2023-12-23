@@ -1,5 +1,6 @@
 \version "2.25.0"
 
+\include "../kjp.ly"
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
 

@@ -1,5 +1,6 @@
 \version "2.25.0"
 
+\include "../kjp.ly"
 \include "articulate.ly"
 
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
@@ -67,9 +68,6 @@ tenor = \relative {
 bass = \relative {
   \autoBeamOff
 }
-
-nom  = {   \set ignoreMelismata = ##t }
-yesm = { \unset ignoreMelismata       }
 
 chorus = \lyricmode {
 }

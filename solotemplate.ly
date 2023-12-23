@@ -1,5 +1,6 @@
-\version "2.20.0"
+\version "2.25.0"
 
+\include "../kjp.ly"
 \include "predefined-guitar-fretboards.ly"
 
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
@@ -32,8 +33,6 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   copyright   = \today
 }
 
-% #(set-global-staff-size 16)
-
 global = {
   \key f \major
   \time 3/4
@@ -48,8 +47,7 @@ TempoTrack = {
 
 RehearsalTrack = {
 %  \set Score.currentBarNumber = #5
-%  \mark \markup { \box 5 }
-  \mark \markup { \circle "1a" }
+  \textMark \markup { \box "1a" }
   s2 s2
 }
 
@@ -77,15 +75,8 @@ wordsTwo = \lyricmode {
 midiWords = \lyricmode {
 }
 
-pianoRH = \relative {
-  \global
-  c4
-  \bar "|."
-}
-
 pianoRHone = \relative {
   \global
-  \voiceOne
   c4
   \bar "|."
 }
@@ -101,16 +92,8 @@ dynamicsPiano = {
   \override DynamicTextSpanner.style = #'none
 }
 
-pianoLH = \relative {
-  \global
-  \oneVoice
-  c4
-  \bar "|."
-}
-
 pianoLHone = \relative {
   \global
-  \voiceOne
   c4
   \bar "|."
 }
@@ -122,10 +105,11 @@ pianoLHtwo = \relative {
   \bar "|."
 }
 
+#(set-global-staff-size 20)
+
 \book {
   #(define output-suffix "repeat")
   \score {
-    \context GrandStaff
     <<
       <<
         \new ChordNames { \ChordTrack }
@@ -136,7 +120,10 @@ pianoLHtwo = \relative {
         <<
           \new Dynamics \TempoTrack
           \new Dynamics \dynamicsMelody
-          \new Staff \with { \consists "Volta_engraver" }
+          \new Staff \with {
+            \consists "Volta_engraver"
+            \accidentalStyle Score.modern
+          }
           <<
             \new Voice \RehearsalTrack
             \new Voice = "melody" \melody
@@ -146,17 +133,19 @@ pianoLHtwo = \relative {
         >>
         \new PianoStaff
         <<
-          \new Staff
+          \new Staff \with {
+            \accidentalStyle Score.modern
+          }
           <<
-            \new Voice \pianoRH
             \new Voice \pianoRHone
             \new Voice \pianoRHtwo
           >>
           \new Dynamics \dynamicsPiano
-          \new Staff
+          \new Staff \with {
+            \accidentalStyle Score.modern
+          }
           <<
             \clef "bass"
-            \new Voice \pianoLH
             \new Voice \pianoLHone
             \new Voice \pianoLHtwo
           >>
@@ -176,8 +165,19 @@ pianoLHtwo = \relative {
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
   #(define output-suffix "single")
+%  \paper {
+%    top-margin = 0
+%    left-margin = 7
+%    right-margin = 1
+%    paper-width = 190\mm
+%    page-breaking = #ly:one-page-breaking
+%    system-system-spacing.basic-distance = #15
+%    system-separator-markup = \slashSeparator
+%  }
   \score {
     \unfoldRepeats
     <<
@@ -190,7 +190,9 @@ pianoLHtwo = \relative {
         <<
           \new Dynamics \TempoTrack
           \new Dynamics \dynamicsMelody
-          \new Staff
+          \new Staff \with {
+            \accidentalStyle Score.modern
+          }
           <<
             \new Voice \RehearsalTrack
             \new Voice = "melody" \melody
@@ -199,17 +201,19 @@ pianoLHtwo = \relative {
         >>
         \new PianoStaff
         <<
-          \new Staff
+          \new Staff \with {
+            \accidentalStyle Score.modern
+          }
           <<
-            \new Voice \pianoRH
             \new Voice \pianoRHone
             \new Voice \pianoRHtwo
           >>
           \new Dynamics \dynamicsPiano
-          \new Staff
+          \new Staff \with {
+            \accidentalStyle Score.modern
+          }
           <<
             \clef "bass"
-            \new Voice \pianoLH
             \new Voice \pianoLHone
             \new Voice \pianoLHtwo
           >>
@@ -217,6 +221,7 @@ pianoLHtwo = \relative {
       >>
     >>
     \layout {
+      #(layout-set-staff-size 20)
       indent = 1.5\cm
       \context {
         \Staff \RemoveAllEmptyStaves
@@ -225,10 +230,13 @@ pianoLHtwo = \relative {
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
   #(define output-suffix "midi")
   \score {
     \unfoldRepeats
+%   \articulate
     <<
       <<
         \new ChordNames \ChordTrack
@@ -238,7 +246,9 @@ pianoLHtwo = \relative {
         <<
           \new Dynamics \TempoTrack
           \new Dynamics \dynamicsMelody
-          \new Staff
+          \new Staff \with {
+            \accidentalStyle Score.modern
+          }
           <<
             \new Voice = "melody" \melody
             \new Lyrics \lyricsto "melody" { \midiWords }
@@ -246,17 +256,19 @@ pianoLHtwo = \relative {
         >>
         \new PianoStaff
         <<
-          \new Staff
+          \new Staff \with {
+            \accidentalStyle Score.modern
+          }
           <<
-            \new Voice \pianoRH
             \new Voice \pianoRHone
             \new Voice \pianoRHtwo
           >>
           \new Dynamics \dynamicsPiano
-          \new Staff
+          \new Staff \with {
+            \accidentalStyle Score.modern
+          }
           <<
             \clef "bass"
-            \new Voice \pianoLH
             \new Voice \pianoLHone
             \new Voice \pianoLHtwo
           >>
