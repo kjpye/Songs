@@ -133,7 +133,7 @@ pianoLHtwo = \relative {
         >>
         \new PianoStaff
         <<
-          \new Staff \with {
+          \new Staff = pianorh \with {
             \accidentalStyle Score.modern
           }
           <<
@@ -141,7 +141,7 @@ pianoLHtwo = \relative {
             \new Voice \pianoRHtwo
           >>
           \new Dynamics \dynamicsPiano
-          \new Staff \with {
+          \new Staff = pianolh \with {
             \accidentalStyle Score.modern
           }
           <<
@@ -201,7 +201,7 @@ pianoLHtwo = \relative {
         >>
         \new PianoStaff
         <<
-          \new Staff \with {
+          \new Staff = pianorh \with {
             \accidentalStyle Score.modern
           }
           <<
@@ -209,7 +209,7 @@ pianoLHtwo = \relative {
             \new Voice \pianoRHtwo
           >>
           \new Dynamics \dynamicsPiano
-          \new Staff \with {
+          \new Staff = pianolh \with {
             \accidentalStyle Score.modern
           }
           <<
@@ -256,7 +256,7 @@ pianoLHtwo = \relative {
         >>
         \new PianoStaff
         <<
-          \new Staff \with {
+          \new Staff = pianorh \with {
             \accidentalStyle Score.modern
           }
           <<
@@ -264,7 +264,7 @@ pianoLHtwo = \relative {
             \new Voice \pianoRHtwo
           >>
           \new Dynamics \dynamicsPiano
-          \new Staff \with {
+          \new Staff = pianolh \with {
             \accidentalStyle Score.modern
           }
           <<
