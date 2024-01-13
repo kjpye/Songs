@@ -20,7 +20,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 %  arranger    = "arranger"
 %  opus        = "opus"
 
-  poet        = "Mae Boren Axton, Tommy Durden and Elvis Presley"
+  composer        = "Mae Boren Axton, Tommy Durden and Elvis Presley"
 %  meter       = "meter"
 %  piece       = "piece"
 
@@ -35,7 +35,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 global = {
   \key cis \minor
   \time 4/4
-  \tempo 4=120
+  \tempo "Blues Tempo" 4=120
 }
 
 RehearsalTrack = {
@@ -61,6 +61,10 @@ RehearsalTrack = {
 }
 
 ChordTrack = \chordmode {
+  s1*4 | e1*6 | e1*2:7 | a1*4:7 | b1:7 |
+  s1 | e1*4 | | e1*8 | a1*4:7 | b1*2:7 | e |
+  | e1*8 | a1*4:7 | b1*2:7 | e |
+  e1*6 | e1*2:7 | a1*4:7 | b1*2:7 | e1 |
 }
 
 melody = \relative c'' {
@@ -84,7 +88,7 @@ melody = \relative c'' {
   e1
   r1
   r1
-  r2 r4 e'
+  r2 r4 e' \section
   e4 g e e % 19b
   e4 e2.
   e4 e dis8(b) g4
@@ -100,7 +104,7 @@ melody = \relative c'' {
   r2 r4 fis8 fis % 19e
   fis4 e2 e8 e
   e1
-  r1
+  r1 \section
   e'4 g e e % 19b
   e4 e2.
   e4 e dis8(b) g4
@@ -116,7 +120,7 @@ melody = \relative c'' {
   r2 r4 fis8 fis % 19e
   fis4 e2 e8 e
   e1
-  r1
+  r1 \section
   e'4 e e b % 18b
   e4 b2 b8 b
   e4 g e b
@@ -190,7 +194,7 @@ midiWords = \lyricmode {
   "cry " a "way " "their " "gloom,\n"
   "oh! " "I " "get " "so " lone "ly,\n"
   "I " "get " "so " lone "ly\n"
-y  "get " "so " lone "ly " "I " "could " "die.\n"
+  "get " "so " lone "ly " "I " "could " "die.\n"
 
   "\n3. Bell" "hop's " "tears " "keep " flow "ing\n" 
   "desk " "clerks " "dressed " "in " "black.\n"
@@ -232,7 +236,23 @@ pianoRH = \relative c' {
   s1
   <e' gis d'>4 q <e gis cis> q
   <e gis b>4 q <e gis cis> q
-  <e gis d'>4 q <e gis cis> <e gis cis e>
+  <e gis d'>4 q <e gis cis> <e gis cis e> \section
+  <gis b e>4 <gis b g'> <gis b e> q % 19b
+  q4 q2.
+  q4 q <gis b dis>8(b) g4
+  s1
+  <gis b e>4 q q q % 19c
+  q4 q q q
+  q4 q2 cis4
+  <gis b dis>4 b <e, gis b> b'
+  s1 % 19d
+  s1
+  s2 <cis, g' a>4 q8 a'
+  <cis, g' a>4 s2.
+  s1 % 19e
+  s1
+  s1
+  <gis b>4 <gis' b e> q q \section
   <gis b e>4 <gis b g'> <gis b e> q % 19b
   q4 q2.
   q4 q <gis b dis>8(b) g4
@@ -249,23 +269,7 @@ pianoRH = \relative c' {
   s1
   s1
   <gis b>4 <gis' b e> q q
-  <gis b e>4 <gis b g'> <gis b e> q % 19b
-  q4 q2.
-  q4 q <gis b dis>8(b) g4
-  s1
-  <gis b e>4 q q q % 19c
-  q4 q q q
-  q4 q2 cis4
-  <gis b dis>4 b <e, gis b> b'
-  s1 % 19d
-  s1
-  s2 <cis, g' a>4 q8 a'
-  <cis, g' a>4 s2.
-  s1 % 19e
-  s1
-  s1
-  <gis b>4 <gis' b e> q q
-  \bar "|."
+  \section
   <gis b e>4 q q <e gis b> % 18b
   <gis b e>4 s2 q4
   q4 <gis b g'> <gis b e> s
@@ -423,7 +427,7 @@ pianoLH = \relative c {
   b4 b cis cis
   d4 d cis cis
   b4 b cis cis
-  d4 d cis cis
+  d4 d cis cis \section
   e4 e e e % 19b
   e4 e e e
   e4 e e e
@@ -439,7 +443,7 @@ pianoLH = \relative c {
   b4 b b b % 19e
   b4 b b b
   e4 e e e
-  e4 e e e
+  e4 e e e \section
   e4 e e e % 19b
   e4 e e e
   e4 e e e
@@ -455,7 +459,7 @@ pianoLH = \relative c {
   b4 b b b % 19e
   b4 b b b
   e4 e e e
-  e4 e e e
+  e4 e e e \section
   e4 e e e % 18b
   e4 e e e
   e4 e e e
@@ -563,7 +567,6 @@ pianoLH = \relative c {
         \Staff \RemoveAllEmptyStaves
       }
     }
-    \midi {}
   }
 }
 
@@ -574,14 +577,13 @@ pianoLH = \relative c {
     <<
       <<
         \new ChordNames { \unfoldRepeats \ChordTrack }
-        \new FretBoards { \unfoldRepeats \ChordTrack }
       >>
       <<
         \new ChoirStaff
         <<
-          \new Dynamics \dynamicsMelody
-          \new Staff
+          \new Staff = melody
           <<
+            \new Dynamics \with {alignAboveContext = melody} \dynamicsMelody
             \new Voice = "melody" \unfoldRepeats \melody
             \new Lyrics \lyricsto "melody" \midiWords
           >>
@@ -593,11 +595,7 @@ pianoLH = \relative c {
             \new Voice \unfoldRepeats \pianoRH
             \new Voice \unfoldRepeats \pianoRHone
             \new Voice \unfoldRepeats \pianoRHtwo
-          >>
-          \new Dynamics \unfoldRepeats \dynamicsPiano
-          \new Staff
-          <<
-            \clef "bass"
+            \new Dynamics \unfoldRepeats \dynamicsPiano
             \new Voice \unfoldRepeats \pianoLH
           >>
         >>
