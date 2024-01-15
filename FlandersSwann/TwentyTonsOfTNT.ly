@@ -101,7 +101,7 @@ melodyA = \relative {
   ees8 d ees4 | 8 g g ees | f ees c bes |
   \tag #'dash {<<{ees16 8. 16 8.} \new Voice {\voiceTwo \tiny ees8 8 8 8}>> |}
   \tag #'v1   {ees16 8. 16 8. |}
-  \tag #'v2   {ees8 8 8 8 |}
+  \tag #'v2   {ees8. 16 8 8 |}
   ees d ees4 |
   aes8 c c aes | g bes g ees | aes c c aes | bes bes bes4 | ees8. c16 bes8 g |
   f8 ees c bes
@@ -341,7 +341,7 @@ pianoRHone = \relative {
       {R2 | R <g c ees>2 | }
     }
   }
-  <f aes c ees>8-. <aes d>-. <aes ees'>4-.
+  <f aes c ees>8-. <aes d>-. <g ees'>4-.
   \bar "|."
 }
 
@@ -501,6 +501,60 @@ pianoLHtwo = \relative {
           \new Dynamics \dynamicsPiano
           \new Staff
           <<
+            \clef "bass"
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix singlepage
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+    <<
+      <<
+        \new ChoirStaff
+        <<
+          \new Dynamics \TempoTrack
+          \new Dynamics \dynamicsMelody
+          \new Staff
+          <<
+            \new Voice \RehearsalTrack
+            \new Voice = "melody" \melodySingle
+            \new Lyrics \lyricsto "melody" \wordsSingle
+          >>
+        >>
+        \new PianoStaff
+        <<
+          \new Staff
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff
+          <<
+            \magnifyStaff #4/7
             \clef "bass"
             \new Voice \pianoLHone
             \new Voice \pianoLHtwo
