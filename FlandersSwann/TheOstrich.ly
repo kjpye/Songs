@@ -109,7 +109,11 @@ melodyA = \relative {
   aes'4 c8 aes4 c,8 | aes'8 c aes f4 c8 | d ees e f4. | g4 bes8 g4 bes,8 | g'4 bes8 g4 8
   g8 bes g f4 ees8 | c'4. r8 c d | ees d c bes aes g | f ees d c4. |
   \override Score.Footnote.annotation-line = ##f
-  c4 ees8 d ees f | \footnote \markup{\huge "*"} #'(-1 . 4) "*3rd time drowned by large explosion" ees4 r8 r4. | \section
+  c4 ees8 d ees f |
+  \tag #'dash {\footnote \markup{\huge "*"} #'(-1 . 4) "*3rd time drowned by large explosion" ees4 r8 r4. |}
+  \tag #'(v1 v2) {ees4 r8 r4. |}
+  \tag #'v3      {\footnote \markup{\huge "*"} #'(-1 . 4) "*Drowned by large explosion" ees4 r8 r4. |}
+  \section
 }
 
 melodyB = \relative {
@@ -147,7 +151,7 @@ melodyC = \relative {
 melody = {
   \global
   \repeat volta 3 {
-    \melodyA
+    \keepWithTag #'dash \melodyA
     \alternative {
       \volta 1,2 { \keepWithTag #'dash \melodyB }
       \volta 3   { \melodyC }
@@ -158,9 +162,9 @@ melody = {
 
 melodySingle = {
   \global
-  \melodyA \keepWithTag #'v1 \melodyB
-  \melodyA \keepWithTag #'v2 \melodyB
-  \melodyA \melodyC
+  \keepWithTag #'v1 \melodyA \keepWithTag #'v1 \melodyB
+  \keepWithTag #'v2 \melodyA \keepWithTag #'v2 \melodyB
+  \keepWithTag #'v3 \melodyA \melodyC
   \bar "|."
 }
 
@@ -462,6 +466,9 @@ pianoLH = \relative {
 
 \book {
   \bookOutputSuffix repeat
+  \paper {
+    footnote-separator-markup = \markup { \override #'(span-factor . 1/4) \draw-hline }
+  }
   \score {
     <<
       <<
@@ -531,6 +538,9 @@ pianoLH = \relative {
 
 \book {
   \bookOutputSuffix single
+  \paper {
+    footnote-separator-markup = \markup { \override #'(span-factor . 1/4) \draw-hline }
+  }
   \score {
    \unfoldRepeats
     <<
@@ -600,6 +610,7 @@ pianoLH = \relative {
 \book {
   \bookOutputSuffix singlepage
   \paper {
+    footnote-separator-markup = \markup { \override #'(span-factor . 1/4) \draw-hline }
     top-margin = 0
     left-margin = 7
     right-margin = 1
