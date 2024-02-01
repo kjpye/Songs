@@ -254,6 +254,49 @@ wordsTwo = \lyricmode {
   DRI -- VEN TO IT BY THE SPI -- DER IN THE BATH!
 }
 
+wordsSingle = \lyricmode {
+  I have fought a griz -- zly bear,
+  Tracked a co -- bra to its lair,
+  Killed a cro -- co -- dile __ who dared to cross my path;
+  But the thing I real -- ly dread
+  When I've just got out of bed
+  Is to find that there's a spi -- der in the bath.
+  I've no fear of wasps or bees,
+  Mos -- qui -- tos on -- ly tease,
+  I ra -- ther like a cri -- cket on the hearth;
+  But my blood runs cold to meet
+  In py -- ja -- mas and bare feet
+  With a great big hai -- ry spi -- der in the bath.
+  I have faced a char -- ging bull in Bar -- ce -- lo -- na,
+  I have dragged a moun -- tain lio -- ness from her cub,
+  I've re -- stored a mad go -- ril -- la to its ow -- ner
+  But I don't dare face that Tub…
+
+  \set stanza  = "2."
+  What a fright -- ful- look -- ing beast—
+  Half an inch a -- cross at least—
+  It would frigh -- ten e -- ven Su -- per -- man or Garth.
+  There's con -- tempt it can't dis -- guise
+  In the lit -- tle bea -- dy eyes
+  Of the spi -- der sit -- ting glower -- ing in the bath.
+  It ig -- nores my ev -- ery lunge
+  With the back -- brush and the sponge;
+  I have bombed it with ‘A Pre -- sent from Pen -- arth’;
+  But it does -- n't mind at all,
+  It just rolls in -- to a ball
+  And sim -- ply goes on squat -- ting in the bath.
+  For hours we have been locked in end -- less strug -- gle;
+  I have lured it to the deep end, by the drain;
+  At last I think I've washed it down the plug- 'ole
+%  spoken: But here it comes a-crawling up the chain!
+  Now its time for me to shave
+  Though my nerves will not be -- have,
+  And there's bound to be a fear -- ful af -- ter -- math;
+  So be -- fore I cut my throat
+  I shall leave this fi -- nal note:
+  DRI -- VEN TO IT BY THE SPI -- DER IN THE BATH!
+}
+
 spokenWords = \lyricmode {
   "\nSpoken: But " "here it comes a-crawling up the " chain!
 }
@@ -416,7 +459,7 @@ pianoLH = \relative {
   \bar "|."
 }
 
-#(set-global-staff-size 20)
+#(set-global-staff-size 19)
 
 \book {
   #(define output-suffix "repeat")
@@ -476,63 +519,114 @@ pianoLH = \relative {
 
 #(set-global-staff-size 20)
 
-%\book {
-%  #(define output-suffix "single")
-%%  \paper {
-%%    top-margin = 0
-%%    left-margin = 7
-%%    right-margin = 1
-%%    paper-width = 190\mm
-%%    page-breaking = #ly:one-page-breaking
-%%    system-system-spacing.basic-distance = #15
-%%    system-separator-markup = \slashSeparator
-%%  }
-%  \score {
-%    \unfoldRepeats
-%    <<
-%      <<
-%        \new ChoirStaff
-%        <<
-%          \new Dynamics \TempoTrack
-%          \new Dynamics \dynamicsMelody
-%          \new Staff \with {
-%            \accidentalStyle Score.modern
-%          }
-%          <<
-%            \new Voice \RehearsalTrack
-%            \new Voice = "melody" \melody
-%            \new Lyrics \lyricsto "melody" { \wordsOne \wordsTwo }
-%          >>
-%        >>
-%        \new PianoStaff
-%        <<
-%          \new Staff = pianorh \with {
-%            \accidentalStyle Score.modern
-%          }
-%          <<
-%            \new Voice \pianoRHone
-%            \new Voice \pianoRHtwo
-%          >>
-%          \new Dynamics \dynamicsPiano
-%          \new Staff = pianolh \with {
-%            \accidentalStyle Score.modern
-%          }
-%          <<
-%            \clef "bass"
-%            \new Voice \pianoLH
-%          >>
-%        >>
-%      >>
-%    >>
-%    \layout {
-%      #(layout-set-staff-size 20)
-%      indent = 1.5\cm
-%      \context {
-%        \Staff \RemoveAllEmptyStaves
-%      }
-%    }
-%  }
-%}
+\book {
+  #(define output-suffix "single")
+  \score {
+    \unfoldRepeats
+    <<
+      <<
+        \new ChoirStaff
+        <<
+          \new Dynamics \TempoTrack
+          \new Dynamics \dynamicsMelody
+          \new Staff \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \new Voice \RehearsalTrack
+            \new Voice = "melody" \melodySingle
+            \addlyrics \wordsSingle
+          >>
+        >>
+        \new PianoStaff
+        <<
+          \new Staff = pianorh \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff = pianolh \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      #(layout-set-staff-size 20)
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  #(define output-suffix "singlepage")
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+    <<
+      <<
+        \new ChoirStaff
+        <<
+          \new Dynamics \TempoTrack
+          \new Dynamics \dynamicsMelody
+          \new Staff \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \new Voice \RehearsalTrack
+            \new Voice = "melody" \melodySingle
+            \addlyrics \wordsSingle
+          >>
+        >>
+        \new PianoStaff
+        <<
+          \new Staff = pianorh \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff = pianolh \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      #(layout-set-staff-size 20)
+      indent = 1.5\cm
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
+  }
+}
 
 #(set-global-staff-size 20)
 
@@ -571,7 +665,6 @@ pianoLH = \relative {
             \accidentalStyle Score.modern
           }
           <<
-            \clef "bass"
             \new Voice \pianoLH
           >>
         >>
