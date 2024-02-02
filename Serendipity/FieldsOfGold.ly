@@ -1,5 +1,6 @@
 \version "2.22.0"
 
+\include "kjp.ly"
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
 
@@ -688,8 +689,8 @@ bass = \relative {
   r4 a8\omit\mf e a2 % 5c
   r4 f8 g a2
   r8 a8 8 16 g~4. 8
-  g8 e4. r2 % 6a
-  r2 r4 e8 g
+  g8 e4. \apart r2 % 6a
+  r2 r4 \auto e8 g
   a8 g4 e8~4 d8 e
   d8(e) f(a) g4. f8 % 6b
   e2. r4
@@ -705,14 +706,14 @@ bass = \relative {
   e2 r
   a2(g % 7c
   f2 e
-  d2 g4. 8
+  d2 g4. f8
   \time 2/4 e2 \time 4/4 % 8a
   a2 a,4) r \key d \major
   r4 b'8\omit\f fis b2
   r4 g8 a b2 % 8b
   r8 b8 8 16 a~4. 8
-  a8 fis4. r4 r
-  r2 r4 fis8 a % 8c
+  a8 fis4. \apart r4 r
+  r2 r4 \auto fis8 a % 8c
   b8 a4 fis8~4 r8 fis\omit\cresc
   e8(fis) g(b) a4. g8
   fis2. r4 % 9a
