@@ -20,7 +20,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 %  meter   arranger
 %  piece       opus
 
-  composer    = "Hugh S. Robertson (1874—1952)"
+  composer    = "Hugh S. Roberton (1874—1952)"
 %  arranger    = "arranger"
 %  opus        = "opus"
 
