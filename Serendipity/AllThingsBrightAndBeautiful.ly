@@ -1,5 +1,7 @@
 \version "2.18.2"
 
+\include "kjp.ly"
+
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 
 RehearsalTrack = {
@@ -25,44 +27,114 @@ RehearsalTrack = {
   \textMark \markup \box "11d" s1*3
 }
 
-UnisonLyrics = \lyricmode {
-  All things bright and beau- ti- ful,
-  All crea- tures great and __ small,
-  All things wise and won- der- ful,
+wordsSopSep = \lyricmode {
+  All things bright and beau -- ti -- ful,
+  All crea -- tures great and __ small,
+  All things wise and won -- der -- ful,
   The Lord God made them all.
-}
+  Each lit -- tle flow'r that o -- pens,
+  Each lit -- tle bird that sings, __
+  He made their glow -- ing col -- ours,
+  He made their ti -- ny wings.
 
-AltoLyrics = \lyricmode {
-  Each lit- tle flow'r that o- pens,
-  Each lit- tle bird that sings, __
-  He made their glow- ing col- ours,
-  He made their ti- ny wings.
-  Ah. __
-  Ah. __
+  All things bright and beau -- ti -- ful,
+  All crea -- tures great and __ small,
+  All things wise and won -- der -- ful,
   The Lord God made them all.
 
-  The cold wind __ in the win- ter, __
-  The plea- sant sum- mer sun, __
-  The ripe fruits in the gar- den,
-  He made them ev- 'ry one:
+  The cold wind __ in the win -- ter, __
+  The plea -- sant sum -- mer sun, __
+  The ripe fruits in the gar -- den,
+  He made them ev -- 'ry one: __
 
-  All things bright and beau- ti- ful,
-  All crea- tures great and __ small,
-  All things wise and won- der- ful,
+  All things bright and beau -- ti -- ful,
+  All crea -- tures great and __ small,
+  All things wise and won -- der -- ful,
   The Lord God made them all.
 
   He gave us eyes to see __ them,
   And lips that we might tell __
-  How great is God Al- might- y, __
+  How great is God Al -- might -- y, __
   Who has made all things well.
   
-  All things bright and beau- ti- ful,
-  All crea- tures great and __ small,
-  All things wise and won- der- ful,
+  All things bright and beau -- ti -- ful,
+  All crea -- tures great and __ small,
+  All things wise and won -- der -- ful,
+  The Lord God made them all. __
+}
+
+wordsSopMidi = \lyricmode {
+  "All " "things " "bright " "and " beau ti "ful, "
+  "\nAll " crea "tures " "great " "and "  "small, "
+  "\nAll " "things " "wise " "and " won der "ful, "
+  "\nThe " "Lord " "God " "made " "them " "all. "
+  "\nEach " lit "tle " "flow'r " "that " o "pens, "
+  "\nEach " lit "tle " "bird " "that " "sings, " 
+  "\nHe " "made " "their " glow "ing " col "ours, "
+  "\nHe " "made " "their " ti "ny " "wings. "
+
+  "\nAll " "things " "bright " "and " beau ti "ful, "
+  "\nAll " crea "tures " "great " "and "  "small, "
+  "\nAll " "things " "wise " "and " won der "ful, "
+  "\nThe " "Lord " "God " "made " "them " "all. "
+
+  "\nThe " "cold " "wind "  "in " "the " win "ter, " 
+  "\nThe " plea "sant " sum "mer " "sun, " 
+  "\nThe " "ripe " "fruits " "in " "the " gar "den, "
+  "\nHe " "made " "them " ev "'ry " "one: " 
+
+  "\nAll " "things " "bright " "and " beau ti "ful, "
+  "\nAll " crea "tures " "great " "and "  "small, "
+  "\nAll " "things " "wise " "and " won der "ful, "
+  "\nThe " "Lord " "God " "made " "them " "all. "
+
+  "\nHe " "gave " "us " "eyes " "to " "see "  "them, "
+  "\nAnd " "lips " "that " "we " "might " "tell " 
+  "\nHow " "great " "is " "God " Al might "y, " 
+  "\nWho " "has " "made " "all " "things " "well. "
+  
+  "\nAll " "things " "bright " "and " beau ti "ful, "
+  "\nAll " crea "tures " "great " "and "  "small, "
+  "\nAll " "things " "wise " "and " won der "ful, "
+  "\nThe " "Lord " "God " "made " "them " "all. " 
+}
+
+wordsAltoSep = \lyricmode {
+  All things bright and beau -- ti -- ful,
+  All crea -- tures great and __ small,
+  All things wise and won -- der -- ful,
+  The Lord God made them all.
+
+  Each lit -- tle flow'r that o -- pens,
+  Each lit -- tle bird that sings, __
+  He made their glow -- ing col -- ours,
+  He made their ti -- ny wings.
+  Ah. __
+  Ah. __
+  The Lord God made them all.
+
+  The cold wind __ in the win -- ter, __
+  The plea -- sant sum -- mer sun, __
+  The ripe fruits in the gar -- den,
+  He made them ev -- 'ry one: __
+
+  All things bright and beau -- ti -- ful,
+  All crea -- tures great and __ small,
+  All things wise and won -- der -- ful,
+  The Lord God made them all.
+
+  He gave us eyes to see __ them,
+  And lips that we might tell __
+  How great is God Al -- might -- y, __
+  Who has made all things well.
+  
+  All things bright and beau -- ti -- ful,
+  All crea -- tures great and __ small,
+  All things wise and won -- der -- ful,
   The Lord God made them all.
 }
 
-AltoLyricsMidi = \lyricmode {
+wordsAltoMidi = \lyricmode {
   "All " "things " "bright " "and " beau ti "ful, "
   "\nAll " crea "tures " "great " "and "  "small, "
   "\nAll " "things " "wise " "and " won der "ful, "
@@ -72,7 +144,6 @@ AltoLyricsMidi = \lyricmode {
   "\nEach " lit "tle " "bird " "that " "sings, " 
   "\nHe " "made " "their " glow "ing " col "ours, "
   "\nHe " "made " "their " ti "ny " "wings. "
-  
   "\nAh. " 
   "\nAh. " 
   "\nThe " "Lord " "God " "made " "them " "all. "
@@ -80,7 +151,7 @@ AltoLyricsMidi = \lyricmode {
   "\nThe " "cold " "wind "  "in " "the " win "ter, " 
   "\nThe " plea "sant " sum "mer " "sun, " 
   "\nThe " "ripe " "fruits " "in " "the " gar "den, "
-  "\nHe " "made " "them " ev "'ry " "one: "
+  "\nHe " "made " "them " ev "'ry " "one: " 
 
   "\nAll " "things " "bright " "and " beau ti "ful, "
   "\nAll " crea "tures " "great " "and "  "small, "
@@ -98,36 +169,43 @@ AltoLyricsMidi = \lyricmode {
   "\nThe " "Lord " "God " "made " "them " "all. "
 }
 
-TenorLyrics = \lyricmode {
-  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  _ _ _
-  The pur- ple- head- ed moun- tain,
-  The riv- er run- ning by,
-  The sun- set and the morn- ing,
-  That bright- ens up the sky;
+wordsMenSep = \lyricmode {
+  Ah __ Ah __ Ah __
+
+  The pur -- ple -- head -- ed moun -- tain,
+  The riv -- er run -- ning by,
+  The sun -- set and the morn -- ing,
+  That bright -- ens up the sky;
+
+  The ripe fruits in the gar -- den,
+  He made them ev -- 'ry one: __
+
+  All things bright and beau -- ti -- ful,
+  All crea -- tures great and __ small,
+  All things wise and won -- der -- ful,
+  The Lord God made them all.
+
+  He gave us eyes to see __ them,
+  And lips that we might tell __
+  How great is God Al -- might -- y, __
+  Who has made all things well.
+  
+  All things bright and beau -- ti -- ful,
+  All crea -- tures great and __ small,
+  All things wise and won -- der -- ful,
+  The Lord God made them all.
 }
 
-TenorLyricsMidi = \lyricmode {
-  "All " "things " "bright " "and " beau ti "ful, "
-  "\nAll " crea "tures " "great " "and "  "small, "
-  "\nAll " "things " "wise " "and " won der "ful, "
-  "\nThe " "Lord " "God " "made " "them " "all. "
+wordsMenMidi = \lyricmode {
+  "Ah "  "Ah "  "Ah " 
 
-  "\nEach " lit "tle " "flow'r " "that " o "pens, "
-  "\nEach " lit "tle " "bird " "that " "sings, " 
-  "\nHe " "made " "their " glow "ing " col "ours, "
-  "\nHe " "made " "their " ti "ny " "wings. "
-
-  "\nAh "  "Ah "  "Ah " 
-  
   "\nThe " pur ple head "ed " moun "tain, "
   "\nThe " riv "er " run "ning " "by, "
   "\nThe " sun "set " "and " "the " morn "ing, "
   "\nThat " bright "ens " "up " "the " "sky; "
 
   "\nThe " "ripe " "fruits " "in " "the " gar "den, "
-  "\nHe " "made " "them " ev "'ry " "one: "
+  "\nHe " "made " "them " ev "'ry " "one: " 
 
   "\nAll " "things " "bright " "and " beau ti "ful, "
   "\nAll " crea "tures " "great " "and "  "small, "
@@ -143,6 +221,58 @@ TenorLyricsMidi = \lyricmode {
   "\nAll " crea "tures " "great " "and "  "small, "
   "\nAll " "things " "wise " "and " won der "ful, "
   "\nThe " "Lord " "God " "made " "them " "all. "
+}
+
+UnisonLyrics = \lyricmode {
+  All things bright and beau -- ti -- ful,
+  All crea -- tures great and __ small,
+  All things wise and won -- der -- ful,
+  The Lord God made them all.
+}
+
+AltoLyrics = \lyricmode {
+  Each lit -- tle flow'r that o -- pens,
+  Each lit -- tle bird that sings, __
+  He made their glow -- ing col -- ours,
+  He made their ti -- ny wings.
+  \set stanza = "A.T.B."
+  Ah. __
+  Ah. __
+  \set stanza = "A."
+  The Lord God made them all.
+
+  \set stanza = "S.A."
+  The cold wind __ in the win -- ter, __
+  The plea -- sant sum -- mer sun, __
+  The ripe fruits in the gar -- den,
+  \set associatedVoice = alto He made them ev -- 'ry one: __
+
+  All things bright and beau -- ti -- ful,
+  All crea -- tures great and __ small,
+  All things wise and won -- der -- ful,
+  The Lord God made them all.
+
+  He gave us eyes to see __ them,
+  And lips that we might tell __
+  How great is God Al -- might -- y, __
+  Who has made all things well.
+  
+  All things bright and beau -- ti -- ful,
+  All crea -- tures great and __ small,
+  All things wise and won -- der -- ful,
+  \set associatedVoice = soprano
+  The Lord God made them all. __
+}
+
+TenorLyrics = \lyricmode {
+%  Ah __ Ah __ Ah __
+  "" ""
+  \set stanza = "T.B."
+  Ah __
+  The pur -- ple -- head -- ed moun -- tain,
+  The riv -- er run -- ning by,
+  The sun -- set and the morn -- ing,
+  That bright -- ens up the sky;
 }
 
 BassLyrics = \lyricmode {
@@ -152,87 +282,13 @@ BassLyrics = \lyricmode {
   Ah.
 }
 
-BassLyricsMidi = \lyricmode {
-  "All " "things " "bright " "and " beau ti "ful, "
-  "\nAll " crea "tures " "great " "and "  "small, "
-  "\nAll " "things " "wise " "and " won der "ful, "
-  "\nThe " "Lord " "God " "made " "them " "all. "
-
-  "\nEach " lit "tle " "flow'r " "that " o "pens, "
-  "\nEach " lit "tle " "bird " "that " "sings, " 
-  "\nHe " "made " "their " glow "ing " col "ours, "
-  "\nHe " "made " "their " ti "ny " "wings. "
-
-  "\nAh "  "Ah "  "Ah " 
-  
-  "\nThe " pur ple head "ed " moun "tain, "
-  "\nThe " riv "er " run "ning " "by, "
-  "\nThe " sun "set " "and " "the " morn "ing, "
-  "\nThat " bright "ens " "up " "the " "sky; "
-
-  "\nThe " "ripe " "fruits " "in " "the " gar "den, "
-  "\nHe " "made " "them " ev "'ry " "one: "
-
-  "\nAll " "things " "bright " "and " beau ti "ful, "
-  "\nAll " crea "tures " "great " "and "  "small, "
-  "\nAll " "things " "wise " "and " won der "ful, "
-  "\nThe " "Lord " "God " "made " "them " "all. "
-
-  "\nHe " "gave " "us " "eyes " "to " "see "  "them, "
-  "\nAnd " "lips " "that " "we " "might " "tell " 
-  "\nHow " "great " "is " "God " Al might "y, " 
-  "\nWho " "has " "made " "all " "things " "well. "
-  
-  "\nAll " "things " "bright " "and " beau ti "ful, "
-  "\nAll " crea "tures " "great " "and "  "small, "
-  "\nAll " "things " "wise " "and " won der "ful, "
-  "\nThe " "Lord " "God " "made " "them " "all. "
-}
-
 SopranoLyrics = \lyricmode {
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  All things bright and beau- ti- ful,
-  All crea- tures great and __ small,
-  All things wise and won- der- ful,
+  All things bright and beau -- ti -- ful,
+  All crea -- tures great and __ small,
+  All things wise and won -- der -- ful,
   The Lord God made them all.
-}  
-
-SopranoLyricsMidi = \lyricmode {
-  "All " "things " "bright " "and " beau ti "ful, "
-  "\nAll " crea "tures " "great " "and "  "small, "
-  "\nAll " "things " "wise " "and " won der "ful, "
-  "\nThe " "Lord " "God " "made " "them " "all. "
-
-  "\nEach " lit "tle " "flow'r " "that " o "pens, "
-  "\nEach " lit "tle " "bird " "that " "sings, " 
-  "\nHe " "made " "their " glow "ing " col "ours, "
-  "\nHe " "made " "their " ti "ny " "wings. "
-
-  "\nAll " "things " "bright " "and " beau ti "ful, "
-  "\nAll " crea "tures " "great " "and "  "small, "
-  "\nAll " "things " "wise " "and " won der "ful, "
-  "\nThe " "Lord " "God " "made " "them " "all. "
-
-  "\nThe " "cold " "wind "  "in " "the " win "ter, " 
-  "\nThe " plea "sant " sum "mer " "sun, " 
-  "\nThe " "ripe " "fruits " "in " "the " gar "den, "
-  "\nHe " "made " "them " ev "'ry " "one: "
-
-  "\nAll " "things " "bright " "and " beau ti "ful, "
-  "\nAll " crea "tures " "great " "and "  "small, "
-  "\nAll " "things " "wise " "and " won der "ful, "
-  "\nThe " "Lord " "God " "made " "them " "all. "
-
-  "\nHe " "gave " "us " "eyes " "to " "see "  "them, "
-  "\nAnd " "lips " "that " "we " "might " "tell " 
-  "\nHow " "great " "is " "God " Al might "y, " 
-  "\nWho " "has " "made " "all " "things " "well. "
-  
-  "\nAll " "things " "bright " "and " beau ti "ful, "
-  "\nAll " crea "tures " "great " "and "  "small, "
-  "\nAll " "things " "wise " "and " won der "ful, "
-  "\nThe " "Lord " "God " "made " "them " "all. "
 }  
 
 TempoTrack = {
@@ -244,44 +300,22 @@ TempoTrack = {
 dynamicsWomen = {
   \override DynamicTextSpanner.style = #'none
   s1*6
-  s4\mp s2.-\markup \italic {poco legato}
-  s1
-  s1
-  s1
-  s1\<
-  s2\! s\>
-  s1\!
-  s1
-  s4\mp s2.\cresc
-  s1
-  s1
-  s2. s4\mf
-  s1*4
-  s1\mf
-  s1*3
-  s1\cresc
-  s2. s4\f-\markup \italic dolce
-  s1*11
-  s2. s4\mp
-  s1*4
-  s1\cresc
-  s2. s4\mf
-  s1
-  s1-\markup \bold {poco rit.}
-  s1-\markup{( \dynamic mf )}
-  s1*7
-  s1\cresc
-  s1*2
-  s2. s4\f
-  s1*4
-  s1-\markup{( \dynamic f )}
-  s1*4
-  s2 s\>
-  s1\!
-  s2. s4\mp-\markup \bold rall.
-  s1
-  s1\dim
-  s1\p-\markup \bold { a tempo}
+  s4\mp s2.-\markup \italic {poco legato} | s1 | % 6b
+  s1 | s1 | s1\< | s2\! s\> |
+  s1\! | s1 | s1\mp\cresc | s1 |
+  s1 | s2. s4\mf | s1*2 | % 7a
+  s1*2 | s1\mf | s1 |
+  s1*2 | s1\cresc | s2. s4\omit\f-\markup {\dynamic f \italic dolce} |
+  s1*11 | s2. s4\mp | % 8
+  s1*4 | % 9a
+  s1\cresc | s2. s4\mf | s1 | s1-\markup \bold {poco rit.} |
+  s1-\markup{( \dynamic mf )} | s1*3 |
+  s1*4 | % 10a
+  s1\cresc | s1*2 | s2. s4\f |
+  s1*4 |
+  s1\parenthesize\f | s1*3 | % 11a
+  s1 | s2 s\> | s1\! | s2. s4\mp-\markup \bold rall. |
+  s1 | s1\dim | s1\p-\markup \bold { a tempo} |
 }
 
 dynamicsMen = {
@@ -319,7 +353,7 @@ dynamicsMen = {
 
 dynamics = {
   \override DynamicTextSpanner.style = #'none
-  s4\mp s2.-\markup \italic delicato
+  s1\omit\mp-\markup {\dynamic mp \italic delicato}
   s1
   s1
   s1
@@ -557,6 +591,7 @@ AltoMusic = \relative c' {
 TenorMusic = \relative c' {
   \key f \major
   \time 4/4
+  R1*22 |
   a1(
   bes1~
   bes1 % 25
@@ -620,6 +655,7 @@ TenorMusic = \relative c' {
 BassMusic = \relative c {
   \key f \major
   \time 4/4
+  R1*22 |
   f1~
   f1~
   f1~ % 25
@@ -743,8 +779,8 @@ PianoRHhigh = \relative c''' {
   f4 f <a f'> f~
   <d f>1^\markup \bold {a tempo} % 75
   ees8(f4 <g ees'>8~q <f d'> <ees bes'>4)
-  f'1
-  \voiceOne
+  f'1^\markup\bold rall.
+  \vo
   <f f'>2~q8 r r4
 }
 
@@ -831,16 +867,16 @@ PianoRHlow = \relative c''' {
   s1
   s1
   c'8(d bes2.)
-  c'8 d~d4~d8 s8 s4
+  \vf c'8 d~d4~d8 s8 s4
 }
 
 PianoLHhigh = \relative c {
-  \oneVoice
+  \ov
   \key f \major
-  f4.(c'8 a'g a c)
+  f4._(c'8 a'g a \rh c) \lh \ov
   <f,, d'>4.(f'8 bes2)
   \clef bass
-  f,,4. c'8(a' g a c)
+  f,,4. c'8_(a' g a \rh c) \lh \ov
   <f,, d'>4.(f'8 bes2)
   <f,c'a'>2 ~ q4. c'8( % 5
   f1)
@@ -1017,6 +1053,8 @@ PianoLHlow  = \relative c {
   copyright = today
 }
 
+#(set-global-staff-size 17)
+
 \book {
   \bookOutputSuffix "single"
   \score {
@@ -1028,14 +1066,14 @@ PianoLHlow  = \relative c {
           \new Voice \RehearsalTrack
           \new Voice = soprano { \voiceOne \UnisonMusic \SopranoMusic }
           \new Lyrics \with {alignAboveContext = women} \lyricsto soprano \SopranoLyrics
-          \new Voice { \voiceTwo \UnisonMusic     \AltoMusic }
+          \new Voice = alto { \voiceTwo \UnisonMusic     \AltoMusic }
           \addlyrics { \UnisonLyrics \AltoLyrics }
         >>
         \new Staff = men <<
           \clef "bass"
           \new Dynamics \with {alignAboveContext = men} \dynamicsMen
-          \new Voice = tenor { \voiceOne \transpose c c, \UnisonMusic \TenorMusic }
-          \new Voice = bass  { \voiceTwo \transpose c c, \UnisonMusic \BassMusic }
+          \new Voice = tenor { \voiceOne \TenorMusic }
+          \new Voice = bass  { \voiceTwo \BassMusic }
           \addlyrics \BassLyrics
         >>
         \new Lyrics \with {alignAboveContext = men} \lyricsto tenor { \TenorLyrics }
@@ -1054,18 +1092,39 @@ PianoLHlow  = \relative c {
       >>
     >>
     \layout {
-      #(layout-set-staff-size 17)
       indent = 1.5\cm
       \pointAndClickOff
       \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
         \Staff
-        % \RemoveAllEmptyStaves
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
+
+#(set-global-staff-size 20)
 
 \book {
   \bookOutputSuffix "singlepage"
@@ -1093,8 +1152,8 @@ PianoLHlow  = \relative c {
         \new Staff = men <<
           \clef "bass"
           \new Dynamics \with {alignAboveContext = men} \dynamicsMen
-          \new Voice = tenor { \voiceOne \transpose c c, \UnisonMusic \TenorMusic }
-          \new Voice = bass  { \voiceTwo \transpose c c, \UnisonMusic \BassMusic }
+          \new Voice = tenor { \voiceOne \TenorMusic }
+          \new Voice = bass  { \voiceTwo \BassMusic }
           \addlyrics \BassLyrics
         >>
         \new Lyrics \with {alignAboveContext = men} \lyricsto tenor { \TenorLyrics }
@@ -1113,14 +1172,401 @@ PianoLHlow  = \relative c {
       >>
     >>
     \layout {
-      #(layout-set-staff-size 20)
       indent = 1.5\cm
       \pointAndClickOff
       \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
         \Staff
-        % \RemoveAllEmptyStaves
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \bookOutputSuffix "singlepage-sop"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      \new ChoirStaff <<
+        \new Staff = soprano <<
+          \new Dynamics \with {alignAboveContext = soprano} \dynamicsWomen
+          \new Voice \TempoTrack
+          \new Voice \RehearsalTrack
+          \new Voice = soprano { \UnisonMusic \SopranoMusic }
+          \addlyrics \wordsSopSep
+        >>
+        \new Staff = alto <<
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = alto} {\teeny \dynamicsWomen}
+          \new Voice { \UnisonMusic     \AltoMusic }
+          \addlyrics { \tiny \wordsAltoSep }
+        >>
+        \new Staff = tenor <<
+          \magnifyStaff #4/7
+          \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} {\teeny \dynamicsMen}
+          \new Voice = tenor \TenorMusic
+          \addlyrics {\tiny \wordsMenSep}
+        >>
+        \new Staff = bass <<
+          \magnifyStaff #4/7
+          \clef "bass"
+          \new Dynamics \with {alignAboveContext = bass} {\teeny \dynamicsMen}
+          \new Voice = bass  \BassMusic
+          \addlyrics {\tiny \wordsMenSep}
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff = pianorh <<
+          \magnifyStaff #4/7
+          \new Voice { \PianoRHhigh }
+          \new Voice { \PianoRHlow  }
+        >>
+        \new Dynamics {\teeny \dynamics}
+        \new Staff = pianolh <<
+          \magnifyStaff #4/7
+          \new Voice { \PianoLHhigh }
+          \new Voice { \PianoLHlow  }
+        >>
+        \new Dynamics \with {alignBelowContext = pianolh} {\teeny \dynamicsPedal}
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \bookOutputSuffix "singlepage-alto"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      \new ChoirStaff <<
+        \new Staff = soprano <<
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsWomen}
+          \new Voice \TempoTrack
+          \new Voice \RehearsalTrack
+          \new Voice = soprano { \UnisonMusic \SopranoMusic }
+          \addlyrics {\tiny \wordsSopSep}
+        >>
+        \new Staff = alto <<
+          \new Dynamics \with {alignAboveContext = alto} \dynamicsWomen
+          \new Voice { \UnisonMusic     \AltoMusic }
+          \addlyrics \wordsAltoSep
+        >>
+        \new Staff = tenor <<
+          \magnifyStaff #4/7
+          \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} {\teeny \dynamicsMen}
+          \new Voice = tenor \TenorMusic
+          \addlyrics {\tiny \wordsMenSep}
+        >>
+        \new Staff = bass <<
+          \magnifyStaff #4/7
+          \clef "bass"
+          \new Dynamics \with {alignAboveContext = bass} {\teeny \dynamicsMen}
+          \new Voice = bass  \BassMusic
+          \addlyrics {\tiny \wordsMenSep}
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff = pianorh <<
+          \magnifyStaff #4/7
+          \new Voice { \PianoRHhigh }
+          \new Voice { \PianoRHlow  }
+        >>
+        \new Dynamics {\teeny \dynamics}
+        \new Staff = pianolh <<
+          \magnifyStaff #4/7
+          \new Voice { \PianoLHhigh }
+          \new Voice { \PianoLHlow  }
+        >>
+        \new Dynamics \with {alignBelowContext = pianolh} {\teeny \dynamicsPedal}
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \bookOutputSuffix "singlepage-tenor"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      \new ChoirStaff <<
+        \new Staff = soprano <<
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsWomen}
+          \new Voice \TempoTrack
+          \new Voice \RehearsalTrack
+          \new Voice = soprano { \UnisonMusic \SopranoMusic }
+          \addlyrics {\tiny \wordsSopSep}
+        >>
+        \new Staff = alto <<
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = alto} {\teeny \dynamicsWomen}
+          \new Voice { \UnisonMusic     \AltoMusic }
+          \addlyrics { \tiny \wordsAltoSep }
+        >>
+        \new Staff = tenor <<
+          \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} \dynamicsMen
+          \new Voice = tenor \TenorMusic
+          \addlyrics \wordsMenSep
+        >>
+        \new Staff = bass <<
+          \magnifyStaff #4/7
+          \clef "bass"
+          \new Dynamics \with {alignAboveContext = bass} {\teeny \dynamicsMen}
+          \new Voice = bass  \BassMusic
+          \addlyrics {\tiny \wordsMenSep}
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff = pianorh <<
+          \magnifyStaff #4/7
+          \new Voice { \PianoRHhigh }
+          \new Voice { \PianoRHlow  }
+        >>
+        \new Dynamics {\teeny \dynamics}
+        \new Staff = pianolh <<
+          \magnifyStaff #4/7
+          \new Voice { \PianoLHhigh }
+          \new Voice { \PianoLHlow  }
+        >>
+        \new Dynamics \with {alignBelowContext = pianolh} {\teeny \dynamicsPedal}
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \bookOutputSuffix "singlepage-bass"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      \new ChoirStaff <<
+        \new Staff = soprano <<
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsWomen}
+          \new Voice \TempoTrack
+          \new Voice \RehearsalTrack
+          \new Voice = soprano { \UnisonMusic \SopranoMusic }
+          \addlyrics {\tiny \wordsSopSep}
+        >>
+        \new Staff = alto <<
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = alto} {\teeny \dynamicsWomen}
+          \new Voice { \UnisonMusic     \AltoMusic }
+          \addlyrics { \tiny \wordsAltoSep }
+        >>
+        \new Staff = tenor <<
+          \magnifyStaff #4/7
+          \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} {\teeny \dynamicsMen}
+          \new Voice = tenor \TenorMusic
+          \addlyrics {\tiny \wordsMenSep}
+        >>
+        \new Staff = bass <<
+          \clef "bass"
+          \new Dynamics \with {alignAboveContext = bass} \dynamicsMen
+          \new Voice = bass  \BassMusic
+          \addlyrics \wordsMenSep
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff = pianorh <<
+          \magnifyStaff #4/7
+          \new Voice { \PianoRHhigh }
+          \new Voice { \PianoRHlow  }
+        >>
+        \new Dynamics {\teeny \dynamics}
+        \new Staff = pianolh <<
+          \magnifyStaff #4/7
+          \new Voice { \PianoLHhigh }
+          \new Voice { \PianoLHlow  }
+        >>
+        \new Dynamics \with {alignBelowContext = pianolh} {\teeny \dynamicsPedal}
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
@@ -1136,7 +1582,7 @@ PianoLHlow  = \relative c {
           \new Voice \TempoTrack
           \new Voice \RehearsalTrack
           \new Voice { \voiceOne \UnisonMusic \SopranoMusic }
-          \addlyrics \SopranoLyricsMidi
+          \addlyrics \wordsSopMidi
         >>
         \new Staff = alto <<
           \new Dynamics \dynamicsWomen
@@ -1145,12 +1591,12 @@ PianoLHlow  = \relative c {
         \new Staff = tenor <<
           \clef "treble_8"
           \new Dynamics \dynamicsMen
-          \new Voice = tenor { \voiceOne \transpose c c, \UnisonMusic \TenorMusic }
+          \new Voice = tenor { \voiceOne \TenorMusic }
         >>
         \new Staff = bass <<
           \clef "bass"
           \new Dynamics \dynamicsMen
-          \new Voice = bass  { \voiceTwo \transpose c c, \UnisonMusic \BassMusic }
+          \new Voice = bass  { \voiceTwo \BassMusic }
         >>
       >>
       \new PianoStaff <<
@@ -1191,17 +1637,17 @@ PianoLHlow  = \relative c {
         \new Staff = alto <<
           \new Dynamics \dynamicsWomen
           \new Voice { \UnisonMusic     \AltoMusic }
-          \addlyrics \AltoLyricsMidi
+          \addlyrics \wordsAltoMidi
         >>
         \new Staff = tenor <<
           \clef "treble_8"
           \new Dynamics \dynamicsMen
-          \new Voice = tenor { \voiceOne \transpose c c, \UnisonMusic \TenorMusic }
+          \new Voice = tenor { \voiceOne \TenorMusic }
         >>
         \new Staff = bass <<
           \clef "bass"
           \new Dynamics \dynamicsMen
-          \new Voice = bass  { \voiceTwo \transpose c c, \UnisonMusic \BassMusic }
+          \new Voice = bass  { \voiceTwo \BassMusic }
         >>
       >>
       \new PianoStaff <<
@@ -1229,7 +1675,7 @@ PianoLHlow  = \relative c {
 }
 
 \book {
-  \bookOutputSuffix "midi-tenor"
+  \bookOutputSuffix "midi-men"
   \score {
     <<
       \new ChoirStaff <<
@@ -1246,64 +1692,13 @@ PianoLHlow  = \relative c {
         \new Staff = tenor <<
           \clef "treble_8"
           \new Dynamics \dynamicsMen
-          \new Voice = tenor { \voiceOne \transpose c c, \UnisonMusic \TenorMusic }
-          \addlyrics \TenorLyricsMidi
+          \new Voice = tenor { \voiceOne \TenorMusic }
+          \addlyrics \wordsMenMidi
         >>
         \new Staff = bass <<
           \clef "bass"
           \new Dynamics \dynamicsMen
-          \new Voice = bass  { \voiceTwo \transpose c c, \UnisonMusic \BassMusic }
-        >>
-      >>
-      \new PianoStaff <<
-        \new Staff = piano <<
-          \new Voice { \PianoRHhigh }
-          \new Voice { \PianoRHlow  }
-          \new Dynamics \dynamics
-          \new Voice { \PianoLHhigh }
-          \new Voice { \PianoLHlow  }
-        >>
-        \new Dynamics \with {alignBelowContext = pianolh} \dynamicsPedal
-      >>
-    >>
-    \midi {
-      \context {
-        \Staff
-        \consists "Dynamic_performer"
-      }
-      \context {
-        \Voice
-        \remove "Dynamic_performer"
-      }
-    }
-  }
-}
-
-\book {
-  \bookOutputSuffix "midi-bass"
-  \score {
-    <<
-      \new ChoirStaff <<
-        \new Staff = soprano <<
-          \new Dynamics \dynamicsWomen
-          \new Voice \TempoTrack
-          \new Voice \RehearsalTrack
-          \new Voice { \voiceOne \UnisonMusic \SopranoMusic }
-        >>
-        \new Staff = alto <<
-          \new Dynamics \dynamicsWomen
-          \new Voice { \UnisonMusic     \AltoMusic }
-        >>
-        \new Staff = tenor <<
-          \clef "treble_8"
-          \new Dynamics \dynamicsMen
-          \new Voice = tenor { \voiceOne \transpose c c, \UnisonMusic \TenorMusic }
-        >>
-        \new Staff = bass <<
-          \clef "bass"
-          \new Dynamics \dynamicsMen
-          \new Voice = bass  { \voiceTwo \transpose c c, \UnisonMusic \BassMusic }
-          \addlyrics \BassLyricsMidi
+          \new Voice = bass  { \voiceTwo \BassMusic }
         >>
       >>
       \new PianoStaff <<
