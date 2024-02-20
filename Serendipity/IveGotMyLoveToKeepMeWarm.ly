@@ -1,6 +1,8 @@
-\version "2.22.0"
+\version "2.25.13"
 
+\include "kjp.ly"
 \include "predefined-guitar-fretboards.ly"
+\include "swing.ly"
 \include "articulate.ly"
 
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
@@ -32,8 +34,6 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   tagline   = ##f
   copyright   = \today
 }
-
-% #(set-global-staff-size 16)
 
 global = {
   \key ees \major
@@ -151,12 +151,8 @@ soprano = \relative {
     bes2.^\markup Unis. 4 | a4 bes g4. f8~ | f1 | R1
     r8 bes4. 4 b | c4. aes8 f d4^\markup Unis. ees8~ | ees1
     \alternative {
-      {
-        r2 r4 bes
-      }
-      {
-        R1 % 4b
-      }
+      \volta 1 { r2 r4 bes }
+      \volta 2 { R1        } % 4b
     }
   }
   \repeat segno 2 {
@@ -173,8 +169,9 @@ soprano = \relative {
       }
       \volta 2 {
         r8 bes'4. 4 b | c4. aes8 f d4. | r8 c'4. 4 cis % 7a
-        d4. bes8 aes g4. | r8 c,4. ees4 f8 g~ | g4\glissando r8 bes,^\markup Unis. g'4-. 8 ees~ | ees1 ~
-        ees2. r4_\markup\bold\italic STOP | \bar "|." g4-. g-- bes-. bes-- | \tuplet 3/2 {f8 g aes} \tuplet 3/2 {bes c d} ees4-. 
+        d4. bes8 aes g4. | r8 c,4. ees4 f8 g~ | % 7b
+        <<{g4\glissando \hideNotes d8 \unHideNotes} \new Voice {s4 b'8\rest}>> bes,^\markup Unis. g'4-. 8 ees~ | ees1 ~
+        ees2. r4_\markup\bold\italic STOP | \bar "|." g4-. g-- bes-. bes-- | \tuplet 3/2 {f8 g aes} \tuplet 3/2 {bes c d} ees4-. | % 7c
 r
       }
     }
@@ -208,7 +205,7 @@ wordsOne = \lyricmode {
 
   I've got my love to keep me,
   I've got my love to keep me,
-  I've got my love __ to keep me warm. __
+  I've got my love __ _ to keep me warm. __
   Doot doo doot doo
   doo -- dle -- oo doo -- dle -- oo doot!
 }
@@ -260,7 +257,7 @@ wordsSingle = \lyricmode {
 
   I've got my love to keep me,
   I've got my love to keep me,
-  I've got my love __ to keep me warm. __
+  I've got my love __ _ to keep me warm. __
   Doot doo doot doo
   doo -- dle -- oo doo -- dle -- oo doot!
 }
@@ -312,7 +309,7 @@ wordsMidi = \lyricmode {
 alto = \relative {
   \global
   r8 r4
-  f'2 ees
+  f'2^\mf ees
   g2 f4 r
   f2 ees
   f8 g aes a bes4-. bes,
@@ -323,12 +320,8 @@ alto = \relative {
     bes2. 4 | a4 bes g4. f8~ | f1 | R1
     r8 d4. des4 4 | c4. 8 d8 4 ees8~ | ees1 % 4a
     \alternative {
-      {
-        r2 r4 bes
-      }
-      {
-        R1 % 4b
-      }
+      \volta 1 { r2 r4 bes }
+      \volta 2 { R1        } % 4b
     }
   }
   \repeat segno 2 {
@@ -345,7 +338,8 @@ alto = \relative {
       }
       \volta 2 {
         r8 d4. des4 4 | c4. 8 d8 4. | r8 f4. 4 4 % 7a
-        f4. 8 e8 4. | r8 c4. c4 ees8 d~ | d4\glissando r8 bes g'4-. 8 ees~ | ees1~
+        f4. 8 e8 4. | r8 c4. c4 ees8 d~ | % 7b
+        <<{d4\glissando \hideNotes a8 \unHideNotes} \new Voice {s4 b'8\rest}>> bes, g'4-. 8 ees~ | ees1~
         ees2. r4 | g4-. 4-- bes4-. 4-- | \tuplet 3/2 {f8 g aes} \tuplet 3/2 {bes a aes} g4-. r
       }
     }
@@ -364,20 +358,16 @@ tenor = \relative {
     f2 2 | e8 ees4. r4 d | g2 2 % 3a
     fis4 a c c~ | c1~ | c4 r d8 c ees4
     bes2.^\markup Unis. 4 | a4 bes g4. f8~ | f1 | R1
-    r8 f4. e4 4 | ees4. 8 aes aes4 g8~ | g1
+    r8 bes4. 4 g | aes4. 8 c aes4 g8~ | g1
     \alternative {
-      {
-        r2 r4 bes,
-      }
-      {
-        R1 % 4b
-      }
+      \volta 1 { r2 r4 bes, }
+      \volta 2 { R1         } % 4b
     }
   }
   \repeat segno 2 {
     r4 d^\markup\italic mel. ^\markup Unis. g bes | d8 4 8~2
     r4 d bes8 4 8~ | bes2 r | r4 c c c | bes8 4 8~2
-    r4 aes a8 g a bes8~ | bes2 r4 bes, | ees2 2 | d8 des4. r4 c % 5a
+    r4 aes aes8 g aes bes8~ | bes2 r4 bes, | ees2 2 | d8 des4. r4 c % 5a
     f2 2 | e8 ees4. r4 d | g2 2 | fis4 a4 c4 4~
     c1~ | c4 r d8 c ees4 | bes2.^\markup Unis. 4
     a4 bes g4. f8~ | f1 | R1 % 6a
@@ -388,9 +378,9 @@ tenor = \relative {
       }
       \volta 2 {
         r8 bes4. 4 g | aes4. 8 c aes4. | r8 d4. 4 4 % 7a
-        d4. 8 8 4. | r8 aes4. 4 c8 8~ | 4\glissando r8 g^\markup Unis. bes4 8 g(~ | g1
-        aes2.) r4^\markup\bold\italic STOP | g4-. g-- bes-. bes-- | \tuplet 3/2 {f8 g aes} \tuplet 3/2 {bes c d} ees4 r
-        
+        d4. 8 8 4. | r8 aes4. 4 c8 8~ | % 7b
+        <<{c4\glissando \hideNotes f,8 \unHideNotes} \new Voice {s4 \ov d8\rest}>> g^\markup Unis. bes4-. 8 g(~ | g1
+        aes2.) r4^\markup\bold\italic STOP | g4-. g-- bes-. bes-- | \tuplet 3/2 {f8 g aes} \tuplet 3/2 {bes c d} ees4 r | % 7c
       }
     }
   }
@@ -406,16 +396,12 @@ bass = \relative {
   \repeat volta 2 {
     ees2 2 | d8 des4. r4 c
     f2 2 | e8 ees4. r4 d | g2 2 % 3a
-    fis4 a c c~ | c1~ | c4 r d8 c ees4
+    fis4 a a a~ | a1~ | a4 r a8 a c4
     bes2.^\markup Unis. 4 | a4 bes g4. f8~ | f1 | R1
-    r8 bes4. 4 g | aes4. 8 c aes4^\markup Unis. g8~ | g1 % 4a
+    r8 f4. e4 e | ees4. 8 aes8 4^\markup Unis. g8~ | g1 % 4a
     \alternative {
-      {
-        r2 r4 bes,
-      }
-      {
-        R1
-      }
+      \volta 1 { r2 r4 bes, }
+      \volta 2 { R1         }
     }
   }
   \repeat segno 2 {
@@ -431,8 +417,9 @@ bass = \relative {
         R1 | f2 ees | g2 fis
       }
       \volta 2 {
-        r8 f4. e4 4 | ees4. 8 a8 4. | r8 bes4. 4 4
-        bes4. 8 8 4. | r8 aes4. 4 8 8~ | 4\glissando r8 g bes4 8 g(~ | g1
+        r8 f4. e4 4 | ees4. 8 aes8 4. | r8 bes4. 4 4 | % 7a
+        bes4. 8 8 4. | r8 aes4. 4 8 8~ | % 7b
+        <<{aes4\glissando \hideNotes d,8 \unHideNotes} \new Voice {s4 d8\rest}>> g bes4-. 8 g(~ | g1
         aes2.) r4 | g4-. 4-- bes4-. 4-- | \tuplet 3/2 {f8 g aes} \tuplet 3/2 {bes a aes} g4-. r
       }
     }
@@ -504,7 +491,7 @@ pianoRH = \relative {
         r8 <f bes c>4. q4-. <f bes des>-.
         <f bes d>2 <e bes' des> % 7b
         r8 <ees aes c>4. <aes c ees>2
-        \tuplet 3/2 {g'8 aes a} bes4 r2
+        \tuplet 3/2 {g'8 aes a} bes4-. r2
         <bes, d g>4-. q-- <ees g bes>-. q--
         <aes, c ees>4-. q-- <aes c ees g>-. <aes c d f>-- % 7c
         <bes d g>4-. q-- <ees g bes>-. q--
@@ -577,21 +564,18 @@ pianoLH = \relative {
   \bar "|."
 }
 
+#(set-global-staff-size 20)
+
 \book {
   \bookOutputSuffix "repeat"
   \score {
     <<
-      <<
-        \new ChordNames { \ChordTrack }
-%        \new FretBoards { \ChordTrack }
-      >>
       <<
         \new ChoirStaff <<
                                 % Joint soprano/alto staff
           \new Staff = women \with {
             instrumentName = #"Soprano/Alto"
             shortInstrumentName = #"SA"
-            midiInstrument = "choir aahs"
             printPartCombineTexts = ##f
           }
           <<
@@ -606,7 +590,6 @@ pianoLH = \relative {
           \new Staff = men \with {
             instrumentName = #"Tenor/Bass"
             shortInstrumentName = #"TB"
-            midiInstrument = "choir aahs"
             printPartCombineTexts = ##f
           }
           <<
@@ -614,16 +597,18 @@ pianoLH = \relative {
             \new Voice \partCombine \tenor \bass
           >>
         >>
+        <<
+          \new ChordNames { \ChordTrack }
+                                %        \new FretBoards { \ChordTrack }
+        >>
         \new PianoStaff = piano <<
           \new Staff = pianorh \with {
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \new Voice \pianoRH
           >>
           \new Dynamics \dynamicsPiano
           \new Staff = pianolh \with {
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \clef "bass"
@@ -636,13 +621,36 @@ pianoLH = \relative {
       indent = 1.5\cm
       \pointAndClickOff
       \context {
-        \Staff \RemoveAllEmptyStaves
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
+
+#(set-global-staff-size 20)
 
 \book {
   \bookOutputSuffix "single"
@@ -650,16 +658,11 @@ pianoLH = \relative {
    \unfoldRepeats
     <<
       <<
-        \new ChordNames { \ChordTrack }
-%        \new FretBoards { \ChordTrack }
-      >>
-      <<
         \new ChoirStaff <<
                                 % Joint soprano/alto staff
           \new Staff = women \with {
             instrumentName = #"Soprano/Alto"
             shortInstrumentName = #"SA"
-            midiInstrument = "choir aahs"
             printPartCombineTexts = ##f
           }
           <<
@@ -673,7 +676,6 @@ pianoLH = \relative {
           \new Staff = men \with {
             instrumentName = #"Tenor/Bass"
             shortInstrumentName = #"TB"
-            midiInstrument = "choir aahs"
             printPartCombineTexts = ##f
           }
           <<
@@ -681,16 +683,18 @@ pianoLH = \relative {
             \new Voice \partCombine \tenor \bass
           >>
         >>
+        <<
+          \new ChordNames { \ChordTrack }
+                                %        \new FretBoards { \ChordTrack }
+        >>
         \new PianoStaff = piano <<
           \new Staff = pianorh \with {
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \new Voice \pianoRH
           >>
           \new Dynamics \dynamicsPiano
           \new Staff = pianolh \with {
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \clef "bass"
@@ -703,13 +707,36 @@ pianoLH = \relative {
       indent = 1.5\cm
       \pointAndClickOff
       \context {
-        \Staff \RemoveAllEmptyStaves
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
+
+#(set-global-staff-size 20)
 
 \book {
   \bookOutputSuffix "singlepage"
@@ -727,16 +754,11 @@ pianoLH = \relative {
 %   \articulate
     <<
       <<
-        \new ChordNames { \ChordTrack }
-%        \new FretBoards { \ChordTrack }
-      >>
-      <<
         \new ChoirStaff <<
                                 % Joint soprano/alto staff
           \new Staff = women \with {
             instrumentName = #"Soprano/Alto"
             shortInstrumentName = #"SA"
-            midiInstrument = "choir aahs"
             printPartCombineTexts = ##f
           }
           <<
@@ -750,7 +772,6 @@ pianoLH = \relative {
           \new Staff = men \with {
             instrumentName = #"Tenor/Bass"
             shortInstrumentName = #"TB"
-            midiInstrument = "choir aahs"
             printPartCombineTexts = ##f
           }
           <<
@@ -758,16 +779,18 @@ pianoLH = \relative {
             \new Voice \partCombine \tenor \bass
           >>
         >>
+        <<
+          \new ChordNames { \ChordTrack }
+                                %        \new FretBoards { \ChordTrack }
+        >>
         \new PianoStaff = piano <<
           \new Staff = pianorh \with {
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \new Voice \pianoRH
           >>
           \new Dynamics \dynamicsPiano
           \new Staff = pianolh \with {
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \clef "bass"
@@ -780,9 +803,619 @@ pianoLH = \relative {
       indent = 1.5\cm
       \pointAndClickOff
       \context {
-        \Staff \RemoveAllEmptyStaves
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \bookOutputSuffix "singlepage-sep"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+   \unfoldRepeats
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics \wordsSingle
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \new Voice \alto
+            \addlyrics \wordsSingle
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics \wordsSingle
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            printPartCombineTexts = ##f
+          }
+          <<
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics \wordsSingle
+          >>
+        >>
+        <<
+          \new ChordNames { \ChordTrack }
+                                %        \new FretBoards { \ChordTrack }
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+          }
+          <<
+            \new Voice \pianoRH
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff = pianolh \with {
+          }
+          <<
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \bookOutputSuffix "singlepage-sop"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+   \unfoldRepeats
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics \wordsSingle
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \alto
+            \addlyrics {\tiny \wordsSingle}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsSingle}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics {\tiny \wordsSingle}
+          >>
+        >>
+        <<
+          \new ChordNames { \ChordTrack }
+                                %        \new FretBoards { \ChordTrack }
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = pianolh \with {
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \bookOutputSuffix "singlepage-alto"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+   \unfoldRepeats
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSingle}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \new Voice \alto
+            \addlyrics \wordsSingle
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsSingle}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics {\tiny \wordsSingle}
+          >>
+        >>
+        <<
+          \new ChordNames { \ChordTrack }
+                                %        \new FretBoards { \ChordTrack }
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = pianolh \with {
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \bookOutputSuffix "singlepage-tenor"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+   \unfoldRepeats
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSingle}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \alto
+            \addlyrics {\tiny \wordsSingle}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics \wordsSingle
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics {\tiny \wordsSingle}
+          >>
+        >>
+        <<
+          \new ChordNames { \ChordTrack }
+                                %        \new FretBoards { \ChordTrack }
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = pianolh \with {
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \bookOutputSuffix "singlepage-bass"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+   \unfoldRepeats
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSingle}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \alto
+            \addlyrics {\tiny \wordsSingle}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsSingle}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics \wordsSingle
+          >>
+        >>
+        <<
+          \new ChordNames { \ChordTrack }
+                                %        \new FretBoards { \ChordTrack }
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = pianolh \with {
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
@@ -795,10 +1428,6 @@ pianoLH = \relative {
 %   \articulate
     <<
       <<
-        \new ChordNames { \ChordTrack }
-%        \new FretBoards { \ChordTrack }
-      >>
-      <<
         \new ChoirStaff <<
                                 % Soprano staff
           \new Staff = soprano \with {
@@ -809,7 +1438,7 @@ pianoLH = \relative {
           <<
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice \soprano
+            \new Voice \tripletFeel 8 \soprano
             \addlyrics \wordsMidi
           >>
                                 % Alto staff
@@ -819,7 +1448,7 @@ pianoLH = \relative {
             midiInstrument = "choir aahs"
           }
           <<
-            \new Voice \alto
+            \new Voice \tripletFeel 8 \alto
           >>
                                 % Tenor staff
           \new Staff = tenor \with {
@@ -829,7 +1458,7 @@ pianoLH = \relative {
           }
           <<
             \clef "treble_8"
-            \new Voice \tenor
+            \new Voice \tripletFeel 8 \tenor
           >>
                                 % Bass staff
           \new Staff = bass \with {
@@ -839,19 +1468,32 @@ pianoLH = \relative {
           }
           <<
             \clef "bass"
-            \new Voice \bass
+            \new Voice \tripletFeel 8 \bass
           >>
+        >>
+        <<
+          \new ChordNames { \ChordTrack }
+                                %        \new FretBoards { \ChordTrack }
         >>
         \new Staff = piano \with {
           midiInstrument = "acoustic grand piano"
         }
         <<
-          \new Voice \pianoRH
+          \new Voice \tripletFeel 8 \pianoRH
           \new Dynamics \dynamicsPiano
-          \new Voice \pianoLH
+          \new Voice \tripletFeel 8 \pianoLH
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
