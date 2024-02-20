@@ -1,4 +1,4 @@
-\version "2.22.0"
+\version "2.25.13"
 
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
@@ -21,7 +21,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 
   composer    = "Traditional Tune noted from D. Peter A. MacLeod"
   arranger    = "and Arranged by Hugh S. Roberton"
-  opus        = "This arrangement by Boib Chilcott"
+  opus        = "This arrangement by Bob Chilcott"
 
   poet        = "Hugh S. Roberton"
 %  meter       = "meter"
@@ -32,8 +32,6 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   tagline   = ##f
   copyright   = \today
 }
-
-% #(set-global-staff-size 17)
 
 global = {
   \key g \major
@@ -350,77 +348,77 @@ pianoLH = \relative {
   \bar "|."
 }
 
+#(set-global-staff-size 20)
+
 \book {
   \bookOutputSuffix "single"
   \score {
     <<
-      <<
-        \new RhythmicStaff \with {
-          \override StaffSymbol.line-count = #0
-          \override NoteHead.style = #'cross
-          \omit Score.BarLine
-          \omit Score.TimeSignature
-        } << \ClapTrack >>
-        \new ChoirStaff <<
+      \new RhythmicStaff \with {
+        \override StaffSymbol.line-count = #0
+        \override NoteHead.style = #'cross
+        \omit Score.BarLine
+        \omit Score.TimeSignature
+      } \ClapTrack
+      \new ChoirStaff <<
                                 % Single melody staff
-          \new Staff = melody \with {
-            instrumentName = #"Tutti"
-            shortInstrumentName = #"All"
-            midiInstrument = "choir aahs"
-          }
-          <<
-            \new Voice \TempoTrack
-            \new Voice \RehearsalTrack
-            \new Voice \melody
-            \addlyrics \words
-          >>
-                                % Single soprano staff
-          \new Staff = soprano \with {
-            instrumentName = #"Soprano"
-            shortInstrumentName = #"S"
-            midiInstrument = "choir aahs"
-          }
-          <<
-            \new Voice \soprano
-            \addlyrics \wordsSop
-          >>
-                                % Single alto staff
-          \new Staff = alto \with {
-            instrumentName = #"Alto"
-            shortInstrumentName = #"A"
-            midiInstrument = "choir aahs"
-          }
-          <<
-            \new Voice \alto
-            \addlyrics \wordsSop
-          >>
-                                % Single bass staff
-          \new Staff = bass \with {
-            instrumentName = #"Bass"
-            shortInstrumentName = #"B"
-            midiInstrument = "choir aahs"
-          }
-          <<
-            \clef "bass"
-            \new Voice \bass
-            \addlyrics \wordsSop
-          >>
+        \new Staff = melody \with {
+          instrumentName = #"Tutti"
+          shortInstrumentName = #"All"
+          midiInstrument = "choir aahs"
+        }
+        <<
+          \new Voice \TempoTrack
+          \new Voice \RehearsalTrack
+          \new Voice \melody
+          \addlyrics \words
         >>
-        \new PianoStaff = piano <<
-          \new Staff = pianorh \with {
-            midiInstrument = "acoustic grand piano"
-          }
-          <<
-            \new Voice \pianoRH
-          >>
-          \new Dynamics \dynamicsPiano
-          \new Staff = pianolh \with {
-            midiInstrument = "acoustic grand piano"
-          }
-          <<
-            \clef "bass"
-            \new Voice \pianoLH
-          >>
+                                % Single soprano staff
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+          midiInstrument = "choir aahs"
+        }
+        <<
+          \new Voice \soprano
+          \addlyrics \wordsSop
+        >>
+                                % Single alto staff
+        \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+          midiInstrument = "choir aahs"
+        }
+        <<
+          \new Voice \alto
+          \addlyrics \wordsSop
+        >>
+                                % Single bass staff
+        \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+          midiInstrument = "choir aahs"
+        }
+        <<
+          \clef "bass"
+          \new Voice \bass
+          \addlyrics \wordsSop
+        >>
+      >>
+      \new PianoStaff = piano <<
+        \new Staff = pianorh \with {
+          midiInstrument = "acoustic grand piano"
+        }
+        <<
+          \new Voice \pianoRH
+        >>
+        \new Dynamics \dynamicsPiano
+        \new Staff = pianolh \with {
+          midiInstrument = "acoustic grand piano"
+        }
+        <<
+          \clef "bass"
+          \new Voice \pianoLH
         >>
       >>
     >>
@@ -428,13 +426,36 @@ pianoLH = \relative {
       indent = 1.5\cm
       \pointAndClickOff
       \context {
-        \Staff \RemoveAllEmptyStaves
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
+
+#(set-global-staff-size 20)
 
 \book {
   \bookOutputSuffix "singlepage"
@@ -448,8 +469,6 @@ pianoLH = \relative {
     system-separator-markup = \slashSeparator
   }
   \score {
-%   \articulate
-    <<
       <<
         \new RhythmicStaff \with {
           \override StaffSymbol.line-count = #0
@@ -519,14 +538,394 @@ pianoLH = \relative {
           >>
         >>
       >>
-    >>
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
       \context {
-        \Staff \RemoveAllEmptyStaves
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \bookOutputSuffix "singlepage-sop"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+      <<
+        \new RhythmicStaff \with {
+          \override StaffSymbol.line-count = #0
+          \override NoteHead.style = #'cross
+          \omit Score.BarLine
+          \omit Score.TimeSignature
+        } << \ClapTrack >>
+        \new ChoirStaff <<
+                                % Single melody staff
+          \new Staff = melody \with {
+            instrumentName = #"Tutti"
+            shortInstrumentName = #"All"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \melody
+            \addlyrics \words
+          >>
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Voice \soprano
+            \addlyrics \wordsSop
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \alto
+            \addlyrics {\tiny \wordsSop}
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics {\tiny \wordsSop}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = pianolh \with {
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \bookOutputSuffix "singlepage-alto"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+      <<
+        \new RhythmicStaff \with {
+          \override StaffSymbol.line-count = #0
+          \override NoteHead.style = #'cross
+          \omit Score.BarLine
+          \omit Score.TimeSignature
+        } << \ClapTrack >>
+        \new ChoirStaff <<
+                                % Single melody staff
+          \new Staff = melody \with {
+            instrumentName = #"Tutti"
+            shortInstrumentName = #"All"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \melody
+            \addlyrics \words
+          >>
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSop}
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Voice \alto
+            \addlyrics \wordsSop
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics {\tiny \wordsSop}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = pianolh \with {
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \bookOutputSuffix "singlepage-bass"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+      <<
+        \new RhythmicStaff \with {
+          \override StaffSymbol.line-count = #0
+          \override NoteHead.style = #'cross
+          \omit Score.BarLine
+          \omit Score.TimeSignature
+        } << \ClapTrack >>
+        \new ChoirStaff <<
+                                % Single melody staff
+          \new Staff = melody \with {
+            instrumentName = #"Tutti"
+            shortInstrumentName = #"All"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \melody
+            \addlyrics \words
+          >>
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSop}
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \alto
+            \addlyrics {\tiny \wordsSop}
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics \wordsSop
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = pianolh \with {
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
@@ -535,8 +934,6 @@ pianoLH = \relative {
 \book {
   \bookOutputSuffix "midi"
   \score {
-%   \articulate
-    <<
       <<
         \new RhythmicStaff \with {
           \override StaffSymbol.line-count = #0
@@ -602,16 +999,15 @@ pianoLH = \relative {
           >>
         >>
       >>
-    >>
-    \layout {
-      indent = 1.5\cm
-      \pointAndClickOff
+    \midi {
       \context {
-        \Staff \RemoveAllEmptyStaves
-        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
-        \override BarNumber.break-visibility = ##(#f #t #t)
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
       }
     }
-    \midi {}
   }
 }
