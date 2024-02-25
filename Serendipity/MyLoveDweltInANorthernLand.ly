@@ -1,5 +1,6 @@
-\version "2.22.0"
+\version "2.25.13"
 
+\include "kjp.ly"
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
 
@@ -34,8 +35,6 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   tagline   = ##f
   copyright   = \today
 }
-
-#(set-global-staff-size 16)
 
 % \paper {
 %   #(set-paper-size "a4")
@@ -137,8 +136,8 @@ soprano = \relative {
   d4^\markup\italic rit. ^\> ( c8\fermata \! ) e,8^\pp^\markup\italic "a tempo." e e % 7a
   e'4. \( d8 b d
           c4. \) c8^-^\< c^- c^-\!
-  << {g'4.^\f f8 d g} \new Voice {\autoBeamOff c,4(b8) b d b} >> % 7b
-  <c e>2^\dim a4^\pp
+  << {\vo g'4.^\f f8 d g} \new Voice {\vt \autoBeamOff c,4(b8) b d b} >> % 7b
+  \ov <c e>2^\dim a4^\pp
   a2^\markup\italic "molto espress." \( b4
                                         b4^\> (c)\! b
                                         a8 f \) a2~ ^\> % 8a
@@ -181,6 +180,35 @@ wordsSop = \lyricmode {
   The grass a -- bove __ my love is green, __
   His heart is cold -- er than the clay,
   cold -- er, cold -- er than the clay.
+}
+
+wordsSopMidi = \lyricmode {
+  "My " "love " "dwelt " "in " "a " North "ern " "land, "
+  "\nA " "dim " "tower " "in " "a " fo "rest " "green "
+  "\nWas " "his "  "and " "far " a "way " "the " "sand "
+  "\nAnd " "gray " "wash " "of " "the " "waves " "were " "seen "
+  "\nThe " wo "ven " fo rest "boughs " be "tween: "
+  "\nAnd " "thro' " "the " North "ern " sum "mer " "night "
+  "\nThe " sun "set " slow "ly, " slow "ly " "died " a "way, " 
+  "\nAnd " "herds " "of " "strange " "deer, " sil "ver " "white, "
+  "\nCame " gleam "ing " "through__ " "the " for "est " "gray, "
+  "\nAnd " "fled " "like " "ghosts " be "fore " "the " "day.\n" 
+
+  "\nAnd " "oft, " "that " "month, "  "we " "watch'd " "the " "moon " 
+  "\nWax " "great " "and " "white "  "o'er " "wood " "and " "lawn, " 
+  "\nAnd " "oft, " "that " "month, "  "we " "watch'd " "the " "moon " 
+  "\nWax " "great " "and " "white "  "o'er " "wood " "and " "lawn, " 
+  "\nAnd " "wane, " "with " wan "ing " "of " "the " "June, " 
+  "\nTill, " "like " "a " "brand " "for " bat "tle " "drawn, "
+  "\nShe " "fell, " "she " "fell, " "and " "flamed " "in " "a " "wild " "dawn.\n" 
+ 
+  "\nI " "know " "not " "if " "the " fo "rest " "green "
+  "\nStill " gir "dles " "round "  "that " cas "tle " "gray, " 
+  "\nI " "know " "not " "if " "the " "boughs " be "tween "
+  "\nThe " "white " "deer " van "ish " "ere " "the " "day: "
+  "\nThe " "grass " a "bove "  "my " "love " "is " "green, " 
+  "\nHis " "heart " "is " cold "er " "than " "the " "clay, "
+  "\ncold" "er, " cold "er " "than " "the " "clay. "
 }
 
 alto = \relative {
@@ -295,6 +323,42 @@ wordsAlto = \lyricmode {
   cold -- er than the clay. __
 }
 
+wordsAltoMidi = \lyricmode {
+  "My " "love " "dwelt " "in " "a " North "ern " "land, "
+  "\nA " "dim " "tower "
+  "\nWas " "his "  "and " "far " a "way " "the " "sand "
+  "\nAnd " "gray " "wash " "of " "the " "waves " "were " "seen " % 1b+++
+  "\nThe " wo "ven " fo rest "boughs " be "tween: "
+  "\nAnd " "thro' " "the " North "ern " sum "mer " "night " % 2a end
+  "\nThe " sun "set " "died " a "way, " 
+  "\nAnd " "herds " "of " "strange " "deer, " sil "ver " "white, "
+  "\nCame " gleam "ing " "through__ " "the " for "est " "gray, "
+  "\nAnd " "fled " "like " "ghosts " be "fore " "the " "day.\n"  % 2c end
+
+  "\nAnd " "oft, " "that " "month, " "we " "watch'd " "the " "moon, "
+  "\nAnd " "oft, " "that " "month, " "we " "watch'd " "the " "moon " % 3a++++
+  "\nWax " "great " "and " "white " "o'er " "wood " "and " "lawn, "
+  "\nWax " "great " "and " "white " "o'er " "wood " "and " "lawn, " % 3b+++
+  "\nAnd " "oft, " "that " "month, "  "we " "watch'd " "the " "moon " 
+  "\nAnd " "oft, " "that " "month, "  "we " "watch'd " "the " "moon " 
+  "\nWax " "great " "and " "white "  "o'er " "wood " "and " "lawn, "   %4b
+  "\nwax " "great " "and " "white "  "o'er " "wood " "and " "lawn, " 
+  "\nAnd " "wane, " "with " wan "ing " "of " "the " "June, "  % 5a
+  "\nAnd " "wane, " "with " wan "ing " "of " "the " "June, " 
+  "\nTill, " "like " "a " "brand " "for " bat "tle " "drawn, " % 5b
+  "\nShe " "fell, " "fell, " "she " "fell, " "and " "flamed " "in " "a " "wild " "dawn.\n" 
+ 
+  "\nI " "know " "not " "if " "the " fo "rest " "green "
+  "\nStill " gir "dles " "round "  "that " cas "tle " "gray, " 
+  "\nI " "know " "not " "if " "the " "boughs " be "tween "
+  "\nThe " "white " "deer " van "ish " "ere " "the " "day: " % 7b+
+  "\nThe " "grass " a "bove "  "my " "love " "is " "green, " 
+  "\nThe " "grass " a "bove "  "my " "love " "is " "green, " 
+  "\nHis " "heart " "is " cold "er " "than " "the " "clay, "
+  "\ncold" "er " "than " "the " "clay, "
+  "\ncold" "er " "than " "the " "clay. " 
+}
+
 tenor = \relative {
   \global
   a4^\p
@@ -364,8 +428,8 @@ wordsTenor = \lyricmode {
 }
 
 tenorOne = \relative {
-  \key f \major
   s4 s2.*18 s2
+  \key d \minor
   c'4^\pp % 3a
   c2^\markup\italic dolcissimo.  \( d4
         e4^\> (f))\! d
@@ -387,7 +451,7 @@ tenorOne = \relative {
   c2\! c4 % 5a
   c2 d4
   e4^\> (f)\! d
-  cis8-- a-- c2^\> (
+  cis8-- a-- cis2^\> (
   d2) b4--^\< % 5b
   c4^\f(bes8) bes c8. 16
   c8.^\sf 16 c4^\dim c
@@ -412,43 +476,48 @@ wordsTenorOne = \lyricmode {
   She fell, fell, __ she fell, and flamed in a wild dawn. __
 }
 
+wordsMidiTenorJoint = \lyricmode {
+  "My " "love " "dwelt " "in " "a " North "ern " "land, "
+  "\nA " "dim " "tower " "in " "a " fo "rest " "green " 
+  "\nWas " "his "  "and " "far " a "way " "the " "waves " "were " "seen "
+  "\nThe " wo "ven " fo rest "boughs " be "tween: "
+  "\nAnd " "thro' " "the " North "ern " sum "mer " "night "
+  "\nThe " sun "set " slow "ly, " slow "ly " "died " a "way, " 
+  "\nAnd " "herds " "of " "strange " "deer, " sil "ver " "white, "
+  "\nCame " gleam "ing " "through__ " "the " for "est " "gray, "
+  "\nAnd " "fled " "like " "ghosts " be "fore " "the " "day.\n" 
+
+% two parts
+
+  "\nI " "know " "not " "if " "the " for "est " "green "
+  "\nStill " gir "dles " "round "  "that " cas "tle " "gray, " 
+  "\nI " "know "  "not " "if " "the " "white " "deer " van "ush " "ere " "the " "day: " 
+  "\nThe " "grass " a "bove " "my " "love " "is " "green, "
+  "\nThe " "grass " a "bove " "my " "love " "is " "green, "
+  "\nHis " "heart " "is " "cold, " cold "er " "than " "the " "clay, "
+  "\nHis " "heart "  "is " cold "er, " cold "er " "than " "the " "clay. " 
+}
+
 wordsMidiTenorOne = \lyricmode {
-  \set associatedVoice = "alignerTenorOneA"
-  My love dwelt in a North -- ern land,
-  A dim tower in a fo -- rest green 
-  Was his __ and far a -- way the waves were seen
-  The wo -- ven fo -- rest -- boughs be -- tween:
-  And thro' the North -- ern sum -- mer night
-  The sun -- set slow -- ly, slow -- ly died a -- way, __
-  And herds of strange deer, sil -- ver white,
-  Came gleam -- ing through__ the for -- est gray,
-  And fled like ghosts be -- fore the
-  \set associatedVoice = "alignerTenorOneB"
-  day. __
 
-  And oft, that month __ we watch'd the moon __
-  Wax great and white __ o'er wood and lawn,
-  And oft, that month, we watch'd the moon,
-  And oft, that month __ we watch'd the moon
-  Wax great and white __ o'er wood and lawn,
-  And wane, with wan -- ing of the June, __
-  Till, like __ a brand for bat -- tle drawn,
-  She fell, fell, __ she fell, and flamed in a wild
+  % joint
 
-  \set associatedVoice = "alignerTenorOneA"
-  dawn. __
-  I know not if the for -- est green
-  Still gir -- dles round __ that cas -- tle gray, __
-  I know __ not if the white deer van -- ush ere the day: __
-  The grass a -- bove my love is green,
-  The grass a -- bove my love is green,
-  His heart is cold, cold -- er than the clay,
-  His heart __ is cold -- er, cold -- er than the clay. __
+  "\nAnd " "oft, " "that " "month "  "we " "watch'd " "the " "moon " 
+  "\nWax " "great " "and " "white "  "o'er " "wood " "and " "lawn, "
+  "\nAnd " "oft, " "that " "month, " "we " "watch'd " "the " "moon, "
+  "\nAnd " "oft, " "that " "month "  "we " "watch'd " "the " "moon "
+  "\nWax " "great " "and " "white "  "o'er " "wood " "and " "lawn, "
+  "\nAnd " "wane, " "with " wan "ing " "of " "the " "June, " 
+  "\nTill, " "like "  "a " "brand " "for " bat "tle " "drawn, "
+  "\nShe " "fell, " "fell, "  "she " "fell, " "and " "flamed " "in " "a " "wild\n"
+
+  % joint
+
 }
 
 tenorTwo = \relative {
   \global
-  s4 s2.*18 s2 \key f \major
+  s4 s2.*18 s2 \key d \minor
   b4^\pp
   a8-.^\markup\italic leggiero \( a-. a4-. a-. \) % 3a
   a8-. \( a-. a4-. a-. \)
@@ -507,48 +576,32 @@ wordsTenorTwo = \lyricmode {
 }
 
 wordsMidiTenorTwo = \lyricmode {
-  \set associatedVoice = "alignerTenorTwoA"
-  My love dwelt in a North -- ern land,
-  A dim tower in a fo -- rest green 
-  Was his __ and far a -- way the waves were seen
-  The wo -- ven fo -- rest -- boughs be -- tween:
-  And thro' the North -- ern sum -- mer night
-  The sun -- set slow -- ly, slow -- ly died a -- way, __
-  And herds of strange deer, sil -- ver white,
-  Came gleam -- ing through__ the for -- est gray,
-  And fled like ghosts be -- fore the
-  \set associatedVoice = "alignerTenorTwoB"
-day. __
 
-  And oft, that month, we watch'd the moon,
-  And oft, that month, we watch'd the moon
-  Wax great and white o'er wood and lawn,
-  Wax great and white o'er wood and lawn,
-  And oft, __ that month, __ we watch'd the moon __
-  And oft, __ that month, __ we watch'd the moon __
-  Wax great and white __ o'er wood and lawn, __
-  wax great and white __ o'er wood and lawn, __
-  And wane, with wan -- ing of the June, __
-  And wane, with wan -- ing of the June, __
-  Till, like a brand for bat -- tle drawn,
-  She fell, fell she fell, and flamed in a wild
-  \set associatedVoice = "alignerTenorTwoA"
-  dawn.
+  % joint words
 
-  I know not if the for -- est green
-  Still gir -- dles round __ that cas -- tle gray, __
-  I know __ not if the white deer van -- ush ere the day: __
-  The grass a -- bove my love is green,
-  The grass a -- bove my lovem is green,
-  His heart is cold, cold -- er than the clay,
-  His heart __ is cold -- er, cold -- er than the clay. __
+  "\nAnd " "oft, " "that " "month, " "we " "watch'd " "the " "moon, "
+  "\nAnd " "oft, " "that " "month, " "we " "watch'd " "the " "moon "
+  "\nWax " "great " "and " "white " "o'er " "wood " "and " "lawn, "
+  "\nWax " "great " "and " "white " "o'er " "wood " "and " "lawn, "
+  "\nAnd " "oft, "  "that " "month, "  "we " "watch'd " "the " "moon " 
+  "\nAnd " "oft, "  "that " "month, "  "we " "watch'd " "the " "moon " 
+  "\nWax " "great " "and " "white "  "o'er " "wood " "and " "lawn, " 
+  "\nwax " "great " "and " "white "  "o'er " "wood " "and " "lawn, " 
+  "\nAnd " "wane, " "with " wan "ing " "of " "the " "June, " 
+  "\nAnd " "wane, " "with " wan "ing " "of " "the " "June, " 
+  "\nTill, " "like " "a " "brand " "for " bat "tle " "drawn, "
+  "\nShe " "fell, " "fell " "she " "fell, "
+  "and " "flamed " "in " "a " "wild " "dawn.\n"
+
+                                % joint
+  
 }
 
 bass = \relative {
   \global
   a4^\p
-  a4.^\markup\italic legato. g8e  f
-  c8 d e2~
+  a4.^\markup\italic legato. g8 e f
+  c8 d e2~ |
   e4. 8 8 8
   d4^\markup\italic rit. ^\>(a8\fermata) r8 r4^\markup\italic "a tempo" % 1b
   r8 a^\pp a2-^~
@@ -594,14 +647,14 @@ bass = \relative {
 }
 
 wordsBass = \lyricmode {
-  My love dwelt in a North -- ern land,
-  a north -- ern land,
+  My love dwelt in a North -- ern land, __
+  a north -- ern land, __
   and far a -- way the waves were seen
   The wo -- ven fo -- rest -- boughs be -- tween:
   And thro' the North -- ern sum -- mer night
   The sun -- set died a -- way, __
   And herds of deer,
-  Came gleam -- ing through__ the for -- est gray,
+  Came gleam -- ing through __ the for -- est gray,
   And fled like ghosts be -- fore the day. __
                                 % 1st and 2nd bass lines elsewhere
   I know not if the for -- est green
@@ -614,8 +667,8 @@ wordsBass = \lyricmode {
 }
 
 bassOne = \relative {
-  \key f \major
   s4 s2.*18 s2
+  \key d \minor
   c4^\ppp^\markup\smallCaps "1st Bass."
   c8-.^\markup\italic leggiero \( f-. f4-. f-. \) % 3a
   f8-. \( f-. f4-. f-. \)
@@ -655,7 +708,7 @@ wordsBassOne = \lyricmode {
   and oft, that month, we watch'd the moon,
   Wax great and white o'er wood and lawn,
   wax great and white o'er wood and lawn,
-  And oft, that mopnth, we watch'd, we wathc'd the moon
+  And oft, that month, we watch'd, we watch'd the moon
   Wax great and white o'er wood and lawn,
   wax great and white o'er wood and lawn,
   And wane, with wan -- ing of the June,
@@ -666,46 +719,50 @@ wordsBassOne = \lyricmode {
 }
 
 wordsMidiBassOne = \lyricmode {
-  \set associatedVoice = "alignerBassOneA"
-  My love dwelt in a North -- ern land,
-  a north -- ern land,
-  and far a -- way the waves were seen
-  The wo -- ven fo -- rest -- boughs be -- tween:
-  And thro' the North -- ern sum -- mer night
-  The sun -- set died a -- way, __
-  And herds of deer,
-  Came gleam -- ing through__ the for -- est gray,
-  And fled like ghosts be -- fore the
-  \set associatedVoice = "alignerBassOneB"
-  day. __
 
-  And oft, that month, we watch'd the moon,
-  and oft, that month, we watch'd the moon,
-  Wax great and white o'er wood and lawn,
-  wax great and white o'er wood and lawn,
-  And oft, that mopnth, we watch'd, we wathc'd the moon
-  Wax great and white o'er wood and lawn,
-  wax great and white o'er wood and lawn,
-  And wane, with wan -- ing of the June,
-  And wane, with wan -- ing of the June,
-  Till, like __ a brand for bat -- tle drawn,
-  She fell, fell, she fell, and flamed in a wild dawn,
-  in a wild
-  \set associatedVoice = "alignerBassOneA"
-  dawn.
+  % joint
 
-  I know not if the for -- est green
-  Still gir -- dles round __ that cas -- tle gray, __
-  I know __ not if the white deer van -- ish ere the day: __
-  The grass a -- bove my love is green,
-  The grass a -- bove my love is green,
-  His heart is cold -- er than the clay,
-  than the clay. __
+  "\nAnd " "oft, " "that " "month, " "we " "watch'd " "the " "moon, "
+  "\nand " "oft, " "that " "month, " "we " "watch'd " "the " "moon, "
+  "\nWax " "great " "and " "white " "o'er " "wood " "and " "lawn, "
+  "\nwax " "great " "and " "white " "o'er " "wood " "and " "lawn, "
+  "\nAnd " "oft, " "that " "month, " "we " "watch'd, " "we " "watch'd " "the " "moon "
+  "\nWax " "great " "and " "white " "o'er " "wood " "and " "lawn, "
+  "\nwax " "great " "and " "white " "o'er " "wood " "and " "lawn, "
+  "\nAnd " "wane, " "with " wan "ing " "of " "the " "June, "
+  "\nAnd " "wane, " "with " wan "ing " "of " "the " "June, "
+  "\nTill, " "like "  "a " "brand " "for " bat "tle " "drawn, "
+  "\nShe " "fell, " "fell, " "she " "fell, " "and " "flamed " "in " "a " "wild " "dawn, "
+  "\nin " "a " "wild " "dawn.\n"
+
+% joint
+}
+
+wordsMidiBassJoint = \lyricmode {
+  "My " "love " "dwelt " "in " "a " North "ern " "land, "
+  "\na " north "ern " "land, "
+  "\nand " "far " a "way " "the " "waves " "were " "seen "
+  "\nThe " wo "ven " fo rest "boughs " be "tween: "
+  "\nAnd " "thro' " "the " North "ern " sum "mer " "night "
+  "\nThe " sun "set " "died " a "way, " 
+  "\nAnd " "herds " "of " "deer, "
+  "\nCame " gleam "ing " "through__ " "the " for "est " "gray, "
+  "\nAnd " "fled " "like " "ghosts " be "fore " "the " "day.\n" 
+
+% separate bits
+
+  "\nI " "know " "not " "if " "the " for "est " "green "
+  "\nStill " gir "dles " "round "  "that " cas "tle " "gray, " 
+  "\nI " "know "  "not " "if " "the " "white " "deer " van "ish " "ere " "the " "day: " 
+  "\nThe " "grass " a "bove " "my " "love " "is " "green, "
+  "\nThe " "grass " a "bove " "my " "love " "is " "green, "
+  "\nHis " "heart " "is " cold "er " "than " "the " "clay, "
+  "\nthan " "the " "clay. " 
 }
 
 bassTwo = \relative {
-  \key f \major
   s4 s2.*18 s2
+  \key d \minor
   g,4^\ppp^\markup\smallCaps "2nd Bass."
   f2.~ % 3a
   f2 4
@@ -751,37 +808,21 @@ wordsBassTwo = \lyricmode {
 }
 
 wordsMidiBassTwo = \lyricmode {
-  \set associatedVoice = "alignerBassTwoA"
-  My love dwelt in a North -- ern land,
-  a north -- ern land,
-  and far a -- way the waves were seen
-  The wo -- ven fo -- rest -- boughs be -- tween:
-  And thro' the North -- ern sum -- mer night
-  The sun -- set died a -- way, __
-  And herds of deer,
-  Came gleam -- ing through__ the for -- est gray,
-  And fled like ghosts be -- fore the
-  \set associatedVoice = "alignerBassTwoB"
-  day. __
 
-  And oft, that month, we watch'd the moon __
-  Wax great o'er wood and lawn,
-  And oft, that month, we watch'd, we watch'd the moon
-  Wax great __ and white o'er wood and lawn, __
-  And wane, with wan -- ing June,
-  Till, like __ a brand for bat -- tle drawn,
-  She fell, fell, and flamed in a wild dawn,
-  in a wild
-  \set associatedVoice = "alignerBassTwoA"
-  dawn.
+  % joint
+
+  "\nAnd " "oft, " "that " "month, " "we " "watch'd " "the " "moon " 
+  "\nWax " "great " "o'er " "wood " "and " "lawn, "
+  "\nAnd " "oft, " "that " "month, " "we " "watch'd, " "we " "watch'd " "the " "moon "
+  "\nWax " "great "  "and " "white " "o'er " "wood " "and " "lawn, " 
+  "\nAnd " "wane, " "with " wan "ing " "June, "
+  "\nTill, " "like "  "a " "brand " "for " bat "tle " "drawn, "
+  "\nShe " "fell, " "fell, " "she " "fell, "
+  "\nand " "flamed " "in " "a " "wild " "dawn, "
+  "\nin " "a " "wild " "dawn.\n"
   
-  I know not if the for -- est green
-  Still gir -- dles round __ that cas -- tle gray, __
-  I know __ not if the white deer van -- ish ere the day: __
-  The grass a -- bove my love is green,
-  The grass a -- bove my love is green,
-  His heart is cold -- er than the clay,
-  than the clay. __
+                                % joint
+  
 }
 
 pianoRHone = \relative {
@@ -958,6 +999,8 @@ pianoLHtwo = \relative {
   \bar "|."
 }
 
+#(set-global-staff-size 16)
+
 \book {
   \bookOutputSuffix "single"
   \score {
@@ -965,52 +1008,64 @@ pianoLHtwo = \relative {
       <<
         \new ChoirStaff <<
                                 % Single soprano staff
-          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice = "soprano" \soprano
-            \new Lyrics \lyricsto "soprano" \wordsSop
+            \new Voice \soprano
+            \addlyrics \wordsSop
           >>
                                 % Single alto staff
-          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
-            \new Voice = "alto" \alto
-            \new Lyrics \lyricsto "alto" \wordsAlto
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \new Voice \alto
+            \addlyrics \wordsAlto
           >>
                                 % Single tenor staff
-          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+          \new Staff \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
             \clef "treble_8"
-            \new Voice = "tenor" \tenor
-            \new Lyrics \lyricsto "tenor" \wordsTenor
+            \new Voice \tenor
+            \addlyrics \wordsTenor
           >>
                                 % Single tenor1 staff
           \new Staff \with { instrumentName = #"Tenor 1" shortInstrumentName = #"T1" } <<
             \clef "treble_8"
-            \new Voice = "tenorone" \tenorOne
-            \new Lyrics \lyricsto "tenorone" \wordsTenorOne
+            \new Voice \tenorOne
+            \addlyrics \wordsTenorOne
                                 % Single tenor2 staff
           \new Staff \with { instrumentName = #"Tenor 2" shortInstrumentName = #"T2" } <<
             \clef "treble_8"
-            \new Voice = "tenortwo" \tenorTwo
-            \new Lyrics \lyricsto "tenortwo" \wordsTenorTwo
+            \new Voice \tenorTwo
+            \addlyrics \wordsTenorTwo
           >>
 >>
                                 % Single bass staff
           \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
             \clef "bass"
-            \new Voice = "bass" \bass
-            \new Lyrics \lyricsto "bass" \wordsBass
+            \new Voice \bass
+            \addlyrics \wordsBass
           >>
                                 % Single bass1 staff
           \new Staff \with { instrumentName = #"Bass 1" shortInstrumentName = #"B1" } <<
             \clef "bass"
-            \new Voice = "bassone" \bassOne
-            \new Lyrics \lyricsto "bassone" \wordsBassOne
+            \new Voice \bassOne
+            \addlyrics \wordsBassOne
           >>
                                 % Single bass2 staff
           \new Staff \with { instrumentName = #"Bass 2" shortInstrumentName = #"B2" } <<
             \clef "bass"
-            \new Voice = "basstwo" \bassTwo
-            \new Lyrics \lyricsto "basstwo" \wordsBassTwo
+            \new Voice \bassTwo
+            \addlyrics \wordsBassTwo
           >>
         >>
         \new PianoStaff <<
@@ -1033,12 +1088,38 @@ pianoLHtwo = \relative {
     >>
     \layout {
       indent = 1.5\cm
+      \pointAndClickOff
       \context {
-        \Staff \RemoveAllEmptyStaves
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
+
+#(set-global-staff-size 20)
 
 \book {
   \bookOutputSuffix "singlepage"
@@ -1047,8 +1128,7 @@ pianoLHtwo = \relative {
     left-margin = 7
     right-margin = 1
     paper-width = 190\mm
-    paper-height = 2000\mm
-    ragged-bottom = true
+    page-breaking = #ly:one-page-breaking
     system-system-spacing.basic-distance = #22
     system-separator-markup = \slashSeparator
   }
@@ -1060,73 +1140,509 @@ pianoLHtwo = \relative {
           \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice = "soprano" \soprano
-            \new Lyrics \lyricsto "soprano" \wordsSop
+            \new Voice \soprano
+            \addlyrics \wordsSop
           >>
                                 % Single alto staff
           \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
-            \new Voice = "alto" \alto
-            \new Lyrics \lyricsto "alto" \wordsAlto
+            \new Voice \alto
+            \addlyrics \wordsAlto
           >>
                                 % Single tenor staff
           \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
             \clef "treble_8"
-            \new Voice = "tenor" \tenor
-            \new Lyrics \lyricsto "tenor" \wordsTenor
+            \new Voice \tenor
+            \addlyrics \wordsTenor
           >>
                                 % Single tenor1 staff
           \new Staff \with { instrumentName = #"Tenor 1" shortInstrumentName = #"T1" } <<
             \clef "treble_8"
-            \new Voice = "tenorone" \tenorOne
-            \new Lyrics \lyricsto "tenorone" \wordsTenorOne
+            \new Voice \tenorOne
+            \addlyrics \wordsTenorOne
                                 % Single tenor2 staff
           \new Staff \with { instrumentName = #"Tenor 2" shortInstrumentName = #"T2" } <<
             \clef "treble_8"
-            \new Voice = "tenortwo" \tenorTwo
-            \new Lyrics \lyricsto "tenortwo" \wordsTenorTwo
+            \new Voice \tenorTwo
+            \addlyrics \wordsTenorTwo
           >>
 >>
                                 % Single bass staff
           \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
             \clef "bass"
-            \new Voice = "bass" \bass
-            \new Lyrics \lyricsto "bass" \wordsBass
+            \new Voice \bass
+            \addlyrics \wordsBass
           >>
                                 % Single bass1 staff
           \new Staff \with { instrumentName = #"Bass 1" shortInstrumentName = #"B1" } <<
             \clef "bass"
-            \new Voice = "bassone" \bassOne
-            \new Lyrics \lyricsto "bassone" \wordsBassOne
+            \new Voice \bassOne
+            \addlyrics \wordsBassOne
           >>
                                 % Single bass2 staff
           \new Staff \with { instrumentName = #"Bass 2" shortInstrumentName = #"B2" } <<
             \clef "bass"
-            \new Voice = "basstwo" \bassTwo
-            \new Lyrics \lyricsto "basstwo" \wordsBassTwo
+            \new Voice \bassTwo
+            \addlyrics \wordsBassTwo
           >>
         >>
-%        \new PianoStaff <<
-%          \new Staff \with { printPartCombineTexts = ##f }
-%          <<
-%            \new Voice \partCombine \pianoRHone \pianoRHtwo
-%          >>
-%          \new Dynamics \dynamicsPiano
-%          \new Staff \with { printPartCombineTexts = ##f }
-%          <<
-%            \clef "bass"
-%%            \new Voice \partCombine \pianoLHone \pianoLHtwo
-%            \new Voice \partCombine \tenor \bass 
-%            \new Voice { \voiceOne \tenorOne }
-%            \new Voice \partCombine \tenorTwo \bassOne
-%            \new Voice { \voiceFour \bassTwo}
-%          >>
-%        >>
       >>
     >>
     \layout {
       indent = 1.5\cm
+      \pointAndClickOff
       \context {
-        \Staff \RemoveAllEmptyStaves
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \bookOutputSuffix "singlepage-sop"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics \wordsSop
+          >>
+                                % Single alto staff
+          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \magnifyStaff #4/7
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAlto}
+          >>
+                                % Single tenor staff
+          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsTenor}
+          >>
+                                % Single tenor1 staff
+          \new Staff \with { instrumentName = #"Tenor 1" shortInstrumentName = #"T1" } <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice  \tenorOne
+            \addlyrics {\tiny \wordsTenorOne}
+            >>
+                                % Single tenor2 staff
+          \new Staff \with { instrumentName = #"Tenor 2" shortInstrumentName = #"T2" } <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenorTwo
+            \addlyrics {\tiny \wordsTenorTwo}
+          >>
+                                % Single bass staff
+          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBass}
+          >>
+                                % Single bass1 staff
+          \new Staff \with { instrumentName = #"Bass 1" shortInstrumentName = #"B1" } <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bassOne
+            \addlyrics {\tiny \wordsBassOne}
+          >>
+                                % Single bass2 staff
+          \new Staff \with { instrumentName = #"Bass 2" shortInstrumentName = #"B2" } <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bassTwo
+            \addlyrics {\tiny \wordsBassTwo}
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \bookOutputSuffix "singlepage-alto"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSop}
+          >>
+                                % Single alto staff
+          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \new Voice \alto
+            \addlyrics \wordsAlto
+          >>
+                                % Single tenor staff
+          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsTenor}
+          >>
+                                % Single tenor1 staff
+          \new Staff \with { instrumentName = #"Tenor 1" shortInstrumentName = #"T1" } <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice  \tenorOne
+            \addlyrics {\tiny \wordsTenorOne}
+            >>
+                                % Single tenor2 staff
+          \new Staff \with { instrumentName = #"Tenor 2" shortInstrumentName = #"T2" } <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenorTwo
+            \addlyrics {\tiny \wordsTenorTwo}
+          >>
+                                % Single bass staff
+          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBass}
+          >>
+                                % Single bass1 staff
+          \new Staff \with { instrumentName = #"Bass 1" shortInstrumentName = #"B1" } <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bassOne
+            \addlyrics {\tiny \wordsBassOne}
+          >>
+                                % Single bass2 staff
+          \new Staff \with { instrumentName = #"Bass 2" shortInstrumentName = #"B2" } <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bassTwo
+            \addlyrics {\tiny \wordsBassTwo}
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \bookOutputSuffix "singlepage-tenor"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSop}
+          >>
+                                % Single alto staff
+          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \magnifyStaff #4/7
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAlto}
+          >>
+                                % Single tenor staff
+          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics \wordsTenor
+          >>
+                                % Single tenor1 staff
+          \new Staff \with { instrumentName = #"Tenor 1" shortInstrumentName = #"T1" } <<
+            \clef "treble_8"
+            \new Voice  \tenorOne
+            \addlyrics \wordsTenorOne
+            >>
+                                % Single tenor2 staff
+          \new Staff \with { instrumentName = #"Tenor 2" shortInstrumentName = #"T2" } <<
+            \clef "treble_8"
+            \new Voice \tenorTwo
+            \addlyrics \wordsTenorTwo
+          >>
+                                % Single bass staff
+          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBass}
+          >>
+                                % Single bass1 staff
+          \new Staff \with { instrumentName = #"Bass 1" shortInstrumentName = #"B1" } <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bassOne
+            \addlyrics {\tiny \wordsBassOne}
+          >>
+                                % Single bass2 staff
+          \new Staff \with { instrumentName = #"Bass 2" shortInstrumentName = #"B2" } <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bassTwo
+            \addlyrics {\tiny \wordsBassTwo}
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \bookOutputSuffix "singlepage-bass"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSop}
+          >>
+                                % Single alto staff
+          \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+            \magnifyStaff #4/7
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAlto}
+          >>
+                                % Single tenor staff
+          \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsTenor}
+          >>
+                                % Single tenor1 staff
+          \new Staff \with { instrumentName = #"Tenor 1" shortInstrumentName = #"T1" } <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice  \tenorOne
+            \addlyrics {\tiny \wordsTenorOne}
+            >>
+                                % Single tenor2 staff
+          \new Staff \with { instrumentName = #"Tenor 2" shortInstrumentName = #"T2" } <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenorTwo
+            \addlyrics {\tiny \wordsTenorTwo}
+          >>
+                                % Single bass staff
+          \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics \wordsBass
+          >>
+                                % Single bass1 staff
+          \new Staff \with { instrumentName = #"Bass 1" shortInstrumentName = #"B1" } <<
+            \clef "bass"
+            \new Voice \bassOne
+            \addlyrics \wordsBassOne
+          >>
+                                % Single bass2 staff
+          \new Staff \with { instrumentName = #"Bass 2" shortInstrumentName = #"B2" } <<
+            \clef "bass"
+            \new Voice \bassTwo
+            \addlyrics \wordsBassTwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
@@ -1143,8 +1659,8 @@ pianoLHtwo = \relative {
           \new Staff = soprano \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice = "soprano" \soprano
-            \new Lyrics \lyricsto "soprano" \wordsSop
+            \new Voice \soprano
+            \addlyrics \wordsSopMidi
           >>
                                 % Single alto staff
           \new Staff = alto \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
@@ -1185,7 +1701,16 @@ pianoLHtwo = \relative {
         >>
       >>
      >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
@@ -1205,7 +1730,7 @@ pianoLHtwo = \relative {
                                 % Single alto staff
           \new Staff = alto \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
             \new Voice = "alto" \alto
-            \new Lyrics \lyricsto "alto" \wordsAlto
+            \addlyrics \wordsAltoMidi
           >>
                                 % Single tenor1 staff
           \new Staff = "Tenor 1" \with {
@@ -1254,13 +1779,21 @@ pianoLHtwo = \relative {
       <<
         \new ChoirStaff <<
                                 % Single soprano staff
-          \new Staff = soprano \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
             \new Voice = "soprano" \soprano
           >>
                                 % Single alto staff
-          \new Staff = alto \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
             \new Voice = "alto" \alto
           >>
                                 % Single tenor1 staff
@@ -1270,31 +1803,41 @@ pianoLHtwo = \relative {
           }
           <<
             \clef "treble_8"
-            \new NullVoice = alignerTenorOneA \tenor
-            \new NullVoice = alignerTenorOneB \tenorOne
-            \new Voice \partCombine \tenor \tenorOne
-            \new Lyrics \lyricsto "alignerTenorOneA" \wordsMidiTenorOne
+            \new Voice \tenor
+            \addlyrics \wordsMidiTenorJoint
+            \new Voice \tenorOne
+            \addlyrics \wordsMidiTenorOne
           >>
                                 % Single tenor2 staff
-          \new Staff = "Tenor 2" \with { instrumentName = #"Tenor 2" shortInstrumentName = #"T2" } <<
+          \new Staff = "Tenor 2" \with
+          {
+            instrumentName = #"Tenor 2"
+            shortInstrumentName = #"T2"
+          }
+          <<
             \clef "treble_8"
-            \new NullVoice = alignerTenorTwoA \tenor
-            \new NullVoice = alignerTenorTwoB \tenorTwo
-            \new Voice \partCombine \tenor \tenorTwo
+            \new Voice \tenor
+            \new Voice \tenorTwo
           >>
                                 % Single bass1 staff
-          \new Staff = "Bass 1" \with { instrumentName = #"Bass 1" shortInstrumentName = #"B1" } <<
+          \new Staff = "Bass 1" \with {
+            instrumentName = #"Bass 1"
+            shortInstrumentName = #"B1"
+          }
+          <<
             \clef "bass"
-            \new NullVoice = alignerBassOneA \bass
-            \new NullVoice = alignerBassOneB \bassOne
-            \new Voice = "bassone" \partCombine \bass \bassOne
+            \new Voice \bass
+            \new Voice \bassOne
           >>
                                 % Single bass2 staff
-          \new Staff = "Bass 2" \with { instrumentName = #"Bass 2" shortInstrumentName = #"B2" } <<
+          \new Staff = "Bass 2" \with {
+            instrumentName = #"Bass 2"
+            shortInstrumentName = #"B2"
+          }
+          <<
             \clef "bass"
-            \new NullVoice = alignerBassTwoA \bass
-            \new NullVoice = alignerBassTwoB \bassTwo
-            \new Voice = "basstwo" \partCombine \bass \bassTwo
+            \new Voice  \bass
+            \new Voice  \bassTwo
           >>
         >>
       >>
@@ -1311,47 +1854,64 @@ pianoLHtwo = \relative {
       <<
         \new ChoirStaff <<
                                 % Single soprano staff
-          \new Staff = soprano \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice = "soprano" \soprano
+            \new Voice \soprano
           >>
                                 % Single alto staff
-          \new Staff = alto \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
             \new Voice = "alto" \alto
           >>
                                 % Single tenor1 staff
           \new Staff = "Tenor 1" \with {
-            instrumentName = #"Tenor 1" shortInstrumentName = #"T1"
-            printPartCombineTexts = ##f
+            instrumentName = #"Tenor 1"
+            shortInstrumentName = #"T1"
           }
           <<
             \clef "treble_8"
-            \new NullVoice = alignerTenorOneA \tenor
-            \new NullVoice = alignerTenorOneB \tenorOne
-            \new Voice \partCombine \tenor \tenorOne
+            \new Voice \tenor
+            \new Voice \tenorOne
           >>
                                 % Single tenor2 staff
-          \new Staff = "Tenor 2" \with { instrumentName = #"Tenor 2" shortInstrumentName = #"T2" } <<
+          \new Staff = "Tenor 2" \with {
+            instrumentName = #"Tenor 2"
+            shortInstrumentName = #"T2"
+          }
+          <<
             \clef "treble_8"
-            \new NullVoice = alignerTenorTwoA \tenor
-            \new NullVoice = alignerTenorTwoB \tenorTwo
-            \new Voice \partCombine \tenor \tenorTwo
-            \new Lyrics \lyricsto "alignerTenorTwoA" \wordsMidiTenorTwo
+            \new Voice \tenor
+            \addlyrics \wordsMidiTenorJoint
+            \new Voice \tenorOne
+            \addlyrics \wordsMidiTenorTwo
           >>
                                 % Single bass1 staff
-          \new Staff = "Bass 1" \with { instrumentName = #"Bass 1" shortInstrumentName = #"B1" } <<
+          \new Staff = "Bass 1" \with {
+            instrumentName = #"Bass 1"
+            shortInstrumentName = #"B1"
+          }
+          <<
             \clef "bass"
-            \new NullVoice = alignerBassOneA \bass
-            \new NullVoice = alignerBassOneB \bassOne
-            \new Voice = "bassone" \partCombine \bass \bassOne
+            \new Voice \bass
+            \new Voice \bassOne
           >>
                                 % Single bass2 staff
-          \new Staff = "Bass 2" \with { instrumentName = #"Bass 2" shortInstrumentName = #"B2" } <<
+          \new Staff = "Bass 2" \with {
+            instrumentName = #"Bass 2"
+            shortInstrumentName = #"B2"
+          }
+          <<
             \clef "bass"
-            \new NullVoice = alignerBassTwoA \bass
-            \new NullVoice = alignerBassTwoB \bassTwo
-            \new Voice = "basstwo" \partCombine \bass \bassTwo
+            \new Voice \bass
+            \new Voice \bassTwo
           >>
         >>
       >>
@@ -1368,47 +1928,64 @@ pianoLHtwo = \relative {
       <<
         \new ChoirStaff <<
                                 % Single soprano staff
-          \new Staff = soprano \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice = "soprano" \soprano
+            \new Voice \soprano
           >>
                                 % Single alto staff
-          \new Staff = alto \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
-            \new Voice = "alto" \alto
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \new Voice \alto
           >>
                                 % Single tenor1 staff
           \new Staff = "Tenor 1" \with {
-            instrumentName = #"Tenor 1" shortInstrumentName = #"T1"
-            printPartCombineTexts = ##f
+            instrumentName = #"Tenor 1"
+            shortInstrumentName = #"T1"
           }
           <<
             \clef "treble_8"
-            \new NullVoice = alignerTenorOneA \tenor
-            \new NullVoice = alignerTenorOneB \tenorOne
-            \new Voice \partCombine \tenor \tenorOne
+            \new Voice \tenor
+            \new Voice \tenorOne
           >>
                                 % Single tenor2 staff
-          \new Staff = "Tenor 2" \with { instrumentName = #"Tenor 2" shortInstrumentName = #"T2" } <<
+          \new Staff = "Tenor 2" \with {
+            instrumentName = #"Tenor 2"
+            shortInstrumentName = #"T2"
+          }
+          <<
             \clef "treble_8"
-            \new NullVoice = alignerTenorTwoA \tenor
-            \new NullVoice = alignerTenorTwoB \tenorTwo
-            \new Voice \partCombine \tenor \tenorTwo
+            \new Voice \tenor
+            \new Voice \tenorTwo
           >>
                                 % Single bass1 staff
-          \new Staff = "Bass 1" \with { instrumentName = #"Bass 1" shortInstrumentName = #"B1" } <<
+          \new Staff = "Bass 1" \with {
+            instrumentName = #"Bass 1"
+            shortInstrumentName = #"B1"
+          }
+          <<
             \clef "bass"
-            \new NullVoice = alignerBassOneA \bass
-            \new NullVoice = alignerBassOneB \bassOne
-            \new Voice = "bassone" \partCombine \bass \bassOne
-            \new Lyrics \lyricsto "alignerBassOneA" \wordsMidiBassOne
+            \new Voice \bass
+            \addlyrics \wordsMidiBassJoint
+            \new Voice \bassOne
+            \addlyrics \wordsMidiBassOne
           >>
                                 % Single bass2 staff
-          \new Staff = "Bass 2" \with { instrumentName = #"Bass 2" shortInstrumentName = #"B2" } <<
+          \new Staff = "Bass 2" \with {
+            instrumentName = #"Bass 2"
+            shortInstrumentName = #"B2"
+          }
+          <<
             \clef "bass"
-            \new NullVoice = alignerBassTwoA \bass
-            \new NullVoice = alignerBassTwoB \bassTwo
-            \new Voice = "basstwo" \partCombine \bass \bassTwo
+            \new Voice \bass
+            \new Voice \bassTwo
           >>
         >>
       >>
@@ -1425,47 +2002,64 @@ pianoLHtwo = \relative {
       <<
         \new ChoirStaff <<
                                 % Single soprano staff
-          \new Staff = soprano \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice = "soprano" \soprano
+            \new Voice \soprano
           >>
                                 % Single alto staff
-          \new Staff = alto \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
-            \new Voice = "alto" \alto
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \new Voice \alto
           >>
                                 % Single tenor1 staff
           \new Staff = "Tenor 1" \with {
-            instrumentName = #"Tenor 1" shortInstrumentName = #"T1"
-            printPartCombineTexts = ##f
+            instrumentName = #"Tenor 1"
+            shortInstrumentName = #"T1"
           }
           <<
             \clef "treble_8"
-            \new NullVoice = alignerTenorOneA \tenor
-            \new NullVoice = alignerTenorOneB \tenorOne
-            \new Voice \partCombine \tenor \tenorOne
+            \new Voice \tenor
+            \new Voice \tenorOne
           >>
                                 % Single tenor2 staff
-          \new Staff = "Tenor 2" \with { instrumentName = #"Tenor 2" shortInstrumentName = #"T2" } <<
+          \new Staff = "Tenor 2" \with {
+            instrumentName = #"Tenor 2"
+            shortInstrumentName = #"T2"
+          }
+          <<
             \clef "treble_8"
-            \new NullVoice = alignerTenorTwoA \tenor
-            \new NullVoice = alignerTenorTwoB \tenorTwo
-            \new Voice \partCombine \tenor \tenorTwo
+            \new Voice \tenor
+            \new Voice \tenorTwo
           >>
                                 % Single bass1 staff
-          \new Staff = "Bass 1" \with { instrumentName = #"Bass 1" shortInstrumentName = #"B1" } <<
+          \new Staff = "Bass 1" \with {
+            instrumentName = #"Bass 1"
+            shortInstrumentName = #"B1"
+          }
+          <<
             \clef "bass"
-            \new NullVoice = alignerBassOneA \bass
-            \new NullVoice = alignerBassOneB \bassOne
-            \new Voice = "bassone" \partCombine \bass \bassOne
+            \new Voice \bass
+            \new Voice \bassOne
           >>
                                 % Single bass2 staff
-          \new Staff = "Bass 2" \with { instrumentName = #"Bass 2" shortInstrumentName = #"B2" } <<
+          \new Staff = "Bass 2" \with {
+            instrumentName = #"Bass 2"
+            shortInstrumentName = #"B2"
+          }
+          <<
             \clef "bass"
-            \new NullVoice = alignerBassTwoA \bass
-            \new NullVoice = alignerBassTwoB \bassTwo
-            \new Voice = "basstwo" \partCombine \bass \bassTwo
-            \new Lyrics \lyricsto "alignerBassTwoA" \wordsMidiBassTwo
+            \new Voice \bass
+            \addlyrics \wordsMidiBassJoint
+            \new Voice \bassTwo
+            \addlyrics \wordsMidiBassTwo
           >>
         >>
       >>
