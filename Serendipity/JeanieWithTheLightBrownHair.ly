@@ -1,4 +1,6 @@
-\version "2.25.0"
+\version "2.25.13"
+
+\include "kjp.ly"
 
 TempoTrack = {
   \set Score.tempoHideNote = ##t
@@ -335,6 +337,8 @@ global = {
   \time 4/4
 }
 
+#(set-global-staff-size 18)
+
 \book {
   \bookOutputSuffix "single"
   \score {
@@ -344,23 +348,25 @@ global = {
           \new Voice \TempoTrack
           \new Voice \RehearsalTrack
           \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
-          \new Voice = sopranos { \global \SopranoMusic }
+          \new Voice { \global \SopranoMusic }
           \addlyrics \SopranoLyrics
         >>
         \new Staff = "alto" <<
           \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
-          \new Voice = "altos" { << \global \AltoMusic >> }
-          \context Lyrics = "altos" \lyricsto "altos" \AltoLyrics
+          \new Voice {\global \AltoMusic}
+          \addlyrics \AltoLyrics
         >>
         \new Staff = "tenor" <<
+          \clef "treble_8"
           \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
-          \new Voice = "tenors" { \clef "treble_8" << \global \TenorMusic >> }
-          \context Lyrics = "tenors" \lyricsto "tenors" \TenorLyrics
+          \new Voice {\global \TenorMusic}
+          \addlyrics \TenorLyrics
         >>
         \new Staff = "bass" <<
+          \clef bass
           \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
-          \new Voice = "basses" { \clef bass << \global \BassMusic >> }
-          \context Lyrics = "basses" \lyricsto "basses" \BassLyrics
+          \new Voice {\global \BassMusic}
+          \addlyrics \BassLyrics
         >>
       >>
       \new PianoStaff <<
@@ -381,17 +387,39 @@ global = {
       >>
     >>
     \layout {
-      #(layout-set-staff-size 18)
       indent = 1.5\cm
       \pointAndClickOff
       \context {
-        \Staff \RemoveAllEmptyStaves
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
+
+#(set-global-staff-size 20)
 
 \book {
   \bookOutputSuffix "singlepage"
@@ -411,23 +439,25 @@ global = {
           \new Voice \TempoTrack
           \new Voice \RehearsalTrack
           \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
-          \new Voice = sopranos { \global \SopranoMusic }
+          \new Voice {\global \SopranoMusic}
           \addlyrics \SopranoLyrics
         >>
         \new Staff = "alto" <<
           \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
-          \new Voice = "altos" { << \global \AltoMusic >> }
-          \context Lyrics = "altos" \lyricsto "altos" \AltoLyrics
+          \new Voice {\global \AltoMusic}
+          \addlyrics \AltoLyrics
         >>
         \new Staff = "tenor" <<
+          \clef "treble_8"
           \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
-          \new Voice = "tenors" { \clef "treble_8" << \global \TenorMusic >> }
-          \context Lyrics = "tenors" \lyricsto "tenors" \TenorLyrics
+          \new Voice {\global \TenorMusic}
+          \addlyrics \TenorLyrics
         >>
         \new Staff = "bass" <<
+          \clef bass
           \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
-          \new Voice = "basses" { \clef bass << \global \BassMusic >> }
-          \context Lyrics = "basses" \lyricsto "basses" \BassLyrics
+          \new Voice {\global \BassMusic}
+          \addlyrics \BassLyrics
         >>
       >>
       \new PianoStaff <<
@@ -448,17 +478,327 @@ global = {
       >>
     >>
     \layout {
-      #(layout-set-staff-size 20)
       indent = 1.5\cm
       \pointAndClickOff
       \context {
-        \Staff \RemoveAllEmptyStaves
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
+
+#(set-global-staff-size 20)
+
+\book {
+  \bookOutputSuffix "singlepage-sop"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      \new ChoirStaff <<
+        \new Staff = "soprano" <<
+          \new Voice \TempoTrack
+          \new Voice \RehearsalTrack
+          \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
+          \new Voice {\global \SopranoMusic}
+          \addlyrics \SopranoLyrics
+        >>
+        \new Staff = "alto" <<
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = alto} {\teeny \dynamicsAlto}
+          \new Voice {\global \AltoMusic}
+          \addlyrics {\tiny \AltoLyrics}
+        >>
+        \new Staff = "tenor" <<
+          \magnifyStaff #4/7
+          \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} {\teeny \dynamicsTenor}
+          \new Voice {\global \TenorMusic}
+          \addlyrics {\tiny \TenorLyrics}
+        >>
+        \new Staff = "bass" <<
+          \magnifyStaff #4/7
+          \clef bass
+          \new Dynamics \with {alignAboveContext = bass} {\teeny \dynamicsBass}
+          \new Voice {\global \BassMusic}
+          \addlyrics {\tiny \BassLyrics}
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff <<
+          \magnifyStaff #4/7
+          \set Staff.printPartCombineTexts = ##f
+          \partCombine
+          << \global \SopranoMusic >>
+          << \global \AltoMusic >>
+        >>
+        \new Dynamics {\teeny \dynamicsPiano}
+        \new Staff <<
+          \clef bass
+          \magnifyStaff #4/7
+          \set Staff.printPartCombineTexts = ##f
+          \partCombine
+          << \global \TenorMusic >>
+          << \global \BassMusic >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \bookOutputSuffix "singlepage-alto"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      \new ChoirStaff <<
+        \new Staff = "soprano" <<
+          \magnifyStaff #4/7
+          \new Voice \TempoTrack
+          \new Voice \RehearsalTrack
+          \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsSop}
+          \new Voice {\global \SopranoMusic}
+          \addlyrics {\tiny \SopranoLyrics}
+        >>
+        \new Staff = "alto" <<
+          \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
+          \new Voice {\global \AltoMusic}
+          \addlyrics \AltoLyrics
+        >>
+        \new Staff = "tenor" <<
+          \magnifyStaff #4/7
+          \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} {\teeny \dynamicsTenor}
+          \new Voice {\global \TenorMusic}
+          \addlyrics {\tiny \TenorLyrics}
+        >>
+        \new Staff = "bass" <<
+          \magnifyStaff #4/7
+          \clef bass
+          \new Dynamics \with {alignAboveContext = bass} {\teeny \dynamicsBass}
+          \new Voice {\global \BassMusic}
+          \addlyrics {\tiny \BassLyrics}
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff <<
+          \magnifyStaff #4/7
+          \set Staff.printPartCombineTexts = ##f
+          \partCombine
+          << \global \SopranoMusic >>
+          << \global \AltoMusic >>
+        >>
+        \new Dynamics {\teeny \dynamicsPiano}
+        \new Staff <<
+          \clef bass
+          \magnifyStaff #4/7
+          \set Staff.printPartCombineTexts = ##f
+          \partCombine
+          << \global \TenorMusic >>
+          << \global \BassMusic >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \bookOutputSuffix "singlepage-tenor"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      \new ChoirStaff <<
+        \new Staff = "soprano" <<
+          \magnifyStaff #4/7
+          \new Voice \TempoTrack
+          \new Voice \RehearsalTrack
+          \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsSop}
+          \new Voice {\global \SopranoMusic}
+          \addlyrics {\tiny \SopranoLyrics}
+        >>
+        \new Staff = "alto" <<
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = alto} {\teeny \dynamicsAlto}
+          \new Voice {\global \AltoMusic}
+          \addlyrics {\tiny \AltoLyrics}
+        >>
+        \new Staff = "tenor" <<
+          \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
+          \new Voice {\global \TenorMusic}
+          \addlyrics \TenorLyrics
+        >>
+        \new Staff = "bass" <<
+          \magnifyStaff #4/7
+          \clef bass
+          \new Dynamics \with {alignAboveContext = bass} {\teeny \dynamicsBass}
+          \new Voice {\global \BassMusic}
+          \addlyrics {\tiny \BassLyrics}
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff <<
+          \magnifyStaff #4/7
+          \set Staff.printPartCombineTexts = ##f
+          \partCombine
+          << \global \SopranoMusic >>
+          << \global \AltoMusic >>
+        >>
+        \new Dynamics {\teeny \dynamicsPiano}
+        \new Staff <<
+          \clef bass
+          \magnifyStaff #4/7
+          \set Staff.printPartCombineTexts = ##f
+          \partCombine
+          << \global \TenorMusic >>
+          << \global \BassMusic >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
 
 \book {
   \bookOutputSuffix "singlepage-bass"
@@ -478,26 +818,28 @@ global = {
           \magnifyStaff #4/7
           \new Voice \TempoTrack
           \new Voice \RehearsalTrack
-          \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
-          \new Voice = sopranos { \global \SopranoMusic }
+          \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsSop}
+          \new Voice {\global \SopranoMusic}
           \addlyrics {\tiny \SopranoLyrics}
         >>
         \new Staff = "alto" <<
           \magnifyStaff #4/7
-          \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
-          \new Voice = "altos" { << \global \AltoMusic >> }
+          \new Dynamics \with {alignAboveContext = alto} {\teeny \dynamicsAlto}
+          \new Voice {\global \AltoMusic}
           \addlyrics {\tiny \AltoLyrics}
         >>
         \new Staff = "tenor" <<
           \magnifyStaff #4/7
-          \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
-          \new Voice = "tenors" { \clef "treble_8" << \global \TenorMusic >> }
+          \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} {\teeny \dynamicsTenor}
+          \new Voice {\global \TenorMusic}
           \addlyrics {\tiny \TenorLyrics}
         >>
         \new Staff = "bass" <<
+          \clef bass
           \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
-          \new Voice = "basses" { \clef bass << \global \BassMusic >> }
-          \context Lyrics = "basses" \lyricsto "basses" \BassLyrics
+          \new Voice {\global \BassMusic}
+          \addlyrics \BassLyrics
         >>
       >>
       \new PianoStaff <<
@@ -508,7 +850,7 @@ global = {
           << \global \SopranoMusic >>
           << \global \AltoMusic >>
         >>
-        \new Dynamics \dynamicsPiano
+        \new Dynamics {\teeny \dynamicsPiano}
         \new Staff <<
           \clef bass
           \magnifyStaff #4/7
@@ -520,13 +862,33 @@ global = {
       >>
     >>
     \layout {
-      #(layout-set-staff-size 20)
       indent = 1.5\cm
       \pointAndClickOff
       \context {
-        \Staff \RemoveAllEmptyStaves
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
