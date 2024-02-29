@@ -1,6 +1,6 @@
 % Original from John Lemcke
 
-\version "2.12.1"
+\version "2.25.13"
 
 \include "english.ly"
 
@@ -25,12 +25,12 @@
 }
 
 tempoMark = {
-  \once \override Score.RehearsalMark #'self-alignment-X = #LEFT
-  \once \override Score.RehearsalMark #'break-align-symbols = #'(time-signature key-signature)
-  \once \override Staff.TimeSignature #'break-align-anchor-alignment = #LEFT
+  \once \override Score.RehearsalMark.self-alignment-X = #LEFT
+  \once \override Score.RehearsalMark.break-align-symbols = #'(time-signature key-signature)
+  \once \override Staff.TimeSignature.break-align-anchor-alignment = #LEFT
   \mark \markup {
     "Piu Adagio "
-    \small \general-align #Y #DOWN \note #"4" #1 = 52
+    \small \general-align #Y #DOWN \note {4} #1 = 52
   }
 }
 
@@ -48,7 +48,7 @@ soprano = \relative c' {
   g4 c8\noBeam c bf4 af |
   g1^\markup { \halign #-0.4
     \bracket { \pad-x #0.5
-      \musicglyph #"scripts.ufermata"
+      \musicglyph "scripts.ufermata"
     }
   }
   g4 bf bf af |
@@ -154,7 +154,7 @@ verse = \lyricmode {
 right = \relative c' {
   \global
   % Music follows here.
-  \override Staff.Rest #'staff-position = #0
+  \override Staff.Rest.staff-position = #0
   \partial 2 r2^\markup {"Piu Adagio"} |
   <<{r1}\\{s2. s8 s8\pp}>> |
   <<
@@ -183,7 +183,7 @@ right = \relative c' {
 left = \relative c {
   \global
   % Music follows here.
-  \override Rest #'staff-position = #0
+  \override Rest.staff-position = #0
   \partial 2 r2 | r1 |
   <ef, bf' ef>1\sustainOn_\fermata |
   r1\sustainOff | r1 | r1 |
@@ -215,25 +215,25 @@ left = \relative c {
 
 choirPart = \new ChoirStaff <<
   \new Staff \with {
-    \override VerticalAxisGroup #'minimum-Y-extent = #'(-1.2 . 1)
+%    \override VerticalAxisGroup.minimum-Y-extent = #'(-1.2 . 1)
     midiInstrument = "flute"
     instrumentName = "Soprano"
   } { \soprano }
   \addlyrics { \verse }
   \new Staff \with {
-    \override VerticalAxisGroup #'minimum-Y-extent = #'(-1.2 . 1)
+%    \override VerticalAxisGroup.minimum-Y-extent = #'(-1.2 . 1)
     midiInstrument = "oboe"
     instrumentName = "Alto"
   } { \alto }
   \addlyrics { \verse }
   \new Staff \with {
-    \override VerticalAxisGroup #'minimum-Y-extent = #'(-1.2 . 1)
+%    \override VerticalAxisGroup.minimum-Y-extent = #'(-1.2 . 1)
     midiInstrument = "clarinet"
     instrumentName = "Tenor"
   } { \clef "treble_8" \tenor }
   \addlyrics { \verse }
   \new Staff \with {
-    \override VerticalAxisGroup #'minimum-Y-extent = #'(-1.2 . 1)
+%    \override VerticalAxisGroup.minimum-Y-extent = #'(-1.2 . 1)
     midiInstrument = "fretless bass"
     instrumentName = "Bass"
   } { \clef bass \bass }
@@ -244,7 +244,7 @@ pianoPart = \new PianoStaff \with {
   instrumentName = "PIANO"
 } <<
   \new Staff = "right" \with {
-    \override VerticalAxisGroup #'minimum-Y-extent = #'(-1.2 . 1)
+%    \override VerticalAxisGroup.minimum-Y-extent = #'(-1.2 . 1)
     midiInstrument = "acoustic grand"
   } \right
   \new Staff = "left" \with {
@@ -261,9 +261,6 @@ pianoPart = \new PianoStaff \with {
     %#(layout-set-staff-size 15)
   }
   \midi {
-    \context {
-      \Score
-      tempoWholesPerMinute = #(ly:make-moment 52 4)
-    }
+    \tempo 4 = 52
   }
 }
