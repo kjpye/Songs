@@ -1,5 +1,6 @@
-\version "2.20.2"
+\version "2.25.13"
 
+\include "kjp.ly"
 \include "articulate.ly"
 
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
@@ -32,30 +33,13 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   copyright   = \today
 }
 
-% #(set-global-staff-size 16)
-
-% \paper {
-%   #(set-paper-size "a4")
-%   line-width = 180\mm
-%   left-margin = 20\mm
-%   bottom-margin = 10\mm
-%   top-margin = 10\mm
-% }
-
 global = {
   \key f \major
   \time 2/2
-  \tempo 2=88
 }
 
 drumPitchNames.mr = #'maracas
 drumPitchNames.fc = #'cymbal
-drumPitchNames.lb = #'lowbongo
-drumPitchNames.hb = #'highbongo
-
-#(define bon-style
-  '((lowbongo     cross  #f        -1)
-    (highbongo    cross  #f         1)))
 
 #(define shk-style
   '((cymbal        default  #f       -1)
@@ -66,60 +50,44 @@ midiDrumPitches.maracas   = bes'
 midiDrumPitches.lowbongo  = cis'
 midiDrumPitches.highbongo = c'
 
-colour = {
-  \override NoteHead.color   = #red
-  \override Stem.color       = #red
-  \override Beam.color       = #red
-  \override Accidental.color = #red
-  \override Slur.color       = #red
-  \override Tie.color        = #red
-  \override Dots.color       = #red
-}
-
-black = {
-  \override NoteHead.color   = #black
-  \override Stem.color       = #black
-  \override Beam.color       = #black
-  \override Accidental.color = #black
-  \override Slur.color       = #black
-  \override Tie.color        = #black
-  \override Dots.color       = #black
+TempoTrack = {
+  \set Score.tempoHideNote = ##t
+  \tempo \markup{Rhythmically ( \rhythm { 2 } = \italic ca. 88)} 2=88
 }
 
 RehearsalTrack = {
 % \set Score.currentBarNumber = #5
-% \mark \markup { \box 5 }
-  \mark \markup { \circle "2a" } s1*4
-  \mark \markup { \circle "2b" } s1*4
+  \textMark \markup { \box "2a" } s1*4
+  \textMark \markup { \box "2b" } s1*4
   \repeat volta 3 {
-    \mark \markup { \circle "2c" } s1*4
-    \mark \markup { \circle "3a" } s1*4
+    \textMark \markup { \box "2c" } s1*4
+    \textMark \markup { \box "3a" } s1*4
   }
-  \mark \markup { \circle "3b" } s1*4
-  \mark \markup { \circle "4a" } s1*4
-  \mark \markup { \circle "4b" } s1*4
-  \mark \markup { \circle "4c" } s1*4
-  \mark \markup { \circle "5a" } s1*4
-  \mark \markup { \circle "5b" } s1*4
-  \mark \markup { \circle "5c" } s1*4
-  \mark \markup { \circle "6a" } s1*4
-  \mark \markup { \circle "6b" } s1*4
-  \mark \markup { \circle "6c" } s1*4
-  \mark \markup { \circle "7a" } s1*4
-  \mark \markup { \circle "7b" } s1*4
-  \mark \markup { \circle "7c" } s1*4
-  \mark \markup { \circle "8a" } s1*4
-  \mark \markup { \circle "8b" } s1*4
-  \mark \markup { \circle "9a" } s1*4
-  \mark \markup { \circle "9b" } s1*4
-  \mark \markup { \circle "9c" } s1*4
-  \mark \markup { \circle "10a" } s1*4
-  \mark \markup { \circle "10b" } s1*4
-  \mark \markup { \circle "10c" } s1*4
-  \mark \markup { \circle "11a" } s1*4
-  \mark \markup { \circle "11b" } s1*4
-  \mark \markup { \circle "11c" } s1*5
-  \mark \markup { \circle "12a" } s1*6
+  \textMark \markup { \box "3b" } s1*4
+  \textMark \markup { \box "4a" } s1*4
+  \textMark \markup { \box "4b" } s1*4
+  \textMark \markup { \box "4c" } s1*4
+  \textMark \markup { \box "5a" } s1*4
+  \textMark \markup { \box "5b" } s1*4
+  \textMark \markup { \box "5c" } s1*4
+  \textMark \markup { \box "6a" } s1*4
+  \textMark \markup { \box "6b" } s1*4
+  \textMark \markup { \box "6c" } s1*4
+  \textMark \markup { \box "7a" } s1*4
+  \textMark \markup { \box "7b" } s1*4
+  \textMark \markup { \box "7c" } s1*4
+  \textMark \markup { \box "8a" } s1*4
+  \textMark \markup { \box "8b" } s1*4
+  \textMark \markup { \box "9a" } s1*4
+  \textMark \markup { \box "9b" } s1*4
+  \textMark \markup { \box "9c" } s1*4
+  \textMark \markup { \box "10a" } s1*4
+  \textMark \markup { \box "10b" } s1*4
+  \textMark \markup { \box "10c" } s1*4
+  \textMark \markup { \box "11a" } s1*4
+  \textMark \markup { \box "11b" } s1*4
+  \textMark \markup { \box "11c" } s1*5
+  \textMark \markup { \box "12a" } s1*6
 }
 
 soprano = \relative c'' {
@@ -242,8 +210,10 @@ soprano = \relative c'' {
 }
 
 wordsAll = \lyricmode {
-  Glo- ri- a, in ex- cel- sis de- o! % 2c
-  Glo- ri- a, Christ is born! % 3a
+  \repeat volta 3 {
+    Glo- ri- a, in ex- cel- sis de- o! % 2c
+    Glo- ri- a, Christ is born! % 3a
+  }
   Glo- ri- a. % 3b+
   Glo- ri- a, % 4a+
   Glo- ri- a, in ex- cel- sis de- o! % 4b
@@ -251,9 +221,9 @@ wordsAll = \lyricmode {
   Glo- ri- a, in ex- cel- sis de- o! % 5a
   Glo- ri- a, Christ is born! % 5b
   an- gels sing, % 5c
-  "\"Hal-" le- lu! for Christ is born this day in Beth- le- "hem.\""
+  “Hal- le- lu! for Christ is born this day in Beth- le- hem.”
   an- gels sing, % 6b
-  "\"Hal-" le- lu! for Christ is born this day in Beth- le- "hem.\""
+  “Hal- le- lu! for Christ is born this day in Beth- le- hem.”
   Peace on earth, good- will to men, % 7a+
   Glo- ry to God __ in the high- est! __ % 7b
   Peace on earth, good- will to men, % 7c
@@ -261,7 +231,38 @@ wordsAll = \lyricmode {
   Glo- ri- a, in ex- cel- sis de- o! % 9a
   Glo- ri- a, Christ is born! % 9b+
   an- gels sing, % 9c+
-  "\"Hal-" le- lu! for Christ is born this day in Beth- le- "hem.\""
+  “Hal- le- lu! for Christ is born this day in Beth- le- hem.”
+  Peace on earth, good- will to men, % 10b++
+  Glo- ry to God __ in the high- est! % 10c++
+  Peace on earth, good- will to men, % 11a++
+  Glo- ry to God __ in the high- est! % 11b++
+  Glo- ry to God __ in the high- __ est! % 12a+
+}
+
+
+wordsSopSingle = \lyricmode {
+  \repeat volta 3 {
+    Glo- ri- a, in ex- cel- sis de- o! % 2c
+    Glo- ri- a, Christ is born! % 3a
+  }
+  Glo- ri- a. % 3b+
+  Glo- ri- a, % 4a+
+  Glo- ri- a, in ex- cel- sis de- o! % 4b
+  Glo- ri- a, Christ is born! % 4c
+  Glo- ri- a, in ex- cel- sis de- o! % 5a
+  Glo- ri- a, Christ is born! % 5b
+  an- gels sing, % 5c
+  “Hal- le- lu! for Christ is born this day in Beth- le- hem.”
+  an- gels sing, % 6b
+  “Hal- le- lu! for Christ is born this day in Beth- le- hem.”
+  Peace on earth, good- will to men, % 7a+
+  Glo- ry to God __ in the high- est! __ % 7b
+  Peace on earth, good- will to men, % 7c
+  Glo- ry to God __ in the high- est! __ % 8a+
+  Glo- ri- a, in ex- cel- sis de- o! % 9a
+  Glo- ri- a, Christ is born! % 9b+
+  an- gels sing, % 9c+
+  “Hal- le- lu! for Christ is born this day in Beth- le- hem.”
   Peace on earth, good- will to men, % 10b++
   Glo- ry to God __ in the high- est! % 10c++
   Peace on earth, good- will to men, % 11a++
@@ -271,7 +272,7 @@ wordsAll = \lyricmode {
 
 
 wordsSopMidi = \lyricmode {
-"\nGlo" ri "a, " "in " ex cel "sis " de "o! " % 2c
+  "Glo" ri "a, " "in " ex cel "sis " de "o! " % 2c
   "\nGlo" ri "a, " "Christ " "is " "born! " % 3a
   "\nGlo" ri "a, " "in " ex cel "sis " de "o! " % 2c
   "\nGlo" ri "a, " "Christ " "is " "born! " % 3a
@@ -284,9 +285,9 @@ wordsSopMidi = \lyricmode {
   "\nGlo" ri "a, " "in " ex cel "sis " de "o! " % 5a
   "\nGlo" ri "a, " "Christ " "is " "born! " % 5b
   "\nan" "gels " "sing, " % 5c
-  "\n\"Hal" le "lu! " "for " "Christ " "is " "born " "this " "day " "in " Beth le "hem.\" "
+  "\n“Hal" le "lu! " "for " "Christ " "is " "born " "this " "day " "in " Beth le "hem.” "
   "\nan" "gels " "sing, " % 6b
-  "\n\"Hal" le "lu! " "for " "Christ " "is " "born " "this " "day " "in " Beth le "hem.\" "
+  "\n“Hal" le "lu! " "for " "Christ " "is " "born " "this " "day " "in " Beth le "hem.” "
   "\nPeace " "on " "earth, " good "will " "to " "men, " % 7a+
   "\nGlo" "ry " "to " "God "  "in " "the " high "est! "  % 7b
   "\nPeace " "on " "earth, " good "will " "to " "men, " % 7c
@@ -294,7 +295,7 @@ wordsSopMidi = \lyricmode {
   "\nGlo" ri "a, " "in " ex cel "sis " de "o! " % 9a
   "\nGlo" ri "a, " "Christ " "is " "born! " % 9b+
   "\nan" "gels " "sing, " % 9c+
-  "\n\"Hal" le "lu! " "for " "Christ " "is " "born " "this " "day " "in " Beth le "hem.\" "
+  "\n“Hal" le "lu! " "for " "Christ " "is " "born " "this " "day " "in " Beth le "hem.” "
   "\nPeace " "on " "earth, " good "will " "to " "men, " % 10b++
   "\nGlo" "ry " "to " "God "  "in " "the " high "est! " % 10c++
   "\nPeace " "on " "earth, " good "will " "to " "men, " % 11a++
@@ -421,11 +422,43 @@ alto = \relative c' {
   \bar "|."
 }
 
+
+
+wordsAltoSingle = \lyricmode {
+  \repeat volta 3 {
+    Glo- ri- a, in ex- cel- sis de- o! % 2c
+    Glo- ri- a, Christ is born! % 3a
+  }
+  Glo- ri- a. % 3b+
+  Glo- ri- a, % 4a+
+  Glo- ri- a, in ex- cel- sis de- o! % 4b
+  Glo- ri- a, Christ is born! % 4c
+  Glo- ri- a, in ex- cel- sis de- o! % 5a
+  Glo- ri- a, Christ is born! % 5b
+  an- gels sing, % 5c
+  “Hal- le- lu! for Christ is born this day in Beth- le- hem.”
+  an- gels sing, % 6b
+  “Hal- le- lu! for Christ is born this day in Beth- le- hem.”
+  Peace on earth, good- will to men, % 7a+
+  Glo- ry to God __ in the high- est! __ % 7b
+  Peace on earth, good- will to men, % 7c
+  Glo- ry to God __ in the high- est! __ % 8a+
+  Glo- ri- a, in ex- cel- sis de- o! % 9a
+  Glo- ri- a, Christ is born! % 9b+
+  an- gels sing, % 9c+
+  “Hal- le- lu! for Christ is born this day in Beth- le- hem.”
+  Peace on earth, good- will to men, % 10b++
+  Glo- ry to God __ in the high- est! % 10c++
+  Peace on earth, good- will to men, % 11a++
+  Glo- ry to God __ in the high- est! % 11b++
+  Glo- ry to God __ in the high- __ est! % 12a+
+}
+
 wordsAltoMidi = \lyricmode {
   _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _
-  "\nGlo" ri "a, " "in " ex cel "sis " de "o! " % 2c
+  "Glo" ri "a, " "in " ex cel "sis " de "o! " % 2c
   "\nGlo" ri "a, " "Christ " "is " "born! " % 3a
   "\nGlo" ri "a. " % 3b+
   "\nGlo" ri "a, " % 4a+
@@ -434,9 +467,9 @@ wordsAltoMidi = \lyricmode {
   "\nGlo" ri "a, " "in " ex cel "sis " de "o! " % 5a
   "\nGlo" ri "a, " "Christ " "is " "born! " % 5b
   "\nan" "gels " "sing, " % 5c
-  "\n\"Hal" le "lu! " "for " "Christ " "is " "born " "this " "day " "in " Beth le "hem.\" "
+  "\n“Hal" le "lu! " "for " "Christ " "is " "born " "this " "day " "in " Beth le "hem.” "
   "\nan" "gels " "sing, " % 6b
-  "\n\"Hal" le "lu! " "for " "Christ " "is " "born " "this " "day " "in " Beth le "hem.\" "
+  "\n“Hal" le "lu! " "for " "Christ " "is " "born " "this " "day " "in " Beth le "hem.” "
   "\nPeace " "on " "earth, " good "will " "to " "men, " % 7a+
   "\nGlo" "ry " "to " "God "  "in " "the " high "est! "  % 7b
   "\nPeace " "on " "earth, " good "will " "to " "men, " % 7c
@@ -444,7 +477,7 @@ wordsAltoMidi = \lyricmode {
   "\nGlo" ri "a, " "in " ex cel "sis " de "o! " % 9a
   "\nGlo" ri "a, " "Christ " "is " "born! " % 9b+
   "\nan" "gels " "sing, " % 9c+
-  "\n\"Hal" le "lu! " "for " "Christ " "is " "born " "this " "day " "in " Beth le "hem.\" "
+  "\n“Hal" le "lu! " "for " "Christ " "is " "born " "this " "day " "in " Beth le "hem.” "
   "\nPeace " "on " "earth, " good "will " "to " "men, " % 10b++
   "\nGlo" "ry " "to " "God "  "in " "the " high "est! " % 10c++
   "\nPeace " "on " "earth, " good "will " "to " "men, " % 11a++
@@ -596,10 +629,42 @@ tenor = \relative c {
   \bar "|."
 }
 
+
+
+wordsTenorSingle = \lyricmode {
+  \repeat volta 3 {
+    Glo- ri- a, in ex- cel- sis de- o! % 2c
+    Glo- ri- a, Christ is born! % 3a
+  }
+  Glo- ri- a in ex -- cel -- sis de -- o! % 3b+
+  Glo- ri- a, Christ is born! % 4a+
+  Glo- ri- a, in ex -- cel -- sis de- o! % 4b
+  Glo- ri- a, Christ is born! % 4c
+  Glo- ri- a, in ex- cel- sis de- o! % 5a
+  Glo- ri- a, Christ is born! % 5b
+  an- gels sing, % 5c
+  “Hal- le- lu! for Christ is born this day in Beth- le- hem.”
+  an- gels sing, % 6b
+  “Hal- le- lu! for Christ is born this day in Beth- le- hem.”
+  Peace on earth, good- will to men, % 7a+
+  Sing -- ing, Glo- ry to God __ in the high- est! __ % 7b
+  Peace on earth, good- will to men, % 7c
+  Sing -- ing Glo- ry to God __ in the high- est! __ % 8a+
+  Glo- ri- a, in ex- cel- sis de- o! % 9a
+  Glo- ri- a, Christ is born! % 9b+
+  an- gels sing, % 9c+
+  “Hal- le- lu! for Christ is born this day in Beth- le- hem.”
+  Peace on earth, good- will to men, % 10b++
+  Sing -- ing Glo- ry to God __ in the high- est! % 10c++
+  Peace on earth, good- will to men, % 11a++
+  Glo- ry to God __ in the high- est! % 11c++
+  Glo- ry to God __ in the high- __ est! % 12a+
+}
+
 wordsTenorMidi = \lyricmode {
   "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
   "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
-  "\nGlo" ri "a, " "in " ex cel "sis " de "o! " % 2c
+  "Glo" ri "a, " "in " ex cel "sis " de "o! " % 2c
   "\nGlo" ri "a, " "Christ " "is " "born! " % 3a
   "\nGlo" ri "a, " "in " ex cel "sis " de "o! " % 3b
   "\nGlo" ri "a, " "Christ " "is " "born! " % 4a
@@ -608,9 +673,9 @@ wordsTenorMidi = \lyricmode {
   "\nGlo" ri "a, " "in " ex cel "sis " de "o! " % 5a
   "\nGlo" ri "a, " "Christ " "is " "born! " % 5b
   "\nan" "gels " "sing, " % 5c
-  "\n\"Hal" le "lu! " "for " "Christ " "is " "born " "this " "day " "in " Beth le "hem.\" "
+  "\n“Hal" le "lu! " "for " "Christ " "is " "born " "this " "day " "in " Beth le "hem.” "
   "\nan " "gels " "sing, " % 6a
-  "\n\"Hal" le "lu! " "for " "Christ " "is " "born " "this " "day " "in " Beth le "hem.\" "
+  "\n“Hal" le "lu! " "for " "Christ " "is " "born " "this " "day " "in " Beth le "hem.” "
   "\nPeace " "on " "earth, " good "will " "to " "men, " % 7a+
   "\nSing" "ing, " Glo "ry " "to " "God "  "in " "the " high "est! "  % 7b
   "\nPeace " "on " "earth, " good "will " "to " "men, " % 7c
@@ -618,7 +683,7 @@ wordsTenorMidi = \lyricmode {
   "\nGlo" ri "a, " "in " ex cel "sis " de "o! " % 9a
   "\nGlo" ri "a, " "Christ " "is " "born! " % 9b+
   "\nan " "gels " "sing, " % 9c+
-  "\n\"Hal" le "lu! " "for " "Christ " "is " "born " "this " "day " "in " Beth le "hem.\" "
+  "\n“Hal" le "lu! " "for " "Christ " "is " "born " "this " "day " "in " Beth le "hem.” "
   "\nPeace " "on " "earth, " good "will " "to " "men, " % 10b++
   "\nSing" "ing, " Glo "ry " "to " "God "  "in " "the " high "est! " % 10c++
   "\nPeace " "on " "earth, " good "will " "to " "men, " % 11a++
@@ -755,8 +820,7 @@ dynamicsBass = {
 }
 
 wordsBass = \lyricmode {
-  _ _ _ _ _ _ _ _ _ _
-  _ _ _ _ _
+  \repeat volta 3 { \repeat unfold 15 \skip 1 }
   Glo- ri- a, in ex- cel- sis de- o!
   Glo- ri- a, Christ is born!
   Glo- ri- a,
@@ -788,9 +852,41 @@ wordsBass = \lyricmode {
   Glo- ry to God __ in the high- est!
 }
 
+
+
+wordsBassSingle = \lyricmode {
+  \repeat volta 3 {
+    Glo- ri- a, in ex- cel- sis de- o! % 2c
+    Glo- ri- a, Christ is born! % 3a
+  }
+  Glo- ri- a in ex -- cel -- sis de -- o! % 3b+
+  Glo- ri- a, Christ is born! % 4a+
+  Glo- ri- a, sis de- o! % 4b
+  Glo- ri- a, is born! % 4c
+  Glo- ri- a, in ex- cel- sis de- o! % 5a
+  Glo- ri- a, Christ is born! % 5b
+  O hear the an- gels sing, % 5c
+  “Hal- le- lu! for Christ is born this day in Beth- le- hem.”
+  O hear the an- gels sing, % 6b
+  “Hal- le- lu! for Christ is born this day in Beth- le- hem.”
+  Peace on earth, good- will to men, % 7a+
+  Sing -- ing, Glo- ry to God __ in the high- est! __ % 7b
+  Peace on earth, good- will to men, % 7c
+  Sing -- ing Glo- ry to God __ in the high- est! __ % 8a+
+  Glo- ri- a, in ex- cel- sis de- o! % 9a
+  Glo- ri- a, Christ is born! % 9b+
+  O hear the an- gels sing, % 9c+
+  “Hal- le- lu! for Christ is born this day in Beth- le- hem.”
+  Peace on earth, good- will to men, % 10b++
+  Sing -- ing Glo- ry to God __ in the high- est! % 10c++
+  Peace on earth, good- will to men, % 11a++
+  Glo- ry to God __ in the high- est! % 11c++
+  Glo- ry to God __ in the high- __ est! % 12a+
+}
+
 wordsBassMidi = \lyricmode {
   "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
-  "\nGlo" ri "a, " "in " ex cel "sis " de "o! " % 2c
+  "Glo" ri "a, " "in " ex cel "sis " de "o! " % 2c
   "\nGlo" ri "a, " "Christ " "is " "born! " % 3a
   "\nGlo" ri "a, " "in " ex cel "sis " de "o! " % 2c
   "\nGlo" ri "a, " "Christ " "is " "born! " % 3a
@@ -801,9 +897,9 @@ wordsBassMidi = \lyricmode {
   "\nGlo" ri "a, " "in " ex cel "sis " de "o! " % 5a
   "\nGlo" ri "a, " "Christ " "is " "born! " % 5b
   "\nO " "hear " "the " an "gels " "sing, " % 5c
-  "\n\"Hal" le "lu! " "for " "Christ " "is " "born " "this " "day " "in " Beth le "hem.\" "
+  "\n“Hal" le "lu! " "for " "Christ " "is " "born " "this " "day " "in " Beth le "hem.” "
   "\nO " "hear " "the " an "gels " "sing, " % 6a
-  "\n\"Hal" le "lu! " "for " "Christ " "is " "born " "this " "day " "in " Beth le "hem.\" "
+  "\n“Hal" le "lu! " "for " "Christ " "is " "born " "this " "day " "in " Beth le "hem.” "
   "\nPeace " "on " "earth, " good "will " "to " "men, " % 7a+
   "\nSing" "ing, " Glo "ry " "to " "God "  "in " "the " high "est! "  % 7b
   "\nPeace " "on " "earth, " good "will " "to " "men, " % 7c
@@ -811,7 +907,7 @@ wordsBassMidi = \lyricmode {
   "\nGlo" ri "a, " "in " ex cel "sis " de "o! " % 9a
   "\nGlo" ri "a, " "Christ " "is " "born! " % 9b+
   "\nO " "hear " "the " an "gels " "sing, " % 9c+
-  "\n\"Hal" le "lu! " "for " "Christ " "is " "born " "this " "day " "in " Beth le "hem.\" "
+  "\n“Hal" le "lu! " "for " "Christ " "is " "born " "this " "day " "in " Beth le "hem.” "
   "\nPeace " "on " "earth, " good "will " "to " "men, " % 10b++
   "\nSing" "ing, " Glo "ry " "to " "God "  "in " "the " high "est! " % 10c++
   "\nPeace " "on " "earth, " good "will " "to " "men, " % 11a++
@@ -1135,10 +1231,10 @@ pianoLH = \relative c, {
 }
 
 maracas = \drummode {
-  \stemUp
+  \voiceOne
   R1*8
   \repeat volta 3 {
-    mr8 8 8 8 8 8 4
+    mr8^\markup{Shaker \italic "add 3rd time"} 8 8 8 8 8 4
     r2 mr8 8 8 8
     mr8 8 8 8 8 8 4
     r2 mr8 8 8 8
@@ -1172,29 +1268,29 @@ maracas = \drummode {
 }
 
 cymbals = \drummode {
-  \stemDown
+  \stemDown \voiceTwo
   s1*8
   \repeat volta 3 {
-    r1
-    r1
-    r1
+    R1_\markup{Finger Cymbals \italic "add 2nd time"}
+    R1
+    R1
     r2 fc
-    r1
+    R1
     r2 fc
-    r1
+    R1
     r2 fc
   }
   \repeat unfold 27 {
-    r1
+    R1
     r2 fc
   }
-  r1 % 8a++
-  r1
-  r1
+  R1 % 8a++
+  R1
+  R1
   r4 fc fc r
-  r1
+  R1
   r4 fc fc r
-  r1
+  R1
   r2 fc % 9a
   r2 r
   \repeat unfold 17 {
@@ -1211,65 +1307,75 @@ cymbals = \drummode {
 }
 
 bongos = \drummode {
-  R1*8
+  R1^\markup "Bongos (or Congas)" | R | R | r8 boh8 boh4 r2 |
+  R1 | R | R | r8 boh8 boh4 r2 |
   \repeat volta 3 {
-    lb8 lb r lb hb lb r lb
-    r8 lb hb4 lb r
-    lb8 lb r lb hb lb r lb
-    r8 lb hb4 lb r
-    lb8 lb r lb hb lb r lb
-    r8 lb hb4 lb r
-    lb8 lb r lb hb lb r lb
-    r8 lb hb4 lb r
+    bol8 bol r bol boh bol r bol
+    r8 bol boh4 bol r
+    bol8 bol r bol boh bol r bol
+    r8 bol boh4 bol r
+    bol8 bol r bol boh bol r bol
+    r8 bol boh4 bol r
+    bol8 bol r bol boh bol r bol
+    r8 bol boh4 bol r
   }
   \repeat unfold 27 {
-    lb8 lb r lb hb lb r lb
-    r8 lb hb4 lb r
+    bol8 bol r bol boh bol r bol
+    r8 bol boh4 bol r
   }
-  lb8 lb r lb hb lb r lb % 8a++
-  <lb hb>4-> q-> q-> q->
+  bol8 bol r bol boh bol r bol % 8a++
+  <bol boh>4-> q-> q-> q->
   q4 q-> q-> q-> % 8b
   q4-> q q-> q->
   q4 q-> q-> q
   q4-> q q-> q->
-  \repeat tremolo 16 { hb32 lb } % 9a %%% FIX
-  lb8 lb r lb hb lb r lb
+  \repeat tremolo 16 { boh32 bol } % 9a %%% FIX
+  bol8 bol r bol boh bol r bol
   \repeat unfold 18 {
-    r8 lb hb4 lb r
-    lb8 lb r lb hb lb r lb
+    r8 bol boh4 bol r
+    bol8 bol r bol boh bol r bol
   }
-%  lb8 lb r lb hb lb r lb % 12a
-  r8 lb hb4 lb r % 12a+
-  lb8 lb r lb hb lb r lb
-  lb8 lb r lb hb lb r lb
-  \repeat tremolo 32 { hb32 }
+%  bol8 bol r bol boh bol r bol % 12a
+  r8 bol boh4 bol r % 12a+
+  bol8 bol r bol boh bol r bol
+  bol8 bol r bol boh bol r bol
+  \repeat tremolo 32 { boh32 }
   q4 r r2
 }
+
+#(set-global-staff-size 20)
 
 \book {
   \bookOutputSuffix "repeat"
   \score {
-    \context GrandStaff <<
       <<
         \new ChoirStaff <<
-% Joint soprano/alto staff
-          \new Dynamics \dynamicsWomen
-          \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
+                                % Joint soprano/alto staff
+          \new Staff = women \with {
+            instrumentName = #"Soprano/Alto"
+            shortInstrumentName = #"SA"
+          }
+          <<
+            \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice = "soprano" { \voiceOne \soprano }
-            \new Voice = "alto"    { \voiceTwo \alto    }
-            \new Lyrics \lyricsto "soprano" \wordsAll
+            \new Dynamics \with {alignAboveContext = women} \dynamicsWomen
+            \new Voice { \vo \soprano }
+            \addlyrics \wordsAll
+            \new Voice { \vt \alto    }
           >>
-% Joint tenor/bass staff
-          \new Dynamics \dynamicsMen
+                                % Joint tenor/bass staff
 %          \new Lyrics = "tenor"
-          \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
+          \new Staff = men \with {
+            instrumentName = #"Tenor/Bass"
+            shortInstrumentName = #"TB"
+          }
+          <<
             \clef "bass"
-            \new Voice = "tenor" { \voiceOne \tenor }
-            \new Voice = "bass"  { \voiceTwo \bass  }
-            \new Lyrics \lyricsto "bass" \wordsBass
+            \new Dynamics \with {alignAboveContext = men} \dynamicsMen
+            \new Voice { \vo \tenor }
+            \new Voice { \vt \bass  }
+            \addlyrics \wordsBass
           >>
-%          \context Lyrics = "tenor" { \lyricsto "bass" \wordsBass }
         >>
         \new PianoStaff <<
           \new Staff <<
@@ -1286,46 +1392,86 @@ bongos = \drummode {
           instrumentName = "Maracas/FingerCymbals"
           drumStyleTable = #(alist->hash-table shk-style)
           drumPitchTable = #(alist->hash-table midiDrumPitches)
-        } << \maracas \cymbals >>
+        }
+        <<
+          \new DrumVoice \maracas
+          \new DrumVoice \cymbals
+        >>
         \new DrumStaff \with {
-          \override StaffSymbol.line-count = #1
-          instrumentName = "Bongo"
-          drumStyleTable = #(alist->hash-table bon-style)
-          drumPitchTable = #(alist->hash-table midiDrumPitches)
+          instrumentName = "Bongos"
+          shortInstrumentName = "Bng"
+          \override StaffSymbol.line-count = #2
+          drumStyleTable = #bongos-style
+          \remove Time_signature_engraver
+          \hide Stem
+          \override Stem.Y-extent = ##f
         } { \bongos }
      >>
-    >>
     \layout {
       indent = 1.5\cm
+      \pointAndClickOff
       \context {
-        \Staff \RemoveAllEmptyStaves
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
   \bookOutputSuffix "single"
   \score {
     \unfoldRepeats
-    <<
-    \context GrandStaff <<
       <<
         \new ChoirStaff <<
-% Joint soprano/alto staff
-          \new Dynamics \dynamicsWomen
-          \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
+                                % Joint soprano/alto staff
+          \new Staff = women \with {
+            instrumentName = #"Soprano/Alto"
+            shortInstrumentName = #"SA"
+          }
+          <<
+            \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice = "soprano" { \voiceOne \soprano }
-            \new Voice = "alto"    { \voiceTwo \alto    }
-            \new Lyrics \lyricsto "soprano" \wordsAll
+            \new Dynamics \with {alignAboveContext = women} \dynamicsWomen
+            \new Voice { \vo \soprano }
+            \addlyrics \wordsAll
+            \new Voice { \vt \alto    }
           >>
-% Joint tenor/bass staff
-          \new Dynamics \dynamicsMen
-          \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
-            \clef "bass"
+                                % Joint tenor/bass staff
+          \new Staff = men \with {
+            instrumentName = #"Tenor/Bass"
+            shortInstrumentName = #"TB"
+          }
+          <<
+            \clef "bass"    
+            \new Dynamics \with {alignAboveContext = men} \dynamicsMen
             \new Voice = "tenor" { \voiceOne \tenor }
             \new Voice = "bass"  { \voiceTwo \bass  }
+            \addlyrics \wordsBass
           >>
         >>
         \new PianoStaff <<
@@ -1343,20 +1489,816 @@ bongos = \drummode {
           instrumentName = "Maracas/FingerCymbals"
           drumStyleTable = #(alist->hash-table shk-style)
           drumPitchTable = #(alist->hash-table midiDrumPitches)
-        } << \maracas \cymbals >>
+        }
+        <<
+          \new DrumVoice \maracas
+          \new DrumVoice \cymbals
+        >>
         \new DrumStaff \with {
-          \override StaffSymbol.line-count = #1
-          instrumentName = "Bongo"
-          drumStyleTable = #(alist->hash-table bon-style)
-          drumPitchTable = #(alist->hash-table midiDrumPitches)
+          instrumentName = "Bongos"
+          shortInstrumentName = "Bng"
+          \override StaffSymbol.line-count = #2
+          drumStyleTable = #bongos-style
+          \remove Time_signature_engraver
+          \hide Stem
+          \override Stem.Y-extent = ##f
         } { \bongos }
      >>
-    >>
-  >>
     \layout {
       indent = 1.5\cm
+      \pointAndClickOff
       \context {
-        \Staff \RemoveAllEmptyStaves
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+      <<
+        \new ChoirStaff <<
+                                % Joint soprano/alto staff
+          \new Staff = women \with {
+            instrumentName = #"Soprano/Alto"
+            shortInstrumentName = #"SA"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Dynamics \with {alignAboveContext = women} \dynamicsWomen
+            \new Voice { \vo \soprano }
+            \addlyrics \wordsAll
+            \new Voice { \vt \alto    }
+          >>
+                                % Joint tenor/bass staff
+          \new Staff = men \with {
+            instrumentName = #"Tenor/Bass"
+            shortInstrumentName = #"TB"
+          }
+          <<
+            \clef "bass"    
+            \new Dynamics \with {alignAboveContext = men} \dynamicsMen
+            \new Voice { \vo \tenor }
+            \new Voice { \vt \bass  }
+            \addlyrics \wordsBass
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+            \new Voice \pianoRH
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff <<
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+        \new DrumStaff \with {
+          \override StaffSymbol.line-count = #1
+          instrumentName = "Maracas/FingerCymbals"
+          drumStyleTable = #(alist->hash-table shk-style)
+          drumPitchTable = #(alist->hash-table midiDrumPitches)
+        }
+        <<
+          \new DrumVoice \maracas
+          \new DrumVoice \cymbals
+        >>
+        \new DrumStaff \with {
+          instrumentName = "Bongos"
+          shortInstrumentName = "Bng"
+          \override StaffSymbol.line-count = #2
+          drumStyleTable = #bongos-style
+          \remove Time_signature_engraver
+          \hide Stem
+          \override Stem.Y-extent = ##f
+        } { \bongos }
+     >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \bookOutputSuffix "singlepage-sep"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Dynamics \with {alignAboveContext = soprano} \dynamicsWomen
+            \new Voice \soprano
+            \addlyrics \wordsSopSingle
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \new Dynamics \with {alignAboveContext = alto} \dynamicsWomen
+            \new Voice \alto
+            \addlyrics \wordsAltoSingle
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+            \clef "treble_8"    
+            \new Dynamics \with {alignAboveContext = tenor} \dynamicsMen
+            \new Voice \tenor
+            \addlyrics \wordsTenorSingle
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \clef "bass"    
+            \new Dynamics \with {alignAboveContext = bass} \dynamicsMen
+            \new Voice \bass
+            \addlyrics \wordsBassSingle
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+            \new Voice \pianoRH
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff <<
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+        \new DrumStaff \with {
+          \override StaffSymbol.line-count = #1
+          instrumentName = "Maracas/FingerCymbals"
+          drumStyleTable = #(alist->hash-table shk-style)
+          drumPitchTable = #(alist->hash-table midiDrumPitches)
+        }
+        <<
+          \new DrumVoice \maracas
+          \new DrumVoice \cymbals
+        >>
+        \new DrumStaff \with {
+          instrumentName = "Bongos"
+          shortInstrumentName = "Bng"
+          \override StaffSymbol.line-count = #2
+          drumStyleTable = #bongos-style
+          \remove Time_signature_engraver
+          \hide Stem
+          \override Stem.Y-extent = ##f
+        } { \bongos }
+     >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \bookOutputSuffix "singlepage-sop"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Dynamics \with {alignAboveContext = soprano} \dynamicsWomen
+            \new Voice \soprano
+            \addlyrics \wordsSopSingle
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = alto} {\teeny \dynamicsWomen}
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAltoSingle}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+            \magnifyStaff  #4/7
+            \clef "treble_8"    
+            \new Dynamics \with {alignAboveContext = tenor} {\teeny \dynamicsMen}
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsTenorSingle}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"    
+            \new Dynamics \with {alignAboveContext = bass} {\teeny \dynamicsMen}
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBassSingle}
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+        \new DrumStaff \with {
+          \override StaffSymbol.line-count = #1
+          instrumentName = "Maracas/FingerCymbals"
+          drumStyleTable = #(alist->hash-table shk-style)
+          drumPitchTable = #(alist->hash-table midiDrumPitches)
+        }
+        <<
+          \magnifyStaff #4/7
+          \new DrumVoice \maracas
+          \new DrumVoice \cymbals
+        >>
+        \new DrumStaff \with {
+          instrumentName = "Bongos"
+          shortInstrumentName = "Bng"
+          \override StaffSymbol.line-count = #2
+          drumStyleTable = #bongos-style
+          \remove Time_signature_engraver
+          \hide Stem
+          \override Stem.Y-extent = ##f
+        } <<
+          \magnifyStaff #4/7
+          \bongos
+        >>
+     >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \bookOutputSuffix "singlepage-alto"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsWomen}
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSopSingle}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \new Dynamics \with {alignAboveContext = alto} \dynamicsWomen
+            \new Voice \alto
+            \addlyrics \wordsAltoSingle
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+            \magnifyStaff  #4/7
+            \clef "treble_8"    
+            \new Dynamics \with {alignAboveContext = tenor} {\teeny \dynamicsMen}
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsTenorSingle}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"    
+            \new Dynamics \with {alignAboveContext = bass} {\teeny \dynamicsMen}
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBassSingle}
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+        \new DrumStaff \with {
+          \override StaffSymbol.line-count = #1
+          instrumentName = "Maracas/FingerCymbals"
+          drumStyleTable = #(alist->hash-table shk-style)
+          drumPitchTable = #(alist->hash-table midiDrumPitches)
+        }
+        <<
+          \magnifyStaff #4/7
+          \new DrumVoice \maracas
+          \new DrumVoice \cymbals
+        >>
+        \new DrumStaff \with {
+          instrumentName = "Bongos"
+          shortInstrumentName = "Bng"
+          \override StaffSymbol.line-count = #2
+          drumStyleTable = #bongos-style
+          \remove Time_signature_engraver
+          \hide Stem
+          \override Stem.Y-extent = ##f
+        } <<
+          \magnifyStaff #4/7
+          \bongos
+        >>
+     >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \bookOutputSuffix "singlepage-tenor"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsWomen}
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSopSingle}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = alto} {\teeny \dynamicsWomen}
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAltoSingle}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+            \clef "treble_8"    
+            \new Dynamics \with {alignAboveContext = tenor} \dynamicsMen
+            \new Voice \tenor
+            \addlyrics \wordsTenorSingle
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"    
+            \new Dynamics \with {alignAboveContext = bass} {\teeny \dynamicsMen}
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBassSingle}
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+        \new DrumStaff \with {
+          \override StaffSymbol.line-count = #1
+          instrumentName = "Maracas/FingerCymbals"
+          drumStyleTable = #(alist->hash-table shk-style)
+          drumPitchTable = #(alist->hash-table midiDrumPitches)
+        }
+        <<
+          \magnifyStaff #4/7
+          \new DrumVoice \maracas
+          \new DrumVoice \cymbals
+        >>
+        \new DrumStaff \with {
+          instrumentName = "Bongos"
+          shortInstrumentName = "Bng"
+          \override StaffSymbol.line-count = #2
+          drumStyleTable = #bongos-style
+          \remove Time_signature_engraver
+          \hide Stem
+          \override Stem.Y-extent = ##f
+        } <<
+          \magnifyStaff #4/7
+          \bongos
+        >>
+     >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \bookOutputSuffix "singlepage-bass"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsWomen}
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSopSingle}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = alto} {\teeny \dynamicsWomen}
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAltoSingle}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+            \magnifyStaff  #4/7
+            \clef "treble_8"    
+            \new Dynamics \with {alignAboveContext = tenor} {\teeny \dynamicsMen}
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsTenorSingle}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \clef "bass"    
+            \new Dynamics \with {alignAboveContext = bass} \dynamicsMen
+            \new Voice \bass
+            \addlyrics \wordsBassSingle
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+        \new DrumStaff \with {
+          \override StaffSymbol.line-count = #1
+          instrumentName = "Maracas/FingerCymbals"
+          drumStyleTable = #(alist->hash-table shk-style)
+          drumPitchTable = #(alist->hash-table midiDrumPitches)
+        }
+        <<
+          \magnifyStaff #4/7
+          \new DrumVoice \maracas
+          \new DrumVoice \cymbals
+        >>
+        \new DrumStaff \with {
+          instrumentName = "Bongos"
+          shortInstrumentName = "Bng"
+          \override StaffSymbol.line-count = #2
+          drumStyleTable = #bongos-style
+          \remove Time_signature_engraver
+          \hide Stem
+          \override Stem.Y-extent = ##f
+        } <<
+          \magnifyStaff #4/7
+          \bongos
+        >>
+     >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
@@ -1367,33 +2309,51 @@ bongos = \drummode {
   \score {
     \unfoldRepeats
 %    \articulate
-    <<
-    \context GrandStaff <<
       <<
         \new ChoirStaff <<
-% Joint soprano/alto staff
-          \new Dynamics \dynamicsWomen
-          \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
+                                % Joint soprano/alto staff
+          \new Staff = soprano \with {
+            midiInstrument = "choir aahs"
+          }
+ <<
+            \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice = "soprano" { \voiceOne \soprano }
-            \new Voice = "alto"    { \voiceTwo \alto    }
-            \new Lyrics \lyricsto "soprano" \wordsSopMidi
+            \new Dynamics \dynamicsWomen
+            \new Voice = "soprano" \soprano
+            \addlyrics \wordsSopMidi
           >>
-% Joint tenor/bass staff
-          \new Dynamics \dynamicsMen
-          \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
-            \clef "bass"
-            \new Voice = "tenor" { \voiceOne \tenor }
-            \new Voice = "bass"  { \voiceTwo \bass  }
+                                % Alto staff
+          \new Staff = alto \with {
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Dynamics \dynamicsWomen
+            \new Voice \alto
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            midiInstrument = "choir aahs"
+            }
+          <<
+            \new Dynamics \dynamicsMen
+            \new Voice \tenor
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Dynamics \dynamicsMen
+            \new Voice \bass
           >>
         >>
         \new PianoStaff <<
-          \new Staff <<
+          \new Staff = piano \with {
+            midiInstrument = "acoustic grand piano"
+}
+<<
             \new Voice \pianoRH
-          >>
-          \new Dynamics \dynamicsPiano
-          \new Staff <<
-            \clef "bass"
+            \new Dynamics \dynamicsPiano
             \new Voice \pianoLH
           >>
         >>
@@ -1402,53 +2362,84 @@ bongos = \drummode {
           instrumentName = "Maracas/FingerCymbals"
           drumStyleTable = #(alist->hash-table shk-style)
           drumPitchTable = #(alist->hash-table midiDrumPitches)
-        } << \maracas \cymbals >>
+        }
+        <<
+          \new DrumVoice \maracas
+          \new DrumVoice \cymbals
+        >>
         \new DrumStaff \with {
-          \override StaffSymbol.line-count = #1
-          instrumentName = "Bongo"
-          drumStyleTable = #(alist->hash-table bon-style)
-          drumPitchTable = #(alist->hash-table midiDrumPitches)
+          instrumentName = "Bongos"
+          shortInstrumentName = "Bng"
+          \override StaffSymbol.line-count = #2
+          drumStyleTable = #bongos-style
+          \remove Time_signature_engraver
+          \hide Stem
+          \override Stem.Y-extent = ##f
         } { \bongos }
      >>
-    >>
- >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
-
 
 \book {
   \bookOutputSuffix "midi-alto"
   \score {
     \unfoldRepeats
 %    \articulate
-    <<
-    \context GrandStaff <<
       <<
         \new ChoirStaff <<
-% Joint soprano/alto staff
-          \new Dynamics \dynamicsWomen
-          \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
+                                % Joint soprano/alto staff
+          \new Staff = soprano \with {
+            midiInstrument = "choir aahs"
+          }
+ <<
+            \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice = "soprano" { \voiceOne \soprano }
-            \new Voice = "alto"    { \voiceTwo \alto    }
-            \new Lyrics \lyricsto "alto" \wordsAltoMidi
+            \new Dynamics \dynamicsWomen
+            \new Voice = "soprano" \soprano
           >>
-% Joint tenor/bass staff
-          \new Dynamics \dynamicsMen
-          \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
-            \clef "bass"
-            \new Voice = "tenor" { \voiceOne \tenor }
-            \new Voice = "bass"  { \voiceTwo \bass  }
+                                % Alto staff
+          \new Staff = alto \with {
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Dynamics \dynamicsWomen
+            \new Voice \alto
+            \addlyrics \wordsAltoMidi
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            midiInstrument = "choir aahs"
+            }
+          <<
+            \new Dynamics \dynamicsMen
+            \new Voice \tenor
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Dynamics \dynamicsMen
+            \new Voice \bass
           >>
         >>
         \new PianoStaff <<
-          \new Staff <<
+          \new Staff = piano \with {
+            midiInstrument = "acoustic grand piano"
+}
+<<
             \new Voice \pianoRH
-          >>
-          \new Dynamics \dynamicsPiano
-          \new Staff <<
-            \clef "bass"
+            \new Dynamics \dynamicsPiano
             \new Voice \pianoLH
           >>
         >>
@@ -1457,17 +2448,31 @@ bongos = \drummode {
           instrumentName = "Maracas/FingerCymbals"
           drumStyleTable = #(alist->hash-table shk-style)
           drumPitchTable = #(alist->hash-table midiDrumPitches)
-        } << \maracas \cymbals >>
+        }
+            <<
+              \new DrumVoice \maracas
+              \new DrumVoice \cymbals
+            >>
         \new DrumStaff \with {
-          \override StaffSymbol.line-count = #1
-          instrumentName = "Bongo"
-          drumStyleTable = #(alist->hash-table bon-style)
-          drumPitchTable = #(alist->hash-table midiDrumPitches)
+          instrumentName = "Bongos"
+          shortInstrumentName = "Bng"
+          \override StaffSymbol.line-count = #2
+          drumStyleTable = #bongos-style
+          \remove Time_signature_engraver
+          \hide Stem
+          \override Stem.Y-extent = ##f
         } { \bongos }
      >>
-    >>
- >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
@@ -1476,33 +2481,52 @@ bongos = \drummode {
   \score {
     \unfoldRepeats
 %    \articulate
-    <<
-    \context GrandStaff <<
       <<
         \new ChoirStaff <<
-% Joint soprano/alto staff
-          \new Dynamics \dynamicsWomen
-          \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
+                                % Joint soprano/alto staff
+          \new Staff = soprano \with {
+            midiInstrument = "choir aahs"
+          }
+ <<
+            \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice = "soprano" { \voiceOne \soprano }
-            \new Voice = "alto"    { \voiceTwo \alto    }
+            \new Dynamics \dynamicsWomen
+            \new Voice = "soprano" \soprano
           >>
-% Joint tenor/bass staff
-          \new Dynamics \dynamicsMen
-          \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
-            \clef "bass"
-            \new Voice = "tenor" { \voiceOne \tenor }
-            \new Voice = "bass"  { \voiceTwo \bass  }
-            \new Lyrics \lyricsto "tenor" \wordsTenorMidi
+                                % Alto staff
+          \new Staff = alto \with {
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Dynamics \dynamicsWomen
+            \new Voice \alto
+
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            midiInstrument = "choir aahs"
+            }
+          <<
+            \new Dynamics \dynamicsMen
+            \new Voice \tenor
+            \addlyrics \wordsTenorMidi
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Dynamics \dynamicsMen
+            \new Voice \bass
           >>
         >>
         \new PianoStaff <<
-          \new Staff <<
+          \new Staff = piano \with {
+            midiInstrument = "acoustic grand piano"
+}
+<<
             \new Voice \pianoRH
-          >>
-          \new Dynamics \dynamicsPiano
-          \new Staff <<
-            \clef "bass"
+            \new Dynamics \dynamicsPiano
             \new Voice \pianoLH
           >>
         >>
@@ -1511,17 +2535,31 @@ bongos = \drummode {
           instrumentName = "Maracas/FingerCymbals"
           drumStyleTable = #(alist->hash-table shk-style)
           drumPitchTable = #(alist->hash-table midiDrumPitches)
-        } << \maracas \cymbals >>
+        }
+            <<
+              \new DrumVoice \maracas
+              \new DrumVoice \cymbals
+            >>
         \new DrumStaff \with {
-          \override StaffSymbol.line-count = #1
-          instrumentName = "Bongo"
-          drumStyleTable = #(alist->hash-table bon-style)
-          drumPitchTable = #(alist->hash-table midiDrumPitches)
+          instrumentName = "Bongos"
+          shortInstrumentName = "Bng"
+          \override StaffSymbol.line-count = #2
+          drumStyleTable = #bongos-style
+          \remove Time_signature_engraver
+          \hide Stem
+          \override Stem.Y-extent = ##f
         } { \bongos }
      >>
-    >>
- >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
@@ -1530,33 +2568,51 @@ bongos = \drummode {
   \score {
     \unfoldRepeats
 %    \articulate
-    <<
-    \context GrandStaff <<
       <<
         \new ChoirStaff <<
-% Joint soprano/alto staff
-          \new Dynamics \dynamicsWomen
-          \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
+                                % Joint soprano/alto staff
+          \new Staff = soprano \with {
+            midiInstrument = "choir aahs"
+          }
+ <<
+            \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice = "soprano" { \voiceOne \soprano }
-            \new Voice = "alto"    { \voiceTwo \alto    }
+            \new Dynamics \dynamicsWomen
+            \new Voice = "soprano" \soprano
           >>
-% Joint tenor/bass staff
-          \new Dynamics \dynamicsMen
-          \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
-            \clef "bass"
-            \new Voice = "tenor" { \voiceOne \tenor }
-            \new Voice = "bass"  { \voiceTwo \bass  }
-            \new Lyrics \lyricsto "bass" \wordsBassMidi
+                                % Alto staff
+          \new Staff = alto \with {
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Dynamics \dynamicsWomen
+            \new Voice \alto
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            midiInstrument = "choir aahs"
+            }
+          <<
+            \new Dynamics \dynamicsMen
+            \new Voice \tenor
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Dynamics \dynamicsMen
+            \new Voice \bass
+            \addlyrics \wordsBassMidi
           >>
         >>
         \new PianoStaff <<
-          \new Staff <<
+          \new Staff = piano \with {
+            midiInstrument = "acoustic grand piano"
+}
+<<
             \new Voice \pianoRH
-          >>
-          \new Dynamics \dynamicsPiano
-          \new Staff <<
-            \clef "bass"
+            \new Dynamics \dynamicsPiano
             \new Voice \pianoLH
           >>
         >>
@@ -1565,16 +2621,30 @@ bongos = \drummode {
           instrumentName = "Maracas/FingerCymbals"
           drumStyleTable = #(alist->hash-table shk-style)
           drumPitchTable = #(alist->hash-table midiDrumPitches)
-        } << \maracas \cymbals >>
+        }
+            <<
+              \new DrumVoice \maracas
+              \new DrumVoice \cymbals
+            >>
         \new DrumStaff \with {
-          \override StaffSymbol.line-count = #1
-          instrumentName = "Bongo"
-          drumStyleTable = #(alist->hash-table bon-style)
-          drumPitchTable = #(alist->hash-table midiDrumPitches)
+          instrumentName = "Bongos"
+          shortInstrumentName = "Bng"
+          \override StaffSymbol.line-count = #2
+          drumStyleTable = #bongos-style
+          \remove Time_signature_engraver
+          \hide Stem
+          \override Stem.Y-extent = ##f
         } { \bongos }
      >>
-    >>
- >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
