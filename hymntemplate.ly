@@ -108,7 +108,9 @@ wordsMidiMen = \lyricmode {
 }
 
 \book {
-  \bookOutputSuffix "midi"
+  \paper {
+    output-suffix = midi
+  }
   \score {
 %    \articulate
         \new ChoirStaff <<
@@ -147,7 +149,9 @@ wordsMidiMen = \lyricmode {
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "repeat"
+  \paper {
+    output-suffix = repeat
+  }
   \score {
         \new ChoirStaff <<
                                   % Joint soprano/alto staff
@@ -214,7 +218,9 @@ singlescore = {
 }
 
 \book {
-  \bookOutputSuffix "single"
+  \paper {
+    output-suffix = single
+  }
   \score {
     \singlescore
     \layout {
@@ -229,7 +235,9 @@ singlescore = {
 }
 
 \book {
-  \bookOutputSuffix "singlepage"
+  \paper {
+    output-suffix singlepage
+  }
   \paper {
     top-margin = 0
     left-margin = 7

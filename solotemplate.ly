@@ -108,7 +108,9 @@ pianoLHtwo = \relative {
 #(set-global-staff-size 20)
 
 \book {
-  #(define output-suffix "repeat")
+  \paper {
+    output-suffix = repeat
+  }
   \score {
     <<
       <<
@@ -168,8 +170,8 @@ pianoLHtwo = \relative {
 #(set-global-staff-size 20)
 
 \book {
-  #(define output-suffix "single")
-%  \paper {
+  \paper {
+    output-suffix = single
 %    top-margin = 0
 %    left-margin = 7
 %    right-margin = 1
@@ -177,7 +179,7 @@ pianoLHtwo = \relative {
 %    page-breaking = #ly:one-page-breaking
 %    system-system-spacing.basic-distance = #15
 %    system-separator-markup = \slashSeparator
-%  }
+  }
   \score {
     \unfoldRepeats
     <<
@@ -233,7 +235,9 @@ pianoLHtwo = \relative {
 #(set-global-staff-size 20)
 
 \book {
-  #(define output-suffix "midi")
+  \paper {
+    output-suffix = midi
+  }
   \score {
     \unfoldRepeats
 %   \articulate

@@ -1,5 +1,6 @@
-\version "2.22.0"
+\version "2.25.11"
 
+\include "kjp.ly"
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
 
@@ -72,12 +73,15 @@ melody = \relative {
   \bar "|."
 }
 
+nom  = {   \set ignoreMelismata = ##t }
+yesm = { \unset ignoreMelismata       }
+
 wordsOne = \lyricmode {
 }
 
 \book {
-  \bookOutputSuffix "melody"
-%  \paper {
+  \paper {
+    output-suffix = melody
 %    top-margin = 0
 %    left-margin = 7
 %    right-margin = 1
@@ -85,7 +89,7 @@ wordsOne = \lyricmode {
 %    page-breaking = #ly:one-page-breaking
 %    system-system-spacing.basic-distance = #22
 %    system-separator-markup = \slashSeparator
-%  }
+  }
   \score {
 %   \unfoldRepeats
 %   \articulate

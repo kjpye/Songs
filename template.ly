@@ -153,8 +153,8 @@ pianoLHtwo = \relative {
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "repeat"
-%  \paper {
+  \paper {
+    output-suffix = repeat
 %    top-margin = 0
 %    left-margin = 7
 %    right-margin = 1
@@ -162,7 +162,7 @@ pianoLHtwo = \relative {
 %    page-breaking = #ly:one-page-breaking
 %    system-system-spacing.basic-distance = #15
 %    system-separator-markup = \slashSeparator
-%  }
+  }
   \score {
 %   \unfoldRepeats
 %   \articulate
