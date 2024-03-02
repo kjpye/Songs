@@ -236,7 +236,7 @@ singlescore = {
 
 \book {
   \paper {
-    output-suffix singlepage
+    output-suffix = singlepage
   }
   \paper {
     top-margin = 0
