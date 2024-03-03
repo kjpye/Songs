@@ -1,5 +1,6 @@
-\version "2.20.2"
+\version "2.25.13"
 
+\include "kjp.ly"
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
 
@@ -31,16 +32,6 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   tagline   = ##f
   copyright   = \today
 }
-
-% #(set-global-staff-size 16)
-
-% \paper {
-%   #(set-paper-size "a4")
-%   line-width = 180\mm
-%   left-margin = 20\mm
-%   bottom-margin = 10\mm
-%   top-margin = 10\mm
-% }
 
 global = {
   \key bes \major
@@ -712,8 +703,12 @@ pianoLHrhythm = \relative {
   \bar "|."
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "single"
+  \paper {
+    output-suffix = single
+  }
   \score {
 %   \articulate
     <<
@@ -724,16 +719,24 @@ pianoLHrhythm = \relative {
       <<
         \new ChoirStaff <<
                                 % Single Part I staff
-          \new Staff \with { instrumentName = #"" shortInstrumentName = #"I" } <<
+          \new Staff \with {
+            instrumentName = #""
+            shortInstrumentName = #"I"
+          }
+          <<
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice = "one" \partI
-            \new Lyrics \lyricsto "one" \wordsI
+            \new Voice \partI
+            \addlyrics \wordsI
           >>
                                 % Single Part II staff
-          \new Staff \with { instrumentName = #"" shortInstrumentName = #"II" } <<
-            \new Voice = "two" \partII
-            \new Lyrics \lyricsto "two" \wordsII
+          \new Staff \with {
+            instrumentName = #""
+            shortInstrumentName = #"II"
+          }
+          <<
+            \new Voice \partII
+            \addlyrics \wordsII
           >>
         >>
         \new PianoStaff <<
@@ -750,15 +753,50 @@ pianoLHrhythm = \relative {
     >>
     \layout {
       indent = 1.5\cm
+      \pointAndClickOff
       \context {
-        \Staff \RemoveAllEmptyStaves
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "midi"
+  \paper {
+    output-suffix = singlepage
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
   \score {
 %   \articulate
     <<
@@ -769,15 +807,24 @@ pianoLHrhythm = \relative {
       <<
         \new ChoirStaff <<
                                 % Single Part I staff
-          \new Staff \with { instrumentName = #"" shortInstrumentName = #"I" } <<
+          \new Staff \with {
+            instrumentName = #""
+            shortInstrumentName = #"I"
+          }
+          <<
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice = "one" \partI
-            \new Lyrics \lyricsto "one" \wordsMidi
+            \new Voice \partI
+            \addlyrics \wordsI
           >>
                                 % Single Part II staff
-          \new Staff \with { instrumentName = #"" shortInstrumentName = #"II" } <<
-            \new Voice = "two" \partII
+          \new Staff \with {
+            instrumentName = #""
+            shortInstrumentName = #"II"
+          }
+          <<
+            \new Voice \partII
+            \addlyrics \wordsII
           >>
         >>
         \new PianoStaff <<
@@ -792,44 +839,275 @@ pianoLHrhythm = \relative {
         >>
       >>
     >>
-    \midi {}
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "rhythm"
+  \paper {
+    output-suffix = singlepage-i
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
   \score {
 %   \articulate
     <<
+%      <<
+%        \new ChordNames { \ChordTrack }
+%        \new FretBoards { \ChordTrack }
+%      >>
       <<
         \new ChoirStaff <<
                                 % Single Part I staff
-          \new Staff \with { instrumentName = #"" shortInstrumentName = #"I" } <<
+          \new Staff \with {
+            instrumentName = #""
+            shortInstrumentName = #"I"
+          }
+          <<
             \new Voice \TempoTrack
-            \new Voice = "one" \partIrhythm
+            \new Voice \RehearsalTrack
+            \new Voice \partI
+            \addlyrics \wordsI
           >>
                                 % Single Part II staff
-          \new Staff \with { instrumentName = #"" shortInstrumentName = #"II" } <<
-            \new Voice = "two" \partIIrhythm
+          \new Staff \with {
+            instrumentName = #""
+            shortInstrumentName = #"II"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \partII
+            \addlyrics {\tiny \wordsII}
           >>
         >>
         \new PianoStaff <<
           \new Staff <<
-            \new Voice \pianoRHrhythm
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
           >>
+          \new Dynamics {\teeny \dynamicsPiano}
           \new Staff <<
+            \magnifyStaff #4/7
             \clef "bass"
-            \new Voice \pianoLHrhythm
+            \new Voice \pianoLH
           >>
         >>
       >>
     >>
     \layout {
       indent = 1.5\cm
+      \pointAndClickOff
       \context {
-        \Staff \RemoveAllEmptyStaves
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
-    \midi {}
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-ii
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+%      <<
+%        \new ChordNames { \ChordTrack }
+%        \new FretBoards { \ChordTrack }
+%      >>
+      <<
+        \new ChoirStaff <<
+                                % Single Part I staff
+          \new Staff \with {
+            instrumentName = #""
+            shortInstrumentName = #"I"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \partI
+            \addlyrics {\tiny \wordsI}
+          >>
+                                % Single Part II staff
+          \new Staff \with {
+            instrumentName = #""
+            shortInstrumentName = #"II"
+          }
+          <<
+            \new Voice \partII
+            \addlyrics \wordsII
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+\book {
+  \paper {
+    output-suffix = midi
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChordNames \with {
+          midiInstrument = "acoustic guitar (nylon)"
+        }
+        { \ChordTrack }
+%        \new FretBoards { \ChordTrack }
+      >>
+      <<
+        \new ChoirStaff <<
+                                % Single Part I staff
+          \new Staff \with {
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \partI
+            \addlyrics \wordsMidi
+          >>
+                                % Single Part II staff
+          \new Staff \with {
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Voice = "two" \partII
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff \with {
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \new Voice \pianoRH
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
