@@ -1,167 +1,269 @@
-\version "2.19.80"
+\version "2.25.0"
 
-SopranoMusic = \relative c'' {
+\include "articulate.ly"
+
+today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
+
+\header {
+% centered at top
+%  dedication  = "dedication"
+  title       = "Tallis Canon"
+%  instrument  = "instrument"
+  
+% arrangement of following lines:
+%
+%  poet    composer
+%  meter   arranger
+%  piece       opus
+
+  composer    = \markup\smallCaps "T. Tallis"
+%  arranger    = "arranger"
+%  opus        = "opus"
+
+% centered at bottom
+% tagline     = "tagline" % default lilypond version
+  tagline   = ##f
+  copyright   = \today
+}
+
+global = {
   \key g \major
   \time 4/2
+  \partial 2
+}
+
+TempoTrack = {
+  \set Score.tempoHideNote = ##t
   \tempo 2=80
-  \repeat volta 2 {
-    \partial 2 g2
-    g2 fis g g
-    a2 a b \bar "||" g
-    c2 c b b
-    a2 a g \bar "||" d'
-    c2 a b b
-    a2 a g \bar "||" d
-    e2 fis g b
+}
+
+nl = { \bar "||" \break }
+
+soprano = \relative {
+  \autoBeamOff
+    g'2 |
+    g2 fis g g |
+    a2 a b \bar "||" g |
+    c2 c b b |
+    a2 a g \bar "||" d' |
+    c2 a b b |
+    a2 a g \bar "||" d |
+    e2 fis g b |
     a2 a g
-  }
-  \bar "|."
 }
 
-AltoMusic = \relative c' {
-  \key g \major
-  \time 4/2
-  \repeat volta 2 {
-    \partial 2 d2
-    d2 d b d
-    e2 d d g
-    g2 fis g d
-    e2 d d g
-    e2 fis g g
-    e2 d d d
-    c2 c b d
+alto = \relative {
+  \autoBeamOff
+    d'2 |
+    d2 d b d |
+    e2 d d g |
+    g2 fis g d |
+    e2 d d g |
+    e2 fis g g |
+    e2 d d d |
+    c2 c b d |
     c2 a b
-  }
-  \bar "|."
 }
 
-TenorMusic = \relative c' {
-  \key g \major
-  \time 4/2
-  \repeat volta 2 {
-    \partial 2 b2
-    a2 a g g
-    g2 fis g g
-    a2 a b g
-    c2 c b b
-    a2 a g d'
-    c2 a b b
-    a2 a g d
+tenor = \relative {
+  \autoBeamOff
+    b2 |
+    a2 a g g |
+    g2 fis g g |
+    a2 a b g |
+    c2 c b b |
+    a2 a g d' |
+    c2 a b b |
+    a2 a g d |
     e2 fis g
-  }
-  \bar "|."
 }
 
-BassMusic = \relative c' {
-  \key g \major
-  \time 4/2
-  \repeat volta 2 {
-    \partial 2 g2
-    d2 d e b
-    c2 d g, b
-    a2 a g g'
-    g2 fis g b,
-    c2 d g, g'
-    a2 fis g g,
-    c2 a e' b
+bass = \relative {
+  \autoBeamOff
+    g2 |
+    d2 d e b |
+    c2 d g, b |
+    a2 a g g' |
+    g2 fis g b, |
+    c2 d g, g' |
+    a2 fis g g, |
+    c2 a e' b |
     c2 d g,
-  }
-  \bar "|."
 }
 
-verseOne = \lyrics {
+nom  = {   \set ignoreMelismata = ##t }
+yesm = { \unset ignoreMelismata       }
+
+chorus = \lyricmode {
+}
+
+chorusMen = \lyricmode {
+}
+
+verses = 2
+
+wordsOne = \lyricmode {
+  \set stanza = "1."
   Glor- y to Thee, my God, this day,
   For all the mer- cies on my way;
   Glor- y to Thee for strength re- newed,
   For e- very thought by Thee im- bued.
 }
-
-verseTwo = \lyrics {
+  
+wordsTwo = \lyricmode {
+  \set stanza = "2."
   Sup- ply my need, be Thou my store,
   My treas- ure and my bound- less lore;
   Teach me to use Thy gifts, Thy grace,
   And ev- er see Thy hol- y Face.
 }
+  
+wordsMidi = \lyricmode {
+  \set stanza = "1."
+  "Glor" "y " "to " "Thee, " "my " "God, " "this " "day, "
+  "\nFor " "all " "the " mer "cies " "on " "my " "way; "
+  "\nGlor" "y " "to " "Thee " "for " "strength " re "newed, "
+  "\nFor " e "very " "thought " "by " "Thee " im "bued.\n"
 
-\header {
-  title = "Tallis Canon"
-  composer = "T. Tallis"
+  \set stanza = "2."
+  "\nSup" "ply " "my " "need, " "be " "Thou " "my " "store, "
+  "\nMy " treas "ure " "and " "my " bound "less " "lore; "
+  "\nTeach " "me " "to " "use " "Thy " "gifts, " "Thy " "grace, "
+  "\nAnd " ev "er " "see " "Thy " hol "y " "Face. "
 }
 
-\book { % all parts
-  \score {
-    <<
-      \new ChoirStaff <<
-	\new Staff = "sopranos" <<
-	  \new Voice = "sopranos" { \voiceOne \SopranoMusic }
-	  \new Voice = "altos" { \voiceTwo \AltoMusic }
-	  \context Lyrics = "firstverse" \lyricsto "sopranos" \verseOne
-	  \context Lyrics = "secondverse" \lyricsto "sopranos" \verseTwo
-	>>
-	\new Staff = "tenori" <<
-	  \new Voice = "tenors" { \clef bass \voiceOne \TenorMusic }
-	  \new Voice = "basses" { \clef bass \voiceTwo \BassMusic }
-	>>
-      >>
+wordsMidiMen = \lyricmode {
+}
 
-    >>
-    \layout{}
-    \midi{}
+\book {
+  \bookOutputSuffix "midi"
+  \score {
+%    \articulate
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano
+          <<
+            \new Voice \TempoTrack
+            \new Voice { \repeat unfold \verses \TempoTrack     }
+            \new Voice { \global \repeat unfold \verses \soprano \bar "|." }
+            \addlyrics \wordsMidi
+          >>
+                                % Alto staff
+          \new Staff = alto
+          <<
+            \new Voice { \global \repeat unfold \verses { \alto \nl } \bar "|." }
+          >>
+                                % Tenor staff
+          \new Staff = tenor
+          <<
+            \clef "treble_8"
+            \new Voice { \global \repeat unfold \verses \tenor }
+            \addlyrics \wordsMidiMen
+          >>
+                                % Bass staff
+          \new Staff = bass
+          <<
+            \clef "bass"
+            \new Voice { \global \repeat unfold \verses \bass }
+          >>
+        >>
+    \midi {}
   }
 }
 
-\book { % soprano
+\book {
+  \bookOutputSuffix "repeat"
   \score {
-    <<
-      \new ChoirStaff <<
-	\new Staff = "sopranos" <<
-	  \new Voice = "sopranos" { \voiceOne \unfoldRepeats \SopranoMusic }
-	>>
-      >>
-
-    >>
-    \midi{}
+        \new ChoirStaff <<
+                                  % Joint soprano/alto staff
+          \new Staff = women \with { printPartCombineTexts = ##f }
+          <<
+            \new Voice \TempoTrack
+            \new NullVoice = "aligner" \soprano
+            \new Voice \partCombine #'(2 . 88) { \global \soprano \bar "|." } { \global \alto }
+            \new Lyrics \lyricsto "aligner" { \wordsOne \chorus }
+            \new Lyrics \lyricsto "aligner"   \wordsTwo
+          >>
+                                  % Joint tenor/bass staff
+          \new Staff = men \with { printPartCombineTexts = ##f }
+          <<
+            \clef "bass"
+            \new Voice \partCombine #'(2 . 88) { \global \tenor } { \global \bass }
+            \new NullVoice = alignerT { \tenor }
+          >>
+          \new Lyrics \with {alignAboveContext = men} \lyricsto alignerT \chorusMen
+        >>
+    \layout {
+      #(layout-set-staff-size 20)
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
   }
 }
 
-\book { % alto
-  \score {
-    <<
-      \new ChoirStaff <<
-	\new Staff = "sopranos" <<
-	  \new Voice = "altos" { \voiceTwo \unfoldRepeats \AltoMusic }
-	>>
-      >>
+singlescore = {
+        \new ChoirStaff <<
+                                  % Joint soprano/alto staff
+          \new Staff = women \with { printPartCombineTexts = ##f }
+          <<
+            \new Voice { \repeat unfold \verses \TempoTrack }
+            \new NullVoice = "aligner" { \repeat unfold \verses \soprano }
+            \new Voice \partCombine #'(2 . 88) { \global \repeat unfold \verses \soprano \bar "|." }
+                                    { \global \repeat unfold \verses { \alto \nl } \bar "|." }
+            \new Lyrics \lyricsto "aligner" { \wordsOne   \chorus
+                                              \wordsTwo   \chorus
+                                            }
+          >>
+                                  % Joint tenor/bass staff
+          \new Staff = men \with { printPartCombineTexts = ##f }
+          <<
+            \clef "bass"
+            \new Voice \partCombine #'(2 . 88) { \global \repeat unfold \verses \tenor }
+                                    { \global \repeat unfold \verses \bass }
+            \new NullVoice = alignerT { \repeat unfold \verses \tenor }
+          >>
+          \new Lyrics \with {alignAboveContext = men} \lyricsto alignerT { \repeat unfold \verses \chorusMen }
+        >>
+}
 
-    >>
-    \midi{}
+\book {
+  \bookOutputSuffix "single"
+  \score {
+    \singlescore
+    \layout {
+      #(layout-set-staff-size 20)
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
   }
 }
 
-\book { % tenor
-  \score {
-    <<
-      \new ChoirStaff <<
-	\new Staff = "sopranos" <<
-	  \new Voice = "tenors" { \clef bass \voiceOne \unfoldRepeats \TenorMusic }
-	>>
-      >>
-
-    >>
-    \midi{}
+\book {
+  \bookOutputSuffix "singlepage"
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
   }
-}
-
-\book { % bass
   \score {
-    <<
-      \new ChoirStaff <<
-	\new Staff = "sopranos" <<
-	  \new Voice = "basses" { \clef bass \voiceTwo \unfoldRepeats \BassMusic }
-	>>
-      >>
-
-    >>
-    \midi{}
+    \singlescore
+    \layout {
+      #(layout-set-staff-size 20)
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+      }
+    }
   }
 }
