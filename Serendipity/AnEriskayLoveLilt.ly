@@ -1,5 +1,6 @@
-\version "2.20.2"
+\version "2.25.13"
 
+\include "kjp.ly"
 \include "articulate.ly"
 
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
@@ -525,119 +526,202 @@ dynamicsPiano = {
   s2.\ppp^\markup \bold morendo
 }
 
+#(set-global-staff-size 17)
+
 \book {
+  \paper {
+    output-suffix = single
+  }
   \score {
-    \bookOutputSuffix "single"
     <<
       \new ChoirStaff <<
                                 % Single soprano staff
-        \new Dynamics \dynamicsSop
-        \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+          \accidentalStyle Score.modern-cautionary
+        }
+        <<
           \new Voice \RehearsalTrack
+          \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
           \new Voice = "soprano" \soprano
           \new Lyrics \lyricsto "soprano" \wordsSop
         >>
                                 % Single alto staff
-        \new Dynamics \dynamicsAlto
-        \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+        \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+        }
+        <<
+          \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
           \new Voice = "alto" \alto
           \new Lyrics \lyricsto "alto" \wordsAlto
         >>
                                 % Single tenor staff
-        \new Dynamics \dynamicsTenor
-        \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+        \new Staff = tenor \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+        }
+        <<
           \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
           \new Voice = "tenor" \tenor
           \new Lyrics \lyricsto "tenor" \wordsTenor
         >>
                                 % Single bass staff
-        \new Dynamics \dynamicsBass
-        \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+        \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+        }
+        <<
           \clef "bass"
+          \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
           \new Voice = "bass" \bass
           \new Lyrics \lyricsto "bass" \wordsBass
         >>
       >>
       \new PianoStaff <<
-        \new Staff <<
-          \set Staff.printPartCombineTexts = ##f
-          \partCombine
-          << \soprano >>
-          << \alto    >>
+        \new Staff = pianorh \with {
+          printPartCombineTexts = ##f
+        }
+        <<
+          \partCombine \soprano \alto
         >>
         \new Dynamics \dynamicsPiano
-        \new Staff <<
+        \new Staff = pianolh \with {
+          printPartCombineTexts = ##f
+        }
+        <<
           \clef "bass"
-          \set Staff.printPartCombineTexts = ##f
-          \partCombine
-          << \tenor >>
-          << \bass  >>
+          \partCombine \tenor \bass
         >>
       >>
     >>
     \layout {
-      #(layout-set-staff-size 17)
       indent = 1.5\cm
       \pointAndClickOff
       \context {
-        \Staff \RemoveAllEmptyStaves
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
+  \paper {
+    output-suffix = single-noacc
+  }
   \score {
-    \bookOutputSuffix "single-noacc"
     <<
       \new ChoirStaff <<
                                 % Single soprano staff
-        \new Dynamics \dynamicsSop
-        \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+        }
+        <<
+          \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
           \new Voice \RehearsalTrack
           \new Voice = "soprano" \soprano
           \new Lyrics \lyricsto "soprano" \wordsSop
         >>
                                 % Single alto staff
-        \new Dynamics \dynamicsAlto
-        \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+        \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+        }
+        <<
+          \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
           \new Voice = "alto" \alto
           \new Lyrics \lyricsto "alto" \wordsAlto
         >>
                                 % Single tenor staff
-        \new Dynamics \dynamicsTenor
-        \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+        \new Staff = tenor \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+        }
+        <<
           \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
           \new Voice = "tenor" \tenor
           \new Lyrics \lyricsto "tenor" \wordsTenor
         >>
                                 % Single bass staff
-        \new Dynamics \dynamicsBass
-        \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+        \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+        }
+        <<
           \clef "bass"
+          \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
           \new Voice = "bass" \bass
           \new Lyrics \lyricsto "bass" \wordsBass
         >>
       >>
     >>
     \layout {
-      #(layout-set-staff-size 17)
       indent = 1.5\cm
       \pointAndClickOff
       \context {
-        \Staff \RemoveAllEmptyStaves
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "singlepage"
   \paper {
+    output-suffix = singlepage
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -650,62 +734,104 @@ dynamicsPiano = {
     <<
       \new ChoirStaff <<
                                 % Single soprano staff
-        \new Dynamics \dynamicsSop
-        \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+        }
+        <<
           \new Voice \RehearsalTrack
+          \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
           \new Voice = "soprano" \soprano
           \new Lyrics \lyricsto "soprano" \wordsSop
         >>
                                 % Single alto staff
-        \new Dynamics \dynamicsAlto
-        \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+        \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+        }
+        <<
+          \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
           \new Voice = "alto" \alto
           \new Lyrics \lyricsto "alto" \wordsAlto
         >>
                                 % Single tenor staff
-        \new Dynamics \dynamicsTenor
-        \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+        \new Staff = tenor \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+        }
+        <<
           \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
           \new Voice = "tenor" \tenor
           \new Lyrics \lyricsto "tenor" \wordsTenor
         >>
                                 % Single bass staff
-        \new Dynamics \dynamicsBass
-        \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+        \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+        }
+        <<
           \clef "bass"
+          \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
           \new Voice = "bass" \bass
           \new Lyrics \lyricsto "bass" \wordsBass
         >>
       >>
       \new PianoStaff <<
-        \new Staff <<
-          \set Staff.printPartCombineTexts = ##f
-          \partCombine
-          << \soprano >>
-          << \alto    >>
+        \new Staff = pianorh \with {
+          printPartCombineTexts = ##f
+        }
+        <<
+          \partCombine \soprano \alto
         >>
         \new Dynamics \dynamicsPiano
-        \new Staff <<
+        \new Staff = pianolh \with {
+          printPartCombineTexts = ##f
+        }
+        <<
           \clef "bass"
-          \set Staff.printPartCombineTexts = ##f
-          \partCombine
-          << \tenor >>
-          << \bass  >>
+          \partCombine \tenor \bass
         >>
       >>
     >>
     \layout {
       indent = 1.5\cm
+      \pointAndClickOff
       \context {
-        \Staff \RemoveAllEmptyStaves
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "singlepage-noacc"
   \paper {
+    output-suffix = singlepage-noacc
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -718,29 +844,45 @@ dynamicsPiano = {
     <<
       \new ChoirStaff <<
                                 % Single soprano staff
-        \new Dynamics \dynamicsSop
-        \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+        }
+        <<
           \new Voice \RehearsalTrack
+          \new Dynamics \with {alignAboveContext = soprano}\dynamicsSop
           \new Voice = "soprano" \soprano
           \new Lyrics \lyricsto "soprano" \wordsSop
         >>
                                 % Single alto staff
-        \new Dynamics \dynamicsAlto
-        \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+        \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+        }
+        <<
+          \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
           \new Voice = "alto" \alto
           \new Lyrics \lyricsto "alto" \wordsAlto
         >>
                                 % Single tenor staff
-        \new Dynamics \dynamicsTenor
-        \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+        \new Staff = tenor \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+        }
+        <<
           \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
           \new Voice = "tenor" \tenor
           \new Lyrics \lyricsto "tenor" \wordsTenor
         >>
                                 % Single bass staff
-        \new Dynamics \dynamicsBass
-        \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+        \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+        }
+        <<
           \clef "bass"
+          \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
           \new Voice = "bass" \bass
           \new Lyrics \lyricsto "bass" \wordsBass
         >>
@@ -748,16 +890,42 @@ dynamicsPiano = {
     >>
     \layout {
       indent = 1.5\cm
+      \pointAndClickOff
       \context {
-        \Staff \RemoveAllEmptyStaves
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "singlepage-noacc-bass"
   \paper {
+    output-suffix = singlepage-noacc-sop
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -770,32 +938,339 @@ dynamicsPiano = {
     <<
       \new ChoirStaff <<
                                 % Single soprano staff
-        \new Dynamics \dynamicsSop
-        \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+        }
+        <<
+          \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
+          \new Voice \RehearsalTrack
+          \new Voice = "soprano" \soprano
+          \new Lyrics \lyricsto "soprano" \wordsSop
+        >>
+                                % Single alto staff
+         \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+        }
+        <<
           \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = alto} {\teeny \dynamicsAlto}
+          \new Voice = "alto" \alto
+          \new Lyrics \lyricsto "alto" {\tiny \wordsAlto}
+        >>
+                                % Single tenor staff
+        \new Staff = tenor \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+        }
+        <<
+          \magnifyStaff #4/7
+          \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} {\teeny \dynamicsTenor}
+          \new Voice = "tenor" \tenor
+          \new Lyrics \lyricsto "tenor" {\tiny \wordsTenor}
+        >>
+                                % Single bass staff
+         \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+        }
+        <<
+          \magnifyStaff #4/7
+          \clef "bass"
+          \new Dynamics \with {alignAboveContext = bass} {\teeny \dynamicsBass}
+          \new Voice = "bass" \bass
+          \new Lyrics \lyricsto "bass" {\tiny \wordsBass}
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-noacc-alto
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      \new ChoirStaff <<
+                                % Single soprano staff
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+        }
+        <<
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsSop}
           \new Voice \RehearsalTrack
           \new Voice = "soprano" \soprano
           \new Lyrics \lyricsto "soprano" {\tiny \wordsSop}
         >>
                                 % Single alto staff
-        \new Dynamics \dynamicsAlto
-        \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
-          \magnifyStaff #4/7
+         \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+        }
+        <<
+          \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
           \new Voice = "alto" \alto
-          \new Lyrics \lyricsto "alto" {\tiny \wordsAlto}
+          \new Lyrics \lyricsto "alto" \wordsAlto
         >>
                                 % Single tenor staff
-        \new Dynamics \dynamicsTenor
-        \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+        \new Staff = tenor \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+        }
+        <<
           \magnifyStaff #4/7
           \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} {\teeny \dynamicsTenor}
           \new Voice = "tenor" \tenor
           \new Lyrics \lyricsto "tenor" {\tiny \wordsTenor}
         >>
                                 % Single bass staff
-        \new Dynamics \dynamicsBass
-        \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+         \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+        }
+        <<
+          \magnifyStaff #4/7
           \clef "bass"
+          \new Dynamics \with {alignAboveContext = bass} {\teeny \dynamicsBass}
+          \new Voice = "bass" \bass
+          \new Lyrics \lyricsto "bass" {\tiny \wordsBass}
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-noacc-tenor
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      \new ChoirStaff <<
+                                % Single soprano staff
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+        }
+        <<
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsSop}
+          \new Voice \RehearsalTrack
+          \new Voice = "soprano" \soprano
+          \new Lyrics \lyricsto "soprano" {\tiny \wordsSop}
+        >>
+                                % Single alto staff
+         \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+        }
+        <<
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = alto} {\teeny \dynamicsAlto}
+          \new Voice = "alto" \alto
+          \new Lyrics \lyricsto "alto" {\tiny \wordsAlto}
+        >>
+                                % Single tenor staff
+        \new Staff = tenor \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+        }
+        <<
+          \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
+          \new Voice = "tenor" \tenor
+          \new Lyrics \lyricsto "tenor" \wordsTenor
+        >>
+                                % Single bass staff
+         \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+        }
+        <<
+          \magnifyStaff #4/7
+          \clef "bass"
+          \new Dynamics \with {alignAboveContext = bass} {\teeny \dynamicsBass}
+          \new Voice = "bass" \bass
+          \new Lyrics \lyricsto "bass" {\tiny \wordsBass}
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-noacc-bass
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      \new ChoirStaff <<
+                                % Single soprano staff
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+        }
+        <<
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsSop}
+          \new Voice \RehearsalTrack
+          \new Voice = "soprano" \soprano
+          \new Lyrics \lyricsto "soprano" {\tiny \wordsSop}
+        >>
+                                % Single alto staff
+         \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+        }
+        <<
+          \magnifyStaff #4/7
+          \new Dynamics \with {alignAboveContext = alto} {\teeny \dynamicsAlto}
+          \new Voice = "alto" \alto
+          \new Lyrics \lyricsto "alto" {\tiny \wordsAlto}
+        >>
+                                % Single tenor staff
+        \new Staff = tenor \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+        }
+        <<
+          \magnifyStaff #4/7
+          \clef "treble_8"
+          \new Dynamics \with {alignAboveContext = tenor} {\teeny \dynamicsTenor}
+          \new Voice = "tenor" \tenor
+          \new Lyrics \lyricsto "tenor" {\tiny \wordsTenor}
+        >>
+                                % Single bass staff
+         \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+        }
+        <<
+          \clef "bass"
+          \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
           \new Voice = "bass" \bass
           \new Lyrics \lyricsto "bass" \wordsBass
         >>
@@ -803,61 +1278,100 @@ dynamicsPiano = {
     >>
     \layout {
       indent = 1.5\cm
+      \pointAndClickOff
       \context {
-        \Staff \RemoveAllEmptyStaves
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
 \book {
+  \paper {
+    output-suffix = midi
+  }
   \score {
-    \bookOutputSuffix "midi"
-%   \articulate
+                                %   \articulate
     <<
       \new ChoirStaff <<
                                 % Single soprano staff
-        \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+          midiInstrument = "choir aahs"
+        }
+        <<
           \new Dynamics \dynamicsSop
           \new Voice \RehearsalTrack
           \new Voice = "soprano" \soprano
-                                %           \new Lyrics \lyricsto "soprano" \wordsSop
         >>
                                 % Single alto staff
-        \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+        \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+          midiInstrument = "choir aahs"
+        }
+        <<
           \new Dynamics \dynamicsAlto
           \new Voice = "alto" \alto
           \new Lyrics \lyricsto "alto" \wordsAltoMidi
         >>
                                 % Single tenor staff
-        \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+        \new Staff \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+          midiInstrument = "choir aahs"
+        }
+        <<
           \new Dynamics \dynamicsTenor
           \clef "treble_8"
           \new Voice = "tenor" \tenor
-                                %           \new Lyrics \lyricsto "tenor" \wordsTenor
         >>
                                 % Single bass staff
-        \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+        \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+          midiInstrument = "choir aahs"
+        }
+        <<
           \new Dynamics \dynamicsBass
           \clef "bass"
           \new Voice = "bass" \bass
-                                %          \new Lyrics \lyricsto "bass" \wordsBassMidi
         >>
       >>
       \new PianoStaff <<
-        \new Staff <<
-          \set Staff.printPartCombineTexts = ##f
-          \partCombine
-          << \soprano >>
-          << \alto    >>
-        >>
-        \new Dynamics \dynamicsPiano
-        \new Staff <<
-          \clef "bass"
-          \set Staff.printPartCombineTexts = ##f
-          \partCombine
-          << \tenor >>
-          << \bass  >>
+        \new Staff = piano \with {
+          midiInstrument = "acoustic grand piano"
+        }
+        <<
+          \new Voice \soprano
+          \new Voice \bass
+          \new Dynamics \dynamicsPiano
+          \new Voice \tenor
+          \new Voice \bass
         >>
       >>
     >>
@@ -875,56 +1389,80 @@ dynamicsPiano = {
 }
 
 \book {
+  \paper {
+    output-suffix = midi-bass
+  }
   \score {
-    \bookOutputSuffix "midi-bass"
                                 %   \articulate
     <<
       \new ChoirStaff <<
                                 % Single soprano staff
-        \new Dynamics \dynamicsSop
-        \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+        \new Staff = soprano \with {
+          instrumentName = #"Soprano"
+          shortInstrumentName = #"S"
+          midiInstrument = "choir aahs"
+        }
+        <<
+          \new Dynamics \dynamicsSop
           \new Voice \RehearsalTrack
-          \new Voice = "soprano" \soprano
-                                %           \new Lyrics \lyricsto "soprano" \wordsSop
+          \new Voice \soprano
         >>
                                 % Single alto staff
-        \new Dynamics \dynamicsAlto
-        \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
-          \new Voice = "alto" \alto
-                                %           \new Lyrics \lyricsto "alto" \wordsAltoMidi
+        \new Staff = alto \with {
+          instrumentName = #"Alto"
+          shortInstrumentName = #"A"
+          midiInstrument = "choir aahs"
+        }
+        <<
+          \new Dynamics \dynamicsAlto
+          \new Voice \alto
         >>
                                 % Single tenor staff
-        \new Dynamics \dynamicsTenor
-        \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+        \new Staff = tenor \with {
+          instrumentName = #"Tenor"
+          shortInstrumentName = #"T"
+          midiInstrument = "choir aahs"
+        }
+        <<
           \clef "treble_8"
-          \new Voice = "tenor" \tenor
-                                %           \new Lyrics \lyricsto "tenor" \wordsTenor
+          \new Dynamics \dynamicsTenor
+          \new Voice \tenor
         >>
                                 % Single bass staff
-        \new Dynamics \dynamicsBass
-        \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+        \new Staff = bass \with {
+          instrumentName = #"Bass"
+          shortInstrumentName = #"B"
+          midiInstrument = "choir aahs"
+        }
+        <<
           \clef "bass"
-          \new Voice = "bass" \bass
-          \new Lyrics \lyricsto "bass" \wordsBassMidi
+          \new Dynamics \dynamicsBass
+          \new Voice \bass
+          \addlyrics \wordsBassMidi
         >>
       >>
       \new PianoStaff <<
-        \new Staff <<
-          \set Staff.printPartCombineTexts = ##f
-          \partCombine
-          << \soprano >>
-          << \alto    >>
-        >>
-        \new Dynamics \dynamicsPiano
-        \new Staff <<
-          \clef "bass"
-          \set Staff.printPartCombineTexts = ##f
-          \partCombine
-          << \tenor >>
-          << \bass  >>
+        \new Staff = piano \with {
+          midiInstrument = "acoustic grand piano"
+        }
+        <<
+          \new Voice \soprano
+          \new Voice \alto
+          \new Dynamics \dynamicsPiano
+          \new Voice \tenor
+          \new Voice \bass
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
