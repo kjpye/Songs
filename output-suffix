@@ -1,0 +1,15 @@
+#!/usr/bin/env raku
+
+sub MAIN() {
+    for lines() {
+        if m:s/ \#\(define output\-suffix \"?(<-["]>*)\"?\)/
+        or m:s/ \\bookOutputSuffix \"?(<-["]>*)\"?/
+        {
+            my $suffix = $0;
+            $suffix = "\"$suffix\"" if $suffix ~~ /\d/;
+            say "\\paper \{\noutput-suffix = $suffix\n}";
+        } else {
+            .say;
+        }
+    }
+}
