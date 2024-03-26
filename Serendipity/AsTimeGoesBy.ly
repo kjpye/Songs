@@ -269,7 +269,7 @@ wordsSoloOne = \lyricmode {
 
 wordsSoloTwo = \lyricmode {
   _ when two __ lov- ers woo,
-  they still say __ "\"I" love "you.\""
+  they still say __ “I love you.”
   on that you can re- ly; __
   No mat- ter what the fu- ture brings,
   as time goes
@@ -282,7 +282,7 @@ wordsSoloSingle = \lyricmode {
   The fun- da- men- tal things ap- ply,
   as time goes by.
   And when two __ lov- ers woo,
-  they still say __ "\"I" love "you.\""
+  they still say __ “I love you.”
   on that you can re- ly; __
   No mat- ter what the fu- ture brings,
   as time goes by.
@@ -295,7 +295,7 @@ wordsSoloSingleMidi = \lyricmode {
   "\nThe " fun da men "tal " "things " ap "ply, "
   "\nas " "time " "goes " "by. "
   "\nAnd " "when " "two "  lov "ers " "woo, "
-  "\nthey " "still " "say "  "\"I " "love " "you.\" "
+  "\nthey " "still " "say "  "“I " "love " "you.” "
   "\non " "that " "you " "can " re "ly; " 
   "\nNo " mat "ter " "what " "the " fu "ture " "brings, "
   "\nas " "time " "goes " by.
@@ -522,7 +522,7 @@ wordsWomenOne = \lyricmode {
 
 wordsWomenTwo = \lyricmode {
   _ when two lov- ers woo,
-  they still say __ "\"I" love "you,\""
+  they still say __ “I love you,”
   on that you can re- ly; __
   No mat- ter what the fu- ture brings,
   as time goes
@@ -538,7 +538,7 @@ wordsWomenSingle = \lyricmode {
 
 % second verse%
   And when two lov- ers woo,
-  they still say __ "\"I" love "you,\""
+  they still say __ “I love you,”
   on that you can re- ly; __
   No mat- ter what the fu- ture brings,
   as time goes by,
@@ -583,7 +583,7 @@ wordsSopranoSingleMidi = \lyricmode {
 
 % second verse%
   "\nAnd " "when " "two " lov "ers " "woo, "
-  "\nthey " "still " "say "  "\"I " "love " "you,\" "
+  "\nthey " "still " "say "  "“I " "love " "you,” "
   "\non " "that " "you " "can " re "ly; " 
   "\nNo " mat "ter " "what " "the " fu "ture " "brings, "
   "\nas " "time " "goes " "by, "
@@ -714,7 +714,7 @@ wordsAltoSingleMidi = \lyricmode {
 
 % second verse%
   "\nAnd " "when " "two " lov "ers " "woo, "
-  "\nthey " "still " "say "  "\"I " "love " "you,\" "
+  "\nthey " "still " "say "  "“I " "love " "you,” "
   "\non " "that " "you " "can " re "ly; " 
   "\nNo " mat "ter " "what " "the " fu "ture " "brings, "
   "\nas " "time " "goes " "by, "
@@ -1164,7 +1164,7 @@ wordsMenSingleMidi = \lyricmode {
   "\nOo " 
 
   "\nAnd " "when " "two " lov "ers " "woo, "
-  "\nthey " "still " "say "  "\"I " "love " "you,\" "
+  "\nthey " "still " "say "  "“I " "love " "you,” "
   "\non " "that " "you " "can " re "ly; " 
   "\n(re" "ly;) " 
   "\nmat" "ter " fu "ture "
