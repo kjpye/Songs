@@ -1,5 +1,6 @@
-\version "2.22.1"
+\version "2.25.14"
 
+\include "kjp.ly"
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
 
@@ -33,8 +34,6 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   copyright   = \today
 }
 
-% #(set-global-staff-size 16)
-
 globalA = {
   \key ees \major
   \time 4/4
@@ -52,11 +51,11 @@ globalC = {
 }
 
 TempoTrackA = {
-  \tempo Rubato 4=72
+  \set Score.tempoHideNote = ##t
+  \tempo "Tempo Rubato" 4=72
   s1*3
   s2 \omit\tempo 4=36 s4 \omit\tempo 4=72 s4
   \tempo Slowly 4=72
-%  \set Score.tempoHideNote = ##t
   s1*29
   s2 \tempo 4=65 s
   s2 \tempo 4=22 s4 \tempo 4=65
@@ -421,7 +420,169 @@ words = {
   \tag #'songC \wordsC
 }
 
-wordsSopA = \lyricmode {
+wordsSopSepA = \lyricmode {
+  I give her all my love,
+  you'd love her too, __
+  I love her. __
+  chang -- ing my life __ 
+  No -- bod -- y can de -- ny __ that there's some -- thing there. __
+  There __ run -- ning my hands thru her hair. __
+  both of us think -- ing how good it can be. __
+  Some -- one is speak -- ing but she does -- n't know he's there. __
+  Oh __ Ah __
+  ev -- 'ry -- where,
+  know -- ing that love is to share, __
+  each one be -- liev -- ing that love __ nev -- er dies,
+  watch -- ing her eyes and hop -- ing
+  I'm al -- ways there. __
+}
+
+wordsAltoSepA = \lyricmode {
+  I give her all my love,
+  you'd love her, love her too, __
+  I love her. __
+  chang -- ing my life __ 
+  No -- bod -- y can de -- ny __ that there's some -- thing there. __
+  There __ run -- ning my hands thru her hair. __
+  both of us think -- ing how good it can be. __
+  Oo __ Oh __ Ah __
+  ev -- 'ry -- where,
+  know -- ing that love is to share, __
+  each one be -- liev -- ing that love __ nev -- er dies,
+  watch -- ing her eyes and hop -- ing
+  I'm al -- ways there. __
+}
+
+wordsMenSepA = \lyricmode {
+  I give her all my love,
+  you'd love her too, __
+  I love her. __
+  Here, __ mak -- ing each day __ of the year, __
+  chang -- ing my life __ with a wave of her hand.
+  No -- bod -- y can de -- ny __ that there's some -- thing there. __
+  There __ run -- ning my hands thru her hair. __
+  both of us think -- ing how good it can be. __
+  Oo __
+  I want her ev -- 'ry -- where
+  and if she's be -- side me
+  I know I need nev -- er care. __
+  But to love her is to meet her ev -- 'ry -- where,
+  know -- ing that love is to share, __
+  each one be -- liev -- ing that love __ nev -- er dies,
+  watch -- ing her eyes and hop -- ing
+  I'm al -- ways there. __
+}
+
+wordsWomenSepB = \lyricmode {
+  Do, do, do, do. __
+  Do, do, do. __
+  Oh __
+  and if you saw my love, __
+  you'd love her too. __
+  A love like ours __ could nev -- er die.
+  As long as I __ have you near __ me. __
+  Bright are the stars that shine,
+  dark is the sky. __
+  I know this love of mine __ will nev -- er die, __
+}
+
+wordsTenorSepB = \lyricmode {
+  I __ love her. __
+  I give her all my love,
+  that's all I do,
+  and if you saw my love, __
+  you'd love her too. __
+  I __ love her. __
+  A love like ours __ could nev -- er die.
+%  As long as I __ have you near __ me. __
+  Do, do, do, do. __
+  dark is the sky. __
+  I know this love of mine __ will nev -- er die, __
+  and I love her. __
+}
+
+wordsBassSepB = \lyricmode {
+  I __ love her. __
+  I give her all my love,
+  that's all I do,
+  and if you saw my love, __
+  you'd love her too. __
+  I __ love her. __
+  A love like ours __ could nev -- er die.
+  As long as I __ have you near __ me. __
+  dark is the sky. __
+  I know this love of mine __ will nev -- er die, __
+  and I love her. __
+}
+
+wordsSopSepC = \lyricmode {
+  I'll be com -- in' home __ a -- gain to you, love
+  and 'till the day I do love,
+  P. S. I love you, __ you, you, you. __
+  As I write this let -- ter,
+  send my love to you,
+  Re -- mem -- ber that I'll al -- ways,
+  yeah, __ be in love with you. __
+  Treas -- ure these few words 'till we're to -- geth -- er,
+  keep all my love for -- ev -- er,
+  P. S. I love you, __ you, __ you, __ you. __
+  you, __ you, __ you, __
+  I love you! __
+}
+
+wordsAltoSepC = \lyricmode {
+  I'll be com -- in' home __ a -- gain to you, love
+  and 'till the day I do love,
+%  P. S. I love you, __\
+  you, you, you. __
+  As I write this let -- ter, oh, __
+  send my love to you,
+  Re -- mem -- ber that I'll al -- ways, be in love with you. __
+  Treas -- ure these few words 'till we're to -- geth -- er,
+  keep all my love for -- ev -- er,
+  you, __ you, __ you. __
+  you, __ you, __ you, __
+  I love you! __
+}
+
+wordsMenSepC = \lyricmode {
+  and 'till the day I do love,
+  you, you, you. __
+  As I write this let -- ter,
+  send my love to you,
+  You know I want you to
+  re -- mem -- ber that I'll al -- ways be in love with you. __
+  keep all my love for -- ev -- er,
+  you, __ you, __ you. __
+  you, __ you, __ you, __
+  I love you! __
+}
+
+wordsSopSep = {
+  \tag #'songA \wordsSopSepA
+  \tag #'songB \wordsWomenSepB
+  \tag #'songC \wordsSopSepC
+}
+
+wordsAltoSep = {
+  \tag #'songA \wordsAltoSepA
+  \tag #'songB \wordsWomenSepB
+  \tag #'songC \wordsAltoSepC
+}
+
+wordsTenorSep = {
+  \tag #'songA \wordsMenSepA
+  \tag #'songB \wordsTenorSepB
+  \tag #'songC \wordsMenSepC
+}
+
+wordsBassSep = {
+  \tag #'songA \wordsMenSepA
+  \tag #'songB \wordsBassSepB
+  \tag #'songC \wordsMenSepC
+}
+
+wordsSopA= \lyricmode {
   _ _ _ _ _ _
   you'd love her too, __
   "" _ _ _ _ _ _ _ _ _
@@ -454,35 +615,35 @@ wordsSop = {
 
 wordsMidiSopA = \lyricmode { % why are all the melismata missing?
   "I " "give " "her " "all " "my " "love, "
-  "\nyou'd " "love " "her " "too, "  "" ""
-  "\nI " "" "love " "her. "  "" ""
-  "\nchang" "ing " "my " "life " ""  
-  "\nNo" bod "y " "can " de "ny "  "" "that " "there's " "some " _ "thing " "there. "  ""
-  "\nThere "  "" run "ning " "my " "hands " "" "thru " "her " "hair. "  ""
-  "\nboth " "of " "us " think "" "ing " "how " "good " "" "it " "can " "be. "  ""
-  "\nSome" "one " "is " "speak " _ "ing " "but " "she " does "n't " "know " "" "he's " "there. "  ""
-  "\nOh "  "" "" "" "" "Ah "  ""
+  "\nyou'd " "love " "her " "too, " 
+  "\nI " "love " "her. " 
+  "\nchang" "ing " "my " "life "  
+  "\nNo" bod "y " "can " de "ny " "that " "there's " some "thing " "there. "
+  "\nThere " run "ning " "my " "hands " "thru " "her " "hair. " 
+  "\nboth " "of " "us " think "ing " "how " "good " "it " "can " "be. "
+  "\nSome" "one " "is " speak "ing " "but " "she " does "n't " "know " "he's " "there. "
+  "\nOh " "Ah "
   "\nev" 'ry "where, "
-  "\nknow" "ing " "that " "love " "" "is " "to " "share, "  "" ""
-  "\neach " "one " be liev "" "ing " "that " "love "  "" nev "er " "dies, "
-  "\nwatch" "ing " "her " "eyes " "" "and " hop "" "ing " "I'm " al "ways " "there. " 
+  "\nknow" "ing " "that " "love " "is " "to " "share, "
+  "\neach " "one " be liev "ing " "that " "love " nev "er " "dies, "
+  "\nwatch" "ing " "her " "eyes " "and " hop "ing " "I'm " al "ways " "there. " 
 }
 
 wordsMidiSopB = \lyricmode { % and here...
-  "\nDo, " "do, " "do, " "do. "  ""
-  "\nDo, " "do, " "do. "  ""
-  "\nOh "  ""
-  "\nand " "if " "you " "saw " "my " "love, "  ""
-  "\nyou'd " "love " "her " "too. "  "" ""
-  "\nA " "love " "like " "ours "  "" "could " nev "er " "die. "
-  "\nAs " "long " "as " "I "  "" "have " "you " "near "  "" "me. "  ""
-  "\nBright " "are " "the " "stars " "that " "shine, "  ""
-  "\ndark " "is " "the " "sky. "  "" ""
-  "\nI " "know " "this " "love " "of " "mine "  "" "will " nev "er " "die, "  "" ""
+  "\nDo, " "do, " "do, " "do. " 
+  "\nDo, " "do, " "do. " 
+  "\nOh " 
+  "\nand " "if " "you " "saw " "my " "love, "
+  "\nyou'd " "love " "her " "too. "
+  "\nA " "love " "like " "ours " "could " nev "er " "die. "
+  "\nAs " "long " "as " "I "  "have " "you " "near "  "me. "
+  "\nBright " "are " "the " "stars " "that " "shine, "
+  "\ndark " "is " "the " "sky. "
+  "\nI " "know " "this " "love " "of " "mine " "will " nev "er " "die, "
 }
 
 wordsMidiSopC = \lyricmode {
-  "\nI'll " "be " com "in' " "home "  "" a "gain " "to " "you, " "love "
+  "\nI'll " "be " com "in' " "home "  a "gain " "to " "you, " "love "
   "\nand " "'till " "the " "day " "I " "do " "love, "
   "\nP. " "S. " "I " "love " "you, "  "you, "  "you, "  "you. "
   "\nAs " "I " "write " "this " let "ter, "
@@ -504,13 +665,13 @@ wordsMidiSop = {
 
 altoA = \relative {
   \globalA
-  r4 f'^\mf g aes
-  f4 4 2
-  r4 g aes ees
-  c4 cis d\fermata c8(bes)
+  r4 f'^\mf g aes |
+  f4 4 2 |
+  r4 g aes ees |
+  c4 cis d\fermata c8(bes) |
   c8 g'4.~2~ \bar "||" \key c \major % 2b
-  g2 r
-  R1
+  g2 r |
+  R1 |
   R1*3 % 3a
   b,8^\mf c d e~8 r r4 % 3b
   R1
@@ -518,41 +679,41 @@ altoA = \relative {
   a8 d e b'~8 a4 c,8^\< ~( % 3c
   c2. bes4) \bar "||" \key ees \major
   ees2^\f ~4. r8 % 4a
-  g8 bes f' ees~8 aes, c bes~
-  bes2. r4
+  g8 bes f' ees~8 aes, c bes~ |
+  bes2. r4 |
   g8 aes bes c~8 ees, f g~ % 4b
-  g8 8 8 8~4 r
-  d2_\mp (c2~
+  g8 8 8 8~4 r |
+  d2_\mp (c2~ |
   c1~ % 4c
-  c2) r
-  des1^\mf (
+  c2) r |
+  des1^\mf ( |
   ees2 f % 5a
-  ges2~4.) r8
-  ees2^\<(d)
-  g4^\ff f ees4. r8 % 5b
-  g8 bes f' ees~8 aes, c bes~
-  bes2~4. r8
-  d,8^\decresc ees f g~8 ees f ees~ % 5c
-  ees4 8 8 d4. r8
-  d8^\mf 8 8 c~4 f8 ees~
-  ees8 f g4 c, ees % 6a
+  ges2~4.) r8 |
+  ees2^\<(d) |
+  g4^\ff f ees4. r8 % 6b
+  g8 bes f' ees~8 aes, c bes~ |
+  bes2~4. r8 |
+  d,8^\decresc ees f g~8 ees f ees~ | % 5c
+  ees4 8 8 d4. r8 |
+  d8^\mf 8 8 c~4 f8 ees~ |
+  ees8 f g4 c, ees % 7a
   ees2(bes4_\fermata) \breathe
-  \bar "|."
+  % \bar "|."
 }
 
 altoB = \relative {
   \globalB
-  r4
-  r2 r8 bes^\p ees d
-  c2~8 r d^\mp ees
+  r4 |
+  r2 r8 bes^\p ees d |
+  c2~8 r d^\mp ees |
   f1( % 6b
-  g1)
-  f1(
+  g1) |
+  f1( |
   ees1) % 6c
-  r4 f^\mf g8 aes4.
-  g4 8 8~2
-  r4 g aes4. ees8 % 7a
-  c2(d4) r
+  r4 f^\mf g8 aes4. |
+  g4 8 8~2 |
+  r4 g aes4. ees8 % 8a
+  c2(d4) r |
   R1
   R1
   r4 r8 ees^\f 4 8 d~ % 7b
@@ -576,7 +737,7 @@ altoB = \relative {
 }
 
 altoC = \relative {
-  e'4^\mf 4 8 4 f8~ % 9b
+  e'4^\mf 4 8 4 f8~ % 10b
   f4. 8 4. 8
   e8 4. r4 r8 a
   g4. f8 e4 d % 9c
@@ -682,7 +843,7 @@ tenorA = \relative {
   R1
   c,2^\mf ~4. r8 e8 g d' c~8 f, a g~
   g2. r4
-  g8 a b c~8 c d e~ % 3b
+  g8 a b c~8 c d e~ % 4b
   e8 8 8 8~4 r
   \tuplet 3/2 {b4 c c} aes aes8 g~
   g8 d^\markup Unis. e b'~8 a4 8^\< ~( % 3c
@@ -714,7 +875,7 @@ tenorB = \relative {
   c8^\p^\markup Unis. (bes)
   c8 g'4.~2~
   g2. r4
-  r4 f^mf g4. aes8 % 6b
+  r4 f^mf g4. aes8 % 7b
   des4 c8 des~2
   r4 f, g4. aes8
   ees'8(d4.~2) % 6c
@@ -882,12 +1043,12 @@ bassA = \relative {
   c,2^\mf ~4. r8 % 3a
   e8 g d' c~8 f, a g~
   g2. r4
-  c,8 d e f~8 c d e~ % 3b
+  c,8 d e f~8 c d e~ % 4b
   e8 8 8 8~4 r
   \tuplet 3/2 {g4 4 4} f f8 e~
   e8 d e b'~8 a4 f8^\< ~( % 3c
   f2 bes,) \bar "||" \key ees \major
-  g'2^\f(aes4.) r8 % 4a
+  g'2^\f(aes4.) r8 % 5a
   bes8 g des' c~8 f, aes g~(
   g2 aes4) r
   g8 aes bes c~8 ees, f g~ % 4b
@@ -899,7 +1060,7 @@ bassA = \relative {
   aes8 bes ces aes f f ges aes % 5a
   bes8 ges ees4~4. r8
   aes8^\< bes ces aes f f ges aes
-  bes4^\ff g aes r % 5b
+  bes4^\ff g aes r % 6b
   bes8 g des' c~8 f, aes g~(
   g2 aes4) r
   ees8^\decresc f g aes~8 ees f c~ % 5c
@@ -914,7 +1075,7 @@ bassB = \relative {
   c8^\p^\markup Unis. (bes)
   c8 g'4.~2~
   g2. r4
-  r4 f^mf g4. aes8 % 6b
+  r4 f^mf g4. aes8 % 7b
   des4 c8 des~2
   r4 f, g4. aes8
   ees'8(d4.~2) % 6c
@@ -924,7 +1085,7 @@ bassB = \relative {
   bes,2. c8(bes)
   c8 g'4.~2~
   g2. r4
-  r4 r8 g^\f 4 8 f~ % 7b
+  r4 r8 g^\f 4 8 f~ % 8b
   f2. r4
   r4 c4 4. 8
   g'1 % 7c
@@ -1099,7 +1260,7 @@ pianoRHoneA = \relative {
   e'8 g, c g e' f, aes c~
   c8 g c ees~8 a, bes c % 3c
   des8 f, aes c aes des ees f \bar "||" \key ees \major
-  g4^\mf bes aes c % 4a
+  g4^\mf bes aes c % 5a
   bes4 f ees aes
   g ees f aes
   bes4 f c' g~ % 4b
@@ -1160,7 +1321,7 @@ pianoRHoneC = \relative {
   <g c e>4 q~8 4 <a c f>8~ % 9b
   q4 4~8 a c f
   r4 \appoggiatura d8 <e g>4~8 d c a
-  g8 f g b e g, d'4 % 9c
+  g8 f g b e g, d'4 % 10c
   r4 <e, a c>4~8 <a c e>4.
   e'4 d2.
   <aes c ees>4 q~8 <c ees aes>4. % 10a
@@ -1176,7 +1337,7 @@ pianoRHoneC = \relative {
   <g, c e>8 g c e <f, b d>2 % 11a
   r8 c''8 a g e d c4
   <g c e>4 q4~8 4.
-  <a c f>4 4~8 4. % 11b
+  <a c f>4 4~8 4. % 12b
   r4 \acciaccatura d8 <e g>4~8 g, c4
   r8 g <b d g>4 e8 g, d'4
   r4 <e, a c>4~8 <a c e>4. % 11c
@@ -1188,7 +1349,7 @@ pianoRHoneC = \relative {
   <c e g c>4 c8 c \acciaccatura d8 <e g> d c c % 12b
   r8 <c' c'> q q q <bes bes'> <aes aes'> <f f'>
   <d' d'>8 <c c'> <bes bes'> <aes aes'> <g g'> <f f'> <ees ees'> <d d'>
-  r8 <c c'>-> q-> <a a'>-> \change Staff = lh \stemUp <g g'>^> <ees ees'>^> <d d'>^> <c c'>^>~ % 12c
+  r8 <c c'>-> q-> <a a'>-> \lh <g g'>^> <ees ees'>^> <d d'>^> <c c'>^>~ % 12c
   q1
   c4^^ r4 r2
 }
@@ -1227,7 +1388,7 @@ pianoRHtwoC = \relative {
   s1*3 % 9b
   s1 % 9c
   s1
-  << { <b g'>1 } \new Voice {\voiceThree r2 <g'' g'>} >>
+  << { <b g'>1 } \new Voice {\vth r2 <g'' g'>} >>
   s1 % 10a
   s1
   s4 \acciaccatura d,8 e4~8 d c a
@@ -1315,7 +1476,7 @@ pianoLHoneA = \relative {
   R1 \bar "||" \key c \major % 3b
   c8 g'4 8 d a'4 8
   e8 c'4 8 d, a'4 8
-  c,8 g'4 8 d a'4 8 % 3a
+  c,8 g'4 8 d a'4 8 % 4a
   e8 b'4 8 d, a'4 8
   c,8 g'4 8 d a'4 8
   c,4. 8 f,4. 8 % 3b
@@ -1353,14 +1514,14 @@ pianoLHoneB = \relative {
   f4. c'8 f4. c8 % 6b
   c,4. g'8 c4. g8
   f4. c'8 f4. c8
-  c,4. g'8 c4. g8 % 6c
+  c,4. g'8 c4. g8 % 7c
   f4. c'8 f4. c8
   c,4. g'8 f4. c'8
-  f,4. c'8 f4. c8 % 7a
+  f,4. c'8 f4. c8 % 8a
   bes4. f'8 s2
   ees,4. bes'8 ees4. bes8
   ees,4. bes'8 ees4 bes,8 b
-  c4. g'8 c4 g8 c, % 7b
+  c4. g'8 c4 g8 c, % 8b
   bes4. f'8 bes4 <bes, bes'>8 <b b'>
   <c c'>4. g'8 c4 g8 c,
   bes4. d8 g4 <g, g'>8 q % 7c
@@ -1369,7 +1530,7 @@ pianoLHoneB = \relative {
   <bes bes'>4 4 4 8 8 % 8a
   q2 r8 bes' ees d
   c4. 8 f4. c8
-  c,4. g'8 c4. g8 % 8b
+  c,4. g'8 c4. g8 % 9b
   f4. c'8 f4. c8
   c,4. g'8 c4. g8
   f4. c'8 f4. c8 % 8c
@@ -1498,8 +1659,12 @@ pianoLHtwo = {
 
 usetags = #'(songA songB songC)
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "single"
+  \paper {
+    output-suffix = single
+  }
   \score {
     <<
       <<
@@ -1513,7 +1678,7 @@ usetags = #'(songA songB songC)
           <<
             \new Voice \keepWithTag #usetags \TempoTrack
             \new Voice \keepWithTag #usetags \RehearsalTrack
-            \new Voice \partCombine {\keepWithTag #usetags \soprano}
+            \new Voice \partCombine {\keepWithTag #usetags \soprano \bar "|'"}
                                     {\keepWithTag #usetags \alto   }
             \new NullVoice = alignerA \keepWithTag #usetags \alto
             \new NullVoice = alignerS \keepWithTag #usetags \soprano
@@ -1537,13 +1702,13 @@ usetags = #'(songA songB songC)
           \new Lyrics \with {alignAboveContext = men} \lyricsto alignerT {\keepWithTag #usetags \wordsTenor}
         >>
         \new PianoStaff = piano <<
-          \new Staff = rh \with { printPartCombineTexts = ##f }
+          \new Staff = pianorh \with { printPartCombineTexts = ##f }
           <<
             \new Voice \partCombine \keepWithTag #usetags \pianoRHone
                                     \keepWithTag #usetags \pianoRHtwo
           >>
           \new Dynamics \keepWithTag #usetags \dynamicsPiano
-          \new Staff = lh \with { printPartCombineTexts = ##f }
+          \new Staff = pianolh \with { printPartCombineTexts = ##f }
           <<
             \clef "bass"
             \new Voice \partCombine \keepWithTag #usetags \pianoLHone
@@ -1551,29 +1716,50 @@ usetags = #'(songA songB songC)
           >>
         >>
         <<
-          \new ChordNames = guitar \with {alignAboveContext = rh} { \keepWithTag #usetags \ChordTrack }
-%          \new FretBoards \with {alignAboveContext = rh} { \keepWithTag #usetags \ChordTrack }
+          \new ChordNames = guitar \with {alignAboveContext = pianorh} { \keepWithTag #usetags \ChordTrack }
+%          \new FretBoards \with {alignAboveContext = pianorh} { \keepWithTag #usetags \ChordTrack }
         >>
       >>
     >>
     \layout {
       indent = 1.5\cm
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "singlepage"
   \paper {
+    output-suffix = singlepage
     top-margin = 0
     left-margin = 7
     right-margin = 1
-    paper-width = 190\mm
-    paper-height = 2500\mm
-    ragged-bottom = true
+    paper-width = 191\mm
+    page-breaking = #ly:one-page-breaking
     system-system-spacing.basic-distance = #22
     system-separator-markup = \slashSeparator
   }
@@ -1590,7 +1776,7 @@ usetags = #'(songA songB songC)
           <<
             \new Voice \keepWithTag #usetags \TempoTrack
             \new Voice \keepWithTag #usetags \RehearsalTrack
-            \new Voice \partCombine {\keepWithTag #usetags \soprano}
+            \new Voice \partCombine {\keepWithTag #usetags \soprano \bar "|'"}
                                     {\keepWithTag #usetags \alto   }
             \new NullVoice = alignerA \keepWithTag #usetags \alto
             \new NullVoice = alignerS \keepWithTag #usetags \soprano
@@ -1614,13 +1800,13 @@ usetags = #'(songA songB songC)
           \new Lyrics \with {alignAboveContext = men} \lyricsto alignerT {\keepWithTag #usetags \wordsTenor}
         >>
         \new PianoStaff = piano <<
-          \new Staff = rh \with { printPartCombineTexts = ##f }
+          \new Staff = pianorh \with { printPartCombineTexts = ##f }
           <<
             \new Voice \partCombine \keepWithTag #usetags \pianoRHone
                                     \keepWithTag #usetags \pianoRHtwo
           >>
           \new Dynamics \keepWithTag #usetags \dynamicsPiano
-          \new Staff = lh \with { printPartCombineTexts = ##f }
+          \new Staff = pianolh \with { printPartCombineTexts = ##f }
           <<
             \clef "bass"
             \new Voice \partCombine \keepWithTag #usetags \pianoLHone
@@ -1628,54 +1814,646 @@ usetags = #'(songA songB songC)
           >>
         >>
         <<
-          \new ChordNames = guitar \with {alignAboveContext = rh} { \keepWithTag #usetags \ChordTrack }
-%          \new FretBoards \with {alignAboveContext = rh} { \keepWithTag #usetags \ChordTrack }
+          \new ChordNames = guitar \with {alignAboveContext = pianorh} { \keepWithTag #usetags \ChordTrack }
+%          \new FretBoards \with {alignAboveContext = pianorh} { \keepWithTag #usetags \ChordTrack }
         >>
       >>
     >>
     \layout {
       indent = 1.5\cm
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 19)
+
+\book {
+  \paper {
+    output-suffix = singlepage-sop
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    ragged-bottom = true
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \new Voice \keepWithTag #usetags \TempoTrack
+            \new Voice \keepWithTag #usetags \RehearsalTrack
+	    \new Voice {\keepWithTag #usetags \soprano \bar "|."}
+            \addlyrics {\keepWithTag #usetags \wordsSopSep}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+	    \magnifyStaff #4/7
+            \new Voice {\keepWithTag #usetags \alto   }
+            \addlyrics {\tiny \keepWithTag #usetags \wordsAltoSep}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+	    \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \keepWithTag #usetags \tenor
+            \addlyrics {\tiny \keepWithTag #usetags \wordsTenorSep}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+	    \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \keepWithTag #usetags \bass
+            \addlyrics {\tiny \keepWithTag #usetags \wordsBassSep}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with { printPartCombineTexts = ##f }
+          <<
+	    \magnifyStaff #4/7
+            \new Voice \partCombine \keepWithTag #usetags \pianoRHone
+                                    \keepWithTag #usetags \pianoRHtwo
+          >>
+	  \new Dynamics {\teeny \keepWithTag #usetags \dynamicsPiano}
+          \new Staff = pianolh \with { printPartCombineTexts = ##f }
+          <<
+	    \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \partCombine \keepWithTag #usetags \pianoLHone
+                                    \keepWithTag #usetags \pianoLHtwo
+          >>
+        >>
+        <<
+          \new ChordNames = guitar \with {alignAboveContext = pianorh} { \keepWithTag #usetags \ChordTrack }
+%          \new FretBoards \with {alignAboveContext = pianorh} { \keepWithTag #usetags \ChordTrack }
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 19)
+
+\book {
+  \paper {
+    output-suffix = singlepage-alto
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    ragged-bottom = true
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+	    \magnifyStaff #4/7
+            \new Voice \keepWithTag #usetags \TempoTrack
+            \new Voice \keepWithTag #usetags \RehearsalTrack
+	    \new Voice {\keepWithTag #usetags \soprano \bar "|."}
+            \addlyrics {\tiny \keepWithTag #usetags \wordsSopSep}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \new Voice {\keepWithTag #usetags \alto   }
+            \addlyrics {\keepWithTag #usetags \wordsAltoSep}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+	    \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \keepWithTag #usetags \tenor
+            \addlyrics {\tiny \keepWithTag #usetags \wordsTenorSep}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+	    \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \keepWithTag #usetags \bass
+            \addlyrics {\tiny \keepWithTag #usetags \wordsBassSep}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with { printPartCombineTexts = ##f }
+          <<
+	    \magnifyStaff #4/7
+            \new Voice \partCombine \keepWithTag #usetags \pianoRHone
+                                    \keepWithTag #usetags \pianoRHtwo
+          >>
+	  \new Dynamics {\teeny \keepWithTag #usetags \dynamicsPiano}
+          \new Staff = pianolh \with { printPartCombineTexts = ##f }
+          <<
+	    \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \partCombine \keepWithTag #usetags \pianoLHone
+                                    \keepWithTag #usetags \pianoLHtwo
+          >>
+        >>
+        <<
+          \new ChordNames = guitar \with {alignAboveContext = pianorh} { \keepWithTag #usetags \ChordTrack }
+%          \new FretBoards \with {alignAboveContext = pianorh} { \keepWithTag #usetags \ChordTrack }
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 19)
+
+\book {
+  \paper {
+    output-suffix = singlepage-tenor
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    ragged-bottom = true
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+	    \magnifyStaff #4/7
+            \new Voice \keepWithTag #usetags \TempoTrack
+            \new Voice \keepWithTag #usetags \RehearsalTrack
+	    \new Voice {\keepWithTag #usetags \soprano \bar "|."}
+            \addlyrics {\tiny \keepWithTag #usetags \wordsSopSep}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+	    \magnifyStaff #4/7
+            \new Voice {\keepWithTag #usetags \alto   }
+            \addlyrics {\tiny \keepWithTag #usetags \wordsAltoSep}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+            \clef "treble_8"
+            \new Voice \keepWithTag #usetags \tenor
+            \addlyrics {\keepWithTag #usetags \wordsTenorSep}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+	    \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \keepWithTag #usetags \bass
+            \addlyrics {\tiny \keepWithTag #usetags \wordsBassSep}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with { printPartCombineTexts = ##f }
+          <<
+	    \magnifyStaff #4/7
+            \new Voice \partCombine \keepWithTag #usetags \pianoRHone
+                                    \keepWithTag #usetags \pianoRHtwo
+          >>
+	  \new Dynamics {\teeny \keepWithTag #usetags \dynamicsPiano}
+          \new Staff = pianolh \with { printPartCombineTexts = ##f }
+          <<
+	    \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \partCombine \keepWithTag #usetags \pianoLHone
+                                    \keepWithTag #usetags \pianoLHtwo
+          >>
+        >>
+        <<
+          \new ChordNames = guitar \with {alignAboveContext = pianorh} { \keepWithTag #usetags \ChordTrack }
+%          \new FretBoards \with {alignAboveContext = pianorh} { \keepWithTag #usetags \ChordTrack }
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 19)
+
+\book {
+  \paper {
+    output-suffix = singlepage-bass
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    ragged-bottom = true
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+	    \magnifyStaff #4/7
+            \new Voice \keepWithTag #usetags \TempoTrack
+            \new Voice \keepWithTag #usetags \RehearsalTrack
+	    \new Voice {\keepWithTag #usetags \soprano \bar "|."}
+            \addlyrics {\tiny \keepWithTag #usetags \wordsSopSep}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+	    \magnifyStaff #4/7
+            \new Voice {\keepWithTag #usetags \alto   }
+            \addlyrics {\tiny \keepWithTag #usetags \wordsAltoSep}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+	    \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \keepWithTag #usetags \tenor
+            \addlyrics {\tiny \keepWithTag #usetags \wordsTenorSep}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \clef "bass"
+            \new Voice \keepWithTag #usetags \bass
+            \addlyrics {\keepWithTag #usetags \wordsBassSep}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with { printPartCombineTexts = ##f }
+          <<
+	    \magnifyStaff #4/7
+            \new Voice \partCombine \keepWithTag #usetags \pianoRHone
+                                    \keepWithTag #usetags \pianoRHtwo
+          >>
+	  \new Dynamics {\teeny \keepWithTag #usetags \dynamicsPiano}
+          \new Staff = pianolh \with { printPartCombineTexts = ##f }
+          <<
+	    \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \partCombine \keepWithTag #usetags \pianoLHone
+                                    \keepWithTag #usetags \pianoLHtwo
+          >>
+        >>
+        <<
+          \new ChordNames = guitar \with {alignAboveContext = pianorh} { \keepWithTag #usetags \ChordTrack }
+%          \new FretBoards \with {alignAboveContext = pianorh} { \keepWithTag #usetags \ChordTrack }
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 19)
+
+\book {
+  \paper {
+    output-suffix = singlepage-sep
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    ragged-bottom = true
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \new Voice \keepWithTag #usetags \TempoTrack
+            \new Voice \keepWithTag #usetags \RehearsalTrack
+	    \new Voice {\keepWithTag #usetags \soprano \bar "|."}
+            \addlyrics {\keepWithTag #usetags \wordsSopSep}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \new Voice {\keepWithTag #usetags \alto   }
+            \addlyrics {\keepWithTag #usetags \wordsAltoSep}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          <<
+            \clef "treble_8"
+            \new Voice \keepWithTag #usetags \tenor
+            \addlyrics {\keepWithTag #usetags \wordsTenorSep}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \clef "bass"
+            \new Voice \keepWithTag #usetags \bass
+            \addlyrics {\keepWithTag #usetags \wordsBassSep}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with { printPartCombineTexts = ##f }
+          <<
+            \new Voice \partCombine \keepWithTag #usetags \pianoRHone
+                                    \keepWithTag #usetags \pianoRHtwo
+          >>
+          \new Dynamics \keepWithTag #usetags \dynamicsPiano
+          \new Staff = pianolh \with { printPartCombineTexts = ##f }
+          <<
+            \clef "bass"
+            \new Voice \partCombine \keepWithTag #usetags \pianoLHone
+                                    \keepWithTag #usetags \pianoLHtwo
+          >>
+        >>
+        <<
+          \new ChordNames = guitar \with {alignAboveContext = pianorh} { \keepWithTag #usetags \ChordTrack }
+%          \new FretBoards \with {alignAboveContext = pianorh} { \keepWithTag #usetags \ChordTrack }
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
 \book {
-  \bookOutputSuffix "midi-sop"
+  \paper {
+    output-suffix = midi-sop
+  }
   \score {
 %   \articulate
     <<
       <<
         \new ChoirStaff <<
                                 % Soprano staff
-          \new Staff = soprano
+          \new Staff = soprano \with {
+            midiInstrument = "choir aahs"
+          }
           <<
             \new Voice \keepWithTag #usetags \TempoTrack
-            \new Voice {\keepWithTag #usetags \soprano}
+            \new Voice {\keepWithTag #usetags \soprano \bar "|'"}
+            \addlyrics {\keepWithTag #usetags \wordsMidiSop}
           >>
-          \addlyrics {\keepWithTag #usetags \wordsMidiSop}
                                 % Alto staff
-          \new Staff = alto
+          \new Staff = alto \with {
+            midiInstrument = "choir aahs"
+          }
           <<
             \new Voice {\keepWithTag #usetags \alto   }
           >>
                                 % Tenor staff
-          \new Staff = tenor
+          \new Staff = tenor \with {
+            midiInstrument = "choir aahs"
+          }
           <<
             \clef "treble_8"
             \new Voice \keepWithTag #usetags \tenor
           >>
                                 % Bass staff
-          \new Staff = bass
+          \new Staff = bass \with {
+            midiInstrument = "choir aahs"
+          }
           <<
             \clef "bass"
             \new Voice \keepWithTag #usetags \bass
           >>
         >>
         \new PianoStaff = piano <<
-          \new Staff = lh \with { printPartCombineTexts = ##f }
+          \new Staff = pianolh \with {
+            midiInstrument = "acoustic grand piano"
+          }
           <<
             \new Voice \keepWithTag #usetags \pianoRHone
             \new Voice \keepWithTag #usetags \pianoRHtwo
@@ -1685,49 +2463,71 @@ usetags = #'(songA songB songC)
           >>
         >>
         <<
-          \new ChordNames = guitar \with {alignAboveContext = rh} { \keepWithTag #usetags \ChordTrack }
-%          \new FretBoards \with {alignAboveContext = rh} { \keepWithTag #usetags \ChordTrack }
+          \new ChordNames = guitar { \keepWithTag #usetags \ChordTrack }
+%          \new FretBoards { \keepWithTag #usetags \ChordTrack }
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
 \book {
-  \bookOutputSuffix "midi-alto"
+  \paper {
+    output-suffix = midi-alto
+  }
   \score {
 %   \articulate
     <<
       <<
         \new ChoirStaff <<
                                 % Soprano staff
-          \new Staff = soprano
+          \new Staff = soprano \with {
+            midiInstrument = "choir aahs"
+          }
           <<
             \new Voice \keepWithTag #usetags \TempoTrack
+	    \new Voice {\keepWithTag #usetags \soprano}
+            \addlyrics {\keepWithTag #usetags \wordsMidiSop}
           >>
-          \addlyrics {\keepWithTag #usetags \wordsMidiSop}
                                 % Alto staff
-          \new Staff = alto
+          \new Staff = alto \with {
+            midiInstrument = "choir aahs"
+          }
           <<
             \new Voice {\keepWithTag #usetags \alto   }
+            \addlyrics {\keepWithTag #usetags \wordsMidiAlto}
           >>
-          \addlyrics {\keepWithTag #usetags \wordsMidiAlto}
                                 % Tenor staff
-          \new Staff = tenor
+          \new Staff = tenor \with {
+            midiInstrument = "choir aahs"
+          }
           <<
             \clef "treble_8"
             \new Voice \keepWithTag #usetags \tenor
           >>
                                 % Bass staff
-          \new Staff = bass
+          \new Staff = bass \with {
+            midiInstrument = "choir aahs"
+          }
           <<
             \clef "bass"
             \new Voice \keepWithTag #usetags \bass
           >>
         >>
         \new PianoStaff = piano <<
-          \new Staff = lh \with { printPartCombineTexts = ##f }
+          \new Staff = pianolh \with {
+            midiInstrument = "acoustic grand piano"
+          }
           <<
             \new Voice \keepWithTag #usetags \pianoRHone
             \new Voice \keepWithTag #usetags \pianoRHtwo
@@ -1737,49 +2537,71 @@ usetags = #'(songA songB songC)
           >>
         >>
         <<
-          \new ChordNames = guitar \with {alignAboveContext = rh} { \keepWithTag #usetags \ChordTrack }
-%          \new FretBoards \with {alignAboveContext = rh} { \keepWithTag #usetags \ChordTrack }
+          \new ChordNames = guitar { \keepWithTag #usetags \ChordTrack }
+%          \new FretBoards { \keepWithTag #usetags \ChordTrack }
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
 \book {
-  \bookOutputSuffix "midi-tenor"
+  \paper {
+    output-suffix = midi-tenor
+  }
   \score {
 %   \articulate
     <<
       <<
         \new ChoirStaff <<
                                 % Soprano staff
-          \new Staff = soprano
+          \new Staff = soprano \with {
+            midiInstrument = "choir aahs"
+          }
           <<
             \new Voice \keepWithTag #usetags \TempoTrack
-            \new Voice {\keepWithTag #usetags \soprano}
+	    \new Voice {\keepWithTag #usetags \soprano}
+            \new Voice {\keepWithTag #usetags \soprano \bar "|'"}
           >>
                                 % Alto staff
-          \new Staff = alto
+          \new Staff = alto \with {
+            midiInstrument = "choir aahs"
+          }
           <<
             \new Voice {\keepWithTag #usetags \alto   }
           >>
                                 % Tenor staff
-          \new Staff = tenor
+          \new Staff = tenor \with {
+            midiInstrument = "choir aahs"
+          }
           <<
             \clef "treble_8"
             \new Voice \keepWithTag #usetags \tenor
             \addlyrics {\keepWithTag #usetags \wordsMidiTenor}
           >>
                                 % Bass staff
-          \new Staff = bass
+          \new Staff = bass \with {
+            midiInstrument = "choir aahs"
+          }
           <<
             \clef "bass"
             \new Voice \keepWithTag #usetags \bass
           >>
         >>
         \new PianoStaff = piano <<
-          \new Staff = lh \with { printPartCombineTexts = ##f }
+          \new Staff = pianolh \with {
+            midiInstrument = "acoustic grand piano"
+            }
           <<
             \new Voice \keepWithTag #usetags \pianoRHone
             \new Voice \keepWithTag #usetags \pianoRHtwo
@@ -1789,41 +2611,61 @@ usetags = #'(songA songB songC)
           >>
         >>
         <<
-          \new ChordNames = guitar \with {alignAboveContext = rh} { \keepWithTag #usetags \ChordTrack }
-%          \new FretBoards \with {alignAboveContext = rh} { \keepWithTag #usetags \ChordTrack }
+          \new ChordNames = guitar { \keepWithTag #usetags \ChordTrack }
+%          \new FretBoards { \keepWithTag #usetags \ChordTrack }
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
 \book {
-  \bookOutputSuffix "midi-bass"
+  \paper {
+    output-suffix = midi-bass
+  }
   \score {
 %   \articulate
     <<
       <<
         \new ChoirStaff <<
                                 % Soprano staff
-          \new Staff = soprano
+          \new Staff = soprano \with {
+            midiInstrument = "choir aahs"
+          }
           <<
             \new Voice \keepWithTag #usetags \TempoTrack
+	    \new Voice {\keepWithTag #usetags \soprano \bar "|'"}
+            \addlyrics {\keepWithTag #usetags \wordsMidiSop}
           >>
-          \addlyrics {\keepWithTag #usetags \wordsMidiSop}
                                 % Alto staff
-          \new Staff = alto
+          \new Staff = alto \with {
+            midiInstrument = "choir aahs"
+          }
           <<
             \new Voice {\keepWithTag #usetags \alto   }
           >>
                                 % Tenor staff
-          \new Staff = tenor
+          \new Staff = tenor \with {
+            midiInstrument = "choir aahs"
+          }
           <<
             \clef "treble_8"
             \new Voice \keepWithTag #usetags \tenor
           >>
                                 % Bass staff
-          \new Staff = bass
+          \new Staff = bass \with {
+            midiInstrument = "choir aahs"
+          }
           <<
             \clef "bass"
             \new Voice \keepWithTag #usetags \bass
@@ -1831,7 +2673,9 @@ usetags = #'(songA songB songC)
           >>
         >>
         \new PianoStaff = piano <<
-          \new Staff = lh \with { printPartCombineTexts = ##f }
+          \new Staff = pianolh \with {
+            midiInstrument = "acoustic grand piano"
+          }
           <<
             \new Voice \keepWithTag #usetags \pianoRHone
             \new Voice \keepWithTag #usetags \pianoRHtwo
@@ -1841,11 +2685,20 @@ usetags = #'(songA songB songC)
           >>
         >>
         <<
-          \new ChordNames = guitar \with {alignAboveContext = rh} { \keepWithTag #usetags \ChordTrack }
-%          \new FretBoards \with {alignAboveContext = rh} { \keepWithTag #usetags \ChordTrack }
+          \new ChordNames = guitar { \keepWithTag #usetags \ChordTrack }
+%          \new FretBoards { \keepWithTag #usetags \ChordTrack }
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
