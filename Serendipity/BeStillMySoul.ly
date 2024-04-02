@@ -1,5 +1,6 @@
-\version "2.22.1"
+\version "2.25.14"
 
+\include "kjp.ly"
 \include "articulate.ly"
 
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
@@ -8,9 +9,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 % centered at top
 %  dedication  = "dedication"
   title       = "Be Still, My Soul"
-  subtitle    = "A. H. B. 123"
-%  subsubtitle = "Sankey 880 No. Y"
-%  instrument  = "instrument"
+  subtitle    = "A. H. B. 48"
   
 % arrangement of following lines:
 %
@@ -22,7 +21,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 %  arranger    = "arranger"
 %  opus        = "opus"
 
-%  poet        = \markup\smallCaps ""
+  poet        = \markup{\smallCaps "Katharina von Schlegel" "(tr. Jane Borthwick)"}
   meter       = \markup\smallCaps "Finlandia"
   piece       = \markup\smallCaps "10 10. 10 10. 10 10"
 
@@ -31,8 +30,6 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   tagline   = ##f
   copyright   = \today
 }
-
-% #(set-global-staff-size 16)
 
 global = {
   \key ees \major
@@ -57,7 +54,6 @@ TempoTrack = {
 nl = { \bar "||" \break }
 
 soprano = \relative {
-  \voiceOne
   g'4 f g
   aes2. g4
   f4 g ees4. f8
@@ -86,7 +82,6 @@ soprano = \relative {
 }
 
 alto = \relative {
-  \voiceTwo
   ees'4 d ees
   d2. ees4
   d4 ees c4. d8
@@ -115,7 +110,6 @@ alto = \relative {
 }
 
 tenor = \relative {
-  \voiceOne
   bes4 4 4
   bes2. 4
   bes4 4 aes4. bes8
@@ -144,7 +138,6 @@ tenor = \relative {
 }
 
 bass = \relative {
-  \voiceTwo
   ees4 aes g
   f2. ees4
   aes4 g aes f
@@ -172,18 +165,12 @@ bass = \relative {
   ees4
 }
 
-nom  = {   \set ignoreMelismata = ##t }
-yesm = { \unset ignoreMelismata       }
-
-chorus = \lyricmode {
-}
-
 verses = 4
 
 wordsOne = \lyricmode {
   \set stanza = "1."
   Be still, my soul: the Lord is on your side;
-  hear pa -- tient -- ly the cross of grief and pain;
+  bear pa -- tient -- ly the cross of grief and pain;
   leave to your God to or -- der and pro -- vide;
   in ev -- ery change he faith -- ful will re -- main.
   Be still, my soul: your best, your heaven -- ly friend
@@ -255,111 +242,174 @@ wordsMidi = \lyricmode {
 }
 
 \book {
-  \bookOutputSuffix "midi"
+  \paper {
+    output-suffix = midi
+  }
   \score {
 %    \articulate
         \new ChoirStaff <<
                                 % Soprano staff
-          \new Staff = soprano
+          \new Staff = soprano \with {
+            midiInstrument = "choir aahs"
+          }
           <<
             \new Voice { \repeat unfold \verses \TempoTrack     }
             \new Voice { \global \repeat unfold \verses \soprano \bar "|." }
             \addlyrics \wordsMidi
           >>
                                 % Alto staff
-          \new Staff = alto
+          \new Staff = alto \with {
+            midiInstrument = "choir aahs"
+          }
           <<
             \new Voice { \global \repeat unfold \verses { \alto \nl } \bar "|." }
           >>
                                 % Tenor staff
-          \new Staff = tenor
+          \new Staff = tenor \with {
+            midiInstrument = "choir aahs"
+          }
           <<
             \clef "treble_8"
             \new Voice { \global \repeat unfold \verses \tenor }
           >>
                                 % Bass staff
-          \new Staff = bass
+          \new Staff = bass \with {
+            midiInstument = "choir aahs"
+          }
           <<
             \clef "bass"
             \new Voice { \global \repeat unfold \verses \bass }
           >>
         >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "repeat"
+  \paper {
+    output-suffix = repeat
+  }
   \score {
         \new ChoirStaff <<
                                   % Joint soprano/alto staff
-          \new Staff
+          \new Staff = women
           <<
             \new Voice \RehearsalTrack
             \new Voice \TempoTrack
-            \new Voice = "soprano" { \global \soprano \bar "|." }
-            \new Voice = "alto"    { \global \alto }
-            \new Lyrics \lyricsto "soprano" { \wordsOne \chorus }
-            \new Lyrics \lyricsto "soprano"   \wordsTwo
-            \new Lyrics \lyricsto "soprano"   \wordsThree
-            \new Lyrics \lyricsto "soprano"   \wordsFour
+            \new Voice { \global \vo \soprano \bar "|." }
+            \new Voice { \global \vt \alto }
+            \addlyrics \wordsOne 
+            \addlyrics \wordsTwo
+            \addlyrics \wordsThree
+            \addlyrics \wordsFour
           >>
                                   % Joint tenor/bass staff
-          \new Staff
+          \new Staff = men
           <<
             \clef "bass"
-            \new Voice = "tenor" { \global \tenor }
-            \new Voice = "bass"  { \global \bass }
+            \new Voice { \global \vo \tenor }
+            \new Voice { \global \vt \bass }
           >>
         >>
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "single"
+  \paper {
+    output-suffix = single
+  }
   \score {
         \new ChoirStaff <<
                                   % Joint soprano/alto staff
-          \new Staff
+          \new Staff = women
           <<
             \new Voice { \repeat unfold \verses \RehearsalTrack }
             \new Voice { \repeat unfold \verses \TempoTrack }
-            \new Voice = "soprano" { \global \repeat unfold \verses \soprano \bar "|." }
-            \new Voice = "alto"    { \global \repeat unfold \verses { \alto \nl } \bar "|." }
-            \new Lyrics \lyricsto "soprano" { \wordsOne   \chorus
-                                              \wordsTwo   \chorus
-                                              \wordsThree \chorus
-                                              \wordsFour  \chorus
-                                            }
+            \new Voice { \global \repeat unfold \verses \soprano \bar "|." }
+            \new Voice { \global \repeat unfold \verses { \alto \nl } \bar "|." }
+            \addlyrics { \wordsOne \wordsTwo \wordsThree \wordsFour }
           >>
                                   % Joint tenor/bass staff
-          \new Staff
+          \new Staff = men
           <<
             \clef "bass"
-            \new Voice = "tenor" { \global \repeat unfold \verses \tenor }
-            \new Voice = "bass"  { \global \repeat unfold \verses \bass  }
+            \new Voice { \global \repeat unfold \verses \tenor }
+            \new Voice { \global \repeat unfold \verses \bass  }
           >>
         >>
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "singlepage"
   \paper {
+    output-suffix = singlepage
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -371,31 +421,433 @@ wordsMidi = \lyricmode {
   \score {
         \new ChoirStaff <<
                                   % Joint soprano/alto staff
-          \new Staff
+          \new Staff = women
           <<
             \new Voice { \repeat unfold \verses \RehearsalTrack }
             \new Voice { \repeat unfold \verses \TempoTrack }
-            \new Voice = "soprano" { \global \repeat unfold \verses \soprano \bar "|." }
-            \new Voice = "alto"    { \global \repeat unfold \verses { \alto \nl } \bar "|." }
-            \new Lyrics \lyricsto "soprano" { \wordsOne   \chorus
-                                              \wordsTwo   \chorus
-                                              \wordsThree \chorus
-                                              \wordsFour  \chorus
-                                            }
+            \new Voice { \global \repeat unfold \verses \soprano \bar "|." }
+            \new Voice { \global \repeat unfold \verses { \alto \nl } \bar "|." }
+            \addlyrics { \wordsOne \wordsTwo \wordsThree \wordsFour }
           >>
                                   % Joint tenor/bass staff
-          \new Staff
+          \new Staff = men
           <<
             \clef "bass"
-            \new Voice = "tenor" { \global \repeat unfold \verses \tenor }
-            \new Voice = "bass"  { \global \repeat unfold \verses \bass  }
+            \new Voice { \global \repeat unfold \verses \tenor }
+            \new Voice { \global \repeat unfold \verses \bass  }
           >>
         >>
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-sep
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano
+          <<
+            \new Voice { \repeat unfold \verses \RehearsalTrack }
+            \new Voice { \repeat unfold \verses \TempoTrack }
+            \new Voice { \global \repeat unfold \verses \soprano \bar "|." }
+            \addlyrics { \wordsOne \wordsTwo \wordsThree \wordsFour }
+          >>
+                                % Alto staff
+          \new Staff = alto
+          <<
+            \new Voice { \repeat unfold \verses \RehearsalTrack }
+            \new Voice { \repeat unfold \verses \TempoTrack }
+            \new Voice { \global \repeat unfold \verses { \alto \nl } \bar "|." }
+            \addlyrics { \wordsOne \wordsTwo \wordsThree \wordsFour }
+          >>
+                                % Tenor staff
+          \new Staff = tenor
+          <<
+            \clef "treble_8"
+            \new Voice { \global \repeat unfold \verses \tenor }
+            \addlyrics { \wordsOne \wordsTwo \wordsThree \wordsFour }
+          >>
+                                % Bass staff
+          \new Staff = bass
+          <<
+            \clef "bass"
+            \new Voice { \global \repeat unfold \verses \bass  }
+            \addlyrics { \wordsOne \wordsTwo \wordsThree \wordsFour }
+          >>
+        >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-sop
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano
+          <<
+            \new Voice { \repeat unfold \verses \RehearsalTrack }
+            \new Voice { \repeat unfold \verses \TempoTrack }
+            \new Voice { \global \repeat unfold \verses \soprano \bar "|." }
+            \addlyrics { \wordsOne \wordsTwo \wordsThree \wordsFour }
+          >>
+                                % Alto staff
+          \new Staff = alto
+          <<
+            \magnifyStaff #4/7
+            \new Voice { \repeat unfold \verses \RehearsalTrack }
+            \new Voice { \repeat unfold \verses \TempoTrack }
+            \new Voice { \global \repeat unfold \verses { \alto \nl } \bar "|." }
+            \addlyrics { \tiny \wordsOne \wordsTwo \wordsThree \wordsFour }
+          >>
+                                % Tenor staff
+          \new Staff = tenor
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice { \global \repeat unfold \verses \tenor }
+            \addlyrics { \tiny \wordsOne \wordsTwo \wordsThree \wordsFour }
+          >>
+                                % Bass staff
+          \new Staff = bass
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice { \global \repeat unfold \verses \bass  }
+            \addlyrics { \tiny \wordsOne \wordsTwo \wordsThree \wordsFour }
+          >>
+        >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-alto
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano
+          <<
+            \magnifyStaff #4/7
+            \new Voice { \repeat unfold \verses \RehearsalTrack }
+            \new Voice { \repeat unfold \verses \TempoTrack }
+            \new Voice { \global \repeat unfold \verses \soprano \bar "|." }
+            \addlyrics { \tiny \wordsOne \wordsTwo \wordsThree \wordsFour }
+          >>
+                                % Alto staff
+          \new Staff = alto
+          <<
+            \new Voice { \repeat unfold \verses \RehearsalTrack }
+            \new Voice { \repeat unfold \verses \TempoTrack }
+            \new Voice { \global \repeat unfold \verses { \alto \nl } \bar "|." }
+            \addlyrics { \wordsOne \wordsTwo \wordsThree \wordsFour }
+          >>
+                                % Tenor staff
+          \new Staff = tenor
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice { \global \repeat unfold \verses \tenor }
+            \addlyrics { \tiny \wordsOne \wordsTwo \wordsThree \wordsFour }
+          >>
+                                % Bass staff
+          \new Staff = bass
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice { \global \repeat unfold \verses \bass  }
+            \addlyrics { \tiny \wordsOne \wordsTwo \wordsThree \wordsFour }
+          >>
+        >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-tenor
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano
+          <<
+            \magnifyStaff #4/7
+            \new Voice { \repeat unfold \verses \RehearsalTrack }
+            \new Voice { \repeat unfold \verses \TempoTrack }
+            \new Voice { \global \repeat unfold \verses \soprano \bar "|." }
+            \addlyrics { \tiny \wordsOne \wordsTwo \wordsThree \wordsFour }
+          >>
+                                % Alto staff
+          \new Staff = alto
+          <<
+            \magnifyStaff #4/7
+            \new Voice { \repeat unfold \verses \RehearsalTrack }
+            \new Voice { \repeat unfold \verses \TempoTrack }
+            \new Voice { \global \repeat unfold \verses { \alto \nl } \bar "|." }
+            \addlyrics { \tiny \wordsOne \wordsTwo \wordsThree \wordsFour }
+          >>
+                                % Tenor staff
+          \new Staff = tenor
+          <<
+            \clef "treble_8"
+            \new Voice { \global \repeat unfold \verses \tenor }
+            \addlyrics { \wordsOne \wordsTwo \wordsThree \wordsFour }
+          >>
+                                % Bass staff
+          \new Staff = bass
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice { \global \repeat unfold \verses \bass  }
+            \addlyrics { \tiny \wordsOne \wordsTwo \wordsThree \wordsFour }
+          >>
+        >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-bass
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano
+          <<
+            \magnifyStaff #4/7
+            \new Voice { \repeat unfold \verses \RehearsalTrack }
+            \new Voice { \repeat unfold \verses \TempoTrack }
+            \new Voice { \global \repeat unfold \verses \soprano \bar "|." }
+            \addlyrics { \tiny \wordsOne \wordsTwo \wordsThree \wordsFour }
+          >>
+                                % Alto staff
+          \new Staff = alto
+          <<
+            \magnifyStaff #4/7
+            \new Voice { \repeat unfold \verses \RehearsalTrack }
+            \new Voice { \repeat unfold \verses \TempoTrack }
+            \new Voice { \global \repeat unfold \verses { \alto \nl } \bar "|." }
+            \addlyrics { \tiny \wordsOne \wordsTwo \wordsThree \wordsFour }
+          >>
+                                % Tenor staff
+          \new Staff = tenor
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice { \global \repeat unfold \verses \tenor }
+            \addlyrics { \tiny \wordsOne \wordsTwo \wordsThree \wordsFour }
+          >>
+                                % Bass staff
+          \new Staff = bass
+          <<
+            \clef "bass"
+            \new Voice { \global \repeat unfold \verses \bass  }
+            \addlyrics { \wordsOne \wordsTwo \wordsThree \wordsFour }
+          >>
+        >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
