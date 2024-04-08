@@ -1325,7 +1325,6 @@ pianoLHtwo = \relative {
           \new Staff = women \with {
             instrumentName = #"Soprano/Alto"
             shortInstrumentName = #"SA"
-            midiInstrument = "choir aahs"
             printPartCombineTexts = ##f
           }
           <<
@@ -1345,7 +1344,6 @@ pianoLHtwo = \relative {
           \new Staff = men \with {
             instrumentName = #"Tenor/Bass"
             shortInstrumentName = #"TB"
-            midiInstrument = "choir aahs"
             printPartCombineTexts = ##f
           }
           <<
@@ -1364,7 +1362,6 @@ pianoLHtwo = \relative {
         \new PianoStaff = piano <<
           \new Staff = piano \with {
             printPartCombineTexts = ##f
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \new Voice \partCombine \pianoRHone \pianoRHtwo
@@ -1372,7 +1369,6 @@ pianoLHtwo = \relative {
           \new Dynamics \dynamicsPiano
           \new Staff = pianolh \with {
             printPartCombineTexts = ##f
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \clef "treble"
@@ -1435,7 +1431,6 @@ pianoLHtwo = \relative {
           \new Staff = women \with {
             instrumentName = #"Soprano/Alto"
             shortInstrumentName = #"SA"
-            midiInstrument = "choir aahs"
             printPartCombineTexts = ##f
           }
           <<
@@ -1455,7 +1450,6 @@ pianoLHtwo = \relative {
           \new Staff = men \with {
             instrumentName = #"Tenor/Bass"
             shortInstrumentName = #"TB"
-            midiInstrument = "choir aahs"
             printPartCombineTexts = ##f
           }
           <<
@@ -1475,7 +1469,6 @@ pianoLHtwo = \relative {
         \new PianoStaff = piano <<
           \new Staff = piano \with {
             printPartCombineTexts = ##f
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \new Voice \partCombine \pianoRHone \pianoRHtwo
@@ -1483,7 +1476,6 @@ pianoLHtwo = \relative {
           \new Dynamics \dynamicsPiano
           \new Staff = pianolh \with {
             printPartCombineTexts = ##f
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \clef "treble"
@@ -1546,7 +1538,6 @@ pianoLHtwo = \relative {
           \new Staff = soprano \with {
             instrumentName = #"Soprano"
             shortInstrumentName = #"S"
-            midiInstrument = "choir aahs"
           }
           <<
             \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
@@ -1559,7 +1550,6 @@ pianoLHtwo = \relative {
           \new Staff = alto \with {
             instrumentName = #"Alto"
             shortInstrumentName = #"A"
-            midiInstrument = "choir aahs"
           }
           <<
             \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
@@ -1570,7 +1560,6 @@ pianoLHtwo = \relative {
           \new Staff = tenor \with {
             instrumentName = #"Tenor"
             shortInstrumentName = #"T"
-            midiInstrument = "choir aahs"
           }
           <<
             \clef "treble_8"
@@ -1582,7 +1571,6 @@ pianoLHtwo = \relative {
           \new Staff = bass \with {
             instrumentName = #"Bass"
             shortInstrumentName = #"B"
-            midiInstrument = "choir aahs"
           }
           <<
             \clef "bass"
@@ -1599,7 +1587,6 @@ pianoLHtwo = \relative {
         \new PianoStaff = piano <<
           \new Staff = piano \with {
             printPartCombineTexts = ##f
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \new Voice \partCombine \pianoRHone \pianoRHtwo
@@ -1607,7 +1594,6 @@ pianoLHtwo = \relative {
           \new Dynamics \dynamicsPiano
           \new Staff = pianolh \with {
             printPartCombineTexts = ##f
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \clef "treble"
@@ -1670,7 +1656,6 @@ pianoLHtwo = \relative {
           \new Staff = soprano \with {
             instrumentName = #"Soprano"
             shortInstrumentName = #"S"
-            midiInstrument = "choir aahs"
           }
           <<
             \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
@@ -1683,7 +1668,6 @@ pianoLHtwo = \relative {
           \new Staff = alto \with {
             instrumentName = #"Alto"
             shortInstrumentName = #"A"
-            midiInstrument = "choir aahs"
           }
           <<
             \magnifyStaff #4/7
@@ -1695,7 +1679,6 @@ pianoLHtwo = \relative {
           \new Staff = tenor \with {
             instrumentName = #"Tenor"
             shortInstrumentName = #"T"
-            midiInstrument = "choir aahs"
           }
           <<
             \magnifyStaff #4/7
@@ -1708,7 +1691,6 @@ pianoLHtwo = \relative {
           \new Staff = bass \with {
             instrumentName = #"Bass"
             shortInstrumentName = #"B"
-            midiInstrument = "choir aahs"
           }
           <<
             \magnifyStaff #4/7
@@ -1726,7 +1708,6 @@ pianoLHtwo = \relative {
         \new PianoStaff = piano <<
           \new Staff = piano \with {
             printPartCombineTexts = ##f
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \magnifyStaff #4/7
@@ -1735,7 +1716,6 @@ pianoLHtwo = \relative {
           \new Dynamics {\teeny \dynamicsPiano}
           \new Staff = pianolh \with {
             printPartCombineTexts = ##f
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \magnifyStaff #4/7
@@ -1799,7 +1779,6 @@ pianoLHtwo = \relative {
           \new Staff = soprano \with {
             instrumentName = #"Soprano"
             shortInstrumentName = #"S"
-            midiInstrument = "choir aahs"
           }
           <<
             \magnifyStaff #4/7
@@ -1813,7 +1792,6 @@ pianoLHtwo = \relative {
           \new Staff = alto \with {
             instrumentName = #"Alto"
             shortInstrumentName = #"A"
-            midiInstrument = "choir aahs"
           }
           <<
             \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
@@ -1824,7 +1802,6 @@ pianoLHtwo = \relative {
           \new Staff = tenor \with {
             instrumentName = #"Tenor"
             shortInstrumentName = #"T"
-            midiInstrument = "choir aahs"
           }
           <<
             \magnifyStaff #4/7
@@ -1837,7 +1814,6 @@ pianoLHtwo = \relative {
           \new Staff = bass \with {
             instrumentName = #"Bass"
             shortInstrumentName = #"B"
-            midiInstrument = "choir aahs"
           }
           <<
             \magnifyStaff #4/7
@@ -1855,7 +1831,6 @@ pianoLHtwo = \relative {
         \new PianoStaff = piano <<
           \new Staff = piano \with {
             printPartCombineTexts = ##f
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \magnifyStaff #4/7
@@ -1864,7 +1839,6 @@ pianoLHtwo = \relative {
           \new Dynamics {\teeny \dynamicsPiano}
           \new Staff = pianolh \with {
             printPartCombineTexts = ##f
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \magnifyStaff #4/7
@@ -1928,7 +1902,6 @@ pianoLHtwo = \relative {
           \new Staff = soprano \with {
             instrumentName = #"Soprano"
             shortInstrumentName = #"S"
-            midiInstrument = "choir aahs"
           }
           <<
             \magnifyStaff #4/7
@@ -1942,7 +1915,6 @@ pianoLHtwo = \relative {
           \new Staff = alto \with {
             instrumentName = #"Alto"
             shortInstrumentName = #"A"
-            midiInstrument = "choir aahs"
           }
           <<
             \magnifyStaff #4/7
@@ -1954,7 +1926,6 @@ pianoLHtwo = \relative {
           \new Staff = tenor \with {
             instrumentName = #"Tenor"
             shortInstrumentName = #"T"
-            midiInstrument = "choir aahs"
           }
           <<
             \clef "treble_8"
@@ -1966,7 +1937,6 @@ pianoLHtwo = \relative {
           \new Staff = bass \with {
             instrumentName = #"Bass"
             shortInstrumentName = #"B"
-            midiInstrument = "choir aahs"
           }
           <<
             \magnifyStaff #4/7
@@ -1984,7 +1954,6 @@ pianoLHtwo = \relative {
         \new PianoStaff = piano <<
           \new Staff = piano \with {
             printPartCombineTexts = ##f
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \magnifyStaff #4/7
@@ -1993,7 +1962,6 @@ pianoLHtwo = \relative {
           \new Dynamics {\teeny \dynamicsPiano}
           \new Staff = pianolh \with {
             printPartCombineTexts = ##f
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \magnifyStaff #4/7
@@ -2057,7 +2025,6 @@ pianoLHtwo = \relative {
           \new Staff = soprano \with {
             instrumentName = #"Soprano"
             shortInstrumentName = #"S"
-            midiInstrument = "choir aahs"
           }
           <<
             \magnifyStaff #4/7
@@ -2071,7 +2038,6 @@ pianoLHtwo = \relative {
           \new Staff = alto \with {
             instrumentName = #"Alto"
             shortInstrumentName = #"A"
-            midiInstrument = "choir aahs"
           }
           <<
             \magnifyStaff #4/7
@@ -2083,7 +2049,6 @@ pianoLHtwo = \relative {
           \new Staff = tenor \with {
             instrumentName = #"Tenor"
             shortInstrumentName = #"T"
-            midiInstrument = "choir aahs"
           }
           <<
             \magnifyStaff #4/7
@@ -2096,7 +2061,6 @@ pianoLHtwo = \relative {
           \new Staff = bass \with {
             instrumentName = #"Bass"
             shortInstrumentName = #"B"
-            midiInstrument = "choir aahs"
           }
           <<
             \clef "bass"
@@ -2113,7 +2077,6 @@ pianoLHtwo = \relative {
         \new PianoStaff = piano <<
           \new Staff = piano \with {
             printPartCombineTexts = ##f
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \magnifyStaff #4/7
@@ -2122,7 +2085,6 @@ pianoLHtwo = \relative {
           \new Dynamics {\teeny \dynamicsPiano}
           \new Staff = pianolh \with {
             printPartCombineTexts = ##f
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \magnifyStaff #4/7
@@ -2179,6 +2141,7 @@ pianoLHtwo = \relative {
             midiInstrument = "choir aahs"
           }
           <<
+            \new Dynamics \dynamicsSop
             \new Voice \TempoTrack
             \new Voice \soprano
             \addlyrics \wordsSopMidi
@@ -2190,6 +2153,7 @@ pianoLHtwo = \relative {
             midiInstrument = "choir aahs"
           }
           <<
+            \new Dynamics \dynamicsAlto
             \new Voice \alto
           >>
                                 % Tenor staff
@@ -2200,6 +2164,7 @@ pianoLHtwo = \relative {
           }
           <<
             \clef "treble_8"
+            \new Dynamics \dynamicsTenor
             \new Voice \tenor
           >>
                                 % Bass staff
@@ -2210,6 +2175,7 @@ pianoLHtwo = \relative {
           }
           <<
             \clef "bass"
+            \new Dynamics \dynamicsBass
             \new Voice \bass
           >>
         >>
@@ -2223,9 +2189,11 @@ pianoLHtwo = \relative {
             midiInstrument = "acoustic grand piano"
           }
           <<
-            \new Voice \partCombine \pianoRHone \pianoRHtwo
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
             \new Dynamics \dynamicsPiano
-            \new Voice \partCombine \pianoLHone \pianoLHtwo
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
           >>
         >>
       >>
@@ -2257,6 +2225,7 @@ pianoLHtwo = \relative {
             midiInstrument = "choir aahs"
           }
           <<
+            \new Dynamics \dynamicsSop
             \new Voice \TempoTrack
             \new Voice \soprano
           >>
@@ -2267,6 +2236,7 @@ pianoLHtwo = \relative {
             midiInstrument = "choir aahs"
           }
           <<
+            \new Dynamics \dynamicsAlto
             \new Voice \alto
             \addlyrics \wordsAltoMidi
           >>
@@ -2278,6 +2248,7 @@ pianoLHtwo = \relative {
           }
           <<
             \clef "treble_8"
+            \dynamicsTenor
             \new Voice \tenor
           >>
                                 % Bass staff
@@ -2288,6 +2259,7 @@ pianoLHtwo = \relative {
           }
           <<
             \clef "bass"
+            \new Dynamics \dynamicsBass
             \new Voice \bass
           >>
         >>
@@ -2301,9 +2273,11 @@ pianoLHtwo = \relative {
             midiInstrument = "acoustic grand piano"
           }
           <<
-            \new Voice \partCombine \pianoRHone \pianoRHtwo
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
             \new Dynamics \dynamicsPiano
-            \new Voice \partCombine \pianoLHone \pianoLHtwo
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
           >>
         >>
       >>
@@ -2335,6 +2309,7 @@ pianoLHtwo = \relative {
             midiInstrument = "choir aahs"
           }
           <<
+            \new Dynamics \dynamicsSop
             \new Voice \RehearsalTrack
             \new Voice \soprano
           >>
@@ -2345,6 +2320,7 @@ pianoLHtwo = \relative {
             midiInstrument = "choir aahs"
           }
           <<
+            \new Dynamics \dynamicsAlto
             \new Voice \alto
           >>
                                 % Tenor staff
@@ -2355,6 +2331,7 @@ pianoLHtwo = \relative {
           }
           <<
             \clef "treble_8"
+            \new Dynamics \dynamicsTenor
             \new Voice \tenor
             \addlyrics \wordsTenorMidi
           >>
@@ -2366,6 +2343,7 @@ pianoLHtwo = \relative {
           }
           <<
             \clef "bass"
+            \new Dynamics \dynamicsBass
             \new Voice \bass
           >>
         >>
@@ -2379,9 +2357,11 @@ pianoLHtwo = \relative {
             midiInstrument = "acoustic grand piano"
           }
           <<
-            \new Voice \partCombine \pianoRHone \pianoRHtwo
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
             \new Dynamics \dynamicsPiano
-            \new Voice \partCombine \pianoLHone \pianoLHtwo
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
           >>
         >>
       >>
@@ -2413,6 +2393,7 @@ pianoLHtwo = \relative {
             midiInstrument = "choir aahs"
           }
           <<
+            \new Dynamics \dynamicsSop
             \new Voice \TempoTrack
             \new Voice \soprano
           >>
@@ -2423,6 +2404,7 @@ pianoLHtwo = \relative {
             midiInstrument = "choir aahs"
           }
           <<
+            \new Dynamics \dynamicsAlto
             \new Voice \alto
           >>
                                 % Tenor staff
@@ -2433,6 +2415,7 @@ pianoLHtwo = \relative {
           }
           <<
             \clef "treble_8"
+            \new Dynamics \dynamicsTenor
             \new Voice \tenor
           >>
                                 % Bass staff
@@ -2443,6 +2426,7 @@ pianoLHtwo = \relative {
           }
           <<
             \clef "bass"
+            \new Dynamics \dynamicsBass
             \new Voice \bass
             \addlyrics \wordsBassMidi
           >>
@@ -2457,9 +2441,11 @@ pianoLHtwo = \relative {
             midiInstrument = "acoustic grand piano"
           }
           <<
-            \new Voice \partCombine \pianoRHone \pianoRHtwo
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
             \new Dynamics \dynamicsPiano
-            \new Voice \partCombine \pianoLHone \pianoLHtwo
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
           >>
         >>
       >>
