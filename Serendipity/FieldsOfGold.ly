@@ -1,4 +1,4 @@
-\version "2.25.13"
+\version "2.25.14"
 
 \include "kjp.ly"
 \include "predefined-guitar-fretboards.ly"
@@ -20,7 +20,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 %  meter   arranger
 %  piece       opus
 
-  composer    = "G. M. Sumner"
+  composer    = "G. M. Sumner (aka Sting)"
   arranger    = "Arr. Roger Emerson"
 %  opus        = "opus"
 
@@ -114,15 +114,28 @@ ChordTrack = \chordmode {
   s1 | s1 | d1:3.5.9 | s1
 }
 
+dynamicsSop = {
+  \override DynamicTextSpanner.style = #'none
+  s4 | s1*3 | s2. s4\mp | s4 s2.\cresc | s1 | s\dim | s2. s4\mp | s1 |
+  s1*9 | % 4
+  s1 | s2. s4\cresc | s1 | s2.. s8\dim | s1 | s2. s4\mf | s1*3 |
+  s1*5 | s4. s8\mf s2 | s1*3 | % 6
+  s1*5 | s2. s4\mp | s1\omit\cresc-\markup\italic "poco a poco cresc. e rit." | s1*2 |
+  s2 | s2. s4\f | s1-\markup\italic "a tempo" | s1*2 | s2. s4\omit\mp-\markup{\halign #RIGHT \italic sub. \dynamic mp} | s1 | s2.. s8\cresc | s1 | % 8
+  s1 | s4. s8\f s2 | s1*4 |
+  s1 | s1\cresc | s2. s4\dim | s1 | s2. s4\mp | s1*4 | % 10
+  s1 | s2. s4-\markup\italic All | s1 | s1-\markup\italic "rit. e dim. to end" | s1*4 | s1\pp | s |
+}
+
 soprano = \relative {
   \global
   r4
   R1*3
-  r2 r4 c''8^\mp (b % 3b
-  a8^\cresc g4 8~4 c8 b
+  r2 r4 c''8 (b % 3b
+  a8 g4 8~4 c8 b
   a8 g4 8~4 d8 e
-  f4^\dim e d4. c8 % 3c
-  c2~8) r c'8^\mp^\markup "Unis. or opt. Solo" b
+  f4 e d4. c8 % 3c
+  c2~8) r c'8^\markup "Unis. or opt. Solo" b
   a8 g4 8~4 c8 b
   a8 g4 a8~2 % 4a
   r8 c, a' g16 g~4. f8
@@ -134,11 +147,11 @@ soprano = \relative {
   R1
   R1
   R1 % 5a
-  r2 r4 e8^\cresc^\markup\italic All g
+  r2 r4 e8 g
   a4 8 8~4 b8 c
-  a4 g8 8~4 r8 c,^\dim % 5b
+  a4 g8 8~4 r8 c, % 5b
   f4 e d4. c8
-  c2 r4 c'8^\mf b
+  c2 r4 c'8 b
   a8 g4 8~4 c8 b % 5c
   a8 g4 8~2
   r8 c, a' g16 16~4. f8
@@ -147,7 +160,7 @@ soprano = \relative {
   a8 g4 8~4 d8 e
   f4 e d4. c8 % 6b
   c2. r4
-  r4 r8 g'^\mf 8 8 4
+  r4 r8 g'8 8 8 4
   a8 g8 4 8 e4. % 6c
   r4 r8 g8 8 8 4
   a8 g g4 8 e16^\markup Unis. (d c4)
@@ -156,43 +169,43 @@ soprano = \relative {
   f4 e d4. c8
   e2. d8 e % 7b
   f4 e d4. c8
-  c2 r4 c'8^\mp (b
-  a8^\markup\italic "poco a poco cresc. e rit." g4 8~4 c8 b % 7c
+  c2 r4 c'8 (b
+  a8 g4 8~4 c8 b % 7c
   a8 g4 8~4 d8 e
   f4 e d2
   \time 2/4 g4 fis \time 4/4 % 8a
-  e2.) d'8^\f cis \bar "||" \key d \major
-  b8^\markup\italic "a tempo" a4 8~4 d8 cis
+  e2.) d'8 cis \bar "||" \key d \major
+  b8 a4 8~4 d8 cis
   b8 a4 8~2 % 8b
   r8 d,8 b' a16 16~4. g8
-  fis8 a4. r4 d8\omit\mp^\markup{\italic sub. \dynamic mp} cis
+  fis8 a4. r4 d8 cis
   b8 a4 8~4 d8 cis % 8c
-  b8 a4 8~4 r8 fis^\cresc
+  b8 a4 8~4 r8 fis
   g4 fis e4. d8
   d2. r4 % 9a
-  r4 r8 a'^\f a a a4
+  r4 r8 a' a a a4
   b8 a8 4 8 fis4. % 9b
   r4 r8 a8 8 8 4
   b8 a8 4 8 fis16^\markup Unis. (e d4) % 9c
   r8. a'16 8 8~4 8 fis
   a4 8 8(fis4) e8(fis) % 10a
-  g4^\cresc fis e4. d8
-  fis2. e8^\dim fis
+  g4 fis e4. d8
+  fis2. e8 fis
   g4 fis e4. d8 % 10b
-  d2 r4 d'8^\mp^\markup "Unis. or opt. Solo" cis
+  d2 r4 d'8^\markup "Unis. or opt. Solo" cis
   b8 a4 8~4 d8 cis
   b8 a4 b8~2 % 10c
   r8 d, b' a16 16~4. g8
   fis8 a4.~4 r4
   R1 % 11a
-  r2 r4 d,8^\markup\italic All fis
+  r2 r4 d,8 fis
   g4 fis e4. d8
-  fis2^\markup\italic "rit. e dim. to end" ~8 r d fis % 11b
+  fis2~8 r d fis % 11b
   g2 fis
   e2. d4
   d1~ % 11c
   d1~
-  d1^\pp ~
+  d1 ~
   d1
   \bar "|."
 }
@@ -660,15 +673,36 @@ wordsBassMidi = \lyricmode {
   "\nwhen " "we " "walked " "in " "fields "  "of " "gold. " 
 }
 
+dynamicsAlto = {
+  \override DynamicTextSpanner.style = #'none
+  s4 | s1*4 | s1\mp | s | s | s2. s4\mp | s1 |
+  s1*9 | % 4
+  s1 | s2. s4\cresc^\markup\italic All | s1 | s2.. s8\dim | s1 | s2. s4\mf | s1*3 |
+  s1*5 | s4. s8\mf s2 | s1*3 | % 6
+  s1*6 | s1\omit\mp\omit\cresc-\markup{\dynamic mp \italic "poco a poco cresc. e rit."} | s1*2 |
+  s2 | s2. s4\f | s1-\markup\italic "a tempo" | s1*2 | s2. s4\omit\mp-\markup{\halign #RIGHT \italic sub. \dynamic mp} | s1 | s2.. s8\cresc | s1 | % 8
+  s1 | s4. s8\f s2 | s1*4 |
+  s1 | s1\cresc | s2. s4\dim | s1 | s2. s4\mp | s1*4 | % 10
+  s1 | s2. s4-\markup\italic All | s1 | s1-\markup\italic "rit. e dim. to end" | s1*4 | s1\pp | s |
+}
+
+dynamicsAltoBelow = { % used for sop/alto staves
+  \override DynamicTextSpanner.style = #'none
+  s4 | s1*4 | s1\mp | s1*4 |
+  s1*33 |
+  s1\mp | s1*2 |
+  s2 | s1*33 |
+}
+
 alto = \relative {
   \global
   r4
   R1*3
   r2 r4 r4 % 3b
-  e'1_\mp ~ (
+  e'1 ~ (
   e4 d2.
   c2. b8 c % 3c
-  c2~8) r c'8\omit\mp b
+  c2~8) r c'8 b
   a8 g4 8~4 c8 b
   a8 g4 a8~2 % 4a
   r8 c, a' g16 g~4. f8
@@ -680,11 +714,11 @@ alto = \relative {
   R1
   R1
   R1 % 5a
-  r2 r4 e8\omit\cresc d
+  r2 r4 e8 d
   e4 8 8~4 8 8
-  e4 d8 8~4 r8 c\omit\dim % 5b
+  e4 d8 8~4 r8 c % 5b
   c4 4 4(b8) c
-  c2 r4 e8\omit\mf g
+  c2 r4 e8 g
   e8 4 8~4 8 g % 5c
   f8 4 8~2
   r8 c8 8 16 d~4. 8
@@ -693,7 +727,7 @@ alto = \relative {
   f8 d4 8~4 8 e
   c4 4 4(b8) c % 6b
   c2. r4
-  r4 r8 c8\omit\mf 8 8 4
+  r4 r8 c8 8 8 4
   d8 8 4 8 c4. % 6c
   r4 r8 c8 8 8 4
   d8 8 4 8 e16(d c4)
@@ -708,25 +742,25 @@ alto = \relative {
   e4 d2.
   c2. b4
   \time 2/4 d2~ \time 4/4 % 8a
-  d2 cis4) fis8\omit\f a \key d \major
+  d2 cis4) fis8 a \key d \major
   fis8 4 8~4 8 a
   g8 4 8~2 % 8b
   r8 d8 8 16 e~4. 8
-  fis8 e4. r4\omit\mp d'8 cis
+  fis8 e4. r4 d'8 cis
   b8 a4 fis8~4 a8 8 % 8c
-  g8 e4 8~4 r8 fis\omit\cresc
+  g8 e4 8~4 r8 fis
   d4 4 4(cis8) d
   d2. r4 % 9a
-  r4 r8 d\omit\f 8 8 4
+  r4 r8 d8 8 8 4
   e8 8 4 8 d4. % 9b
   r4 r8 d8 8 8 4
   e8 8 4 8 fis16(e d4) % 9c
   r8. d16 8 8~4 8 8
   e4 8 d~4 4 % 10a
-  d4\omit\cresc 4 4(cis8) d
-  d2. \omit\dim d8 8
+  d4 4 4(cis8) d
+  d2. d8 8
   d4 4 4(cis8)d % 10b
-  d2 r4 d'8\omit\mp cis
+  d2 r4 d'8 cis
   b8 a4 8~4 d8 cis
   b8 a4 b8~2 % 10c
   r8 d, b' a16 16~4. g8
@@ -734,7 +768,7 @@ alto = \relative {
   R1 % 11a
   r2 r4 d,8 fis
   g4 fis e4. d8
-  fis2\omit\dim ~8 r d fis % 11b
+  fis2~8 r d fis % 11b
   d2 2
   d2(cis4) \once\partCombineApart r
   r2 cis4 d % 11c
@@ -747,13 +781,26 @@ alto = \relative {
 wordsAlto = \lyricmode {
 }
 
+dynamicsTenor = {
+  \override DynamicTextSpanner.style = #'none
+  s4 | s1*4 | s4\mp s2.\cresc | s1 | s\dim | s1*2 |
+  s1*6 | s2. s4\mp | s1*2 | % 4
+  s1 | s2. s4\cresc-\markup\italic \halign #RIGHT All | s1 | s2.. s8\dim | s1*2 | s4 s2.\mf | s1*2 |
+  s1*5 | s4 s2.\mf | s1*3 | % 6
+  s1*6 | s1\mp-\markup\italic "poco a poco cresc. e rit." | s1*2 |
+  s2 | s1 | s4-\markup\italic "a tempo" s2.\f | s1*2 | s2. s4-\markup{\halign #RIGHT \italic sub. \dynamic mp} | s1 | s2.. s8\cresc | s1 | % 8
+  s1 | s4 s2.\f | s1*4 |
+  s1 | s\cresc | s2. s4\dim | s1*5 | s2. s4\mp | % 10
+  s1 | s2. s4-\markup\italic All | s1 | s\omit\dim-\markup\italic "rit. e dim. to end" | s1*4 | s1\pp | s |
+}
+
 tenor = \relative {
   \global
   r4
   R1*4
-  c'1^\mp ~ ( % 3b+
+  c'1 ~ ( % 3b+
   c4 b c2
-  a2^\dim g2~ % 3c
+  a2 g2~ % 3c
   g2~8) r r4
   R1
   R1 % 4a
@@ -762,16 +809,16 @@ tenor = \relative {
   R1 % 4b
   R1
   R1
-  r2^\markup "Unis or opt. Solo" r4 c8^\mp b % 4c
+  r2^\markup "Unis or opt. Solo" r4 c8 b % 4c
   a8 g4 8~4 c8 b
   a8 g4 a8~2
   r8 c, a' g16 16~4. f8 % 5a
-  e8 g4. r4 c8^\markup\italic All b
+  e8 g4. r4 c8 b
   c4 8 8~4 8 8
-  c4 b8 g~4 r8 e^\dim % 5b
+  c4 b8 g~4 r8 e % 5b
   a4 4 g4. 8
   g2 r
-  r4 a8^\mf b c2 % 5c
+  r4 a8 b c2 % 5c
   r4 c8 b c2
   r8 a8 8 16 b~4. 8
   c8 4. r4 8 b % 6a
@@ -779,7 +826,7 @@ tenor = \relative {
   c8 b4 c8~4 d,8 e
   a4 4 g4. 8 % 6b
   g2. r4
-  r4 a^\mf b8 8 c4
+  r4 a b8 8 c4
   b8 8 4 c8 g4. % 6c
   r4 a b8 8 c4
   b8 8 4 g8 4.
@@ -794,36 +841,36 @@ tenor = \relative {
   a2 g
   \time 2/4 b2~ \time 4/4 % 8a
   b2 a4) r \key d \major
-  r4^\markup\italic "a tempo" b8^\f cis d2
+  r4 b8 cis d2
   r4 d8 cis d2 % 8b
   r8 b8 8 16 cis~4. 8
-  d8 4. r4^\markup{\italic sub. \dynamic mp} d8\omit\mp cis
+  d8 4. r4 d8 cis
   b8 cis4 d8~4 8 cis % 8c
-  d8 cis4 d8~4 r8 fis,^\cresc
+  d8 cis4 d8~4 r8 fis,
   b4 4 a4. 8
   a2. r4 % 9a
-  r4 b^\f cis8 8 d4
+  r4 b cis8 8 d4
   cis8 8 4 d8 a4. % 9b
   r4 b4 cis8 8 d4
   cis8 8 4 a8 4. % 9c
   r4 b cis d8 8
   cis4 8 b~4 4 % 10a
-  b4^\cresc 4 a4. 8
-  b2. 8^\dim 8
+  b4 4 a4. 8
+  b2. 8 8
   b4 4 a4. 8 % 10b
-  a2\omit\mp r
+  a2 r
   R1
   R1 % 10c
   R1
-  r2^\markup "Unis. or opt. Solo" r4 d8^\mp cis
+  r2^\markup "Unis. or opt. Solo" r4 d8 cis
   b8 a4 8~4 d8 cis % 11a
-  b8 a4 8~4 d,8^\markup\italic All fis
+  b8 a4 8~4 d,8 fis
   g4 fis e4. d8
-  fis2\omit\dim ^\markup\italic "rit. e dim. to end" ~8 r d8 fis % 11b
+  fis2 ~8 r d8 fis % 11b
   b2 2
   a2. r4
   r2 a4 b % 11c
-  g2 <f bes>^\markup div. <fis a>1^\pp ~
+  g2 <f bes>^\markup div. <fis a>1 ~
   q1
   \bar "|."
 }
@@ -862,11 +909,28 @@ wordsTenor = \lyricmode {
   fields __ of gold. __
 }
 
+dynamicsBass = {
+  \override DynamicTextSpanner.style = #'none
+  s4 | s1*4 | s4\mp s2.\cresc | s1 | s\dim | s1*2 |
+  s1*6 | s2. s4\mp | s1*2 | % 4
+  s1 | s2. s4\cresc-\markup\italic \halign #RIGHT All | s1 | s2.. s8\dim | s1*2 | s4 s2.\mf | s1*2 |
+  s1*5 | s4 s2.\mf | s1*3 | % 6
+  s1*6 | s1\mp-\markup\italic "poco a poco cresc. e rit." | s1*2 |
+  s2 | s1 | s4-\markup\italic "a tempo" s2.\f | s1*3 | s2. s4\mp | s2.. s8\cresc | s1 | % 8
+  s1 | s4 s2.\f | s1*4 |
+  s1 | s\cresc | s2. s4\dim | s1*5 | s2. s4\mp | % 10
+  s1 | s2. s4-\markup\italic All | s1 | s\omit\dim-\markup\italic "rit. e dim. to end" | s1*4 | s1\pp | s |
+}
+
+dynamicsBassBelow = {
+  \override DynamicTextSpanner.style = #'none
+}
+
 bass = \relative {
   \global
   r4
   R1*4
-  a2^\mp (g % 3b+
+  a2 (g % 3b+
   f2 e
   d2 g4. f8 % 3c
   e2~8) r8 r4
@@ -877,16 +941,16 @@ bass = \relative {
   R1 % 4b
   R1
   R1
-  r2 r4 c'8\omit\mp b % 4c
+  r2 r4 c'8 b % 4c
   a8 g4 8~4 c8 b
   a8 g4 a8~2
   r8 c, a' g16 16~4. f8 % 5a
   e8 g4. r4 c8 b
   a4 8 g~4 8 8
-  f4 8 e8~4 r8 e\omit\dim % 5b
+  f4 8 e8~4 r8 e % 5b
   d8(e) f(a) g4. f8
   e2 r
-  r4 a8\omit\mf e a2 % 5c
+  r4 a8 e a2 % 5c
   r4 f8 g a2
   r8 a8 8 16 g~4. 8
   g8 e4. \apart r2 % 6a
@@ -894,7 +958,7 @@ bass = \relative {
   a8 g4 e8~4 d8 e
   d8(e) f(a) g4. f8 % 6b
   e2. r4
-  r4 f\omit\mf g8 8 a4
+  r4 f g8 8 a4
   g8 8 4 e8 g4. % 6c
   r4 f g8 8 a4
   g8 8 4 e8 4.
@@ -909,32 +973,32 @@ bass = \relative {
   d2 g4. f8
   \time 2/4 e2 \time 4/4 % 8a
   a2 a,4) r \key d \major
-  r4 b'8\omit\f fis b2
+  r4 b'8 fis b2
   r4 g8 a b2 % 8b
   r8 b8 8 16 a~4. 8
   a8 fis4. \apart r4 r
   r2 r4 \auto fis8 a % 8c
-  b8 a4 fis8~4 r8 fis\omit\cresc
+  b8 a4 fis8~4 r8 fis
   e8(fis) g(b) a4. g8
   fis2. r4 % 9a
-  r4 g\omit\f a8 8 b4
+  r4 g a8 8 b4
   a8 8 4 fis8 a4. % 9b
   r4 g a8 8 b4
   a8 8 4 fis8 4. % 9c
   r4 g a b8 8
   a4 8 b~4 a % 10a
   e8(fis) g(b) a4. 8
-  b2(a4) 8\omit\dim 8
+  b2(a4) 8 8
   e8(fis)g(b) a4. g8 % 10b
   fis2 r
   R1
   R1 % 10c
   R1
-  r2 r4 d'8\omit\mp cis
+  r2 r4 d'8 cis
   b8 a4 8~4 d8 cis % 11a
   b8 a4 8~4 d,8 fis
   g4 fis e4. d8
-  fis2\omit\dim ~8 r d fis % 11b
+  fis2 ~8 r d fis % 11b
   e2 fis4(g)
   a2(a,4) d
   d1~( % 11c
@@ -1265,6 +1329,8 @@ pianoLHtwo = \relative {
             printPartCombineTexts = ##f
           }
           <<
+            \new Dynamics \with {alignAboveContext = women} \dynamicsSop
+            \new Dynamics \with {alignBelowContext = women} \dynamicsAltoBelow
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
             \new Voice \partCombine \soprano \alto
@@ -1284,6 +1350,8 @@ pianoLHtwo = \relative {
           }
           <<
             \clef "bass"
+            \new Dynamics \with {alignAboveContext = men} \dynamicsTenor
+            \new Dynamics \with {alignBelowContext = men} \dynamicsBassBelow
             \new Voice \partCombine \tenor \bass
             \new NullVoice \tenor
             \addlyrics \wordsTenor
@@ -1371,6 +1439,8 @@ pianoLHtwo = \relative {
             printPartCombineTexts = ##f
           }
           <<
+            \new Dynamics \with {alignAboveContext = women} \dynamicsSop
+            \new Dynamics \with {alignBelowContext = women} \dynamicsAltoBelow
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
             \new Voice \partCombine \soprano \alto
@@ -1390,6 +1460,8 @@ pianoLHtwo = \relative {
           }
           <<
             \clef "bass"
+            \new Dynamics \with {alignAboveContext = men} \dynamicsTenor
+            \new Dynamics \with {alignBelowContext = men} \dynamicsBassBelow
             \new Voice \partCombine \tenor \bass
             \new NullVoice \tenor
             \addlyrics \wordsTenor
@@ -1477,6 +1549,7 @@ pianoLHtwo = \relative {
             midiInstrument = "choir aahs"
           }
           <<
+            \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
             \new Voice \soprano
@@ -1489,6 +1562,7 @@ pianoLHtwo = \relative {
             midiInstrument = "choir aahs"
           }
           <<
+            \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
             \new Voice \alto
             \addlyrics \wordsAltoSep
           >>
@@ -1500,6 +1574,7 @@ pianoLHtwo = \relative {
           }
           <<
             \clef "treble_8"
+            \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
             \new Voice \tenor
             \addlyrics \wordsTenorSep
           >>
@@ -1511,6 +1586,7 @@ pianoLHtwo = \relative {
           }
           <<
             \clef "bass"
+            \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
             \new Voice \bass
             \addlyrics \wordsBassSep
           >>
@@ -1597,6 +1673,7 @@ pianoLHtwo = \relative {
             midiInstrument = "choir aahs"
           }
           <<
+            \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
             \new Voice \soprano
@@ -1610,6 +1687,7 @@ pianoLHtwo = \relative {
           }
           <<
             \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = alto} {\teeny \dynamicsAlto}
             \new Voice \alto
             \addlyrics {\tiny \wordsAltoSep}
           >>
@@ -1622,6 +1700,7 @@ pianoLHtwo = \relative {
           <<
             \magnifyStaff #4/7
             \clef "treble_8"
+            \new Dynamics \with {alignAboveContext = tenor} {\teeny \dynamicsTenor}
             \new Voice \tenor
             \addlyrics {\tiny \wordsTenorSep}
           >>
@@ -1634,6 +1713,7 @@ pianoLHtwo = \relative {
           <<
             \magnifyStaff #4/7
             \clef "bass"
+            \new Dynamics \with {alignAboveContext = bass} {\teeny \dynamicsBass}
             \new Voice \bass
             \addlyrics {\tiny \wordsBassSep}
           >>
@@ -1723,6 +1803,7 @@ pianoLHtwo = \relative {
           }
           <<
             \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsSop}
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
             \new Voice \soprano
@@ -1735,6 +1816,7 @@ pianoLHtwo = \relative {
             midiInstrument = "choir aahs"
           }
           <<
+            \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
             \new Voice \alto
             \addlyrics \wordsAltoSep
           >>
@@ -1746,6 +1828,7 @@ pianoLHtwo = \relative {
           }
           <<
             \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = tenor} {\teeny \dynamicsTenor}
             \clef "treble_8"
             \new Voice \tenor
             \addlyrics {\tiny \wordsTenorSep}
@@ -1758,6 +1841,7 @@ pianoLHtwo = \relative {
           }
           <<
             \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = bass} {\teeny \dynamicsBass}
             \clef "bass"
             \new Voice \bass
             \addlyrics {\tiny \wordsBassSep}
@@ -1848,6 +1932,7 @@ pianoLHtwo = \relative {
           }
           <<
             \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsSop}
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
             \new Voice \soprano
@@ -1861,6 +1946,7 @@ pianoLHtwo = \relative {
           }
           <<
             \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = alto} {\teeny \dynamicsAlto}
             \new Voice \alto
             \addlyrics {\tiny \wordsAltoSep}
           >>
@@ -1872,6 +1958,7 @@ pianoLHtwo = \relative {
           }
           <<
             \clef "treble_8"
+            \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
             \new Voice \tenor
             \addlyrics \wordsTenorSep
           >>
@@ -1884,6 +1971,7 @@ pianoLHtwo = \relative {
           <<
             \magnifyStaff #4/7
             \clef "bass"
+            \new Dynamics \with {alignAboveContext = bass} {\teeny \dynamicsBass}
             \new Voice \bass
             \addlyrics {\tiny \wordsBassSep}
           >>
@@ -1973,6 +2061,7 @@ pianoLHtwo = \relative {
           }
           <<
             \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsSop}
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
             \new Voice \soprano
@@ -1986,6 +2075,7 @@ pianoLHtwo = \relative {
           }
           <<
             \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = alto} {\teeny \dynamicsAlto}
             \new Voice \alto
             \addlyrics {\tiny \wordsAltoSep}
           >>
@@ -1998,6 +2088,7 @@ pianoLHtwo = \relative {
           <<
             \magnifyStaff #4/7
             \clef "treble_8"
+            \new Dynamics \with {alignAboveContext = tenor} {\teeny \dynamicsTenor}
             \new Voice \tenor
             \addlyrics {\tiny \wordsTenorSep}
           >>
@@ -2009,6 +2100,7 @@ pianoLHtwo = \relative {
           }
           <<
             \clef "bass"
+            \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
             \new Voice \bass
             \addlyrics \wordsBassSep
           >>
