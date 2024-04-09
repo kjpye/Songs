@@ -1,16 +1,13 @@
-\version "2.18.2"
-%\include "../include/merge-rests.ly"
+\version "2.25.14"
 
-#(set-global-staff-size 19)
+\include "kjp.ly"
 
 \header {
   title    = "Deep River"
-%  poet     = "Joseph M. Scriven"
-%  composer = "Charles Crozat Converse"
 }
 
-\layout {
-  ragged-last-bottom = ##f
+tempoTrack = {
+  \tempo 4=100
 }
 
 global = {
@@ -47,7 +44,6 @@ sopB = \relative {
 
 sop = \relative c'' {
   \global
-  \voiceOne
   \repeat volta 2 {
     \sopA
   }
@@ -134,36 +130,16 @@ bassB = \relative {
   \bar"|."
 }
 
-trebleaccOne = \relative c' {
-  \global
-  \bar"|."
-}
-
-trebleaccTwo = \relative c' {
-  \global
-  \bar"|."
-}
-
-bassaccOne = \relative c' {
-  \global
-  \bar"|."
-}
-
-bassaccTwo = \relative c {
-  \global
-  \bar"|."
-}
-
-textOne = \lyricmode {
-  Deep Riv- er, my home is o- ver Jor- dan,
-  Deep Riv- er, Lord, I want to cross o- ver in- to camp- ground,
-  O don't you want to go to the gos- pel feast,
-  That prom- ised land where all is peace,
-  O don't you want to go to that prom- ised land
+words = \lyricmode {
+  Deep Riv -- er, my home is o -- ver Jor -- dan,
+  Deep Riv -- er, Lord, I want to cross o -- ver in -- to camp -- ground,
+  O don't you want to go to the gos -- pel feast,
+  That prom -- ised land where all is peace,
+  O don't you want to go to that prom -- ised land
   that land where all is peace?
 }
 
-textSopMidi = \lyricmode {
+wordsSopMidi = \lyricmode {
   "Deep " Riv "er, " "my " "home " "is " o "ver " Jor "dan, "
   "\nDeep " Riv "er, " "Lord, " "I " "want " "to " "cross " o "ver " in "to " camp "ground, "
   "\nDeep " Riv "er, " "my " "home " "is " o "ver " Jor "dan, "
@@ -176,7 +152,7 @@ textSopMidi = \lyricmode {
   "\nDeep " Riv "er, " "Lord, " "I " "want " "to " "cross " o "ver " in "to " camp "ground. "
 }
 
-textAltoMidi = \lyricmode {
+wordsAltoMidi = \lyricmode {
   "Deep " "Deep " Riv "er, " "my " "home " "is " o "ver " Jor "dan, "
   "\nDeep " Riv "er, " "Lord, " "I " "want " "to " "cross " o "ver " in "to " camp "ground, "
   "\nDeep " "Deep " Riv "er, " "my " "home " "is " o "ver " Jor "dan, "
@@ -189,7 +165,7 @@ textAltoMidi = \lyricmode {
   "\nDeep " Riv "er, " "Lord, " "I " "want " "to " "cross " o "ver " in "to " camp "ground. "
 }
 
-textBass = \lyricmode {
+wordsBass = \lyricmode {
   Deep, deep
   _ _ _ _ _ _ _ _ _
   Deep, deep
@@ -199,20 +175,20 @@ textBass = \lyricmode {
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 }
 
-textSingle = \lyricmode {
-  Deep Riv- er, my home is o- ver Jor- dan,
-  Deep Riv- er, Lord, I want to cross o- ver in- to camp- ground,
-  Deep Riv- er, my home is o- ver Jor- dan,
-  Deep Riv- er, Lord, I want to cross o- ver in- to camp- ground,
-  O don't you want to go to the gos- pel feast,
-  That prom- ised land where all is peace,
-  O don't you want to go to that prom- ised land
+wordsSingle = \lyricmode {
+  Deep Riv -- er, my home is o -- ver Jor -- dan,
+  Deep Riv -- er, Lord, I want to cross o -- ver in -- to camp -- ground,
+  Deep Riv -- er, my home is o -- ver Jor -- dan,
+  Deep Riv -- er, Lord, I want to cross o -- ver in -- to camp -- ground,
+  O don't you want to go to the gos -- pel feast,
+  That prom -- ised land where all is peace,
+  O don't you want to go to that prom -- ised land
   that land where all is peace?
-  Deep Riv- er, my home is o- ver Jor- dan,
-  Deep Riv- er, Lord, I want to cross o- ver in- to camp- ground.
+  Deep Riv -- er, my home is o -- ver Jor -- dan,
+  Deep Riv -- er, Lord, I want to cross o -- ver in -- to camp -- ground.
 }
 
-textBassMidi = \lyricmode {
+wordsBassMidi = \lyricmode {
   "Deep, " "deep " Riv "er, " "my " "home " "is " o "ver " Jor "dan, "
   "\nDeep, " "deep " Riv "er, " "Lord, " "I " "want " "to " "cross " o "ver " in "to " camp "ground, "
   "\nDeep, " "deep " Riv "er, " "my " "home " "is " o "ver " Jor "dan, "
@@ -225,7 +201,7 @@ textBassMidi = \lyricmode {
   "\nDeep, " "deep " Riv "er, " "Lord, " "I " "want " "to " "cross " o "ver " in "to " camp "ground. "
 }
 
-textBassSingle = \lyricmode {
+wordsBassSingle = \lyricmode {
   Deep, deep
   _ _ _ _ _ _ _ _ _
   Deep, deep
@@ -243,168 +219,660 @@ textBassSingle = \lyricmode {
   _ _ _ _ _ _ _ _ _ _ _ _ _
 }
 
-\book {
-  \bookOutputSuffix "repeat"
-  \score {
-    \new ChoirStaff <<
-      \new Staff = women <<
-	\new Voice = sop {\global \voiceOne \repeat volta 2 {\sopA } \sopB  }
-	\new Voice = alt {\global \voiceTwo \repeat volta 2 {\altoA} \altoB }
-      >>
-      \new Lyrics \lyricsto sop \textOne
-      \new Staff = men <<
-	\new Voice = tenor {\clef "bass" \global \voiceOne \repeat volta 2 {\tenorA} \tenorB }
-	\new Voice = bass  {\clef "bass" \global \voiceTwo \repeat volta 2 {\bassA } \bassB  }
-      >>
-      \new Lyrics \with {alignAboveContext = men} \lyricsto bass \textBass
-    >>
-    
-    \layout {
-      \context {
-	\Staff
-	\override DynamicText.direction = #UP
-	\override DynamicText.staff-padding = #0
-	\override DynamicLineSpanner.direction = #UP
-      }
-    }
-  }
+wordsAltoSingle = \lyricmode {
+  Deep, deep Riv -- er, my home is o -- ver Jor -- dan,
+  Deep Riv -- er, Lord, I want to cross o -- ver in -- to camp -- ground,
+  Deep, deep Riv -- er, my home is o -- ver Jor -- dan,
+  Deep Riv -- er, Lord, I want to cross o -- ver in -- to camp -- ground,
+  O don't you want to go to the gos -- pel feast,
+  That prom -- ised land where all is peace,
+  O don't you want to go to that prom -- ised land
+  that land where all is peace?
+  Deep, deep Riv -- er, my home is o -- ver Jor -- dan,
+  Deep Riv -- er, Lord, I want to cross o -- ver in -- to camp -- ground.
 }
 
-\book {
-  \bookOutputSuffix "single"
-  \score {
-    \new ChoirStaff <<
-      \new Staff = women <<
-	\new Voice = sop {\global \voiceOne \sopA  \sopA  \sopB  \sopA  }
-	\new Voice = alt {\global \voiceTwo \altoA \altoA \altoB \altoA }
-      >>
-      \new Lyrics \lyricsto sop \textSingle
-      \new Staff = men <<
-	\new Voice = ten {\clef "bass" \global \voiceOne \tenorA \tenorA \tenorB \tenorA }
-	\new Voice = bas {\clef "bass" \global \voiceTwo \bassA  \bassA  \bassB  \bassA  }
-      >>
-      \new Lyrics \with {alignAboveContext = men} \lyricsto bas \textBassSingle
-    >>
-    
-    \layout {
-      \context {
-	\Staff
-	\override DynamicText.direction = #UP
-	\override DynamicText.staff-padding = #0
-	\override DynamicLineSpanner.direction = #UP
-      }
-    }
-  }
+wordsTenorSingleSep = \lyricmode {
+  Deep Riv -- er, my home is o -- ver Jor -- dan,
+  Deep, deep Riv -- er, Lord, I want to cross o -- ver in -- to camp -- ground,
+  Deep Riv -- er, my home is o -- ver Jor -- dan,
+  Deep, deep Riv -- er, Lord, I want to cross o -- ver in -- to camp -- ground,
+  O don't you want to go to the gos -- pel feast,
+  That prom -- ised land where all is peace,
+  O don't you want to go to that prom -- ised land
+  that land where all is peace?
+  Deep Riv -- er, my home is o -- ver Jor -- dan,
+  Deep, deep Riv -- er, Lord, I want to cross o -- ver in -- to camp -- ground.
 }
 
+wordsBassSingleSep = \lyricmode {
+  Deep, deep Riv -- er, my home is o -- ver Jor -- dan,
+  Deep, deep Riv -- er, Lord, I want to cross o -- ver in -- to camp -- ground,
+  Deep, deep Riv -- er, my home is o -- ver Jor -- dan,
+  Deep, deep Riv -- er, Lord, I want to cross o -- ver in -- to camp -- ground,
+  O don't you want to go to the gos -- pel feast,
+  That prom -- ised land where all is peace,
+  O don't you want to go to that prom -- ised land
+  that land where all is peace?
+  Deep, deep Riv -- er, my home is o -- ver Jor -- dan,
+  Deep, deep Riv -- er, Lord, I want to cross o -- ver in -- to camp -- ground.
+}
+
+#(set-global-staff-size 19)
+
 \book {
-  \bookOutputSuffix "singlepage"
   \paper {
+    output-suffix = repeat
+  }
+  \score {
+    \new ChoirStaff <<
+      \new Staff = women <<
+	\new Voice {\global \vo \repeat volta 2 {\sopA } \sopB  }
+        \addlyrics \words
+	\new Voice {\global \vt \repeat volta 2 {\altoA} \altoB }
+      >>
+      \new Staff = men <<
+        \clef bass
+	\new Voice         {\global \vo \repeat volta 2 {\tenorA} \tenorB }
+	\new Voice = bass  {\global \vt \repeat volta 2 {\bassA } \bassB  }
+      >>
+      \new Lyrics \with {alignAboveContext = men} \lyricsto bass \wordsBass
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = single
+  }
+  \score {
+    \new ChoirStaff <<
+      \new Staff = women <<
+	\new Voice {\global \vo \sopA  \sopA  \sopB  \sopA  }
+        \addlyrics \wordsSingle
+	\new Voice {\global \vt \altoA \altoA \altoB \altoA }
+      >>
+      \new Staff = men <<
+        \clef bass
+	\new Voice       {\global \vo \tenorA \tenorA \tenorB \tenorA }
+	\new Voice = bas {\global \vt \bassA  \bassA  \bassB  \bassA  }
+      >>
+      \new Lyrics \with {alignAboveContext = men} \lyricsto bas \wordsBassSingle
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage
     top-margin = 0
     left-margin = 7
     right-margin = 1
     paper-width = 190\mm
     page-breaking = #ly:one-page-breaking
-    system-system-spacing.basic-distance = #22
+    system-system-spacing.basic-distance = #15
     system-separator-markup = \slashSeparator
   }
   \score {
     \new ChoirStaff <<
       \new Staff = women <<
-	\new Voice = sop {\global \voiceOne \sopA  \sopA  \sopB  \sopA  }
-	\new Voice = alt {\global \voiceTwo \altoA \altoA \altoB \altoA }
+	\new Voice {\global \vo \sopA  \sopA  \sopB  \sopA  }
+        \addlyrics \wordsSingle
+	\new Voice {\global \vt \altoA \altoA \altoB \altoA }
       >>
-      \new Lyrics \lyricsto sop \textSingle
       \new Staff = men <<
-	\new Voice = ten {\clef "bass" \global \voiceOne \tenorA \tenorA \tenorB \tenorA }
-	\new Voice = bas {\clef "bass" \global \voiceTwo \bassA  \bassA  \bassB  \bassA  }
+        \clef bass
+	\new Voice       {\global \vo \tenorA \tenorA \tenorB \tenorA }
+	\new Voice = bas {\global \vt \bassA  \bassA  \bassB  \bassA  }
       >>
-      \new Lyrics \with {alignAboveContext = men} \lyricsto bas \textBassSingle
+      \new Lyrics \with {alignAboveContext = men} \lyricsto bas \wordsBassSingle
     >>
-    
     \layout {
-      \context {
-	\Staff
-	\override DynamicText.direction = #UP
-	\override DynamicText.staff-padding = #0
-	\override DynamicLineSpanner.direction = #UP
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
-tempoTrack = {
-  \tempo 4=100
-}
+#(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "midi"
+  \paper {
+    output-suffix = singlepage-sep
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
   \score {
     \new ChoirStaff <<
       \new Staff = soprano <<
-        \new Voice \tempoTrack
-	\new Voice = sop {\global \voiceOne \sopA  \sopA  \sopB  \sopA  }
-        \addlyrics \textSopMidi
+	\new Voice {\global \vo \sopA  \sopA  \sopB  \sopA  }
+        \addlyrics \wordsSingle
       >>
       \new Staff = alto <<
-	\new Voice = alt {\global \voiceTwo \altoA \altoA \altoB \altoA }
+	\new Voice {\global \vt \altoA \altoA \altoB \altoA }
+        \addlyrics \wordsAltoSingle
       >>
-      \new Staff = ten <<
-	\new Voice = ten {\clef "bass" \global \voiceOne \tenorA \tenorA \tenorB \tenorA }
+      \new Staff = tenor <<
+        \clef "treble_8"
+	\new Voice       {\global \vo \tenorA \tenorA \tenorB \tenorA }
+        \addlyrics \wordsTenorSingleSep
       >>
       \new Staff = bass <<
-	\new Voice = bas {\clef "bass" \global \voiceTwo \bassA  \bassA  \bassB  \bassA  }
+        \clef bass
+	\new Voice {\global \vt \bassA  \bassA  \bassB  \bassA  }
+        \addlyrics \wordsBassSingleSep
       >>
     >>
-    
-    \midi {}
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-sop
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \new ChoirStaff <<
+      \new Staff = soprano <<
+	\new Voice {\global \vo \sopA  \sopA  \sopB  \sopA  }
+        \addlyrics \wordsSingle
+      >>
+      \new Staff = alto <<
+        \magnifyStaff #4/7
+	\new Voice {\global \vt \altoA \altoA \altoB \altoA }
+        \addlyrics {\tiny \wordsAltoSingle}
+      >>
+      \new Staff = tenor <<
+        \magnifyStaff #4/7
+        \clef "treble_8"
+	\new Voice       {\global \vo \tenorA \tenorA \tenorB \tenorA }
+        \addlyrics {\tiny \wordsTenorSingleSep}
+      >>
+      \new Staff = bass <<
+        \magnifyStaff #4/7
+        \clef bass
+	\new Voice {\global \vt \bassA  \bassA  \bassB  \bassA  }
+        \addlyrics {\tiny \wordsBassSingleSep}
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-alto
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \new ChoirStaff <<
+      \new Staff = soprano <<
+        \magnifyStaff #4/7
+	\new Voice {\global \vo \sopA  \sopA  \sopB  \sopA  }
+        \addlyrics {\tiny \wordsSingle}
+      >>
+      \new Staff = alto <<
+	\new Voice {\global \vt \altoA \altoA \altoB \altoA }
+        \addlyrics \wordsAltoSingle
+      >>
+      \new Staff = tenor <<
+        \magnifyStaff #4/7
+        \clef "treble_8"
+	\new Voice       {\global \vo \tenorA \tenorA \tenorB \tenorA }
+        \addlyrics {\tiny \wordsTenorSingleSep}
+      >>
+      \new Staff = bass <<
+        \magnifyStaff #4/7
+        \clef bass
+	\new Voice {\global \vt \bassA  \bassA  \bassB  \bassA  }
+        \addlyrics {\tiny \wordsBassSingleSep}
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-tenor
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \new ChoirStaff <<
+      \new Staff = soprano <<
+        \magnifyStaff #4/7
+	\new Voice {\global \vo \sopA  \sopA  \sopB  \sopA  }
+        \addlyrics {\tiny \wordsSingle}
+      >>
+      \new Staff = alto <<
+        \magnifyStaff #4/7
+	\new Voice {\global \vt \altoA \altoA \altoB \altoA }
+        \addlyrics {\tiny \wordsAltoSingle}
+      >>
+      \new Staff = tenor <<
+        \clef "treble_8"
+	\new Voice       {\global \vo \tenorA \tenorA \tenorB \tenorA }
+        \addlyrics \wordsTenorSingleSep
+      >>
+      \new Staff = bass <<
+        \magnifyStaff #4/7
+        \clef bass
+	\new Voice {\global \vt \bassA  \bassA  \bassB  \bassA  }
+        \addlyrics {\tiny \wordsBassSingleSep}
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-bass
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \new ChoirStaff <<
+      \new Staff = soprano <<
+        \magnifyStaff #4/7
+	\new Voice {\global \vo \sopA  \sopA  \sopB  \sopA  }
+        \addlyrics {\tiny \wordsSingle}
+      >>
+      \new Staff = alto <<
+        \magnifyStaff #4/7
+	\new Voice {\global \vt \altoA \altoA \altoB \altoA }
+        \addlyrics {\tiny \wordsAltoSingle}
+      >>
+      \new Staff = tenor <<
+        \magnifyStaff #4/7
+        \clef "treble_8"
+	\new Voice       {\global \vo \tenorA \tenorA \tenorB \tenorA }
+        \addlyrics {\tiny \wordsTenorSingleSep}
+      >>
+      \new Staff = bass <<
+        \clef bass
+	\new Voice {\global \vt \bassA  \bassA  \bassB  \bassA  }
+        \addlyrics \wordsBassSingleSep
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
   }
 }
 
 \book {
-  \bookOutputSuffix "midi-alto"
+  \paper {
+    output-suffix = midi
+  }
   \score {
     \new ChoirStaff <<
-      \new Staff = soprano <<
+      \new Staff = soprano \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
         \new Voice \tempoTrack
-	\new Voice = sop {\global \voiceOne \sopA  \sopA  \sopB  \sopA  }
+	\new Voice {\global \sopA  \sopA  \sopB  \sopA  }
+        \addlyrics \wordsSopMidi
       >>
-      \new Staff = alto <<
-	\new Voice = alt {\global \voiceTwo \altoA \altoA \altoB \altoA }
-        \addlyrics \textAltoMidi
+      \new Staff = alto \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
+	\new Voice {\global \altoA \altoA \altoB \altoA }
       >>
-      \new Staff = ten <<
-	\new Voice = ten {\clef "bass" \global \voiceOne \tenorA \tenorA \tenorB \tenorA }
+      \new Staff = ten \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
+	\new Voice {\global \tenorA \tenorA \tenorB \tenorA }
       >>
-      \new Staff = bass <<
-	\new Voice = bas {\clef "bass" \global \voiceTwo \bassA  \bassA  \bassB  \bassA  }
+      \new Staff = bass \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
+	\new Voice {\global \bassA  \bassA  \bassB  \bassA  }
       >>
     >>
-    
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
 \book {
-  \bookOutputSuffix "midi-bass"
+  \paper {
+    output-suffix = midi-alto
+  }
   \score {
     \new ChoirStaff <<
-      \new Staff = soprano <<
+      \new Staff = soprano \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
         \new Voice \tempoTrack
-	\new Voice = sop {\global \voiceOne \sopA  \sopA  \sopB  \sopA  }
+	\new Voice {\global \sopA  \sopA  \sopB  \sopA  }
       >>
-      \new Staff = alto <<
-	\new Voice = alt {\global \voiceTwo \altoA \altoA \altoB \altoA }
+      \new Staff = alto \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
+	\new Voice {\global \altoA \altoA \altoB \altoA }
+        \addlyrics \wordsAltoMidi
       >>
-      \new Staff = ten <<
-	\new Voice = ten {\clef "bass" \global \voiceOne \tenorA \tenorA \tenorB \tenorA }
+      \new Staff = ten \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
+	\new Voice {\global \tenorA \tenorA \tenorB \tenorA }
       >>
-      \new Staff = bass <<
-	\new Voice = bas {\clef "bass" \global \voiceTwo \bassA  \bassA  \bassB  \bassA  }
-        \addlyrics \textBassMidi
+      \new Staff = bass \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
+	\new Voice {\global \bassA  \bassA  \bassB  \bassA  }
       >>
     >>
-    
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
+  }
+}
+
+\book {
+  \paper {
+    output-suffix = midi-bass
+  }
+  \score {
+    \new ChoirStaff <<
+      \new Staff = soprano \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
+        \new Voice \tempoTrack
+        \new Voice {\global \sopA  \sopA  \sopB  \sopA  }
+      >>
+      \new Staff = alto \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
+	\new Voice {\global \altoA \altoA \altoB \altoA }
+      >>
+      \new Staff = ten \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
+	\new Voice {\global \tenorA \tenorA \tenorB \tenorA }
+      >>
+      \new Staff = bass \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
+	\new Voice {\global \bassA  \bassA  \bassB  \bassA  }
+        \addlyrics \wordsBassMidi
+      >>
+    >>
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
