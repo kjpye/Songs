@@ -1,5 +1,6 @@
-\version "2.25.9"
+\version "2.25.14"
 
+\include "kjp.ly"
 \include "articulate.ly"
 
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
@@ -31,8 +32,6 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   tagline   = ##f
   copyright   = \today
 }
-
-% #(set-global-staff-size 16)
 
 % \paper {
 %   #(set-paper-size "a4")
@@ -512,7 +511,7 @@ pianoRH = \relative {
 
 pianoRHone = \relative {
   \global
-  \voiceOne
+  \vo
   s8\omit\mp
   s1*7
   <a a'>2. c4 % 3c+
@@ -551,7 +550,7 @@ pianoRHone = \relative {
 
 pianoRHtwo = \relative {
   \global
-  \voiceTwo
+  \vt
   s8\omit\mp
   s1*7
   e'4 d cis s % 3c+
@@ -625,7 +624,7 @@ dynamicsPiano = {
 
 pianoLH = \relative {
   \global
-  \oneVoice
+  \ov
   \clef treble
   r8\omit\mp
   d'4 a'8 d a d a4
@@ -689,7 +688,7 @@ pianoLH = \relative {
 
 pianoLHone = \relative {
   \global
-  \voiceOne
+  \vo
   s8\omit\mp
   s1
   s1
@@ -723,7 +722,7 @@ pianoLHone = \relative {
 
 pianoLHtwo = \relative {
   \global
-  \voiceTwo
+  \vt
   s8\omit\mp
   s1
   s1
@@ -773,8 +772,12 @@ pedal = {
   s1
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "repeat"
+  \paper {
+    output-suffix = repeat
+  }
   \score {
 %   \unfoldRepeats
 %   \articulate
@@ -786,23 +789,23 @@ pedal = {
       <<
         \new ChoirStaff <<
                                 % Single part I staff
-          \new Staff <<
+          \new Staff = "part1" <<
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice = "partI" { \emptysingle \partIsingle }
-            \new Lyrics \lyricsto "partI" \wordsI
+            \new Voice { \emptysingle \partIsingle }
+            \addlyrics \wordsI
           >>
                                 % Single part II staff
-          \new Staff <<
-            \new Voice = "partII" { \emptysingle \partIIsingle }
-            \new Lyrics \lyricsto "partII" \wordsII
+          \new Staff = "part2" <<
+            \new Voice { \emptysingle \partIIsingle }
+            \addlyrics \wordsII
           >>
                                 % Joint staff
-          \new Staff \with { printPartCombineTexts = ##f } <<
+          \new Staff = joint \with { printPartCombineTexts = ##f } <<
             \new Voice \RehearsalTrack
-            \new Voice = "partI"  { \partCombine \partIjoint \partIIjoint }
-            \new NullVoice = aligner { \partIjoint }
-            \new Lyrics \lyricsto "aligner" \wordsJoint
+            \new Voice { \partCombine \partIjoint \partIIjoint }
+            \new NullVoice { \partIjoint }
+            \addlyrics \wordsJoint
           >>
         >>
         \new PianoStaff <<
@@ -824,15 +827,39 @@ pedal = {
     >>
     \layout {
       indent = 1.5\cm
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "single"
+  \paper {
+    output-suffix = single
+  }
   \score {
    \unfoldRepeats
 %   \articulate
@@ -844,33 +871,33 @@ pedal = {
       <<
         \new ChoirStaff <<
                                 % Single part I staff
-          \new Staff <<
+          \new Staff = "part1" <<
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice = "partI" { \partIjoint \partIsingle }
-            \new Lyrics \lyricsto "partI" \wordsIsingle
+            \new Voice { \partIjoint \partIsingle }
+            \addlyrics \wordsIsingle
           >>
                                 % Single part II staff
-          \new Staff <<
-            \new Voice = "partII" { \partIIjoint \partIIsingle }
-            \new Lyrics \lyricsto "partII" \wordsIIsingle
+          \new Staff = "part2" <<
+            \new Voice { \partIIjoint \partIIsingle }
+            \addlyrics \wordsIIsingle
           >>
                                 % Joint staff
-%          \new Staff \with { printPartCombineTexts = ##f } <<
+%          \new Staff = joint \with { printPartCombineTexts = ##f } <<
 %            \new Voice \RehearsalTrack
-%            \new Voice = "partI"  { \partCombine \partIjoint \partIIjoint }
-%            \new NullVoice = aligner { \partIjoint }
-%            \new Lyrics \lyricsto "aligner" \wordsJoint
+%            \new Voice { \partCombine \partIjoint \partIIjoint }
+%            \new NullVoice { \partIjoint }
+%            \addlyrics \wordsJoint
 %          >>
         >>
         \new PianoStaff <<
-          \new Staff <<
+          \new Staff = pianorh <<
             \new Voice \pianoRH
             \new Voice \pianoRHone
             \new Voice \pianoRHtwo
           >>
           \new Dynamics \dynamicsPiano
-          \new Staff \with {pedalSustainStyle = #'bracket } <<
+          \new Staff = pianolh \with {pedalSustainStyle = #'bracket } <<
             \clef "bass"
             \new Voice \pianoLH
             \new Voice \pianoLHone
@@ -882,17 +909,38 @@ pedal = {
     >>
     \layout {
       indent = 1.5\cm
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
-    \midi {}
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "singlepage"
   \paper {
+    output-suffix = singlepage
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -912,34 +960,34 @@ pedal = {
       <<
         \new ChoirStaff <<
                                 % Single part I staff
-          \new Staff <<
+          \new Staff = "part1" <<
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice = "partI" { \partIjoint \partIsingle }
-            \new Lyrics \lyricsto "partI" \wordsIsingle
+            \new Voice { \partIjoint \partIsingle }
+            \addlyrics \wordsIsingle
           >>
                                 % Single part II staff
-          \new Staff <<
-            \new Voice = "partII" { \partIIjoint \partIIsingle }
-            \new Lyrics \lyricsto "partII" \wordsIIsingle
+          \new Staff = "part2" <<
+            \new Voice { \partIIjoint \partIIsingle }
+            \addlyrics \wordsIIsingle
           >>
                                 % Joint staff
-%          \new Staff \with { printPartCombineTexts = ##f } <<
+%          \new Staff = joint \with { printPartCombineTexts = ##f } <<
 %            \new Voice \RehearsalTrack
-%            \new Voice = "partI"  { \partCombine \partIjoint \partIIjoint }
-%            \new NullVoice = aligner { \partIjoint }
-%            \new Lyrics \lyricsto "aligner" \wordsJoint
+%            \new Voice { \partCombine \partIjoint \partIIjoint }
+%            \new NullVoice { \partIjoint }
+%            \addlyrics \wordsJoint
 %          >>
         >>
         \new PianoStaff <<
-          \new Staff <<
+          \new Staff = pianorh <<
             \magnifyStaff #4/7
             \new Voice \pianoRH
             \new Voice \pianoRHone
             \new Voice \pianoRHtwo
           >>
           \new Dynamics {\teeny \dynamicsPiano}
-          \new Staff \with {pedalSustainStyle = #'bracket } <<
+          \new Staff = pianolh \with {pedalSustainStyle = #'bracket } <<
             \magnifyStaff #4/7
             \clef "bass"
             \new Voice \pianoLH
@@ -952,16 +1000,221 @@ pedal = {
     >>
     \layout {
       indent = 1.5\cm
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
-    \midi {}
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = "singlepage-part1"
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+   \unfoldRepeats
+%   \articulate
+    <<
+%      <<
+%        \new ChordNames { \ChordTrack }
+%        \new FretBoards { \ChordTrack }
+%      >>
+      <<
+        \new ChoirStaff <<
+                                % Single part I staff
+          \new Staff = "part1" <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice { \partIjoint \partIsingle }
+            \addlyrics \wordsIsingle
+          >>
+                                % Single part II staff
+          \new Staff = "part2" <<
+            \magnifyStaff #4/7
+            \new Voice { \partIIjoint \partIIsingle }
+            \addlyrics {\tiny \wordsIIsingle}
+          >>
+                                % Joint staff
+%          \new Staff = joint \with { printPartCombineTexts = ##f } <<
+%            \new Voice \RehearsalTrack
+%            \new Voice { \partCombine \partIjoint \partIIjoint }
+%            \new NullVoice { \partIjoint }
+%            \addlyrics \wordsJoint
+%          >>
+        >>
+        \new PianoStaff <<
+          \new Staff = pianorh <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = pianolh \with {pedalSustainStyle = #'bracket } <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+            \new Dynamics \pedal
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = "singlepage-part2"
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+   \unfoldRepeats
+%   \articulate
+    <<
+%      <<
+%        \new ChordNames { \ChordTrack }
+%        \new FretBoards { \ChordTrack }
+%      >>
+      <<
+        \new ChoirStaff <<
+                                % Single part I staff
+          \new Staff = "part1" <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice { \partIjoint \partIsingle }
+            \addlyrics {\tiny \wordsIsingle}
+          >>
+                                % Single part II staff
+          \new Staff = "part2" <<
+            \new Voice { \partIIjoint \partIIsingle }
+            \addlyrics \wordsIIsingle
+          >>
+                                % Joint staff
+%          \new Staff = joint \with { printPartCombineTexts = ##f } <<
+%            \new Voice \RehearsalTrack
+%            \new Voice { \partCombine \partIjoint \partIIjoint }
+%            \new NullVoice { \partIjoint }
+%            \addlyrics \wordsJoint
+%          >>
+        >>
+        \new PianoStaff <<
+          \new Staff = pianorh <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = pianolh \with {pedalSustainStyle = #'bracket } <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+            \new Dynamics \pedal
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
   }
 }
 
 \book {
-  \bookOutputSuffix "midi1"
+  \paper {
+    output-suffix = "midi1"
+  }
   \score {
    \unfoldRepeats
 %   \articulate
@@ -973,19 +1226,89 @@ pedal = {
       <<
         \new ChoirStaff <<
                                 % Single part I staff
-          \new Staff <<
+          \new Staff = "part1" \with {
+            midiInstrument = "choir aahs"
+          }
+          <<
             \new Voice \TempoTrack
-            \new Voice = "partI" { \partIjoint \partIsingle }
-            \new Lyrics \lyricsto "partI" \wordsImidi
+            \new Voice { \partIjoint \partIsingle }
+            \addlyrics \wordsImidi
           >>
                                 % Single part II staff
-          \new Staff <<
-            \new Voice = "partII" { \partIIjoint \partIIsingle }
-%            \new Lyrics \lyricsto "partII" \wordsIImidi
+          \new Staff = "part2" \with {
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Voice { \partIIjoint \partIIsingle }
+%            \addlyrics \wordsIImidi
           >>
         >>
         \new PianoStaff <<
-          \new Staff <<
+          \new Staff = piano \with {
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \new Voice \pianoRH
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+            \new Dynamics \dynamicsPiano
+            \new Voice \pianoLH
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+            \new Dynamics \pedal
+          >>
+        >>
+      >>
+    >>
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
+  }
+}
+
+\book {
+  \paper {
+    output-suffix = "midi2"
+  }
+  \score {
+   \unfoldRepeats
+%   \articulate
+    <<
+      <<
+        \new ChordNames { \ChordTrack }
+%        \new FretBoards { \ChordTrack }
+      >>
+      <<
+        \new ChoirStaff <<
+                                % Single part I staff
+          \new Staff = "part1" \with {
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice { \partIjoint \partIsingle }
+          >>
+                                % Single part II staff
+          \new Staff = "part2" \with {
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Voice { \partIIjoint \partIIsingle }
+            \addlyrics \wordsIImidi
+          >>
+        >>
+        \new PianoStaff <<
+          \new Staff = piano \with {
+            miriInstrument = "acoustic grand piano"
+          }
+          <<
             \new Voice \pianoRH
             \new Voice \pianoRHone
             \new Voice \pianoRHtwo
@@ -1001,51 +1324,15 @@ pedal = {
         >>
       >>
     >>
-    \midi {}
-  }
-}
-
-\book {
-  \bookOutputSuffix "midi2"
-  \score {
-   \unfoldRepeats
-%   \articulate
-    <<
-      <<
-        \new ChordNames { \ChordTrack }
-%        \new FretBoards { \ChordTrack }
-      >>
-      <<
-        \new ChoirStaff <<
-                                % Single part I staff
-          \new Staff <<
-            \new Voice \TempoTrack
-            \new Voice = "partI" { \partIjoint \partIsingle }
-            \new Lyrics \lyricsto "partI" \wordsImidi
-          >>
-                                % Single part II staff
-          \new Staff <<
-            \new Voice = "partII" { \partIIjoint \partIIsingle }
-%            \new Lyrics \lyricsto "partII" \wordsIImidi
-          >>
-        >>
-        \new PianoStaff <<
-          \new Staff <<
-            \new Voice \pianoRH
-            \new Voice \pianoRHone
-            \new Voice \pianoRHtwo
-          >>
-          \new Dynamics \dynamicsPiano
-          \new Staff \with {pedalSustainStyle = #'bracket } <<
-            \clef "bass"
-            \new Voice \pianoLH
-            \new Voice \pianoLHone
-            \new Voice \pianoLHtwo
-            \new Dynamics \pedal
-          >>
-        >>
-      >>
-    >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
