@@ -1,5 +1,6 @@
-\version "2.25.9"
+\version "2.25.14"
 
+\include "kjp.ly"
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
 
@@ -32,8 +33,6 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   tagline   = ##f
   copyright   = \today
 }
-
-% #(set-global-staff-size 16)
 
 global = {
   \key aes \major
@@ -348,8 +347,12 @@ bass = \relative {
   \bar "|."
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "single"
+  \paper {
+    output-suffix = single
+  }
   \score {
     <<
       <<
@@ -358,7 +361,6 @@ bass = \relative {
           \new Staff = soprano \with {
             instrumentName = #"Soprano"
             shortInstrumentName = #"S"
-            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \TempoTrack
@@ -370,7 +372,6 @@ bass = \relative {
           \new Staff = alto \with {
             instrumentName = #"Alto"
             shortInstrumentName = #"A"
-            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \alto
@@ -380,7 +381,6 @@ bass = \relative {
           \new Staff = tenor \with {
             instrumentName = #"Tenor"
             shortInstrumentName = #"T"
-            midiInstrument = "choir aahs"
           }
           <<
             \clef "treble_8"
@@ -391,7 +391,6 @@ bass = \relative {
           \new Staff = bass \with {
             instrumentName = #"Bass"
             shortInstrumentName = #"B"
-            midiInstrument = "choir aahs"
           }
           <<
             \clef "bass"
@@ -402,14 +401,12 @@ bass = \relative {
         \new PianoStaff = piano <<
           \new Staff = pianorh \with {
             printPartCombineTexts = ##f
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \new Voice \partCombine \soprano \alto
           >>
           \new Staff = pianolh \with {
             printPartCombineTexts = ##f
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \clef "bass"
@@ -421,17 +418,38 @@ bass = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "single-noacc"
+  \paper {
+    output-suffix = single-noacc
+  }
   \score {
     <<
       <<
@@ -440,7 +458,6 @@ bass = \relative {
           \new Staff = soprano \with {
             instrumentName = #"Soprano"
             shortInstrumentName = #"S"
-            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \TempoTrack
@@ -452,7 +469,6 @@ bass = \relative {
           \new Staff = alto \with {
             instrumentName = #"Alto"
             shortInstrumentName = #"A"
-            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \alto
@@ -462,7 +478,6 @@ bass = \relative {
           \new Staff = tenor \with {
             instrumentName = #"Tenor"
             shortInstrumentName = #"T"
-            midiInstrument = "choir aahs"
           }
           <<
             \clef "treble_8"
@@ -473,7 +488,6 @@ bass = \relative {
           \new Staff = bass \with {
             instrumentName = #"Bass"
             shortInstrumentName = #"B"
-            midiInstrument = "choir aahs"
           }
           <<
             \clef "bass"
@@ -486,18 +500,37 @@ bass = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "singlepage-noacc"
   \paper {
+    output-suffix = singlepage-noacc
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -515,7 +548,6 @@ bass = \relative {
           \new Staff = soprano \with {
             instrumentName = #"Soprano"
             shortInstrumentName = #"S"
-            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \TempoTrack
@@ -527,7 +559,6 @@ bass = \relative {
           \new Staff = alto \with {
             instrumentName = #"Alto"
             shortInstrumentName = #"A"
-            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \alto
@@ -537,7 +568,6 @@ bass = \relative {
           \new Staff = tenor \with {
             instrumentName = #"Tenor"
             shortInstrumentName = #"T"
-            midiInstrument = "choir aahs"
           }
           <<
             \clef "treble_8"
@@ -548,7 +578,6 @@ bass = \relative {
           \new Staff = bass \with {
             instrumentName = #"Bass"
             shortInstrumentName = #"B"
-            midiInstrument = "choir aahs"
           }
           <<
             \clef "bass"
@@ -561,18 +590,37 @@ bass = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "singlepage-sop"
   \paper {
+    output-suffix = singlepage-sop
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -590,7 +638,6 @@ bass = \relative {
           \new Staff = soprano \with {
             instrumentName = #"Soprano"
             shortInstrumentName = #"S"
-            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \TempoTrack
@@ -602,7 +649,6 @@ bass = \relative {
           \new Staff = alto \with {
             instrumentName = #"Alto"
             shortInstrumentName = #"A"
-            midiInstrument = "choir aahs"
           }
           <<
             \magnifyStaff #4/7
@@ -613,7 +659,6 @@ bass = \relative {
           \new Staff = tenor \with {
             instrumentName = #"Tenor"
             shortInstrumentName = #"T"
-            midiInstrument = "choir aahs"
           }
           <<
             \magnifyStaff #4/7
@@ -625,7 +670,6 @@ bass = \relative {
           \new Staff = bass \with {
             instrumentName = #"Bass"
             shortInstrumentName = #"B"
-            midiInstrument = "choir aahs"
           }
           <<
             \magnifyStaff #4/7
@@ -639,18 +683,37 @@ bass = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "singlepage-alto"
   \paper {
+    output-suffix = singlepage-alto
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -668,7 +731,6 @@ bass = \relative {
           \new Staff = soprano \with {
             instrumentName = #"Soprano"
             shortInstrumentName = #"S"
-            midiInstrument = "choir aahs"
           }
           <<
             \magnifyStaff #4/7
@@ -681,7 +743,6 @@ bass = \relative {
           \new Staff = alto \with {
             instrumentName = #"Alto"
             shortInstrumentName = #"A"
-            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \alto
@@ -691,7 +752,6 @@ bass = \relative {
           \new Staff = tenor \with {
             instrumentName = #"Tenor"
             shortInstrumentName = #"T"
-            midiInstrument = "choir aahs"
           }
           <<
             \magnifyStaff #4/7
@@ -703,7 +763,6 @@ bass = \relative {
           \new Staff = bass \with {
             instrumentName = #"Bass"
             shortInstrumentName = #"B"
-            midiInstrument = "choir aahs"
           }
           <<
             \magnifyStaff #4/7
@@ -717,18 +776,37 @@ bass = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "singlepage-tenor"
   \paper {
+    output-suffix = singlepage-tenor
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -746,7 +824,6 @@ bass = \relative {
           \new Staff = soprano \with {
             instrumentName = #"Soprano"
             shortInstrumentName = #"S"
-            midiInstrument = "choir aahs"
           }
           <<
             \magnifyStaff #4/7
@@ -759,7 +836,6 @@ bass = \relative {
           \new Staff = alto \with {
             instrumentName = #"Alto"
             shortInstrumentName = #"A"
-            midiInstrument = "choir aahs"
           }
           <<
             \magnifyStaff #4/7
@@ -770,7 +846,6 @@ bass = \relative {
           \new Staff = tenor \with {
             instrumentName = #"Tenor"
             shortInstrumentName = #"T"
-            midiInstrument = "choir aahs"
           }
           <<
             \clef "treble_8"
@@ -781,7 +856,6 @@ bass = \relative {
           \new Staff = bass \with {
             instrumentName = #"Bass"
             shortInstrumentName = #"B"
-            midiInstrument = "choir aahs"
           }
           <<
             \magnifyStaff #4/7
@@ -795,18 +869,37 @@ bass = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "singlepage-bass"
   \paper {
+    output-suffix = singlepage-bass
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -824,7 +917,6 @@ bass = \relative {
           \new Staff = soprano \with {
             instrumentName = #"Soprano"
             shortInstrumentName = #"S"
-            midiInstrument = "choir aahs"
           }
           <<
             \magnifyStaff #4/7
@@ -837,7 +929,6 @@ bass = \relative {
           \new Staff = alto \with {
             instrumentName = #"Alto"
             shortInstrumentName = #"A"
-            midiInstrument = "choir aahs"
           }
           <<
             \magnifyStaff #4/7
@@ -848,7 +939,6 @@ bass = \relative {
           \new Staff = tenor \with {
             instrumentName = #"Tenor"
             shortInstrumentName = #"T"
-            midiInstrument = "choir aahs"
           }
           <<
             \magnifyStaff #4/7
@@ -860,7 +950,6 @@ bass = \relative {
           \new Staff = bass \with {
             instrumentName = #"Bass"
             shortInstrumentName = #"B"
-            midiInstrument = "choir aahs"
           }
           <<
             \clef "bass"
@@ -873,17 +962,36 @@ bass = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
 \book {
-  \bookOutputSuffix "midi"
+  \paper {
+    output-suffix = midi
+  }
   \score {
 %   \articulate
     <<
@@ -943,6 +1051,15 @@ bass = \relative {
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
