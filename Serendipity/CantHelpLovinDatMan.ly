@@ -1,5 +1,6 @@
-\version "2.20.2"
+\version "2.25.15"
 
+\include "kjp.ly"
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
 \include "swing.ly"
@@ -33,8 +34,6 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   tagline   = ##f
   copyright   = \today
 }
-
-% #(set-global-staff-size 16)
 
 % \paper {
 %   #(set-paper-size "a4")
@@ -78,27 +77,27 @@ TempoTrack = {
 
 RehearsalTrack = {
 %  \set Score.currentBarNumber = #5
-  \mark \markup { \circle "15a" } s1*4
-  \mark \markup { \circle "15b" } s1*4
-  \mark \markup { \circle "15c" } s1*4
-  \mark \markup { \circle "16a" } s1*4
-  \mark \markup { \circle "16b" } s1*3
-  \mark \markup { \circle "16c" } s1*3
-  \mark \markup { \circle "16d" } s1*3
-  \mark \markup { \circle "17a" } s1*3
-  \mark \markup { \circle "17b" } s1*4
-  \mark \markup { \circle "17c" } s1*4
-  \mark \markup { \circle "18a" } s1*4
-  \mark \markup { \circle "18b" } s1*4
-  \mark \markup { \circle "18c" } s1*4
-  \mark \markup { \circle "19a" } s1*4
-  \mark \markup { \circle "19b" } s1*4
-  \mark \markup { \circle "19c" } s1*4
+  \textMark \markup { \box "15a" } s1*4
+  \textMark \markup { \box "15b" } s1*4
+  \textMark \markup { \box "15c" } s1*4
+  \textMark \markup { \box "16a" } s1*4
+  \textMark \markup { \box "16b" } s1*3
+  \textMark \markup { \box "16c" } s1*3
+  \textMark \markup { \box "16d" } s1*3
+  \textMark \markup { \box "17a" } s1*3
+  \textMark \markup { \box "17b" } s1*4
+  \textMark \markup { \box "17c" } s1*4
+  \textMark \markup { \box "18a" } s1*4
+  \textMark \markup { \box "18b" } s1*4
+  \textMark \markup { \box "18c" } s1*4
+  \textMark \markup { \box "19a" } s1*4
+  \textMark \markup { \box "19b" } s1*4
+  \textMark \markup { \box "19c" } s1*4
 }
 
 soprano = \tripletFeel 8 \relative {
   \global
-  \oneVoice
+  \ov
   R1*3
   bes'8^\markup \upright SOPRANO  bes bes ees~4 ees
   ees8 bes bes bes~2 % 15b
@@ -107,7 +106,7 @@ soprano = \tripletFeel 8 \relative {
   bes2 ees,
   ces8 ees ees ges~4 f % 15c
   ees1~
-  ees2. r4 \voiceOne
+  ees2. r4 \vo
   bes'8^\markup \upright {SOPRANO & ALTO} bes bes ees~4 ees
   ees8 bes bes bes~2 % 16a
   g8 g g c~4 c
@@ -121,7 +120,7 @@ soprano = \tripletFeel 8 \relative {
   r8 ees ees ees ees c'4.
   r8 ees, f d ees ces'4. % 16d
   bes1~
-  bes2. \oneVoice r4 \voiceOne
+  bes2. \ov r4 \vo
   R1*4 \bar "||"
    bes8 bes bes ees~4 ees % 17b+
   ees8 bes bes bes~2
@@ -130,7 +129,7 @@ soprano = \tripletFeel 8 \relative {
   bes2 ees,
   ces8 ees ees ges~4 f
   ees1~
-  ees2. \oneVoice r4 \voiceOne % 18a
+  ees2. \ov r4 \vo % 18a
   bes'8 bes bes ees~4 ees
   ees8 bes bes bes~2
   g8 g g c~4 c
@@ -138,7 +137,7 @@ soprano = \tripletFeel 8 \relative {
   bes2 ees,
   ces8 ees ees ges~4 f
   ees1~
-  ees2.~8 \oneVoice r \voiceOne % 18c
+  ees2.~8 \ov r \vo % 18c
   f4 f f f
   fis8(ees'4.~2)
   g,4 g g g
@@ -158,21 +157,59 @@ soprano = \tripletFeel 8 \relative {
   \bar "|"
 }
 
-dynamicsSop = {
-  \override DynamicTextSpanner.style = #'none
-}
-
-wordsSop = \lyricmode {
+wordsAll = \lyricmode {
   Fish got to swim __ and birds got to fly __
   I got to love one man till I die __
-  Can't help lov -- in' dat man __ of mine. __
+  Can't help lov -- in' dat man __ of \set associatedVoice = alignerA mine. __
 
   Tell me he's la -- zy,
   Tell me he's slow __
   Tell me I'm cra -- zy, may -- be, I know
   Can't help __ Lov -- in' dat man of __ mine __
 
-  Oh lis -- ten sis -- ter,
+%  Oh lis -- ten sis -- ter,
+  I love my mis -- ter man __
+  and I can't __ tell you why,
+  can't tell you why,
+  Dere ain't no rea -- son
+  ain't no rea -- son
+  why I should love dat man __
+
+  It must be sump -- in' dat __
+  De an -- gels done plan __
+  
+  Fish got to swim __ and birds got to fly __
+  I got to love one man till I die __
+  Can't help lov -- in' dat man __ of mine. __
+  Lov -- in' dat man of mine.
+
+  Tell me he's la -- zy,
+  Tell me he's slow __
+  Tell me I'm cra -- zy, may -- be, I know
+  Can't help __ Lov -- in' dat man of __ mine __
+
+  When he goes a -- way __
+  Dat's a rai -- ny day, __
+  An when he comes back dat day is fine __
+  The sun will shine,
+
+  Yes sis -- ter,
+  He can come home __ as late as can be, __
+  Home with -- out him ain't no home to me __
+  Can't help __ lov -- in' dat man __ of mine! __
+}
+
+wordsSop = \lyricmode {
+  Fish got to swim __ and birds got to fly __
+  I got to love one man till I die __
+  Can't help lov -- in' dat man __ of mine __
+
+  Tell me he's la -- zy,
+  Tell me he's slow __
+  Tell me I'm cra -- zy, may -- be, I know
+  Can't help __ Lov -- in' dat man of __ mine __
+
+  Oh lis -- ten, sis -- ter,
   I love my mis -- ter man __
   and I can't __ tell you why,
   Dere ain't no rea -- son
@@ -195,6 +232,25 @@ wordsSop = \lyricmode {
   He can come home __ as late as can be, __
   Home with -- out him ain't no home to me __
   Can't help __ lov -- in' dat man __ of mine! __
+}
+
+wordsSopAbove = \lyricmode {
+  \repeat unfold 50 \skip 1
+  of mine
+  Oh lis -- ten, sis -- ter,
+
+  \repeat unfold 10 \skip 1
+  you why,   __
+  Dere ain't no rea -- son
+  why I should love dat man __
+
+  "" \repeat unfold 24 \skip 1
+  mine.
+
+  \repeat unfold 48 \skip 1
+  shine,
+
+  \repeat unfold 26 \skip 1
 }
 
 wordsSopMidi = \lyricmode {
@@ -287,10 +343,6 @@ alto = \tripletFeel 8 \relative {
   \bar "|"
 }
 
-dynamicsAlto = {
-  \override DynamicTextSpanner.style = #'none
-}
-
 wordsAlto = \lyricmode {
   Tell me he's la -- zy,
   Tell me he's slow __
@@ -359,12 +411,17 @@ wordsAltoMidi = \lyricmode {
 
 dynamicsWomen = {
   \override DynamicTextSpanner.style = #'none
+  s1*3 | s1\p | s1*7 | s1\p |
+  s1*13 | % 16
+  s1*4 | s1\mp | s1*6 |
+  s1*9 | s1\p | s1*2 | % 18
+  s1*2 | s4 s2.\< | s1\mf | s4 s2.\> | s1\p | s1*6 |
 }
 
 tenor = \tripletFeel 8 \relative {
   \global
-  \oneVoice
-  R1*27 \voiceOne
+  \ov
+  R1*27 \vo
   bes8 bes bes bes~bes bes bes bes % 17a++
   bes8 bes bes bes~2 \bar "||" % 17b
   bes8 bes bes c~4 c
@@ -374,7 +431,7 @@ tenor = \tripletFeel 8 \relative {
   bes2 g
   ees8 a a ces~ces bes(aes4)
   g4 g8 g~g g g g
-  aes2. \oneVoice r4 \voiceOne % 18a
+  aes2. \ov r4 \vo % 18a
   ees'8 ees d c~4 bes
   c8 c c d~(4 bes)
   c8 c c bes~4 aes
@@ -382,7 +439,7 @@ tenor = \tripletFeel 8 \relative {
   g4(bes) g2
   a8 a a a(ges4) f
   g1(
-  aes2 g4~8) \oneVoice r \voiceOne % 18c
+  aes2 g4~8) \ov r \vo % 18c
   ees4 ees d ees
   fis2(g)
   g4 g e f
@@ -398,12 +455,8 @@ tenor = \tripletFeel 8 \relative {
   g4(bes) g2
   a8 a a ces~ces(bes) aes4
   g1~
-  g2. \oneVoice r4 \voiceOne
+  g2. \ov r4 \vo
   \bar "|"
-}
-
-dynamicsTenor = {
-  \override DynamicTextSpanner.style = #'none
 }
 
 wordsTenor = \lyricmode {
@@ -454,7 +507,7 @@ wordsTenorMidi = \lyricmode {
 
 bass= \tripletFeel 8 \relative {
   \global
-  \voiceTwo
+  \vt
   s1*27
   aes8 g g g~g fis fis fis % 17a++
   fis8 g g g~2 % 17b
@@ -491,10 +544,6 @@ bass= \tripletFeel 8 \relative {
   ees1~
   ees2. r4
   \bar "|"
-}
-
-dynamicsBass = {
-  \override DynamicTextSpanner.style = #'none
 }
 
 wordsBass = \lyricmode {
@@ -543,13 +592,18 @@ wordsBassMidi = \lyricmode {
 
 dynamicsMen = {
   \override DynamicTextSpanner.style = #'none
+  s1*12 |
+  s1*13 | % 16
+  s1*2 | s1\p | s | s1\mp | s1*6 |
+  s1*9 | s1\p | s1*2 | % 18
+  s1*2 | s4 s2.\< | s1\mf | s4 s2.\> | s1\p | s1*6 |
 }
 
 pianoRHone = \tripletFeel 8 \relative {
   \global
-  \voiceOne
+  \vo
   s1
-  \oneVoice r8 \voiceOne c'' \( \grace d8 ees c ees g~g bes~
+  \ov r8 \vo c'' \( \grace d8 ees c ees g~g bes~
                                 bes2 \) s
   bes,8 bes bes ees~4 ees
   ees8 bes bes bes~2 % 15b
@@ -600,21 +654,21 @@ pianoRHone = \tripletFeel 8 \relative {
   s4 <g, bes> q <ees bes'>
   <ees c'>4 q <g c> <f c'>
   s1
-  bes4. bes'8(\voiceTwo <d,, g> bes'' bes, bes') \voiceOne % 19b
+  bes4. bes'8(\vt <d,, g> bes'' bes, bes') \vo % 19b
   bes,8 bes bes ees~4 ees
   ees8 bes bes bes~2
   g8 g g c~4 c
   c8 f, f f~2 % 19c
   <bes, bes'>2 ees
   ces8 ees ees ges~4 <d f>
-  <g, ees'>4 \oneVoice r8 \voiceOne s4. <fis' c'>4
-  <ees g bes ees>2. \oneVoice r4
+  <g, ees'>4 \ov r8 \vo s4. <fis' c'>4
+  <ees g bes ees>2. \ov r4
   \bar "|."
 }
 
 pianoRHtwo = \tripletFeel 8 \relative {
   \global
-  \voiceTwo
+  \vt
   r8 bes'(c bes) r c(ees c)
   s2. <aes c>4
   <bes ees>2 <d, fis bes> \bar "||"
@@ -680,12 +734,16 @@ pianoRHtwo = \tripletFeel 8 \relative {
 
 dynamicsPiano = {
   \override DynamicTextSpanner.style = #'none
-  s1\p
+  s1\mp | s4 s2.\< | s2\mf s\p | s1\p | s1*6 | s2\mp s\> | s1\p |
+  s1*13 | % 16
+  s1*4 | s1\mp | s1*6 |
+  s1*12 | % 18
+  s1*2 | s4 s2.\< | s1\mf | s4 s2.\> | s1\p | s1*6 |
 }
 
 pianoLH = \tripletFeel 8 \relative {
   \global
-  \oneVoice
+  \ov
   <bes ees g>4 q <a ees' g> q
   <aes ees' ges>4 q <g b f'> <bes f'>
   <ees, bes' g'>2 <bes aes'> \bar "||"
@@ -708,7 +766,7 @@ pianoLH = \tripletFeel 8 \relative {
   <ees, bes' g'>4 <ees' g> q q % 16c
   <ees, bes'>4 <ees' g> q q
   <aes, ees'>4 q q q
-  q4 q q << \voiceTwo q \new Voice {\voiceOne ees'16(e f ges)} >> \oneVoice % 16d
+  q4 q q << \vt q \new Voice {\vo ees'16(e f ges)} >> \ov % 16d
   <ees, bes'>4 q q q
   q4 <bes' g'> <f ees'> f
   <bes f aes'>4 q q q % 17a
@@ -742,7 +800,7 @@ pianoLH = \tripletFeel 8 \relative {
   <ees, ees'>4 <g' d'> <c,, c'> <c' bes'>
   <f, f'>4 <aes' c> <bes,, bes'> <aes'' bes>
   <ees, ees'>4 g' <c,, c'> <c' bes'>
-  <bes aes'>4 q << {\voiceOne f'8(g aes4)} \new Voice {\voiceTwo aes,2} >> \oneVoice % 19c
+  <bes aes'>4 q << {\vo f'8(g aes4)} \new Voice {\vt aes,2} >> \ov % 19c
   <g g'>2 <c g'>
   <ces, ges' ees'>4 <ces ces'> q <bes bes'>
   <ees bes'>4 r8 <f' a ees'>8~4 <ees gis d'>4
@@ -750,44 +808,52 @@ pianoLH = \tripletFeel 8 \relative {
   \bar "|."
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "single"
+  \paper {
+    output-suffix = single
+  }
   \score {
-%   \unfoldRepeats
-%   \articulate
     <<
       <<
         \new Dynamics \TempoTrack
         \new ChoirStaff <<
                                 % Joint soprano/alto staff
-          \new Dynamics \dynamicsWomen
-          \new Lyrics = "sopabove"
-          \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
+          \new Staff = women \with {
+            instrumentName = #"Soprano/Alto"
+            shortInstrumentName = #"SA"
+          }
+          <<
             \new Voice \RehearsalTrack
-            \new Voice = "soprano" { \voiceOne \soprano }
-            \new Voice = "alto"    { \voiceTwo \alto    }
-%            \new Lyrics \lyricsto "soprano" \wordsSop
-            \new Lyrics \lyricsto "alto" \wordsAlto
+            \new Dynamics \with {alignAboveContext = women} \dynamicsWomen
+            \new NullVoice = alignerS \soprano
+            \new NullVoice = alignerA \alto
+            \new Voice = "soprano" { \vo \soprano }
+            \addlyrics \wordsAll
+            \new Voice = "alto"    { \vt \alto    }
+            \new Lyrics \with {alignAboveContext = women} \lyricsto soprano \wordsSopAbove
           >>
-          \context Lyrics = "sopabove" { \lyricsto "soprano" \wordsSop }
                                 % Joint tenor/bass staff
-          \new Dynamics \dynamicsMen
-          \new Lyrics = "tenorwords"
-          \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
+          \new Staff = men \with {
+            instrumentName = #"Tenor/Bass"
+            shortInstrumentName = #"TB"
+          }
+          <<
             \clef "bass"
+            \new Dynamics \with {alignAboveContext = men} \dynamicsMen
             \new Voice = "tenor" \tenor
             \new Voice = "bass" \bass
-            \context Lyrics = "tenorwords" { \lyricsto tenor \wordsTenor }
+            \addlyrics \wordsBass
           >>
-          \new Lyrics \lyricsto "bass" \wordsBass
         >>
         \new PianoStaff <<
-          \new Staff <<
+          \new Staff = pianorh <<
             \new Voice \pianoRHone
             \new Voice \pianoRHtwo
           >>
           \new Dynamics \dynamicsPiano
-          \new Staff <<
+          \new Staff = pianolh <<
             \clef "bass"
             \new Voice \pianoLH
           >>
@@ -796,17 +862,38 @@ pianoLH = \tripletFeel 8 \relative {
     >>
     \layout {
       indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
       \context { \Staff
-                 \RemoveAllEmptyStaves
-                 \consists Merge_rests_engraver
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "singlepage"
   \paper {
+    output-suffix = singlepage
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -821,24 +908,30 @@ pianoLH = \tripletFeel 8 \relative {
         \new Dynamics \TempoTrack
         \new ChoirStaff <<
                                 % Joint soprano/alto staff
-          \new Dynamics \dynamicsWomen
-          \new Lyrics = "sopabove"
-          \new Staff \with { instrumentName = #"Soprano/Alto" shortInstrumentName = #"SA" } <<
+          \new Staff = women \with {
+            instrumentName = #"Soprano/Alto"
+            shortInstrumentName = #"SA"
+          }
+          <<
             \new Voice \RehearsalTrack
-            \new Voice = "soprano" { \voiceOne \soprano }
-            \new Voice = "alto"    { \voiceTwo \alto    }
-%            \new Lyrics \lyricsto "soprano" \wordsSop
-            \new Lyrics \lyricsto "alto" \wordsAlto
+            \new Dynamics \with {alignAboveContext = women} \dynamicsWomen
+            \new NullVoice = alignerS \soprano
+            \new NullVoice = alignerA \alto
+            \new Voice = "soprano" { \vo \soprano }
+            \addlyrics \wordsAll
+            \new Voice = "alto"    { \vt \alto    }
+            \new Lyrics \with {alignAboveContext = women} \lyricsto alignerS \wordsSopAbove
           >>
-          \context Lyrics = "sopabove" { \lyricsto "soprano" \wordsSop }
                                 % Joint tenor/bass staff
-          \new Dynamics \dynamicsMen
-          \new Lyrics = "tenorwords"
-          \new Staff \with { instrumentName = #"Tenor/Bass" shortInstrumentName = #"TB" } <<
+          \new Staff = men \with {
+            instrumentName = #"Tenor/Bass"
+            shortInstrumentName = #"TB"
+          }
+          <<
             \clef "bass"
+            \new Dynamics \with {alignAboveContext = men} \dynamicsMen
             \new Voice = "tenor" \tenor
             \new Voice = "bass" \bass
-            \context Lyrics = "tenorwords" { \lyricsto tenor \wordsTenor }
           >>
           \new Lyrics \lyricsto "bass" \wordsBass
         >>
@@ -857,17 +950,38 @@ pianoLH = \tripletFeel 8 \relative {
     >>
     \layout {
       indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
       \context { \Staff
-                 \RemoveAllEmptyStaves
-                 \consists Merge_rests_engraver
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "singlepage-sep"
   \paper {
+    output-suffix = singlepage-sep
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -940,17 +1054,38 @@ pianoLH = \tripletFeel 8 \relative {
     >>
     \layout {
       indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
       \context { \Staff
-                 \RemoveAllEmptyStaves
-                 \consists Merge_rests_engraver
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "singlepage-sep-sop"
   \paper {
+    output-suffix = singlepage-sop
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -1028,17 +1163,38 @@ pianoLH = \tripletFeel 8 \relative {
     >>
     \layout {
       indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
       \context { \Staff
-                 \RemoveAllEmptyStaves
-                 \consists Merge_rests_engraver
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "singlepage-sep-alto"
   \paper {
+    output-suffix = singlepage-alto
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -1116,17 +1272,38 @@ pianoLH = \tripletFeel 8 \relative {
     >>
     \layout {
       indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
       \context { \Staff
-                 \RemoveAllEmptyStaves
-                 \consists Merge_rests_engraver
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "singlepage-sep-tenor"
   \paper {
+    output-suffix = singlepage-tenor
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -1204,17 +1381,38 @@ pianoLH = \tripletFeel 8 \relative {
     >>
     \layout {
       indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
       \context { \Staff
-                 \RemoveAllEmptyStaves
-                 \consists Merge_rests_engraver
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "singlepage-sep-bass"
   \paper {
+    output-suffix = singlepage-bass
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -1292,16 +1490,37 @@ pianoLH = \tripletFeel 8 \relative {
     >>
     \layout {
       indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
       \context { \Staff
-                 \RemoveAllEmptyStaves
-                 \consists Merge_rests_engraver
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
 \book {
-  \bookOutputSuffix "midi-sop"
+  \paper {
+    output-suffix = midi-sop
+  }
   \score {
 %   \articulate
     <<
@@ -1356,13 +1575,24 @@ pianoLH = \tripletFeel 8 \relative {
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
 
 \book {
-  \bookOutputSuffix "midi-alto"
+  \paper {
+    output-suffix = midi-alto
+  }
   \score {
 %   \articulate
     <<
@@ -1417,13 +1647,24 @@ pianoLH = \tripletFeel 8 \relative {
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
 
 \book {
-  \bookOutputSuffix "midi-tenor"
+  \paper {
+    output-suffix = midi-tenor
+  }
   \score {
 %   \articulate
     <<
@@ -1478,13 +1719,24 @@ pianoLH = \tripletFeel 8 \relative {
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
 
 \book {
-  \bookOutputSuffix "midi-bass"
+  \paper {
+    output-suffix = midi-bass
+  }
   \score {
 %   \articulate
     <<
@@ -1541,7 +1793,16 @@ pianoLH = \tripletFeel 8 \relative {
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
