@@ -1,5 +1,6 @@
-\version "2.25.0"
+\version "2.25.15"
 
+\include "kjp.ly"
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
 
@@ -234,7 +235,7 @@ dynamicsTenor = {
 
 tenor = \relative {
   \global
-  d8 8 \section | b4 e8 b d4 8 a | e'16(d c8) c b g2 |
+  d'8 8 \section | b4 e8 b d4 8 a | e'16(d c8) c b g2 |
   d'8 d d d d d r d16 d | c2(b4) r8 g16 g \section |
   \repeat volta 3 {
     g8 g g g fis fis g16 c8. | d8 d d d c c c4 | % 15a
@@ -282,7 +283,9 @@ pianoLHtwo = \relative {
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "repeat"
+  \paper {
+    output-suffix = repeat
+  }
   \score {
     <<
       <<
@@ -304,8 +307,8 @@ pianoLHtwo = \relative {
           >>
                                 % Single alto staff
           \new Staff = alto \with {
-            instrumentName = #"Alto"
-            shortInstrumentName = #"A"
+            instrumentName = #"Alto/Bass"
+            shortInstrumentName = #"A/B"
             \accidentalStyle Score.modern
           }
           <<
@@ -356,28 +359,26 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -387,7 +388,9 @@ pianoLHtwo = \relative {
 #(set-global-staff-size 18)
 
 \book {
-  \bookOutputSuffix "repeat-noacc"
+  \paper {
+    output-suffix = repeat-noacc
+  }
   \score {
     <<
       <<
@@ -409,8 +412,8 @@ pianoLHtwo = \relative {
           >>
                                 % Single alto staff
           \new Staff = alto \with {
-            instrumentName = #"Alto"
-            shortInstrumentName = #"A"
+            instrumentName = #"Alto/Bass"
+            shortInstrumentName = #"A/B"
             \accidentalStyle Score.modern
           }
           <<
@@ -440,28 +443,26 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -471,7 +472,9 @@ pianoLHtwo = \relative {
 #(set-global-staff-size 18)
 
 \book {
-  \bookOutputSuffix "repeat-noacc-bass"
+  \paper {
+    output-suffix = repeat-noacc-bass
+  }
   \score {
     <<
       <<
@@ -493,8 +496,8 @@ pianoLHtwo = \relative {
           >>
                                 % Single alto staff
           \new Staff = alto \with {
-            instrumentName = #"Alto"
-            shortInstrumentName = #"A"
+            instrumentName = #"Alto/Bass"
+            shortInstrumentName = #"A/B"
             \accidentalStyle Score.modern
           }
           <<
@@ -524,28 +527,26 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -555,7 +556,9 @@ pianoLHtwo = \relative {
 #(set-global-staff-size 19)
 
 \book {
-  \bookOutputSuffix "single-noacc"
+  \paper {
+    output-suffix = single-noacc
+  }
   \score {
    \unfoldRepeats
     <<
@@ -576,8 +579,8 @@ pianoLHtwo = \relative {
           >>
                                 % Single alto staff
           \new Staff = alto \with {
-            instrumentName = #"Alto"
-            shortInstrumentName = #"A"
+            instrumentName = #"Alto/Bass"
+            shortInstrumentName = #"A/B"
             \accidentalStyle Score.modern
           }
           <<
@@ -603,28 +606,26 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -634,8 +635,8 @@ pianoLHtwo = \relative {
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "singlepage-noacc"
   \paper {
+    output-suffix = singlepage-noacc
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -665,8 +666,8 @@ pianoLHtwo = \relative {
           >>
                                 % Single alto staff
           \new Staff = alto \with {
-            instrumentName = #"Alto"
-            shortInstrumentName = #"A"
+            instrumentName = #"Alto/Bass"
+            shortInstrumentName = #"A/B"
             \accidentalStyle Score.modern
           }
           <<
@@ -692,28 +693,26 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -723,8 +722,8 @@ pianoLHtwo = \relative {
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "singlepage-noacc-sop"
   \paper {
+    output-suffix = singlepage-noacc-sop
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -754,8 +753,8 @@ pianoLHtwo = \relative {
           >>
                                 % Single alto staff
           \new Staff = alto \with {
-            instrumentName = #"Alto"
-            shortInstrumentName = #"A"
+            instrumentName = #"Alto/Bass"
+            shortInstrumentName = #"A/B"
             \accidentalStyle Score.modern
           }
           <<
@@ -783,28 +782,26 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -814,8 +811,8 @@ pianoLHtwo = \relative {
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "singlepage-noacc-bass"
   \paper {
+    output-suffix = singlepage-noacc-alto
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -842,19 +839,18 @@ pianoLHtwo = \relative {
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
             \new Voice \soprano
-%            \addlyrics \wordsSingle
+%            \addlyrics {\tiny \wordsSingle}
           >>
                                 % Single alto staff
           \new Staff = alto \with {
-            instrumentName = #"Alto"
-            shortInstrumentName = #"A"
+            instrumentName = #"Alto/Bass"
+            shortInstrumentName = #"A/B"
             \accidentalStyle Score.modern
           }
           <<
-            \magnifyStaff #4/7
-            \new Dynamics \with {alignAboveContext = alto} {\teeny \dynamicsSop}
+            \new Dynamics \with {alignAboveContext = alto} \dynamicsSop
             \new Voice \alto
-%            \addlyrics \wordsSingle
+            \addlyrics \wordsSingle
           >>
                                 % Single tenor staff
           \new Staff = tenor \with {
@@ -863,7 +859,97 @@ pianoLHtwo = \relative {
             \accidentalStyle Score.modern
           }
           <<
-            \clef "bass"
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Dynamics \with {alignAboveContext = tenor} {\teeny \dynamicsSop}
+            \new Voice \tenor
+%            \addlyrics \wordsSingle
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-noacc-tenor
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+   \unfoldRepeats
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsSop}
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+%            \addlyrics {\tiny \wordsSingle}
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto/Bass"
+            shortInstrumentName = #"A/B"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = alto} {\teeny \dynamicsSop}
+            \new Voice \alto
+%            \addlyrics {\tiny \wordsSingle}
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \clef "treble_8"
             \new Dynamics \with {alignAboveContext = tenor} \dynamicsSop
             \new Voice \tenor
             \addlyrics \wordsSingle
@@ -874,28 +960,26 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -905,7 +989,99 @@ pianoLHtwo = \relative {
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "midi"
+  \paper {
+    output-suffix = singlepage-noacc-bass
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+   \unfoldRepeats
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = soprano} {\teeny \dynamicsSop}
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSingle}
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto/Bass"
+            shortInstrumentName = #"A/B"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \clef bass
+            \new Dynamics \with {alignAboveContext = alto} \dynamicsSop
+            \new Voice \transpose c c, \alto
+            \addlyrics \wordsSingle
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Dynamics \with {alignAboveContext = tenor} {\teeny \dynamicsSop}
+            \new Voice \tenor
+%            \addlyrics \wordsSingle
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = midi
+  }
   \score {
    \unfoldRepeats
 %   \articulate
@@ -928,8 +1104,8 @@ pianoLHtwo = \relative {
           >>
                                 % Single alto staff
           \new Staff = alto \with {
-            instrumentName = #"Alto"
-            shortInstrumentName = #"A"
+            instrumentName = #"Alto/Bass"
+            shortInstrumentName = #"A/B"
             midiInstrument = "choir aahs"
             \accidentalStyle Score.modern
           }
