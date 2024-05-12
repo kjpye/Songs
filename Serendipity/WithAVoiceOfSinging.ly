@@ -1,5 +1,6 @@
-\version "2.25.0"
+\version "2.25.13"
 
+\include "kjp.ly"
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
 
@@ -399,52 +400,52 @@ wordsBassMidi = \lyricmode {
 }
 
 pianoRHone = \relative {
-  \global \oneVoice
+  \global \ov
   <e' a c>4-> <g b d>-> |
   <g c e>1-> ~ |
   q1~ |
-  q4 \voiceOne c8 b \oneVoice <g c>4 <e g> |
-  <c a'> <f d'> \voiceOne b4 g |
-  \voiceTwo r4 c, d e \voiceOne | % 2a
+  q4 \vo c8 b \ov <g c>4 <e g> |
+  <c a'> <f d'> \vo b4 g |
+  \vt r4 c, d e \vo | % 2a
   f4. e8 d e f4 |
   g2. f'4 |
   e d c b |
   a b8 c d4 c |
   s1 |
-  s4 \oneVoice r4 r2 | % 2b
+  s4 \ov r4 r2 | % 2b
   r2 e,4 fis |
-  \voiceOne g2 b4 c \oneVoice |
+  \vo g2 b4 c \ov |
   <fis, d'>2. <e c'>4 |
   <d b'>4 <e c'> <fis d'>2 |
   <g e'>2 <g b>4 <g c> |
   a1 | % 3a
-  \voiceOne r4 g'8 fis g4 d | 
-  <<{\voiceFour e1 | s | g2. e4 | s}
-    \new Voice {\voiceOne e4 fis8 g a2 | r4 b8 a b4 fis | g a8 b c2~ | <f, c'>4} >> \oneVoice r4 r2 |
+  \vo r4 g'8 fis g4 d | 
+  <<{\vf e1 | s | g2. e4 | s}
+    \new Voice {\vo e4 fis8 g a2 | r4 b8 a b4 fis | g a8 b c2~ | <f, c'>4} >> \ov r4 r2 |
   R1 | <a, cis e>2. e4 | <a cis e>2. e4 | <d fis a>2. <d f gis b>4 | <e a cis>2. <e gis b e>4 | <e a cis e>2. e4 | % 3b
   <e a cis e>2. e4 | q2. e4 | q2. e4 | <a cis e>2. <g d' g>4 | <g c e g>2. <g d'>4 | <g c e g>2. <g d'>4 | % 4a
   <g c e g>2. <g d'>4 | % 4b
   <g c e g>2. <g d'>4 |
   \repeat unfold 4 {<c e>4 <g d'> <e c'> <g d'> |}
   <c e>4 <g d'> <c e> <c e fis> \section \key e \major |
-  \voiceOne <b e gis>1~ | q4 \oneVoice r r2 | R1 | R | <e, a cis>1~ | q~ | <e gis b>2 r | % 5a
-  R1 | R | <gis cis e>2-> r | R1 | <e gis b>1 | \voiceOne <ais cis>2 ais |
-  b1~ | b \oneVoice <e, gis>2 e4-> gis-> | <e gis b>2-> gis4-> b-> <gis b e>2-> b4-> e-> | \voiceOne <b e gis>2-> e4-> <b f' g>-> \section \key c \major | % 6a
-  <c e g c>2.-> <e, g>4 | <c a'> <f d'> b g | \voiceTwo r4 \voiceOne c, d e  f4. e8 d e f4 | g2. f'4 |
-  e4 d c b | a b8 c d4 c | \oneVoice <d, g b> r r2 | r e4 f \voiceOne g2 a4 b | % 7a
-  c1 \oneVoice | <g b>4 <a c> <b d>2 | <e, e'>1~ | 2 <e c'>4 <f d'> | <d b'>2 <e c'>2~ | 4 r d' e |
-  <bes d f>4 e d c | <d, g b> a' <b, e g> f' | <a, c e> d e f \voiceOne | g1~ \oneVoice | <c, e g>4 r r2 \voiceOne a'2. g4 \oneVoice <d f> g a2 | % 8a
-  c1 \oneVoice | <f, a>2-> <f c'>-> | <g c e>1-> ~ | q | <g c e g>2.-> g4-> | q2.-> g4-> | q1\fermata |
+  \vo <b e gis>1~ | q4 \ov r r2 | R1 | R | <e, a cis>1~ | q~ | <e gis b>2 r | % 5a
+  R1 | R | <gis cis e>2-> r | R1 | <e gis b>1 | \vo <ais cis>2 ais |
+  b1~ | b \ov <e, gis>2 e4-> gis-> | <e gis b>2-> gis4-> b-> <gis b e>2-> b4-> e-> | \vo <b e gis>2-> e4-> <b f' g>-> \section \key c \major | % 6a
+  <c e g c>2.-> <e, g>4 | <c a'> <f d'> b g | \vt r4 \vo c, d e  f4. e8 d e f4 | g2. f'4 |
+  e4 d c b | a b8 c d4 c | \ov <d, g b> r r2 | r e4 f \vo g2 a4 b | % 7a
+  c1 \ov | <g b>4 <a c> <b d>2 | <e, e'>1~ | 2 <e c'>4 <f d'> | <d b'>2 <e c'>2~ | 4 r d' e |
+  <bes d f>4 e d c | <d, g b> a' <b, e g> f' | <a, c e> d e f \vo | g1~ \ov | <c, e g>4 r r2 \vo a'2. g4 \ov <d f> g a2 | % 8a
+  c1 \ov | <f, a>2-> <f c'>-> | <g c e>1-> ~ | q | <g c e g>2.-> g4-> | q2.-> g4-> | q1\fermata |
   \bar "|."
 }
 
 pianoRHtwo = \relative {
-  \global \voiceTwo
+  \global \vt
   s2 | s1 | s | s4 f' s2 | s d |
   <c c'>1~ | c | g'1~ | g~ | 2 <d fis>2~ | <d g b>1~ | % 2a
   q4 s2. | s1 | g | s | s | s |
-  g2 fis | s1 | \voiceThree g2 a~ | a b~ | b c | s1 | % 3a
-  \voiceTwo s1*6 |
+  g2 fis | s1 | \vth g2 a~ | a b~ | b c | s1 | % 3a
+  \vt s1*6 |
   s1*13 | % 4
   <b, e gis>1~ | q4 s2. | s1*5 | % 5a
   s1*5 | fis'1 |
@@ -470,36 +471,36 @@ dynamicsPiano = {
 }
 
 pianoLHone = \relative {
-  \global \voiceOne
+  \global \vo
   <a c>4-> <g d'>-> | <c e>1-> ~ | q | c | a2 b |
   g4 c, d e | f g a f | <g b d>1~ | <g c>4 d' e2 | a,1 | g4 d^\mp e fis | % 2a
-  <<{\voiceFour g1 | fis4(c') b a}  \new Voice {\voiceOne s2 b4 c | d2. c4}>> | % 2b
-  \voiceOne <g b>4 <b d> <g b> <e g> |
-  <<{\voiceFour d2} \new Voice {\voiceOne a'4 fis}>> \voiceOne <e g>4 <f a> |
+  <<{\vf g1 | fis4(c') b a}  \new Voice {\vo s2 b4 c | d2. c4}>> | % 2b
+  \vo <g b>4 <b d> <g b> <e g> |
+  <<{\vf d2} \new Voice {\vo a'4 fis}>> \vo <e g>4 <f a> |
   <g b>2 <fis a> |
   <e b'>2 e'4 <c e> |
-  a4 b8 c d4 c \change Staff = pianorh \voiceTwo | <b d g>1_\markup "L.H." | <c e> | <d fis> <e g> | <f a c>4 \change Staff = pianolh \oneVoice r4 r2 | % 3a
-  R1 | \voiceOne <a, cis>1 | q | <fis a>2. b4 | <a cis>2. <e b'>4 |
-  \repeat unfold 4 { << <a cis>1 \new Voice { \voiceFour a4 gis fis e}>> |}
+  a4 b8 c d4 c \change Staff = pianorh \vt | <b d g>1_\markup "L.H." | <c e> | <d fis> <e g> | <f a c>4 \change Staff = pianolh \ov r4 r2 | % 3a
+  R1 | \vo <a, cis>1 | q | <fis a>2. b4 | <a cis>2. <e b'>4 |
+  \repeat unfold 4 { << <a cis>1 \new Voice { \vf a4 gis fis e}>> |}
   <a cis e>2. <b d>4 | <c e>2. <g d'>4 | <a c>2. <g d'>4 | % 4a+++
   <c e>2. <g d>4 | <c e>2. <g d'>4 | <c e>4 <g d'> <e g c> <g d'> | % 4b
   \repeat unfold 3 {<c e> <g d'> <e c'> <g d'> |}
   <c e>4 <g d'> <c e> <c e fis> \section \key e \major |
-  s1 | s4 \oneVoice r4 r2 | R1 | R1 | \voiceOne <a cis>~ | q | <gis b>2 r | % 5a
-  \oneVoice R1 | R \voiceOne | <cis e>2 r2 | R1 | <e, gis b>1 | <fis ais cis> |
-  <fis b>1~ | q | <gis b>2 e4-> gis-> | <e gis b>2-> gis4-> b-> | <e, b' e>2-> b'4-> e-> | \oneVoice e,2 4 d \section \key c \major | % 6a
-  \voiceOne s2. c'4 | a2 b | g4 c, d e | f g a f | <g b d>1~ |
+  s1 | s4 \ov r4 r2 | R1 | R1 | \vo <a cis>~ | q | <gis b>2 r | % 5a
+  \ov R1 | R \vo | <cis e>2 r2 | R1 | <e, gis b>1 | <fis ais cis> |
+  <fis b>1~ | q | <gis b>2 e4-> gis-> | <e gis b>2-> gis4-> b-> | <e, b' e>2-> b'4-> e-> | \ov e,2 4 d \section \key c \major | % 6a
+  \vo s2. c'4 | a2 b | g4 c, d e | f g a f | <g b d>1~ |
   <g c>4 d' e2 | a,1 | g4 g a b | c1 | b4 f' e d | % 7a
   c2. a4 | d2. b4 | gis a b2 | c a | g1~ | 4 r d' e |
   <bes d f>4 e d c | <g b> a <e g> f | <a, e'> d e f | g1~ | <c, g'>4 r r2 | <<{a'2 e} \new Voice a1>> | <f a>4 g a2 | % 8a
   c1 | <f, c'>2 q |
-  <<{\voiceOne <a c>1~q q q} \new Voice {\voiceFour \repeat unfold 4 {c4 b a g}}>> |
+  <<{\vo <a c>1~q q q} \new Voice {\vf \repeat unfold 4 {c4 b a g}}>> |
   <g c e>1\fermata |
   \bar "|."
 }
 
 pianoLHtwo = \relative {
-  \global \voiceTwo
+  \global \vt
   r2 | c4_\markup Ped. b a g | c b a g | c d e c | f d g f |
   e4 c2 b4 | a g f a | g f' e d | c b a b8 c | d1 | g,4 r r2 | % 2a
   R1_\markup "sensa Ped." | R | R | r4_\markup Ped. d4 e fis | g2 fis | e e'4 c |
@@ -521,7 +522,9 @@ pianoLHtwo = \relative {
 #(set-global-staff-size 18)
 
 \book {
-  \bookOutputSuffix "single"
+  \paper {
+    output-suffix = single
+  }
   \score {
     <<
       <<
@@ -599,30 +602,26 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff
+      \context { \Staff
         \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
         \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -632,8 +631,8 @@ pianoLHtwo = \relative {
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "singlepage"
   \paper {
+    output-suffix = singlepage
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -721,30 +720,26 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff
+      \context { \Staff
         \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
         \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -752,8 +747,8 @@ pianoLHtwo = \relative {
 }
 
 \book {
-  \bookOutputSuffix "singlepage-sop"
   \paper {
+    output-suffix = singlepage-sop
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -847,30 +842,26 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff
+      \context { \Staff
         \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
         \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -878,8 +869,8 @@ pianoLHtwo = \relative {
 }
 
 \book {
-  \bookOutputSuffix "singlepage-alto"
   \paper {
+    output-suffix = singlepage-alto
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -973,30 +964,26 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff
+      \context { \Staff
         \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
         \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -1004,8 +991,8 @@ pianoLHtwo = \relative {
 }
 
 \book {
-  \bookOutputSuffix "singlepage-tenor"
   \paper {
+    output-suffix = singlepage-tenor
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -1099,30 +1086,26 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff
+      \context { \Staff
         \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
         \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -1130,8 +1113,8 @@ pianoLHtwo = \relative {
 }
 
 \book {
-  \bookOutputSuffix "singlepage-bass"
   \paper {
+    output-suffix = singlepage-bass
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -1192,7 +1175,6 @@ pianoLHtwo = \relative {
             \accidentalStyle Score.modern
           }
           <<
-            \magnifyStaff #4/7
             \clef "bass"
             \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
             \new Voice \bass
@@ -1225,30 +1207,26 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff
+      \context { \Staff
         \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
         \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -1256,7 +1234,9 @@ pianoLHtwo = \relative {
 }
 
 \book {
-  \bookOutputSuffix "midi-sop"
+  \paper {
+    output-suffix = midi-sop
+  }
   \score {
 %   \articulate
     <<
@@ -1342,7 +1322,9 @@ pianoLHtwo = \relative {
 }
 
 \book {
-  \bookOutputSuffix "midi-alto"
+  \paper {
+    output-suffix = midi-alto
+  }
   \score {
 %   \articulate
     <<
@@ -1428,7 +1410,9 @@ pianoLHtwo = \relative {
 }
 
 \book {
-  \bookOutputSuffix "midi-tenor"
+  \paper {
+    output-suffix = midi-tenor
+  }
   \score {
 %   \articulate
     <<
@@ -1514,7 +1498,9 @@ pianoLHtwo = \relative {
 }
 
 \book {
-  \bookOutputSuffix "midi-bass"
+  \paper {
+    output-suffix = midi-bass
+  }
   \score {
 %   \articulate
     <<
