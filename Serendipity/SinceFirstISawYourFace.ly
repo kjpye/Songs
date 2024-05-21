@@ -1,4 +1,6 @@
-\version "2.25.0"
+\version "2.25.16"
+
+\include "kjp.ly"
 
 \header {
   title = "Since First I Saw Your Face"
@@ -43,7 +45,7 @@ soprano = \relative c' {
     a4. fis8 g4. e8
     fis4 b a4. 8 % 15
     g4 fis e2
-    d2.
+    fis2.
   }
   \section
 }
@@ -119,10 +121,10 @@ bass = \relative c {
 
 sopranoWordsOne = \lyricmode {
   \set stanza = "1."
-  Since first I saw your face I re -- solv'd to ho -- nour and re -- known ye;
-  If now I be dis -- dain'd, I wish my heart had ne -- ver known ye.
+  Since first I saw your face I re -- solv’d to ho -- nour and re -- known ye;
+  If now I be dis -- dain’d, I wish my heart had ne -- ver known ye.
   \repeat volta 2 {
-    What I that loved, and you that lik'd,
+    What I that loved, and you that lik’d,
     Shall we be -- gin to wran -- gle?
     No, no, no, my heart is fast, And can -- not dis -- en -- tan -- gle.
   }
@@ -137,7 +139,7 @@ sopranoWordsTwo = \lyricmode {
   \repeat volta 2 {
     Where beau -- ty moves, and wit de -- lights,
     And signs of kind -- ness blind me,
-    There, O there, wher -- "e'er" I go,
+    There, O there, wher -- e’er I go,
     I leave my heart be -- hind me.
   }
 }
@@ -150,18 +152,18 @@ sopranoWordsThree = \lyricmode {
   Then just -- ly might you leave me.
   \repeat volta 2 {
     I asked you leave you bade me love,
-    Is't now the time to chide me?
+    Is’t now the time to chide me?
     No, no, no I'll love you still,
-    What for -- tune e'er be -- tide me.
+    What for -- tune e’er be -- tide me.
   }
 }
 
 sopranoWordsMidi = \lyricmode {
   \set stanza = "1."
-  "Since " "first " "I " "saw " "your " "face " "I " re "solv'd " "to " ho "nour " "and " re "known " "ye; "
+  "Since " "first " "I " "saw " "your " "face " "I " re "solv’d " "to " ho "nour " "and " re "known " "ye; "
   "\nIf " "now " "I " "be " dis "dain'd, " "I " "wish " "my " "heart " "had " ne "ver " "known " "ye.\n"
   \repeat volta 2 {
-    "\nWhat " "I " "that " "loved, " "and " "you " "that " "lik'd, "
+    "\nWhat " "I " "that " "loved, " "and " "you " "that " "lik’d, "
     "\nShall " "we " be "gin " "to " wran "gle? "
     "\nNo, " "no, " "no, " "my " "heart " "is " "fast, " "And " can "not " dis en tan "gle.\n"
   }
@@ -174,7 +176,7 @@ sopranoWordsMidi = \lyricmode {
   \repeat volta 2 {
     "\nWhere " beau "ty " "moves, " "and " "wit " de "lights, "
     "\nAnd " "signs " "of " kind "ness " "blind " "me, "
-    "\nThere, " "O " "there, " wher "e'er " "I " "go, "
+    "\nThere, " "O " "there, " wher "e’er " "I " "go, "
     "\nI " "leave " "my " "heart " be "hind " "me.\n"
   }
 
@@ -185,18 +187,18 @@ sopranoWordsMidi = \lyricmode {
   "\nThen " just "ly " "might " "you " "leave " "me.\n"
   \repeat volta 2 {
     "\nI " "asked " "you " "leave " "you " "bade " "me " "love, "
-    "\nIs't " "now " "the " "time " "to " "chide " "me? "
-    "\nNo, " "no, " "no " "I'll " "love " "you " "still, "
-    "\nWhat " for "tune " "e'er " be "tide " "me.\n"
+    "\nIs’t " "now " "the " "time " "to " "chide " "me? "
+    "\nNo, " "no, " "no " "I’ll " "love " "you " "still, "
+    "\nWhat " for "tune " "e’er " be "tide " "me.\n"
   }
 }
 
 altoWordsOne = \lyricmode {
   \set stanza = "1."
-  Since first I saw your face I re -- solv'd to ho -- nour and re -- known ye;
-  If now I be dis -- dain'd, I wish my heart had ne -- ver known ye.
+  Since first I saw your face I re -- solv’d to ho -- nour and re -- known ye;
+  If now I be dis -- dain’d, I wish my heart had ne -- ver known ye.
   \repeat volta 2 {
-    What I that loved, and you that lik'd,
+    What I that loved, and you that lik’d,
     Shall we be -- gin to wran -- gle?
     No, no, no, no, no, my heart is fast, And can -- not dis -- en -- tan -- gle.
   }
@@ -211,7 +213,7 @@ altoWordsTwo = \lyricmode {
   \repeat volta 2 {
     Where beau -- ty moves, and wit de -- lights,
     And signs of kind -- ness blind me,
-    There, O there, wher -- "e're," wher -- "e'er" I go,
+    There, O there, wher -- "e’re," wher -- "e’er" I go,
     I leave my heart be -- hind me.
   }
 }
@@ -224,18 +226,18 @@ altoWordsThree = \lyricmode {
   Then just -- ly might you leave me.
   \repeat volta 2 {
     I asked you leave you bade me love,
-    Is't now the time to chide me?
-    No, no, no, no, no, I'll love you still,
-    What for -- tune e'er be -- tide me.
+    Is’t now the time to chide me?
+    No, no, no, no, no, I’ll love you still,
+    What for -- tune e’er be -- tide me.
   }
 }
 
 altoWordsMidi = \lyricmode {
   \set stanza = "1."
-  "Since " "first " "I " "saw " "your " "face " "I " re "solv'd " "to " ho "nour " "and " re "known " "ye; "
-  "\nIf " "now " "I " "be " dis "dain'd, " "I " "wish " "my " "heart " "had " ne "ver " "known " "ye.\n"
+  "Since " "first " "I " "saw " "your " "face " "I " re "solv’d " "to " ho "nour " "and " re "known " "ye; "
+  "\nIf " "now " "I " "be " dis "dain’d, " "I " "wish " "my " "heart " "had " ne "ver " "known " "ye.\n"
   \repeat volta 2 {
-    "\nWhat " "I " "that " "loved, " "and " "you " "that " "lik'd, "
+    "\nWhat " "I " "that " "loved, " "and " "you " "that " "lik’d, "
     "\nShall " "we " be "gin " "to " wran "gle? "
     "\nNo, " "no, " "no, " "no, " "no, " "my " "heart " "is " "fast, " "And " can "not " dis en tan "gle.\n"
   }
@@ -248,7 +250,7 @@ altoWordsMidi = \lyricmode {
   \repeat volta 2 {
     "\nWhere " beau "ty " "moves, " "and " "wit " de "lights, "
     "\nAnd " "signs " "of " kind "ness " "blind " "me, "
-    "\nThere, " "O " "there, " wher "e're, " wher "e'er " "I " "go, "
+    "\nThere, " "O " "there, " wher "e’re, " wher "e’er " "I " "go, "
     "\nI " "leave " "my " "heart " be "hind " "me.\n"
   }
 
@@ -259,18 +261,18 @@ altoWordsMidi = \lyricmode {
   "\nThen " just "ly " "might " "you " "leave " "me.\n"
   \repeat volta 2 {
     "\nI " "asked " "you " "leave " "you " "bade " "me " "love, "
-    "\nIs't " "now " "the " "time " "to " "chide " "me? "
-    "\nNo, " "no, " "no, " "no, " "no, " "I'll " "love " "you " "still, "
-    "\nWhat " for "tune " "e'er " be "tide " "me.\n"
+    "\nIs’t " "now " "the " "time " "to " "chide " "me? "
+    "\nNo, " "no, " "no, " "no, " "no, " "I’ll " "love " "you " "still, "
+    "\nWhat " for "tune " "e’er " be "tide " "me.\n"
   }
 }
 
 tenorWordsOne = \lyricmode {
   \set stanza = "1."
-  Since first I saw your face I re -- solv'd to ho -- nour and re -- known ye;
-  If now I be dis -- dain'd, I wish my heart had ne -- ver known ye.
+  Since first I saw your face I re -- solv’d to ho -- nour and re -- known ye;
+  If now I be dis -- dain’d, I wish my heart had ne -- ver known ye.
   \repeat volta 2 {
-    What I that loved, and you that lik'd,
+    What I that loved, and you that lik’d,
     Shall we be -- gin to wran -- gle?
     No, no, no, no, no, my heart is fast, And can -- not dis -- en -- tan -- gle.
   }
@@ -285,7 +287,7 @@ tenorWordsTwo = \lyricmode {
   \repeat volta 2 {
     Where beau -- ty moves, and wit de -- lights,
     And signs of kind -- ness blind me,
-    There, O there, wher -- "e're," wher -- "e'er" I go,
+    There, O there, wher -- "e’re," wher -- "e’er" I go,
     I leave my heart be -- hind me.
   }
 }
@@ -298,18 +300,18 @@ tenorWordsThree = \lyricmode {
   Then just -- ly might you leave me.
   \repeat volta 2 {
     I asked you leave you bade me love,
-    Is't now the time to chide me?
-    No, no, no, no, no, I'll love you still,
-    What for -- tune e'er be -- tide me.
+    Is’t now the time to chide me?
+    No, no, no, no, no, I’ll love you still,
+    What for -- tune e’er be -- tide me.
   }
 }
 
 tenorWordsMidi = \lyricmode {
   \set stanza = "1."
-  "Since " "first " "I " "saw " "your " "face " "I " re "solv'd " "to " ho "nour " "and " re "known " "ye; "
-  "\nIf " "now " "I " "be " dis "dain'd, " "I " "wish " "my " "heart " "had " ne "ver " "known " "ye.\n"
+  "Since " "first " "I " "saw " "your " "face " "I " re "solv’d " "to " ho "nour " "and " re "known " "ye; "
+  "\nIf " "now " "I " "be " dis "dain’d, " "I " "wish " "my " "heart " "had " ne "ver " "known " "ye.\n"
   \repeat volta 2 {
-    "\nWhat " "I " "that " "loved, " "and " "you " "that " "lik'd, "
+    "\nWhat " "I " "that " "loved, " "and " "you " "that " "lik’d, "
     "\nShall " "we " be "gin " "to " wran "gle? "
     "\nNo, " "no, " "no, " "no, " "no, " "my " "heart " "is " "fast, " "And " can "not " dis en tan "gle.\n"
   }
@@ -322,7 +324,7 @@ tenorWordsMidi = \lyricmode {
   \repeat volta 2 {
     "\nWhere " beau "ty " "moves, " "and " "wit " de "lights, "
     "\nAnd " "signs " "of " kind "ness " "blind " "me, "
-    "\nThere, " "O " "there, " wher "e're, " wher "e'er " "I " "go, "
+    "\nThere, " "O " "there, " wher "e’re, " wher "e’er " "I " "go, "
     "\nI " "leave " "my " "heart " be "hind " "me.\n"
   }
 
@@ -333,18 +335,18 @@ tenorWordsMidi = \lyricmode {
   "\nThen " just "ly " "might " "you " "leave " "me.\n"
   \repeat volta 2 {
     "\nI " "asked " "you " "leave " "you " "bade " "me " "love, "
-    "\nIs't " "now " "the " "time " "to " "chide " "me? "
-    "\nNo, " "no, " "no, " "no, " "no, " "I'll " "love " "you " "still, "
-    "\nWhat " for "tune " "e'er " be "tide " "me.n"
+    "\nIs’t " "now " "the " "time " "to " "chide " "me? "
+    "\nNo, " "no, " "no, " "no, " "no, " "I’ll " "love " "you " "still, "
+    "\nWhat " for "tune " "e’er " be "tide " "me.n"
   }
 }
 
 bassWordsOne = \lyricmode {
   \set stanza = "1."
-  Since first I saw your face I re -- solv'd to ho -- nour and re -- known ye;
-  If now I be dis -- dain'd, I wish my heart had ne -- ver known ye.
+  Since first I saw your face I re -- solv’d to ho -- nour and re -- known ye;
+  If now I be dis -- dain’d, I wish my heart had ne -- ver known ye.
   \repeat volta 2 {
-    What I that loved, and you that lik'd,
+    What I that loved, and you that lik’d,
     Shall we be -- gin to wran -- gle?
     No, no, no, no, no, my heart is fast, And can -- not dis -- en -- tan -- gle.
   }
@@ -359,7 +361,7 @@ bassWordsTwo = \lyricmode {
   \repeat volta 2 {
     Where beau -- ty moves, and wit de -- lights,
     And signs of kind -- ness blind me,
-    There, O there, wher -- "e're," wher -- "e'er" I go,
+    There, O there, wher -- "e’re," wher -- "e’er" I go,
     I leave my heart be -- hind me.
   }
 }
@@ -372,18 +374,18 @@ bassWordsThree = \lyricmode {
   Then just -- ly might you leave me.
   \repeat volta 2 {
     I asked you leave you bade me love,
-    Is't now the time to chide me?
-    No, no, no, no, no I'll love you still,
-    What for- -- tune e'er be -- tide me.
+    Is’t now the time to chide me?
+    No, no, no, no, no I’ll love you still,
+    What for- -- tune e’er be -- tide me.
   }
 }
 
 bassWordsMidi = \lyricmode {
   \set stanza = "1."
-  "Since " "first " "I " "saw " "your " "face " "I " re "solv'd " "to " ho "nour " "and " re "known " "ye; "
-  "\nIf " "now " "I " "be " dis "dain'd, " "I " "wish " "my " "heart " "had " ne "ver " "known " "ye.\n"
+  "Since " "first " "I " "saw " "your " "face " "I " re "solv’d " "to " ho "nour " "and " re "known " "ye; "
+  "\nIf " "now " "I " "be " dis "dain’d, " "I " "wish " "my " "heart " "had " ne "ver " "known " "ye.\n"
   \repeat volta 2 {
-    "\nWhat " "I " "that " "loved, " "and " "you " "that " "lik'd, "
+    "\nWhat " "I " "that " "loved, " "and " "you " "that " "lik’d, "
     "\nShall " "we " be "gin " "to " wran "gle? "
     "\nNo, " "no, " "no, " "no, " "no, " "my " "heart " "is " "fast, " "And " can "not " dis en tan "gle.\n"
   }
@@ -396,7 +398,7 @@ bassWordsMidi = \lyricmode {
   \repeat volta 2 {
     "\nWhere " beau "ty " "moves, " "and " "wit " de "lights, "
     "\nAnd " "signs " "of " kind "ness " "blind " "me, "
-    "\nThere, " "O " "there, " wher "e're, " wher "e'er " "I " "go, "
+    "\nThere, " "O " "there, " wher "e’re, " wher "e’er " "I " "go, "
     "\nI " "leave " "my " "heart " be "hind " "me.\n"
   }
 
@@ -407,71 +409,87 @@ bassWordsMidi = \lyricmode {
   "\nThen " just "ly " "might " "you " "leave " "me. "
   \repeat volta 2 {
     "\nI " "asked " "you " "leave " "you " "bade " "me " "love, "
-    "\nIs't " "now " "the " "time " "to " "chide " "me? "
-    "\nNo, " "no, " "no, " "no, " "no " "I'll " "love " "you " "still, "
-    "\nWhat " for "tune " "e'er " be "tide " "me. "
+    "\nIs’t " "now " "the " "time " "to " "chide " "me? "
+    "\nNo, " "no, " "no, " "no, " "no " "I’ll " "love " "you " "still, "
+    "\nWhat " for "tune " "e’er " be "tide " "me. "
   }
 }
 
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "repeat"
+  \paper {
+    output-suffix = repeat
+  }
   \score {
     \new ChoirStaff <<
-      \new Staff <<
+      \new Staff = soprano \with {
+        instrumentName = Soprano
+        shortInstrumentName = S
+      }
+      <<
         \new Voice \TempoTrack
-        \new Voice = "soprano" {\global \soprano}
-        \new Lyrics \lyricsto "soprano" \sopranoWordsOne
-        \new Lyrics \lyricsto "soprano" \sopranoWordsTwo
-        \new Lyrics \lyricsto "soprano" \sopranoWordsThree
+        \new Voice {\global \soprano}
+        \addlyrics \sopranoWordsOne
+        \addlyrics \sopranoWordsTwo
+        \addlyrics \sopranoWordsThree
       >>
-      \new Staff <<
-        \new Voice = "alto" {\global \alto}
-        \new Lyrics \lyricsto "alto" \altoWordsOne
-        \new Lyrics \lyricsto "alto" \altoWordsTwo
-        \new Lyrics \lyricsto "alto" \altoWordsThree
+      \new Staff = alto \with {
+        instrumentName = Alto
+        shortInstrumentName = A
+      }
+      <<
+        \new Voice {\global \alto}
+        \addlyrics \altoWordsOne
+        \addlyrics \altoWordsTwo
+        \addlyrics \altoWordsThree
       >>
-      \new Staff <<
+      \new Staff = tenor \with {
+        instrumentName = Tenor
+        shortInstrumentName = T
+      }
+      <<
         \clef "treble_8"
-        \new Voice = "tenor" {\global \tenor}
-        \new Lyrics \lyricsto "tenor" \tenorWordsOne
-        \new Lyrics \lyricsto "tenor" \tenorWordsTwo
-        \new Lyrics \lyricsto "tenor" \tenorWordsThree
+        \new Voice {\global \tenor}
+        \addlyrics \tenorWordsOne
+        \addlyrics \tenorWordsTwo
+        \addlyrics \tenorWordsThree
       >>
-      \new Staff <<
+      \new Staff = bass \with {
+        instrumentName = Bass
+        shortInstrumentName = B
+      }
+      <<
         \clef bass
-        \new Voice = "bass" {\global \bass}
-        \new Lyrics \lyricsto "bass" \bassWordsOne
-        \new Lyrics \lyricsto "bass" \bassWordsTwo
-        \new Lyrics \lyricsto "bass" \bassWordsThree
+        \new Voice {\global \bass}
+        \addlyrics \bassWordsOne
+        \addlyrics \bassWordsTwo
+        \addlyrics \bassWordsThree
       >>
     >>
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -480,57 +498,72 @@ bassWordsMidi = \lyricmode {
 
 #(set-global-staff-size 20)
 
-nl = { \section \break }
 \book {
-  \bookOutputSuffix "single"
+  \paper {
+    output-suffix = single
+  }
   \score {
     \unfoldRepeats
     \new ChoirStaff <<
-      \new Staff <<
+      \new Staff = soprano \with {
+        instrumentName = Soprano
+        shortInstrumentName = S
+      }
+      <<
         \new Voice \TempoTrack
-        \new Voice = "soprano" {\global \repeat unfold 3 \soprano}
-        \new Lyrics \lyricsto "soprano" {\sopranoWordsOne \sopranoWordsTwo \sopranoWordsThree}
+        \new Voice {\global \repeat unfold 3 \soprano}
+        \addlyrics {\sopranoWordsOne \sopranoWordsTwo \sopranoWordsThree}
       >>
-      \new Staff <<
-        \new Voice = "alto" {\global \alto \nl \alto \nl \alto \bar "|."}
-        \new Lyrics \lyricsto "alto" {\altoWordsOne \altoWordsTwo \altoWordsThree}
+      \new Staff = alto \with {
+        instrumentName = Alto
+        shortInstrumentName = A
+      }
+      <<
+        \new Voice {\global \alto \nl \alto \nl \alto \bar "|."}
+        \addlyrics {\altoWordsOne \altoWordsTwo \altoWordsThree}
       >>
-      \new Staff <<
+      \new Staff = tenor \with {
+        instrumentName = Tenor
+        shortInstrumentName = T
+      }
+      <<
         \clef "treble_8"
-        \new Voice = "tenor" {\global \repeat unfold 3 \tenor}
-        \new Lyrics \lyricsto "tenor" {\tenorWordsOne \tenorWordsTwo \tenorWordsThree}
+        \new Voice {\global \repeat unfold 3 \tenor}
+        \addlyrics {\tenorWordsOne \tenorWordsTwo \tenorWordsThree}
       >>
-      \new Staff <<
+      \new Staff = bass \with {
+        instrumentName = Bass
+        shortInstrumentName = B
+      }
+      <<
         \clef bass
-        \new Voice = "bass" {\global \repeat unfold 3 \bass}
-        \new Lyrics \lyricsto "bass" {\bassWordsOne \bassWordsTwo \bassWordsThree}
+        \new Voice {\global \repeat unfold 3 \bass}
+        \addlyrics {\bassWordsOne \bassWordsTwo \bassWordsThree}
       >>
     >>
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -540,8 +573,8 @@ nl = { \section \break }
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "singlepage"
   \paper {
+    output-suffix = singlepage
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -553,51 +586,65 @@ nl = { \section \break }
   \score {
     \unfoldRepeats
     \new ChoirStaff <<
-      \new Staff <<
+      \new Staff = soprano \with {
+        instrumentName = Soprano
+        shortInstrumentName = S
+      }
+      <<
         \new Voice \TempoTrack
-        \new Voice = "soprano" {\global \repeat unfold 3 \soprano}
-        \new Lyrics \lyricsto "soprano" {\sopranoWordsOne \sopranoWordsTwo \sopranoWordsThree}
+        \new Voice {\global \repeat unfold 3 \soprano}
+        \addlyrics {\sopranoWordsOne \sopranoWordsTwo \sopranoWordsThree}
       >>
-      \new Staff <<
-        \new Voice = "alto" {\global \alto \nl \alto \nl \alto \bar "|."}
-        \new Lyrics \lyricsto "alto" {\altoWordsOne \altoWordsTwo \altoWordsThree}
+      \new Staff = alto \with {
+        instrumentName = Alto
+        shortInstrumentName = A
+      }
+      <<
+        \new Voice {\global \alto \nl \alto \nl \alto \bar "|."}
+        \addlyrics {\altoWordsOne \altoWordsTwo \altoWordsThree}
       >>
-      \new Staff <<
+      \new Staff = tenor \with {
+        instrumentName = Tenor
+        shortInstrumentName = T
+      }
+      <<
         \clef "treble_8"
-        \new Voice = "tenor" {\global \repeat unfold 3 \tenor}
-        \new Lyrics \lyricsto "tenor" {\tenorWordsOne \tenorWordsTwo \tenorWordsThree}
+        \new Voice {\global \repeat unfold 3 \tenor}
+        \addlyrics {\tenorWordsOne \tenorWordsTwo \tenorWordsThree}
       >>
-      \new Staff <<
+      \new Staff = bass \with {
+        instrumentName = Bass
+        shortInstrumentName = B
+      }
+      <<
         \clef bass
-        \new Voice = "bass" {\global \repeat unfold 3 \bass}
-        \new Lyrics \lyricsto "bass" {\bassWordsOne \bassWordsTwo \bassWordsThree}
+        \new Voice {\global \repeat unfold 3 \bass}
+        \addlyrics {\bassWordsOne \bassWordsTwo \bassWordsThree}
       >>
     >>
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -607,8 +654,8 @@ nl = { \section \break }
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "singlepage-sop"
   \paper {
+    output-suffix = singlepage-sop
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -620,54 +667,68 @@ nl = { \section \break }
   \score {
     \unfoldRepeats
     \new ChoirStaff <<
-      \new Staff <<
+      \new Staff = soprano \with {
+        instrumentName = Soprano
+        shortInstrumentName = S
+      }
+      <<
         \new Voice \TempoTrack
-        \new Voice = "soprano" {\global \repeat unfold 3 \soprano}
-        \new Lyrics \lyricsto "soprano" {\sopranoWordsOne \sopranoWordsTwo \sopranoWordsThree}
+        \new Voice {\global \repeat unfold 3 \soprano}
+        \addlyrics {\sopranoWordsOne \sopranoWordsTwo \sopranoWordsThree}
       >>
-      \new Staff <<
+      \new Staff = alto \with {
+        instrumentName = Alto
+        shortInstrumentName = A
+      }
+      <<
         \magnifyStaff #4/7
-        \new Voice = "alto" {\global \alto \nl \alto \nl \alto \bar "|."}
-        \new Lyrics \lyricsto "alto" {\tiny \altoWordsOne \altoWordsTwo \altoWordsThree}
+        \new Voice {\global \alto \nl \alto \nl \alto \bar "|."}
+        \addlyrics {\tiny \altoWordsOne \altoWordsTwo \altoWordsThree}
       >>
-      \new Staff <<
+      \new Staff = tenor \with {
+        instrumentName = Tenor
+        shortInstrumentName = T
+      }
+      <<
         \magnifyStaff #4/7
         \clef "treble_8"
-        \new Voice = "tenor" {\global \repeat unfold 3 \tenor}
-        \new Lyrics \lyricsto "tenor" {\tiny \tenorWordsOne \tenorWordsTwo \tenorWordsThree}
+        \new Voice {\global \repeat unfold 3 \tenor}
+        \addlyrics {\tiny \tenorWordsOne \tenorWordsTwo \tenorWordsThree}
       >>
-      \new Staff <<
+      \new Staff = bass \with {
+        instrumentName = Bass
+        shortInstrumentName = B
+      }
+      <<
         \magnifyStaff #4/7
         \clef bass
-        \new Voice = "bass" {\global \repeat unfold 3 \bass}
-        \new Lyrics \lyricsto "bass" {\tiny \bassWordsOne \bassWordsTwo \bassWordsThree}
+        \new Voice {\global \repeat unfold 3 \bass}
+        \addlyrics {\tiny \bassWordsOne \bassWordsTwo \bassWordsThree}
       >>
     >>
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -677,8 +738,8 @@ nl = { \section \break }
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "singlepage-alto"
   \paper {
+    output-suffix = singlepage-alto
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -690,54 +751,68 @@ nl = { \section \break }
   \score {
     \unfoldRepeats
     \new ChoirStaff <<
-      \new Staff <<
+      \new Staff = soprano \with {
+        instrumentName = Soprano
+        shortInstrumentName = S
+      }
+      <<
         \magnifyStaff #4/7
         \new Voice \TempoTrack
-        \new Voice = "soprano" {\global \repeat unfold 3 \soprano}
-        \new Lyrics \lyricsto "soprano" {\tiny \sopranoWordsOne \sopranoWordsTwo \sopranoWordsThree}
+        \new Voice {\global \repeat unfold 3 \soprano}
+        \addlyrics {\tiny \sopranoWordsOne \sopranoWordsTwo \sopranoWordsThree}
       >>
-      \new Staff <<
-        \new Voice = "alto" {\global \alto \nl \alto \nl \alto \bar "|."}
-        \new Lyrics \lyricsto "alto" {\altoWordsOne \altoWordsTwo \altoWordsThree}
+      \new Staff = alto \with {
+        instrumentName = Alto
+        shortInstrumentName = A
+      }
+      <<
+        \new Voice {\global \alto \nl \alto \nl \alto \bar "|."}
+        \addlyrics {\altoWordsOne \altoWordsTwo \altoWordsThree}
       >>
-      \new Staff <<
+      \new Staff = tenor \with {
+        instrumentName = Tenor
+        shortInstrumentName = T
+      }
+      <<
         \magnifyStaff #4/7
         \clef "treble_8"
-        \new Voice = "tenor" {\global \repeat unfold 3 \tenor}
-        \new Lyrics \lyricsto "tenor" {\tiny \tenorWordsOne \tenorWordsTwo \tenorWordsThree}
+        \new Voice {\global \repeat unfold 3 \tenor}
+        \addlyrics {\tiny \tenorWordsOne \tenorWordsTwo \tenorWordsThree}
       >>
-      \new Staff <<
+      \new Staff = bass \with {
+        instrumentName = Bass
+        shortInstrumentName = B
+      }
+      <<
         \magnifyStaff #4/7
         \clef bass
-        \new Voice = "bass" {\global \repeat unfold 3 \bass}
-        \new Lyrics \lyricsto "bass" {\tiny \bassWordsOne \bassWordsTwo \bassWordsThree}
+        \new Voice {\global \repeat unfold 3 \bass}
+        \addlyrics {\tiny \bassWordsOne \bassWordsTwo \bassWordsThree}
       >>
     >>
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -747,8 +822,8 @@ nl = { \section \break }
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "singlepage-tenor"
   \paper {
+    output-suffix = singlepage-tenor
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -760,54 +835,68 @@ nl = { \section \break }
   \score {
     \unfoldRepeats
     \new ChoirStaff <<
-      \new Staff <<
+      \new Staff = soprano \with {
+        instrumentName = Soprano
+        shortInstrumentName = S
+      }
+      <<
         \magnifyStaff #4/7
         \new Voice \TempoTrack
-        \new Voice = "soprano" {\global \repeat unfold 3 \soprano}
-        \new Lyrics \lyricsto "soprano" {\tiny \sopranoWordsOne \sopranoWordsTwo \sopranoWordsThree}
+        \new Voice {\global \repeat unfold 3 \soprano}
+        \addlyrics {\tiny \sopranoWordsOne \sopranoWordsTwo \sopranoWordsThree}
       >>
-      \new Staff <<
+      \new Staff = alto \with {
+        instrumentName = Alto
+        shortInstrumentName = A
+      }
+      <<
         \magnifyStaff #4/7
-        \new Voice = "alto" {\global \alto \nl \alto \nl \alto \bar "|."}
-        \new Lyrics \lyricsto "alto" {\tiny \altoWordsOne \altoWordsTwo \altoWordsThree}
+        \new Voice {\global \alto \nl \alto \nl \alto \bar "|."}
+        \addlyrics {\tiny \altoWordsOne \altoWordsTwo \altoWordsThree}
       >>
-      \new Staff <<
+      \new Staff = tenor \with {
+        instrumentName = Tenor
+        shortInstrumentName = T
+      }
+      <<
         \clef "treble_8"
-        \new Voice = "tenor" {\global \repeat unfold 3 \tenor}
-        \new Lyrics \lyricsto "tenor" {\tenorWordsOne \tenorWordsTwo \tenorWordsThree}
+        \new Voice {\global \repeat unfold 3 \tenor}
+        \addlyrics {\tenorWordsOne \tenorWordsTwo \tenorWordsThree}
       >>
-      \new Staff <<
+      \new Staff = bass \with {
+        instrumentName = Bass
+        shortInstrumentName = B
+      }
+      <<
         \magnifyStaff #4/7
         \clef bass
-        \new Voice = "bass" {\global \repeat unfold 3 \bass}
-        \new Lyrics \lyricsto "bass" {\tiny \bassWordsOne \bassWordsTwo \bassWordsThree}
+        \new Voice {\global \repeat unfold 3 \bass}
+        \addlyrics {\tiny \bassWordsOne \bassWordsTwo \bassWordsThree}
       >>
     >>
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -817,8 +906,8 @@ nl = { \section \break }
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "singlepage-bass"
   \paper {
+    output-suffix = singlepage-bass
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -830,54 +919,68 @@ nl = { \section \break }
   \score {
     \unfoldRepeats
     \new ChoirStaff <<
-      \new Staff <<
+      \new Staff = soprano \with {
+        instrumentName = Soprano
+        shortInstrumentName = S
+      }
+      <<
         \magnifyStaff #4/7
         \new Voice \TempoTrack
-        \new Voice = "soprano" {\global \repeat unfold 3 \soprano}
-        \new Lyrics \lyricsto "soprano" {\tiny \sopranoWordsOne \sopranoWordsTwo \sopranoWordsThree}
+        \new Voice {\global \repeat unfold 3 \soprano}
+        \addlyrics {\tiny \sopranoWordsOne \sopranoWordsTwo \sopranoWordsThree}
       >>
-      \new Staff <<
+      \new Staff = alto \with {
+        instrumentName = Alto
+        shortInstrumentName = A
+      }
+      <<
         \magnifyStaff #4/7
-        \new Voice = "alto" {\global \alto \nl \alto \nl \alto \bar "|."}
-        \new Lyrics \lyricsto "alto" {\tiny \altoWordsOne \altoWordsTwo \altoWordsThree}
+        \new Voice {\global \alto \nl \alto \nl \alto \bar "|."}
+        \addlyrics {\tiny \altoWordsOne \altoWordsTwo \altoWordsThree}
       >>
-      \new Staff <<
+      \new Staff = tenor \with {
+        instrumentName = Tenor
+        shortInstrumentName = T
+      }
+      <<
         \magnifyStaff #4/7
         \clef "treble_8"
-        \new Voice = "tenor" {\global \repeat unfold 3 \tenor}
-        \new Lyrics \lyricsto "tenor" {\tiny \tenorWordsOne \tenorWordsTwo \tenorWordsThree}
+        \new Voice {\global \repeat unfold 3 \tenor}
+        \addlyrics {\tiny \tenorWordsOne \tenorWordsTwo \tenorWordsThree}
       >>
-      \new Staff <<
+      \new Staff = bass \with {
+        instrumentName = Bass
+        shortInstrumentName = B
+      }
+      <<
         \clef bass
-        \new Voice = "bass" {\global \repeat unfold 3 \bass}
-        \new Lyrics \lyricsto "bass" {\bassWordsOne \bassWordsTwo \bassWordsThree}
+        \new Voice {\global \repeat unfold 3 \bass}
+        \addlyrics {\bassWordsOne \bassWordsTwo \bassWordsThree}
       >>
     >>
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -885,25 +988,39 @@ nl = { \section \break }
 }
 
 \book {
-  \bookOutputSuffix "midi-sop"
+  \paper {
+    output-suffix = midi-sop
+  }
   \score {
     \unfoldRepeats
     \new ChoirStaff <<
-      \new Staff <<
+      \new Staff = soprano \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
         \new Voice \TempoTrack
-        \new Voice = "soprano" {\global \repeat unfold 3 \soprano}
-        \new Lyrics \lyricsto "soprano" \sopranoWordsMidi
+        \new Voice {\global \repeat unfold 3 \soprano}
+        \addlyrics \sopranoWordsMidi
       >>
-      \new Staff <<
-        \new Voice = "alto" {\global \alto \nl \alto \nl \alto \bar "|."}
+      \new Staff = alto \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
+        \new Voice {\global \alto \nl \alto \nl \alto \bar "|."}
       >>
-      \new Staff <<
+      \new Staff = tenor \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
         \clef "treble_8"
-        \new Voice = "tenor" {\global \repeat unfold 3 \tenor}
+        \new Voice {\global \repeat unfold 3 \tenor}
       >>
-      \new Staff <<
+      \new Staff = bass \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
         \clef bass
-        \new Voice = "bass" {\global \repeat unfold 3 \bass}
+        \new Voice {\global \repeat unfold 3 \bass}
       >>
     >>
     \midi {
@@ -920,25 +1037,39 @@ nl = { \section \break }
 }
 
 \book {
-  \bookOutputSuffix "midi-alto"
+  \paper {
+    output-suffix = midi-alto
+  }
   \score {
     \unfoldRepeats
     \new ChoirStaff <<
-      \new Staff <<
+      \new Staff = soprano \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
         \new Voice \TempoTrack
-        \new Voice = "soprano" {\global \repeat unfold 3 \soprano}
+        \new Voice {\global \repeat unfold 3 \soprano}
       >>
-      \new Staff <<
-        \new Voice = "alto" {\global \alto \nl \alto \nl \alto \bar "|."}
-        \new Lyrics \lyricsto "alto" \altoWordsMidi
+      \new Staff = alto \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
+        \new Voice {\global \alto \nl \alto \nl \alto \bar "|."}
+        \addlyrics \altoWordsMidi
       >>
-      \new Staff <<
+      \new Staff = tenor \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
         \clef "treble_8"
-        \new Voice = "tenor" {\global \repeat unfold 3 \tenor}
+        \new Voice {\global \repeat unfold 3 \tenor}
       >>
-      \new Staff <<
+      \new Staff = bass \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
         \clef bass
-        \new Voice = "bass" {\global \repeat unfold 3 \bass}
+        \new Voice {\global \repeat unfold 3 \bass}
       >>
     >>
     \midi {
@@ -955,25 +1086,39 @@ nl = { \section \break }
 }
 
 \book {
-  \bookOutputSuffix "midi-tenor"
+  \paper {
+    output-suffix = midi-tenor
+  }
   \score {
     \unfoldRepeats
     \new ChoirStaff <<
-      \new Staff <<
+      \new Staff = soprano \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
         \new Voice \TempoTrack
-        \new Voice = "soprano" {\global \repeat unfold 3 \soprano}
+        \new Voice {\global \repeat unfold 3 \soprano}
       >>
-      \new Staff <<
-        \new Voice = "alto" {\global \alto \nl \alto \nl \alto \bar "|."}
+      \new Staff = alto \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
+        \new Voice {\global \alto \nl \alto \nl \alto \bar "|."}
       >>
-      \new Staff <<
+      \new Staff = tenor \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
         \clef "treble_8"
-        \new Voice = "tenor" {\global \repeat unfold 3 \tenor}
-        \new Lyrics \lyricsto "tenor" \tenorWordsMidi
+        \new Voice {\global \repeat unfold 3 \tenor}
+        \addlyrics \tenorWordsMidi
       >>
-      \new Staff <<
+      \new Staff = bass \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
         \clef bass
-        \new Voice = "bass" {\global \repeat unfold 3 \bass}
+        \new Voice {\global \repeat unfold 3 \bass}
       >>
     >>
     \midi {
@@ -990,25 +1135,39 @@ nl = { \section \break }
 }
 
 \book {
-  \bookOutputSuffix "midi-bass"
+  \paper {
+    output-suffix = midi-bass
+  }
   \score {
     \unfoldRepeats
     \new ChoirStaff <<
-      \new Staff <<
+      \new Staff = soprano \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
         \new Voice \TempoTrack
-        \new Voice = "soprano" {\global \repeat unfold 3 \soprano}
+        \new Voice {\global \repeat unfold 3 \soprano}
       >>
-      \new Staff <<
-        \new Voice = "alto" {\global \alto \nl \alto \nl \alto \bar "|."}
+      \new Staff = alto \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
+        \new Voice {\global \alto \nl \alto \nl \alto \bar "|."}
       >>
-      \new Staff <<
+      \new Staff = tenor \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
         \clef "treble_8"
-        \new Voice = "tenor" {\global \repeat unfold 3 \tenor}
+        \new Voice {\global \repeat unfold 3 \tenor}
       >>
-      \new Staff <<
+      \new Staff = bass \with {
+        midiInstrument = "choir aahs"
+      }
+      <<
         \clef bass
-        \new Voice = "bass" {\global \repeat unfold 3 \bass}
-        \new Lyrics \lyricsto "bass" \bassWordsMidi
+        \new Voice {\global \repeat unfold 3 \bass}
+        \addlyrics \bassWordsMidi
       >>
     >>
     \midi {
