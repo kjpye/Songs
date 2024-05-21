@@ -1,5 +1,6 @@
-\version "2.22.0"
+\version "2.25.13"
 
+\include "kjp.ly"
 \include "articulate.ly"
 
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
@@ -38,16 +39,6 @@ caesura = {
   copyright   = \today
 }
 
-#(set-global-staff-size 19)
-
-% \paper {
-%   #(set-paper-size "a4")
-%   line-width = 180\mm
-%   left-margin = 20\mm
-%   bottom-margin = 10\mm
-%   top-margin = 10\mm
-% }
-
 global = {
   \key f \major
   \time 2/2
@@ -68,37 +59,42 @@ TempoTrack = {
 RehearsalTrack = {
 %  \set Score.currentBarNumber = #5
 %  \mark \markup { \box 5 }
-  \mark \markup { \circle "1a" } s1*3
-  \mark \markup { \circle "1b" } s1*5
+  \textMark \markup { \circle "1a" } s1*3
+  \textMark \markup { \circle "1b" } s1*5
+  \textMark \markup { \circle "2a" } 
   \mark \markup { \box    "A"  } s1*4
-  \mark \markup { \circle "2b" } s1*4
+  \textMark \markup { \circle "2b" } s1*4
+  \textMark \markup { \circle "3a" }
   \mark \markup { \box    "B"  } s1*4
-  \mark \markup { \circle "3b" } s1*4
+  \textMark \markup { \circle "3b" } s1*4
+  \textMark \markup { \circle "4a" }
   \mark \markup { \box    "C"  } s1*4
-  \mark \markup { \circle "4b" } s1*4
+  \textMark \markup { \circle "4b" } s1*4
   \mark \markup { \box    "D"  } s1
-  \mark \markup { \circle "5a" } s1*5
-  \mark \markup { \circle "5b" } s1*2
+  \textMark \markup { \circle "5a" } s1*5
+  \textMark \markup { \circle "5b" } s1*2
   \mark \markup { \box    "E"  } s1*2
-  \mark \markup { \circle "6a" } s1*5
-  \mark \markup { \circle "6b" } s1
+  \textMark \markup { \circle "6a" } s1*5
+  \textMark \markup { \circle "6b" } s1
   \mark \markup { \box    "F"  } s1*5
-  \mark \markup { \circle "7a" } s1*3
+  \textMark \markup { \circle "7a" } s1*3
   \mark \markup { \box    "G"  } s1*3
-  \mark \markup { \circle "7b" } s1*5
+  \textMark \markup { \circle "7b" } s1*5
+  \textMark \markup { \circle "8a" }
   \mark \markup { \box    "H"  } s1*4
-  \mark \markup { \circle "8b" } s1*4
+  \textMark \markup { \circle "8b" } s1*4
   \mark \markup { \box    "I"  } s1
-  \mark \markup { \circle "9a" } s1*5
-  \mark \markup { \circle "9b" } s1*2
+  \textMark \markup { \circle "9a" } s1*5
+  \textMark \markup { \circle "9b" } s1*2
   \mark \markup { \box    "J"  } s1*3
-  \mark \markup { \circle "10a" } s1*5
+  \textMark \markup { \circle "10a" } s1*5
+  \textMark \markup { \circle "10b" }
   \mark \markup { \box    "K"   } s1*4
-  \mark \markup { \circle "11a" } s1*5
-  \mark \markup { \circle "11b" } s1*5
-  \mark \markup { \circle "12a" } s1*2
+  \textMark \markup { \circle "11a" } s1*5
+  \textMark \markup { \circle "11b" } s1*5
+  \textMark \markup { \circle "12a" } s1*2
   \mark \markup { \box    "L"   } s1*3
-  \mark \markup { \circle "12b" } s1*5
+  \textMark \markup { \circle "12b" } s1*5
 }
 
 soprano = \relative {
@@ -217,8 +213,8 @@ wordsSop = \lyricmode {
 
   Some folks fear to smile,
   Some folks do, some folks do;
-  Oth -- ers laugh thro' guile,
-  But that's not me nor you.
+  Oth -- ers laugh thro’ guile,
+  But that’s not me nor you.
 
   Long live the mer -- ry, mer -- ry heart
   That laughs by night and day,
@@ -227,8 +223,8 @@ wordsSop = \lyricmode {
 
   Some folks fret and scold,
   Some folks do, some folks do;
-  They'll soon be dead and cold,
-  But that's not me nor you.
+  They’ll soon be dead and cold,
+  But that’s not me nor you.
 
   Long live the mer -- ry, mer -- ry heart
   That laughs by night and day,
@@ -238,15 +234,15 @@ wordsSop = \lyricmode {
   Some folks toil and save, __
   Some folks do, some folks do;
   To buy them -- selves a grave, __
-  But that's not me nor you. __
+  But that’s not me nor you. __
 
   La, la, la, la la la la la la la la la la, la,
   La, la, la, la, la, la, la la la la la la,
 
   Some folks get grey hairs,
   Some folks do, some folks do;
-  Brood -- ing o'er their cares,
-  But that's not me nor you.
+  Brood -- ing o’er their cares,
+  But that’s not me nor you.
 
   La, la, la, la la la la la la la la la la la,
   La la la la, la, la, la la la la la la.
@@ -257,7 +253,7 @@ wordsSop = \lyricmode {
   No mat -- ter what some folks
 
   Some folks like to sigh and cry,
-  But that's not me nor you! __
+  But that’s not me nor you! __
 }
 
 wordsSopMidi = \lyricmode {
@@ -267,8 +263,8 @@ wordsSopMidi = \lyricmode {
 
   "\nSome " "folks " "fear " "to " "smile, "
   "\nSome " "folks " "do, " "some " "folks " "do; "
-  "\nOth" "ers " "laugh " "thro' " "guile, "
-  "\nBut " "that's " "not " "me " "nor " "you. "
+  "\nOth" "ers " "laugh " "thro’ " "guile, "
+  "\nBut " "that’s " "not " "me " "nor " "you. "
 
   "\nLong " "live " "the " mer "ry, " mer "ry " "heart "
   "\nThat " "laughs " "by " "night " "and " "day, "
@@ -277,8 +273,8 @@ wordsSopMidi = \lyricmode {
 
   "\nSome " "folks " "fret " "and " "scold, "
   "\nSome " "folks " "do, " "some " "folks " "do; "
-  "\nThey'll " "soon " "be " "dead " "and " "cold, "
-  "\nBut " "that's " "not " "me " "nor " "you. "
+  "\nThey’ll " "soon " "be " "dead " "and " "cold, "
+  "\nBut " "that’s " "not " "me " "nor " "you. "
 
   "\nLong " "live " "the " mer "ry, " mer "ry " "heart "
   "\nThat " "laughs " "by " "night " "and " "day, "
@@ -288,15 +284,15 @@ wordsSopMidi = \lyricmode {
   "\nSome " "folks " "toil " "and " "save, " 
   "\nSome " "folks " "do, " "some " "folks " "do; "
   "\nTo " "buy " them "selves " "a " "grave, " 
-  "\nBut " "that's " "not " "me " "nor " "you. " 
+  "\nBut " "that’s " "not " "me " "nor " "you. " 
 
   "\nLa, " "la, " "la, " "la " "la " "la " "la " "la " "la " "la " "la " "la " "la, " "la, "
   "\nLa, " "la, " "la, " "la, " "la, " "la, " "la " "la " "la " "la " "la " "la, "
 
   "\nSome " "folks " "get " "grey " "hairs, "
   "\nSome " "folks " "do, " "some " "folks " "do; "
-  "\nBrood" "ing " "o'er " "their " "cares, "
-  "\nBut " "that's " "not " "me " "nor " "you. "
+  "\nBrood" "ing " "o’er " "their " "cares, "
+  "\nBut " "that’s " "not " "me " "nor " "you. "
 
   "\nLa, " "la, " "la, " "la " "la " "la " "la " "la " "la " "la " "la " "la " "la " "la, "
   "\nLa " "la " "la " "la, " "la, " "la, " "la " "la " "la " "la " "la " "la. "
@@ -307,7 +303,7 @@ wordsSopMidi = \lyricmode {
   "\nNo " mat "ter " "what " "some " "folks "
 
   "\nSome " "folks " "like " "to " "sigh " "and " "cry, "
-  "\nBut " "that's " "not " "me " "nor " "you! " 
+  "\nBut " "that’s " "not " "me " "nor " "you! " 
 }
 
 alto = \relative {
@@ -426,8 +422,8 @@ wordsAlto = \lyricmode {
 
   Some folks fear to smile,
   Some folks do, some folks do;
-  Oth -- ers laugh thro' guile,
-  But that's not me nor you.
+  Oth -- ers laugh thro’ guile,
+  But that’s not me nor you.
 
   Long live the mer -- ry, mer -- ry heart
   That laughs by night and day,
@@ -436,8 +432,8 @@ wordsAlto = \lyricmode {
 
   Some folks fret and scold,
   Some folks do, some folks do;
-  They'll soon be dead and cold,
-  But that's not me nor you.
+  They’ll soon be dead and cold,
+  But that’s not me nor you.
 
   Long live the mer -- ry, mer -- ry heart
   That laughs by night and day,
@@ -447,15 +443,15 @@ wordsAlto = \lyricmode {
   Some folks toil and save, __
   Some folks do, some folks do;
   To buy them -- selves a grave, __
-  But that's not me nor you. __
+  But that’s not me nor you. __
 
   La, la, la, la la la la la la la la la la, la,
   La, la, la, la, la, la, la la la la la la,
 
   Some folks get grey hairs,
   Some folks do, some folks do;
-  Brood -- ing o'er their cares,
-  But that's not me nor you.
+  Brood -- ing o’er their cares,
+  But that’s not me nor you.
 
   La, la, la, la la la la la la la la la la la,
   La la la la, la, la, la la la la la la.
@@ -466,7 +462,7 @@ wordsAlto = \lyricmode {
   No mat -- ter what some folks
 
   Some folks like to sigh and cry,
-  But that's not me nor you! __
+  But that’s not me nor you! __
 }
 
 wordsAltoMidi = \lyricmode {
@@ -477,8 +473,8 @@ wordsAltoMidi = \lyricmode {
 
   "\nSome " "folks " "fear " "to " "smile, "
   "\nSome " "folks " "do, " "some " "folks " "do; "
-  "\nOth" "ers " "laugh " "thro' " "guile, "
-  "\nBut " "that's " "not " "me " "nor " "you. "
+  "\nOth" "ers " "laugh " "thro’ " "guile, "
+  "\nBut " "that’s " "not " "me " "nor " "you. "
 
   "\nLong " "live " "the " mer "ry, " mer "ry " "heart "
   "\nThat " "laughs " "by " "night " "and " "day, "
@@ -487,8 +483,8 @@ wordsAltoMidi = \lyricmode {
 
   "\nSome " "folks " "fret " "and " "scold, "
   "\nSome " "folks " "do, " "some " "folks " "do; "
-  "\nThey'll " "soon " "be " "dead " "and " "cold, "
-  "\nBut " "that's " "not " "me " "nor " "you. "
+  "\nThey’ll " "soon " "be " "dead " "and " "cold, "
+  "\nBut " "that’s " "not " "me " "nor " "you. "
 
   "\nLong " "live " "the " mer "ry, " mer "ry " "heart "
   "\nThat " "laughs " "by " "night " "and " "day, "
@@ -498,15 +494,15 @@ wordsAltoMidi = \lyricmode {
   "\nSome " "folks " "toil " "and " "save, " 
   "\nSome " "folks " "do, " "some " "folks " "do; "
   "\nTo " "buy " them "selves " "a " "grave, " 
-  "\nBut " "that's " "not " "me " "nor " "you. " 
+  "\nBut " "that’s " "not " "me " "nor " "you. " 
 
   "\nLa, " "la, " "la, " "la " "la " "la " "la " "la " "la " "la " "la " "la " "la, " "la, "
   "\nLa, " "la, " "la, " "la, " "la, " "la, " "la " "la " "la " "la " "la " "la, "
 
   "\nSome " "folks " "get " "grey " "hairs, "
   "\nSome " "folks " "do, " "some " "folks " "do; "
-  "\nBrood" "ing " "o'er " "their " "cares, "
-  "\nBut " "that's " "not " "me " "nor " "you. "
+  "\nBrood" "ing " "o’er " "their " "cares, "
+  "\nBut " "that’s " "not " "me " "nor " "you. "
 
   "\nLa, " "la, " "la, " "la " "la " "la " "la " "la " "la " "la " "la " "la " "la " "la, "
   "\nLa " "la " "la " "la, " "la, " "la, " "la " "la " "la " "la " "la " "la. "
@@ -517,7 +513,7 @@ wordsAltoMidi = \lyricmode {
   "\nNo " mat "ter " "what " "some " "folks "
 
   "\nSome " "folks " "like " "to " "sigh " "and " "cry, "
-  "\nBut " "that's " "not " "me " "nor " "you! " 
+  "\nBut " "that’s " "not " "me " "nor " "you! " 
 }
 
 tenor = \relative {
@@ -638,7 +634,7 @@ wordsTenor = \lyricmode {
   Some folks long to sigh,
   Some folks do, some folks do;
   Some folks long to die,
-  But that's not me nor you.
+  But that’s not me nor you.
 
   Long live the mer -- ry, mer -- ry heart
   That laughs by night and day,
@@ -647,8 +643,8 @@ wordsTenor = \lyricmode {
 
   Some folks fret and scold,
   Some folks do, some folks do;
-  They'll soon be dead and cold,
-  But that's not me nor you.
+  They’ll soon be dead and cold,
+  But that’s not me nor you.
 
   Long live the mer -- ry, mer -- ry heart
   That laughs by night and day,
@@ -658,15 +654,15 @@ wordsTenor = \lyricmode {
   Some folks toil and save, __
   Some folks do, some folks do;
   To buy them -- selves a grave, __
-  But that's not me nor you. __
+  But that’s not me nor you. __
 
   La, la, la, la la la la la la la la la la, la,
   La, la, la, la, la, la, la la la la la la,
 
   Some folks get grey,
   Some folks do, some folks do;
-  Brood -- ing o'er their cares,
-  But that's not me nor you.
+  Brood -- ing o’er their cares,
+  But that’s not me nor you.
 
   La, la, la, la la la la la la la la la la la,
   La la la la, la, la, la la la la la la.
@@ -678,7 +674,7 @@ wordsTenor = \lyricmode {
 
   Some folks like to,
   Some folks like to sigh and cry,
-  But that's not me nor you! __
+  But that’s not me nor you! __
 }
 
 wordsTenorMidi = \lyricmode {
@@ -689,7 +685,7 @@ wordsTenorMidi = \lyricmode {
   "\nSome " "folks " "long " "to " "sigh, "
   "\nSome " "folks " "do, " "some " "folks " "do; "
   "\nSome " "folks " "long " "to " "die, "
-  "\nBut " "that's " "not " "me " "nor " "you. "
+  "\nBut " "that’s " "not " "me " "nor " "you. "
 
   "\nLong " "live " "the " mer "ry, " mer "ry " "heart "
   "\nThat " "laughs " "by " "night " "and " "day, "
@@ -698,8 +694,8 @@ wordsTenorMidi = \lyricmode {
 
   "\nSome " "folks " "fret " "and " "scold, "
   "\nSome " "folks " "do, " "some " "folks " "do; "
-  "\nThey'll " "soon " "be " "dead " "and " "cold, "
-  "\nBut " "that's " "not " "me " "nor " "you. "
+  "\nThey’ll " "soon " "be " "dead " "and " "cold, "
+  "\nBut " "that’s " "not " "me " "nor " "you. "
 
   "\nLong " "live " "the " mer "ry, " mer "ry " "heart "
   "\nThat " "laughs " "by " "night " "and " "day, "
@@ -709,15 +705,15 @@ wordsTenorMidi = \lyricmode {
   "\nSome " "folks " "toil " "and " "save, " 
   "\nSome " "folks " "do, " "some " "folks " "do; "
   "\nTo " "buy " them "selves " "a " "grave, " 
-  "\nBut " "that's " "not " "me " "nor " "you. " 
+  "\nBut " "that’s " "not " "me " "nor " "you. " 
 
   "\nLa, " "la, " "la, " "la " "la " "la " "la " "la " "la " "la " "la " "la " "la, " "la, "
   "\nLa, " "la, " "la, " "la, " "la, " "la, " "la " "la " "la " "la " "la " "la, "
 
   "\nSome " "folks " "get " "grey, "
   "\nSome " "folks " "do, " "some " "folks " "do; "
-  "\nBrood" "ing " "o'er " "their " "cares, "
-  "\nBut " "that's " "not " "me " "nor " "you. "
+  "\nBrood" "ing " "o’er " "their " "cares, "
+  "\nBut " "that’s " "not " "me " "nor " "you. "
 
   "\nLa, " "la, " "la, " "la " "la " "la " "la " "la " "la " "la " "la " "la " "la " "la, "
   "\nLa " "la " "la " "la, " "la, " "la, " "la " "la " "la " "la " "la " "la. "
@@ -729,7 +725,7 @@ wordsTenorMidi = \lyricmode {
 
   "\nSome " "folks " "like " "to, "
   "\nSome " "folks " "like " "to " "sigh " "and " "cry, "
-  "\nBut " "that's " "not " "me " "nor " "you! " 
+  "\nBut " "that’s " "not " "me " "nor " "you! " 
 }
 
 bass = \relative {
@@ -849,7 +845,7 @@ wordsBass = \lyricmode {
   Some folks long to sigh,
   Some folks do, some folks do;
   Some folks long to die,
-  But that's not me nor you.
+  But that’s not me nor you.
 
   Long live the mer -- ry, mer -- ry heart
   That laughs by night and day,
@@ -858,8 +854,8 @@ wordsBass = \lyricmode {
 
   Some folks fret and scold,
   Some folks do, some folks do;
-  They'll soon be dead and cold,
-  But that's not me nor you.
+  They’ll soon be dead and cold,
+  But that’s not me nor you.
 
   Long live the mer -- ry, mer -- ry heart
   That laughs by night and day,
@@ -869,15 +865,15 @@ wordsBass = \lyricmode {
   Some folks toil and save, __
   Some folks do, some folks do;
   To buy them -- selves a grave, __
-  But that's not me nor you. __
+  But that’s not me nor you. __
 
   La, la, la, la la la la la la la la la la, la,
   La, la, la, la, la, la, la la la la la la,
 
   Some folks get grey,
   Some folks do, some folks do;
-  Brood -- ing o'er their cares,
-  But that's not me nor you.
+  Brood -- ing o’er their cares,
+  But that’s not me nor you.
 
   La, la, la, la la la la la la la la la la la,
   La la la la, la, la, la la la la la la.
@@ -889,7 +885,7 @@ wordsBass = \lyricmode {
 
   Some folks like to sigh,
   Some folks like to sigh and cry,
-  But that's not me nor you! __
+  But that’s not me nor you! __
 }
 
 wordsBassMidi = \lyricmode {
@@ -900,7 +896,7 @@ wordsBassMidi = \lyricmode {
   "\nSome " "folks " "long " "to " "sigh, "
   "\nSome " "folks " "do, " "some " "folks " "do; "
   "\nSome " "folks " "long " "to " "die, "
-  "\nBut " "that's " "not " "me " "nor " "you. "
+  "\nBut " "that’s " "not " "me " "nor " "you. "
 
   "\nLong " "live " "the " mer "ry, " mer "ry " "heart "
   "\nThat " "laughs " "by " "night " "and " "day, "
@@ -909,8 +905,8 @@ wordsBassMidi = \lyricmode {
 
   "\nSome " "folks " "fret " "and " "scold, "
   "\nSome " "folks " "do, " "some " "folks " "do; "
-  "\nThey'll " "soon " "be " "dead " "and " "cold, "
-  "\nBut " "that's " "not " "me " "nor " "you. "
+  "\nThey’ll " "soon " "be " "dead " "and " "cold, "
+  "\nBut " "that’s " "not " "me " "nor " "you. "
 
   "\nLong " "live " "the " mer "ry, " mer "ry " "heart "
   "\nThat " "laughs " "by " "night " "and " "day, "
@@ -920,15 +916,15 @@ wordsBassMidi = \lyricmode {
   "\nSome " "folks " "toil " "and " "save, " 
   "\nSome " "folks " "do, " "some " "folks " "do; "
   "\nTo " "buy " them "selves " "a " "grave, " 
-  "\nBut " "that's " "not " "me " "nor " "you. " 
+  "\nBut " "that’s " "not " "me " "nor " "you. " 
 
   "\nLa, " "la, " "la, " "la " "la " "la " "la " "la " "la " "la " "la " "la " "la, " "la, "
   "\nLa, " "la, " "la, " "la, " "la, " "la, " "la " "la " "la " "la " "la " "la, "
 
   "\nSome " "folks " "get " "grey, "
   "\nSome " "folks " "do, " "some " "folks " "do; "
-  "\nBrood" "ing " "o'er " "their " "cares, "
-  "\nBut " "that's " "not " "me " "nor " "you. "
+  "\nBrood" "ing " "o’er " "their " "cares, "
+  "\nBut " "that’s " "not " "me " "nor " "you. "
 
   "\nLa, " "la, " "la, " "la " "la " "la " "la " "la " "la " "la " "la " "la " "la " "la, "
   "\nLa " "la " "la " "la, " "la, " "la, " "la " "la " "la " "la " "la " "la. "
@@ -940,12 +936,11 @@ wordsBassMidi = \lyricmode {
 
   "\nSome " "folks " "like " "to " "sigh, "
   "\nSome " "folks " "like " "to " "sigh " "and " "cry, "
-  "\nBut " "that's " "not " "me " "nor " "you! " 
+  "\nBut " "that’s " "not " "me " "nor " "you! " 
 }
 
 pianoRHone = \relative {
   \global
-%  \voiceOne
   R1
   R1
   d'1\omit\p~
@@ -994,8 +989,8 @@ pianoRHone = \relative {
   r4 <f c' f> r <bes d f>
   r4 <a c f> r <g bes c e>
   r4 <a c f> r2 \key des \major % 6b
-  \voiceOne R1^\markup\bold "Freely (slower)"
-  R1*15 \key e \major \oneVoice
+  \vo R1^\markup\bold "Freely (slower)"
+  R1*15 \key e \major \ov
   r4\omit\mp^\markup\bold "a tempo" <cis e cis'> r <b e b'> % 8a
   r4 <cis e a> r <a b dis fis>
   r4 <gis b e> r <a b dis fis>
@@ -1032,14 +1027,14 @@ pianoRHone = \relative {
   r4 <g d' g> r q
   r4 q r\omit\f <g c e g>
   r2 <d' g b>\arpeggio
-  \voiceOne <g b d>2\arpeggio <d' g b>\arpeggio
+  \vo <g b d>2\arpeggio <d' g b>\arpeggio
   <e, g c>2\arpeggio <e' g a c>\arpeggio % 12a
   <c, d fis a>2\arpeggio <d' f a d>\arpeggio \caesura \bar "||"
   R1
   R1
   s1
-  \voiceOne
-  r2 b\omit\mf \oneVoice % 12b
+  \vo
+  r2 b\omit\mf \ov % 12b
   <d, fis a d>2^>\omit\f q^>
   <e g c e>2^> <fis a d fis>^>
   <g b d g>1\fermata ~
@@ -1049,12 +1044,12 @@ pianoRHone = \relative {
 
 pianoRHtwo = \relative {
   \global
-  \voiceTwo
+  \vt
   s1*48 \key des \major
   \teeny
   <des' f>2\omit\mf <ees f> % 6b+
   <des f>2 <c f>
-  << {a'1 | a} \new Voice {\voiceTwo \teeny ces,2(c | des d)} >>
+  << {a'1 | a} \new Voice {\vt \teeny ces,2(c | des d)} >>
   <ees ges>2 q
   <c ees>1 \breathe % 7a
   <c f>2 q
@@ -1068,7 +1063,7 @@ pianoRHtwo = \relative {
   <bes des>1~^(
   des1)\parenthesize^\fermata \breathe \bar "||" \key e \major
   s1*42
-  \normalsize \oneVoice
+  \normalsize \ov
   r2 e\omit\mf~
   <e g>1
   s1*4
@@ -1122,7 +1117,7 @@ dynamicsPiano = {
 
 pianoLHone = \relative {
   \global
-  \voiceOne
+  \vo
   c1\omit\p~
   <c g'>1~
   <c g' bes>1~
@@ -1142,7 +1137,7 @@ pianoLHone = \relative {
   c2(d)
   c2(d4 e)
   f2. r4
-  \oneVoice bes,,4\omit\mf r a r % 4a
+  \ov bes,,4\omit\mf r a r % 4a
   g4 r c, e
   fis4 r c r
   fis4 r fis r
@@ -1164,15 +1159,15 @@ pianoLHone = \relative {
   \teeny
   <des' aes'>2 <des c'>
   <des bes'>2 <des a'>
-  << {\voiceOne aes'2( a | bes2 ces)} \new Voice {\teeny des,1 | des1 } >> \oneVoice
+  << {\vo aes'2( a | bes2 ces)} \new Voice {\teeny des,1 | des1 } >> \ov
   <des bes'>2 q
   <d a'>1 \breathe % 7a
   q2 q
   <des bes'>2 \breathe q
   q2 q
   <c a'>2 <ces a'>
-  << {\voiceOne f2(e | f2)} \new Voice {\voiceTwo \teeny bes,1~ | bes2} >>
-     \breathe \oneVoice <a ges'>
+  << {\vo f2(e | f2)} \new Voice {\vt \teeny bes,1~ | bes2} >>
+     \breathe \ov <a ges'>
   <aes aes'>2 <aes f'> % 7b+
   <aes aes'>2 <aes g'>
   <des g>1~(
@@ -1215,9 +1210,9 @@ pianoLHone = \relative {
   <b b'>4 r q r
   q4 r <a a'>\omit\f r
   r2 <d' g b>2\arpeggio
-  \voiceTwo \change Staff = rh <g b d>2\arpeggio <d' g b>\arpeggio
-  \oneVoice \change Staff = lh <d, a' c>2\arpeggio \voiceTwo \showStaffSwitch \change Staff = rh <e' g a c>\arpeggio \hideStaffSwitch % 12a
-  \change Staff = lh <d, fis a>2\arpeggio \change Staff = rh \voiceTwo \showStaffSwitch <d' fis a c> \change Staff = lh \hideStaffSwitch \caesura
+  \vt \rh <g b d>2\arpeggio <d' g b>\arpeggio
+  \ov \lh <d, a' c>2\arpeggio \vt \ss \rh <e' g a c>\arpeggio \hs % 12a
+  \lh <d, fis a>2\arpeggio \rh \ss <d' fis a c> \lh \hs \caesura
   d,1\omit\p~
   <d a'>1~ \omit\<
   <d a' c>1~
@@ -1231,10 +1226,10 @@ pianoLHone = \relative {
 
 pianoLHtwo = \relative {
   \global
-  \voiceTwo
+  \vt
   s1*7
   f,1\omit\p % 2a
-  \repeat unfold 6 f1\omit\p
+  \repeat unfold 6 {f1\omit\p}
   f1~
   f2. r4
   f'1\omit\mp % 3a
@@ -1253,62 +1248,66 @@ pianoLHtwo = \relative {
   \bar "|."
 }
 
+#(set-global-staff-size 19)
+
 \book {
-  \bookOutputSuffix "single"
+  \paper {
+    output-suffix = single
+  }
   \score {
     <<
       <<
         \new ChoirStaff <<
                                 % Single soprano staff
-          \new Staff \with {
+          \new Staff = soprano \with {
             instrumentName = #"Soprano"
             shortInstrumentName = #"S"
           }
           <<
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice = "soprano" \soprano
-            \new Lyrics \lyricsto "soprano" \wordsSop
+            \new Voice \soprano
+            \addlyrics \wordsSop
           >>
                                 % Single alto staff
-          \new Staff \with {
+          \new Staff = alto \with {
             instrumentName = #"Alto"
             shortInstrumentName = #"A"
           }
           <<
-            \new Voice = "alto" \alto
-            \new Lyrics \lyricsto "alto" \wordsAlto
+            \new Voice \alto
+            \addlyrics \wordsAlto
           >>
                                 % Single tenor staff
-          \new Staff \with {
+          \new Staff = tenor \with {
             instrumentName = #"Tenor"
             shortInstrumentName = #"T"
           }
           <<
             \clef "treble_8"
-            \new Voice = "tenor" \tenor
-            \new Lyrics \lyricsto "tenor" \wordsTenor
+            \new Voice \tenor
+            \addlyrics \wordsTenor
           >>
                                 % Single bass staff
-          \new Staff \with {
+          \new Staff = bass \with {
             instrumentName = #"Bass"
             shortInstrumentName = #"B"
           }
           <<
             \clef "bass"
-            \new Voice = "bass" \bass
-            \new Lyrics \lyricsto "bass" \wordsBass
+            \new Voice \bass
+            \addlyrics \wordsBass
           >>
         >>
         \new PianoStaff <<
           \set PianoStaff.connectArpeggios = ##t
-          \new Staff = rh
+          \new Staff = pianorh
           <<
             \pianoRHone
             \pianoRHtwo
           >>
           \new Dynamics \dynamicsPiano
-          \new Staff = lh
+          \new Staff = pianolh
           <<
             \clef "bass"
             \new Voice \pianoLHone
@@ -1319,20 +1318,45 @@ pianoLHtwo = \relative {
     >>
     \layout {
       indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "singlepage"
   \paper {
+    output-suffix = singlepage
     top-margin = 0
     left-margin = 7
     right-margin = 1
     paper-width = 190\mm
     paper-height = 2000\mm
     ragged-bottom = true
-    system-system-spacing.basic-distance = #22
+    system-system-spacing.basic-distance = #15
     system-separator-markup = \slashSeparator
   }
   \score {
@@ -1341,55 +1365,55 @@ pianoLHtwo = \relative {
       <<
         \new ChoirStaff <<
                                 % Single soprano staff
-          \new Staff \with {
+          \new Staff = soprano \with {
             instrumentName = #"Soprano"
             shortInstrumentName = #"S"
           }
           <<
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice = "soprano" \soprano
-            \new Lyrics \lyricsto "soprano" \wordsSop
+            \new Voice \soprano
+            \addlyrics \wordsSop
           >>
                                 % Single alto staff
-          \new Staff \with {
+          \new Staff = alto \with {
             instrumentName = #"Alto"
             shortInstrumentName = #"A"
           }
           <<
-            \new Voice = "alto" \alto
-            \new Lyrics \lyricsto "alto" \wordsAlto
+            \new Voice \alto
+            \addlyrics \wordsAlto
           >>
                                 % Single tenor staff
-          \new Staff \with {
+          \new Staff = tenor \with {
             instrumentName = #"Tenor"
             shortInstrumentName = #"T"
           }
           <<
             \clef "treble_8"
-            \new Voice = "tenor" \tenor
-            \new Lyrics \lyricsto "tenor" \wordsTenor
+            \new Voice \tenor
+            \addlyrics \wordsTenor
           >>
                                 % Single bass staff
-          \new Staff \with {
+          \new Staff = bass \with {
             instrumentName = #"Bass"
             shortInstrumentName = #"B"
           }
           <<
             \clef "bass"
-            \new Voice = "bass" \bass
-            \new Lyrics \lyricsto "bass" \wordsBass
+            \new Voice \bass
+            \addlyrics \wordsBass
           >>
         >>
         \new PianoStaff <<
           \set PianoStaff.connectArpeggios = ##t
-          \new Staff = rh
+          \new Staff = pianorh
           <<
             \pianoRHone
             \pianoRHtwo
           >>
           \new Dynamics \dynamicsPiano
-          \new Staff = lh
+          \new Staff = pianolh
           <<
             \clef "bass"
             \new Voice \pianoLHone
@@ -1400,130 +1424,601 @@ pianoLHtwo = \relative {
     >>
     \layout {
       indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-sop
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    paper-height = 2000\mm
+    ragged-bottom = true
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics \wordsSop
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAlto}
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          << 
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsTenor}
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBass}
+          >>
+        >>
+        \new PianoStaff <<
+          \set PianoStaff.connectArpeggios = ##t
+          \new Staff = pianorh
+          <<
+            \magnifyStaff #4/7
+            \pianoRHone
+            \pianoRHtwo
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = pianolh
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-alto
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    paper-height = 2000\mm
+    ragged-bottom = true
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSop}
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \new Voice \alto
+            \addlyrics \wordsAlto
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          << 
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsTenor}
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBass}
+          >>
+        >>
+        \new PianoStaff <<
+          \set PianoStaff.connectArpeggios = ##t
+          \new Staff = pianorh
+          <<
+            \magnifyStaff #4/7
+            \pianoRHone
+            \pianoRHtwo
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = pianolh
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-tenor
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    paper-height = 2000\mm
+    ragged-bottom = true
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSop}
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAlto}
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          << 
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics \wordsTenor
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBass}
+          >>
+        >>
+        \new PianoStaff <<
+          \set PianoStaff.connectArpeggios = ##t
+          \new Staff = pianorh
+          <<
+            \magnifyStaff #4/7
+            \pianoRHone
+            \pianoRHtwo
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = pianolh
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-bass
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    paper-height = 2000\mm
+    ragged-bottom = true
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSop}
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAlto}
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+          }
+          << 
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsTenor}
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+          }
+          <<
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics \wordsBass
+          >>
+        >>
+        \new PianoStaff <<
+          \set PianoStaff.connectArpeggios = ##t
+          \new Staff = pianorh
+          <<
+            \magnifyStaff #4/7
+            \pianoRHone
+            \pianoRHtwo
+          >>
+          \new Dynamics {\teeny \dynamicsPiano}
+          \new Staff = pianolh
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
     }
   }
 }
 
 \book {
-  \bookOutputSuffix "midi-sop"
+  \paper {
+    output-suffix = midi-sop
+  }
   \score {
 %   \articulate
     <<
       <<
         \new ChoirStaff <<
                                 % Single soprano staff
-          \new Staff \with {
-            instrumentName = #"Soprano"
-            shortInstrumentName = #"S"
+          \new Staff = soprano \with {
+
+            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \TempoTrack
-            \new Voice = "soprano" \soprano
-            \new Lyrics \lyricsto "soprano" \wordsSopMidi
+            \new Voice \soprano
+            \addlyrics \wordsSopMidi
           >>
                                 % Single alto staff
-          \new Staff \with {
-            instrumentName = #"Alto"
-            shortInstrumentName = #"A"
+          \new Staff = alto \with {
+            midiInstrument = "choir aahs"
           }
           <<
-            \new Voice = "alto" \alto
+            \new Voice \alto
           >>
                                 % Single tenor staff
-          \new Staff \with {
-            instrumentName = #"Tenor"
-            shortInstrumentName = #"T"
+          \new Staff = tenor \with {
+            midiInstrument = "choir aahs"
           }
           <<
             \clef "treble_8"
-            \new Voice = "tenor" \tenor
+            \new Voice \tenor
           >>
                                 % Single bass staff
-          \new Staff \with {
-            instrumentName = #"Bass"
-            shortInstrumentName = #"B"
+          \new Staff = bass \with {
+            midiInstrument = "choir aahs"
           }
           <<
             \clef "bass"
-            \new Voice = "bass" \bass
+            \new Voice \bass
           >>
         >>
-        \new PianoStaff <<
+        \new PianoStaff \with {
+          midiInstrument = "acoustic grand piano"
+        }
+        <<
           \set PianoStaff.connectArpeggios = ##t
-          \new Staff = rh
+          \new Staff = piano
           <<
             \pianoRHone
             \pianoRHtwo
-          >>
-          \new Dynamics \dynamicsPiano
-          \new Staff = lh
-          <<
-            \clef "bass"
+            \new Dynamics \dynamicsPiano
             \new Voice \pianoLHone
             \new Voice \pianoLHtwo
           >>
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
 \book {
-  \bookOutputSuffix "midi-alto"
+  \paper {
+    output-suffix = midi-alto
+  }
   \score {
 %   \articulate
     <<
       <<
         \new ChoirStaff <<
                                 % Single soprano staff
-          \new Staff \with {
-            instrumentName = #"Soprano"
-            shortInstrumentName = #"S"
+          \new Staff = soprano \with {
+            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \TempoTrack
-            \new Voice = "soprano" \soprano
+            \new Voice \soprano
           >>
                                 % Single alto staff
-          \new Staff \with {
-            instrumentName = #"Alto"
-            shortInstrumentName = #"A"
+          \new Staff = alto \with {
+            midiInstrument = "choir aahs"
           }
           <<
-            \new Voice = "alto" \alto
+            \new Voice \alto
             \new Lyrics \lyricsto "alto" \wordsAltoMidi
           >>
                                 % Single tenor staff
-          \new Staff \with {
-            instrumentName = #"Tenor"
-            shortInstrumentName = #"T"
+          \new Staff = tenor \with {
+            midiInstrument = "choir aahs"
           }
           <<
             \clef "treble_8"
-            \new Voice = "tenor" \tenor
+            \new Voice \tenor
           >>
                                 % Single bass staff
-          \new Staff \with {
-            instrumentName = #"Bass"
-            shortInstrumentName = #"B"
+          \new Staff = bass \with {
+            midiInstrument = "choir aahs"
           }
           <<
             \clef "bass"
-            \new Voice = "bass" \bass
+            \new Voice \bass
           >>
         >>
-        \new PianoStaff <<
+        \new PianoStaff \with {
+          midiInstrument = "acoustic grand piano"
+        }
+        <<
           \set PianoStaff.connectArpeggios = ##t
-          \new Staff = rh
+          \new Staff = piano
           <<
             \pianoRHone
             \pianoRHtwo
-          >>
-          \new Dynamics \dynamicsPiano
-          \new Staff = lh
-          <<
-            \clef "bass"
+            \new Dynamics \dynamicsPiano
             \new Voice \pianoLHone
             \new Voice \pianoLHtwo
           >>
@@ -1535,60 +2030,57 @@ pianoLHtwo = \relative {
 }
 
 \book {
-  \bookOutputSuffix "midi-tenor"
+  \paper {
+    output-suffix = midi-tenor
+  }
   \score {
 %   \articulate
     <<
       <<
         \new ChoirStaff <<
                                 % Single soprano staff
-          \new Staff \with {
-            instrumentName = #"Soprano"
-            shortInstrumentName = #"S"
+          \new Staff = soprano \with {
+            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \TempoTrack
-            \new Voice = "soprano" \soprano
+            \new Voice \soprano
           >>
                                 % Single alto staff
-          \new Staff \with {
-            instrumentName = #"Alto"
-            shortInstrumentName = #"A"
+          \new Staff = alto \with {
+            midiInstrument = "choir aahs"
           }
           <<
-            \new Voice = "alto" \alto
+            \new Voice \alto
           >>
                                 % Single tenor staff
-          \new Staff \with {
-            instrumentName = #"Tenor"
-            shortInstrumentName = #"T"
+          \new Staff = tenor \with {
+            midiInstrument = "choir aahs"
           }
           <<
             \clef "treble_8"
-            \new Voice = "tenor" \tenor
-            \new Lyrics \lyricsto "tenor" \wordsTenorMidi
+            \new Voice \tenor
+            \addlyrics \wordsTenorMidi
           >>
                                 % Single bass staff
-          \new Staff \with {
-            instrumentName = #"Bass"
-            shortInstrumentName = #"B"
+          \new Staff = bass \with {
+            midiInstrument = "choir aahs"
           }
           <<
             \clef "bass"
-            \new Voice = "bass" \bass
+            \new Voice \bass
           >>
         >>
-        \new PianoStaff <<
+        \new PianoStaff \with {
+          midiInstrument = "acoustic grand piano"
+        }
+        <<
           \set PianoStaff.connectArpeggios = ##t
-          \new Staff = rh
+          \new Staff = piano
           <<
             \pianoRHone
             \pianoRHtwo
-          >>
-          \new Dynamics \dynamicsPiano
-          \new Staff = lh
-          <<
-            \clef "bass"
+            \new Dynamics \dynamicsPiano
             \new Voice \pianoLHone
             \new Voice \pianoLHtwo
           >>
@@ -1600,50 +2092,51 @@ pianoLHtwo = \relative {
 }
 
 \book {
-  \bookOutputSuffix "midi-bass"
+  \paper {
+    output-suffix = midi-bass
+  }
   \score {
 %   \articulate
     <<
       <<
         \new ChoirStaff <<
                                 % Single soprano staff
-          \new Staff \with {
-            instrumentName = #"Soprano"
-            shortInstrumentName = #"S"
+          \new Staff = soprano \with {
+            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \TempoTrack
-            \new Voice = "soprano" \soprano
+            \new Voice \soprano
           >>
                                 % Single alto staff
-          \new Staff \with {
-            instrumentName = #"Alto"
-            shortInstrumentName = #"A"
+          \new Staff = alto \with {
+            midiInstrument = "choir aahs"
           }
           <<
-            \new Voice = "alto" \alto
+            \new Voice \alto
           >>
                                 % Single tenor staff
-          \new Staff \with {
-            instrumentName = #"Tenor"
-            shortInstrumentName = #"T"
+          \new Staff = tenor \with {
+            midiInstrument = "choir aahs"
           }
           <<
             \clef "treble_8"
-            \new Voice = "tenor" \tenor
+            \new Voice \tenor
           >>
                                 % Single bass staff
-          \new Staff \with {
-            instrumentName = #"Bass"
-            shortInstrumentName = #"B"
+          \new Staff = bass \with {
+            midiInstrument = "choir aahs"
           }
           <<
             \clef "bass"
-            \new Voice = "bass" \bass
-            \new Lyrics \lyricsto "bass" \wordsBassMidi
+            \new Voice \bass
+            \addlyrics \wordsBassMidi
           >>
         >>
-        \new PianoStaff <<
+        \new PianoStaff \with {
+          midiInstrument = "acoustic grand piano"
+        }
+        <<
           \set PianoStaff.connectArpeggios = ##t
           \new Staff = rh
           <<
