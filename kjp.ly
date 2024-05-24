@@ -1,7 +1,45 @@
+#(ly:set-option 'compile-scheme-code)
+#(debug-enable 'backtrace)
+
 nom  = {   \set ignoreMelismata = ##t }
 yesm = { \unset ignoreMelismata       }
 
-colour = {
+ov  = \oneVoice
+vo  = \voiceOne
+vt  = \voiceTwo
+vth = \voiceThree
+vf  = \voiceFour
+
+nl = { \section \break }
+
+rh = {\change Staff = pianorh \vt}
+lh = {\change Staff = pianolh \vo}
+ss = \showStaffSwitch
+hs = \hideStaffSwitch
+
+auto   = \partCombineAutomatic
+chord  = \partCombineChords
+apart  = \partCombineApart
+
+% With thanks to Valentin Petzel on the lilypond-users mailing list
+% for making this work, and suggesting some improvements:
+
+repeat-verses =
+#(define-music-function ( count     music  )
+                        ( index? ly:music? )
+   (make-music 'SequentialMusic 'elements
+     (map-in-order
+      (lambda (verse)
+       (let ((versenum (string->symbol (format #f "v~a" verse))))
+         (keepWithTag versenum (ly:music-deep-copy music))))
+      (iota count 1))))
+
+%\include "guile-debugger.ly"
+
+%#(set-break! repeat-verses)
+
+
+red = {
   \override NoteHead.color   = #red
   \override Stem.color       = #red
   \override Beam.color       = #red
@@ -21,12 +59,12 @@ black = {
   \override Dots.color       = #black
 }
 
-%%% snippet 650
+%%% snippet “Adding indicators to staves which split after a break”:
 
 #(define-markup-command (arrow-at-angle layout props angle-deg length fill)
    (number? number? boolean?)
    (let* (
-           (PI-OVER-180 (/ (atan 1 1) 34))
+           (PI-OVER-180 (/ (atan 1 1) 45))
            (degrees->radians (lambda (degrees) (* degrees PI-OVER-180)))
            (angle-rad (degrees->radians angle-deg))
            (target-x (* length (cos angle-rad)))
@@ -84,3 +122,148 @@ convUpStaffBarLine = {
       0))
   \break
 }
+
+%make-midi =
+%#(define-void-function
+%  (suffix  voice   words     )
+%  (string? string? ly:lyrics?)
+%  (toplevel-book-handler #{
+%    \book {
+%      \paper {
+%        output-suffix = #suffix
+%     }
+%     \score {
+%   \new ChoirStaff
+%   <<
+%         \new Staff = soprano \with {
+%           midiInstrument = "choir aahs"
+%         }
+%         <<
+%           \new Voice \TempoTrack
+%           \new Dynamics \dynamicsSopSingle
+%           \new Voice \sopSingle
+%           #( (if? (eq? "sop" voice) ( #{ \addlyrics #words } )))
+%         >>
+%%         \new Staff = alto \with {
+%           midiInstrument = "choir aahs"
+%         }
+%         <<
+%           \new Dynamics \dynamicsAltoSingle
+%           \new Voice \altoSingle
+%           #( (if? (eq? "alto" voice) ( #{ \addlyrics #words } )))
+%         >>
+%         \new Staff = tenor \with {
+%           midiInstrument = "choir aahs"
+%         }
+%         <<
+%           \new Dynamics \dynamicsTenorSingle
+%           \new Voice \tenorSingle
+%           #( (if? (eq? "tenor" voice) ( #{ \addlyrics #words } )))
+%         >>
+%         \new Staff = bass \with {
+%           midiInstrument = "choir aahs"
+%         }
+%         <<
+%           \new Dynamics \dynamicsBassSingle
+%           \new Voice \bassSingle
+%           #( (if? (eq? "bass" voice) ( #{ \addlyrics #words } )))
+%         >>
+%       >>
+%       \new Staff = piano \with {
+%         midiInstrument = "acoustic grand piano"
+%       }
+%       <<
+%         \new Voice \pianoRHsingle
+%         \new Dynamics \dynamicsPianoSingle
+%         \new Voice \pianoLHsingle
+%%       >>
+%       \midi { }
+%    }
+%  }
+% )
+%)
+
+%make-midi =
+%#(define-void-function
+%  (suffix  voice   words     )
+%  (string? string? ly:lyrics?)
+%  (toplevel-book-handler #{
+%    \book {
+%      \paper {
+%        output-suffix = #suffix
+%      }
+%      \score {
+%       \new ChoirStaff {
+%         \new Staff = soprano \with {
+%           midiInstrument = "choir aahs"
+%         }
+%         <<
+%           \new Voice \TempoTrack
+%           \new Dynamics \dynamicsSopSingle
+%           \new Voice \sopSingle
+%           #( (if? (eq? "sop" voice) ( #{ \addlyrics #words } )))
+%         >>
+%         \new Staff = alto \with {
+%           midiInstrument = "choir aahs"
+%         }
+%         <<
+%           \new Dynamics \dynamicsAltoSingle
+%           \new Voice \altoSingle
+%           #( (if? (eq? "alto" voice) ( #{ \addlyrics #words } )))
+%         >>
+%         \new Staff = tenor \with {
+%           midiInstrument = "choir aahs"
+%         }
+%         <<
+%           \new Dynamics \dynamicsTenorSingle
+%           \new Voice \tenorSingle
+%           #( (if? (eq? "tenor" voice) ( #{ \addlyrics #words } )))
+%         >>
+%         \new Staff = bass \with {
+%           midiInstrument = "choir aahs"
+%         }
+%         <<
+%           \new Dynamics \dynamicsBassSingle
+%           \new Voice \bassSingle
+%           #( (if? (eq? "bass" voice) ( #{ \addlyrics #words } )))
+%         >>
+%       }
+%       \new Staff = piano \with {
+%         midiInstrument = "acoustic grand piano"
+%       }
+%       <<
+%         \new Voice \pianoRHsingle
+%         \new Dynamics \dynamicsPianoSingle
+%         \new Voice \pianoLHsingle
+%       >>
+%       \midi { }
+%    }
+%  }
+% )
+%)
+
+make-score =
+#(define-void-function
+   (instrumentName bookSuffix musicContent)
+   (string? string? ly:music?)
+   (toplevel-score-handler #{
+     \score {
+       \new Staff \with {
+         instrumentName = #instrumentName
+       } { #musicContent }
+       \layout { }
+     }
+   #})
+   (toplevel-book-handler #{
+     \book {
+       \bookOutputSuffix #bookSuffix
+       \score {
+         \new Staff \with {
+           midiInstrument = "piccolo"
+         } { #musicContent }
+         \midi {
+           \tempo 4 = 80
+         }
+       }
+     }
+    #}))
