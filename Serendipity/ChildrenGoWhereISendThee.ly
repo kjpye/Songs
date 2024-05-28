@@ -1,5 +1,6 @@
-\version "2.22.0"
+\version "2.25.13"
 
+\include "kjp.ly"
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
 
@@ -33,23 +34,28 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   copyright   = \today
 }
 
-% #(set-global-staff-size 16)
-
 global = {
   \key e \major
   \time 4/4
   \partial 4
 }
 
-drumPitchNames.cc = #'crashcymbal
+drumPitchNames.tb = #'tambourine
 #(define mystyle
-  '((crashcymbal cross   #f  5)
-    (bass        default #f -1)
+  '((tambourine cross   #f  0)
   ))
 
-midiDrumPitches.bass = des
+midiDrumPitches.tambourine = fis,
 
 DrumTrack = \drummode {
+  \stemUp
+  s4 | s1*2 |
+  r8^\markup Tamb.yes
+  tb r tb r tb r tb
+  \repeat unfold 92 { r8 tb r tb r tb r tb }
+  r8 tb r tb tb4 r | R1\fermata | R1\fermata |
+  \repeat unfold 13 { r8 tb r tb r tb r tb | }
+  r8 tb r tb tb4 r\fermata | R1 | R |
 }
 
 TempoTrack = {
@@ -60,52 +66,49 @@ TempoTrack = {
 
 RehearsalTrack = {
 %  \set Score.currentBarNumber = #5
-  \mark \markup { \box "2a" } s4 s1*2
-  \mark \markup { \box "2b" }    s1*3
-  \mark \markup { \box "2c" }    s1*3
-  \mark \markup { \box "3a" }    s1*3
-  \mark \markup { \box "3b" }    s1*3
-  \mark \markup { \box "3c" }    s1*3
-  \mark \markup { \box "3d" }    s1*3
-  \mark \markup { \box "4a" }    s1*2
-  \mark \markup { \box "4b" }    s1*3
-  \mark \markup { \box "4c" }    s1*3
-  \mark \markup { \box "4d" }    s1*3
-  \mark \markup { \box "5a" }    s1*3
-  \mark \markup { \box "5b" }    s1*3
-  \mark \markup { \box "5c" }    s1*3
-  \mark \markup { \box "5d" }    s1*3
-  \mark \markup { \box "6a" }    s1*3
-  \mark \markup { \box "6b" }    s1*3
-  \mark \markup { \box "6c" }    s1*2
-  \mark \markup { \box "6d" }    s1*2
-  \mark \markup { \box "7a" }    s1*3
-  \mark \markup { \box "7b" }    s1*3
-  \mark \markup { \box "7c" }    s1*2
-  \mark \markup { \box "7d" }    s1*2
-  \mark \markup { \box "8a" }    s1*3
-  \mark \markup { \box "8b" }    s1*3
-  \mark \markup { \box "8c" }    s1*3
-  \mark \markup { \box "8d" }    s1*2
-  \mark \markup { \box "9a" }    s1*2
-  \mark \markup { \box "9b" }    s1*2
-  \mark \markup { \box "9c" }    s1*3
-  \mark \markup { \box "9d" }    s1*3
-  \mark \markup { \box "10a" }    s1*2
-  \mark \markup { \box "10b" }    s1*2
-  \mark \markup { \box "10c" }    s1*2
-  \mark \markup { \box "10d" }    s1*2
-  \mark \markup { \box "11a" }    s1*3
-  \mark \markup { \box "11b" }    s1*3
-  \mark \markup { \box "11c" }    s1*3
-  \mark \markup { \box "11d" }    s1*2
-  \mark \markup { \box "12a" }    s1*2
-  \mark \markup { \box "12b" }    s1*2
-  \mark \markup { \box "12c" }    s1*3
-  \mark \markup { \box "12d" }    s1*4
-}
-
-ChordTrack = \chordmode {
+  \textMark \markup { \box "2a" } s4 s1*2
+  \textMark \markup { \box "2b" }    s1*3
+  \textMark \markup { \box "2c" }    s1*3
+  \textMark \markup { \box "3a" }    s1*3
+  \textMark \markup { \box "3b" }    s1*3
+  \textMark \markup { \box "3c" }    s1*3
+  \textMark \markup { \box "3d" }    s1*3
+  \textMark \markup { \box "4a" }    s1*2
+  \textMark \markup { \box "4b" }    s1*3
+  \textMark \markup { \box "4c" }    s1*3
+  \textMark \markup { \box "4d" }    s1*3
+  \textMark \markup { \box "5a" }    s1*3
+  \textMark \markup { \box "5b" }    s1*3
+  \textMark \markup { \box "5c" }    s1*3
+  \textMark \markup { \box "5d" }    s1*3
+  \textMark \markup { \box "6a" }    s1*3
+  \textMark \markup { \box "6b" }    s1*3
+  \textMark \markup { \box "6c" }    s1*2
+  \textMark \markup { \box "6d" }    s1*2
+  \textMark \markup { \box "7a" }    s1*3
+  \textMark \markup { \box "7b" }    s1*3
+  \textMark \markup { \box "7c" }    s1*2
+  \textMark \markup { \box "7d" }    s1*2
+  \textMark \markup { \box "8a" }    s1*3
+  \textMark \markup { \box "8b" }    s1*3
+  \textMark \markup { \box "8c" }    s1*3
+  \textMark \markup { \box "8d" }    s1*2
+  \textMark \markup { \box "9a" }    s1*2
+  \textMark \markup { \box "9b" }    s1*2
+  \textMark \markup { \box "9c" }    s1*3
+  \textMark \markup { \box "9d" }    s1*3
+  \textMark \markup { \box "10a" }    s1*2
+  \textMark \markup { \box "10b" }    s1*2
+  \textMark \markup { \box "10c" }    s1*2
+  \textMark \markup { \box "10d" }    s1*2
+  \textMark \markup { \box "11a" }    s1*3
+  \textMark \markup { \box "11b" }    s1*3
+  \textMark \markup { \box "11c" }    s1*3
+  \textMark \markup { \box "11d" }    s1*2
+  \textMark \markup { \box "12a" }    s1*2
+  \textMark \markup { \box "12b" }    s1*2
+  \textMark \markup { \box "12c" }    s1*3
+  \textMark \markup { \box "12d" }    s1*4
 }
 
 solo = \relative {
@@ -230,19 +233,19 @@ solo = \relative {
 
 wordsSolo = \lyricmode {
   Chil -- dren, go where I send thee.
-  Well, I'm gon -- na send thee one by one,
+  Well, I’m gon -- na send thee one by one,
   One for the it -- ty bit -- ty ba -- by,
   Who was born, born, born, born,
 
 % 3
   Chil -- dren, go where I send thee.
-  I'm gon -- na send thee two by two,
+  I’m gon -- na send thee two by two,
   Two for Paul and Si -- las,
   One for the it -- ty bit -- ty ba -- by,
   Who was born, born,
   
   Chil -- dren, go where I send thee.
-  I'm gon -- na send thee three by three,
+  I’m gon -- na send thee three by three,
 % 4
   Three for the He -- brew child -- ren,
   Two for Paul and Si -- las,
@@ -250,7 +253,7 @@ wordsSolo = \lyricmode {
   Who was born, born,
 
   Chil -- dren, go where I send thee.
-  I'm gon -- na send thee four by four,
+  I’m gon -- na send thee four by four,
   Four for the four that
   Three for the He -- brew
   Two for Paul and
@@ -259,7 +262,7 @@ wordsSolo = \lyricmode {
   Who was born, born,
 
   Chil -- dren, go where I send thee.
-  I'm gon -- na send thee five by five,
+  I’m gon -- na send thee five by five,
   stayed a -- live,
   stood at the door
   chil -- dren,
@@ -269,7 +272,7 @@ wordsSolo = \lyricmode {
 
   % 6
   Chil -- dren, go where I send thee.
-  I'm gon -- na send thee six by six,
+  I’m gon -- na send thee six by six,
   for the six that nev -- er got fixed,
   for the five that stayed a -- live,
   for the four that stood at the door,
@@ -280,8 +283,8 @@ wordsSolo = \lyricmode {
   Who was born, born,
 
   Chil -- dren, go where I send thee.
-  I'm gon -- na send thee sev'n by sev'n,
-  Sev'n for the sev'n that
+  I’m gon -- na send thee sev’n by sev’n,
+  Sev’n for the sev’n that
   Six for the six that
   Five for the five that
 % 8
@@ -292,9 +295,9 @@ wordsSolo = \lyricmode {
   Who was born, born,
   
   Chil -- dren, go where I send thee.
-  I'm gon -- na send thee eight by eight,
+  I’m gon -- na send thee eight by eight,
   Eight for the eight that
-  Sev'n for the sev'n that
+  Sev’n for the sev’n that
   Six for the six that
   Five for the five that
 % 9
@@ -306,10 +309,10 @@ wordsSolo = \lyricmode {
   
   Chil -- dren, go where I send thee.
 % 10
-  I'm gon -- na send thee nine by nine,
+  I’m gon -- na send thee nine by nine,
   for the nine that dressed so fine,
   for the eight that stood at the gate,
-  for the sev'n that went to heav'n,
+  for the sev’n that went to heav’n,
   for the six that nev -- er got fixed,
   for the five that stayed a -- live,
   for the four that stood at the door,
@@ -320,11 +323,11 @@ wordsSolo = \lyricmode {
   born, born,
   
   Chil -- dren, go where I send thee.
-  Well, I'm gon -- na send thee
+  Well, I’m gon -- na send thee
   Ten for the ten com-
   Nine for the nine that
   Eight for the eight that
-  Sev'n for the sev'n that
+  Sev’n for the sev’n that
   Six for the six that
   Five for the five that
   Four for the four that
@@ -336,19 +339,19 @@ wordsSolo = \lyricmode {
 
 wordsSoloMidi = \lyricmode {
   "Chil" "dren, " "go " "where " "I " "send " "thee. "
-  "\nWell, " "I'm " gon "na " "send " "thee " "one " "by " "one, "
+  "\nWell, " "I’m " gon "na " "send " "thee " "one " "by " "one, "
   "\nOne " "for " "the " it "ty " bit "ty " ba "by, "
   "\nWho " "was " "born, " "born, " "born, " "born, "
 
 % 3
   "\nChil" "dren, " "go " "where " "I " "send " "thee. "
-  "\nI'm " gon "na " "send " "thee " "two " "by " "two, "
+  "\nI’m " gon "na " "send " "thee " "two " "by " "two, "
   "\nTwo " "for " "Paul " "and " Si "las, "
   "\nOne " "for " "the " it "ty " bit "ty " ba "by, "
   "\nWho " "was " "born, " "born, "
   
   "\nChil" "dren, " "go " "where " "I " "send " "thee. "
-  "\nI'm " gon "na " "send " "thee " "three " "by " "three, "
+  "\nI’m " gon "na " "send " "thee " "three " "by " "three, "
 % 4
   "\nThree " "for " "the " He "brew " child "ren, "
   "\nTwo " "for " "Paul " "and " Si "las, "
@@ -356,7 +359,7 @@ wordsSoloMidi = \lyricmode {
   "\nWho " "was " "born, " "born, "
 
   "\nChil" "dren, " "go " "where " "I " "send " "thee. "
-  "\nI'm " gon "na " "send " "thee " "four " "by " "four, "
+  "\nI’m " gon "na " "send " "thee " "four " "by " "four, "
   "\nFour " "for " "the " "four " "that "
   "\nThree " "for " "the " He "brew "
   "\nTwo " "for " "Paul " "and "
@@ -365,7 +368,7 @@ wordsSoloMidi = \lyricmode {
   "\nWho " "was " "born, " "born, "
 
   "\nChil" "dren, " "go " "where " "I " "send " "thee. "
-  "\nI'm " gon "na " "send " "thee " "five " "by " "five, "
+  "\nI’m " gon "na " "send " "thee " "five " "by " "five, "
   "\nstayed " a "live, "
   "\nstood " "at " "the " "door "
   "\nchil" "dren, "
@@ -375,7 +378,7 @@ wordsSoloMidi = \lyricmode {
 
   % 6
   "\nChil" "dren, " "go " "where " "I " "send " "thee. "
-  "\nI'm " gon "na " "send " "thee " "six " "by " "six, "
+  "\nI’m " gon "na " "send " "thee " "six " "by " "six, "
   "\nfor " "the " "six " "that " nev "er " "got " "fixed, "
   "\nfor " "the " "five " "that " "stayed " a "live, "
   "\nfor " "the " "four " "that " "stood " "at " "the " "door, "
@@ -386,8 +389,8 @@ wordsSoloMidi = \lyricmode {
   "\nWho " "was " "born, " "born, "
 
   "\nChil" "dren, " "go " "where " "I " "send " "thee. "
-  "\nI'm " gon "na " "send " "thee " "sev'n " "by " "sev'n, "
-  "\nSev'n " "for " "the " "sev'n " "that "
+  "\nI’m " gon "na " "send " "thee " "sev’n " "by " "sev’n, "
+  "\nSev’n " "for " "the " "sev’n " "that "
   "\nSix " "for " "the " "six " "that "
   "\nFive " "for " "the " "five " "that "
 % 8
@@ -398,9 +401,9 @@ wordsSoloMidi = \lyricmode {
   "\nWho " "was " "born, " "born, "
   
   "\nChil" "dren, " "go " "where " "I " "send " "thee. "
-  "\nI'm " gon "na " "send " "thee " "eight " "by " "eight, "
+  "\nI’m " gon "na " "send " "thee " "eight " "by " "eight, "
   "\nEight " "for " "the " "eight " "that "
-  "\nSev'n " "for " "the " "sev'n " "that "
+  "\nSev’n " "for " "the " "sev’n " "that "
   "\nSix " "for " "the " "six " "that "
   "\nFive " "for " "the " "five " "that "
 % 9
@@ -412,10 +415,10 @@ wordsSoloMidi = \lyricmode {
   
   "\nChil" "dren, " "go " "where " "I " "send " "thee. "
 % 10
-  "\nI'm " gon "na " "send " "thee " "nine " "by " "nine, "
+  "\nI’m " gon "na " "send " "thee " "nine " "by " "nine, "
   "\nfor " "the " "nine " "that " "dressed " "so " "fine, "
   "\nfor " "the " "eight " "that " "stood " "at " "the " "gate, "
-  "\nfor " "the " "sev'n " "that " "went " "to " "heav'n, "
+  "\nfor " "the " "sev’n " "that " "went " "to " "heav’n, "
   "\nfor " "the " "six " "that " nev "er " "got " "fixed, "
   "\nfor " "the " "five " "that " "stayed " a "live, "
   "\nfor " "the " "four " "that " "stood " "at " "the " "door, "
@@ -426,11 +429,11 @@ wordsSoloMidi = \lyricmode {
   "\nborn, " "born, "
   
   "\nChil" "dren, " "go " "where " "I " "send " "thee. "
-  "\nWell, " "I'm " gon "na " "send " "thee "
+  "\nWell, " "I’m " gon "na " "send " "thee "
   "\nTen " "for " "the " "ten " com
   "\nNine " "for " "the " "nine " "that "
   "\nEight " "for " "the " "eight " "that "
-  "\nSev'n " "for " "the " "sev'n " "that "
+  "\nSev’n " "for " "the " "sev’n " "that "
   "\nSix " "for " "the " "six " "that "
   "\nFive " "for " "the " "five " "that "
   "\nFour " "for " "the " "four " "that "
@@ -1007,7 +1010,7 @@ thee? __
   born in Beth -- le -- hem,
 
   How shall I send thee? __
-  went to heav'n,
+  went to heav’n,
   nev -- er got fixed,
   stayed a -- live,
 % 8
@@ -1019,7 +1022,7 @@ thee? __
 
   Oh, how shall I send thee? __
   stood at the gate,
-  went to heav'n,
+  went to heav’n,
   nev -- er got fixed,
   stayed a -- live,
 % 9
@@ -1033,7 +1036,7 @@ thee? __
 % 10
   Nine
   Eight
-  Sev'n
+  Sev’n
   Six
   Five
   Four
@@ -1049,7 +1052,113 @@ thee? __
   -mand -- ments,
   dressed so fine,
   stood at the gate,
-  went to heav'n,
+  went to heav’n,
+% 12
+  nev -- er got fixed,
+  stayed a -- live,
+  stood at the door,
+  chil -- dren,
+  Si -- las.
+  ba -- by,
+  born, born,
+  born in Beth -- le -- hem,
+  Said he was born, born, born,
+  born in Be -- the -- le -- hem.
+}
+
+wordsSopSep = \lyricmode {
+  How shall I send thee?
+  One for the it -- ty bit -- ty ba -- by, __
+  Who was born in Beth -- le -- hem, __
+  Said he was born, born, born in Beth -- le -- hem. __
+
+% 3a
+  How shall I send thee? __
+%  Two for Paul and Si -- las,
+  One for the it -- ty bit -- ty ba -- by, 
+  Who was born in Beth -- le -- hem, __
+  Said he was born, born, born in Beth -- le -- hem. __
+  how shall I send thee? __
+% 4a
+  Three for the He -- brew chil -- dren,
+%  Two for Paul and Si -- las,
+  One for the it -- ty bit -- ty ba -- by, __
+  born, born, born in Beth -- le -- hem, __
+  How shall I send thee? __
+  stood at the door,
+  chil -- dren,
+  Si -- las.
+% 5
+  ba -- by,
+  born, born, born in Beth -- le -- hem.
+
+  Oh, how shall I send thee? __
+  Five for the five that
+  Four for the four that
+  Three for the He -- brew
+  Two for Paul and
+  One for the it -- ty bit -- ty
+  Who was born, born,
+% 6
+  born in Beth -- le -- hem,
+  Said he was born, born, born,
+  born in Beth -- le -- hem. __
+
+  How shall I send thee? __
+  Six, __
+  Five, __
+  Four, __
+  Three, __
+  Two, __
+% 7
+  One, __ ba -- by,
+  born, born,
+  born in Beth -- le -- hem,
+
+  How shall I send thee? __
+  went to heav’n,
+  nev -- er got fixed,
+  stayed a -- live,
+% 8
+  stood at the door,
+  chil -- dren,
+%  Si -- las.
+  ba -- by,
+  born, born, born in Beth -- le -- hem,
+
+  Oh, how shall I send thee? __
+  stood at the gate,
+  went to heav’n,
+  nev -- er got fixed,
+  stayed a -- live,
+% 9
+  stood at the door,
+  chil -- dren,
+  Si -- las.
+  ba -- by,
+  born, born, born in Beth -- le -- hem,
+
+  How shall I send thee? __
+% 10
+  Nine
+  Eight
+  Sev’n
+  Six
+  Five
+  Four
+  Three
+  Two
+% 11
+  One
+  Who was born, born,
+  born in Beth -- le -- hem,
+
+  How shall I send thee? __
+  Ten by ten, __
+  -mand -- ments,
+  dressed so fine,
+  stood at the gate,
+  went to heav’n, __
 % 12
   nev -- er got fixed,
   stayed a -- live,
@@ -1113,7 +1222,7 @@ wordsSopMidi = \lyricmode {
   "\nborn " "in " Beth le "hem, "
 
   "\nHow " "shall " "I " "send " "thee? " 
-  "\nwent " "to " "heav'n, "
+  "\nwent " "to " "heav’n, "
   "\nnev" "er " "got " "fixed, "
   "\nstayed " a "live, "
 % 8
@@ -1125,7 +1234,7 @@ wordsSopMidi = \lyricmode {
 
   "\nOh, " "how " "shall " "I " "send " "thee? " 
   "\nstood " "at " "the " "gate, "
-  "\nwent " "to " "heav'n, "
+  "\nwent " "to " "heav’n, "
   "\nnev" "er " "got " "fixed, "
   "\nstayed " a "live, "
 % 9
@@ -1139,7 +1248,7 @@ wordsSopMidi = \lyricmode {
 % 10
   "\nNine "
   "\nEight "
-  "\nSev'n "
+  "\nSev’n "
   "\nSix "
   "\nFive "
   "\nFour "
@@ -1155,7 +1264,7 @@ wordsSopMidi = \lyricmode {
   "\n-mand" "ments, "
   "\ndressed " "so " "fine, "
   "\nstood " "at " "the " "gate, "
-  "\nwent " "to " "heav'n, "
+  "\nwent " "to " "heav’n, "
 % 12
   "\nnev" "er " "got " "fixed, "
   "\nstayed " a "live, "
@@ -1167,6 +1276,112 @@ wordsSopMidi = \lyricmode {
   "\nborn " "in " Beth le "hem, "
   "\nSaid " "he " "was " "born, " "born, " "born, "
   "\nborn " "in " Be the le "hem. "
+}
+
+wordsAltoSep = \lyricmode {
+  How shall I send thee?
+  One for the it -- ty bit -- ty ba -- by, __
+  Who was born in Beth -- le -- hem, __
+  Said he was born, born, born in Beth -- le -- hem. __
+
+% 3a
+  How shall I send thee? __
+%  Two for Paul and Si -- las,
+  One for the it -- ty bit -- ty ba -- by, 
+  Who was born in Beth -- le -- hem, __
+  Said he was born, born, born in Beth -- le -- hem. __
+  how shall I send thee? __
+% 4a
+  Three for the He -- brew chil -- dren,
+%  Two for Paul and Si -- las,
+  One for the it -- ty bit -- ty ba -- by, __
+  born, born, born in Beth -- le -- hem, __
+  How shall I send thee? __
+  stood at the door,
+  chil -- dren,
+  Si -- las.
+% 5
+  ba -- by,
+  born, born, born in Beth -- le -- hem.
+
+  Oh, how shall I send thee? __
+  Five for the five that
+  Four for the four that
+  Three for the He -- brew
+  Two for Paul and
+  One for the it -- ty bit -- ty
+  Who was born, born,
+% 6
+  born in Beth -- le -- hem,
+  Said he was born, born, born,
+  born in Beth -- le -- hem. __
+
+  How shall I send thee? __
+  Six, __
+  Five, __
+  Four, __
+  Three, __
+  Two, __
+% 7
+  One, __ ba -- by,
+  born, born,
+  born in Beth -- le -- hem,
+
+  How shall I send thee? __
+  went to heav’n,
+  nev -- er got fixed,
+  stayed a -- live,
+% 8
+  stood at the door,
+%  chil -- dren,
+  Si -- las.
+  ba -- by,
+  born, born, born in Beth -- le -- hem,
+
+  Oh, how shall I send thee? __
+  stood at the gate,
+  went to heav’n,
+  nev -- er got fixed,
+  stayed a -- live,
+% 9
+  stood at the door,
+  chil -- dren,
+  Si -- las.
+  ba -- by,
+  born, born, born in Beth -- le -- hem,
+
+  How shall I send thee? __
+% 10
+  Nine
+  Eight
+  Sev’n
+  Six
+  Five
+  Four
+  Three
+  Two
+% 11
+  One
+  Who was born, born,
+  born in Beth -- le -- hem,
+
+  How shall I send thee? __
+  Ten by ten, __
+  -mand -- ments,
+  dressed so fine,
+  stood at the gate,
+  went to heav’n, __
+% 12
+  nev -- er got fixed,
+  stayed a -- live,
+  stood at the door,
+  chil -- dren,
+  Si -- las.
+  ba -- by,
+  born, born,
+  born in Beth -- le -- hem,
+  Said he was born, born, born,
+  born in Be -- the -- le -- hem.
 }
 
 wordsAltoMidi = \lyricmode {
@@ -1219,7 +1434,7 @@ wordsAltoMidi = \lyricmode {
   "\nborn " "in " Beth le "hem, "
 
   "\nHow " "shall " "I " "send " "thee? " 
-  "\nwent " "to " "heav'n, "
+  "\nwent " "to " "heav’n, "
   "\nnev" "er " "got " "fixed, "
   "\nstayed " a "live, "
 % 8
@@ -1231,7 +1446,7 @@ wordsAltoMidi = \lyricmode {
 
   "\nOh, " "how " "shall " "I " "send " "thee? " 
   "\nstood " "at " "the " "gate, "
-  "\nwent " "to " "heav'n, "
+  "\nwent " "to " "heav’n, "
   "\nnev" "er " "got " "fixed, "
   "\nstayed " a "live, "
 % 9
@@ -1245,7 +1460,7 @@ wordsAltoMidi = \lyricmode {
 % 10
   "\nNine "
   "\nEight "
-  "\nSev'n "
+  "\nSev’n "
   "\nSix "
   "\nFive "
   "\nFour "
@@ -1261,7 +1476,7 @@ wordsAltoMidi = \lyricmode {
   "\n-mand" "ments, "
   "\ndressed " "so " "fine, "
   "\nstood " "at " "the " "gate, "
-  "\nwent " "to " "heav'n, "
+  "\nwent " "to " "heav’n, "
 % 12
   "\nnev" "er " "got " "fixed, "
   "\nstayed " a "live, "
@@ -1273,6 +1488,113 @@ wordsAltoMidi = \lyricmode {
   "\nborn " "in " Beth le "hem, "
   "\nSaid " "he " "was " "born, " "born, " "born, "
   "\nborn " "in " Be the le "hem. "
+}
+
+wordsTenorSep = \lyricmode {
+  How shall I send thee?
+%  One for the it -- ty bit -- ty ba -- by, __
+  Who was born in Beth -- le -- hem, __
+  Said he was born, born, born in Beth -- le -- hem. __
+
+% 3a
+  How shall I send thee? __
+  Two for Paul and Si -- las,
+%  One for the it -- ty bit -- ty ba -- by, 
+  born,
+  was born in Beth -- le -- hem, __
+  Said he was born, born, born in Beth -- le -- hem. __
+  how shall I send thee? __
+% 4a
+%  Three for the He -- brew chil -- dren,
+  Two for Paul and Si -- las,
+%  One for the it -- ty bit -- ty ba -- by, __
+  born, born, born in Beth -- le -- hem, __
+  How shall I send thee? __
+  stood at the door,
+  chil -- dren,
+  Si -- las.
+% 5
+  ba -- by,
+  born, born, born in Beth -- le -- hem.
+
+  Oh, how shall I send thee? __
+  Five for the five that
+  Four for the four that
+  Three for the He -- brew
+  Two for Paul and
+  One for the it -- ty bit -- ty
+  Who was born, born,
+% 6
+  born in Beth -- le -- hem,
+  Said he was born, born, born,
+  born in Beth -- le -- hem. __
+
+  How shall I send thee? __
+  Six, __
+  Five, __
+  Four, __
+  Three, __
+  Two, __
+% 7
+  One, __ ba -- by,
+  born, born,
+  born in Beth -- le -- hem,
+
+  How shall I send thee? __
+  went to heav’n,
+  nev -- er got fixed,
+  stayed a -- live,
+% 8
+  stood at the door,
+  chil -- dren,
+%  Si -- las.
+  ba -- by,
+  born, born, born in Beth -- le -- hem,
+
+  Oh, how shall I send thee? __
+  stood at the gate,
+  went to heav’n,
+  nev -- er got fixed,
+  stayed a -- live,
+% 9
+  stood at the door,
+  chil -- dren,
+  Si -- las.
+  ba -- by,
+  born, born, born in Beth -- le -- hem,
+
+  How shall I send thee? __
+% 10
+  Nine
+  Eight
+  Sev’n
+  Six
+  Five
+  Four
+  Three
+  Two
+% 11
+  One
+  Who was born, born,
+  born in Beth -- le -- hem,
+
+  How shall I send thee? __
+  Ten by ten, __
+  -mand -- ments,
+  dressed so fine,
+  stood at the gate,
+  went to heav’n, __
+% 12
+  nev -- er got fixed,
+  stayed a -- live,
+  stood at the door,
+  chil -- dren,
+  Si -- las.
+  ba -- by,
+  born, born,
+  born in Beth -- le -- hem,
+  Said he was born, born, born,
+  born in Be -- the -- le -- hem.
 }
 
 wordsTenorMidi = \lyricmode {
@@ -1325,7 +1647,7 @@ wordsTenorMidi = \lyricmode {
   "\nborn " "in " Beth le "hem, "
 
   "\nHow " "shall " "I " "send " "thee? " 
-  "\nwent " "to " "heav'n, "
+  "\nwent " "to " "heav’n, "
   "\nnev" "er " "got " "fixed, "
   "\nstayed " a "live, "
 % 8
@@ -1337,7 +1659,7 @@ wordsTenorMidi = \lyricmode {
 
   "\nOh, " "how " "shall " "I " "send " "thee? " 
   "\nstood " "at " "the " "gate, "
-  "\nwent " "to " "heav'n, "
+  "\nwent " "to " "heav’n, "
   "\nnev" "er " "got " "fixed, "
   "\nstayed " a "live, "
 % 9
@@ -1351,7 +1673,7 @@ wordsTenorMidi = \lyricmode {
 % 10
   "\nNine "
   "\nEight "
-  "\nSev'n "
+  "\nSev’n "
   "\nSix "
   "\nFive "
   "\nFour "
@@ -1367,7 +1689,7 @@ wordsTenorMidi = \lyricmode {
   "\n-mand" "ments, "
   "\ndressed " "so " "fine, "
   "\nstood " "at " "the " "gate, "
-  "\nwent " "to " "heav'n, "
+  "\nwent " "to " "heav’n, "
 % 12
   "\nnev" "er " "got " "fixed, "
   "\nstayed " a "live, "
@@ -1379,6 +1701,113 @@ wordsTenorMidi = \lyricmode {
   "\nborn " "in " Beth le "hem, "
   "\nSaid " "he " "was " "born, " "born, " "born, "
   "\nborn " "in " Be the le "hem. "
+}
+
+wordsBassSep = \lyricmode {
+  How shall I send thee?
+%  One for the it -- ty bit -- ty ba -- by, __
+  Who was born in Beth -- le -- hem, __
+  Said he was born, born, born in Beth -- le -- hem. __
+
+% 3a
+  How shall I send thee? __
+  Two for Paul and Si -- las,
+%  One for the it -- ty bit -- ty ba -- by, 
+  born,
+  was born in Beth -- le -- hem, __
+  Said he was born, born, born in Beth -- le -- hem. __
+  Oh, how shall I send thee? __
+% 4a
+%  Three for the He -- brew chil -- dren,
+  Two for Paul and Si -- las,
+%  One for the it -- ty bit -- ty ba -- by, __
+  born, born, born in Beth -- le -- hem, __
+  How shall I send thee? __
+  stood at the door,
+  chil -- dren,
+  Si -- las.
+% 5
+  ba -- by,
+  born, born, born in Beth -- le -- hem.
+
+  Oh, how shall I send thee? __
+  Five for the five that
+  Four for the four that
+  Three for the He -- brew
+  Two for Paul and
+  One for the it -- ty bit -- ty
+  Who was born, born,
+% 6
+  born in Beth -- le -- hem,
+  Said he was born, born, born,
+  born in Beth -- le -- hem. __
+
+  How shall I send thee? __
+  Six, __
+  Five, __
+  Four, __
+  Three, __
+  Two, __
+% 7
+  One, __ ba -- by,
+  born, born,
+  born in Beth -- le -- hem,
+
+  How shall I send thee? __
+  went to heav’n,
+  nev -- er got fixed,
+  stayed a -- live,
+% 8
+  stood at the door,
+%  chil -- dren,
+  Si -- las.
+  ba -- by,
+  born, born, born in Beth -- le -- hem,
+
+  Oh, how shall I send thee? __
+  stood at the gate,
+  went to heav’n,
+  nev -- er got fixed,
+  stayed a -- live,
+% 9
+  stood at the door,
+  chil -- dren,
+  Si -- las.
+  ba -- by,
+  born, born, born in Beth -- le -- hem,
+
+  How shall I send thee? __
+% 10
+  Nine
+  Eight
+  Sev’n
+  Six
+  Five
+  Four
+  Three
+  Two
+% 11
+  One
+  Who was born, born,
+  born in Beth -- le -- hem,
+
+  How shall I send thee? __
+  Ten by ten, __
+  -mand -- ments,
+  dressed so fine,
+  stood at the gate,
+  went to heav’n, __
+% 12
+  nev -- er got fixed,
+  stayed a -- live,
+  stood at the door,
+  chil -- dren,
+  Si -- las.
+  ba -- by,
+  born, born,
+  born in Beth -- le -- hem,
+  Said he was born, born, born,
+  born in Be -- the -- le -- hem.
 }
 
 wordsBassMidi = \lyricmode {
@@ -1430,7 +1859,7 @@ wordsBassMidi = \lyricmode {
   "\nborn " "in " Beth le "hem, "
 
   "\nHow " "shall " "I " "send " "thee? " 
-  "\nwent " "to " "heav'n, "
+  "\nwent " "to " "heav’n, "
   "\nnev" "er " "got " "fixed, "
   "\nstayed " a "live, "
 % 8
@@ -1442,7 +1871,7 @@ wordsBassMidi = \lyricmode {
 
   "\nOh, " "how " "shall " "I " "send " "thee? " 
   "\nstood " "at " "the " "gate, "
-  "\nwent " "to " "heav'n, "
+  "\nwent " "to " "heav’n, "
   "\nnev" "er " "got " "fixed, "
   "\nstayed " a "live, "
 % 9
@@ -1456,7 +1885,7 @@ wordsBassMidi = \lyricmode {
 % 10
   "\nNine "
   "\nEight "
-  "\nSev'n "
+  "\nSev’n "
   "\nSix "
   "\nFive "
   "\nFour "
@@ -1472,7 +1901,7 @@ wordsBassMidi = \lyricmode {
   "\n-mand" "ments, "
   "\ndressed " "so " "fine, "
   "\nstood " "at " "the " "gate, "
-  "\nwent " "to " "heav'n, "
+  "\nwent " "to " "heav’n, "
 % 12
   "\nnev" "er " "got " "fixed, "
   "\nstayed " a "live, "
@@ -1498,10 +1927,6 @@ pianoRHtwo = \relative {
   \bar "|."
 }
 
-dynamicsPiano = {
-  \override DynamicTextSpanner.style = #'none
-}
-
 pianoLHone = \relative {
   \global
   c4
@@ -1514,14 +1939,14 @@ pianoLHtwo = \relative {
   \bar "|."
 }
 
+#(set-global-staff-size 17)
+
 \book {
-  \bookOutputSuffix "single"
+  \paper {
+    output-suffix = single
+  }
   \score {
     <<
-      <<
-        \new ChordNames { \ChordTrack }
-        \new FretBoards { \ChordTrack }
-      >>
       <<
         \new ChoirStaff <<
                                 % Solo staff
@@ -1541,7 +1966,6 @@ pianoLHtwo = \relative {
             shortInstrumentName = #"SA"
           }
           <<
-            \new Voice \RehearsalTrack
             \new Voice \partCombine \soprano \alto
             \new NullVoice = alignerS \soprano
             \new NullVoice = alignerA \alto
@@ -1572,16 +1996,37 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-%        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "singlepage"
   \paper {
+    output-suffix = singlepage
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -1594,10 +2039,6 @@ pianoLHtwo = \relative {
 %   \articulate
     <<
       <<
-        \new ChordNames { \ChordTrack }
-        \new FretBoards { \ChordTrack }
-      >>
-      <<
         \new ChoirStaff <<
                                 % Solo staff
           \new Staff = solo \with {
@@ -1616,7 +2057,6 @@ pianoLHtwo = \relative {
             shortInstrumentName = #"SA"
           }
           <<
-            \new Voice \RehearsalTrack
             \new Voice \partCombine \soprano \alto
             \new NullVoice = alignerS \soprano
             \new NullVoice = alignerA \alto
@@ -1647,28 +2087,576 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-%        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-sep
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Solo staff
+          \new Staff = solo \with {
+            instrumentName = #"Solo"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \solo
+            \addlyrics \wordsSolo
+          >>
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = Soprano
+            shortInstrumentName = S
+          }
+          <<
+            \new Voice \soprano
+            \addlyrics \wordsSopSep
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = Alto
+            shortInstrumentName = A
+          }
+          <<
+            \new Voice \alto
+            \addlyrics \wordsAltoSep
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = Tenor
+            shortInstrumentName = T
+          }
+          <<
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics \wordsTenorSep
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = Bass
+            shortInstrumentName = B
+          }
+          <<
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics \wordsBassSep
+          >>
+        >>
+      >>
+      \new DrumStaff \with {
+        \override StaffSymbol.line-count = #1
+        drumStyleTable = #(alist->hash-table mystyle)
+        drumPitchTable = #(alist->hash-table midiDrumPitches)
+      } << \DrumTrack >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-sop
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Solo staff
+          \new Staff = solo \with {
+            instrumentName = #"Solo"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \solo
+            \addlyrics \wordsSolo
+          >>
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = Soprano
+            shortInstrumentName = S
+          }
+          <<
+            \new Voice \soprano
+            \addlyrics \wordsSopSep
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = Alto
+            shortInstrumentName = A
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAltoSep}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = Tenor
+            shortInstrumentName = T
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsTenorSep}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = Bass
+            shortInstrumentName = B
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBassSep}
+          >>
+        >>
+      >>
+      \new DrumStaff \with {
+        \magnifyStaff #4/7
+        \override StaffSymbol.line-count = #1
+        drumStyleTable = #(alist->hash-table mystyle)
+        drumPitchTable = #(alist->hash-table midiDrumPitches)
+      } << \DrumTrack >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-alto
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Solo staff
+          \new Staff = solo \with {
+            instrumentName = #"Solo"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \solo
+            \addlyrics \wordsSolo
+          >>
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = Soprano
+            shortInstrumentName = S
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSopSep}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = Alto
+            shortInstrumentName = A
+          }
+          <<
+            \new Voice \alto
+            \addlyrics \wordsAltoSep
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = Tenor
+            shortInstrumentName = T
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsTenorSep}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = Bass
+            shortInstrumentName = B
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBassSep}
+          >>
+        >>
+      >>
+      \new DrumStaff \with {
+        \magnifyStaff #4/7
+        \override StaffSymbol.line-count = #1
+        drumStyleTable = #(alist->hash-table mystyle)
+        drumPitchTable = #(alist->hash-table midiDrumPitches)
+      } << \DrumTrack >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-tenor
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Solo staff
+          \new Staff = solo \with {
+            instrumentName = #"Solo"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \solo
+            \addlyrics \wordsSolo
+          >>
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = Soprano
+            shortInstrumentName = S
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSopSep}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = Alto
+            shortInstrumentName = A
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAltoSep}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = Tenor
+            shortInstrumentName = T
+          }
+          <<
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics \wordsTenorSep
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = Bass
+            shortInstrumentName = B
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBassSep}
+          >>
+        >>
+      >>
+      \new DrumStaff \with {
+        \magnifyStaff #4/7
+        \override StaffSymbol.line-count = #1
+        drumStyleTable = #(alist->hash-table mystyle)
+        drumPitchTable = #(alist->hash-table midiDrumPitches)
+      } << \DrumTrack >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-bass
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Solo staff
+          \new Staff = solo \with {
+            instrumentName = #"Solo"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \solo
+            \addlyrics \wordsSolo
+          >>
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = Soprano
+            shortInstrumentName = S
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSopSep}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = Alto
+            shortInstrumentName = A
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAltoSep}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = Tenor
+            shortInstrumentName = T
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsTenorSep}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = Bass
+            shortInstrumentName = B
+          }
+          <<
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics \wordsBassSep
+          >>
+        >>
+      >>
+      \new DrumStaff \with {
+        \magnifyStaff #4/7
+        \override StaffSymbol.line-count = #1
+        drumStyleTable = #(alist->hash-table mystyle)
+        drumPitchTable = #(alist->hash-table midiDrumPitches)
+      } << \DrumTrack >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
 \book {
-  \bookOutputSuffix "midi-solo"
+  \paper {
+    output-suffix = midi-solo
+  }
   \score {
 %   \articulate
     <<
-      <<
-        \new ChordNames { \ChordTrack }
-        \new FretBoards { \ChordTrack }
-      >>
       <<
         \new ChoirStaff <<
                                 % Solo staff
           \new Staff = solo \with {
             instrumentName = #"Solo"
-%            midiInstrument = "choir aahs"
+            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \TempoTrack
@@ -1677,7 +2665,7 @@ pianoLHtwo = \relative {
           >>
                                 % Soprano staff
           \new Staff = soprano \with {
-%            midiInstrument = "choir aahs"
+            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \RehearsalTrack
@@ -1685,14 +2673,14 @@ pianoLHtwo = \relative {
           >>
                                 % Alto staff
           \new Staff = alto \with {
-%            midiInstrument = "choir aahs"
+            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \alto
           >>
                                 % Tenor staff
           \new Staff = tenor \with {
-%            midiInstrument = "choir aahs"
+            midiInstrument = "choir aahs"
           }
           <<
             \clef "treble_8"
@@ -1700,7 +2688,7 @@ pianoLHtwo = \relative {
           >>
                                 % Bass staff
           \new Staff = bass \with {
-%            midiInstrument = "choir aahs"
+            midiInstrument = "choir aahs"
           }
           <<
             \clef "bass"
@@ -1715,25 +2703,32 @@ pianoLHtwo = \relative {
         drumPitchTable = #(alist->hash-table midiDrumPitches)
       } << \DrumTrack >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
 \book {
-  \bookOutputSuffix "midi-sop"
+  \paper {
+    output-suffix = midi-sop
+  }
   \score {
 %   \articulate
     <<
-      <<
-        \new ChordNames { \ChordTrack }
-        \new FretBoards { \ChordTrack }
-      >>
       <<
         \new ChoirStaff <<
                                 % Solo staff
           \new Staff = solo \with {
             instrumentName = #"Solo"
-%            midiInstrument = "choir aahs"
+            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \TempoTrack
@@ -1741,23 +2736,22 @@ pianoLHtwo = \relative {
           >>
                                 % Soprano staff
           \new Staff = soprano \with {
-%            midiInstrument = "choir aahs"
+            midiInstrument = "choir aahs"
           }
           <<
-            \new Voice \RehearsalTrack
             \new Voice \soprano
             \addlyrics \wordsSopMidi
           >>
                                 % Alto staff
           \new Staff = alto \with {
-%            midiInstrument = "choir aahs"
+            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \alto
           >>
                                 % Tenor staff
           \new Staff = tenor \with {
-%            midiInstrument = "choir aahs"
+            midiInstrument = "choir aahs"
           }
           <<
             \clef "treble_8"
@@ -1765,7 +2759,7 @@ pianoLHtwo = \relative {
           >>
                                 % Bass staff
           \new Staff = bass \with {
-%            midiInstrument = "choir aahs"
+            midiInstrument = "choir aahs"
           }
           <<
             \clef "bass"
@@ -1780,25 +2774,32 @@ pianoLHtwo = \relative {
         drumPitchTable = #(alist->hash-table midiDrumPitches)
       } << \DrumTrack >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
 \book {
-  \bookOutputSuffix "midi-alto"
+  \paper {
+    output-suffix = midi-alto
+  }
   \score {
 %   \articulate
     <<
-      <<
-        \new ChordNames { \ChordTrack }
-        \new FretBoards { \ChordTrack }
-      >>
       <<
         \new ChoirStaff <<
                                 % Solo staff
           \new Staff = solo \with {
             instrumentName = #"Solo"
-%            midiInstrument = "choir aahs"
+            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \TempoTrack
@@ -1806,14 +2807,14 @@ pianoLHtwo = \relative {
           >>
                                 % Soprano staff
           \new Staff = soprano \with {
-%            midiInstrument = "choir aahs"
+            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \soprano
           >>
                                 % Alto staff
           \new Staff = alto \with {
-%            midiInstrument = "choir aahs"
+            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \alto
@@ -1821,7 +2822,7 @@ pianoLHtwo = \relative {
           >>
                                 % Tenor staff
           \new Staff = tenor \with {
-%            midiInstrument = "choir aahs"
+            midiInstrument = "choir aahs"
           }
           <<
             \clef "treble_8"
@@ -1829,7 +2830,7 @@ pianoLHtwo = \relative {
           >>
                                 % Bass staff
           \new Staff = bass \with {
-%            midiInstrument = "choir aahs"
+            midiInstrument = "choir aahs"
           }
           <<
             \clef "bass"
@@ -1844,25 +2845,32 @@ pianoLHtwo = \relative {
         drumPitchTable = #(alist->hash-table midiDrumPitches)
       } << \DrumTrack >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
 \book {
-  \bookOutputSuffix "midi-tenor"
+  \paper {
+    output-suffix = midi-tenor
+  }
   \score {
 %   \articulate
     <<
-      <<
-        \new ChordNames { \ChordTrack }
-        \new FretBoards { \ChordTrack }
-      >>
       <<
         \new ChoirStaff <<
                                 % Solo staff
           \new Staff = solo \with {
             instrumentName = #"Solo"
-%            midiInstrument = "choir aahs"
+            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \TempoTrack
@@ -1870,21 +2878,21 @@ pianoLHtwo = \relative {
           >>
                                 % Soprano staff
           \new Staff = soprano \with {
-%            midiInstrument = "choir aahs"
+            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \soprano
           >>
                                 % Alto staff
           \new Staff = alto \with {
-%            midiInstrument = "choir aahs"
+            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \alto
           >>
                                 % Tenor staff
           \new Staff = tenor \with {
-%            midiInstrument = "choir aahs"
+            midiInstrument = "choir aahs"
           }
           <<
             \clef "treble_8"
@@ -1893,7 +2901,7 @@ pianoLHtwo = \relative {
           >>
                                 % Bass staff
           \new Staff = bass \with {
-%            midiInstrument = "choir aahs"
+            midiInstrument = "choir aahs"
           }
           <<
             \clef "bass"
@@ -1908,25 +2916,32 @@ pianoLHtwo = \relative {
         drumPitchTable = #(alist->hash-table midiDrumPitches)
       } << \DrumTrack >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
 \book {
-  \bookOutputSuffix "midi-bass"
+  \paper {
+    output-suffix = midi-bass
+  }
   \score {
 %   \articulate
     <<
-      <<
-        \new ChordNames { \ChordTrack }
-        \new FretBoards { \ChordTrack }
-      >>
       <<
         \new ChoirStaff <<
                                 % Solo staff
           \new Staff = solo \with {
             instrumentName = #"Solo"
-%            midiInstrument = "choir aahs"
+            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \TempoTrack
@@ -1934,21 +2949,21 @@ pianoLHtwo = \relative {
           >>
                                 % Soprano staff
           \new Staff = soprano \with {
-%            midiInstrument = "choir aahs"
+            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \soprano
           >>
                                 % Alto staff
           \new Staff = alto \with {
-%            midiInstrument = "choir aahs"
+            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \alto
           >>
                                 % Tenor staff
           \new Staff = tenor \with {
-%            midiInstrument = "choir aahs"
+            midiInstrument = "choir aahs"
           }
           <<
             \clef "treble_8"
@@ -1956,7 +2971,7 @@ pianoLHtwo = \relative {
           >>
                                 % Bass staff
           \new Staff = bass \with {
-%            midiInstrument = "choir aahs"
+            midiInstrument = "choir aahs"
           }
           <<
             \clef "bass"
@@ -1972,6 +2987,15 @@ pianoLHtwo = \relative {
         drumPitchTable = #(alist->hash-table midiDrumPitches)
       } << \DrumTrack >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
