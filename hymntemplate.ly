@@ -1,4 +1,4 @@
-\version "2.25.0"
+\version "2.25.16"
 
 \include "../kjp.ly"
 \include "articulate.ly"
@@ -50,8 +50,6 @@ TempoTrack = {
   \set Score.tempoHideNote = ##t
   \tempo 4=120
 }
-
-nl = { \bar "||" \break }
 
 soprano = \relative {
   \autoBeamOff
@@ -117,28 +115,28 @@ wordsMidiMen = \lyricmode {
                                 % Soprano staff
           \new Staff = soprano
           <<
-            \new Voice { \repeat unfold \verses \RehearsalTrack }
-            \new Voice { \repeat unfold \verses \TempoTrack     }
-            \new Voice { \global \repeat unfold \verses \soprano \bar "|." }
+            \new Voice { \repeat-verses \verses \RehearsalTrack }
+            \new Voice { \repeat-verses \verses \TempoTrack     }
+            \new Voice { \global \repeat-verses \verses \soprano \bar "|." }
             \addlyrics \wordsMidi
           >>
                                 % Alto staff
           \new Staff = alto
           <<
-            \new Voice { \global \repeat unfold \verses { \alto \nl } \bar "|." }
+            \new Voice { \global \repeat-verses \verses \alto \bar "|." }
           >>
                                 % Tenor staff
           \new Staff = tenor
           <<
             \clef "treble_8"
-            \new Voice { \global \repeat unfold \verses \tenor }
+            \new Voice { \global \repeat-verses \verses \tenor }
             \addlyrics \wordsMidiMen
           >>
                                 % Bass staff
           \new Staff = bass
           <<
             \clef "bass"
-            \new Voice { \global \repeat unfold \verses \bass }
+            \new Voice { \global \repeat-verses \verses \bass }
           >>
         >>
     \layout { }
@@ -160,7 +158,7 @@ wordsMidiMen = \lyricmode {
             \new Voice \RehearsalTrack
             \new Voice \TempoTrack
             \new NullVoice = "aligner" \soprano
-            \new Voice \partCombine #'(2 . 88) { \global \soprano \bar "|." } { \global \alto }
+            \new Voice \partCombine #'(2 . 88) { \global \keepWithTag #'dash \soprano \bar "|." } { \global \keepWithTag #'dash \alto }
             \new Lyrics \lyricsto "aligner" { \wordsOne \chorus }
             \new Lyrics \lyricsto "aligner"   \wordsTwo
             \new Lyrics \lyricsto "aligner"   \wordsThree
@@ -172,7 +170,7 @@ wordsMidiMen = \lyricmode {
           \new Staff = men \with { printPartCombineTexts = ##f }
           <<
             \clef "bass"
-            \new Voice \partCombine #'(2 . 88) { \global \tenor } { \global \bass }
+            \new Voice \partCombine #'(2 . 88) { \global \keepWithTag #'dash \tenor } { \global \keepWithtag #'dash \bass }
             \new NullVoice = alignerT { \tenor }
           >>
           \new Lyrics \with {alignAboveContext = men} \lyricsto alignerT \chorusMen
@@ -192,11 +190,11 @@ singlescore = {
                                   % Joint soprano/alto staff
           \new Staff = women \with { printPartCombineTexts = ##f }
           <<
-            \new Voice { \repeat unfold \verses \RehearsalTrack }
-            \new Voice { \repeat unfold \verses \TempoTrack }
-            \new NullVoice = "aligner" { \repeat unfold \verses \soprano }
-            \new Voice \partCombine #'(2 . 88) { \global \repeat unfold \verses \soprano \bar "|." }
-                                    { \global \repeat unfold \verses { \alto \nl } \bar "|." }
+            \new Voice { \repeat-verses \verses \RehearsalTrack }
+            \new Voice { \repeat-verses \verses \TempoTrack }
+            \new NullVoice = "aligner" { \repeat-verses \verses \soprano }
+            \new Voice \partCombine #'(2 . 88) { \global \repeat-verses \verses \soprano \bar "|." }
+                                    { \global \repeat-verses \verses { \alto \nl } \bar "|." }
             \new Lyrics \lyricsto "aligner" { \wordsOne   \chorus
                                               \wordsTwo   \chorus
                                               \wordsThree \chorus
@@ -209,9 +207,9 @@ singlescore = {
           \new Staff = men \with { printPartCombineTexts = ##f }
           <<
             \clef "bass"
-            \new Voice \partCombine #'(2 . 88) { \global \repeat unfold \verses \tenor }
-                                    { \global \repeat unfold \verses \bass }
-            \new NullVoice = alignerT { \repeat unfold \verses \tenor }
+            \new Voice \partCombine #'(2 . 88) { \global \repeat-verses \verses { \tenor \nl } }
+                                    { \global \repeat-verses \verses \bass }
+            \new NullVoice = alignerT { \repeat-verses \verses \tenor }
           >>
           \new Lyrics \with {alignAboveContext = men} \lyricsto alignerT { \repeat unfold \verses \chorusMen }
         >>
