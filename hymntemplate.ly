@@ -157,7 +157,7 @@ wordsMidiMen = \lyricmode {
           <<
             \new Voice \RehearsalTrack
             \new Voice \TempoTrack
-            \new NullVoice = "aligner" \soprano
+            \new NullVoice = "aligner" \keepWithTag #'dash \soprano
             \new Voice \partCombine #'(2 . 88) { \global \keepWithTag #'dash \soprano \bar "|." } { \global \keepWithTag #'dash \alto }
             \new Lyrics \lyricsto "aligner" { \wordsOne \chorus }
             \new Lyrics \lyricsto "aligner"   \wordsTwo
@@ -171,7 +171,7 @@ wordsMidiMen = \lyricmode {
           <<
             \clef "bass"
             \new Voice \partCombine #'(2 . 88) { \global \keepWithTag #'dash \tenor } { \global \keepWithtag #'dash \bass }
-            \new NullVoice = alignerT { \tenor }
+            \new NullVoice = alignerT { \keepWithTag #'dash \tenor }
           >>
           \new Lyrics \with {alignAboveContext = men} \lyricsto alignerT \chorusMen
         >>
