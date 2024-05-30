@@ -170,7 +170,7 @@ wordsMidiMen = \lyricmode {
           \new Staff = men \with { printPartCombineTexts = ##f }
           <<
             \clef "bass"
-            \new Voice \partCombine #'(2 . 88) { \global \keepWithTag #'dash \tenor } { \global \keepWithtag #'dash \bass }
+            \new Voice \partCombine #'(2 . 88) { \global \keepWithTag #'dash \tenor } { \global \keepWithTag #'dash \bass }
             \new NullVoice = alignerT { \keepWithTag #'dash \tenor }
           >>
           \new Lyrics \with {alignAboveContext = men} \lyricsto alignerT \chorusMen
