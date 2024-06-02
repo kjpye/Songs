@@ -381,7 +381,8 @@ wordsMidiMen = \lyricmode {
             \new Voice { \global \repeat-verses \verses \bass }
           >>
         >>
-        \midi {}
+        \midi {
+        \context { \Score autoBeaming = ##f } }
       }
 }
 
