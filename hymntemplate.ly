@@ -135,8 +135,8 @@ wordsMidiMen = \lyricmode {
             \new Voice { \global \repeat-verses \verses \bass }
           >>
         >>
-    \layout { \context { \Score autoBeaming = ##f } }
-%    \midi { \context { \Score autoBeaming = $$f } }
+    \layout { \context { \Staff autoBeaming = ##f } }
+%    \midi { \context { \Staff autoBeaming = $$f } }
   }
 }
 
