@@ -136,7 +136,7 @@ wordsMidiMen = \lyricmode {
           >>
         >>
     \layout { \context { \Staff autoBeaming = ##f } }
-%    \midi { \context { \Staff autoBeaming = $$f } }
+%    \midi { \context { \Staff autoBeaming = ##f } }
   }
 }
 
