@@ -52,19 +52,15 @@ TempoTrack = {
 }
 
 soprano = \relative {
-  \autoBeamOff
 }
 
 alto = \relative {
-  \autoBeamOff
 }
 
 tenor = \relative {
-  \autoBeamOff
 }
 
 bass = \relative {
-  \autoBeamOff
 }
 
 chorus = \lyricmode {
@@ -139,8 +135,8 @@ wordsMidiMen = \lyricmode {
             \new Voice { \global \repeat-verses \verses \bass }
           >>
         >>
-    \layout { }
-%    \midi {}
+    \layout { \context { \Score autoBeaming = ##f } }
+%    \midi { \context { \Score autoBeaming = $$f } }
   }
 }
 
@@ -178,8 +174,9 @@ wordsMidiMen = \lyricmode {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Staff
+                 \RemoveAllEmptyStaves
+                 autoBeaming = ##f
       }
     }
   }
@@ -225,8 +222,9 @@ singlescore = {
       #(layout-set-staff-size 20)
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Staff
+                 \RemoveAllEmptyStaves
+                 autoBeaming = ##f
       }
     }
   }
@@ -251,8 +249,9 @@ singlescore = {
       #(layout-set-staff-size 20)
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Staff
+                 \RemoveAllEmptyStaves
+                 autoBeaming = ##f
       }
     }
   }
