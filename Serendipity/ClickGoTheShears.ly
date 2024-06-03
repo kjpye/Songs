@@ -1,5 +1,6 @@
-\version "2.25.0"
+\version "2.25.16"
 
+\include "kjp.ly"
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
 
@@ -210,9 +211,9 @@ wordsWomen = \lyricmode {
   And curs -- es the old snag -- ger with the blue bel -- lied Joe. __
 
   Click, click, click, click, click, click, click, click,
-  \nom With his \yesm black -- en'd tar -- pot __ \nom and his \yesm tar -- ry hand,
+  \nom With his \yesm black -- en’d tar -- pot __ \nom and his \yesm tar -- ry hand,
   Click, click, click, click, click, click, click, click,
-  Here's what he's been wait -- ing for __
+  Here’s what he’s been wait -- ing for __
   “Tar here, Jack!”
   Click, click, click, click, click, click, click, click,
   Wide is his blow and his hands move quick;
@@ -229,7 +230,7 @@ wordsWomenTwo = \lyricmode {
   \repeat unfold 225 _
   Grasp -- ing his glass \nom in his \yesm thin __ bon -- y hands,
   Click, click, click, click, click, click, click, click,
-  Glo -- ry he'll get down on \nom it, ere \yesm he __ \nom stirs a \yesm peg.
+  Glo -- ry he’ll get down on \nom it, ere \yesm he __ \nom stirs a \yesm peg.
 }
 
 wordsWomenSingle = \lyricmode {
@@ -242,7 +243,7 @@ wordsWomenSingle = \lyricmode {
   Out on the board the old shear -- er stands,
   Grasp -- ing his shears in his thin bon -- y hands,
   Fixed is his gaze on a blue -- bel -- lied Joe,
-  Glo -- ry if he gets her, won't he make the ring -- er go. __
+  Glo -- ry if he gets her, won’t he make the ring -- er go. __
   Click go the shears, boys, click, click, click!
   Wide is his blow and his hands move quick;
   The ring -- er looks a -- round and is beat -- en by a blow
@@ -250,9 +251,9 @@ wordsWomenSingle = \lyricmode {
 
   \set stanza = "2."
   In the mid -- dle of the floor in his cane -- bot -- tomed chair
-  is the boss of the board, with eyes ev -- 'ry -- where;
+  is the boss of the board, with eyes ev -- ’ry -- where;
   Notes well each fleece as it comes to the screen,
-  Pay -- ing strict at -- ten -- tion if it's tak -- en off clean.
+  Pay -- ing strict at -- ten -- tion if it’s tak -- en off clean.
 
   Click go the shears, boys, click, click, click!
   Wide is his blow and his hands move quick;
@@ -260,9 +261,9 @@ wordsWomenSingle = \lyricmode {
   And curs -- es the old snag -- ger with the blue bel -- lied Joe. __
 
   Click, click, click, click, click, click, click, click,
-  \nom With his \yesm black -- en'd tar -- pot __ \nom and his \yesm tar -- ry hand,
+  \nom With his \yesm black -- en’d tar -- pot __ \nom and his \yesm tar -- ry hand,
   Click, click, click, click, click, click, click, click,
-  Here's what he's been wait -- ing for __
+  Here’s what he’s been wait -- ing for __
   “Tar here, Jack!”
   Click, click, click, click, click, click, click, click,
   Wide is his blow and his hands move quick;
@@ -272,7 +273,7 @@ wordsWomenSingle = \lyricmode {
   Click, click, click, click, click, click, click, click,
   Grasp -- ing his glass \nom in his \yesm thin __ bon -- y hands,
   Click, click, click, click, click, click, click, click,
-  Glo -- ry he'll get down on \nom it, ere \yesm he __ \nom stirs a \yesm peg.
+  Glo -- ry he’ll get down on \nom it, ere \yesm he __ \nom stirs a \yesm peg.
   Click, click, click, click, click, click, click, click,
   Wide is his blow and his hands move quick;
   The ring -- er looks a -- round and is beat -- en by a blow
@@ -295,7 +296,7 @@ wordsWomenMidi = \lyricmode {
   "\nOut " "on " "the " "board " "the " "old " shear "er " "stands, "
   "\nGrasp" "ing " "his " "shears " "in " "his " "thin " bon "y " "hands, "
   "\nFixed " "is " "his " "gaze " "on " "a " blue bel "lied " "Joe, "
-  "\nGlo" "ry " "if " "he " "gets " "her, " "won't " "he " "make " "the " ring "er " "go. " 
+  "\nGlo" "ry " "if " "he " "gets " "her, " "won’t " "he " "make " "the " ring "er " "go. " 
   "\nClick " "go " "the " "shears, " "boys, " "click, " "click, " "click! "
   "\nWide " "is " "his " "blow " "and " "his " "hands " "move " "quick; "
   "\nThe " ring "er " "looks " a "round " "and " "is " beat "en " "by " "a " "blow "
@@ -303,9 +304,9 @@ wordsWomenMidi = \lyricmode {
 
   \set stanza = "2."
   "\nIn " "the " mid "dle " "of " "the " "floor " "in " "his " cane bot "tomed " "chair "
-  "\nis " "the " "boss " "of " "the " "board, " "with " "eyes " ev 'ry "where; "
+  "\nis " "the " "boss " "of " "the " "board, " "with " "eyes " ev ’ry "where; "
   "\nNotes " "well " "each " "fleece " "as " "it " "comes " "to " "the " "screen, "
-  "\nPay" "ing " "strict " at ten "tion " "if " "it's " tak "en " "off " "clean. "
+  "\nPay" "ing " "strict " at ten "tion " "if " "it’s " tak "en " "off " "clean. "
 
   "\nClick " "go " "the " "shears, " "boys, " "click, " "click, " "click! "
   "\nWide " "is " "his " "blow " "and " "his " "hands " "move " "quick; "
@@ -313,9 +314,9 @@ wordsWomenMidi = \lyricmode {
   "\nAnd " curs "es " "the " "old " snag "ger " "with " "the " "blue " bel "lied " "Joe. " 
 
   "\nClick, " "click, " "click, " "click, " "click, " "click, " "click, " "click, "
-  \nom With his \yesm black -- en'd tar -- pot __ \nom and his \yesm tar -- ry hand,
+  \nom With his \yesm black -- en’d tar -- pot __ \nom and his \yesm tar -- ry hand,
   "\nClick, " "click, " "click, " "click, " "click, " "click, " "click, " "click, "
-  "\nHere's " "what " "he's " "been " wait "ing " "for " 
+  "\nHere’s " "what " "he’s " "been " wait "ing " "for " 
   "\n“Tar " "here, " "Jack!” "
   "\nClick, " "click, " "click, " "click, " "click, " "click, " "click, " "click, "
   "\nWide " "is " "his " "blow " "and " "his " "hands " "move " "quick; "
@@ -325,7 +326,7 @@ wordsWomenMidi = \lyricmode {
   "\nClick, " "click, " "click, " "click, " "click, " "click, " "click, " "click, "
   "\nGrasp" "ing " "his " "glass " \nom "in " "his " \yesm "thin "  bon "y " "hands, "
   "\nClick, " "click, " "click, " "click, " "click, " "click, " "click, " "click, "
-  "\nGlo" "ry " "he'll " "get " "down " "on " \nom "it, " "ere " \yesm "he "  \nom "stirs " "a " \yesm "peg. "
+  "\nGlo" "ry " "he’ll " "get " "down " "on " \nom "it, " "ere " \yesm "he "  \nom "stirs " "a " \yesm "peg. "
   "\nClick, " "click, " "click, " "click, " "click, " "click, " "click, " "click, "
   "\nWide " "is " "his " "blow " "and " "his " "hands " "move " "quick; "
   "\nThe " ring "er " "looks " a "round " "and " "is " beat "en " "by " "a " "blow "
@@ -457,7 +458,7 @@ tenorB = \relative {
   \tag #'v1   {g4             a4                 g2 \section |}
   \tag #'v2   {g4             a8. 16             g2 \section |}
   d'8 r d8. 16 b4 d | c8 r e r c2 | c1^\markup Div. | % 9a
-  c2 <<{\voiceOne d4.} \new Voice {\voiceTwo c4(b8)}>> \oneVoice <b d>8 | c8. 16 8. d16 c4 8. 16 | 8. 16 8. 16 4 4 |
+  c2 <<{\vo d4.} \new Voice {\vt c4(b8)}>> \ov <b d>8 | c8. 16 8. d16 c4 8. 16 | 8. 16 8. 16 4 4 |
   b8.-> a16 g8 a b c b a | g4 a8. 16 g2\fermata \section |
   \tag #'dash {e8. 16 8 d \slurDashed c8.(16) e8(g) \slurSolid |} % 10a
   \tag #'v1   {e8. 16 8 d             c8. 16  e8 g             |}
@@ -1055,14 +1056,14 @@ wordsBassMidi = \lyricmode {
 }
 
 pianoRHone = \relative {
-  \global \oneVoice
+  \global \ov
   <b' d>8.(<a c>16 <g b>8 <f a> g <c, f> <b e> <a d>) |
   <g c>4 <c f a c>-> <c e g c>4->~8-. r \section |
   <f b d>2 <d f b>4 <f b d> | % 2b
   <e g c>4 <e g e'> <e g c>2 |
   <c f a>2 <c f c'>4 <c f a> |
-  <c e g>4 <c e c'> \voiceOne d2 | % 2c
-  \oneVoice <g, c e>4--~8-. r <g c g'>4--~8-. r |
+  <c e g>4 <c e c'> \vo d2 | % 2c
+  \ov <g, c e>4--~8-. r <g c g'>4--~8-. r |
   <c f a>4--~8-. r <c f c'>4--~8-. r |
   <b' d>8.(<a c>16 <g b>8 <f a> g <c, f> <b e> <a d>) | % 3a
   <g c>4-> <c f a c>-> <c e g c>-> ~8-. r \section |
@@ -1078,9 +1079,9 @@ pianoRHone = \relative {
   r4 <c f a c>-> <c e g c>-> ~8-. r |
   <f b d>8-. r r4 <d f b>8-. r <f b d>-. r |
   <e g c>8-. r <e g e'>-. r <e g c>-. r r4 | % 4b
-  <c f a>2 \voiceOne c'4(a) |
+  <c f a>2 \vo c'4(a) |
   g4(c) d,2 |
-  \oneVoice <g, c e>4-- ~8-. r <g c g'>4--  ~8-. r |
+  \ov <g, c e>4-- ~8-. r <g c g'>4--  ~8-. r |
   <c f a>4-- ~8-. r <c f c'>4-- ~8-. r | % 4c
   <b' d>8.(<a c>16 <g b>8 <f a> g <c, f> <b e> <a d>) |
   <g c>4-> <c f a c>-> <c e g c>\fermata \caesura r4 |
@@ -1101,7 +1102,7 @@ pianoRHone = \relative {
   <f' b d>2 <d f b>4 <f b d> | % 7a
   <e g c>4 <e g e'> <e g c>2 |
   <c f a>2 <c f c'>4 <c f a> |
-  <c e g>4 <c e c'> \voiceOne d2 \oneVoice |
+  <c e g>4 <c e c'> \vo d2 \ov |
   <g, c e>4-- ~8-. r <g c g'>4-- ~8-. r | % 7b
   <c f a>4-- ~8-. r <c f c'>4-- ~8-. r |
   <b'd>8.(<a c>16 <g b>8 <f a> g <c, f> <b e> <a d>) |
@@ -1120,9 +1121,9 @@ pianoRHone = \relative {
     <e,, g c>4 <c' f a c> <c e g c>2 \section |
     <f b d>2 <d f b>4 <f b d> | % 9a
     <e g c> <e g e'> <e g c>2 |
-    <c f a>2 \voiceOne c'4(a) |
+    <c f a>2 \vo c'4(a) |
     g4(c) d,2 | % 9b
-    \oneVoice <g, c e>4-- ~8-. r <g c g'>4-- ~8-. r |
+    \ov <g, c e>4-- ~8-. r <g c g'>4-- ~8-. r |
     <c f a>4-- ~8-. r <c f c'>4-- ~8-. r |
     <b' d>8.(<a c>16 <g b>8 <f a> g <c, f> <b e> <a d>) | % 9c
     <g c>4 <c f a c> <c e g c>2\fermata \section |
@@ -1133,8 +1134,8 @@ pianoRHone = \relative {
   }
   <d, d'>8 r q8. 16 <b b'>4 <d d'> | % 11a
   <c c'>8-. r <e e'>-. r <c c'>-. r r4 |
-  <c f a>2 \voiceOne c'4(a) |
-  g4(c) d,2 | \oneVoice
+  <c f a>2 \vo c'4(a) |
+  g4(c) d,2 | \ov
   <g, c e>8 r r4 <g c g'>2 | % 11b
   <c f a>8 r r4 <c f c'>2 |
   <b' d>8.(<a c>16 <g b>8 <f a> g <c, f> <b e> <a d>) |
@@ -1145,14 +1146,14 @@ pianoRHone = \relative {
 }
 
 pianoRHtwo = \relative {
-  \global \voiceTwo
+  \global \vt
   s1*5 |
   s2 c'4(b) | s1 | s | % 2c
   s1*10 | % 3
   s1*3 | % 4a
   s1 | s2 <c f>2 | <c e> c4(b) | s1 |
   s1*3 |
-  \change Staff = pianolh \voiceOne c,,8^([g'] \change Staff = pianorh e' c' e g c[g]) | % 5a
+  \change Staff = pianolh \vo c,,8^([g'] \change Staff = pianorh e' c' e g c[g]) | % 5a
   \change Staff = pianolh c,,,8^([a'] \change Staff = pianorh f' c' f a c[a]) |
   \change Staff = pianolh c,,,8^([g'] \change Staff = pianorh e' c' e g c[e,]) |
   \change Staff = pianolh fis,,8([d'] \change Staff = pianorh c'd) \change Staff = pianolh g,,(f' \change Staff = pianorh b[d]) | % 5b
@@ -1161,13 +1162,13 @@ pianoRHtwo = \relative {
   \change Staff = pianolh g,,8([d'] \change Staff = pianorh b' c d <a c f> <g b e> <f a d>) | % 5c
   s1 \section | s | s |
   s1*8 \section | % 6
-  s1*3 | \voiceTwo s2 c'4(b) | s1*4 \section | s1*2 \section |
+  s1*3 | \vt s2 c'4(b) | s1*4 \section | s1*2 \section |
   \repeat volta 2 {
     s1*5 | % 8a
     s1 | % 8c
-    \change Staff = pianolh \voiceOne g,8([d'] \change Staff = pianorh b' c d [ <a c f> ] <g b e> <f a d>) |
+    \change Staff = pianolh \vo g,8([d'] \change Staff = pianorh b' c d [ <a c f> ] <g b e> <f a d>) |
     s1 \section |
-    s1*2 | s2 \voiceTwo <c' f> | <c e> c4(b) | s1*4 | % 9
+    s1*2 | s2 \vt <c' f> | <c e> c4(b) | s1*4 | % 9
     s1*8 |
   }
   s1*2 | s2 <c f> | <c e> c4(b) | s1*6 |
@@ -1191,18 +1192,18 @@ dynamicsPiano = {
 }
 
 pianoLHone = \relative {
-  \global \oneVoice
-  f2~8 a(g f) | \voiceOne <c e>4 <f, f'>-> <c c'>->~8-. r \section |
+  \global \ov
+  f2~8 a(g f) | \vo <c e>4 <f, f'>-> <c c'>->~8-. r \section |
   <g' g'>2 4 4 | % 2b
   <c g'>4 <e c'> <c c'> <g g'> |
   <f f'>2 <a a'>4 <f f'> |
   <e e'>4 <a e'> <g f'>2 | % 2c
   <c, c'>4-- ~8-. r <e e'>4-- ~8-. r |
   <f f'>4-- ~8-. r <a a'>4-- ~8-. r |
-  \voiceOne f'2~8 a(g f) | % 3a
-  \oneVoice <c e>4-> <f, f'>-> <c c'>4-> ~8-. r \section |
-  \voiceOne f'2~8 a(g f) |
-  \oneVoice <c e>4 <f, f'>-> <c c'>-> ~8 r | % 3b
+  \vo f'2~8 a(g f) | % 3a
+  \ov <c e>4-> <f, f'>-> <c c'>4-> ~8-. r \section |
+  \vo f'2~8 a(g f) |
+  \ov <c e>4 <f, f'>-> <c c'>-> ~8 r | % 3b
   q4 r <e e'> r |
   <f f'>4 r <a a'> r |
   <c, c'>4 r <a a'> r |
@@ -1214,11 +1215,11 @@ pianoLHone = \relative {
   <g' g'>8-. r r4 q8-. r q-. r |
   <c g'>8-. r <e c'>-. r <c c'>-. r r4 | % 4b
   <f, f'>2 <a a'>4(<f f'>) |
-  \voiceOne e'2 \oneVoice <g, f'> |
+  \vo e'2 \ov <g, f'> |
   <c, c'>4-- ~8-. r <e e'>4-- ~8-. r |
   <f f'>4-- ~8-. r <a a'>4-- ~8-. r | % 4c
-  \voiceOne f'2~8 a(g f) |
-  \oneVoice <c e>4 <f, f'> <c c'>\fermata r |
+  \vo f'2~8 a(g f) |
+  \ov <c e>4 <f, f'> <c c'>\fermata r |
   s8 \once \hide Stem g' ~2. | % 5a
   s8 \once \hide Stem a ~2. |
   s8 \once \hide Stem g ~2. |
@@ -1235,9 +1236,9 @@ pianoLHone = \relative {
   <g' g'>2 4 4 | <c g'> <e c'> <c c'> <g g'> | <f f'>2 <a a'>4 <f f'> | <e e'> <a e'> <g f'>2 | % 7a
   <c, c'>4-- ~8-. r <e e'>4-- ~8-. r | % 7b
   <f f'>4-- ~8-. r <a a'>4-- ~8-. r |
-  \voiceOne f'2~8 a(g f) \oneVoice |
+  \vo f'2~8 a(g f) \ov |
   <c e>4-> <f, f'>-> <c c'>-> ~8-. r \section | % 7c
-  \voiceOne f'2~8 a(g f) \oneVoice |
+  \vo f'2~8 a(g f) \ov |
   <c e>4-- <f, f'>-- <c c'>-- ~8-. r \section |
   \repeat volta 2 {
     <e e'>4 8. <d d'>16 <c c'>4 <e e'>8. <g g'>16 | % 8a
@@ -1246,15 +1247,15 @@ pianoLHone = \relative {
     <d d'>2 <g f'> |
     <e e'>4 8. <d d'>16 <c c'>4 <e e'>8. <g g'>16 |
     <c c'>4 8. <b b'>16 <a a'>2 | % 8c
-    \voiceOne s8 \once \hide Stem d8_~2. \oneVoice |
+    \vo s8 \once \hide Stem d8_~2. \ov |
     <c, c'>4 <f f'> <c' g'>2 \section |
     <g g'>2 4 4 | % 9a
     <c g'>4 <e c'> <c c'> <g g'>8 r |
     <f f'>2 <a a'>4(<f f'>) |
-    \voiceOne e'2 \oneVoice <g, f'> | % 9b
+    \vo e'2 \ov <g, f'> | % 9b
     <c, c'>4-- ~8-. r <e e'>4-- ~8-. r |
     <f f'>4-- ~8-. r <a a'>4-- ~8-. r |
-    \voiceOne f'2~8 a(g f) \oneVoice | % 9c
+    \vo f'2~8 a(g f) \ov | % 9c
     <c e>4 <f, f'> <c c'>2\fermata \section |
     q2 <e e'> | <f f'> <a a'> | <c, c'> <a a'> | % 10a
     <d d'>2 <g, g'> | <c c'> <e e'> | <f f'> <a a'> |
@@ -1264,16 +1265,16 @@ pianoLHone = \relative {
   <d d'>8 r q8. 16 <b b'>4 <d d'> | % 11a
   <c c'>8-. r <e e'>-. r <c c'>-. r r4 |
   <f f'>2 <a a'>4(<f f'>) |
-  \voiceOne e'2 \oneVoice <g, g'> |
-  <c, c'>8 r r4 <e e'>2 | <f f'>8 r r4 <a a'>2 | \voiceOne f'2~8 a(g f) | % 11b
-  \oneVoice <c e>4 <f, f'> <c c'>4. \tick r8 | % 11c
+  \vo e'2 \ov <g, g'> |
+  <c, c'>8 r r4 <e e'>2 | <f f'>8 r r4 <a a'>2 | \vo f'2~8 a(g f) | % 11b
+  \ov <c e>4 <f, f'> <c c'>4. \tick r8 | % 11c
   r4 <d' d'>8 <c c'> <b b'> <a a'> <g g'> <f f'> |
   <e e'>4-> <f f'>-> <c g' e'>2->\fermata |
 %  \bar "|."
 }
 
 pianoLHtwo = \relative {
-  \global \voiceTwo
+  \global \vt
   g,1 | s \section | s1*6 |
   g1 | s \section | g | s1*7 | % 3
   s1*5 | e4(a) s2 | s1 | s | g | s | % 4
@@ -1292,7 +1293,9 @@ pianoLHtwo = \relative {
 #(set-global-staff-size 16)
 
 \book {
-  \bookOutputSuffix "repeat"
+  \paper {
+    output-suffix = repeat
+  }
   \score {
     <<
       <<
@@ -1377,30 +1380,26 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff
-%        \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
         \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -1410,7 +1409,9 @@ pianoLHtwo = \relative {
 #(set-global-staff-size 16)
 
 \book {
-  \bookOutputSuffix "single"
+  \paper {
+    output-suffix = single
+  }
   \score {
    \unfoldRepeats
     <<
@@ -1492,30 +1493,26 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff
-%        \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
         \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -1525,8 +1522,8 @@ pianoLHtwo = \relative {
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "singlepage"
   \paper {
+    output-suffix = singlepage
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -1617,30 +1614,26 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff
-%        \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
         \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -1650,8 +1643,8 @@ pianoLHtwo = \relative {
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "singlepage-sop"
   \paper {
+    output-suffix = singlepage-sop
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -1778,8 +1771,8 @@ pianoLHtwo = \relative {
 }
 
 \book {
-  \bookOutputSuffix "singlepage-alto"
   \paper {
+    output-suffix = singlepage-alto
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -1875,30 +1868,26 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff
-%        \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
         \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -1906,8 +1895,8 @@ pianoLHtwo = \relative {
 }
 
 \book {
-  \bookOutputSuffix "singlepage-tenor"
   \paper {
+    output-suffix = singlepage-tenor
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -2003,30 +1992,26 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff
-%        \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
         \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -2034,8 +2019,8 @@ pianoLHtwo = \relative {
 }
 
 \book {
-  \bookOutputSuffix "singlepage-bass"
   \paper {
+    output-suffix = singlepage-bass
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -2131,30 +2116,26 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff
-%        \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
         \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -2162,15 +2143,8 @@ pianoLHtwo = \relative {
 }
 
 \book {
-  \bookOutputSuffix "midi-women"
   \paper {
-    top-margin = 0
-    left-margin = 7
-    right-margin = 1
-    paper-width = 190\mm
-    page-breaking = #ly:one-page-breaking
-    system-system-spacing.basic-distance = #15
-    system-separator-markup = \slashSeparator
+    output-suffix = midi-women
   }
   \score {
    \unfoldRepeats
@@ -2259,15 +2233,8 @@ pianoLHtwo = \relative {
 }
 
 \book {
-  \bookOutputSuffix "midi-tenor"
   \paper {
-    top-margin = 0
-    left-margin = 7
-    right-margin = 1
-    paper-width = 190\mm
-    page-breaking = #ly:one-page-breaking
-    system-system-spacing.basic-distance = #15
-    system-separator-markup = \slashSeparator
+    output-suffix = midi-tenor
   }
   \score {
    \unfoldRepeats
@@ -2356,15 +2323,8 @@ pianoLHtwo = \relative {
 }
 
 \book {
-  \bookOutputSuffix "midi-bass"
   \paper {
-    top-margin = 0
-    left-margin = 7
-    right-margin = 1
-    paper-width = 190\mm
-    page-breaking = #ly:one-page-breaking
-    system-system-spacing.basic-distance = #15
-    system-separator-markup = \slashSeparator
+    output-suffix = midi-bass
   }
   \score {
    \unfoldRepeats
