@@ -1,5 +1,6 @@
-\version "2.25.0"
+\version "2.25.16"
 
+\include "kjp.ly"
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
 
@@ -149,22 +150,22 @@ wordsSop = \lyricmode {
   Heigh -- ho! come to the fair! __
   All the stalls on the green are as fine as can be, __
   With trink -- ets and tok -- ens so pret -- ty to seem
-  So it's come, then, maid -- ens and men,
+  So it’s come, then, maid -- ens and men,
   To the fair in the pride of the morn -- ing. __
   With a heigh -- ho! __ come to the fair! __
 
-  "\"Heigh" -- ho! come to the "fair!\"" __
+  “Heigh -- ho! come to the fair!” __
   The drums are all beat -- ing, a -- way let us go, __
   Heigh -- ho! come to the fair! __
-  There'll be rac -- ing and chas -- ing from morn -- ing till night,
-  So it's come, then, maid -- ens and men,
+  There’ll be rac -- ing and chas -- ing from morn -- ing till night,
+  So it’s come, then, maid -- ens and men,
   To the fair in the pride of the morn -- ing. __
-  And it's heigh -- ho! __ come to the fair! __
+  And it’s heigh -- ho! __ come to the fair! __
 
   Heigh -- ho! come to the fair! __
   Heigh -- ho! come to the fair! __
-  If __ "\"Haste" to the wed -- "ding\"" the fid -- dles should play, __
-  We war -- rant you'll dance to the end of the day; __
+  If __ “Haste to the wed -- ding” the fid -- dles should play, __
+  We war -- rant you’ll dance to the end of the day; __
   Come, then, maid -- ens and men,
   To the fair in the pride of the morn -- ing. __
   The sun is a -- shin -- ing to wel -- come the day,
@@ -179,22 +180,22 @@ wordsSopMidi = \lyricmode {
   "\nHeigh" "ho! " "come " "to " "the " "fair! " 
   "\nAll " "the " "stalls " "on " "the " "green " "are " "as " "fine " "as " "can " "be, " 
   "\nWith " trink "ets " "and " tok "ens " "so " pret "ty " "to " "seem "
-  "\nSo " "it's " "come, " "then, " maid "ens " "and " "men, "
+  "\nSo " "it’s " "come, " "then, " maid "ens " "and " "men, "
   "\nTo " "the " "fair " "in " "the " "pride " "of " "the " morn "ing. " 
   "\nWith " "a " heigh "ho! "  "come " "to " "the " "fair!\n" 
 
-  "\n\"Heigh" "ho! " "come " "to " "the " "fair!\" " 
+  "\n“Heigh" "ho! " "come " "to " "the " "fair!” " 
   "\nThe " "drums " "are " "all " beat "ing, " a "way " "let " "us " "go, " 
   "\nHeigh" "ho! " "come " "to " "the " "fair! " 
-  "\nThere'll " "be " rac "ing " "and " chas "ing " "from " morn "ing " "till " "night, "
-  "\nSo " "it's " "come, " "then, " maid "ens " "and " "men, "
+  "\nThere’ll " "be " rac "ing " "and " chas "ing " "from " morn "ing " "till " "night, "
+  "\nSo " "it’s " "come, " "then, " maid "ens " "and " "men, "
   "\nTo " "the " "fair " "in " "the " "pride " "of " "the " morn "ing. " 
-  "\nAnd " "it's " heigh "ho! "  "come " "to " "the " "fair!\n" 
+  "\nAnd " "it’s " heigh "ho! "  "come " "to " "the " "fair!\n" 
 
   "\nHeigh" "ho! " "come " "to " "the " "fair! " 
   "\nHeigh" "ho! " "come " "to " "the " "fair! " 
-  "\nIf "  "\"Haste " "to " "the " wed "ding\" " "the " fid "dles " "should " "play, " 
-  "\nWe " war "rant " "you'll " "dance " "to " "the " "end " "of " "the " "day; " 
+  "\nIf "  "“Haste " "to " "the " wed "ding” " "the " fid "dles " "should " "play, " 
+  "\nWe " war "rant " "you’ll " "dance " "to " "the " "end " "of " "the " "day; " 
   "\nCome, " "then, " maid "ens " "and " "men, "
   "\nTo " "the " "fair " "in " "the " "pride " "of " "the " morn "ing. " 
   "\nThe " "sun " "is " a shin "ing " "to " wel "come " "the " "day, "
@@ -265,27 +266,27 @@ wordsAlto = \lyricmode {
   Heigh -- ho! come to the fair! __
   All the stalls on the green are as fine as can be, __
   With trink -- ets and tok -- ens so pret -- ty to seem
-  So it's come, then, maid -- ens and men,
+  So it’s come, then, maid -- ens and men,
   To the fair in the pride of the morn -- ing. __
   So deck your -- selves out in your fin -- est ar -- ray,
   With a heigh -- ho! __ come to the fair! __
 
   The fid -- dles are play -- ing the tune that you know:
-  "\"Heigh" -- ho! come to the "fair!\"" __
+  “Heigh -- ho! come to the fair!” __
   The drums are all beat -- ing, a -- way let us go, __
   Heigh -- ho! come to the fair! __
-  There'll be rac -- ing and chas -- ing from morn -- ing till night, till night,
-  So it's come, then, maid -- ens and men,
+  There’ll be rac -- ing and chas -- ing from morn -- ing till night, till night,
+  So it’s come, then, maid -- ens and men,
   To the fair in the pride of the morn -- ing. __
-  So lock up your house, there'll be plen -- ty of fun,
-  And it's heigh -- ho! __ come to the fair! __
+  So lock up your house, there’ll be plen -- ty of fun,
+  And it’s heigh -- ho! __ come to the fair! __
 
-  For love- mak -- ing too, if so be you've a mind,
+  For love- mak -- ing too, if so be you’ve a mind,
   Heigh -- ho! come to the fair! __
   For hearts that are hap -- py are lov -- ing and kind,
   Heigh -- ho! come to the fair! __
-  If __ "\"Haste" to the wed -- "ding\"" the fid -- dles should play, __
-  We war -- rant you'll dance to the end of the day; __
+  If __ “Haste to the wed -- ding” the fid -- dles should play, __
+  We war -- rant you’ll dance to the end of the day; __
   Come, then, maid -- ens and men,
   To the fair in the pride of the morn -- ing. __
   The sun is a -- shin -- ing to wel -- come the day,
@@ -302,27 +303,27 @@ wordsAltoMidi = \lyricmode {
   "\nHeigh" "ho! " "come " "to " "the " "fair! " 
   "\nAll " "the " "stalls " "on " "the " "green " "are " "as " "fine " "as " "can " "be, " 
   "\nWith " trink "ets " "and " tok "ens " "so " pret "ty " "to " "seem "
-  "\nSo " "it's " "come, " "then, " maid "ens " "and " "men, "
+  "\nSo " "it’s " "come, " "then, " maid "ens " "and " "men, "
   "\nTo " "the " "fair " "in " "the " "pride " "of " "the " morn "ing. " 
   "\nSo " "deck " your "selves " "out " "in " "your " fin "est " ar "ray, "
   "\nWith " "a " heigh "ho! "  "come " "to " "the " "fair!\n" 
 
   "\nThe " fid "dles " "are " play "ing " "the " "tune " "that " "you " "know: "
-  "\n\"Heigh" "ho! " "come " "to " "the " "fair!\" " 
+  "\n“Heigh" "ho! " "come " "to " "the " "fair!” " 
   "\nThe " "drums " "are " "all " beat "ing, " a "way " "let " "us " "go, " 
   "\nHeigh" "ho! " "come " "to " "the " "fair! " 
-  "\nThere'll " "be " rac "ing " "and " chas "ing " "from " morn "ing " "till " "night, " "till " "night, "
-  "\nSo " "it's " "come, " "then, " maid "ens " "and " "men, "
+  "\nThere’ll " "be " rac "ing " "and " chas "ing " "from " morn "ing " "till " "night, " "till " "night, "
+  "\nSo " "it’s " "come, " "then, " maid "ens " "and " "men, "
   "\nTo " "the " "fair " "in " "the " "pride " "of " "the " morn "ing. " 
-  "\nSo " "lock " "up " "your " "house, " "there'll " "be " plen "ty " "of " "fun, "
-  "\nAnd " "it's " heigh "ho! "  "come " "to " "the " "fair!\n" 
+  "\nSo " "lock " "up " "your " "house, " "there’ll " "be " plen "ty " "of " "fun, "
+  "\nAnd " "it’s " heigh "ho! "  "come " "to " "the " "fair!\n" 
 
-  "\nFor " love mak "ing " "too, " "if " "so " "be " "you've " "a " "mind, "
+  "\nFor " love mak "ing " "too, " "if " "so " "be " "you’ve " "a " "mind, "
   "\nHeigh" "ho! " "come " "to " "the " "fair! " 
   "\nFor " "hearts " "that " "are " hap "py " "are " lov "ing " "and " "kind, "
   "\nHeigh" "ho! " "come " "to " "the " "fair! " 
-  "\nIf "  "\"Haste " "to " "the " wed "ding\" " "the " fid "dles " "should " "play, " 
-  "\nWe " war "rant " "you'll " "dance " "to " "the " "end " "of " "the " "day; " 
+  "\nIf "  "“Haste " "to " "the " wed "ding” " "the " fid "dles " "should " "play, " 
+  "\nWe " war "rant " "you’ll " "dance " "to " "the " "end " "of " "the " "day; " 
   "\nCome, " "then, " maid "ens " "and " "men, "
   "\nTo " "the " "fair " "in " "the " "pride " "of " "the " morn "ing. " 
   "\nThe " "sun " "is " a shin "ing " "to " wel "come " "the " "day, "
@@ -393,27 +394,27 @@ wordsTenor = \lyricmode {
   Heigh -- ho! come to the fair! __
   All the stalls are as fine as can be, __
   With trink -- ets and tok -- ens so pret -- ty to seem
-  So it's come, then, maid -- ens and men,
+  So it’s come, then, maid -- ens and men,
   To the fair in the pride of the morn -- ing. __
   So deck your -- selves out in your fin -- est ar -- ray,
   With a heigh -- ho! __ come to the fair! __
 
   The fid -- dles are play -- ing the tune that you know:
-  "\"Heigh" -- ho! come to the "fair!\"" __
+  “Heigh -- ho! come to the fair!” __
   The drums are all beat -- ing, a -- way let us go, __
   Heigh -- ho! come to the fair! __
-  There'll be chas -- ing till night,
+  There’ll be chas -- ing till night,
   And round -- a -- bouts turn -- ing to left and to right,
-  So it's come, then, maid -- ens and men,
+  So it’s come, then, maid -- ens and men,
   To the fair in the pride of the morn -- ing. __
-  So lock up your house, there'll be plen -- ty of fun,
-  And it's heigh -- ho! __ come to the fair! __
+  So lock up your house, there’ll be plen -- ty of fun,
+  And it’s heigh -- ho! __ come to the fair! __
 
   Heigh -- ho! come to the fair! __
   For hearts that are hap -- py are lov -- ing and kind,
   Heigh -- ho! come to the fair! __
-  If it's "\"Haste" to the wed -- "ding\"" they play, __
-  We war -- rant you'll dance to the end of the day; __
+  If it’s “Haste to the wed -- ding” they play, __
+  We war -- rant you’ll dance to the end of the day; __
   Come, then, maid -- ens and men,
   To the fair in the pride of the morn -- ing. __
   The sun is a -- shin -- ing to wel -- come the day,
@@ -430,27 +431,27 @@ wordsTenorMidi = \lyricmode {
   "\nHeigh" "ho! " "come " "to " "the " "fair! " 
   "\nAll " "the " "stalls " "are " "as " "fine " "as " "can " "be, " 
   "\nWith " trink "ets " "and " tok "ens " "so " pret "ty " "to " "seem "
-  "\nSo " "it's " "come, " "then, " maid "ens " "and " "men, "
+  "\nSo " "it’s " "come, " "then, " maid "ens " "and " "men, "
   "\nTo " "the " "fair " "in " "the " "pride " "of " "the " morn "ing. " 
   "\nSo " "deck " your "selves " "out " "in " "your " fin "est " ar "ray, "
   "\nWith " "a " heigh "ho! "  "come " "to " "the " "fair!\n" 
 
   "\nThe " fid "dles " "are " play "ing " "the " "tune " "that " "you " "know: "
-  "\n\"Heigh" "ho! " "come " "to " "the " "fair!\" " 
+  "\n“Heigh" "ho! " "come " "to " "the " "fair!” " 
   "\nThe " "drums " "are " "all " beat "ing, " a "way " "let " "us " "go, " 
   "\nHeigh" "ho! " "come " "to " "the " "fair! " 
-  "\nThere'll " "be " chas "ing " "till " "night, "
+  "\nThere’ll " "be " chas "ing " "till " "night, "
   "\nAnd " round a "bouts " turn "ing " "to " "left " "and " "to " "right, "
-  "\nSo " "it's " "come, " "then, " maid "ens " "and " "men, "
+  "\nSo " "it’s " "come, " "then, " maid "ens " "and " "men, "
   "\nTo " "the " "fair " "in " "the " "pride " "of " "the " morn "ing. " 
-  "\nSo " "lock " "up " "your " "house, " "there'll " "be " plen "ty " "of " "fun, "
-  "\nAnd " "it's " heigh "ho! "  "come " "to " "the " "fair!\n" 
+  "\nSo " "lock " "up " "your " "house, " "there’ll " "be " plen "ty " "of " "fun, "
+  "\nAnd " "it’s " heigh "ho! "  "come " "to " "the " "fair!\n" 
 
   "\nHeigh" "ho! " "come " "to " "the " "fair! " 
   "\nFor " "hearts " "that " "are " hap "py " "are " lov "ing " "and " "kind, "
   "\nHeigh" "ho! " "come " "to " "the " "fair! " 
-  "\nIf " "it's " "\"Haste " "to " "the " wed "ding\" " "they " "play, " 
-  "\nWe " war "rant " "you'll " "dance " "to " "the " "end " "of " "the " "day; " 
+  "\nIf " "it’s " "“Haste " "to " "the " wed "ding” " "they " "play, " 
+  "\nWe " war "rant " "you’ll " "dance " "to " "the " "end " "of " "the " "day; " 
   "\nCome, " "then, " maid "ens " "and " "men, "
   "\nTo " "the " "fair " "in " "the " "pride " "of " "the " morn "ing. " 
   "\nThe " "sun " "is " a shin "ing " "to " wel "come " "the " "day, "
@@ -519,25 +520,25 @@ wordsBass = \lyricmode {
   Heigh -- ho! come to the fair! __
   All the stalls are as fine as can be, __
   With trink -- ets and tok -- ens so pret -- ty to seem
-  So it's come, then, maid -- ens and men,
+  So it’s come, then, maid -- ens and men,
   To the fair in the pride of the morn -- ing. __
   So deck your -- selves out in your fin -- est ar -- ray,
   With a heigh -- ho! __ come to the fair! __
 
-  "\"Heigh" -- ho! come to the "fair!\"" __
+  “Heigh -- ho! come to the fair!” __
   The drums are all beat -- ing, a -- way let us go, __
   Heigh -- ho! come to the fair! __
-  They'll be turn -- ing left and right,
-  So it's come, then, maid -- ens and men,
+  They’ll be turn -- ing left and right,
+  So it’s come, then, maid -- ens and men,
   To the fair in the pride of the morn -- ing. __
-  So lock up your house, there'll be plen -- ty of fun,
-  And it's heigh -- ho! __ come to the fair! __
+  So lock up your house, there’ll be plen -- ty of fun,
+  And it’s heigh -- ho! __ come to the fair! __
 
   Heigh -- ho! come to the fair! __
   For hearts that are hap -- py are lov -- ing and kind,
   Heigh -- ho! come to the fair! __
-  If it's "\"Haste" to the wed -- "ding\"" they play, __
-  We war -- rant you'll dance to the end of the day; __
+  If it’s “Haste to the wed -- ding” they play, __
+  We war -- rant you’ll dance to the end of the day; __
   Come, then, maid -- ens and men,
   To the fair in the pride of the morn -- ing. __
   The sun is a -- shin -- ing to wel -- come the day,
@@ -552,25 +553,25 @@ wordsBassMidi = \lyricmode {
   "\nHeigh" "ho! " "come " "to " "the " "fair! " 
   "\nAll " "the " "stalls " "are " "as " "fine " "as " "can " "be, " 
   "\nWith " trink "ets " "and " tok "ens " "so " pret "ty " "to " "seem "
-  "\nSo " "it's " "come, " "then, " maid "ens " "and " "men, "
+  "\nSo " "it’s " "come, " "then, " maid "ens " "and " "men, "
   "\nTo " "the " "fair " "in " "the " "pride " "of " "the " morn "ing. " 
   "\nSo " "deck " your "selves " "out " "in " "your " fin "est " ar "ray, "
   "\nWith " "a " heigh "ho! "  "come " "to " "the " "fair!\n" 
 
-  "\n\"Heigh" "ho! " "come " "to " "the " "fair!\" " 
+  "\n“Heigh" "ho! " "come " "to " "the " "fair!” " 
   "\nThe " "drums " "are " "all " beat "ing, " a "way " "let " "us " "go, " 
   "\nHeigh" "ho! " "come " "to " "the " "fair! " 
-  "\nThey'll " "be " turn "ing " "left " "and " "right, "
-  "\nSo " "it's " "come, " "then, " maid "ens " "and " "men, "
+  "\nThey’ll " "be " turn "ing " "left " "and " "right, "
+  "\nSo " "it’s " "come, " "then, " maid "ens " "and " "men, "
   "\nTo " "the " "fair " "in " "the " "pride " "of " "the " morn "ing. " 
-  "\nSo " "lock " "up " "your " "house, " "there'll " "be " plen "ty " "of " "fun, "
-  "\nAnd " "it's " heigh "ho! "  "come " "to " "the " "fair!\n" 
+  "\nSo " "lock " "up " "your " "house, " "there’ll " "be " plen "ty " "of " "fun, "
+  "\nAnd " "it’s " heigh "ho! "  "come " "to " "the " "fair!\n" 
 
   "\nHeigh" "ho! " "come " "to " "the " "fair! " 
   "\nFor " "hearts " "that " "are " hap "py " "are " lov "ing " "and " "kind, "
   "\nHeigh" "ho! " "come " "to " "the " "fair! " 
-  "\nIf " "it's " "\"Haste " "to " "the " wed "ding\" " "they " "play, " 
-  "\nWe " war "rant " "you'll " "dance " "to " "the " "end " "of " "the " "day; " 
+  "\nIf " "it’s " "“Haste " "to " "the " wed "ding” " "they " "play, " 
+  "\nWe " war "rant " "you’ll " "dance " "to " "the " "end " "of " "the " "day; " 
   "\nCome, " "then, " maid "ens " "and " "men, "
   "\nTo " "the " "fair " "in " "the " "pride " "of " "the " morn "ing. " 
   "\nThe " "sun " "is " a shin "ing " "to " wel "come " "the " "day, "
@@ -587,7 +588,7 @@ pianoRHone = \relative {
   <f bes f'>2(bes4) |
   <d f>2(<c ees>4) |
   d2(bes4) |
-  \voiceOne d4.(c8 bes4) \oneVoice |
+  \vo d4.(c8 bes4) \ov |
   c2.( |
   <d, f bes>4) r r | % 1b
   r4 q q |
@@ -595,7 +596,7 @@ pianoRHone = \relative {
   r4 <c f a> q |
   r4 <c f g> <c f a> |
   <bes bes'>2. |
-  \voiceOne <f' f'> |
+  \vo <f' f'> |
   <ees g ees'>4^(<f d'> <ees c'> | % 1c
   <d f bes>4~8) r r4 |
   <d bes'>4-. q-. <e bes'>-. |
@@ -615,9 +616,9 @@ pianoRHone = \relative {
   <a cis g' a>4 <b b'> <cis g' cis> |
   <d d'>2. |
   <bes bes'>2. |
-  <<{a'4(f g)} \new Voice {\voiceFour s4 <cis, f> <a cis>} >> | % 3a
+  <<{a'4(f g)} \new Voice {\vf s4 <cis, f> <a cis>} >> | % 3a
   a'(<d, f> g) |
-  <<{a4(f g)} \\ \new Voice {\voiceFour s4 <d f>2} >> |
+  <<{a4(f g)} \\ \new Voice {\vf s4 <d f>2} >> |
   a'4(c a) |
   g2.( |
   f4) ees(c) |
@@ -628,16 +629,16 @@ pianoRHone = \relative {
   <bes, bes'>2. |
   <f' f'>2.~ |
   2~8 r |
-  \oneVoice <g a ees'>4 <f a d> <ees a c> | % 4a
+  \ov <g a ees'>4 <f a d> <ees a c> | % 4a
   <d bes' d>4.(<c' ees>8 <d f>4) |
   <a f' a>2(<g ees' g>4) |
   <f bes f'>2(bes4) |
-  \voiceOne <d f>2(<c ees>4) |
+  \vo <d f>2(<c ees>4) |
   d2(bes4) |
   d4.(c8 bes4) |
   c2.( |
   bes4->) r r | % 4b
-  \oneVoice r8 bes(c d ees f |
+  \ov r8 bes(c d ees f |
   g8 a bes c d e |
   f8 c a f c a |
   f4) <f g> <f a> |
@@ -660,81 +661,81 @@ pianoRHone = \relative {
   bes4 a g |
   a4) d,8(e f g |
   <cis, e a>4) <c e b'>-- <c g' c>-- |
-  \voiceOne <d d'>2. |
+  \vo <d d'>2. |
   <bes bes'>2. |
-  <<{a'4(f g)} \new Voice {\voiceFour s4 <cis, f> <a cis>} >> |
-  <<{a'4(f g)} \new Voice {\voiceFour s4 d <bes d>} >> | % 6b
-  <<{a'4(f g)} \new Voice {\voiceFour s4 <c, f>2} >> |
+  <<{a'4(f g)} \new Voice {\vf s4 <cis, f> <a cis>} >> |
+  <<{a'4(f g)} \new Voice {\vf s4 d <bes d>} >> | % 6b
+  <<{a'4(f g)} \new Voice {\vf s4 <c, f>2} >> |
   a'4(c a) |
   g2.( |
   f4) ees(c) |
   <bes d bes'>4 <bes ees bes'> <bes e bes'> |
-  \voiceOne <bes f' bes>4(c' bes) \oneVoice | % 7a
+  \vo <bes f' bes>4(c' bes) \ov | % 7a
   <c, a'>4(<bes f'>) <b f'>-. |
-  \voiceOne f'4(g a) |
+  \vo f'4(g a) |
   <bes, bes'>2. |
   <f' f'>2.~ |
-  2~8 \caesura \oneVoice r |
+  2~8 \caesura \ov r |
   <g a ees'>4-> <f a d>-> <ees a c>-> |
   <d bes' d>4.(<c' ees>8 <d f>4) | % 7b
   <a f' a>2(<g ees' g>4) |
   <f bes f'>2(bes4) |
-  \voiceOne <d f>2(<c ees>4) |
+  \vo <d f>2(<c ees>4) |
   d2(bes4) |
   d4.(c8 bes4) |
   c2(a4 |
-  bes4->) \oneVoice r r |
+  bes4->) \ov r r |
   r4 <d, f bes> q | % 8a
   r4 <c e bes'> q |
   r4 <c f a> q |
   r4 <c f g> <c f a> |
-  \voiceOne <bes bes'>2. |
+  \vo <bes bes'>2. |
   <f' f'>2. |
-  \oneVoice <g ees'>4(<f d'> <ees c'> |
+  \ov <g ees'>4(<f d'> <ees c'> |
   <d f bes>4~8) r r4 | % 8b
   <d bes'>4-. <ees bes'>-. <e bes'>-. |
-  \voiceOne <f bes>(c' bes) \oneVoice |
+  \vo <f bes>(c' bes) \ov |
   <c, a'>4(<bes f'>) <b f'>-. |
-  \voiceOne f'4(g a) |
+  \vo f'4(g a) |
   <bes, bes'>2. |
   <f' f'>2. |
-  \voiceOne <ees g ees'>4(<f d'> <ees c'> | % 9a
-  <d f bes>4~8) \oneVoice r r4 |
+  \vo <ees g ees'>4(<f d'> <ees c'> | % 9a
+  <d f bes>4~8) \ov r r4 |
   r4 <d bes' d> q |
-  \voiceOne d'4(c bes) \oneVoice |
+  \vo d'4(c bes) \ov |
   r4 <c, f c'> <c e c'> |
-  \voiceOne c'4(bes a) \oneVoice
+  \vo c'4(bes a) \ov
   r4 <bes, e bes'> <bes d bes'> | % 9b
-  \voiceOne bes'4(a g) \oneVoice |
+  \vo bes'4(a g) \ov |
   r4 <a, d a'> q |
   <a cis g' a>4(<b b'> <c g' cis>) |
-  \voiceOne <d d'>2. |
+  \vo <d d'>2. |
   <bes bes'>2. |
-  <<{a'4(f g)} \new Voice {\voiceFour s4 <cis, f> s} >> | % 10a
-  <<{a'4(f g)} \new Voice {\voiceFour s4 d s} >> |
-  <<{a'4(f g)} \new Voice {\voiceFour s4 <d f>2} >> |
+  <<{a'4(f g)} \new Voice {\vf s4 <cis, f> s} >> | % 10a
+  <<{a'4(f g)} \new Voice {\vf s4 d s} >> |
+  <<{a'4(f g)} \new Voice {\vf s4 <d f>2} >> |
   a'4(c a) |
   g2.( |
   f4) ees(c) |
   <bes d bes'>4 <bes ees bes'> <bes e bes'> |
-  \voiceOne <bes f' bes>(c' bes) | % 10b
-  \oneVoice <c, a'>4(<bes f'>) <b f'> |
-  \voiceOne f'4 g a |
+  \vo <bes f' bes>(c' bes) | % 10b
+  \ov <c, a'>4(<bes f'>) <b f'> |
+  \vo f'4 g a |
   <bes, bes'>2. |
   <f' f'>2. |
-  \oneVoice r4 <g bes ees>4(<g bes d>) |
-  \voiceOne <f f'>2. \oneVoice |
+  \ov r4 <g bes ees>4(<g bes d>) |
+  \vo <f f'>2. \ov |
   r4 <f a d>4(<f a c>) |
   <ees bes' d>2. | % 11a
   r4 <ees g c>(<ees g bes>) |
-  \voiceOne <d c'>2. \oneVoice |
+  \vo <d c'>2. \ov |
   r4 <d g bes>(<d g a>) |
-  \voiceOne bes'4(c bes) \oneVoice |
+  \vo bes'4(c bes) \ov |
   r4 <c, f a>(<c e g>) |
-  \voiceOne f4(g a) |
+  \vo f4(g a) |
   <bes, bes'>2.-> |
   <f' f'>2.~ | % 11b
-  q2~8 \oneVoice r |
+  q2~8 \ov r |
   <g a ees'>4-> <f a d>-> <f a c f>->\fermata |
   <d bes' d>4.(<ees c' ees>8 <f d' f>4) |
   <g ees' g>2(<bes g' bes>4) |
@@ -745,7 +746,7 @@ pianoRHone = \relative {
 }
 
 pianoRHtwo = \relative {
-  \global \voiceTwo
+  \global \vt
   s4 | s2. | s | s | g'2. | f | e | r4 <ees g>(<ees f a>) |
   s2. | s | s | s | s | r4 <d f> q | r <a' d> q |
   s4 a2 | s2. | s | s4 <c, g'>2 | s2. | <c f>2. |
@@ -800,7 +801,7 @@ dynamicsPiano = {
 }
 
 pianoLHone = \relative {
-  \global \voiceOne
+  \global \vo
   r4 | <bes,, bes'>4-> (<f'' bes d>) r |
   <ees, ees'>4(<g' bes ees>) r |
   <d, d'>4(<d' f bes>) r |
@@ -824,30 +825,30 @@ pianoLHone = \relative {
   <g, g'>(<g' bes d>) r |
   <f, f'>2.( |
   <bes, bes'>4) r r | % 4b
-  \voiceOne r4 <d'' f> q |
+  \vo r4 <d'' f> q |
   r <c e> <bes c e> |
   r4 <a c f>4 q |
   r <a c> q |
-  \oneVoice <d,, d'>2. |
+  \ov <d,, d'>2. |
   <d' d'> |
-  <c c'>4 \voiceOne f2 | % 5a
-  \oneVoice bes,4(bes,8) r r4 |
+  <c c'>4 \vo f2 | % 5a
+  \ov bes,4(bes,8) r r4 |
   <bes bes'>2.-> |
   <c c'>2.-> |
   <f f'>2. |
   <ees ees'>2. |
   <d d'>2. |
   <d' d'>2. | % 5b
-  <c c'>4 \voiceOne f2 \oneVoice |
+  <c c'>4 \vo f2 \ov |
   <bes, bes'>4 r r |
-  \voiceOne r4 <d' f> q |
+  \vo r4 <d' f> q |
   r4 <c e> q |
   r4 q q |
   r4 <bes d> <c ees> |
-  \voiceOne r4 <bes d> q | % 6a
+  \vo r4 <bes d> q | % 6a
   r4 <bes cis> q |
   r4 <f a> q |
-  \oneVoice <a, a'>4 <g g'>-- <e e'>-- |
+  \ov <a, a'>4 <g g'>-- <e e'>-- |
   <d d'>2. |
   <e e'>2. |
   <a, a'>2. |
@@ -878,7 +879,7 @@ pianoLHone = \relative {
   <ees ees'>2 r4 |
   <d d'>2. |
   <d' d'>2. |
-  <c c'>4 \voiceOne f2 \oneVoice |
+  <c c'>4 \vo f2 \ov |
   <bes,, bes'>4~8 r r4 | % 8b
   bes'4-. c-. cis-. |
   d4 e2-> |
@@ -886,7 +887,7 @@ pianoLHone = \relative {
   a4(f ees) |
   <d, d'>2. |
   <d' d'>2. |
-  <c c'>4 \voiceOne f2 \oneVoice | % 9a
+  <c c'>4 \vo f2 \ov | % 9a
   bes,4(bes,8) r r4 |
   <bes' bes'>2( <a a'>4 |
   <g g'>2.) |
@@ -901,12 +902,12 @@ pianoLHone = \relative {
   <a, a'>2. | <bes bes'> | <g g'> | <c c'>~ | q4 <d d'> <e e'> | <f f'>2. | <bes, bes'>4 <c c'> <cis cis'> | % 10a
   <d d'>4 <e e'>2 | <f f'>4(<g g'>) <gis gis'> | <a a'>(<f f'> <ees ees'>) | <d d'>2. | <d' d'> | <c c'> | <f, f'>4(<g g'> <a a'> | <bes bes'>2.) |
   <ees, ees'>4(<f f'> <g g'> | <a a'>2.) | <d, d'>4(<e e'> <fis fis'> | <g g'>2.) | <e e'>2(<c c'>4) | <f f'>2(<g g'>4) | <a a'>4(<g g'> <f f'>) | <d d'>2.-> | % 11a
-  <d' d'>2.-> | <c c'>2~8 r | <f, f'>2-> \acciaccatura <f, f'>8 <f'' a c ees>4\fermata | <bes,, bes'>4(<f'' bes d>) r | <ees, ees'>4(<g' bes ees>) r |s2. | \voiceOne <bes d f>2.-> | \oneVoice <bes, f' d'>4-> r r |
+  <d' d'>2.-> | <c c'>2~8 r | <f, f'>2-> \acciaccatura <f, f'>8 <f'' a c ees>4\fermata | <bes,, bes'>4(<f'' bes d>) r | <ees, ees'>4(<g' bes ees>) r |s2. | \vo <bes d f>2.-> | \ov <bes, f' d'>4-> r r |
   \bar "|."
 }
 
 pianoLHtwo = \relative {
-  \global \voiceTwo
+  \global \vt
   s4 s2.*14 |
   s4 f(f,) | s2. | s | s | s | s | % 1c
   s2. | s | s4 f'(f,) | s2. | s | s | s | % 2a
@@ -925,12 +926,16 @@ pianoLHtwo = \relative {
   s2.*6 |
   s2.*15 | % 10
   s2.*8 | % 11a
-  a2.*5 | \voiceOne <bes, bes'>2._> ~ | \voiceTwo q | s |
+  a2.*5 | \vo <bes, bes'>2._> ~ | \vt q | s |
   \bar "|."
 }
 
+#(set-global-staff-size 17)
+
 \book {
-  \bookOutputSuffix "single"
+  \paper {
+    output-suffix = single
+  }
   \score {
     <<
       <<
@@ -1007,21 +1012,39 @@ pianoLHtwo = \relative {
       >>
     >>
     \layout {
-      #(layout-set-staff-size 17)
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-%        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+%        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 18)
+
 \book {
-  \bookOutputSuffix "singlepage"
   \paper {
+    output-suffix = singlepage
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -1107,20 +1130,530 @@ pianoLHtwo = \relative {
       >>
     >>
     \layout {
-      #(layout-set-staff-size 18)
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-%        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+%        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = "singlepage-ten1"
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Tenor I"
+            shortInstrumentName = #"T1"
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \new Voice \with {alignAboveContext = soprano} \TempoTrack
+            \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics \wordsSop
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Tenor II"
+            shortInstrumentName = #"T2"
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = alto} \teeny \dynamicsAlto
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAlto}
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Baritone"
+            shortInstrumentName = #"B1"
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = tenor} \teeny \dynamicsTenor
+            \clef bass
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsTenor}
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B2"
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = bass} \teeny \dynamicsBass
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBass}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            printPartCombineTexts = ##f
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \teeny \dynamicsPiano
+          \new Staff = pianolh \with {
+            printPartCombineTexts = ##f
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+%        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = "singlepage-ten2"
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Tenor I"
+            shortInstrumentName = #"T1"
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \with {alignAboveContext = soprano} \TempoTrack
+            \new Dynamics \with {alignAboveContext = soprano} \teeny \dynamicsSop
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSop}
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Tenor II"
+            shortInstrumentName = #"T2"
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
+            \new Voice \alto
+            \addlyrics \wordsAlto
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Baritone"
+            shortInstrumentName = #"B1"
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = tenor} \teeny \dynamicsTenor
+            \clef bass
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsTenor}
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B2"
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = bass} \teeny \dynamicsBass
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBass}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            printPartCombineTexts = ##f
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \teeny \dynamicsPiano
+          \new Staff = pianolh \with {
+            printPartCombineTexts = ##f
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+%        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = "singlepage-bass1"
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Tenor I"
+            shortInstrumentName = #"T1"
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \with {alignAboveContext = soprano} \TempoTrack
+            \new Dynamics \with {alignAboveContext = soprano} \teeny \dynamicsSop
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSop}
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Tenor II"
+            shortInstrumentName = #"T2"
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = alto} \teeny \dynamicsAlto
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAlto}
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Baritone"
+            shortInstrumentName = #"B1"
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
+            \clef bass
+            \new Voice \tenor
+            \addlyrics \wordsTenor
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B2"
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = bass} \teeny \dynamicsBass
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBass}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            printPartCombineTexts = ##f
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \teeny \dynamicsPiano
+          \new Staff = pianolh \with {
+            printPartCombineTexts = ##f
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+%        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = "singlepage-bass2"
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Tenor I"
+            shortInstrumentName = #"T1"
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \with {alignAboveContext = soprano} \TempoTrack
+            \new Dynamics \with {alignAboveContext = soprano} \teeny \dynamicsSop
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSop}
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Tenor II"
+            shortInstrumentName = #"T2"
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = alto} \teeny \dynamicsAlto
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAlto}
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Baritone"
+            shortInstrumentName = #"B1"
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = tenor} \teeny \dynamicsTenor
+            \clef bass
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsTenor}
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B2"
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics \wordsBass
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            printPartCombineTexts = ##f
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \teeny \dynamicsPiano
+          \new Staff = pianolh \with {
+            printPartCombineTexts = ##f
+            \accidentalStyle Score.modern-cautionary
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+%        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
 \book {
-  \bookOutputSuffix "midi-tenorI"
+  \paper {
+    output-suffix = midi-tenorI
+  }
   \score {
 %   \articulate
     <<
@@ -1207,7 +1740,9 @@ pianoLHtwo = \relative {
 }
 
 \book {
-  \bookOutputSuffix "midi-tenorII"
+  \paper {
+    output-suffix = midi-tenorII
+  }
   \score {
 %   \articulate
     <<
@@ -1293,7 +1828,9 @@ pianoLHtwo = \relative {
 }
 
 \book {
-  \bookOutputSuffix "midi-bassI"
+  \paper {
+    output-suffix = midi-bassI
+  }
   \score {
 %   \articulate
     <<
@@ -1379,7 +1916,9 @@ pianoLHtwo = \relative {
 }
 
 \book {
-  \bookOutputSuffix "midi-bassII"
+  \paper {
+    output-suffix = midi-bassII
+  }
   \score {
 %   \articulate
     <<
