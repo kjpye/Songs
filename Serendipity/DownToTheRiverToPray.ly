@@ -1,5 +1,6 @@
-\version "2.22.0"
+\version "2.25.16"
 
+\include "kjp.ly"
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
 
@@ -33,8 +34,6 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   copyright   = \today
 }
 
-% #(set-global-staff-size 16)
-
 global = {
   \key f \major
   \time 4/4
@@ -50,33 +49,33 @@ TempoTrack = {
 
 RehearsalTrack = {
 %  \set Score.currentBarNumber = #5
-  \mark \markup { \box "3a" } s1*3
-  \mark \markup { \box "3b" } s1*3
-  \mark \markup { \box "3c" } s1*3
-  \mark \markup { \box "4a" } s1*4
-  \mark \markup { \box "4b" } s1*3
-  \mark \markup { \box "4c" } s1*4
-  \mark \markup { \box "5a" } s1*3
-  \mark \markup { \box "5b" } s1*3
-  \mark \markup { \box "5c" } s1*4
-  \mark \markup { \box "6a" } s1*4
-  \mark \markup { \box "6b" } s1*4
-  \mark \markup { \box "6c" } s1*4
-  \mark \markup { \box "7a" } s1*4
-  \mark \markup { \box "7b" } s1*4
-  \mark \markup { \box "7c" } s1*4
-  \mark \markup { \box "8a" } s1*4
-  \mark \markup { \box "8b" } s1*4
-  \mark \markup { \box "8c" } s1*4
-  \mark \markup { \box "9a" } s1*3
-  \mark \markup { \box "9b" } s1*3
-  \mark \markup { \box "9c" } s1*3
-  \mark \markup { \box "10a" } s1*3
-  \mark \markup { \box "10b" } s1*3
-  \mark \markup { \box "10c" } s1*3
-  \mark \markup { \box "11a" } s1*4
-  \mark \markup { \box "11b" } s1*4
-  \mark \markup { \box "11c" } s1*3
+  \textMark \markup { \box "3a" } s1*3
+  \textMark \markup { \box "3b" } s1*3
+  \textMark \markup { \box "3c" } s1*3
+  \textMark \markup { \box "4a" } s1*4
+  \textMark \markup { \box "4b" } s1*3
+  \textMark \markup { \box "4c" } s1*4
+  \textMark \markup { \box "5a" } s1*3
+  \textMark \markup { \box "5b" } s1*3
+  \textMark \markup { \box "5c" } s1*4
+  \textMark \markup { \box "6a" } s1*4
+  \textMark \markup { \box "6b" } s1*4
+  \textMark \markup { \box "6c" } s1*4
+  \textMark \markup { \box "7a" } s1*4
+  \textMark \markup { \box "7b" } s1*4
+  \textMark \markup { \box "7c" } s1*4
+  \textMark \markup { \box "8a" } s1*4
+  \textMark \markup { \box "8b" } s1*4
+  \textMark \markup { \box "8c" } s1*4
+  \textMark \markup { \box "9a" } s1*3
+  \textMark \markup { \box "9b" } s1*3
+  \textMark \markup { \box "9c" } s1*3
+  \textMark \markup { \box "10a" } s1*3
+  \textMark \markup { \box "10b" } s1*3
+  \textMark \markup { \box "10c" } s1*3
+  \textMark \markup { \box "11a" } s1*4
+  \textMark \markup { \box "11b" } s1*4
+  \textMark \markup { \box "11c" } s1*3
 }
 
 ChordTrack = \chordmode {
@@ -199,9 +198,9 @@ soprano = \relative {
 }
 
 wordsSop = \lyricmode {
-  O sis -- ters, let's go down,
-  let's go down, come on down. __
-  O sis -- ters, let's go down,
+  O sis -- ters, let’s go down,
+  let’s go down, come on down. __
+  O sis -- ters, let’s go down,
   down to the riv -- er to pray.
   _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _
@@ -228,7 +227,7 @@ wordsSop = \lyricmode {
   _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _
   As I went down to the riv -- er to pray,
-  stud -- y -- in' a -- bout that good ol' __ way
+  stud -- y -- in’ a -- bout that good ol’ __ way
   and who shall wear the star -- ry crown,
   Good Lord, show me the way.
 }
@@ -333,46 +332,187 @@ alto = \relative {
 
 words = \lyricmode {
   As I went down to the riv -- er to pray,
-  stud -- y -- in' a -- bout that good ol' __ way
+  stud -- y -- in’ a -- bout that good ol’ __ way
   and who shall wear the star -- ry crown.
   Good Lord, show me the way.
   Oh __ Oh __ Oh __ Oh __
   As I went down to the riv -- er to pray,
-  stud -- y -- in' a -- bout that good ol' __ way
+  stud -- y -- in’ a -- bout that good ol’ __ way
   and who shall wear the robe and crown,
   Good Lord, show me the way.
 
-  O broth -- ers, let's go down,
-  let's go down, come on down.
-  Come on broth -- ers, let's go down,
+  O broth -- ers, let’s go down,
+  let’s go down, come on down.
+  Come on broth -- ers, let’s go down,
   down to the riv -- er to pray.
   As I went down to the riv -- er to pray,
-  stud -- y -- in' a -- bout that good ol' __ way
+  stud -- y -- in’ a -- bout that good ol’ __ way
   and who shall wear the star -- ry crown, __
   Good Lord, show me the way.
 
-  O fath -- ers, let's go down,
-  let's go __ down, come on down.
-  O fath -- ers, let's go down,
+  O fath -- ers, let’s go down,
+  let’s go __ down, come on down.
+  O fath -- ers, let’s go down,
   down to the riv -- er to pray.
   As I went down to the riv -- er to pray,
-  stud -- y -- in' a -- bout that good ol' __ way
+  stud -- y -- in’ a -- bout that good ol’ __ way
   and who shall wear the star -- ry crown,
   Good Lord, show me the way.
 
-  O moth -- ers, let's go down,
+  O moth -- ers, let’s go down,
   come on down,
-  don't -- cha wan -- na go down.
-  Come on moth -- ers, let's go down,
+  don’t -- cha wan -- na go down.
+  Come on moth -- ers, let’s go down,
   down to the riv -- er to pray.
   As I went down to the riv -- er to pray,
-  stud -- y -- in' a -- bout that good ol' __ way
+  stud -- y -- in’ a -- bout that good ol’ __ way
   and who shall wear the star -- ry crown,
   Good Lord, show me the way.
 
-  O sin -- ners, let's go down,
-  let's go down, come on down,
-  O sin -- ners, let's go down,
+  O sin -- ners, let’s go down,
+  let’s go down, come on down,
+  O sin -- ners, let’s go down,
+  down to the riv -- er to pray.
+
+  \markup{Hm. \italic "(Hum to the end)"} __
+  _ _ _ _ _ _ _ _
+}
+
+wordsSopSep = \lyricmode {
+  O sis -- ters, let’s go down,
+  let’s go down, come on down. __
+  O sis -- ters, let’s go down,
+  down to the riv -- er to pray.
+
+  As I went down to the riv -- er to pray,
+  stud -- y -- in’ a -- bout that good ol’ __ way
+  and who shall wear the robe and crown,
+  Good Lord, show me the way.
+
+  O broth -- ers, let’s go down,
+  let’s go down, come on down.
+  Come on broth -- ers, let’s go down,
+  down to the riv -- er to pray.
+  As I went down to the riv -- er to pray,
+  stud -- y -- in’ a -- bout that good ol’ __ way
+  and who shall wear the star -- ry crown, __
+  Good Lord, show me the way.
+
+  O fath -- ers, let’s go down,
+  let’s go __ down, come on down.
+  O fath -- ers, let’s go down,
+  down to the riv -- er to pray.
+  As I went down to the riv -- er to pray,
+  stud -- y -- in’ a -- bout that good ol’ __ way
+  and who shall wear the star -- ry crown,
+  Good Lord, show me the way.
+
+  O moth -- ers, let’s go down,
+  come on down,
+  don’t -- cha wan -- na go down.
+  Come on moth -- ers, let’s go down,
+  down to the riv -- er to pray.
+  As I went down to the riv -- er to pray,
+  stud -- y -- in’ a -- bout that good ol’ __ way
+  and who shall wear the star -- ry crown,
+  Good Lord, show me the way.
+
+  O sin -- ners, let’s go down,
+  let’s go down, come on down,
+  O sin -- ners, let’s go down,
+  down to the riv -- er to pray.
+
+  As I went down to the riv -- er to pray,
+  stud -- y -- in’ a -- bout that good ol’ __ way
+  and who shall wear the star -- ry crown,
+  Good Lord, show me the way.
+}
+
+wordsAltoSep = \lyricmode {
+  As I went down to the riv -- er to pray,
+  stud -- y -- in’ a -- bout that good ol’ __ way
+  and who shall wear the star -- ry crown.
+  Good Lord, show me the way.
+  Oh __ Oh __ Oh __ Oh __
+  As I went down to the riv -- er to pray,
+  stud -- y -- in’ a -- bout that good ol’ __ way
+  and who shall wear the robe and crown,
+  Good Lord, show me the way.
+
+  O broth -- ers, let’s go down,
+  let’s go down, come on down.
+  Come on broth -- ers, let’s go down,
+  down to the riv -- er to pray.
+  As I went down to the riv -- er to pray,
+  stud -- y -- in’ a -- bout that good ol’ __ way
+  and who shall wear the star -- ry crown, __
+  Good Lord, show me the way.
+
+  O fath -- ers, let’s go down,
+  let’s go __ down, come on down.
+  O fath -- ers, let’s go down,
+  down to the riv -- er to pray.
+  As I went down to the riv -- er to pray,
+  stud -- y -- in’ a -- bout that good ol’ __ way
+  and who shall wear the star -- ry crown,
+  Good Lord, show me the way.
+
+  O moth -- ers, let’s go down,
+  come on down,
+  don’t -- cha wan -- na go down.
+  Come on moth -- ers, let’s go down,
+  down to the riv -- er to pray.
+  As I went down to the riv -- er to pray,
+  stud -- y -- in’ a -- bout that good ol’ __ way
+  and who shall wear the star -- ry crown,
+  Good Lord, show me the way.
+
+  O sin -- ners, let’s go down,
+  let’s go down, come on down,
+  O sin -- ners, let’s go down,
+  down to the riv -- er to pray.
+
+  \markup{Hm. \italic "(Hum to the end)"} __
+  _ _ _ _ _ _ _ _
+}
+
+wordsMenSep = \lyricmode {
+  As I went down to the riv -- er to pray,
+  stud -- y -- in’ a -- bout that good ol’ __ way
+  and who shall wear the robe and crown,
+  Good Lord, show me the way.
+
+  O broth -- ers, let’s go down,
+  let’s go down, come on down.
+  Come on broth -- ers, let’s go down,
+  down to the riv -- er to pray.
+  As I went down to the riv -- er to pray,
+  stud -- y -- in’ a -- bout that good ol’ __ way
+  and who shall wear the star -- ry crown, __
+  Good Lord, show me the way.
+
+  O fath -- ers, let’s go down,
+  let’s go __ down, come on down.
+  O fath -- ers, let’s go down,
+  down to the riv -- er to pray.
+  As I went down to the riv -- er to pray,
+  stud -- y -- in’ a -- bout that good ol’ __ way
+  and who shall wear the star -- ry crown,
+  Good Lord, show me the way.
+
+  O moth -- ers, let’s go down,
+  come on down,
+  don’t -- cha wan -- na go down.
+  Come on moth -- ers, let’s go down,
+  down to the riv -- er to pray.
+  As I went down to the riv -- er to pray,
+  stud -- y -- in’ a -- bout that good ol’ __ way
+  and who shall wear the star -- ry crown,
+  Good Lord, show me the way.
+
+  O sin -- ners, let’s go down,
+  let’s go down, come on down,
+  O sin -- ners, let’s go down,
   down to the riv -- er to pray.
 
   \markup{Hm. \italic "(Hum to the end)"} __
@@ -381,46 +521,46 @@ words = \lyricmode {
 
 wordsMidi = \lyricmode {
   "As " "I " "went " "down " "to " "the " riv "er " "to " "pray, "
-  "\nstud" y "in' " a "bout " "that " "good " "ol' "  "way "
+  "\nstud" y "in’ " a "bout " "that " "good " "ol’ "  "way "
   "\nand " "who " "shall " "wear " "the " star "ry " "crown. "
   "\nGood " "Lord, " "show " "me " "the " "way. "
   "\nOh "  "Oh "  "Oh "  "Oh " 
   "\nAs " "I " "went " "down " "to " "the " riv "er " "to " "pray, "
-  "\nstud" y "in' " a "bout " "that " "good " "ol' "  "way "
+  "\nstud" y "in’ " a "bout " "that " "good " "ol’ "  "way "
   "\nand " "who " "shall " "wear " "the " "robe " "and " "crown, "
   "\nGood " "Lord, " "show " "me " "the " "way.\n"
 
-  "\nO " broth "ers, " "let's " "go " "down, "
-  "\nlet's " "go " "down, " "come " "on " "down. "
-  "\nCome " "on " broth "ers, " "let's " "go " "down, "
+  "\nO " broth "ers, " "let’s " "go " "down, "
+  "\nlet’s " "go " "down, " "come " "on " "down. "
+  "\nCome " "on " broth "ers, " "let’s " "go " "down, "
   "\ndown " "to " "the " riv "er " "to " "pray. "
   "\nAs " "I " "went " "down " "to " "the " riv "er " "to " "pray, "
-  "\nstud" y "in' " a "bout " "that " "good " "ol' " "way "
+  "\nstud" y "in’ " a "bout " "that " "good " "ol’ " "way "
   "\nand " "who " "shall " "wear " "the " star "ry " "crown, " 
   "\nGood " "Lord, " "show " "me " "the " "way.\n"
 
-  "\nO " fath "ers, " "let's " "go " "down, "
-  "\nlet's " "go "  "down, " "come " "on " "down. "
-  "\nO " fath "ers, " "let's " "go " "down, "
+  "\nO " fath "ers, " "let’s " "go " "down, "
+  "\nlet’s " "go "  "down, " "come " "on " "down. "
+  "\nO " fath "ers, " "let’s " "go " "down, "
   "\ndown " "to " "the " riv "er " "to " "pray. "
   "\nAs " "I " "went " "down " "to " "the " riv "er " "to " "pray, "
-  "\nstud" y "in' " a "bout " "that " "good " "ol' " "way "
+  "\nstud" y "in’ " a "bout " "that " "good " "ol’ " "way "
   "\nand " "who " "shall " "wear " "the " star "ry " "crown, "
   "\nGood " "Lord, " "show " "me " "the " "way.\n"
 
-  "\nO " moth "ers, " "let's " "go " "down, "
+  "\nO " moth "ers, " "let’s " "go " "down, "
   "\ncome " "on " "down, "
-  "\ndon't" "cha " wan "na " "go " "down. "
-  "\nCome " "on " moth "ers, " "let's " "go " "down, "
+  "\ndon’t" "cha " wan "na " "go " "down. "
+  "\nCome " "on " moth "ers, " "let’s " "go " "down, "
   "\ndown " "to " "the " riv "er " "to " "pray. "
   "\nAs " "I " "went " "down " "to " "the " riv "er " "to " "pray, "
-  "\nstud" y "in' " a "bout " "that " "good " "ol' " "way "
+  "\nstud" y "in’ " a "bout " "that " "good " "ol’ " "way "
   "\nand " "who " "shall " "wear " "the " star "ry " "crown, "
   "\nGood " "Lord, " "show " "me " "the " "way.\n"
 
-  "\nO " sin "ners, " "let's " "go " "down, "
-  "\nlet's " "go " "down, " "come " "on " "down, "
-  "\nO " sin "ners, " "let's " "go " "down, "
+  "\nO " sin "ners, " "let’s " "go " "down, "
+  "\nlet’s " "go " "down, " "come " "on " "down, "
+  "\nO " sin "ners, " "let’s " "go " "down, "
   "\ndown " "to " "the " riv "er " "to " "pray.\n"
 
   "\nHm. Hum to the end" __
@@ -428,49 +568,49 @@ wordsMidi = \lyricmode {
 }
 
 wordsMidiSop = \lyricmode {
-  "O " sis "ters, " "let's " "go " "down, "
-  "\nlet's " "go " "down, " "come " "on " "down. " 
-  "\nO " sis "ters, " "let's " "go " "down, "
+  "O " sis "ters, " "let’s " "go " "down, "
+  "\nlet’s " "go " "down, " "come " "on " "down. " 
+  "\nO " sis "ters, " "let’s " "go " "down, "
   "\ndown " "to " "the " riv "er " "to " "pray. "
   "\nAs " "I " "went " "down " "to " "the " riv "er " "to " "pray, "
-  "\nstud" y "in' " a "bout " "that " "good " "ol' "  "way "
+  "\nstud" y "in’ " a "bout " "that " "good " "ol’ "  "way "
   "\nand " "who " "shall " "wear " "the " "robe " "and " "crown, "
   "\nGood " "Lord, " "show " "me " "the " "way.\n"
 
-  "\nO " broth "ers, " "let's " "go " "down, "
-  "\nlet's " "go " "down, " "come " "on " "down. "
-  "\nCome " "on " broth "ers, " "let's " "go " "down, "
+  "\nO " broth "ers, " "let’s " "go " "down, "
+  "\nlet’s " "go " "down, " "come " "on " "down. "
+  "\nCome " "on " broth "ers, " "let’s " "go " "down, "
   "\ndown " "to " "the " riv "er " "to " "pray. "
   "\nAs " "I " "went " "down " "to " "the " riv "er " "to " "pray, "
-  "\nstud" y "in' " a "bout " "that " "good " "ol' " "way "
+  "\nstud" y "in’ " a "bout " "that " "good " "ol’ " "way "
   "\nand " "who " "shall " "wear " "the " star "ry " "crown, " 
   "\nGood " "Lord, " "show " "me " "the " "way.\n"
 
-  "\nO " fath "ers, " "let's " "go " "down, "
-  "\nlet's " "go "  "down, " "come " "on " "down. "
-  "\nO " fath "ers, " "let's " "go " "down, "
+  "\nO " fath "ers, " "let’s " "go " "down, "
+  "\nlet’s " "go "  "down, " "come " "on " "down. "
+  "\nO " fath "ers, " "let’s " "go " "down, "
   "\ndown " "to " "the " riv "er " "to " "pray. "
   "\nAs " "I " "went " "down " "to " "the " riv "er " "to " "pray, "
-  "\nstud" y "in' " a "bout " "that " "good " "ol' " "way "
+  "\nstud" y "in’ " a "bout " "that " "good " "ol’ " "way "
   "\nand " "who " "shall " "wear " "the " star "ry " "crown, "
   "\nGood " "Lord, " "show " "me " "the " "way.\n"
 
-  "\nO " moth "ers, " "let's " "go " "down, "
+  "\nO " moth "ers, " "let’s " "go " "down, "
   "\ncome " "on " "down, "
-  "\ndon't" "cha " wan "na " "go " "down. "
-  "\nCome " "on " moth "ers, " "let's " "go " "down, "
+  "\ndon’t" "cha " wan "na " "go " "down. "
+  "\nCome " "on " moth "ers, " "let’s " "go " "down, "
   "\ndown " "to " "the " riv "er " "to " "pray. "
   "\nAs " "I " "went " "down " "to " "the " riv "er " "to " "pray, "
-  "\nstud" y "in' " a "bout " "that " "good " "ol' " "way "
+  "\nstud" y "in’ " a "bout " "that " "good " "ol’ " "way "
   "\nand " "who " "shall " "wear " "the " star "ry " "crown, "
   "\nGood " "Lord, " "show " "me " "the " "way.\n"
 
-  "\nO " sin "ners, " "let's " "go " "down, "
-  "\nlet's " "go " "down, " "come " "on " "down, "
-  "\nO " sin "ners, " "let's " "go " "down, "
+  "\nO " sin "ners, " "let’s " "go " "down, "
+  "\nlet’s " "go " "down, " "come " "on " "down, "
+  "\nO " sin "ners, " "let’s " "go " "down, "
   "\ndown " "to " "the " riv "er " "to " "pray. "
   "\nAs " "I " "went " "down " "to " "the " riv "er " "to " "pray, "
-  "\nstud" y "in' " a "bout " "that " "good " "ol' " "way "
+  "\nstud" y "in’ " a "bout " "that " "good " "ol’ " "way "
   "\nand " "who " "shall " "wear " "the " star "ry " "crown, "
   "\nGood " "Lord, " "show " "me " "the " "way."
 }
@@ -558,8 +698,17 @@ tenor = \relative {
 
 bass = \relative {
   \global
-  R1*29
-  c2 4 4 % 5c+++
+  R1*20
+  r4 c'4^\mp c bes % 5a+
+  a4 8 8 8 8 4
+  a4 r c8 8 8 8
+  c4 a c bes8(a) % 5b
+  a4 f f f
+  f4 r8 f a4 f
+  a4 c4 2 % 5c
+  bes8 4 f8 2
+  R1
+  c2 4 4
   f4 4 4 r % 6a
   f4 a, bes2
   bes8 4. f4 r
@@ -631,9 +780,9 @@ bass = \relative {
 pianoRH = \relative {
   \global
   r4 <c' g'> r <c f>
-  r4 <<{\voiceOne f g8 a g f} \new Voice {\voiceTwo c2.}>> \oneVoice
+  r4 <<{\vo f g8 a g f} \new Voice {\vt c2.}>> \ov
   r4 <c g'> r <c f>
-  r4 <<{f4 g8 a g f} \new Voice {\voiceTwo c2.}>> % 3b
+  r4 <<{f4 g8 a g f} \new Voice {\vt c2.}>> % 3b
   r4 <c f> r q
   r4 q r q
   r4 <bes f'> r q % 3c
@@ -667,15 +816,15 @@ pianoRH = \relative {
   r4 <c f> r q % 6b
   r4 <bes d g> r <bes f'>
   r4 <c f> r q
-  r4 <<{f4 g8 a g f} \new Voice {\voiceTwo c2.}>>
+  r4 <<{f4 g8 a g f} \new Voice {\vt c2.}>>
   r4 <c f> r q % 6c
   r4 q r <c g'>
-  r4 q r <<{g'8 f} \new Voice {\voiceTwo d4}>>
+  r4 q r <<{g'8 f} \new Voice {\vt d4}>>
   r4 <c f> r q
   r4 q r q % 7a
   r4 q r <c g'>
   r4 <bes f'> r <c f>
-  f4 <c g'> <<{a'8 bes a f} \new Voice {\voiceTwo r4 c}>>
+  f4 <c g'> <<{a'8 bes a f} \new Voice {\vt r4 c}>>
   r4 <c g'> r q % 7b
   r4 <c f> r q
   r4 q r <bes f'>
@@ -687,12 +836,12 @@ pianoRH = \relative {
   r4 d d e \key g \major % 8a
   r4 <d a'> r <d g>
   r4 <d g> r <d a'>
-  r4 <d e g> r <<{a'8 g} \new Voice {\voiceTwo e4}>>
+  r4 <d e g> r <<{a'8 g} \new Voice {\vt e4}>>
   r4 <d g> r q % 8b
   r4 q r q
   r4 q r <d a'>
   r4 <c g'> r <d g>
-  r4 <<{d4 r g} \new Voice {\voiceTwo g,8 a b4 e8(d)}>> % 8c
+  r4 <<{d4 r g} \new Voice {\vt g,8 a b4 e8(d)}>> % 8c
   r4 <d a'> r <d g>
   r4 q r q
   r4 q r <c g'>
@@ -704,7 +853,7 @@ pianoRH = \relative {
   R1 \key aes \major
   r4 <c ees aes> r q % 9c
   r4 q r <ees aes bes>
-  r4 <ees f aes> r <<{bes'8 aes} \new Voice {\voiceTwo f4}>>
+  r4 <ees f aes> r <<{bes'8 aes} \new Voice {\vt f4}>>
   r4 <ees aes> r <c ees aes> % 10a
   r4 q r <des ees aes>
   r4 <c ees aes> r <ees bes'>
@@ -784,12 +933,16 @@ pianoLH = \relative {
   <aes' aes'>2 aes2~
   aes1
   <aes ees'>1~ | q2 <aes ges'> ~ | <aes f'>1 ~ | <aes ees'> % 11b
-  q1~ | <aes f'>2 <aes g'>_~ <<aes1_\fermata \new Voice {\voiceOne f'2 ees\fermata}>>
+  q1~ | <aes f'>2 <aes g'>_~ <<aes1_\fermata \new Voice {\vo f'2 ees\fermata}>>
   \bar "|."
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "single"
+  \paper {
+    output-suffix = single
+  }
   \score {
     <<
       <<
@@ -798,23 +951,21 @@ pianoLH = \relative {
           \new Staff = women \with {
             instrumentName = #"Soprano/Alto"
             shortInstrumentName = #"SA"
-            midiInstrument = "choir aahs"
             printPartCombineTexts = ##f
           }
           <<
             \new Voice \RehearsalTrack
             \new Voice \TempoTrack
             \new Voice \partCombine \soprano \alto
-            \new NullVoice = alignerS \soprano
-            \new NullVoice = alignerA \alto
+            \new NullVoice \soprano
+            \addlyrics \with {alignAboveContext = women} \wordsSop
+            \new NullVoice \alto
             \addlyrics \words
-            \new Lyrics \with {alignAboveContext = women} \lyricsto alignerS \wordsSop
           >>
                                 % Joint tenor/bass staff
           \new Staff = men \with {
             instrumentName = #"Tenor/Bass"
             shortInstrumentName = #"TB"
-            midiInstrument = "choir aahs"
             printPartCombineTexts = ##f
           }
           <<
@@ -828,7 +979,6 @@ pianoLH = \relative {
         >>
         \new PianoStaff = piano <<
           \new Staff = pianorh \with {
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \new Voice \pianoRH
@@ -836,7 +986,6 @@ pianoLH = \relative {
           \new Dynamics \dynamicsPiano
           \new Staff = pianolh \with {
             printPartCombineTexts = ##f
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \clef "bass"
@@ -848,18 +997,37 @@ pianoLH = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "singlepage"
   \paper {
+    output-suffix = singlepage
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -877,23 +1045,21 @@ pianoLH = \relative {
           \new Staff = women \with {
             instrumentName = #"Soprano/Alto"
             shortInstrumentName = #"SA"
-            midiInstrument = "choir aahs"
             printPartCombineTexts = ##f
           }
           <<
             \new Voice \RehearsalTrack
             \new Voice \TempoTrack
             \new Voice \partCombine \soprano \alto
-            \new NullVoice = alignerS \soprano
-            \new NullVoice = alignerA \alto
+            \new NullVoice \soprano
+            \addlyrics \with {alignAboveContext = women} \wordsSop
+            \new NullVoice \alto
             \addlyrics \words
-            \new Lyrics \with {alignAboveContext = women} \lyricsto alignerS \wordsSop
           >>
                                 % Joint tenor/bass staff
           \new Staff = men \with {
             instrumentName = #"Tenor/Bass"
             shortInstrumentName = #"TB"
-            midiInstrument = "choir aahs"
             printPartCombineTexts = ##f
           }
           <<
@@ -907,7 +1073,6 @@ pianoLH = \relative {
         >>
         \new PianoStaff = piano <<
           \new Staff = pianorh \with {
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \new Voice \pianoRH
@@ -915,7 +1080,6 @@ pianoLH = \relative {
           \new Dynamics \dynamicsPiano
           \new Staff = pianolh \with {
             printPartCombineTexts = ##f
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \clef "bass"
@@ -927,17 +1091,601 @@ pianoLH = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-sep
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = Soprano
+            shortInstrumentName = S
+          }
+          <<
+            \new Voice \RehearsalTrack
+            \new Voice \TempoTrack
+            \new Voice \soprano
+            \addlyrics \wordsSopSep
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = Alto
+            shortInstrumentName = A
+          }
+          <<
+            \new Voice \alto
+            \addlyrics \words
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = Tenor
+            shortInstrumentName = T
+          }
+          <<
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics \wordsMenSep
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = Bass
+            shortInstrumentName = B
+          }
+          <<
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics \wordsMenSep
+          >>
+        >>
+        <<
+          \new ChordNames { \ChordTrack }
+%          \new FretBoards { \ChordTrack }
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+          }
+          <<
+            \new Voice \pianoRH
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff = pianolh \with {
+            printPartCombineTexts = ##f
+          }
+          <<
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-sop
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = Soprano
+            shortInstrumentName = S
+          }
+          <<
+            \new Voice \RehearsalTrack
+            \new Voice \TempoTrack
+            \new Voice \soprano
+            \addlyrics \wordsSopSep
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = Alto
+            shortInstrumentName = A
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAltoSep}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = Tenor
+            shortInstrumentName = T
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsMenSep}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = Bass
+            shortInstrumentName = B
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics {\tiny \wordsMenSep}
+          >>
+        >>
+        <<
+%          \new ChordNames { \ChordTrack }
+%          \new FretBoards { \ChordTrack }
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+          >>
+          \new Dynamics \teeny \dynamicsPiano
+          \new Staff = pianolh \with {
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-alto
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = Soprano
+            shortInstrumentName = S
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \RehearsalTrack
+            \new Voice \TempoTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSopSep}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = Alto
+            shortInstrumentName = A
+          }
+          <<
+            \new Voice \alto
+            \addlyrics \wordsAltoSep
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = Tenor
+            shortInstrumentName = T
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsMenSep}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = Bass
+            shortInstrumentName = B
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics {\tiny \wordsMenSep}
+          >>
+        >>
+        <<
+%          \new ChordNames { \ChordTrack }
+%          \new FretBoards { \ChordTrack }
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+          >>
+          \new Dynamics \teeny \dynamicsPiano
+          \new Staff = pianolh \with {
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-tenor
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = Soprano
+            shortInstrumentName = S
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \RehearsalTrack
+            \new Voice \TempoTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSopSep}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = Alto
+            shortInstrumentName = A
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAltoSep}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = Tenor
+            shortInstrumentName = T
+          }
+          <<
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics \wordsMenSep
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = Bass
+            shortInstrumentName = B
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics {\tiny \wordsMenSep}
+          >>
+        >>
+        <<
+%          \new ChordNames { \ChordTrack }
+%          \new FretBoards { \ChordTrack }
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+          >>
+          \new Dynamics \teeny \dynamicsPiano
+          \new Staff = pianolh \with {
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-bass
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Soprano staff
+          \new Staff = soprano \with {
+            instrumentName = Soprano
+            shortInstrumentName = S
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \RehearsalTrack
+            \new Voice \TempoTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSopSep}
+          >>
+                                % Alto staff
+          \new Staff = alto \with {
+            instrumentName = Alto
+            shortInstrumentName = A
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAltoSep}
+          >>
+                                % Tenor staff
+          \new Staff = tenor \with {
+            instrumentName = Tenor
+            shortInstrumentName = T
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsMenSep}
+          >>
+                                % Bass staff
+          \new Staff = bass \with {
+            instrumentName = Bass
+            shortInstrumentName = B
+          }
+          <<
+            \clef "bass"
+            \new Voice \bass
+            \addlyrics \wordsMenSep
+          >>
+        >>
+        <<
+%          \new ChordNames { \ChordTrack }
+%          \new FretBoards { \ChordTrack }
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRH
+          >>
+          \new Dynamics \teeny \dynamicsPiano
+          \new Staff = pianolh \with {
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
 \book {
-  \bookOutputSuffix "midi-sop"
+  \paper {
+    output-suffix = midi-sop
+  }
   \score {
 %   \articulate
     <<
@@ -992,12 +1740,23 @@ pianoLH = \relative {
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
 \book {
-  \bookOutputSuffix "midi"
+  \paper {
+    output-suffix = midi
+  }
   \score {
 %   \articulate
     <<
@@ -1052,6 +1811,15 @@ pianoLH = \relative {
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
