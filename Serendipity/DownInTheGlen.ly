@@ -1,5 +1,6 @@
-\version "2.22.0"
+\version "2.25.16"
 
+\include "kjp.ly"
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
 
@@ -20,7 +21,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 %  piece       opus
 
   composer    = "Harry Gordon"
-%  arranger    = "arranger"
+  arranger    = "Arr. Vere Harker"
 %  opus        = "opus"
 
   poet        = "Tommie Connor"
@@ -32,8 +33,6 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   tagline   = ##f
   copyright   = \today
 }
-
-% #(set-global-staff-size 16)
 
 global = {
   \key ees \major
@@ -77,21 +76,21 @@ TempoTrack = {
 
 RehearsalTrack = {
 %  \set Score.currentBarNumber = #5
-  \mark \markup { \box "1a" } s4 s2.*4
-  \mark \markup { \box "1b" }    s2.*4
-  \mark \markup { \box "2a" }    s2.*3 s2
-  \mark \markup { \box "2b" } s4
+  \textMark \markup { \box "1a" } s4 s2.*4
+  \textMark \markup { \box "1b" }    s2.*4
+  \textMark \markup { \box "2a" }    s2.*3 s2
+  \textMark \markup { \box "2b" } s4
   \repeat volta 2 {
     s2.*4
-    \mark \markup { \box "3a" }    s2.*5
-    \mark \markup { \box "3b" }    s2.*5
-    \mark \markup { \box "4a" }    s2.*6
-    \mark \markup { \box "4b" }    s2.*5
-    \mark \markup { \box "5a" }    s2.*2
+    \textMark \markup { \box "3a" }    s2.*5
+    \textMark \markup { \box "3b" }    s2.*5
+    \textMark \markup { \box "4a" }    s2.*6
+    \textMark \markup { \box "4b" }    s2.*5
+    \textMark \markup { \box "5a" }    s2.*2
     \alternative {
       {
         s2.*3
-        \mark \markup { \box "5b" }    s2.*2
+        \textMark \markup { \box "5b" }    s2.*2
       }
       {
         s2.*4 s2
@@ -163,9 +162,9 @@ sopranoI = \relative {
 wordsSopI = \lyricmode {
   Twi -- light fall -- ing in the West,
   love is call -- ing,
-  "\"Shep" -- herd come home to "rest.\""
+  “Shep -- herd come home to rest.”
   At hush of e -- ven -- tide
-  o'er the hills be -- yond the Clyde
+  o’er the hills be -- yond the Clyde
   I go roam -- ing to my Hea -- ven
   Down in the Glen.
   Though hum -- ble it may be,
@@ -173,10 +172,10 @@ wordsSopI = \lyricmode {
   In that lone -- ly, lit -- tle hea -- ven,
   Down in the Glen.
   A -- cross the moon -- lit hea -- ther as I roam,
-  'Tis soon we'll be to -- ge -- ther
-  we call "\"home\""
+  ’Tis soon we’ll be to -- ge -- ther
+  we call “home”
   The sheep are in the fold
-  And there's peace worth more than gold,
+  And there’s peace worth more than gold,
   For a shep -- herd in that hea -- ven in the Glen.
   At
 
@@ -186,9 +185,9 @@ wordsSopI = \lyricmode {
 wordsSopISingle = \lyricmode {
   Twi -- light fall -- ing in the West,
   love is call -- ing,
-  "\"Shep" -- herd come home to "rest.\""
+  “Shep -- herd come home to rest.”
   At hush of e -- ven -- tide
-  o'er the hills be -- yond the Clyde
+  o’er the hills be -- yond the Clyde
   I go roam -- ing to my Hea -- ven
   Down in the Glen.
   Though hum -- ble it may be,
@@ -196,14 +195,14 @@ wordsSopISingle = \lyricmode {
   In that lone -- ly, lit -- tle hea -- ven,
   Down in the Glen.
   A -- cross the moon -- lit hea -- ther as I roam,
-  'Tis soon we'll be to -- ge -- ther
-  we call "\"home\""
+  ’Tis soon we’ll be to -- ge -- ther
+  we call “home”
   The sheep are in the fold
-  And there's peace worth more than gold,
+  And there’s peace worth more than gold,
   For a shep -- herd in that hea -- ven in the Glen.
 
   At hush of e -- ven -- tide
-  o'er the hills be -- yond the Clyde
+  o’er the hills be -- yond the Clyde
   I go roam -- ing to my Hea -- ven
   Down in the Glen.
   Though hum -- ble it may be,
@@ -211,19 +210,19 @@ wordsSopISingle = \lyricmode {
   In that lone -- ly, lit -- tle hea -- ven,
   Down in the Glen.
   A -- cross the moon -- lit hea -- ther as I roam,
-  'Tis soon we'll be to -- ge -- ther
-  we call "\"home\""
+  ’Tis soon we’ll be to -- ge -- ther
+  we call “home”
   The sheep are in the fold
-  And there's peace worth more than gold,
+  And there’s peace worth more than gold,
   a shep -- herd in that hea -- ven down in the Glen.
 }
 
 wordsSopIMidi = \lyricmode {
   "Twi" "light " fall "ing " "in " "the " "West, "
   "\nlove " "is " call "ing, "
-  "\n\"Shep" "herd " "come " "home " "to " "rest.\" "
+  "\n“Shep" "herd " "come " "home " "to " "rest.” "
   "\nAt " "hush " "of " e ven "tide "
-  "\no'er " "the " "hills " be "yond " "the " "Clyde "
+  "\no’er " "the " "hills " be "yond " "the " "Clyde "
   "\nI " "go " roam "ing " "to " "my " Hea "ven "
   "\nDown " "in " "the " "Glen. "
   "\nThough " hum "ble " "it " "may " "be, "
@@ -231,14 +230,14 @@ wordsSopIMidi = \lyricmode {
   "\nIn " "that " lone "ly, " lit "tle " hea "ven, "
   "\nDown " "in " "the " "Glen. "
   "\nA" "cross " "the " moon "lit " hea "ther " "as " "I " "roam, "
-  "\n'Tis " "soon " "we'll " "be " to ge "ther "
-  "\nwe " "call " "\"home\" "
+  "\n’Tis " "soon " "we’ll " "be " to ge "ther "
+  "\nwe " "call " "“home” "
   "\nThe " "sheep " "are " "in " "the " "fold "
-  "\nAnd " "there's " "peace " "worth " "more " "than " "gold, "
+  "\nAnd " "there’s " "peace " "worth " "more " "than " "gold, "
   "\nFor " "a " shep "herd " "in " "that " hea "ven " "in " "the " "Glen. "
 
   "\nAt " "hush " "of " e ven "tide "
-  "\no'er " "the " "hills " be "yond " "the " "Clyde "
+  "\no’er " "the " "hills " be "yond " "the " "Clyde "
   "\nI " "go " roam "ing " "to " "my " Hea "ven "
   "\nDown " "in " "the " "Glen. "
   "\nThough " hum "ble " "it " "may " "be, "
@@ -246,10 +245,10 @@ wordsSopIMidi = \lyricmode {
   "\nIn " "that " lone "ly, " lit "tle " hea "ven, "
   "\nDown " "in " "the " "Glen. "
   "\nA" "cross " "the " moon "lit " hea "ther " "as " "I " "roam, "
-  "\n'Tis " "soon " "we'll " "be " to ge "ther "
-  "\nwe " "call " "\"home\" "
+  "\n’Tis " "soon " "we’ll " "be " to ge "ther "
+  "\nwe " "call " "“home” "
   "\nThe " "sheep " "are " "in " "the " "fold "
-  "\nAnd " "there's " "peace " "worth " "more " "than " "gold, "
+  "\nAnd " "there’s " "peace " "worth " "more " "than " "gold, "
   "\na " shep "herd " "in " "that " hea "ven " "down " "in " "the " "Glen. "
 }
 
@@ -317,9 +316,9 @@ wordsSopII = \lyricmode {
   Twi -- light is soft -- ly fall -- ing
   as the sun sinks in the West,
   The one I love is call -- ing,
-  "\"Shep" -- herd to "rest.\""
+  “Shep -- herd to rest.”
   At hush of e -- ven -- tide
-  o'er the hills be -- yond the Clyde
+  o’er the hills be -- yond the Clyde
   I go roam -- ing to my Hea -- ven
   Down in the Glen.
   Though hum -- ble it may be,
@@ -328,10 +327,10 @@ wordsSopII = \lyricmode {
   Down in the Glen.
   A -- cross the moon -- lit hea -- ther
   My las -- sie calls as I roam,
-  'Tis soon we'll be to -- ge -- ther
-  we call "\"home\""
+  ’Tis soon we’ll be to -- ge -- ther
+  we call “home”
   The sheep are in the fold
-  And there's peace worth more than gold,
+  And there’s peace worth more than gold,
   For a shep -- herd in that hea -- ven in the Glen.
   At
 
@@ -342,9 +341,9 @@ wordsSopIISingle = \lyricmode {
   Twi -- light is soft -- ly fall -- ing
   as the sun sinks in the West,
   The one I love is call -- ing,
-  "\"Shep" -- herd to "rest.\""
+  “Shep -- herd to rest.”
   At hush of e -- ven -- tide
-  o'er the hills be -- yond the Clyde
+  o’er the hills be -- yond the Clyde
   I go roam -- ing to my Hea -- ven
   Down in the Glen.
   Though hum -- ble it may be,
@@ -353,14 +352,14 @@ wordsSopIISingle = \lyricmode {
   Down in the Glen.
   A -- cross the moon -- lit hea -- ther
   My las -- sie calls as I roam,
-  'Tis soon we'll be to -- ge -- ther
-  we call "\"home\""
+  ’Tis soon we’ll be to -- ge -- ther
+  we call “home”
   The sheep are in the fold
-  And there's peace worth more than gold,
+  And there’s peace worth more than gold,
   For a shep -- herd in that hea -- ven in the Glen.
 
   At hush of e -- ven -- tide
-  o'er the hills be -- yond the Clyde
+  o’er the hills be -- yond the Clyde
   I go roam -- ing to my Hea -- ven
   Down in the Glen.
   Though hum -- ble it may be,
@@ -369,10 +368,10 @@ wordsSopIISingle = \lyricmode {
   Down in the Glen.
   A -- cross the moon -- lit hea -- ther
   My las -- sie calls as I roam,
-  'Tis soon we'll be to -- ge -- ther
-  we call "\"home\""
+  ’Tis soon we’ll be to -- ge -- ther
+  we call “home”
   The sheep are in the fold
-  And there's peace worth more than gold,
+  And there’s peace worth more than gold,
   for a shep -- herd in that hea -- ven down in the Glen.
 }
 
@@ -380,9 +379,9 @@ wordsSopIIMidi = \lyricmode {
   "Twi" "light " "is " soft "ly " fall "ing "
   "\nas " "the " "sun " "sinks " "in " "the " "West, "
   "\nThe " "one " "I " "love " "is " call "ing, "
-  "\n\"Shep" "herd " "to " "rest.\" "
+  "\n“Shep" "herd " "to " "rest.” "
   "\nAt " "hush " "of " e ven "tide "
-  "\no'er " "the " "hills " be "yond " "the " "Clyde "
+  "\no’er " "the " "hills " be "yond " "the " "Clyde "
   "\nI " "go " roam "ing " "to " "my " Hea "ven "
   "\nDown " "in " "the " "Glen. "
   "\nThough " hum "ble " "it " "may " "be, "
@@ -391,14 +390,14 @@ wordsSopIIMidi = \lyricmode {
   "\nDown " "in " "the " "Glen. "
   "\nA" "cross " "the " moon "lit " hea "ther "
   "\nMy " las "sie " "calls " "as " "I " "roam, "
-  "\n'Tis " "soon " "we'll " "be " to ge "ther "
-  "\nwe " "call " "\"home\" "
+  "\n’Tis " "soon " "we’ll " "be " to ge "ther "
+  "\nwe " "call " "“home” "
   "\nThe " "sheep " "are " "in " "the " "fold "
-  "\nAnd " "there's " "peace " "worth " "more " "than " "gold, "
+  "\nAnd " "there’s " "peace " "worth " "more " "than " "gold, "
   "\nFor " "a " shep "herd " "in " "that " hea "ven " "in " "the " "Glen. "
 
   "\nAt " "hush " "of " e ven "tide "
-  "\no'er " "the " "hills " be "yond " "the " "Clyde "
+  "\no’er " "the " "hills " be "yond " "the " "Clyde "
   "\nI " "go " roam "ing " "to " "my " Hea "ven "
   "\nDown " "in " "the " "Glen. "
   "\nThough " hum "ble " "it " "may " "be, "
@@ -407,10 +406,10 @@ wordsSopIIMidi = \lyricmode {
   "\nDown " "in " "the " "Glen. "
   "\nA" "cross " "the " moon "lit " hea "ther "
   "\nMy " las "sie " "calls " "as " "I " "roam, "
-  "\n'Tis " "soon " "we'll " "be " to ge "ther "
-  "\nwe " "call " "\"home\" "
+  "\n’Tis " "soon " "we’ll " "be " to ge "ther "
+  "\nwe " "call " "“home” "
   "\nThe " "sheep " "are " "in " "the " "fold "
-  "\nAnd " "there's " "peace " "worth " "more " "than " "gold, "
+  "\nAnd " "there’s " "peace " "worth " "more " "than " "gold, "
   "\nfor " "a " shep "herd " "in " "that " hea "ven " "down " "in " "the " "Glen. "
 }
 
@@ -477,9 +476,9 @@ alto = \relative {
 wordsAlto = \lyricmode {
   Twi -- light fall -- ing in the West,
   love is call -- ing, _
-  "\"Shep" -- herd to "rest.\"" __
+  “Shep -- herd to rest.” __
   At hush of e -- ven -- tide __
-  o'er the hills be -- yond the Clyde
+  o’er the hills be -- yond the Clyde
   I go roam -- ing to my Hea -- ven
   Down in the Glen.
   Though hum -- ble it may be, __
@@ -487,9 +486,9 @@ wordsAlto = \lyricmode {
   In that lone -- ly, lit -- tle hea -- ven,
   Down in the Glen.
   as I roam,
-  In that hea -- ven we call "\"home\""
+  In that hea -- ven we call “home”
   The sheep are in the fold
-  And there's peace worth more than gold,
+  And there’s peace worth more than gold,
   For a shep -- herd in that hea -- ven down in the Glen.
   At
 
@@ -499,9 +498,9 @@ wordsAlto = \lyricmode {
 wordsAltoSingle = \lyricmode {
   Twi -- light fall -- ing in the West,
   love is call -- ing, _
-  "\"Shep" -- herd to "rest.\"" __
+  “Shep -- herd to rest.” __
   At hush of e -- ven -- tide __
-  o'er the hills be -- yond the Clyde
+  o’er the hills be -- yond the Clyde
   I go roam -- ing to my Hea -- ven
   Down in the Glen.
   Though hum -- ble it may be, __
@@ -509,13 +508,13 @@ wordsAltoSingle = \lyricmode {
   In that lone -- ly, lit -- tle hea -- ven,
   Down in the Glen.
   as I roam,
-  In that hea -- ven we call "\"home\""
+  In that hea -- ven we call “home”
   The sheep are in the fold
-  And there's peace worth more than gold,
+  And there’s peace worth more than gold,
   For a shep -- herd in that hea -- ven down in the Glen.
 
   At hush of e -- ven -- tide __
-  o'er the hills be -- yond the Clyde
+  o’er the hills be -- yond the Clyde
   I go roam -- ing to my Hea -- ven
   Down in the Glen.
   Though hum -- ble it may be, __
@@ -523,18 +522,18 @@ wordsAltoSingle = \lyricmode {
   In that lone -- ly, lit -- tle hea -- ven,
   Down in the Glen.
   as I roam,
-  In that hea -- ven we call "\"home\""
+  In that hea -- ven we call “home”
   The sheep are in the fold
-  And there's peace worth more than gold,
+  And there’s peace worth more than gold,
   a shep -- herd in that hea -- ven down in the Glen.
 }
 
 wordsAltoMidi = \lyricmode {
   "Twi" "light " fall "ing " "in " "the " "West, "
   "\nlove " "is " call "ing, " ""
-  "\n\"Shep" "herd " "to " "rest.\" " 
+  "\n“Shep" "herd " "to " "rest.” " 
   "\nAt " "hush " "of " e ven "tide " 
-  "\no'er " "the " "hills " be "yond " "the " "Clyde "
+  "\no’er " "the " "hills " be "yond " "the " "Clyde "
   "\nI " "go " roam "ing " "to " "my " Hea "ven "
   "\nDown " "in " "the " "Glen. "
   "\nThough " hum "ble " "it " "may " "be, " 
@@ -542,13 +541,13 @@ wordsAltoMidi = \lyricmode {
   "\nIn " "that " lone "ly, " lit "tle " hea "ven, "
   "\nDown " "in " "the " "Glen. "
   "\nas " "I " "roam, "
-  "\nIn " "that " hea "ven " "we " "call " "\"home\" "
+  "\nIn " "that " hea "ven " "we " "call " "“home” "
   "\nThe " "sheep " "are " "in " "the " "fold "
-  "\nAnd " "there's " "peace " "worth " "more " "than " "gold, "
+  "\nAnd " "there’s " "peace " "worth " "more " "than " "gold, "
   "\nFor " "a " shep "herd " "in " "that " hea "ven " "down " "in " "the " "Glen. "
 
   "\nAt " "hush " "of " e ven "tide " 
-  "\no'er " "the " "hills " be "yond " "the " "Clyde "
+  "\no’er " "the " "hills " be "yond " "the " "Clyde "
   "\nI " "go " roam "ing " "to " "my " Hea "ven "
   "\nDown " "in " "the " "Glen. "
   "\nThough " hum "ble " "it " "may " "be, " 
@@ -556,9 +555,9 @@ wordsAltoMidi = \lyricmode {
   "\nIn " "that " lone "ly, " lit "tle " hea "ven, "
   "\nDown " "in " "the " "Glen. "
   "\nas " "I " "roam, "
-  "\nIn " "that " hea "ven " "we " "call " "\"home\" "
+  "\nIn " "that " hea "ven " "we " "call " "“home” "
   "\nThe " "sheep " "are " "in " "the " "fold "
-  "\nAnd " "there's " "peace " "worth " "more " "than " "gold, "
+  "\nAnd " "there’s " "peace " "worth " "more " "than " "gold, "
   "\na " shep "herd " "in " "that " hea "ven " "down " "in " "the " "Glen. "
 }
 
@@ -584,39 +583,39 @@ pianoRHone = \relative {
     bes2 c8( g
     aes4 4) bes8( f % 3a
     g4 2)
-    \oneVoice <c, f>4 <c ees> <d f>
+    \ov <c, f>4 <c ees> <d f>
     <bes ees>2 <bes d bes'>4
-    \voiceOne ees4. f8 g aes
+    \vo ees4. f8 g aes
     <des, bes'>2 ees8 ees' % 3b
     c4. bes8 aes c
     bes2 c8(g
     aes4 4) bes8( f
     g4 2)
-    \oneVoice <c, f>4 <c ees> <d f> % 4a
+    \ov <c, f>4 <c ees> <d f> % 4a
     <bes ees>2 ees4
-    \voiceOne ees'4. d8 ees c
+    \vo ees'4. d8 ees c
     bes4 4 g
     aes8 g aes4 bes8 f
-    \oneVoice <ees g>2 ees4
-    \voiceOne ees'4. d8 ees c % 4b
+    \ov <ees g>2 ees4
+    \vo ees'4. d8 ees c % 4b
     b4(d^\markup\italic ten. ) d,8 8
     e8 g a4 b
-    \oneVoice <b, d g>2 <d f bes>4^\markup\italic ten.
-    \voiceOne ees4. f8 g aes
+    \ov <b, d g>2 <d f bes>4^\markup\italic ten.
+    \vo ees4. f8 g aes
     <des, bes'>2 ees8 ees' % 5a
     c4. bes8 aes c
     \alternative {
       {
         bes2 c8(g
         aes4 4) bes8( f
-        \oneVoice <ees g>4\!) <ees g ees'>2\!^\markup\italic ten.
+        \ov <ees g>4\!) <ees g ees'>2\!^\markup\italic ten.
         <c f>4 <c ees> <d f> % 5b
         <bes ees>2 <bes d bes'>4
       }
       {
-        \voiceOne bes'2 c8(g
+        \vo bes'2 c8(g
         aes4) 4 bes8 f
-        \oneVoice <ees g>4^\< <ees g ees'>2\!^\markup\italic ten.
+        \ov <ees g>4^\< <ees g ees'>2\!^\markup\italic ten.
         <f c' ees f>4 <ees aes c ees> <f aes d f>
         <ees g bes ees>2
       }
@@ -728,7 +727,7 @@ dynamicsPiano = {
 }
 
 pianoLHone = \relative {
-  \global \oneVoice
+  \global \ov
   <c bes'>4
   <f c'>2 <bes, aes'>4
   <ees bes'>2.
@@ -741,18 +740,18 @@ pianoLHone = \relative {
   <aes ees'>2 <aes' bes>4 % 2a
   bes2 s4
   c4 bes a
-  \oneVoice aes2 \bar "||" <bes, aes'>4
+  \ov aes2 \bar "||" <bes, aes'>4
   \repeat volta 2 {
     ees,4(<ees' g>) r
-    \voiceOne aes4(g2)
-    \oneVoice aes,4 <aes' c> <bes, aes'>
+    \vo aes4(g2)
+    \ov aes,4 <aes' c> <bes, aes'>
     <g' bes>2 <c, bes'>4
     <f c'>2 <bes, aes'>4 % 3a
     <ees bes'>2.
     aes4 <f aes> <bes, aes'>
     <ees g>4(ees,) <bes' aes'>
     ees,4(<ees' g>) r
-    \voiceOne aes4(g2) \oneVoice % 3b
+    \vo aes4(g2) \ov % 3b
     aes,4 <aes' c> <bes, aes'>
     <g' bes>2 <c, bes'>4
     <f c'>2 <bes, aes'>4 <ees bes'>2.
@@ -767,8 +766,8 @@ pianoLHone = \relative {
     <a, g'>2 <d fis>4
     g4(g,) <bes aes'>^\markup\italic ten.
     ees,4(<ees' g>) r
-    \voiceOne aes4(g) r % 5a
-    \oneVoice aes,4 <aes' c> <bes, aes'>
+    \vo aes4(g) r % 5a
+    \ov aes,4 <aes' c> <bes, aes'>
     \alternative {
       {
         <g' bes>2 <c, es'>4
@@ -816,8 +815,12 @@ pianoLHtwo = \relative {
   \bar "|."
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "repeat"
+  \paper {
+    output-suffix = repeat
+  }
   \score {
     <<
       <<
@@ -878,26 +881,38 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "single"
-%  \paper {
-%    top-margin = 0
-%    left-margin = 7
-%    right-margin = 1
-%    paper-width = 190\mm
-%    page-breaking = #ly:one-page-breaking
-%    system-system-spacing.basic-distance = #22
-%    system-separator-markup = \slashSeparator
-%  }
+  \paper {
+    output-suffix = single
+  }
   \score {
    \unfoldRepeats
 %   \articulate
@@ -960,18 +975,37 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "singlepage"
   \paper {
+    output-suffix = singlepage
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -1042,17 +1076,351 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = "singlepage-sop1"
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+   \unfoldRepeats
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % sopranoI staff
+          \new Staff = "soprano1" \with {
+            instrumentName = #"Soprano I"
+            shortInstrumentName = #"SI"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \sopranoI
+            \addlyrics \wordsSopISingle
+          >>
+                                % sopranoII staff
+          \new Staff = "soprano2" \with {
+            instrumentName = #"Soprano II"
+            shortInstrumentName = #"SII"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \sopranoII
+            \addlyrics {\tiny \wordsSopIISingle}
+          >>
+                                % alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAltoSingle}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            printPartCombineTexts = ##f
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \partCombine \pianoRHone \pianoRHtwo
+          >>
+          \new Dynamics \teeny \dynamicsPiano
+          \new Staff = pianolh \with {
+            printPartCombineTexts = ##f
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \partCombine \pianoLHone \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = "singlepage-sop2"
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+   \unfoldRepeats
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % sopranoI staff
+          \new Staff = "soprano1" \with {
+            instrumentName = #"Soprano I"
+            shortInstrumentName = #"SI"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \sopranoI
+            \addlyrics {\tiny \wordsSopISingle}
+          >>
+                                % sopranoII staff
+          \new Staff = "soprano2" \with {
+            instrumentName = #"Soprano II"
+            shortInstrumentName = #"SII"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Voice \sopranoII
+            \addlyrics \wordsSopIISingle
+          >>
+                                % alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAltoSingle}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            printPartCombineTexts = ##f
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \partCombine \pianoRHone \pianoRHtwo
+          >>
+          \new Dynamics \teeny \dynamicsPiano
+          \new Staff = pianolh \with {
+            printPartCombineTexts = ##f
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \partCombine \pianoLHone \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-alto
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #22
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+   \unfoldRepeats
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % sopranoI staff
+          \new Staff = "soprano1" \with {
+            instrumentName = #"Soprano I"
+            shortInstrumentName = #"SI"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \sopranoI
+            \addlyrics {\tiny \wordsSopISingle}
+          >>
+                                % sopranoII staff
+          \new Staff = "soprano2" \with {
+            instrumentName = #"Soprano II"
+            shortInstrumentName = #"SII"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \sopranoII
+            \addlyrics {\tiny \wordsSopIISingle}
+          >>
+                                % alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Voice \alto
+            \addlyrics \wordsAltoSingle
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            printPartCombineTexts = ##f
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \partCombine \pianoRHone \pianoRHtwo
+          >>
+          \new Dynamics \teeny \dynamicsPiano
+          \new Staff = pianolh \with {
+            printPartCombineTexts = ##f
+            midiInstrument = "acoustic grand piano"
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \partCombine \pianoLHone \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
 \book {
-  \bookOutputSuffix "midi-sop1"
+  \paper {
+    output-suffix = "midi-sop1"
+  }
   \score {
    \unfoldRepeats
 %   \articulate
@@ -1090,31 +1458,36 @@ pianoLHtwo = \relative {
           >>
         >>
         \new PianoStaff = piano <<
-          \new Staff = pianorh \with {
-            printPartCombineTexts = ##f
+          \new Staff = piano \with {
             midiInstrument = "acoustic grand piano"
           }
           <<
-            \new Voice \partCombine \pianoRHone \pianoRHtwo
-          >>
-          \new Dynamics \dynamicsPiano
-          \new Staff = pianolh \with {
-            printPartCombineTexts = ##f
-            midiInstrument = "acoustic grand piano"
-          }
-          <<
-            \clef "bass"
-            \new Voice \partCombine \pianoLHone \pianoLHtwo
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+            \new Dynamics \dynamicsPiano
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
           >>
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
 \book {
-  \bookOutputSuffix "midi-sop2"
+  \paper {
+    output-suffix = "midi-sop2"
+  }
   \score {
    \unfoldRepeats
 %   \articulate
@@ -1152,31 +1525,36 @@ pianoLHtwo = \relative {
           >>
         >>
         \new PianoStaff = piano <<
-          \new Staff = pianorh \with {
-            printPartCombineTexts = ##f
+          \new Staff = piano \with {
             midiInstrument = "acoustic grand piano"
           }
           <<
-            \new Voice \partCombine \pianoRHone \pianoRHtwo
-          >>
-          \new Dynamics \dynamicsPiano
-          \new Staff = pianolh \with {
-            printPartCombineTexts = ##f
-            midiInstrument = "acoustic grand piano"
-          }
-          <<
-            \clef "bass"
-            \new Voice \partCombine \pianoLHone \pianoLHtwo
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+            \new Dynamics \dynamicsPiano
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
           >>
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
 \book {
-  \bookOutputSuffix "midi-alto"
+  \paper {
+    output-suffix = midi-alto
+  }
   \score {
    \unfoldRepeats
 %   \articulate
@@ -1214,25 +1592,28 @@ pianoLHtwo = \relative {
           >>
         >>
         \new PianoStaff = piano <<
-          \new Staff = pianorh \with {
-            printPartCombineTexts = ##f
+          \new Staff = piano \with {
             midiInstrument = "acoustic grand piano"
           }
           <<
-            \new Voice \partCombine \pianoRHone \pianoRHtwo
-          >>
-          \new Dynamics \dynamicsPiano
-          \new Staff = pianolh \with {
-            printPartCombineTexts = ##f
-            midiInstrument = "acoustic grand piano"
-          }
-          <<
-            \clef "bass"
-            \new Voice \partCombine \pianoLHone \pianoLHtwo
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+            \new Dynamics \dynamicsPiano
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
           >>
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
