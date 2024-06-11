@@ -1,5 +1,6 @@
-\version "2.25.0"
+\version "2.25.16"
 
+\include "kjp.ly"
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
 
@@ -169,25 +170,25 @@ words = \lyricmode {
   I know a dark se -- clud -- ed place,
   A place where no one knows your face,
   A glass of wine, a fast em -- brace,
-  It's called Her -- nan -- do's Hide -- a -- way!
+  It’s called Her -- nan -- do’s Hide -- a -- way!
   O -- lay!
   All you see are sil -- hou -- ettes,
   And all you hear are cas -- ta -- nets,
   And no one cares how late it gets,
-  Not at Her -- nan -- do's Hide -- a -- way!
+  Not at Her -- nan -- do’s Hide -- a -- way!
   O -- lay!
 
   \repeat volta 2 {
     At the Gol -- den Fin -- ger -- bowl
     or an -- y place you go,
-    You will meet your Un -- cle Max and ev -- 'ry -- one you know.
-    But if you go to the spot that I am think -- in' of,
+    You will meet your Un -- cle Max and ev -- ’ry -- one you know.
+    But if you go to the spot that I am think -- in’ of,
     You will be free to gaze at me and talk of love!
     
     Just knock three times and whis -- per low,
     That you and I were met by Joe,
     Then strike a match and you will know,
-    You're in Her -- nan -- do's Hide -- a --
+    You’re in Her -- nan -- do’s Hide -- a --
     \alternative {
       { way! O -- lay! }
       { way! O -- lay!! }
@@ -199,36 +200,36 @@ wordsMidi = \lyricmode {
   "I " "know " "a " "dark " se clud "ed " "place, "
   "\nA " "place " "where " "no " "one " "knows " "your " "face, "
   "\nA " "glass " "of " "wine, " "a " "fast " em "brace, "
-  "\nIt's " "called " Her nan "do's " Hide a "way! "
+  "\nIt’s " "called " Her nan "do’s " Hide a "way! "
   "\nO" "lay! "
   "\nAll " "you " "see " "are " sil hou "ettes, "
   "\nAnd " "all " "you " "hear " "are " cas ta "nets, "
   "\nAnd " "no " "one " "cares " "how " "late " "it " "gets, "
-  "\nNot " "at " Her nan "do's " Hide a "way! "
+  "\nNot " "at " Her nan "do’s " Hide a "way! "
   "\nO" "lay! "
 
   "\nAt " "the " Gol "den " Fin ger "bowl "
   "\nor " an "y " "place " "you " "go, "
-  "\nYou " "will " "meet " "your " Un "cle " "Max " "and " ev 'ry "one " "you " "know. "
-  "\nBut " "if " "you " "go " "to " "the " "spot " "that " "I " "am " think "in' " "of, "
+  "\nYou " "will " "meet " "your " Un "cle " "Max " "and " ev ’ry "one " "you " "know. "
+  "\nBut " "if " "you " "go " "to " "the " "spot " "that " "I " "am " think "in’ " "of, "
   "\nYou " "will " "be " "free " "to " "gaze " "at " "me " "and " "talk " "of " "love! "
 
   "\nJust " "knock " "three " "times " "and " whis "per " "low, "
   "\nThat " "you " "and " "I " "were " "met " "by " "Joe, "
   "\nThen " "strike " "a " "match " "and " "you " "will " "know, "
-  "\nYou're " "in " Her nan "do's " Hide a "way! "
+  "\nYou’re " "in " Her nan "do’s " Hide a "way! "
   "\nO" "lay! "
 
   "\nAt " "the " Gol "den " Fin ger "bowl "
   "\nor " an "y " "place " "you " "go, "
-  "\nYou " "will " "meet " "your " Un "cle " "Max " "and " ev 'ry "one " "you " "know. "
-  "\nBut " "if " "you " "go " "to " "the " "spot " "that " "I " "am " think "in' " "of, "
+  "\nYou " "will " "meet " "your " Un "cle " "Max " "and " ev ’ry "one " "you " "know. "
+  "\nBut " "if " "you " "go " "to " "the " "spot " "that " "I " "am " think "in’ " "of, "
   "\nYou " "will " "be " "free " "to " "gaze " "at " "me " "and " "talk " "of " "love! "
 
   "\nJust " "knock " "three " "times " "and " whis "per " "low, "
   "\nThat " "you " "and " "I " "were " "met " "by " "Joe, "
   "\nThen " "strike " "a " "match " "and " "you " "will " "know, "
-  "\nYou're " "in " Her nan "do's " Hide a "way! "
+  "\nYou’re " "in " Her nan "do’s " Hide a "way! "
   "\nO" "lay! "
 }
 
@@ -258,7 +259,7 @@ pianoRH = \relative {
 
 pianoRHone = \relative {
   \global
-  \voiceOne
+  \vo
   ees''8(d c) r bes16(a
   bes8) r r c8(bes a) r g16(f
   <bes, d g>8) s s2.
@@ -269,15 +270,15 @@ pianoRHone = \relative {
   d8 g <d g bes>) s4. <g, c ees>4( % 1c
   d'8) r r ees(d) r r ees(
   d8) fis <c fis a> s4. <c fis bes>4(
-  g'8) \oneVoice r \voiceOne r ees'(d c) r bes16(a % 2a
+  g'8) \ov r \vo r ees'(d c) r bes16(a % 2a
   <bes, d g>8) s <fis c' d>4(<bes d g>8_.) s4.
   d8 r r ees(d) r r ees(
-  d8 fis <c fis a>-.) \oneVoice r r4 \voiceOne <fis, c' ees>4( % 2b
+  d8 fis <c fis a>-.) \ov r r4 \vo <fis, c' ees>4( % 2b
   d'8) r r ees8(d) r r ees(
   d8 g <d g bes>-.) s4. <g, c ees>4(
   d'8) r r ees(d) r r ees( % 2c
   d8 fis <c fis a>-.) s4. <c fis bes>4(
-  g'8) \oneVoice r \voiceOne r ees'(d c)r bes16(a
+  g'8) \ov r \vo r ees'(d c)r bes16(a
   <bes, d g>8) s <fis c' d>4(<bes d g>8-.) <bes d>( <c ees> <bes d> % 2d
   \repeat volta 2 {
     <a' c>4.) <gis b>8(<a c>4.) <g b>8(
@@ -290,23 +291,23 @@ pianoRHone = \relative {
     bes8 a g fis g) <b, g'>(<c aes'> <bes g'>
     <d' f>4.) <cis e>8(<d f>4.) <cis e>8(
     <d f>4.) <cis e>8(<d f> <f aes>) r g16(f % 3c
-    \oneVoice <g, c ees>8-.) g16 g aes8(g c b c d
+    \ov <g, c ees>8-.) g16 g aes8(g c b c d
     ees8 d c b c4-.) <g, c ees>->(
     <g cis e>8) a'-. a-. a-. a4-. <a, c fis>4( % 3d
     <a cis g'>8-.) <bes' d>-. <a cis>-. <gis bis> <a c>4-. <g, c e>->(
     <fis c' d>4.) <fis' c' ees>8(<fis c' d>4 <eis b' cis>
     <fis c' d>2.) ees4( % 4a
-    \voiceOne d8-.) e e ees(d) r r ees(
-    d8 fis <c fis a>-.) \oneVoice r8 r4 \voiceOne <fis, c' ees>(
+    \vo d8-.) e e ees(d) r r ees(
+    d8 fis <c fis a>-.) \ov r8 r4 \vo <fis, c' ees>(
     d'8) r r ees(d) r r ees( % 4b
-    d8 g <d g bes>) \oneVoice r8 r4 \voiceOne  <g, c ees>(
+    d8 g <d g bes>) \ov r8 r4 \vo  <g, c ees>(
     d'8) r r ees(d) r r ees(
-    d8 fis <c fis a>-.) \oneVoice r8 r4 \voiceOne <c fis bes>4( % 4c
-    g'8) \oneVoice r \voiceOne r ees'(d c) r bes16(a
+    d8 fis <c fis a>-.) \ov r8 r4 \vo <c fis bes>4( % 4c
+    g'8) \ov r \vo r ees'(d c) r bes16(a
   }
   \alternative {
     {
-      <bes, d g>8) \oneVoice r \voiceOne <fis c' d>4(<bes d g>8-.) <bes d>( <c ees> <bes d>)
+      <bes, d g>8) \ov r \vo <fis c' d>4(<bes d g>8-.) <bes d>( <c ees> <bes d>)
     }
     {
       <bes d g\repeatTie>8-. r <fis c' d>4\fermata(<bes d g>8) s4.
@@ -317,7 +318,7 @@ pianoRHone = \relative {
 
 pianoRHtwo = \relative {
   \global
-  \voiceTwo
+  \vt
   r8 f'4 r
   <d g>4 r fis r
   s1
@@ -400,7 +401,7 @@ dynamicsPiano = {
 
 pianoLH = \relative {
   \global
-  \oneVoice
+  \ov
   r8 <d c'>4 r
   g,8 r r4 <d' c'>4 r
   g,8 r r d' d,4 d'-.
@@ -456,8 +457,12 @@ pianoLH = \relative {
   \bar "|."
 }
 
+#(set-global-staff-size 16)
+
 \book {
-  \bookOutputSuffix "repeat"
+  \paper {
+    output-suffix = repeat
+  }
   \score {
 %   \unfoldRepeats
 %   \articulate
@@ -471,8 +476,8 @@ pianoLH = \relative {
           \new Staff <<
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice = "melody" \melody
-            \new Lyrics \lyricsto "melody" \words
+            \new Voice \melody
+            \addlyrics \words
           >>
           \new PianoStaff <<
             \new Staff <<
@@ -490,20 +495,40 @@ pianoLH = \relative {
       >>
     >>
     \layout {
-      #(layout-set-staff-size 16)
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 19)
+
 \book {
-  \bookOutputSuffix "single"
+  \paper {
+    output-suffix = single
+  }
   \score {
    \unfoldRepeats
 %   \articulate
@@ -517,8 +542,8 @@ pianoLH = \relative {
           \new Staff <<
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice = "melody" \melody
-            \new Lyrics \lyricsto "melody" \words
+            \new Voice \melody
+            \addlyrics \words
           >>
           \new PianoStaff <<
             \new Staff <<
@@ -536,21 +561,39 @@ pianoLH = \relative {
       >>
     >>
     \layout {
-      #(layout-set-staff-size 20)
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "singlepage"
   \paper {
+    output-suffix = singlepage
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -573,8 +616,8 @@ pianoLH = \relative {
           \new Staff <<
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice = "melody" \melody
-            \new Lyrics \lyricsto "melody" \words
+            \new Voice \melody
+            \addlyrics \words
           >>
           \new PianoStaff <<
             \new Staff <<
@@ -592,24 +635,52 @@ pianoLH = \relative {
       >>
     >>
     \layout {
-      #(layout-set-staff-size 20)
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "midi"
+  \paper {
+    output-suffix = singlepage-smallacc
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+
   \score {
    \unfoldRepeats
 %   \articulate
-    <<
+   <<
       <<
         \new ChordNames { \ChordTrack }
 %        \new FretBoards { \ChordTrack }
@@ -619,11 +690,86 @@ pianoLH = \relative {
           \new Staff <<
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice = "melody" \melody
-            \new Lyrics \lyricsto "melody" \wordsMidi
+            \new Voice \melody
+            \addlyrics \words
           >>
           \new PianoStaff <<
             \new Staff <<
+              \magnifyStaff #4/7
+              \new Voice \pianoRH
+              \new Voice \pianoRHone
+              \new Voice \pianoRHtwo
+            >>
+            \new Dynamics \teeny \dynamicsPiano
+            \new Staff <<
+              \magnifyStaff #4/7
+              \clef "bass"
+              \new Voice \pianoLH
+            >>
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+\book {
+  \paper {
+    output-suffix = midi
+  }
+  \score {
+   \unfoldRepeats
+%   \articulate
+    <<
+      <<
+        \new ChordNames = guitar \with {
+          midiInstrument = "acoustic guitar (nylon)"
+        }
+        << \ChordTrack >>
+%        \new FretBoards { \ChordTrack }
+      >>
+      <<
+        \new ChoirStaff <<
+          \new Staff = melody \with {
+            midiInstrument = "choir aahs"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \melody
+            \addlyrics \wordsMidi
+          >>
+          \new PianoStaff <<
+            \new Staff = piano \with {
+              midiInstrument = "acouistic grand piano"
+            }
+            <<
               \new Voice \pianoRH
               \new Voice \pianoRHone
               \new Voice \pianoRHtwo
