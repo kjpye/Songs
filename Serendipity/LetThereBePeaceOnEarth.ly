@@ -1,4 +1,4 @@
-\version "2.25.13"
+\version "2.25.18"
 
 \include "kjp.ly"
 
@@ -24,85 +24,81 @@ solosingle = {
 }
 
 soprano = \relative c' {
-  \global
-  \repeat volta 2 {
-    \break
-    c2.
-    c2 b4
-    c2 d4
-    e2 f4
-    g4 c, a'
-    g2 c,4 % 5
-    d2.~
-    d2 r4
-    e2.
-    e2 e4
-    fis2 g4 % 10
-    a2 c4
-    b4 g a
-    b2 c4
-    b2.~
-    b4 r g % 15
-    c2.
-    a2 c4
-    b4 g2~
-    g2.
-    a2 a4 % 20
-    g2 f4
-    g2.~
-    g2 r4
-    g2 e4
-    fis4 g a % 25
-    b4 d,2~
-    d2 d4
-    c'2 c4
-    b2 a4
-    g2.~ % 30
-    g2 r4
-    c,2.
-    c2 b4
-    c2 d4
-    e2 f4
-    g4 c, a'
-    g2 c,4
-    d2.~
-    d2 r4
-    e2.
-    e2 e4 fis2 g4 a2 c4
-    b4 g a
-    b2 c4
-    b2.~
-    b4 r g
-    c2 c4
-    c4 b c
-    c2 c4
-    c4 b c
-    c2 c4
-    b2 c4
-    d2.~
-    d2 r4
-    c2.
-    b2 d4
-    c2 a4
-    g2 g4
-    a4 b c
-    d2 c4
-    c2.-\fermata
-  }
+  c2.
+  c2 b4
+  c2 d4
+  e2 f4
+  g4 c, a'
+  g2 c,4 % 5
+  d2.~
+  d2 r4
+  e2.
+  e2 e4
+  fis2 g4 % 10
+  a2 c4
+  b4 g a
+  b2 c4
+  b2.~
+  b4 r g % 15
+  c2.
+  a2 c4
+  b4 g2~
+  g2.
+  a2 a4 % 20
+  g2 f4
+  g2.~
+  g2 r4
+  g2 e4
+  fis4 g a % 25
+  b4 d,2~
+  d2 d4
+  c'2 c4
+  b2 a4
+  g2.~ % 30
+  g2 r4
+  c,2.
+  c2 b4
+  c2 d4
+  e2 f4
+  g4 c, a'
+  g2 c,4
+  d2.~
+  d2 r4
+  e2.
+  e2 e4 fis2 g4 a2 c4
+  b4 g a
+  b2 c4
+  b2.~
+  b4 r g
+  c2 c4
+  c4 b c
+  c2 c4
+  c4 b c
+  c2 c4
+  b2 c4
+  d2.~
+  d2 r4
+  c2.
+  b2 d4
+  c2 a4
+  g2 g4
+  a4 b c
+  d2 c4
+  c2.-\fermata
 }
 
 words = \lyricmode {
   Let there be peace on earth,
-  and let it be- gin with me;
+  and let it be -- gin with me;
   let there be peace on earth,
   the peace that was meant to be.
-  With God as our Fath- er,
-  we are fam- i- ly.
-  Let us walk with each oth- er in per- fect har- mon- y.
-  Let peace be- gin with me; let this be the mom- ent now.
-  With ev- ery breath I take, let this be my sol- emn vow;
-  to take each mom- ent and live each mom- ent in peace e- ter- nal- ly.
-  Let there be peace on earth, and let it be- gin with me.
+  With God as our Fath -- er,
+  we are fam -- i -- ly.
+  Let us walk with each oth -- er in per -- fect har -- mon -- y.
+  Let peace be -- gin with me; let this be the mom -- ent now.
+  With ev -- ery breath I take, let this be my sol -- emn vow;
+  to take each mom -- ent and live each mom -- ent in peace e -- ter -- nal -- ly.
+  Let there be peace on earth, and let it be -- gin with me.
 }  
 
 wordsMidi = \lyricmode {
@@ -125,208 +121,199 @@ wordsMidi = \lyricmode {
 }  
 
 alto = \relative c' {
-  \global
-  \repeat volta 2 {
-    g2.
-    a2 a4
-    a2 a4
-    b2 b4
-    c4 c c
-    c2 c4
-    c2.(
-    b2) r4
-    c2.
-    c2 c4
-    dis2 e4
-    dis2 dis4
-    e4 e fis
-    fis2 fis4
-    f2.~
-    f4 r f
-    e2.
-    c2 e4
-    e4 e2~
-    e2.
-    f2 f4
-    e2 d4
-    e2.~
-    e2 r4
-    e2 c4
-    c4 c c
-    b4 b2~
-    b2 b4
-    e2 e4
-    d2 c4
-    b2.~
-    b2 r4
-    g2.
-    a2 a4
-    a2 g4
-    b2 b4
-    c4 c c
-    c2 c4
-    c2.(
-    b2) r4
-    c2.
-    c2 c4
-    dis2 e4
-    fis2 fis4
-    g4 e fis
-    fis2 fis4
-    f2.~
-    f4 r f
-    e2 e4
-    e4 e e
-    e2 e4
-    e4 e e
-    f2 f4
-    f2 f4
-    fis2.(
-    aes2)r4
-    g2.
-    gis2 gis4
-    a2 f4
-    e2 e4
-    f4 g f
-    f2 f4
-    e2.
-  }
+  g2.
+  a2 a4
+  a2 a4
+  b2 b4
+  c4 c c
+  c2 c4
+  c2.(
+  b2) r4
+  c2.
+  c2 c4
+  dis2 e4
+  dis2 dis4
+  e4 e fis
+  fis2 fis4
+  f2.~
+  f4 r f
+  e2.
+  c2 e4
+  e4 e2~
+  e2.
+  f2 f4
+  e2 d4
+  e2.~
+  e2 r4
+  e2 c4
+  c4 c c
+  b4 b2~
+  b2 b4
+  e2 e4
+  d2 c4
+  b2.~
+  b2 r4
+  g2.
+  a2 a4
+  a2 g4
+  b2 b4
+  c4 c c
+  c2 c4
+  c2.(
+  b2) r4
+  c2.
+  c2 c4
+  dis2 e4
+  fis2 fis4
+  g4 e fis
+  fis2 fis4
+  f2.~
+  f4 r f
+  e2 e4
+  e4 e e
+  e2 e4
+  e4 e e
+  f2 f4
+  f2 f4
+  fis2.(
+  aes2)r4
+  g2.
+  gis2 gis4
+  a2 f4
+  e2 e4
+  f4 g f
+  f2 f4
+  e2.
 }
 
 tenor = \relative c {
-  \global
-  \repeat volta 2 {
-    e2.
-    e2 e4
-    f2 f4
-    f2 f4
-    e4 e f
-    g2 e4
-    f2.~
-    f2 r4
-    g2.
-    g2 g4
-    a2 g4
-    fis2 a4
-    g4 b b
-    b2 a4
-    g2.(d'4) r b
-    a2.
-    e2 fis4
-    g4 b2(
-    bes2.)
-    c2 c4
-    b2 b4
-    c2.~
-    c2 r4
-    c2 g4
-    a4 g fis
-    g4 g2~
-    g2 g4
-    g2 g4
-    fis2 fis4
-    g2.(
-    f2) r4
-    e2.
-    e2 e4
-    f2 f4
-    f2 f4
-    e4 e f
-    e2 e4
-    f2.~
-    f2 r4
-    g2.
-    g2 g4
-    b2 b4
-    b2 a4
-    b4 b b
-    b2 a4
-    g2.(
-    d'4) r b
-    g2 g4
-    g4 g g
-    gis2 gis4
-    gis4 gis gis
-    a2 a4
-    gis2 a4
-    c2.~
-    c2 r4
-    c2.
-    d2 b4
-    a2 c4
-    c2 c4
-    c4 c c
-    b2 d4
-    c2.
-  }
+  e2.
+  e2 e4
+  f2 f4
+  f2 f4
+  e4 e f
+  g2 e4
+  f2.~
+  f2 r4
+  g2.
+  g2 g4
+  a2 g4
+  fis2 a4
+  g4 b b
+  b2 a4
+  g2.(d'4) r b
+  a2.
+  e2 fis4
+  g4 b2(
+  bes2.)
+  c2 c4
+  b2 b4
+  c2.~
+  c2 r4
+  c2 g4
+  a4 g fis
+  g4 g2~
+  g2 g4
+  g2 g4
+  fis2 fis4
+  g2.(
+  f2) r4
+  e2.
+  e2 e4
+  f2 f4
+  f2 f4
+  e4 e f
+  e2 e4
+  f2.~
+  f2 r4
+  g2.
+  g2 g4
+  b2 b4
+  b2 a4
+  b4 b b
+  b2 a4
+  g2.(
+  d'4) r b
+  g2 g4
+  g4 g g
+  gis2 gis4
+  gis4 gis gis
+  a2 a4
+  gis2 a4
+  c2.~
+  c2 r4
+  c2.
+  d2 b4
+  a2 c4
+  c2 c4
+  c4 c c
+  b2 d4
+  c2.
 }
 
 bass = \relative c {
-  \global
-  \repeat volta 2 {
-    c2.
-    a2 a4
-    d2 d4
-    g,2 g4
-    c4 c f % 5
-    e2 a,4
-    g2.~g2 r4
-    c2.
-    c2 c4
-    b2 b4 % 10
-    b2 b4
-    e4 e e
-    dis2 dis4
-    d2.(
-    g4) r g, % 15
-    a2.
-    a2 a4
-    e'4 e2(
-    c2.)
-    f2 f4 % 20
-    g2 g4
-    c,2.~
-    c2 r4
-    a2 a4
-    d4 d d % 25
-    g,4 g2~
-    g2 g4
-    a2 a4
-    d2 d4
-    g,2.~ % 30
-    g2 r4
-    c2.
-    a2 a4
-    d2 d4
-    g,2 g4 % 35
-    c4 c f,
-    g2 g4
-    g2.~
-    g2 r4
-    c2. % 40
-    c2 c4
-    b2 b4
-    b2 b4
-    e4 e e
-    dis2 dis4
-    d2.(
-    g4) r g,
-    c2 c4
-    c4 c c
-    c2 c4
-    c4 c c
-    f2 f4
-    f2 f4
-    d2.(
-    f2) r4
-    e2.
-    e2 e4
-    f2 f4
-    c2 c4
-    f4 e d
-    g2 g,4
-    c2._\fermata
-  }
+  c2.
+  a2 a4
+  d2 d4
+  g,2 g4
+  c4 c f % 5
+  e2 a,4
+  g2.~g2 r4
+  c2.
+  c2 c4
+  b2 b4 % 10
+  b2 b4
+  e4 e e
+  dis2 dis4
+  d2.(
+  g4) r g, % 15
+  a2.
+  a2 a4
+  e'4 e2(
+  c2.)
+  f2 f4 % 20
+  g2 g4
+  c,2.~
+  c2 r4
+  a2 a4
+  d4 d d % 25
+  g,4 g2~
+  g2 g4
+  a2 a4
+  d2 d4
+  g,2.~ % 30
+  g2 r4
+  c2.
+  a2 a4
+  d2 d4
+  g,2 g4 % 35
+  c4 c f,
+  g2 g4
+  g2.~
+  g2 r4
+  c2. % 40
+  c2 c4
+  b2 b4
+  b2 b4
+  e4 e e
+  dis2 dis4
+  d2.(
+  g4) r g,
+  c2 c4
+  c4 c c
+  c2 c4
+  c4 c c
+  f2 f4
+  f2 f4
+  d2.(
+  f2) r4
+  e2.
+  e2 e4
+  f2 f4
+  c2 c4
+  f4 e d
+  g2 g,4
+  c2._\fermata
 }
 
 \header {
@@ -337,7 +324,9 @@ bass = \relative c {
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "repeat"
+  \paper {
+    output-suffix = repeat
+  }
   \score {
     <<
       <<
@@ -350,7 +339,7 @@ bass = \relative c {
           <<
             \new Voice \TempoTrack
             \new Dynamics \with {alignAboveContext = women} \solo
-            \new Voice \partCombine #'(2 . 88) \soprano \alto
+            \new Voice {\global \partCombine #'(2 . 88) \soprano \alto \bar ":|." }
             \new NullVoice \soprano
             \addlyrics \words
           >>
@@ -361,7 +350,7 @@ bass = \relative c {
           }
           <<
             \clef "bass"
-            \new Voice \partCombine #'(2 . 88) \tenor \bass
+            \new Voice {\global \partCombine #'(2 . 88) \tenor \bass}
           >>
         >>
       >>
@@ -369,30 +358,26 @@ bass = \relative c {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff
+      \context { \Staff
         \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
         \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -402,23 +387,34 @@ bass = \relative c {
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "single"
+  \paper {
+    output-suffix = single
+  }
   \score {
    \unfoldRepeats
     <<
       <<
         \new ChoirStaff <<
+                                % Solo staff
+          \new Staff = solo \with {
+            instrumentName = #"Solo"
+            shortInstrumentName = #"Sol"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Dynamics \with {alignAboveContext = solo} \solosingle
+            \new Voice {\global \soprano \section \break R2.*63}
+            \addlyrics \words
+          >>
                                 % Joint soprano/alto staff
           \new Staff = women \with {
             instrumentName = #"Soprano/Alto"
             shortInstrumentName = #"SA"
           }
           <<
-            \new Voice \TempoTrack
-            \new Dynamics \with {alignAboveContext = women} \solosingle
-            \new Voice {\partCombine #'(2 . 88) \unfoldRepeats \soprano \unfoldRepeats \alto \bar "|." }
-            \new NullVoice \soprano
-            \addlyrics {\words \set stanza = "2." \words}
+            \new Voice {\partCombine #'(2 . 88) {\global R2.*63 \soprano} {\global R2.*63 \alto} \bar "|." }
+            \new NullVoice {R2.*63 \soprano}
+            \addlyrics {\set stanza = "2." \words}
           >>
                                 % Joint tenor/bass staff
           \new Staff = men \with {
@@ -427,7 +423,7 @@ bass = \relative c {
           }
           <<
             \clef "bass"
-            \new Voice \partCombine #'(2 . 88) \unfoldRepeats \tenor \unfoldRepeats \bass
+            \new Voice \partCombine #'(2 . 88) {\global R2.*63  \tenor} {\global R2.*63 \bass}
           >>
         >>
       >>
@@ -435,30 +431,26 @@ bass = \relative c {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff
+      \context { \Staff
         \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
         \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -468,8 +460,8 @@ bass = \relative c {
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "singlepage"
   \paper {
+    output-suffix = singlepage
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -482,17 +474,26 @@ bass = \relative c {
     <<
       <<
         \new ChoirStaff <<
+                                % Solo staff
+          \new Staff = solo \with {
+            instrumentName = #"Solo"
+            shortInstrumentName = #"Sol"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Dynamics \with {alignAboveContext = solo} \solosingle
+            \new Voice {\global \soprano \section \break R2.*63 \bar "|." }
+            \addlyrics \words
+          >>
                                 % Joint soprano/alto staff
           \new Staff = women \with {
             instrumentName = #"Soprano/Alto"
             shortInstrumentName = #"SA"
           }
           <<
-            \new Voice \TempoTrack
-            \new Dynamics \with {alignAboveContext = women} \solosingle
-            \new Voice {\partCombine #'(2 . 88) \unfoldRepeats \soprano \unfoldRepeats \alto \bar "|." }
-            \new NullVoice \unfoldRepeats \soprano
-            \addlyrics {\words \set stanza = "2." \words}
+            \new Voice {\partCombine #'(2 . 88) {\global R2.*63 \soprano} {\global R2.*63 \alto} \bar "|." }
+            \new NullVoice {R2.*63 \soprano}
+            \addlyrics {\set stanza = "2." \words}
           >>
                                 % Joint tenor/bass staff
           \new Staff = men \with {
@@ -501,7 +502,7 @@ bass = \relative c {
           }
           <<
             \clef "bass"
-            \new Voice \partCombine #'(2 . 88) \unfoldRepeats \tenor \unfoldRepeats \bass
+            \new Voice {R2.*63 {\partCombine #'(2 . 88) \tenor \bass}}
           >>
         >>
       >>
@@ -509,30 +510,26 @@ bass = \relative c {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff
+      \context { \Staff
         \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
         \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -542,8 +539,8 @@ bass = \relative c {
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "singlepage-sep"
   \paper {
+    output-suffix = singlepage-sep
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -556,6 +553,17 @@ bass = \relative c {
     <<
       <<
         \new ChoirStaff <<
+                                % Solo staff
+          \new Staff = solo \with {
+            instrumentName = #"Solo"
+            shortInstrumentName = #"Sol"
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Dynamics \with {alignAboveContext = solo} \solosingle
+            \new Voice {\global \soprano \section \break R2.*63 \bar "|." }
+            \addlyrics \words
+          >>
                                 % Soprano staff
           \new Staff = soprano \with {
             instrumentName = #"Soprano"
@@ -563,9 +571,8 @@ bass = \relative c {
           }
           <<
             \new Voice \TempoTrack
-            \new Dynamics \with {alignAboveContext = soprano} \solosingle
-            \new Voice {\unfoldRepeats \soprano \bar "|." }
-            \addlyrics {\words \set stanza = "2." \words}
+            \new Voice {\global R2.*63 \soprano \bar "|." }
+            \addlyrics {\set stanza = "2." \words}
           >>
                                 % Alto staff
           \new Staff = alto \with {
@@ -573,9 +580,8 @@ bass = \relative c {
             shortInstrumentName = #"A"
           }
           <<
-            \new Dynamics \with {alignAboveContext = alto} \solosingle
-            \new Voice \unfoldRepeats \alto
-            \addlyrics {\words \set stanza = "2." \words}
+            \new Voice {\global R2.*63 \alto}
+            \addlyrics {\set stanza = "2." \words}
           >>
                                 % Tenor staff
           \new Staff = tenor \with {
@@ -584,9 +590,8 @@ bass = \relative c {
           }
           <<
             \clef "treble_8"
-            \new Dynamics \with {alignAboveContext = tenor} \solosingle
-            \new Voice \unfoldRepeats \tenor
-            \addlyrics {\words \set stanza = "2." \words}
+            \new Voice {\global R2.*63 \tenor}
+            \addlyrics {\set stanza = "2." \words}
           >>
                                 % Bass staff
           \new Staff = bass \with {
@@ -595,9 +600,8 @@ bass = \relative c {
           }
           <<
             \clef "bass"
-            \new Dynamics \with {alignAboveContext = bass} \solosingle
-            \new Voice \unfoldRepeats \bass
-            \addlyrics {\words \set stanza = "2." \words}
+            \new Voice {\global R2.*63 \bass}
+            \addlyrics {\set stanza = "2." \words}
           >>
         >>
       >>
@@ -605,30 +609,26 @@ bass = \relative c {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff
+      \context { \Staff
         \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
         \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -638,8 +638,8 @@ bass = \relative c {
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "singlepage-sop"
   \paper {
+    output-suffix = singlepage-sop
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -652,6 +652,18 @@ bass = \relative c {
     <<
       <<
         \new ChoirStaff <<
+                                % Solo staff
+          \new Staff = solo \with {
+            instrumentName = #"Solo"
+            shortInstrumentName = #"Sol"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Dynamics \with {alignAboveContext = solo} \solosingle
+            \new Voice {\global \soprano \section \break R2.*63 \bar "|." }
+            \addlyrics {\tiny \words}
+          >>
                                 % Soprano staff
           \new Staff = soprano \with {
             instrumentName = #"Soprano"
@@ -659,9 +671,8 @@ bass = \relative c {
           }
           <<
             \new Voice \TempoTrack
-            \new Dynamics \with {alignAboveContext = soprano} \solosingle
-            \new Voice {\unfoldRepeats \soprano \bar "|." }
-            \addlyrics {\words \set stanza = "2." \words}
+            \new Voice {\global R2.*63 \soprano \bar "|." }
+            \addlyrics {\set stanza = "2." \words}
           >>
                                 % Alto staff
           \new Staff = alto \with {
@@ -670,9 +681,8 @@ bass = \relative c {
           }
           <<
             \magnifyStaff #4/7
-            \new Dynamics \with {alignAboveContext = alto} {\teeny \solosingle}
-            \new Voice \unfoldRepeats \alto
-            \addlyrics {\tiny \words \set stanza = "2." \words}
+            \new Voice {\global R2.*63 \alto}
+            \addlyrics {\tiny \set stanza = "2." \words}
           >>
                                 % Tenor staff
           \new Staff = tenor \with {
@@ -682,9 +692,8 @@ bass = \relative c {
           <<
             \magnifyStaff #4/7
             \clef "treble_8"
-            \new Dynamics \with {alignAboveContext = tenor} {\teeny \solosingle}
-            \new Voice \unfoldRepeats \tenor
-            \addlyrics {\tiny \words \set stanza = "2." \words}
+            \new Voice {\global R2.*63 \tenor}
+            \addlyrics {\tiny \set stanza = "2." \words}
           >>
                                 % Bass staff
           \new Staff = bass \with {
@@ -694,9 +703,8 @@ bass = \relative c {
           <<
             \magnifyStaff #4/7
             \clef "bass"
-            \new Dynamics \with {alignAboveContext = bass} {\teeny \solosingle}
-            \new Voice \unfoldRepeats \bass
-            \addlyrics {\tiny \words \set stanza = "2." \words}
+            \new Voice {\global R2.*63 \bass}
+            \addlyrics {\tiny \set stanza = "2." \words}
           >>
         >>
       >>
@@ -704,30 +712,26 @@ bass = \relative c {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff
+      \context { \Staff
         \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
         \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -737,8 +741,8 @@ bass = \relative c {
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "singlepage-alto"
   \paper {
+    output-suffix = singlepage-alto
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -751,6 +755,18 @@ bass = \relative c {
     <<
       <<
         \new ChoirStaff <<
+                                % Solo staff
+          \new Staff = solo \with {
+            instrumentName = #"Solo"
+            shortInstrumentName = #"Sol"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Dynamics \with {alignAboveContext = solo} \solosingle
+            \new Voice {\global \soprano \section \break R2.*63 \bar "|." }
+            \addlyrics {\tiny \words}
+          >>
                                 % Soprano staff
           \new Staff = soprano \with {
             instrumentName = #"Soprano"
@@ -759,9 +775,8 @@ bass = \relative c {
           <<
             \magnifyStaff #4/7
             \new Voice \TempoTrack
-            \new Dynamics \with {alignAboveContext = soprano} {\teeny \solosingle}
-            \new Voice {\unfoldRepeats \soprano \bar "|." }
-            \addlyrics {\tiny \words \set stanza = "2." \words}
+            \new Voice {\global R2.*63 \soprano \bar "|." }
+            \addlyrics {\tiny \set stanza = "2." \words}
           >>
                                 % Alto staff
           \new Staff = alto \with {
@@ -769,9 +784,8 @@ bass = \relative c {
             shortInstrumentName = #"A"
           }
           <<
-            \new Dynamics \with {alignAboveContext = alto} \solosingle
-            \new Voice \unfoldRepeats \alto
-            \addlyrics {\words \set stanza = "2." \words}
+            \new Voice {\global R2.*63 \alto}
+            \addlyrics {\set stanza = "2." \words}
           >>
                                 % Tenor staff
           \new Staff = tenor \with {
@@ -781,9 +795,8 @@ bass = \relative c {
           <<
             \magnifyStaff #4/7
             \clef "treble_8"
-            \new Dynamics \with {alignAboveContext = tenor} {\teeny \solosingle}
-            \new Voice \unfoldRepeats \tenor
-            \addlyrics {\tiny \words \set stanza = "2." \words}
+            \new Voice {\global R2.*63 \tenor}
+            \addlyrics {\tiny \set stanza = "2." \words}
           >>
                                 % Bass staff
           \new Staff = bass \with {
@@ -793,9 +806,8 @@ bass = \relative c {
           <<
             \magnifyStaff #4/7
             \clef "bass"
-            \new Dynamics \with {alignAboveContext = bass} {\teeny \solosingle}
-            \new Voice \unfoldRepeats \bass
-            \addlyrics {\tiny \words \set stanza = "2." \words}
+            \new Voice {\global R2.*63 \bass}
+            \addlyrics {\tiny \set stanza = "2." \words}
           >>
         >>
       >>
@@ -803,30 +815,26 @@ bass = \relative c {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff
+      \context { \Staff
         \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
         \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -836,8 +844,8 @@ bass = \relative c {
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "singlepage-tenor"
   \paper {
+    output-suffix = singlepage-tenor
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -850,6 +858,18 @@ bass = \relative c {
     <<
       <<
         \new ChoirStaff <<
+                                % Solo staff
+          \new Staff = solo \with {
+            instrumentName = #"Solo"
+            shortInstrumentName = #"Sol"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Dynamics \with {alignAboveContext = solo} \solosingle
+            \new Voice {\global \soprano \section \break R2.*63 \bar "|." }
+            \addlyrics {\tiny \words}
+          >>
                                 % Soprano staff
           \new Staff = soprano \with {
             instrumentName = #"Soprano"
@@ -858,9 +878,8 @@ bass = \relative c {
           <<
             \magnifyStaff #4/7
             \new Voice \TempoTrack
-            \new Dynamics \with {alignAboveContext = soprano} {\teeny \solosingle}
-            \new Voice {\unfoldRepeats \soprano \bar "|." }
-            \addlyrics {\tiny \words \set stanza = "2." \words}
+            \new Voice {\global R2.*63 \soprano \bar "|." }
+            \addlyrics {\tiny \set stanza = "2." \words}
           >>
                                 % Alto staff
           \new Staff = alto \with {
@@ -869,9 +888,8 @@ bass = \relative c {
           }
           <<
             \magnifyStaff #4/7
-            \new Dynamics \with {alignAboveContext = alto} {\teeny \solosingle}
-            \new Voice \unfoldRepeats \alto
-            \addlyrics {\tiny \words \set stanza = "2." \words}
+            \new Voice {\global R2.*63 \alto}
+            \addlyrics {\tiny \set stanza = "2." \words}
           >>
                                 % Tenor staff
           \new Staff = tenor \with {
@@ -880,9 +898,8 @@ bass = \relative c {
           }
           <<
             \clef "treble_8"
-            \new Dynamics \with {alignAboveContext = tenor} \solosingle
-            \new Voice \unfoldRepeats \tenor
-            \addlyrics {\words \set stanza = "2." \words}
+            \new Voice {\global R2.*63 \tenor}
+            \addlyrics {\set stanza = "2." \words}
           >>
                                 % Bass staff
           \new Staff = bass \with {
@@ -892,9 +909,8 @@ bass = \relative c {
           <<
             \magnifyStaff #4/7
             \clef "bass"
-            \new Dynamics \with {alignAboveContext = bass} {\teeny \solosingle}
-            \new Voice \unfoldRepeats \bass
-            \addlyrics {\tiny \words \set stanza = "2." \words}
+            \new Voice {\global R2.*63 \bass}
+            \addlyrics {\tiny \set stanza = "2." \words}
           >>
         >>
       >>
@@ -902,30 +918,26 @@ bass = \relative c {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff
+      \context { \Staff
         \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
         \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -935,8 +947,8 @@ bass = \relative c {
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "singlepage-bass"
   \paper {
+    output-suffix = singlepage-bass
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -949,6 +961,18 @@ bass = \relative c {
     <<
       <<
         \new ChoirStaff <<
+                                % Solo staff
+          \new Staff = solo \with {
+            instrumentName = #"Solo"
+            shortInstrumentName = #"Sol"
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Dynamics \with {alignAboveContext = solo} \solosingle
+            \new Voice {\global \soprano \section \break R2.*63 \bar "|." }
+            \addlyrics {\tiny \words}
+          >>
                                 % Soprano staff
           \new Staff = soprano \with {
             instrumentName = #"Soprano"
@@ -957,9 +981,8 @@ bass = \relative c {
           <<
             \magnifyStaff #4/7
             \new Voice \TempoTrack
-            \new Dynamics \with {alignAboveContext = soprano} {\teeny \solosingle}
-            \new Voice {\unfoldRepeats \soprano \bar "|." }
-            \addlyrics {\tiny \words \set stanza = "2." \words}
+            \new Voice {\global R2.*63 \soprano \bar "|." }
+            \addlyrics {\tiny \set stanza = "2." \words}
           >>
                                 % Alto staff
           \new Staff = alto \with {
@@ -968,9 +991,8 @@ bass = \relative c {
           }
           <<
             \magnifyStaff #4/7
-            \new Dynamics \with {alignAboveContext = alto} {\teeny \solosingle}
-            \new Voice \unfoldRepeats \alto
-            \addlyrics {\tiny \words \set stanza = "2." \words}
+            \new Voice {\global R2.*63 \alto}
+            \addlyrics {\tiny \set stanza = "2." \words}
           >>
                                 % Tenor staff
           \new Staff = tenor \with {
@@ -980,9 +1002,8 @@ bass = \relative c {
           <<
             \magnifyStaff #4/7
             \clef "treble_8"
-            \new Dynamics \with {alignAboveContext = tenor} {\teeny \solosingle}
-            \new Voice \unfoldRepeats \tenor
-            \addlyrics {\tiny \words \set stanza = "2." \words}
+            \new Voice {\global R2.*63 \tenor}
+            \addlyrics {\tiny \set stanza = "2." \words}
           >>
                                 % Bass staff
           \new Staff = bass \with {
@@ -991,9 +1012,8 @@ bass = \relative c {
           }
           <<
             \clef "bass"
-            \new Dynamics \with {alignAboveContext = bass} \solosingle
-            \new Voice \unfoldRepeats \bass
-            \addlyrics {\words \set stanza = "2." \words}
+            \new Voice {\global R2.*63 \bass}
+            \addlyrics {\set stanza = "2." \words}
           >>
         >>
       >>
@@ -1001,30 +1021,26 @@ bass = \relative c {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern-cautionary
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff
+      \context { \Staff
         \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
         \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -1032,9 +1048,10 @@ bass = \relative c {
 }
 
 \book {
-  \bookOutputSuffix "midi"
+  \paper {
+    output-suffix = midi
+  }
   \score {
-    \unfoldRepeats
 %   \articulate
     <<
       <<
@@ -1045,7 +1062,7 @@ bass = \relative c {
           }
           <<
             \new Voice \TempoTrack
-            \new Voice \soprano
+            \new Voice {\global \soprano \soprano}
             \addlyrics {\wordsMidi \wordsMidi}
           >>
                                 % Alto staff
@@ -1053,7 +1070,7 @@ bass = \relative c {
             midiInstrument = "choir aahs"
           }
           <<
-            \new Voice \alto
+            \new Voice {\global R2.*63 \alto}
           >>
                                 % Tenor staff
           \new Staff = tenor \with {
@@ -1061,7 +1078,7 @@ bass = \relative c {
           }
           <<
             \clef "treble_8"
-            \new Voice \tenor
+            \new Voice {\global R2.*63 \tenor}
           >>
                                 % Bass staff
           \new Staff = bass \with {
@@ -1069,7 +1086,7 @@ bass = \relative c {
           }
           <<
             \clef "bass"
-            \new Voice \bass
+            \new Voice {\global R2.*63 \bass}
           >>
         >>
       >>
