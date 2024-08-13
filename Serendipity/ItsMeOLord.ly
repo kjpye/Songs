@@ -89,7 +89,7 @@ soprano = \relative {
     b2. b4
     b2.-> b4 % 4b
     b8 a4 g8~2
-    b8. 16 8. 16 b8 a4.
+    g8. 16 8. 16 b8 a4.
     \alternative { { g2. \section } { g1 } }
   }
   \bar "|."
