@@ -1,5 +1,6 @@
-\version "2.22.0"
+\version "2.25.18"
 
+\include "kjp.ly"
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
 \include "swing.ly"
@@ -34,8 +35,6 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   copyright   = \today
 }
 
-% #(set-global-staff-size 18)
-
 global = {
   \key a \major
   \time 4/4
@@ -48,7 +47,7 @@ TempoTrack = {
   s1*7
   s2 \tempo 4=60 s2 % \tempo 4=120
   \repeat volta 2 {
-    \tempo "Cheerful Soft-Shoe" 4=120
+    \tempo \markup{"Cheerful Soft-Shoe (" \rhythm {8 8} "=" \rhythm{\tuplet 3/2 {4 8}} ")"} 4=120
     s1*15
   }
   \alternative {{s1}{s1}}
@@ -136,7 +135,7 @@ ChordTrack = \chordmode {
   ees2:7 e:dim7 | bes1/f | f4.:7 bes4 bes4.:13.11+
 }
 
-melody = \relative {
+melodyA = \relative {
   \global
   r2 r4 r8\fermata cis''^\markup\bold PATSY:
   b8 8 8 cis b4 cis8 8
@@ -147,76 +146,108 @@ melody = \relative {
   a8 8 8 8 fis16 16 r8 r fis
   b16 8. 8 8 8 fis gis a % 47a
   b4 r4 cis2\fermata
+}
+
+melodyB = \relative {
+  \tag #'dash { a'4^\markup\bold "Add KNIGHTS (2nd time):" 4 8 4 fis8 | }
+  \tag #'v1   { a4                                         4 8 4 fis8 | }
+  \tag #'v2   { a4 ^\markup\bold "Add KNIGHTS"             4 8 4 fis8 | }
+  a4 r fis8(e) fis a % 47b
+  r4 r8 a'8 fis4 r8 cis
+  b8 cis d fis e4 r
+  a,4 4 8 4 fis8 % 47c
+  a4 r fis8(e) fis a
+  r4 r8 a'8 fis4 r8 cis
+  b8 cis d fis e4 r8 e,^\markup\bold "PATSY (both times):" % 47d
+  \tag #'dash {b'8 8 \slurDashed \tuplet 3/2 {b b cis(} cis4) \slurSolid r8 cis | }
+  \tag #'v1   {b8  8             \tuplet 3/2 {b b cis } cis4             r8 cis | }
+  \tag #'v2   {b8  8             \tuplet 3/2 {b b cis~} cis4             r8 cis | }
+  a8 8 8 8 fis8 4 cis8 % 48a
+  b8 cis d fis cis' b cis b
+  \tag #'dash { e,4 r r \parenthesize cis'8 8 | } % 48b
+  \tag #'v1   { e,4 r r               cis'8 8 | }
+  \tag #'v2   { e,4 r r               r8 cis' | }
+  \tag #'dash { b8 a b cis b4 \teeny b8 8 \normalsize | }
+  \tag #'v1   { b8 a b cis b4        r4               | }
+  \tag #'v2   { b8 a b cis b4        b8 8             | }
+  a8 8 \tuplet 3/2 {a8 8 fis~} fis4 r8 fis
+  b8 8 8 8 8 fis gis a % 48c
+}
+
+melodyC = \relative { b'4 r cis2 }
+melodyD = \relative { b'4 r r2 \section \key bes \major }
+
+melodyE = \relative {
+  bes'4^\markup\bold ARTHUR: 4 8 4 g8 % 48d
+  bes4 r g8(f) g bes
+  r4 r8 bes' g4 r8 d
+  c8 d ees g f4 r % 49a
+  bes,4 4 4 4
+  bes4 4 g8 f g bes
+  r4 r8 bes'8 g4 r8 d % 49b
+  c8 d ees g f4 r
+  c8 8 \tuplet 3/2 {c c d~} d4 r
+  bes8 8 8 8 g4 r % 49c
+  ees8 f g bes d c d c
+  f,4 r r r8 d'^\markup\bold PATSY: % 49d
+  c8 bes c d c4 8 8
+  bes8 8 \tuplet 3/2 {bes bes g~} g4 8^\markup\bold ARTHUR: 8
+  c8 8 8 8 8 g a bes % 50a
+  c4 r r2 \bar "||" \key b \major
+  b4^\markup\bold "ALL KNIGHTS:" 4 8 4 gis8
+  b4 r gis8(fis) gis b % 50b
+  r4 r8 b'8 gis4 r8 dis8
+  cis8 dis e gis fis4 r \bar "||" \key d \major
+  d4 4 8 4 b8 % 50c
+  d4 r b8(a) b cis~
+  cis1~
+  cis2 r \bar "||" \key a \major % 50d
+  b8^\markup\bold "PATSY & ARTHUR:" 8 \tuplet 3/2 {b b cis~}
+  cis4 r8 cis
+  a8 8 \tuplet 3/2 {8 8 fis} r4 fis8 e % 51a
+  d8 e fis a cis b cis b
+  e,4 r r r8 cis' % 51b
+  b8 a b cis b4 b8 8
+  a8 8 \tuplet 3/2 {a a fis~} fis4 r8 fis
+  b8 8 8 8 8 fis gis a % 51c
+  b4 r r2 \bar "||" \key bes \major
+  bes4 4 8 4 g8 % 51d
+  bes4 r g8(f) g bes
+  R1
+  R1 % 52a
+  bes4 4 8 4 g8
+  bes1
+  r2 <d f>8^\markup{\halign #RIGHT \bold PATSY:} _\markup{\halign #RIGHT \bold ARTHUR:} (<des ees>) <c ees> <bes d>~ % 52b
+  q1
+  r2 <d f>8 (<des ees>) <c ees> <bes d>~
+  q1 % 52c
+  r2 <d f>8 (<des ees>) <c ees> <bes d>~
+  q1~
+  q1 % 52d
+  R1
+  R1
+}
+
+melody = {
+  \melodyA
   \tripletFeel 8 {
     \repeat volta 2 {
-      a4^\markup\bold "(Add KNIGHTS (2nd time):" 4 8 4 fis8
-      a4 r fis8(e) fis a % 47b
-      r4 r8 a'8 fis4 r8 cis
-      b8 cis d fis e4 r
-      a,4 4 8 4 fis8 % 47c
-      a4 r fis8(e) fis a
-      r4 r8 a'8 fis4 r8 cis
-      b8 cis d fis e4 r8 e,^\markup\bold "PATSY (both times):" % 47d
-      b'8 8 \tuplet 3/2 {b b cis} cis4 r8 cis
-      a8 8 8 8 fis8 4 cis8 % 48a
-      b8 cis d fis cis' b cis b
-      e,4 r r cis'8 8 % 48b
-      b8 a b cis b4 \teeny b8 8 \normalsize
-      a8 8 \tuplet 3/2 {a8 8 fis~} fis4 r8 fis
-      b8 8 8 8 8 fis gis a % 48c
+      \keepWithTag #'dash \melodyB
+      \alternative { \melodyC \melodyD }
     }
-    \alternative {
-      {b4 r cis2}
-      {b4 r r2 \bar "||" \key bes \major}
-    }
-    bes4^\markup\bold ARTHUR: 4 8 4 g8 % 48d
-    bes4 r g8(f) g bes
-    r4 r8 bes' g4 r8 d
-    c8 d ees g f4 r % 49a
-    bes,4 4 4 4
-    bes4 4 g8 f g bes
-    r4 r8 bes'8 g4 r8 d % 49b
-    c8 d ees g f4 r
-    c8 8 \tuplet 3/2 {c c d~} d4 r
-    bes8 8 8 8 g4 r % 49c
-    ees8 f g bes d c d c
-    f,4 r r r8 d'^\markup\bold PATSY: % 49d
-    c8 bes c d c4 8 8
-    bes8 8 \tuplet 3/2 {bes bes g~} g4 8^\markup\bold ARTHUR: 8
-    c8 8 8 8 8 g a bes % 50a
-    c4 r r2 \bar "||" \key b \major
-    b4^\markup\bold "ALL KNIGHTS:" 4 8 4 gis8
-    b4 r gis8(fis) gis b % 50b
-    r4 r8 b'8 gis4 r8 dis8
-    cis8 dis e gis fis4 r \bar "||" \key d \major
-    d4 4 8 4 b8 % 50c
-    d4 r b8(a) b cis~
-    cis1~
-    cis2 r \bar "||" \key a \major % 50d
-    b8^\markup\bold "PATSY & ARTHUR:" 8 \tuplet 3/2 {b b cis~}
-    cis4 r8 cis
-    a8 8 \tuplet 3/2 {8 8 fis} r4 fis8 e % 51a
-    d8 e fis a cis b cis b
-    e,4 r r r8 cis' % 51b
-    b8 a b cis b4 b8 8
-    a8 8 \tuplet 3/2 {a a fis~} fis4 r8 fis
-    b8 8 8 8 8 fis gis a % 51c
-    b4 r r2 \bar "||" \key bes \major
-    bes4 4 8 4 g8 % 51d
-    bes4 r g8(f) g bes
-    R1
-    R1 % 52a
-    bes4 4 8 4 g8
-    bes1
-    r2 <d f>8^\markup\bold PATSY: _\markup\bold ARTHUR: (<des ees>) <c ees> <bes d>~ % 52b
-    q1
-    r2 <d f>8 (<des ees>) <c ees> <bes d>~
-    q1 % 52c
-    r2 <d f>8 (<des ees>) <c ees> <bes d>~
-    q1~
-    q1 % 52d
-    R1
-    R1
+    \melodyE
+  }
+  \bar "|."
+}
+
+melodySingle = {
+  \melodyA
+  \tripletFeel 8 {
+    \keepWithTag #'v1 \melodyB
+    \melodyC
+    \keepWithTag #'v2 \melodyB
+    \melodyD
+    \melodyE
   }
   \bar "|."
 }
@@ -225,20 +256,20 @@ wordsOne = \lyricmode {
   Some things in life are bad.
   They can real -- ly make you mad.
   Oth -- er things just make you swear and curse.
-  When you're chew -- in' on life's gris -- tle,
-  don't grum -- ble. Give a whis -- tle!
-  And this -- 'll help things turn out for the best…
+  When you’re chew -- in’ on life’s gris -- tle,
+  don’t grum -- ble. Give a whis -- tle!
+  And this -- ’ll help things turn out for the best…
   And, al -- ways look on the bright side __ of life.
   \markup\italic "(whistle)" _ _ _ _ _ _ _
   Al -- ways look on the bright side __ of life.
   \markup\italic "(whistle)" _ _ _ _ _ _ _
-  If life seems jol -- ly rot -- ten,
-  there's some -- thing you've for -- got -- ten,
-  and that's to laugh and smile and dance and sing.
+  If life seems jol -- ly \nom rot -- ten, \yesm
+  there’s some -- thing you’ve for -- got -- ten,
+  and that’s to laugh and smile and dance and sing.
 
-  When you're feel -- ing in the dumps, _ _
-  don't be sil -- ly chumps, __
-  Just purse your lips and whis -- tle, that's the thing!
+  When you’re feel -- ing in the dumps, _ _
+  don’t be sil -- ly chumps, __
+  Just purse your lips and whis -- tle, that’s the thing!
   And, _
 
   Al -- ways look on the bright side __ of life.
@@ -246,20 +277,20 @@ wordsOne = \lyricmode {
   Just be -- fore you draw your ter -- min -- al breath.
   \markup\italic "(whistle)" _ _ _ _ _ _ _
   Life is full of grit, __ when you look at it.
-  Life's a laugh and death's a joke, it's true.
-  You'll see it's all a show.
-  Keep 'em laugh -- ing as you go! __
+  Life’s a laugh and death’s a joke, it’s true.
+  You’ll see it’s all a show.
+  Keep ’em laugh -- ing as you go! __
   Just re -- mem -- ber that the last laugh is on you!
   Al -- ways look on the bright side __ of life.
   \markup\italic "(whistle)" _ _ _ _ _ _ _
   Al -- ways look on the right side __ of life.
 
   Life is quite ab -- surd, __
-  and death's the fi -- nal word.
+  and death’s the fi -- nal word.
   You must al -- ways face the cur -- tain with a bow!
   For -- get a -- bout your sin.
   Give the au -- di -- ence a grin. __
-  En -- joy it, it's your last chance an -- y -- how!
+  En -- joy it, it’s your last chance an -- y -- how!
   Al -- ways look on the bright side __ of life.
   Al -- ways look on the bright side __ of life.
   side __ of life, __
@@ -276,66 +307,66 @@ wordsTwo = \lyricmode {
   _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _
   _ _
-  For life is quite ab -- surd, __ _
-  and death's the fi -- nal word.
+  For life is quite ab -- surd, __
+  and death’s the fi -- nal word.
   You must al -- ways face the cur -- tain with a bow!
 
   _ For -- get a -- bout your sin.
   Give the au -- di -- ence a grin. __
-  En -- joy it, it's your last chance an -- y- _ _ how!
+  En -- joy it, it’s your last chance an -- y- _ _ how!
 }
 
 wordsSingle = \lyricmode {
   Some things in life are bad.
   They can real -- ly make you mad.
   Oth -- er things just make you swear and curse.
-  When you're chew -- in' on life's gris -- tle,
-  don't grum -- ble. Give a whis -- tle!
-  And this -- 'll help things turn out for the best…
+  When you’re chew -- in’ on life’s gris -- tle,
+  don’t grum -- ble. Give a whis -- tle!
+  And this -- ’ll help things turn out for the best…
   
   And, al -- ways look on the bright side __ of life.
   \markup\italic "(whistle)" _ _ _ _ _ _ _
   Al -- ways look on the bright side __ of life.
   \markup\italic "(whistle)" _ _ _ _ _ _ _
   If life seems jol -- ly rot -- ten,
-  there's some -- thing you've for -- got -- ten,
-  and that's to laugh and smile and dance and sing.
-  When you're feel -- ing in the dumps, _ _
-  don't be sil -- ly chumps, __
-  Just purse your lips and whis -- tle, that's the thing!
+  there’s some -- thing you’ve for -- got -- ten,
+  and that’s to laugh and smile and dance and sing.
+  When you’re feel -- ing in the dumps,
+  don’t be sil -- ly chumps, __
+  Just purse your lips and whis -- tle, that’s the thing!
 
   And, al -- ways look on the bright side __ of life.
   \markup\italic "(whistle)" _ _ _ _ _ _ _
   Al -- ways look on the bright side __ of life.
   \markup\italic "(whistle)" _ _ _ _ _ _ _
 
-  For life is quite ab -- surd, __ _
-  and death's the fi -- nal word.
+  For life is quite ab -- surd, __
+  and death’s the fi -- nal word.
   You must al -- ways face the cur -- tain with a bow!
 
-  _ For -- get a -- bout your sin.
+  For -- get a -- bout your sin.
   Give the au -- di -- ence a grin. __
-  En -- joy it, it's your last chance an -- y -- how!
+  En -- joy it, it’s your last chance an -- y -- how!
 
   Al -- ways look on the bright side __ of life.
   \markup\italic "(whistle)" _ _ _ _ _ _ _
   Just be -- fore you draw your ter -- min -- al breath.
   \markup\italic "(whistle)" _ _ _ _ _ _ _
   Life is full of grit, __ when you look at it.
-  Life's a laugh and death's a joke, it's true.
-  You'll see it's all a show.
-  Keep 'em laugh -- ing as you go! __
+  Life’s a laugh and death’s a joke, it’s true.
+  You’ll see it’s all a show.
+  Keep ’em laugh -- ing as you go! __
   Just re -- mem -- ber that the last laugh is on you!
   Al -- ways look on the bright side __ of life.
   \markup\italic "(whistle)" _ _ _ _ _ _ _
   Al -- ways look on the right side __ of life.
 
   Life is quite ab -- surd, __
-  and death's the fi -- nal word.
+  and death’s the fi -- nal word.
   You must al -- ways face the cur -- tain with a bow!
   For -- get a -- bout your sin.
   Give the au -- di -- ence a grin. __
-  En -- joy it, it's your last chance an -- y -- how!
+  En -- joy it, it’s your last chance an -- y -- how!
   Al -- ways look on the bright side __ of life.
   Al -- ways look on the bright side __ of life.
   side __ of life, __
@@ -346,53 +377,53 @@ wordsMidi = \lyricmode {
   "Some " "things " "in " "life " "are " "bad. "
   "\nThey " "can " real "ly " "make " "you " "mad. "
   "\nOth" "er " "things " "just " "make " "you " "swear " "and " "curse. "
-  "\nWhen " "you're " chew "in' " "on " "life's " gris "tle, "
-  "\ndon't " grum "ble. " "Give " "a " whis "tle! "
-  "\nAnd " this "'ll " "help " "things " "turn " "out " "for " "the " "best… "
+  "\nWhen " "you’re " chew "in’ " "on " "life’s " gris "tle, "
+  "\ndon’t " grum "ble. " "Give " "a " whis "tle! "
+  "\nAnd " this "’ll " "help " "things " "turn " "out " "for " "the " "best… "
   
   "\nAnd, " al "ways " "look " "on " "the " "bright " "side "  "of " "life. "
   "(whistle)" _ _ _ _ _ _ _
   "\nAl" "ways " "look " "on " "the " "bright " "side "  "of " "life. "
   "(whistle)" _ _ _ _ _ _ _
   "\nIf " "life " "seems " jol "ly " rot "ten, "
-  "\nthere's " some "thing " "you've " for got "ten, "
-  "\nand " "that's " "to " "laugh " "and " "smile " "and " "dance " "and " "sing. "
-  "\nWhen " "you're " feel "ing " "in " "the " "dumps, " "" ""
-  "\ndon't " "be " sil "ly " "chumps, " 
-  "\nJust " "purse " "your " "lips " "and " whis "tle, " "that's " "the " "thing! "
+  "\nthere’s " some "thing " "you’ve " for got "ten, "
+  "\nand " "that’s " "to " "laugh " "and " "smile " "and " "dance " "and " "sing. "
+  "\nWhen " "you’re " feel "ing " "in " "the " "dumps, "
+  "\ndon’t " "be " sil "ly " "chumps, " 
+  "\nJust " "purse " "your " "lips " "and " whis "tle, " "that’s " "the " "thing! "
 
   "\nAnd, " al "ways " "look " "on " "the " "bright " "side "  "of " "life. "
   "(whistle)" _ _ _ _ _ _ _
   "\nAl" "ways " "look " "on " "the " "bright " "side "  "of " "life. "
   "(whistle)" _ _ _ _ _ _ _
 
-  "\nFor " "life " "is " "quite " ab "surd, "  ""
-  "\nand " "death's " "the " fi "nal " "word. "
+  "\nFor " "life " "is " "quite " ab "surd, " 
+  "\nand " "death’s " "the " fi "nal " "word. "
   "\nYou " "must " al "ways " "face " "the " cur "tain " "with " "a " "bow! "
 
-  "" "\nFor" "get " a "bout " "your " "sin. "
+  "\nFor" "get " a "bout " "your " "sin. "
   "\nGive " "the " au di "ence " "a " "grin. " 
-  "\nEn" "joy " "it, " "it's " "your " "last " "chance " an y "how! "
+  "\nEn" "joy " "it, " "it’s " "your " "last " "chance " an y "how! "
 
   "\nAl" "ways " "look " "on " "the " "bright " "side "  "of " "life. "
   "(whistle)" _ _ _ _ _ _ _
   "\nJust " be "fore " "you " "draw " "your " ter min "al " "breath. "
   "(whistle)" _ _ _ _ _ _ _
   "\nLife " "is " "full " "of " "grit, "  "when " "you " "look " "at " "it. "
-  "\nLife's " "a " "laugh " "and " "death's " "a " "joke, " "it's " "true. "
-  "\nYou'll " "see " "it's " "all " "a " "show. "
-  "\nKeep " "'em " laugh "ing " "as " "you " "go! " 
+  "\nLife’s " "a " "laugh " "and " "death’s " "a " "joke, " "it’s " "true. "
+  "\nYou’ll " "see " "it’s " "all " "a " "show. "
+  "\nKeep " "’em " laugh "ing " "as " "you " "go! " 
   "\nJust " re mem "ber " "that " "the " "last " "laugh " "is " "on " "you! "
   "\nAl" "ways " "look " "on " "the " "bright " "side "  "of " "life. "
   "(whistle)" _ _ _ _ _ _ _
   "\nAl" "ways " "look " "on " "the " "right " "side "  "of " "life. "
 
   "\nLife " "is " "quite " ab "surd, " 
-  "\nand " "death's " "the " fi "nal " "word. "
+  "\nand " "death’s " "the " fi "nal " "word. "
   "\nYou " "must " al "ways " "face " "the " cur "tain " "with " "a " "bow! "
   "\nFor" "get " a "bout " "your " "sin. "
   "\nGive " "the " au di "ence " "a " "grin. " 
-  "\nEn" "joy " "it, " "it's " "your " "last " "chance " an y "how! "
+  "\nEn" "joy " "it, " "it’s " "your " "last " "chance " an y "how! "
   "\nAl" "ways " "look " "on " "the " "bright " "side "  "of " "life. "
   "\nAl" "ways " "look " "on " "the " "bright " "side "  "of " "life. "
   "\nside "  "of " "life, " 
@@ -400,15 +431,15 @@ wordsMidi = \lyricmode {
 }
 
 pianoRHone = \relative {
-  \global \oneVoice
-  r4\omit\mp \voiceOne d' <gis, cis fis> <cis' cis'>8\fermata cis
+  \global \ov
+  r4\omit\mp \vo d' <gis, cis fis> <cis' cis'>8\fermata cis
   b4. cis8 b4 cis
   <e, a>4. e8 <a, cis>4 e'
   d8 e fis a cis b cis b % 46b
-  \oneVoice <cis, e>8 cis' e a cis4 cis, \voiceOne
-  b8 a b cis b16 a8.~8 b \oneVoice % 46c
+  \ov <cis, e>8 cis' e a cis4 cis, \vo
+  b8 a b cis b16 a8.~8 b \ov % 46c
   a4 r fis8 \ottava #1 fis''32 gis fis gis fis8 \ottava #0 fis,,
-  \voiceOne b2 8 fis gis a \oneVoice % 47a
+  \vo b2 8 fis gis a \ov % 47a
   b8 d, fis a <d, f gis cis>2\fermata
   \tripletFeel 8 {
     \repeat volta 2 {
@@ -420,13 +451,13 @@ pianoRHone = \relative {
       <d fis a>4 4 <d fis>8 e q <cis e a>
       r4 <a' cis e>8 a' <a, fis'>4 r8 <a cis>
       b8 cis <fis, b d> fis' <gis, d' e>4 <d e gis b>8 e % 47d
-      \voiceOne b'4 8 cis~4. 8
+      \vo b'4 8 cis~4. 8
       a4 <cis, e a> fis4. cis8 % 48a
-      \voiceOne b8 cis d fis cis' b cis b \oneVoice
+      \vo b8 cis d fis cis' b cis b \ov
       <cis, e>8 cis' \tuplet 3/2 {e gis e} fis4 <e, cis'> % 48b
-      \voiceOne b'8 a b cis b2
+      \vo b'8 a b cis b2
       a4 a8 fis~4. 8
-      <dis b'>4 <e b'> b'8 fis gis a \oneVoice % 48c
+      <dis b'>4 <e b'> b'8 fis gis a \ov % 48c
     }
     \alternative {
       {<e gis b>4 r <d f gis cis>2}
@@ -440,14 +471,14 @@ pianoRHone = \relative {
     <ees g bes>4 q <ees g>8 f q <d f bes>
     r4 <bes' d f>8 bes' <bes, g'>4 r8 <bes d> % 49b
     c8 d <g, c ees> g' <a, ees' f>4 f
-    \voiceOne c'4 8 d~d2 \oneVoice
-    bes4 <d, f bes> \voiceOne g4. d8 \oneVoice % 49c
-    <c ees>8 <d f> <ees g> <g bes> \voiceOne d' c d c
+    \vo c'4 8 d~d2 \ov
+    bes4 <d, f bes> \vo g4. d8 \ov % 49c
+    <c ees>8 <d f> <ees g> <g bes> \vo d' c d c
     f,4 a' g f8 d % 49d
     c8 bes c d c2
     bes4 8 g~2
     <ees c'>4 <f c'> c'8 g a bes % 50a
-    \oneVoice <f a c>4 r <e gis b dis> <e gis ais cis> \bar "||" \key b \major
+    \ov <f a c>4 r <e gis b dis> <e gis ais cis> \bar "||" \key b \major
     <dis fis b>4 q <dis gis b>8 q4 gis8
     <e gis b>4 4 <e gis>8 fis q <dis fis b> % 50b
     r4 <dis' fis>8 b' <b, dis gis>4 r8 <b dis>
@@ -456,14 +487,14 @@ pianoRHone = \relative {
     <g b d>4 4 <g b>8 a q cis~
     <cis, fis ais cis>4 \tuplet 3/2 {a'8 cis fis} <a, cis eis>4 \tuplet 3/2 {a8 cis eis}
     <ais, cis dis>4 \tuplet 3/2 {fis8 ais dis} <ais cis>4 ais \bar "||" \key a \major % 50d
-    \voiceOne b4 8 cis~4. 8
+    \vo b4 8 cis~4. 8
     a4 <cis, e a> fis4. cis8 % 51a
     <b d>8 <cis e> <d fis> <fis a> cis' b cis b
     <cis, e>8 cis' \tuplet 3/2 {e gis e} \tuplet 3/2 {fis cis a} fis cis' % 51b
     b8 a b cis b2
     a4 8 fis~4. 8
     <dis b'>4 <e b'> b'8 fis gis a % 51c
-    \oneVoice <e gis b>4 r <ees g bes d> <ees g aes c> \bar "||" \key bes \major
+    \ov <e gis b>4 r <ees g bes d> <ees g aes c> \bar "||" \key bes \major
     <d f bes>4 4 8 4 g8 % 51d
     <e g bes>4 4 <e g>8 f q <d f bes>
     r <bes' d f>4 fis'8 <bes, d g> bes' q d,
@@ -484,7 +515,7 @@ pianoRHone = \relative {
 }
 
 pianoRHtwo = \relative {
-  \global \voiceTwo
+  \global \vt
   s4\omit\mp fis8 a s2
   <d fis>2 <d f>
   s1
@@ -628,8 +659,12 @@ pianoLH = \relative {
   \bar "|."
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "repeat"
+  \paper {
+    output-suffix = repeat
+  }
   \score {
     <<
       <<
@@ -642,7 +677,6 @@ pianoLH = \relative {
           \new Staff = melody \with {
             instrumentName = #""
             shortInstrumentName = #""
-            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \TempoTrack
@@ -655,7 +689,6 @@ pianoLH = \relative {
         \new PianoStaff = piano <<
           \new Staff = pianorh \with {
             printPartCombineTexts = ##f
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \new Voice \pianoRHone
@@ -663,7 +696,6 @@ pianoLH = \relative {
           >>
           \new Dynamics \dynamicsPiano
           \new Staff = pianolh \with {
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \clef "bass"
@@ -675,17 +707,38 @@ pianoLH = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "single"
+  \paper {
+    output-suffix = single
+  }
   \score {
    \unfoldRepeats
     <<
@@ -699,19 +752,17 @@ pianoLH = \relative {
           \new Staff = melody \with {
             instrumentName = #""
             shortInstrumentName = #""
-            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice \melody
+            \new Voice \melodySingle
             \addlyrics \wordsSingle
           >>
         >>
         \new PianoStaff = piano <<
           \new Staff = pianorh \with {
             printPartCombineTexts = ##f
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \new Voice \pianoRHone
@@ -719,7 +770,6 @@ pianoLH = \relative {
           >>
           \new Dynamics \dynamicsPiano
           \new Staff = pianolh \with {
-            midiInstrument = "acoustic grand piano"
           }
           <<
             \clef "bass"
@@ -731,24 +781,43 @@ pianoLH = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "singlepage"
   \paper {
+    output-suffix = singlepage
     top-margin = 0
     left-margin = 7
     right-margin = 1
     paper-width = 190\mm
     page-breaking = #ly:one-page-breaking
-    system-system-spacing.basic-distance = #22
+    system-system-spacing.basic-distance = #15
     system-separator-markup = \slashSeparator
   }
   \score {
@@ -765,29 +834,28 @@ pianoLH = \relative {
           \new Staff = melody \with {
             instrumentName = #""
             shortInstrumentName = #""
-            midiInstrument = "choir aahs"
           }
           <<
             \new Voice \TempoTrack
             \new Voice \RehearsalTrack
-            \new Voice \melody
+            \new Voice \melodySingle
             \addlyrics \wordsSingle
           >>
         >>
         \new PianoStaff = piano <<
           \new Staff = pianorh \with {
             printPartCombineTexts = ##f
-            midiInstrument = "acoustic grand piano"
           }
           <<
+            \magnifyStaff #4/7
             \new Voice \pianoRHone
             \new Voice \pianoRHtwo
           >>
-          \new Dynamics \dynamicsPiano
+          \new Dynamics \teeny \dynamicsPiano
           \new Staff = pianolh \with {
-            midiInstrument = "acoustic grand piano"
           }
           <<
+            \magnifyStaff #4/7
             \clef "bass"
             \new Voice \pianoLH
           >>
@@ -797,17 +865,121 @@ pianoLH = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = singlepage-bass
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+   \unfoldRepeats
+%   \articulate
+    <<
+      <<
+        \new ChordNames { \ChordTrack }
+%        \new FretBoards { \ChordTrack }
+      >>
+      <<
+        \new ChoirStaff <<
+                                % Melody staff
+          \new Staff = melody \with {
+            instrumentName = #""
+            shortInstrumentName = #""
+          }
+          <<
+            \clef bass
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \transpose c c, \melodySingle
+            \addlyrics \wordsSingle
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            printPartCombineTexts = ##f
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \teeny \dynamicsPiano
+          \new Staff = pianolh \with {
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLH
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+        \accidentalStyle Score.modern
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
 \book {
-  \bookOutputSuffix "midi"
+  \paper {
+    output-suffix = midi
+  }
   \score {
    \unfoldRepeats
 %   \articulate
@@ -826,12 +998,12 @@ pianoLH = \relative {
           }
           <<
             \new Voice \TempoTrack
-            \new Voice \melody
+            \new Voice \melodySingle
             \addlyrics \wordsMidi
           >>
         >>
         \new PianoStaff = piano <<
-          \new Staff = pianorh \with {
+          \new Staff = piano \with {
             midiInstrument = "acoustic grand piano"
           }
           <<
@@ -843,6 +1015,15 @@ pianoLH = \relative {
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
