@@ -186,7 +186,7 @@ words = \lyricmode {
     You will be free to gaze at me and talk of love!
     
     Just knock three times and whis -- per low,
-    That you and I were met by Joe,
+    That you and I were sent by Joe,
     Then strike a match and you will know,
     You’re in Her -- nan -- do’s Hide -- a --
     \alternative {
@@ -215,7 +215,7 @@ wordsMidi = \lyricmode {
   "\nYou " "will " "be " "free " "to " "gaze " "at " "me " "and " "talk " "of " "love! "
 
   "\nJust " "knock " "three " "times " "and " whis "per " "low, "
-  "\nThat " "you " "and " "I " "were " "met " "by " "Joe, "
+  "\nThat " "you " "and " "I " "were " "sent " "by " "Joe, "
   "\nThen " "strike " "a " "match " "and " "you " "will " "know, "
   "\nYou’re " "in " Her nan "do’s " Hide a "way! "
   "\nO" "lay! "
@@ -227,7 +227,7 @@ wordsMidi = \lyricmode {
   "\nYou " "will " "be " "free " "to " "gaze " "at " "me " "and " "talk " "of " "love! "
 
   "\nJust " "knock " "three " "times " "and " whis "per " "low, "
-  "\nThat " "you " "and " "I " "were " "met " "by " "Joe, "
+  "\nThat " "you " "and " "I " "were " "sent " "by " "Joe, "
   "\nThen " "strike " "a " "match " "and " "you " "will " "know, "
   "\nYou’re " "in " Her nan "do’s " Hide a "way! "
   "\nO" "lay! "
@@ -294,7 +294,7 @@ pianoRHone = \relative {
     \ov <g, c ees>8-.) g16 g aes8(g c b c d
     ees8 d c b c4-.) <g, c ees>->(
     <g cis e>8) a'-. a-. a-. a4-. <a, c fis>4( % 3d
-    <a cis g'>8-.) <bes' d>-. <a cis>-. <gis bis> <a c>4-. <g, c e>->(
+    <a cis g'>8-.) <bes' d>-. <a cis>-. <gis bis> <a cis>4-. <g, c e>->(
     <fis c' d>4.) <fis' c' ees>8(<fis c' d>4 <eis b' cis>
     <fis c' d>2.) ees4( % 4a
     \vo d8-.) e e ees(d) r r ees(
