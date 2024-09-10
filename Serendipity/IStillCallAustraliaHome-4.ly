@@ -70,18 +70,18 @@ RehearsalTrack = {
   \textMark \markup { \box "9c" } s2.*3
   \textMark \markup { \box "9d" } s2.*4
   \textMark \markup { \box "10a" } s2.*1
-  \repeat volta 2 {
+%  \repeat volta 2 {
     s2.*3
     \textMark \markup { \box "10b" } s2.*4
     \textMark \markup { \box "11a" } s2.*3
-    \alternative {
-      {
-        s2.*2
-        \textMark \markup { \box "11b" } s2.*2
-      }
+%    \alternative {
+%      {
+%        s2.*2
+%        \textMark \markup { \box "11b" } s2.*2
+%      }
       { s2.*2 }
-    }
-  }
+%    }
+%  }
   s2.
 }
 
@@ -109,7 +109,13 @@ solo = \relative {
   a2 4 | g4 a2 | g4 f4. 8 | d'2. |
   r8 c c c~c a | bes4 g2 | f2^\markup "(End solo/small group)" r4 | R2. | % 5a
   R2.*42
-  \repeat volta 2 {R2.*10 \alternative {{s2.*4} {s2.*2}}}
+%  \repeat volta 2 {
+  R2.*10
+%  \alternative {
+%      {s2.*4}
+      {s2.*2}
+%    }
+%  }
   R2.
 }
   
@@ -155,15 +161,15 @@ dynamicsVoice = {
   s2. | s | s\< | s2\! s8 s\f |
   s2.*13 | % 9
   s2 s4\f | % 10a
-  \repeat volta 2 {
+%  \repeat volta 2 {
     s2. | s | s\< |
     s2\! s8 s\f | s2. | s | s |
     s2.*3 |
-    \alternative {
-      {s2.*4}
+%    \alternative {
+%      {s2.*4}
       {s2. | s\ff }
-    }
-  }
+%    }
+%  }
   s2.
 }
 
@@ -184,15 +190,15 @@ soprano = \relative {
   <a c>4 4. <f a>8 | <f bes>4 g2 | f2. | % 9a
   R2.*10 |
   r2 f8 g | % 10a
-  \repeat volta 2 {
+%  \repeat volta 2 {
     a8 8~4 4 | g2 a4 | g f f |
     <b d>2 r8 8 | <a c>4 4. a8 | <g bes>4 g r | <a c>4 4. a8 |
     <g bes>4 g r | <a c>4 4. a8 | bes2 c4 |
-    \alternative {
-      {<c f>2. | R | R | r2 f,8 g}
+%    \alternative {
+%      {<c f>2. | R | R | r2 f,8 g}
       {<c f>2. | <bes d>4-> <c e>-> q-> |}
-    }
-  }
+%    }
+%  }
   <c f>2.\fermata |
   \bar "|."
 }
@@ -211,16 +217,16 @@ words = \lyricmode {
   I re -- a -- lise some -- thing I’ve al -- ways known,
   I still call Aust -- ra -- lia home.
   But no
-  \repeat volta 2 {
+%  \repeat volta 2 {
     mat -- ter __ how far or how wide I roam,
     I still call Aust -- ra -- lia,
     still call Aust -- ra -- lia,
     still call Aust -- ra -- lia
-    \alternative {
-      { home. But no }
+%    \alternative {
+%      { home. But no }
       { home, Aust -- ra -- lia }
-    }
-  }
+%    }
+%  }
   home!
 }
 
@@ -238,16 +244,16 @@ wordsMidi = \lyricmode {
   "\nI " re a "lise " some "thing " "I’ve " al "ways " "known, "
   "\nI " "still " "call " Aust ra "lia " "home. "
   "\nBut " "no "
-  \repeat volta 2 {
+%  \repeat volta 2 {
     "\nmat" "ter "  "how " "far " "or " "how " "wide " "I " "roam, "
     "\nI " "still " "call " Aust ra "lia, "
     "\nstill " "call " Aust ra "lia, "
     "\nstill " "call " Aust ra "lia "
-    \alternative {
-      { "\nhome. " "But " "no " }
+%    \alternative {
+%      { "\nhome. " "But " "no " }
       { "\nhome, " Aust ra "lia " }
-    }
-  }
+%    }
+%  }
   "\nhome! "
 }
 
@@ -268,15 +274,15 @@ alto = \relative {
   f4 4. 8 | d4 e2 | c2. | % 9a
   R2.*10 |
   r2 d8 e | % 10a
-  \repeat volta 2 {
+%  \repeat volta 2 {
     f8 8~4 4 | e2 cis4 | e d d |
     a'4(g) r8 g | f4 4. 8 | 4 e r | f4 4. 8 |
     f4 e r | f4 4. 8 | f4(g) <g bes> | % 11a
-    \alternative {
-      {<f a>2. | R | R | r2 d8 e |}
+%    \alternative {
+%      {<f a>2. | R | R | r2 d8 e |}
       {<f a>2. | f4-> <g bes>-> q-> |}
-    }
-  }
+%    }
+%  }
   <f a>2.\fermata |
   \bar "|."
 }
@@ -298,15 +304,15 @@ tenor = \relative {
   c4 4. 8 | bes4 2 | a2. | % 9a
   R2.*10 |
   r2 bes8 8 | % 10a
-  \repeat volta 2 {
+%  \repeat volta 2 {
     a8 c~4 4 | cis2 a4 | a d d |
     f2 r8 d | c4 4. 8 | d4 c r | 4 4. 8 |
     d4 c r | 4 4. 8 | d4(e) <e g> |
-    \alternative {
-      {f2. | R | R | r2 c8 c}
+%    \alternative {
+%      {f2. | R | R | r2 c8 c}
       {f2. | c4-> c-> e-> |}
-    }
-  }
+%    }
+%  }
   f2.\fermata |
   \bar "|."
 }
@@ -328,15 +334,15 @@ bass = \relative {
   c4 4. 8 | 4 2 | f2. | % 9a
   R2.*10 |
   r2 c8 8 | % 10a
-  \repeat volta 2 {
+%  \repeat volta 2 {
     f8 8~4 4 | e2 4 | d4 4 4 |
     g2 r8 d | c4 4. 8 | 4 4 r | 4 4. 8 |
     c4 4 r | <c c'>4 4. 8 | 2 4 |
-    \alternative {
-      {<f c'>2. | R | R | r2 c8 8 |}
+%    \alternative {
+%      {<f c'>2. | R | R | r2 c8 8 |}
       {<f c'>2. | c'4-> c-> c-> |}
-    }
-  }
+%    }
+%  }
   q2.\fermata |
   \bar "|."
 }
@@ -365,21 +371,21 @@ pianoRHone = \relative {
   a'8 8~4. 8  g8 a~4. g8  8 f~<a, d f>4 f' |
   f2 r8 f  bes8 8~4. 8 | a8 8~4. 8 | a4 g f |
   g2 f8 g | % 10a
-  \repeat volta 2 {
+%  \repeat volta 2 {
     a8 8~4 4 | g2 a4 | g f f |
     <b d>2 r8 g8 | c4 4. a8 | bes4 g r | c4 4. a8 |
     bes4 g2 | c4 4. a8 | bes2 c4 |
-    \alternative {
-      {
-        <a c f a>4 4. 8 | <a cis e g>4 <a cis e a>4. <a cis e g>8 |
-        <a d g>4 <a d f> q | <f bes d f> <d f bes d> <bes d f>8 <bes d g> |
-      }
+%    \alternative {
+%      {
+%        <a c f a>4 4. 8 | <a cis e g>4 <a cis e a>4. <a cis e g>8 |
+%        <a d g>4 <a d f> q | <f bes d f> <d f bes d> <bes d f>8 <bes d g> |
+%      }
       {
         <a' c f a>4-> <f a c f>-> <c f a c>-> |
         <d f bes d>-> <e g c e>-> <e g bes c e>-> |
       }
-    }
-  }
+%    }
+%  }
   <f a c f>2.\fermata |
 %  \bar "|."
 }
@@ -408,15 +414,15 @@ pianoRHtwo = \relative {
   <c f>4 4 4 | <a cis> q q | <a d> s q |
   <g bes ees>4 <g bes c> <a c ees> | <d f> q q | <c f> q q | <b d> q q |
   <bes d>4 <c e> <bes d> | % 10a
-  \repeat volta 2 {
+%  \repeat volta 2 {
     <c f>4 4 4 | <cis e> q q | <a d> q q |
     <d f a>4 <d f g> <d f> | <f a>4 4. f8 | <d f>4 <c e>2 | <f a>4 4. f8 |
     <d f>4 <c e>2 | <f a>4 4. f8 | <d f>4 <e g> <e g bes> |
-    \alternative {
-      {s2.*4}
+%    \alternative {
+%      {s2.*4}
       {s2.*2}
-    }
-  }
+%    }
+%  }
   s2.
   \bar "|."
 }
@@ -444,15 +450,15 @@ dynamicsPiano = {
   s2.\mf | s | s |
   s2.*4 |
   s2 s4\mf | % 10a
-  \repeat volta 2 {
+%  \repeat volta 2 {
     s2. | s | s\< |
     s2\! s8 s\f | s2. | s | s |
     s2. | s | s |
-    \alternative {
-      {s2.\f | s | s | s | }
+%    \alternative {
+%      {s2.\f | s | s | s | }
       {s2. | s\ff |}
-    }
-  }
+%    }
+%  }
   s2.
 }
 
@@ -480,20 +486,20 @@ pianoLH = \relative {
   f2 \tuplet 3/2 {f8 g gis} | a2 a,8 a' | d,2. |
   f2 4 | bes2~8 8 | a2~8 8 | g2~8 8 |
   c,4 c' c | % 10a
-  \repeat volta 2 {
+%  \repeat volta 2 {
     <f, f'>2~8 f | <e e'>2~8 e | d4 d' c |
     b2. | <c,, c'>4-> c'' c | c, c' c | <c,, c'> c'' c |
     c,4 c' c | <c,, c'> c'' c | c, c c | % 11a
-    \alternative {
-      {
-        <f f'>2 f8 f' | <e, e'>2 e8 e' |
-        <d, d'>2 d8 d' | c,4 c' c, |
-      }
+%    \alternative {
+%      {
+%        <f f'>2 f8 f' | <e, e'>2 e8 e' |
+%        <d, d'>2 d8 d' | c,4 c' c, |
+%      }
       {
         <f f'>4. f8 q8 f | <c, c'>4-> <c' c'>-> <c, c'>-> |
       }
-    }
-  }
+%    }
+%  }
   \repeat tremolo 12 {f32 f'\fermata}
 %  \bar "|."
 }
@@ -615,7 +621,7 @@ pianoLH = \relative {
     output-suffix = single
   }
   \score {
-   \unfoldRepeats
+%   \unfoldRepeats
     <<
       <<
         \new ChoirStaff <<
@@ -733,7 +739,7 @@ pianoLH = \relative {
     system-separator-markup = \slashSeparator
   }
   \score {
-   \unfoldRepeats
+%   \unfoldRepeats
     <<
       <<
         \new ChoirStaff <<
@@ -857,7 +863,7 @@ pianoLH = \relative {
     system-separator-markup = \slashSeparator
   }
   \score {
-   \unfoldRepeats
+%   \unfoldRepeats
     <<
       <<
         \new ChoirStaff <<
@@ -981,7 +987,7 @@ pianoLH = \relative {
     system-separator-markup = \slashSeparator
   }
   \score {
-   \unfoldRepeats
+%   \unfoldRepeats
     <<
       <<
         \new ChoirStaff <<
@@ -1105,7 +1111,7 @@ pianoLH = \relative {
     system-separator-markup = \slashSeparator
   }
   \score {
-   \unfoldRepeats
+%   \unfoldRepeats
     <<
       <<
         \new ChoirStaff <<
@@ -1229,7 +1235,7 @@ pianoLH = \relative {
     system-separator-markup = \slashSeparator
   }
   \score {
-   \unfoldRepeats
+%   \unfoldRepeats
 %   \articulate
     <<
       <<
@@ -1339,7 +1345,7 @@ pianoLH = \relative {
     output-suffix = midi-solo
   }
   \score {
-   \unfoldRepeats
+%   \unfoldRepeats
 %   \articulate
     <<
       <<
@@ -1431,7 +1437,7 @@ pianoLH = \relative {
     output-suffix = midi
   }
   \score {
-   \unfoldRepeats
+%   \unfoldRepeats
 %   \articulate
     <<
       <<
