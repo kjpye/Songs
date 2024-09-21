@@ -653,7 +653,7 @@ wordsTwoA = \lyricmode {
 
 wordsTwoB = \lyricmode {
   Hurl the reel -- ing horse -- men o -- ver!
-  Let the earth dead foe en -- cov -- er!
+  Let the earth dead foe -- men cov -- er!
   Fate of friend, of wife, of lov -- er,
   Trem -- bles on a blow!
 }
