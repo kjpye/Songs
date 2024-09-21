@@ -25,7 +25,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 %  opus        = "opus"
 
   poet        = "H. B. Farnie"
-%  meter       = "meter"
+  meter       = "Additional lyrics by Geoff Vaughan"
 %  piece       = "piece"
 
 % centered at bottom
@@ -46,12 +46,14 @@ TempoTrack = {
   s4
 }
 
+verses = 4
+
 RehearsalTrack = {
 %  \set Score.currentBarNumber = #5
 %  \mark \markup { \box "1a" } s2.*4
   \textMark \markup { \box "1a" } s2 s1*3
   \textMark \markup { \box "1b" }    s1
-  \repeat volta 3 {
+  \repeat volta \verses {
     s1*2
     \textMark \markup { \box "1c" }    s1*3
     \textMark \markup { \box "2a" }    s1*3
@@ -67,7 +69,7 @@ RehearsalTrack = {
 dynamicsVoice = {
   \override DynamicTextSpanner.style = #'none
   s2 | s1*3 | s1 |
-  \repeat volta 3 {
+  \repeat volta \verses {
     s1*17 |
     s2 s\< | s\> s\! | s1*4 |
     \alternative { { s1 } { s1 } }
@@ -78,7 +80,7 @@ tenor = \relative {
   \global
   r2 | R1*3 |
   R1
-  \repeat volta 3 {
+  \repeat volta \verses {
     R1 | r2 r8. ees'16 g,8. aes16 |
     bes8 r bes r aes r d, r | ees2 r | R1 |
     r2 r8. ees'16 g,8. aes16 | bes8 r bes r aes r d, r | ees2 r | % 2a
@@ -99,6 +101,7 @@ wordsTenorOne = \lyricmode {
   And of our -- selves we take good care!
   When dan -- ger looms, we’re nev -- er there!
   Or lit -- tle boys that do no harm,
+  \set stanza = "1-3."
   We run them in,
   we run them in,
   We show them we’re the bold Gen -- darmes!
@@ -116,6 +119,19 @@ wordsTenorThree = \lyricmode {
   And punch each o -- ther’s heads at night,
   Pro -- vid -- ed that they make it right!
   Or give to us our pro -- per terms.
+}
+
+wordsTenorFour = \lyricmode {
+  To sing- a- long with ev -- ’ry -- one.
+  To play some mu -- sic and have fun.
+  With bis -- cuits, cakes and cup of tea.
+  \set stanza = "4."
+  yes, we’ll join in
+  with a big grin
+  Be -- cause we’re friend -- ly bold gen -- darmes
+  els get us in
+  with a big grin
+  Be -- cause we’re friend -- ly bold gen -- darmes.
 }
 
 wordsTenorSingle = \lyricmode {
@@ -148,6 +164,17 @@ wordsTenorSingle = \lyricmode {
   We show them we’re the bold Gen -- darmes!
   We run them in, we run them in,
   We show them we’re the bold Gen -- darmes!
+
+  To sing- a- long with ev -- ’ry -- one.
+  To play some mu -- sic and have fun.
+  With bis -- cuits, cakes and cup of tea.
+  \set stanza = "4."
+  yes, we’ll join in
+  with a big grin
+  Be -- cause we’re friend -- ly bold gen -- darmes
+  els get us in
+  with a big grin
+  Be -- cause we’re friend -- ly bold gen -- darmes.
 }
 
 wordsTenorMidi = \lyricmode {
@@ -179,28 +206,65 @@ wordsTenorMidi = \lyricmode {
   "\n[1]we " "run " "them " "in, "
   "\n[1]We " "show " "them " "we’re " "the " "bold " Gen "darmes! "
   "\n[1]We " "run " "them " "in, " "[A]we " "run " "them " "in, "
-  "\nWe " "show " "them " "we’re " "the " "bold " Gen "darmes! "
+  "\nWe " "show " "them " "we’re " "the " "bold " Gen "darmes!\n"
+
+  \set stanza = "4."
+  "\nTo " sing a "long " "with " ev ’ry "one. "
+  "\nTo " "play " "some " mu "sic " "and " "have " "fun. "
+  "\nWith " bis "cuits, " "cakes " "and " "cup " "of " "tea. "
+  "\nyes, " "we’ll " "join " "in "
+  "\nwith " "a " "big " "grin "
+  "\nBe" "cause " "we’re " friend "ly " "bold " gen "darmes "
+  "\nels " "get " "us " "in "
+  "\nwith " "a " "big " "grin "
+  "\nBe" "cause " "we’re " friend "ly " "bold " gen "darmes. "
 }
 
-bass = \relative {
+bassA = \relative {
   \global
   r2 | R1*3 |
   r2 r8. ees'16 g,8. aes16
-  \repeat volta 3 {
-    bes8 r bes r bes r bes r | bes4.(c8) bes4 r |
-    R1 | r2 r8. ees16 g,8. aes16 | bes8 r bes r bes r bes r |
-    bes4.(c8) bes4 r | R1 | r2 r8. ees,16 ees'8. d16 | % 2a
-    c8 r aes r c r aes r | bes2 4 r | R1 |
-    r2 r8. g16 f8. g16 | aes4 r r8. aes16 g8. aes16 | bes4 r r2 |
-    R1 | r2 r8. g16 f8. g16 | aes4 r r8. aes16 g8. aes16 | % 3a
-    g8. c16 8. 16 d8. c16 bes8. aes16 | g4-> g-> aes-> bes-> | g-> r r2 |
-    R1*3 |
-    \alternative {
-      { r2 r8. ees'16 g,8. aes16 | }
-      { R1 | }
-    }
+}
+
+bassB = \relative {
+  bes8 r bes r bes r bes r |
+  \tag #'dash       {\slurDashed bes4.(c8) \slurSolid bes4 r |}
+  \tag #'(v1 v2 v3) {            bes4.(c8)            bes4 r |}
+  \tag #'v4         {            bes4. c8             bes4 r |}
+  R1 | r2 r8. ees16 g,8. aes16 | bes8 r bes r bes r bes r |
+  \tag #'dash       {\slurDashed bes4.(c8) \slurSolid bes4 r |}
+  \tag #'(v1 v2 v3) {            bes4.(c8)            bes4 r |}
+  \tag #'v4         {            bes4. c8             bes4 r |}
+  R1 | r2 r8. ees,16 ees'8. d16 | % 2a
+  c8 r aes r c r aes r |
+  \tag #'dash       {\slurDashed bes4.(8) \slurSolid 4 r |}
+  \tag #'(v1 v2 v3) {            bes2                4 r |}
+  \tag #'v4         {            bes4. 8             4 r |}
+  R1 |
+  r2 r8. g16 f8. g16 | aes4 r r8. aes16 g8. aes16 | bes4 r r2 |
+  R1 | r2 r8. g16 f8. g16 | aes4 r r8. aes16 g8. aes16 | % 3a
+  g8. c16 8. 16 d8. c16 bes8. aes16 | g4-> g-> aes-> bes-> | g-> r r2 |
+  R1*3 |
+}
+
+bassC = \relative { r2 r8. ees'16 g,8. aes16 | }
+bassD = \relative { R1 | }
+
+bass = {
+  \bassA
+  \repeat volta \verses {
+    \keepWithTag #'dash \bassB
+    \alternative { \bassC \bassD }
   }
   \bar "|."
+}
+
+bassSingle = {
+  \bassA
+  \keepWithTag #'v1 \bassB \bassC
+  \keepWithTag #'v2 \bassB \bassC
+  \keepWithTag #'v3 \bassB \bassC
+  \keepWithTag #'v4 \bassB \bassD
 }
 
 wordsBassOne = \lyricmode {
@@ -208,6 +272,7 @@ wordsBassOne = \lyricmode {
   We’re pub -- lic guard -- ians, bold, yet wa -- ry,
   To risk our pre -- cious lives we’re cha -- ry,
   But when we meet a help -- less wo -- man,
+  \set stanza = "1-3."
   We run them in,
   we run them in,
   We run them in,
@@ -232,9 +297,25 @@ wordsBassThree = \lyricmode {
   If gen -- tle -- men will make a ri -- ot,
   We’re quite dis -- posed to keep it qui -- et,
   But if they do not seem to see it,
+  \repeat unfold 28 \skip 1
+  \set stanza = "4."
+  To -- day we’ve
 }
 
-wordsBassSingle = \lyricmode {
+wordsBassFour = \lyricmode {
+  \set stanza = "4."
+  To -- day we've come out here to \nom Es -- tia \yesm Lodge
+  And we have gath -- ered in the \nom din -- ing \yesm lounge
+  But if the kit -- chen staff come \nom through the \yesm door
+  \set stanza = "4."
+  We’ll all join in,
+  We’ll join right in,
+  Such tempt -- ing mor
+  So we’ll join in with a big grin
+  Be -- cause we’re friend -- ly bold gen -- darmes.
+}
+
+  wordsBassSingle = \lyricmode {
   \set stanza = "1."
   We’re pub -- lic guard -- ians, bold, yet wa -- ry,
   To risk our pre -- cious lives we’re cha -- ry,
@@ -264,6 +345,17 @@ wordsBassSingle = \lyricmode {
   We run them in,
   we run them in, we run them in,
   We show them we’re the bold Gen -- darmes!
+
+  \set stanza = "4."
+  To -- day we've come out here to Es -- tia Lodge
+  And we have gath -- ered in the din -- ing lounge
+  But if the kit -- chen staff come through the door
+  \set stanza = "4."
+  We’ll all join in,
+  We’ll join right in,
+  Such tempt -- ing mor
+  So we’ll join in with a big grin
+  Be -- cause we’re friend -- ly bold gen -- darmes.
 }
 
 wordsBassMidi = \lyricmode {
@@ -296,6 +388,16 @@ wordsBassMidi = \lyricmode {
   "\n[2]We " "run " "them " "in, "
   "\n[2]we " "run " "them " "in, "
   \repeat unfold 12 \skip 1
+
+  \set stanza = "4."
+  "\n[2]To" "day " "we've " "come " "out " "here " "to " Es "tia " "Lodge "
+  "\n[2]And " "we " "have " gath "ered " "in " "the " din "ing " "lounge "
+  "\n[2]But " "if " "the " kit "chen " "staff " "come " "through " "the " "door "
+  "\n[2]We’ll " "all " "join " "in, "
+  "\n[2]We’ll " "join " "right " "in, "
+  "\n[2]Such " tempt "ing " "mor "
+  "\n[2]So " "we’ll " "join " "in "
+  \repeat unfold 12 \skip 1
 }
 
 pianoRH = \relative {
@@ -305,7 +407,7 @@ pianoRH = \relative {
   g'8. ees16 4 <d f>8. <c ees>16 <bes d>8. <aes c>16 |
   <g bes>8-> r <g ees' g>-> r <aes c f>-> r <f aes bes d>-> r |
   <ees g bes ees>8-> r r4 r8. ees''16 g,8. aes16 | % 1b
-  \repeat volta 3 {
+  \repeat volta \verses {
     bes8 r bes r bes r bes r |
     bes4.(c8) bes8 r16 ees g,8. aes16 |
     bes8 r bes r bes r d, r | % 1c
@@ -340,7 +442,7 @@ pianoRH = \relative {
 dynamicsPiano = {
   \override DynamicTextSpanner.style = #'none
   s2\f | s1 | s2 s\< | s1\! | s1 |
-  \repeat volta 3 {
+  \repeat volta \verses {
     s1*16 | s2 s\cresc | s1 | s\dim | s2 s\f | s1 | s2 s\< | s1\! |
     \alternative { { s1 } { s1 } }
   }
@@ -353,7 +455,7 @@ pianoLH = \relative {
   <ees g bes>8. 16 4 <aes,, aes'>8. <bes bes'>16 <c c'>8. <d d'>16 |
   <ees ees'>8-> r q-> r <aes, aes'>-> r <bes bes'>-> r |
   <ees ees'>8-> r <ees' g bes>-! r q-! r q-! r | % 1b
-  \repeat volta 3 {
+  \repeat volta \verses {
     q8 r q r <bes d f bes> r q r |
     <ees g bes>8 r q r q r q r |
     q8 r q r <f aes bes> r q r | % 1c
@@ -410,6 +512,7 @@ pianoLH = \relative {
             \addlyrics \wordsTenorOne
             \addlyrics \wordsTenorTwo
             \addlyrics \wordsTenorThree
+            \addlyrics \wordsTenorFour
           >>
                                 % Single bass staff
           \new Staff = bass \with {
@@ -424,6 +527,7 @@ pianoLH = \relative {
             \addlyrics \wordsBassOne
             \addlyrics \wordsBassTwo
             \addlyrics \wordsBassThree
+            \addlyrics \wordsBassFour
           >>
         >>
         \new PianoStaff = piano <<
@@ -512,7 +616,7 @@ pianoLH = \relative {
           <<
 %            \clef "bass"
             \new Dynamics \with {alignAboveContext = bass} \dynamicsVoice
-            \new Voice \transpose c c' \bass
+            \new Voice \transpose c c' \bassSingle
             \addlyrics \wordsBassSingle
           >>
         >>
@@ -609,7 +713,7 @@ pianoLH = \relative {
           <<
 %            \clef "bass"
             \new Dynamics \with {alignAboveContext = bass} \dynamicsVoice
-            \new Voice \transpose c c' \bass
+            \new Voice \transpose c c' \bassSingle
             \addlyrics \wordsBassSingle
           >>
         >>
@@ -707,7 +811,7 @@ pianoLH = \relative {
             \magnifyStaff #4/7
             \clef "bass"
             \new Dynamics \with {alignAboveContext = bass} \teeny \dynamicsVoice
-            \new Voice \bass
+            \new Voice \bassSingle
             \addlyrics {\tiny \wordsBassSingle}
           >>
         >>
@@ -807,7 +911,7 @@ pianoLH = \relative {
           <<
             \clef "bass"
             \new Dynamics \with {alignAboveContext = bass} \dynamicsVoice
-            \new Voice \bass
+            \new Voice \bassSingle
             \addlyrics \wordsBassSingle
           >>
         >>
@@ -899,7 +1003,7 @@ pianoLH = \relative {
           }
           <<
             \new Dynamics \with {alignAboveContext = bass} \dynamicsVoice
-            \new Voice \bass
+            \new Voice \bassSingle
             \addlyrics \wordsBassMidi
           >>
         >>
