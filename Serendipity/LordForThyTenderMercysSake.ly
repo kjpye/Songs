@@ -1,5 +1,6 @@
-\version "2.25.0"
+\version "2.25.19"
 
+\include "kjp.ly"
 \include "articulate.ly"
 
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
@@ -82,11 +83,11 @@ soprano = \relative c' {
 }
 
 wordsSop = \lyricmode {
-  Lord, for the ten -- der mer -- cy's sake lay not our sins to our charge,
+  Lord, for the ten -- der mer -- cy’s sake lay not our sins to our charge,
   but for -- give that is past and give us grace to a -- mend our sin -- ful lives,
   to de -- clare from sin and in -- cline to vir -- tue,
   \repeat volta 2 {
-    that we may walk with a per -- fect hert,
+    that we may walk with a per -- fect heart,
     that we may walk with a per -- fect heart be -- fore Thee now and e -- ver --
     \alternative {
       { more, } { more. }
@@ -95,11 +96,11 @@ wordsSop = \lyricmode {
 }
 
 wordsSopMidi = \lyricmode {
-  "Lord, " "for " "the " ten "der " mer "cy's " "sake " "lay " "not " "our " "sins " "to " "our " "charge, "
+  "Lord, " "for " "the " ten "der " mer "cy’s " "sake " "lay " "not " "our " "sins " "to " "our " "charge, "
   "\nbut " for "give " "that " "is " "past " "and " "give " "us " "grace " "to " a "mend " "our " sin "ful " "lives, "
   "\nto " de "clare " "from " "sin " "and " in "cline " "to " vir "tue, "
   \repeat volta 2 {
-    "\nthat " "we " "may " "walk " "with " "a " per "fect " "hert, "
+    "\nthat " "we " "may " "walk " "with " "a " per "fect " "heart, "
     "\nthat " "we " "may " "walk " "with " "a " per "fect " "heart " be "fore " "Thee " "now " "and " e ver
     \alternative {
       { "more,\n" } { "more. " }
@@ -168,11 +169,11 @@ alto = \relative c' {
 }
 
 wordsAlto = \lyricmode {
-  Lord, for the ten -- der mer -- cy's sake lay not our sins to our charge,
+  Lord, for the ten -- der mer -- cy’s sake lay not our sins to our charge,
   but for -- give that is past and give us grace to a -- mend our sin -- ful lives,
   to de -- clare from sin and in -- cline to vir -- tue,
   \repeat volta 2 {
-    that we may walk with a per -- fect hert,
+    that we may walk with a per -- fect heart,
     that we may walk with a per -- fect heart be -- fore Thee now and e -- ver --
     \alternative {
       { more, } { more. }
@@ -181,11 +182,11 @@ wordsAlto = \lyricmode {
 }
 
 wordsAltoMidi = \lyricmode {
-  "Lord, " "for " "the " ten "der " mer "cy's " "sake " "lay " "not " "our " "sins " "to " "our " "charge, "
+  "Lord, " "for " "the " ten "der " mer "cy’s " "sake " "lay " "not " "our " "sins " "to " "our " "charge, "
   "\nbut " for "give " "that " "is " "past " "and " "give " "us " "grace " "to " a "mend " "our " sin "ful " "lives, "
   "\nto " de "clare " "from " "sin " "and " in "cline " "to " vir "tue, "
   \repeat volta 2 {
-    "\nthat " "we " "may " "walk " "with " "a " per "fect " "hert, "
+    "\nthat " "we " "may " "walk " "with " "a " per "fect " "heart, "
     "\nthat " "we " "may " "walk " "with " "a " per "fect " "heart " be "fore " "Thee " "now " "and " e ver
     \alternative {
       { "more,\n" } { "more. " }
@@ -254,12 +255,12 @@ tenor = \relative c' {
 }
 
 wordsTenor = \lyricmode {
-  Lord, for the ten -- der mer -- cy's sake lay not our sins to our charge,
+  Lord, for the ten -- der mer -- cy’s sake lay not our sins to our charge,
   but for -- give that is past and give us grace to a -- mend our sin -- ful lives,
   to de -- clare from sin and in -- cline to vir -- tue,
   that we may
   \repeat volta 2 {
-    walk with a per -- fect hert, a per -- fect heart,
+    walk with a per -- fect heart, a per -- fect heart,
     that we may walk with a per -- fect heart, with a per -- fect heart,  be -- fore Thee now and e -- ver --
     \alternative {
       { more. That we may } { more. }
@@ -268,12 +269,12 @@ wordsTenor = \lyricmode {
 }
 
 wordsTenorMidi = \lyricmode {
-  "Lord, " "for " "the " ten "der " mer "cy's " "sake " "lay " "not " "our " "sins " "to " "our " "charge, "
+  "Lord, " "for " "the " ten "der " mer "cy’s " "sake " "lay " "not " "our " "sins " "to " "our " "charge, "
   "\nbut " for "give " "that " "is " "past " "and " "give " "us " "grace " "to " a "mend " "our " sin "ful " "lives, "
   "\nto " de "clare " "from " "sin " "and " in "cline " "to " vir "tue, "
   "\nthat " "we " "may "
   \repeat volta 2 {
-    "\nwalk " "with " "a " per "fect " "hert, " "a " per "fect " "heart, "
+    "\nwalk " "with " "a " per "fect " "heart, " "a " per "fect " "heart, "
     "\nthat " "we " "may " "walk " "with " "a " per "fect " "heart, " "with " "a " per "fect " "heart, "  be "fore " "Thee " "now " "and " e ver
     \alternative {
       { "more.\n" "\nThat " "we " "may " } { "more. " }
@@ -342,12 +343,12 @@ bass = \relative c' {
 }
 
 wordsBass = \lyricmode {
-  Lord, for the ten -- der mer -- cy's sake lay not our sins to our charge,
+  Lord, for the ten -- der mer -- cy’s sake lay not our sins to our charge,
   but for -- give that is past and give us grace to a -- mend our sin -- ful lives,
   to de -- clare from sin and in -- cline to vir -- tue,
   that we may
   \repeat volta 2 {
-    walk with a per -- fect hert, with a pre -- fect heart,
+    walk with a per -- fect heart, with a per -- fect heart,
     that we may walk with a per -- fect heart, with a per -- fect heart,
     be -- fore Thee now and e -- ver --
     \alternative {
@@ -357,12 +358,12 @@ wordsBass = \lyricmode {
 }
 
 wordsBassMidi = \lyricmode {
-  "Lord, " "for " "the " ten "der " mer "cy's " "sake " "lay " "not " "our " "sins " "to " "our " "charge, "
+  "Lord, " "for " "the " ten "der " mer "cy’s " "sake " "lay " "not " "our " "sins " "to " "our " "charge, "
   "\nbut " for "give " "that " "is " "past " "and " "give " "us " "grace " "to " a "mend " "our " sin "ful " "lives, "
   "\nto " de "clare " "from " "sin " "and " in "cline " "to " vir "tue, "
   "\nthat " "we " "may "
   \repeat volta 2 {
-    "\nwalk " "with " "a " per "fect " "hert, " "with " "a " pre "fect " "heart, "
+    "\nwalk " "with " "a " per "fect " "heart, " "with " "a " per "fect " "heart, "
     "\nthat " "we " "may " "walk " "with " "a " per "fect " "heart, " "with " "a " per "fect " "heart, "
     "\nbe" "fore " "Thee " "now " "and " e ver
     \alternative {
@@ -374,7 +375,9 @@ wordsBassMidi = \lyricmode {
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "repeat"
+  \paper {
+    output-suffix = repeat
+  }
   \score {
     <<
       <<
@@ -432,28 +435,26 @@ wordsBassMidi = \lyricmode {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -463,7 +464,9 @@ wordsBassMidi = \lyricmode {
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "single"
+  \paper {
+    output-suffix = single
+  }
   \score {
    \unfoldRepeats
     <<
@@ -522,28 +525,26 @@ wordsBassMidi = \lyricmode {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -553,8 +554,8 @@ wordsBassMidi = \lyricmode {
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "singlepage"
   \paper {
+    output-suffix = singlepage
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -622,28 +623,26 @@ wordsBassMidi = \lyricmode {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -653,8 +652,8 @@ wordsBassMidi = \lyricmode {
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "singlepage-sop"
   \paper {
+    output-suffix = singlepage-sop
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -724,28 +723,26 @@ wordsBassMidi = \lyricmode {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -755,8 +752,8 @@ wordsBassMidi = \lyricmode {
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "singlepage-alto"
   \paper {
+    output-suffix = singlepage-alto
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -826,28 +823,26 @@ wordsBassMidi = \lyricmode {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -857,8 +852,8 @@ wordsBassMidi = \lyricmode {
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "singlepage-tenor"
   \paper {
+    output-suffix = singlepage-tenor
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -928,28 +923,26 @@ wordsBassMidi = \lyricmode {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -959,8 +952,8 @@ wordsBassMidi = \lyricmode {
 #(set-global-staff-size 20)
 
 \book {
-  \bookOutputSuffix "singlepage-bass"
   \paper {
+    output-suffix = singlepage-bass
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -1030,28 +1023,26 @@ wordsBassMidi = \lyricmode {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
       }
     }
@@ -1059,7 +1050,9 @@ wordsBassMidi = \lyricmode {
 }
 
 \book {
-  \bookOutputSuffix "midi-sop"
+  \paper {
+    output-suffix = midi-sop
+  }
   \score {
    \unfoldRepeats
 %   \articulate
@@ -1130,7 +1123,9 @@ wordsBassMidi = \lyricmode {
   }
 }
 \book {
-  \bookOutputSuffix "midi-alto"
+  \paper {
+    output-suffix = midi-alto
+  }
   \score {
    \unfoldRepeats
 %   \articulate
@@ -1202,7 +1197,9 @@ wordsBassMidi = \lyricmode {
 }
 
 \book {
-  \bookOutputSuffix "midi-tenor"
+  \paper {
+    output-suffix = midi-tenor
+  }
   \score {
    \unfoldRepeats
 %   \articulate
@@ -1274,7 +1271,9 @@ wordsBassMidi = \lyricmode {
 }
 
 \book {
-  \bookOutputSuffix "midi-bass"
+  \paper {
+    output-suffix = midi-bass
+  }
   \score {
    \unfoldRepeats
 %   \articulate
