@@ -1,4 +1,4 @@
-\version "2.25.12"
+\version "2.25.18"
 
 \include "../kjp.ly"
 \include "predefined-guitar-fretboards.ly"
@@ -187,90 +187,90 @@ spokenTwo = \lyricmode {
 }
 
 wordsCommon = \lyricmode {
-  I'm a G -- nu, how do you do?
-  You real -- ly ought to k -- now w -- ho's w -- ho.
-  I'm a G -- nu,
+  I’m a G -- nu, how do you do?
+  You real -- ly ought to k -- now w -- ho’s w -- ho.
+  I’m a G -- nu,
   Spelt G. N. U.,
 }
 
 wordsOne = \lyricmode {
-  I'm a G -- nu. I'm a G -- nu, _ _ I'm a G -- nu,
+  I’m a G -- nu. I’m a G -- nu, _ _ I’m a G -- nu,
   The g -- ni -- cest \nom work of \yesm g -- na -- ture in the zoo!
   \wordsCommon
-  I'm g -- not a Ca -- mel or a Kan -- ga -- roo,
+  I’m g -- not a Ca -- mel or a Kan -- ga -- roo,
   So \nom let _ me \yesm in -- tro -- duce,
-  I'm g -- nei -- ther Man or Moose
-  Oh, g -- no, g -- no, g -- no, I'm a G -- nu!”
+  I’m g -- nei -- ther Man or Moose
+  Oh, g -- no, g -- no, g -- no, I’m a G -- nu!”
 }
 
 wordsTwo = \lyricmode {
-  I'm a G -- nu.
-  I'm a G -- nu, a g -- noth -- er G -- nu,
+  I’m a G -- nu.
+  I’m a G -- nu, a g -- noth -- er G -- nu,
   _ I wish I could g -- nash my teeth at you!
   \repeat unfold 27 \skip 1
-  Call me \nom Bi _ -- son or O -- ka -- _ pi and I'll _ sue! \yesm
+  Call me \nom Bi _ -- son or O -- ka -- _ pi and I’ll _ sue! \yesm
   \nom G -- nor am I _ \yesm in the least
   Like that dread -- ful Har -- te -- beast
   _ _
   \repeat unfold 9 \skip 1
-  "-no," g -- no, g -- no, I'm a G -- nu!
-  g -- no, g -- no, g -- no, I'm a G -- nu
-  g -- no, g -- no, g -- no, I'm a G -- nu!
+  "-no," g -- no, g -- no, I’m a G -- nu!
+  g -- no, g -- no, g -- no, I’m a G -- nu
+  g -- no, g -- no, g -- no, I’m a G -- nu!
 }
 
 wordsSingle = \lyricmode {
   \set stanza = "1."
-  I'm a G -- nu. I'm a G -- nu, I'm a G -- nu,
+  I’m a G -- nu. I’m a G -- nu, I’m a G -- nu,
   The g -- ni -- cest work of g -- na -- ture in the zoo!
   \wordsCommon
-  I'm g -- not a Ca -- mel or a Kan -- ga -- roo,
+  I’m g -- not a Ca -- mel or a Kan -- ga -- roo,
   So let me in -- tro -- duce,
-  I'm g -- nei -- ther Man or Moose
-  Oh, g -- no, g -- no, g -- no, I'm a G -- nu!”
+  I’m g -- nei -- ther Man or Moose
+  Oh, g -- no, g -- no, g -- no, I’m a G -- nu!”
 
   \set stanza = "2."
-  I'm a G -- nu.
-  I'm a G -- nu, a g -- noth -- er G -- nu,
+  I’m a G -- nu.
+  I’m a G -- nu, a g -- noth -- er G -- nu,
   I wish I could g -- nash my teeth at you!
-  I'm a G -- nu, how do you do?
-  You real -- ly ought to k -- now w -- ho's w -- ho.
-  I'm a G -- nu,
+  I’m a G -- nu, how do you do?
+  You real -- ly ought to k -- now w -- ho’s w -- ho.
+  I’m a G -- nu,
   Spelt G. N. U.,
-  Call me Bi -- son or O -- ka -- pi and I'll sue!
+  Call me Bi -- son or O -- ka -- pi and I’ll sue!
   G -- nor am I in the least
   Like that dread -- ful Har -- te -- beast
-  Oh, g -- no, g -- no, g -- no, I'm a G -- nu!
-  g -- no, g -- no, g -- no, I'm a G -- nu
-  g -- no, g -- no, g -- no, I'm a G -- nu!
+  Oh, g -- no, g -- no, g -- no, I’m a G -- nu!
+  g -- no, g -- no, g -- no, I’m a G -- nu
+  g -- no, g -- no, g -- no, I’m a G -- nu!
 }
 
 midiWords = \lyricmode {
   \set stanza = "1."
-  "\n[Sung] I'm " "a " G- "nu. " "I'm " "a " G- "nu, " "I'm " "a " G- "nu, "
+  "\n[Sung] I’m " "a " G- "nu. " "I’m " "a " G- "nu, " "I’m " "a " G- "nu, "
   "\nThe " g- ni "cest " "work " "of " g- na "ture " "in " "the " "zoo! "
-  "\nI'm " "a " G- "nu, " "how " "do " "you " "do? "
-  "\nYou " real "ly " "ought " "to " k- "now " w- "ho's " w- "ho. "
-  "\nI'm " "a " G- "nu, "
+  "\nI’m " "a " G- "nu, " "how " "do " "you " "do? "
+  "\nYou " real "ly " "ought " "to " k- "now " w- "ho’s " w- "ho. "
+  "\nI’m " "a " G- "nu, "
   "\nSpelt " "G. " "N. " "U., "
-  "\nI'm " g- "not " "a " Ca "mel " "or " "a " Kan ga "roo, "
+  "\nI’m " g- "not " "a " Ca "mel " "or " "a " Kan ga "roo, "
   "\nSo " "let " "me " in tro "duce, "
-  "\nI'm " g- nei "ther " "Man " "or " "Moose "
-  "\nOh, " g- "no, " g- "no, " g- "no, " "I'm " "a " G- "nu!”\n"
+  "\nI’m " g- nei "ther " "Man " "or " "Moose "
+  "\nOh, " g- "no, " g- "no, " g- "no, " "I’m " "a " G- "nu!”\n"
 
   \set stanza = "2."
-  "\n[Sung] I'm " "a " G- "nu. "
-  "\nI'm " "a " G- "nu, " "a " g- noth "er " G- "nu, "
+  "\n[Sung] I’m " "a " G- "nu. "
+  "\nI’m " "a " G- "nu, " "a " g- noth "er " G- "nu, "
   "\nI " "wish " "I " "could " g- "nash " "my " "teeth " "at " "you! "
-  "\nI'm " "a " G- "nu, " "how " "do " "you " "do? "
-  "\nYou " real "ly " "ought " "to " k- "now " w- "ho's " w- "ho. "
-  "\nI'm " "a " G- "nu, "
+  "\nI’m " "a " G- "nu, " "how " "do " "you " "do? "
+  "\nYou " real "ly " "ought " "to " k- "now " w- "ho’s " w- "ho. "
+  "\nI’m " "a " G- "nu, "
   "\nSpelt " "G. " "N. " "U., "
-  "\nCall " "me " Bi "son " "or " O ka "pi " "and " "I'll " "sue! "
+  "\nCall " "me " Bi "son " "or " O ka "pi " "and " "I’ll " "sue! "
   "\nG-" "nor " "am " "I " "in " "the " "least "
   "\nLike " "that " dread "ful " Har te "beast "
-  "\nOh, " g- "no, " g- "no, " g- "no, " "I'm " "a " G- "nu! "
-  "\ng-" "no, " g- "no, " g- "no, " "I'm " "a " G- "nu "
-  "\ng-" "no, " g- "no, " g- "no, " "I'm " "a " G- "nu! "
+  "\nOh, " g- "no, " g- "no, " g- "no, " "I’m " "a " G- "nu! "
+  "\ng-" "no, " g- "no, " g- "no, " "I’m " "a " G- "nu "
+  "\ng-" "no, " g- "no, " g- "no, " "I’m " "a " G- "nu! "
 }
 
 pianoRHone = \relative {
@@ -320,7 +320,7 @@ pianoRHone = \relative {
 
 pianoRHtwo = \relative {
   \global
-  \voiceTwo
+  \vt
   \repeat volta 2 {
     s1*9 | s2 g'4 des |
     s1 | <aes' c ees>4 4 <f aes bes> s | r <ees aes> r <ees g bes> | % 177b+
@@ -404,7 +404,7 @@ pianoLHone = \relative {
 
 pianoLHtwo = \relative {
   \global
-  \voiceTwo
+  \vt
   s1
   \bar "|."
 }
@@ -412,18 +412,17 @@ pianoLHtwo = \relative {
 #(set-global-staff-size 20)
 
 \book {
-  #(define output-suffix "repeat")
+  \paper {
+    output-suffix = repeat
+  }
   \score {
     <<
       <<
-        \new ChoirStaff
-        <<
-          \new Dynamics \TempoTrack
           \new Staff \with {
-            \consists "Volta_engraver"
-            \accidentalStyle Score.modern
+%            \consists "Volta_engraver"
           }
           <<
+          \new Dynamics \TempoTrack
             \new Voice \RehearsalTrack
             \new Voice \melody
             \addlyrics \wordsOne
@@ -432,7 +431,6 @@ pianoLHtwo = \relative {
             \addlyrics \spokenOne
             \addlyrics \spokenTwo
           >>
-        >>
         \new PianoStaff
         <<
           \new Staff = pianorh \with {
@@ -457,39 +455,27 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
-      }
-    }
-    \layout {
-      indent = 1.5\cm
-      \context {
-        \Score
-        \remove "Volta_engraver"
-        }
-      \context {
-        \Staff \RemoveAllEmptyStaves
       }
     }
   }
@@ -498,7 +484,9 @@ pianoLHtwo = \relative {
 #(set-global-staff-size 20)
 
 \book {
-  #(define output-suffix "single")
+  \paper {
+    output-suffix = single
+  }
   \score {
     \unfoldRepeats
     <<
@@ -506,13 +494,12 @@ pianoLHtwo = \relative {
         \new ChoirStaff
         <<
           \new Dynamics \TempoTrack
-          \new Staff \with {
-            \accidentalStyle Score.modern
+          \new Staff = melody \with {
           }
           <<
             \new Voice \RehearsalTrack
-            \new Voice = "melody" \melodySingle
-            \new Lyrics \lyricsto "melody" \wordsSingle
+            \new Voice \melodySingle
+            \addlyrics \wordsSingle
             \new NullVoice \spokenAligner
             \addlyrics {\spokenOne \spokenTwo}
           >>
@@ -520,7 +507,6 @@ pianoLHtwo = \relative {
         \new PianoStaff
         <<
           \new Staff = pianorh \with {
-            \accidentalStyle Score.modern
           }
           <<
             \new Voice \pianoRHone
@@ -528,7 +514,6 @@ pianoLHtwo = \relative {
           >>
           \new Dynamics \dynamicsPiano
           \new Staff = pianolh \with {
-            \accidentalStyle Score.modern
           }
           <<
             \clef "bass"
@@ -541,36 +526,27 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
-      }
-    }
-    \layout {
-      #(layout-set-staff-size 20)
-      indent = 1.5\cm
-      \context {
-        \Staff \RemoveAllEmptyStaves
       }
     }
   }
@@ -579,8 +555,8 @@ pianoLHtwo = \relative {
 #(set-global-staff-size 20)
 
 \book {
-  #(define output-suffix "singlepage")
   \paper {
+    output-suffix = singlepage
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -596,13 +572,12 @@ pianoLHtwo = \relative {
         \new ChoirStaff
         <<
           \new Dynamics \TempoTrack
-          \new Staff \with {
-            \accidentalStyle Score.modern
+          \new Staff = melody \with {
           }
           <<
             \new Voice \RehearsalTrack
-            \new Voice = "melody" \melodySingle
-            \new Lyrics \lyricsto "melody" \wordsSingle
+            \new Voice \melodySingle
+            \addlyrics \wordsSingle
             \new NullVoice \spokenAligner
             \addlyrics {\spokenOne \spokenTwo}
           >>
@@ -610,7 +585,6 @@ pianoLHtwo = \relative {
         \new PianoStaff
         <<
           \new Staff = pianorh \with {
-            \accidentalStyle Score.modern
           }
           <<
             \new Voice \pianoRHone
@@ -618,7 +592,6 @@ pianoLHtwo = \relative {
           >>
           \new Dynamics \dynamicsPiano
           \new Staff = pianolh \with {
-            \accidentalStyle Score.modern
           }
           <<
             \clef "bass"
@@ -631,36 +604,27 @@ pianoLHtwo = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Score
+      \context { \Score
+        \accidentalStyle Score.modern
         \remove Metronome_mark_engraver
 %        \remove Staff_collecting_engraver
       }
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
       }
-      \context {
-        \ChoirStaff
+      \context { \ChoirStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \PianoStaff
+      \context { \PianoStaff
         \consists Metronome_mark_engraver
         \consists Staff_collecting_engraver
       }
-      \context {
-        \Voice
+      \context { \Voice
 %        \consists Ambitus_engraver
-      }
-    }
-    \layout {
-      #(layout-set-staff-size 20)
-      indent = 1.5\cm
-      \context {
-        \Staff \RemoveAllEmptyStaves
       }
     }
   }
@@ -669,7 +633,9 @@ pianoLHtwo = \relative {
 #(set-global-staff-size 20)
 
 \book {
-  #(define output-suffix "midi")
+  \paper {
+    output-suffix = midi
+  }
   \score {
     \unfoldRepeats
 %   \articulate
@@ -678,31 +644,24 @@ pianoLHtwo = \relative {
         \new ChoirStaff
         <<
           \new Dynamics \TempoTrack
-          \new Staff \with {
+          \new Staff = melody \with {
             \accidentalStyle Score.modern
           }
           <<
-            \new Voice = "melody" \melodySingle
-            \new Lyrics \lyricsto "melody" { \midiWords }
+            \new Voice \melodySingle
+            \addlyrics { \midiWords }
             \new NullVoice \spokenAligner
             \addlyrics {\spokenOne \spokenTwo}
           >>
         >>
         \new PianoStaff
         <<
-          \new Staff = pianorh \with {
-            \accidentalStyle Score.modern
+          \new Staff = piano \with {
           }
           <<
             \new Voice \pianoRHone
             \new Voice \pianoRHtwo
-          >>
-          \new Dynamics \dynamicsPiano
-          \new Staff = pianolh \with {
-            \accidentalStyle Score.modern
-          }
-          <<
-            \clef "bass"
+            \new Dynamics \dynamicsPiano
             \new Voice \pianoLHone
             \new Voice \pianoLHtwo
           >>
