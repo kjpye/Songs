@@ -1,4 +1,6 @@
-\version "2.19.82"
+\version "2.25.18"
+
+\include "kjp.ly"
 
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 
@@ -6,7 +8,7 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 % centered at top
 %  dedication  = "dedication"
   title    = "The Virgin Mary Had a Baby Boy"
-%  subsubtitle = "subsubtitle"
+  subsubtitle = "(add your own calypso feel)"
 %  instrument  = "instrument"
   
 % arrangement of following lines:
@@ -29,47 +31,10 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
   copyright   = \today
 }
 
-#(set-global-staff-size 17)
-
-% \paper {
-%   #(set-paper-size "a4")
-%   line-width = 180\mm
-%   left-margin = 20\mm
-%   bottom-margin = 10\mm
-%   top-margin = 10\mm
-% }
-
 global = {
   \key f \major
   \time 4/4
   \tempo 4=120
-}
-
-colour = {
-  \override NoteHead.color   = #red
-  \override Stem.color       = #red
-  \override Beam.color       = #red
-  \override Accidental.color = #red
-  \override Slur.color       = #red
-  \override Tie.color        = #red
-  \override Dots.color       = #red
-}
-
-black = {
-  \override NoteHead.color   = #black
-  \override Stem.color       = #black
-  \override Beam.color       = #black
-  \override Accidental.color = #black
-  \override Slur.color       = #black
-  \override Tie.color        = #black
-  \override Dots.color       = #black
-}
-
-RehearsalTrack = {
-%  \set Score.currentBarNumber = #5
-%  \mark \markup { \box 5 }
-  \mark \markup { \circle "1a" }
-  s2 s2
 }
 
 unison = \relative c' {
@@ -130,12 +95,11 @@ pianoRH = \relative c' {
 %  \bar "|."
 }
 
-pianoRHone = \relative c' {
-  \global
-  \voiceOne
+pianoRHone = \relative {
+  \global \vo
   s1*10
   \repeat volta 2 {
-    s4 c4~c8 d e4
+    s4 c'4~c8 d e4
     s4 c4~c8 d e4
     s4 c4~c8 d e4
     s1
@@ -151,18 +115,17 @@ pianoRHone = \relative c' {
 %  \bar "|."
 }
 
-pianoRHtwo = \relative c'' {
-  \global
-  \voiceTwo
+pianoRHtwo = \relative {
+  \global \vt
   s1*10
   \repeat volta 2 {
-    s4 c8 bes~bes2
+    s4 c'8 bes~bes2
     s4 c8 bes~bes2
     s4 c8 bes~bes2
     s1
   }
   \repeat volta 2 {
-    s2 f2
+    s2 f'2
     f4. f8 f4 f
   }
   s4 c8 bes~bes2
@@ -173,8 +136,7 @@ pianoRHtwo = \relative c'' {
 }
 
 pianoLH = \relative c, {
-  \global
-  \oneVoice
+  \global \ov
   <f c'>4 r8 <a f'> r4 <f c'>8 r
   <f c'>4 r8 <a f'> r4 <f c'>8 r
   <f c'>4 r8 <a f'> r4 <f c'>8 r
@@ -203,9 +165,8 @@ pianoLH = \relative c, {
 }
 
 pianoLHone = \relative c {
-  \global
+  \global \vo
   \clef bass
-  \voiceOne
   s1*9
   c4 c s2
   \repeat volta 2 {
@@ -219,9 +180,8 @@ pianoLHone = \relative c {
 }
 
 pianoLHtwo = \relative c, {
-  \global
+  \global \vt
   \clef bass
-  \voiceTwo
   s1*9
   f2 s
   \repeat volta 2 {
@@ -248,13 +208,19 @@ wordsTwo = \lyricmode {
   the an- gels sang _ when the ba- by born,
   the an- gels sang _ when the ba- by born,
   and pro- claim him the ba- by Je- sus.
+}
 
-  He come from the glo- ry,
-  he come from the glo- rious king- dom,
+chorus = \lyricmode {
+  \repeat volta 2 {
+    He come from the glo- ry,
+    he come from the glo- rious king- dom,
+  }
 
-  O yes, be- liev- er,
+  \repeat volta 2 {
+    O yes, be- liev- er,
+  }
   he come from the glo- ry,
-  he come from the glo- rious king- dom,
+  he come from the glo- rious king- dom.
 }
 
 wordsThree = \lyricmode {
@@ -265,42 +231,231 @@ wordsThree = \lyricmode {
   and they say that his name was Je- sus.
 }
 
+wordsMidi = \lyricmode {
+  \set stanza = "1."
+  "The " vir "gin " Ma "ry " "had " "a " ba "by " "boy, "
+  "\nthe " vir "gin " Ma "ry " "had " "a " ba "by " "boy, "
+  "\nthe " vir "gin " Ma "ry " "had " "a " ba "by " "boy, "
+  "\nand " "they " "say " "that " "his " "name " "was " Je "sus. "
+  \repeat volta 2 {
+    "\nHe " "come " "from " "the " glo "ry, "
+    "\nhe " "come " "from " "the " glo "rious " king "dom. "
+  }
+
+  \repeat volta 2 {
+    "\nO " "yes, " be liev "er, "
+  }
+  "\nhe " "come " "from " "the " glo "ry, "
+  "\nhe " "come " "from " "the " glo "rious " king "dom. "
+
+  \set stanza = "2."
+  "\nThe " an "gels " "sang " "" "when " "the " ba "by " "born, "
+  "\nthe " an "gels " "sang " "" "when " "the " ba "by " "born, "
+  "\nthe " an "gels " "sang " "" "when " "the " ba "by " "born, "
+  "\nand " pro "claim " "him " "the " ba "by " Je "sus. "
+
+  \repeat volta 2 {
+    "\nHe " "come " "from " "the " glo "ry, "
+    "\nhe " "come " "from " "the " glo "rious " king "dom. "
+  }
+
+  \repeat volta 2 {
+    "\nO " "yes, " be liev "er, "
+  }
+  "\nhe " "come " "from " "the " glo "ry, "
+  "\nhe " "come " "from " "the " glo "rious " king "dom, "
+
+  \set stanza = "3."
+  "\nThe " "wise " "men " "saw " "" "where " "the " ba "by " "born, "
+  "\nthe " "wise " "men " "saw " "" "where " "the " ba "by " "born, "
+  "\nthe " "wise " "men " "saw " "" "where " "the " ba "by " "born, "
+  "\nand " "they " "say " "that " "his " "name " "was " Je "sus. "
+  \repeat volta 2 {
+    "\nHe " "come " "from " "the " glo "ry, "
+    "\nhe " "come " "from " "the " glo "rious " king "dom, "
+  }
+
+  \repeat volta 2 {
+    "\nO " "yes, " be liev "er, "
+  }
+  "\nhe " "come " "from " "the " glo "ry, "
+  "\nhe " "come " "from " "the " glo "rious " king "dom, "
+
+}
+
 wordsOYes = \lyricmode {
   _ _ _ _ _ _ _ _ _
   O yes, be- liev- er,
 }
   
-\score {
-  <<
-    \new ChoirStaff <<
-% Single unison staff
-      \new Staff \with { instrumentName = #"Tutti" } <<
-%        \new Voice \RehearsalTrack
-        \new Voice = "unison" \unison
-        \new Lyrics \lyricsto "unison" \wordsOne
-        \new Lyrics \lyricsto "unison" \wordsTwo
-        \new Lyrics \lyricsto "unison" \wordsThree
+#(set-global-staff-size 17)
+
+\book {
+  \paper {
+    output-suffix = repeat
+    }
+  \score {
+    <<
+      \new ChoirStaff <<
+                                % Single unison staff
+        \new Staff = melody \with { instrumentName = #"Tutti" } <<
+          \new Voice \unison
+          \addlyrics \wordsOne
+          \addlyrics {\wordsTwo \chorus}
+          \addlyrics \wordsThree
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff <<
+          \new Voice \pianoRH
+          \new Voice = "rhone" \pianoRHone
+          \addlyrics \wordsOYes
+          \new Voice \pianoRHtwo
+        >>
+        \new Staff <<
+          \new Voice \pianoLH
+          \new Voice \pianoLHone
+          \new Voice \pianoLHtwo
+        >>
       >>
     >>
-    \new PianoStaff <<
-      \new Staff <<
-        \new Voice \pianoRH
-        \new Voice = "rhone" \pianoRHone
-        \new Voice \pianoRHtwo
-      >>
-      \new Lyrics \lyricsto "rhone" \wordsOYes
-      \new Staff <<
-        \new Voice \pianoLH
-        \new Voice \pianoLHone
-        \new Voice \pianoLHtwo
-      >>
-    >>
-  >>
-  \layout {
-    indent = 1.5\cm
-    \context {
-      \Staff \RemoveAllEmptyStaves
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+                 \accidentalStyle Score.modern
+                 \remove Metronome_mark_engraver
+                                %        \remove Staff_collecting_engraver
+               }
+      \context { \Staff
+                 \RemoveAllEmptyStaves
+                 barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+                 \override BarNumber.break-visibility = ##(#f #t #t)
+                 \consists Merge_rests_engraver
+               }
+      \context { \ChoirStaff
+                 \consists Metronome_mark_engraver
+                 \consists Staff_collecting_engraver
+               }
+      \context { \PianoStaff
+                 \consists Metronome_mark_engraver
+                 \consists Staff_collecting_engraver
+               }
+      \context { \Voice
+                                %        \consists Ambitus_engraver
+               }
     }
   }
-  \midi {}
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = single
+    }
+  \score {
+    \unfoldRepeats
+    <<
+      \new ChoirStaff <<
+                                % Single unison staff
+        \new Staff = melody \with { instrumentName = #"Tutti" } <<
+          \new Voice {\unison \unison \unison}
+          \addlyrics {\wordsOne \chorus \wordsTwo \chorus \wordsThree \chorus}
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff <<
+          \new Voice {\pianoRH \pianoRH \pianoRH}
+          \new Voice {\pianoRHone \pianoRHone \pianoRHone}
+          \new Voice {\pianoRHtwo \pianoRHtwo \pianoRHtwo}
+        >>
+        \new Staff <<
+          \new Voice {\pianoLH \pianoLH \pianoLH}
+          \new Voice {\pianoLHone \pianoLHone \pianoLHone}
+          \new Voice {\pianoLHtwo \pianoLHtwo \pianoLHtwo}
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context { \Score
+                 \accidentalStyle Score.modern
+                 \remove Metronome_mark_engraver
+                                %        \remove Staff_collecting_engraver
+               }
+      \context { \Staff
+                 \RemoveAllEmptyStaves
+                 barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+                 \override BarNumber.break-visibility = ##(#f #t #t)
+                 \consists Merge_rests_engraver
+               }
+      \context { \ChoirStaff
+                 \consists Metronome_mark_engraver
+                 \consists Staff_collecting_engraver
+               }
+      \context { \PianoStaff
+                 \consists Metronome_mark_engraver
+                 \consists Staff_collecting_engraver
+               }
+      \context { \Voice
+                                %        \consists Ambitus_engraver
+               }
+    }
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
+  }
+}
+
+\book {
+  \paper {
+    output-suffix = midi
+    }
+  \score {
+    \unfoldRepeats
+    <<
+      \new ChoirStaff <<
+                                % Single unison staff
+        \new Staff = melody \with {
+          midiInstrument = "choir aahs"
+        }
+        <<
+          \new Voice {\unison \unison \unison}
+          \addlyrics \wordsMidi
+        >>
+      >>
+      \new PianoStaff <<
+        \new Staff = piano \with {
+          midiInstrument = "acoustic grand piano"
+        }
+        <<
+          \new Voice {\pianoRH \pianoRH \pianoRH}
+          \new Voice {\pianoRHone \pianoRHone \pianoRHone}
+          \new Voice {\pianoRHtwo \pianoRHtwo \pianoRHtwo}
+          \new Voice {\pianoLH \pianoLH \pianoLH}
+          \new Voice {\pianoLHone \pianoLHone \pianoLHone}
+          \new Voice {\pianoLHtwo \pianoLHtwo \pianoLHtwo}
+        >>
+      >>
+    >>
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
+  }
 }
