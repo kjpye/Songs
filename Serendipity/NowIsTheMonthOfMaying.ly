@@ -47,26 +47,6 @@ global = {
   \partial 4
 }
 
-colour = {
-  \override NoteHead.color   = #red
-  \override Stem.color       = #red
-  \override Beam.color       = #red
-  \override Accidental.color = #red
-  \override Slur.color       = #red
-  \override Tie.color        = #red
-  \override Dots.color       = #red
-}
-
-black = {
-  \override NoteHead.color   = #black
-  \override Stem.color       = #black
-  \override Beam.color       = #black
-  \override Accidental.color = #black
-  \override Slur.color       = #black
-  \override Tie.color        = #black
-  \override Dots.color       = #black
-}
-
 RehearsalTrack = {
 %  \set Score.currentBarNumber = #5
 %  \mark \markup { \box 5 }
@@ -81,7 +61,7 @@ RehearsalTrack = {
     \mark \markup { \circle "2a" } s1*3
     \mark \markup { \circle "2b" } s1*2
   }
-  \alternative {{s1}{s1}}
+  \alternative {{s1}{s2.}}
 }
 
 soprano = \relative {
@@ -118,7 +98,7 @@ soprano = \relative {
       g2 r4 b
     }
     {
-      g1^\fermata
+      g2.^\fermata
     }
   }
   \bar "|."
@@ -151,7 +131,7 @@ alto = \relative {
   }
   \alternative {
     { g2 r4 d}
-    { g1\fermata }
+    { g2.\fermata }
   }
 }
 
@@ -183,7 +163,7 @@ tenorOne = \relative {
   }
   \alternative {
     { b2 r4 g}
-    { b1\fermata }
+    { b2.\fermata }
   }
   \bar "|."
 }
@@ -216,7 +196,7 @@ tenorTwo = \relative {
   }
   \alternative {
     { d2 r4 d }
-    { d1\fermata }
+    { d2.\fermata }
   }
   \bar "|."
 }
@@ -249,9 +229,20 @@ bass= \relative {
   }
   \alternative {
     { g,2 r4 g' }
-    { g,1\fermata }
+    { g,2.\fermata }
   }
   \bar "|."
+}
+
+dynamicsSingle = {
+  \repeat unfold 4 {
+    s4\f s1*7 s2.
+    s4\p s1*7 s2.
+  }
+  \repeat unfold 2 {
+    s4\p s1*7 s2.
+    s4\f s1*7 s2.
+  }
 }
 
 pianoRH = \relative c' {
@@ -1564,11 +1555,12 @@ wordsBassMidi = \lyricmode {
     <<
       \new ChoirStaff <<
                                 % Single soprano staff
-        \new Staff \with {
+        \new Staff = soprano \with {
           instrumentName = #"Soprano"
           shortInstrumentName = #"S"
         }
         <<
+          \new Dynamics \with {alignAboveContext = soprano} \dynamicsSingle
           \new Voice { \RehearsalTrack \RehearsalTrack \RehearsalTrack }
           \new Voice = "soprano" { \soprano \soprano \soprano }
           \new Lyrics \lyricsto "soprano" \wordsSopSingle
@@ -1651,11 +1643,12 @@ wordsBassMidi = \lyricmode {
           \new Lyrics \lyricsto "soprano" {\tiny \wordsSopSingle}
         >>
                                 % Single alto staff
-        \new Staff \with {
+        \new Staff = alto \with {
           instrumentName = #"Alto"
           shortInstrumentName = #"A"
         }
         <<
+          \new Dynamics \with {alignAboveContext = alto} \dynamicsSingle
           \new Voice = "alto" { \alto \alto \alto }
           \new Lyrics \lyricsto "alto" \wordsAltoSingle
         >>
@@ -1737,11 +1730,12 @@ wordsBassMidi = \lyricmode {
           \new Lyrics \lyricsto "alto" {\tiny \wordsAltoSingle}
         >>
                                 % Single tenor one staff
-        \new Staff \with {
+        \new Staff = "tenor1" \with {
           instrumentName = #"Tenor One"
           shortInstrumentName = #"T1"
         }
         <<
+          \new Dynamics \with {alignAboveContext = "tenor1"} \dynamicsSingle
           \new Voice = "tenorone" { \tenorOne \tenorOne \tenorOne }
           \new Lyrics \lyricsto "tenorone" \wordsTenorOneSingle
         >>
@@ -1823,11 +1817,12 @@ wordsBassMidi = \lyricmode {
           \new Lyrics \lyricsto "tenorone" {\tiny \wordsTenorOneSingle}
         >>
                                 % Single tenor two staff
-        \new Staff \with {
+        \new Staff = "tenor2" \with {
           instrumentName = #"Tenor Two"
           shortInstrumentName = #"T2"
         }
         <<
+          \new Dynamics \with {alignAboveContext = "tenor2"} \dynamicsSingle
           \new Voice = "tenortwo" { \tenorTwo \tenorTwo \tenorTwo }
           \new Lyrics \lyricsto "tenortwo" \wordsTenorTwoSingle
         >>
@@ -1909,11 +1904,12 @@ wordsBassMidi = \lyricmode {
           \new Lyrics \lyricsto "tenortwo" {\tiny \wordsTenorTwoSingle}
         >>
                                 % Single bass staff
-        \new Staff \with {
+        \new Staff = bass \with {
           instrumentName = #"Bass"
           shortInstrumentName = #"B"
         }
         <<
+          \new Dynamics \with {alignAboveContext = bass} \dynamicsSingle
           \new Voice = "bass" { \bass \bass \bass }
           \new Lyrics \lyricsto "bass" \wordsBassSingle
         >>
