@@ -54,54 +54,54 @@ TempoTrackSingle = {
 
 RehearsalTrack = {
 %  \set Score.currentBarNumber = #5
-  \textMark \markup\box "50a" s4
+  \textMark \markup\box "60a" s4
   \textMark \markup\musicglyph "scripts.segno"
   \repeat volta 2 {
     s2.*5
-    \textMark \markup\box "50b"    s2.*5
-    \textMark \markup\box "50c"    s2.*3
+    \textMark \markup\box "60b"    s2.*5
+    \textMark \markup\box "60c"    s2.*3
     \textMark \markup{\halign #RIGHT \italic "To Coda" \musicglyph "scripts.coda"}
     s2.
     \alternative {
       { s2.*2 |}
       {
-        \textMark \markup\box "50d"    s2.*2
+        \textMark \markup\box "60d"    s2.*2
       }
     }
   }
   s2.*3
-  \textMark \markup\box "51a"    s2.*5
-  \textMark \markup\box "51b"    s2.*5
-  \textMark \markup\box "51c"    s2.*2
+  \textMark \markup\box "61a"    s2.*5
+  \textMark \markup\box "61b"    s2.*5
+  \textMark \markup\box "61c"    s2.*2
   \textMark \markup{\halign #RIGHT \italic "D.S. al Coda"} s2. \break
   \textMark \markup{\musicglyph "scripts.coda" \italic Coda} s2.*2
-  \textMark \markup\box "51d"    s2.*4
+  \textMark \markup\box "61d"    s2.*4
 }
 
 RehearsalTrackSingle = {
 %  \set Score.currentBarNumber = #5
-  \textMark \markup\box "50a" s4
+  \textMark \markup\box "60a" s4
   s2.*5
-  \textMark \markup\box "50b"    s2.*5
-  \textMark \markup\box "50c"    s2.*3
+  \textMark \markup\box "60b"    s2.*5
+  \textMark \markup\box "60c"    s2.*3
   s2.
   s2.*2
   s2.*5
-  \textMark \markup\box "50b"    s2.*5
-  \textMark \markup\box "50c"    s2.*3
+  \textMark \markup\box "60b"    s2.*5
+  \textMark \markup\box "60c"    s2.*3
   s2.
-  \textMark \markup\box "50d"    s2.*2
+  \textMark \markup\box "60d"    s2.*2
   s2.*3
-  \textMark \markup\box "51a"    s2.*5
-  \textMark \markup\box "51b"    s2.*5
-  \textMark \markup\box "51c"    s2.*2
+  \textMark \markup\box "61a"    s2.*5
+  \textMark \markup\box "61b"    s2.*5
+  \textMark \markup\box "61c"    s2.*2
   s2.
   s2.*5
-  \textMark \markup\box "50b"    s2.*5
-  \textMark \markup\box "50c"    s2.*3
+  \textMark \markup\box "60b"    s2.*5
+  \textMark \markup\box "60c"    s2.*3
   s2.
   s2.*2
-  \textMark \markup\box "51d"    s2.*4
+  \textMark \markup\box "61d"    s2.*4
 }
 
 ChordTrack = \chordmode {
@@ -131,7 +131,7 @@ melodyC = \relative {g'2(\tuplet 3/2 {a8 b a} | g2) d8.(e16)}
 melodyD = \relative {g'2.~ | 4 r d8.(e16) |}
 melodyE = \relative {
   g'2 \tuplet 3/2 {b8(a g)} | b2 a4 | g2 e4 |
-  d2 8.(e16) | g2 b8.(g16) | b2 a8.(b16) | d2.~ | 2 b8.(d16) | % 51a
+  d2 8.(e16) | g2 b8.(g16) | b2 a8.(b16) | d2.~ | 2 b8.(d16) | % 61a
   d2 b4 | g2 b8.(a16) g2 e4 | d2 8.(e16) | g2 b4 |
   b2 a4 | g2(\tuplet 3/2 {a8 g e} | g2) d8.(e16) |
 }
@@ -252,7 +252,7 @@ pianoRHoneC = \relative {<b d g>2(\tuplet 3/2 {<c e a>8 <d g b> <c e a>} | \vo g
 pianoRHoneD = \relative {\vo g'2.~ | 4 r d8.(e16) |}
 pianoRHoneE = \relative {
   \vo g'2 \tuplet 3/2 {b8(a g)} | b2 a4 | g2 e4 |
-  d2 8.(e16) | g2 b8.(g16) | b2 a8.(b16) | d2.~ | 2 b8.(d16) | % 51a
+  d2 8.(e16) | g2 b8.(g16) | b2 a8.(b16) | d2.~ | 2 b8.(d16) | % 61a
   d2 b4 | g2 b8.(a16) g2 e4 | d2 8.(e16) | g2 b4 |
   b2 a4 | g2(\tuplet 3/2 {<c, e a>8 g' e} | <b d g>2) d8.(e16)
 }
@@ -297,7 +297,7 @@ pianoRHtwoD = \relative { \vt <b d>2 <c e>4 | <b d>2 r4 | }
 pianoRHtwoE = \relative {
   \vt
   <b d>2 4 | r <d g> <b f'> | r <c e> <g c> |
-  r4 <g b> q | r <b d> q | r <b e g> <b e> | r <fis' a> q | r q <d fis> | % 51a
+  r4 <g b> q | r <b d> q | r <b e g> <b e> | r <fis' a> q | r q <d fis> | % 61a
   r4 <d g> q | r <b f'> q | r <c e> <g c> | r <g b> q | r <b e> <b e g> |
   r4 <d fis> <c fis> | r <b d> s | s2. }
 pianoRHtwoF = \relative {
@@ -360,7 +360,7 @@ pianoLHC = \relative { g,4~8. b16 c8. e,16 | g4~8. e'16 \tuplet 3/2 {d8 b a} | }
 pianoLHD = \relative { g,4~8. b16 c8. e16 | g4. e8 \tuplet 3/2 {d b a} | }
 pianoLHE = \relative {
   g,4~8. 16 8. 16 | 4~8. 16 \tuplet 3/2 {8 a b} | c4~8. c,16 \tuplet 3/2 {c8 d e} |
-  g2 8. d16 | g4~8. d16 g8. f16 | e2 \tuplet 3/2 {b'8 c cis} | d2~\tuplet 3/2 {8 a a} | d4~8. e16 \tuplet 3/2 {d8 b a} | % 51a
+  g2 8. d16 | g4~8. d16 g8. f16 | e2 \tuplet 3/2 {b'8 c cis} | d2~\tuplet 3/2 {8 a a} | d4~8. e16 \tuplet 3/2 {d8 b a} | % 61a
   g4~8. 16 \tuplet 3/2 {8 8 d} | g4~8. 16 \tuplet 3/2 {8 a b} | c2 \tuplet 3/2 {c,8 e fis} | g4~8. d16 \tuplet 3/2 {g8 d' dis} | e2 \tuplet 3/2 {b8 c cis} |
   d4~8. a16 d8. 16 | g,4~8. b16 c4 | g4~8. e'16 \tuplet 3/2 {d8 b a} |
 }
