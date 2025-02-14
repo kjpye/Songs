@@ -281,11 +281,11 @@ bass = \relative {
   a4~8\fermata d d fis, | g4. fis8 g8. a16 | b2 r8 cis |
   d8 cis16 d~8 fis, g8. b16 | a4 r8 d d fis, | g4~8 fis g a | % 7a
   \tag #'joint {
-    b2\fermata r8 cis | f fis, g8. b16 a8. 16 | d4 r8 \hideNotes d fis a |
+    b2\fermata r8 cis | d fis, g8. b16 a8. 16 | d4 r8 \hideNotes d fis a |
     b4. a8 b8.  a16 | fis2 r8 e8 | fis e fis a8 8. fis16 | e4 r8 \unHideNotes d d d |
   }
   \tag #'single {
-    b2\fermata r8 cis | f fis, g8. b16 a8. 16 | d4 r8 d(fis a |
+    b2\fermata r8 cis | d fis, g8. b16 a8. 16 | d4 r8 d(fis a |
     b4. a8 b8.  a16 | fis2) r8 e8( | fis e fis a8) 8.(fis16 | e4) r8 d d d |
   }
   c4~8 8 b8. 16 | bes2\fermata r8 bes | a8. fis16 g8. b16 a8. 16 | <d, d'>2.\fermata |
