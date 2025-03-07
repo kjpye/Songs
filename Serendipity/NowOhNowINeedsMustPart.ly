@@ -484,7 +484,7 @@ dynamicsAlto = {
 
 alto = \relative {
   g'2 fis4 | e2 d4 | c2 b4 | d2. | d2 g4 | 2 4 | fis2 g4 |
-  fis2 r4 | g2 fis4 | e2 d4 | c2 b4 | c2. \time 3/2 d4 g e4. 8 c4. 8 \time 3/4 |
+  fis2 r4 | g2 fis4 | e2 d4 | c2 b4 | d2. \time 3/2 d4 g e4. 8 c4. 8 \time 3/4 |
   b2.~b | g'2 fis4 | e2 d4 | c2 b4 | d2. | d2 g4 | 2 4 | % 13a
   fis2 g4 | fis2 r4 | g2 fis4 | e2 d4 | c2 b4 | d2. \time 3/2 | d4 g e4. 8 c4. 8 \time 3/4 |
   b2.~ | b | e2 4 | 2 4 | g2 4 | 2. \time 3/2 | e4 a g d e4. d8 \time 3/4 | % 14a
