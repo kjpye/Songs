@@ -75,7 +75,7 @@ soprano = \relative {
   a2 r4 | b2 a4 | g2 fis4 | e2 g4 | a2 r4 \time 3/2 | b4 d c4. 8 b4 a \time 3/4 |
   g2.~ | g | b2 a4 | g2 fis4 | e2 g4 | a2 r4 | b2 d4 | c2 b4 | % 13a
   a2 b4 | a2 r4 | b2 a4 | g2 fis4 | e2 g4 | a2 r4 \time 3/2 | b4 d c4. 8 b4 a \time 3/4 |
-  g2.~ | g | c2 4 | c2 e4 | d2 e4 | b2 r4 \time 3/2 | c4. 8 b4 a c b \time 3/4 | % 14a
+  g2.~ | g | c2 4 | c2 e4 | d2 e4 | c2 r4 \time 3/2 | c4. 8 b4 a c b \time 3/4 | % 14a
   a2.~ | a | b2 a4 | g2 fis4 | e2 g4 | a2 r4 \time 3/2 | b4 d c4. 8 b4 a \time 3/4 | g2.~ | g |
 }
 

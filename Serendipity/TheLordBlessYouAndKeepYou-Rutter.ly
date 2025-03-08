@@ -93,7 +93,7 @@ sopranoJoint = \relative {
   ces4 bes2 ges8 aes
   bes4 bes2 bes8 aes % 2b
   bes2. r8 bes
-  bes4 bes c bes
+  bes4 bes c c
   ees2. d8 c
   d4. g,8 g4 a % 2c
   b4 b2~8 r
