@@ -84,20 +84,21 @@ dynamicsWomen = {
   s1*2 | s2.. s8\p | s2. s4\< | s2\> s4\! s\< | s1 | s2\> s4 s\< | s2\fz\> s\fz | s\fz s\fz |
   s1\fz | s2. s4\pp s1 | s4 s2.\> | s2 s\! | s s\< | s2.\! s4\mf\> | s1 | s2 s4\! s\pp | % 4
   s1 | s4 s2.\> | s2 s\! | s s\< | s s4\! s\mf\> | s1 | s2 s\! | s s\< | s2.\> s4\! |
-  s1 | s2 s\< | s\> s\! | s s\< | s\> s\! | s1*3 | s2.. s8\p | % 6
+  s1 | s2 s\< | s\> s\! | s s\mf\< | s\> s\! | s1*3 | s2.. s8\p | % 6
   \repeat unfold 4 {s4\> s2.\! |} s2.\< s4\! | s2.\< s4\> | s1\pp | s4\> s\! s2\pp | s2. s4\p |
   s2 s\< | s\> s\! | s\< s\> | s1\! | s2 s\< | s\> s\! | s\< s\> | s s4\! s\ppp | s1*2 | % 8
   s2\< s\> | s1\! | s-\markup\italic morendo | s1*2 | s2\< s4\> s\! | s2 s\< | s1 | s1\> s2 s\! | s1*2 |
 }
 
 soprano = \relative {
+  \set breathMarkType = #'tickmark
   \global
   R1*3 |
   r2 r4 ees'' | 2 4. 8 | f4 ees r8 des c bes | aes2(ees'4.) des8 |
   c2 r | ees2 4. 8 | aes4 c, r8 des ees f |
   aes,2 c4.(bes8) | aes2 r4 r8 ees | des'8.(c16) 8.(bes16) 4. 8 | % 2a
   aes8. bes16 8.(ees16) 4 c8 ees, | des'8.(c16) 8.(bes16) 4. 8 | aes8.(bes16) 8.(ees16) 4 c8 8|
-  f2. 4 | ees2. 4 | 8(des) 8(c) ees(des) 8(c) |
+  f2. 4 | ees2. \breathe 4 | 8(des) 8(c) ees(des) 8(c) |
   f8(ees) f(ees) des(c \tuplet 3/2 {ees d c)} | bes2 r | r2 r4 r8 bes | % 3a
   bes4. 8 8. 16 8 8 | c4(bes) r c | des4. 8 ees8. 16 8. 16 |
   fes8.(ees16) 4 r ees | ges2 fes | ees des |
@@ -107,11 +108,11 @@ soprano = \relative {
   d4. 8 4. 8 | 4 4 4 cis | d d r d | % 5a
   d4. c8 4 g' | g(f) r g8(ees) | d4. 8 4 ees8(c) |
   bes2 r4 bes | des1~ | 2. 4 |
-  c2. 4 | 4. 8 des4 ees | f4. 8 des4 c | % 6a
-  bes2 c4 des | ees4. des8 c4 bes | a2 8(bes des bes) |
+  c2. \breathe 4 | 4. 8 des4 ees | f4. 8 des4 c | % 6a
+  bes2 \breathe c4 des | ees4. des8 c4 bes | a2 8(bes des bes) |
   aes2(g4) r | R1 | r2 r4 r8 ees16 16 |
   des'8.(c16) 8.(bes16) 4. 8 | aes8.(bes16) 8. ees16 4. ees,8 | des'8.(c16) 8.(bes16) 4. 8 | % 7a
-  aes8.(bes16) 8.(ees16) 4. c8 | f4. 8 4 8 8 | ees2 4. 8 |
+  aes8.(bes16) 8.(ees16) 4. \breathe c8 | f4. 8 4 8 8 | ees2 4. 8 |
   ees8(des) 8 c ees(des) 8(c) | f(ees) f(ees) des(c \tuplet 3/2 {ees des) c} | bes4 4 r ees |
   ees4. 8 4. 8 | f4. ees8 8 des c bes | aes2(ees'4.) 8 | % 8a
   c2 r | ees2 4. 8 | aes4. c,8 8 des ees f |
@@ -185,13 +186,14 @@ wordsSopMidi = \lyricmode {
 }
 
 alto = \relative {
+  \set breathMarkType = #'tickmark
   \global
   R1*3 |
   r2 r4 aes' | 2 bes4. 8 | aes4 4 r8 des, ees des | ees2 g |
   aes2 r | 2 bes4. 8 aes4 4 r8 aes ges f |
   ees2 aes4.(g8) | aes2 r4 r8 ees | bes'8.(aes16) 8.(g16) 4. 8 | % 2a
   aes8. g16 8.(aes16) 4 8 ees | bes'8.(aes16) 8.(g16) 4. 8 | aes8.(g16) 8.(aes16) 4 8 8 |
-  a4 bes8(c) 4 bes8(aes) | g4 aes8 bes8 4 aes8 g16(aes) | 4  bes aes bes |
+  a4 bes8(c) 4 bes8(aes) | g4 aes8 bes8 4 aes8 \breathe g16(aes) | 4  bes aes bes |
   aes4 4 g8(aes g aes) | g2 r | r2 r4 r8 ees | % 3a
   ees4. 8 f8. 16 8. 16 | ees2 r4 g | f4. aes8 bes8. 16 8. 16 |
   aes4 4 r ces | 2 des | ges, fes |
@@ -201,11 +203,11 @@ alto = \relative {
   <fis a>4. <a c>8 4(<g bes>8) 8 | <fis a>4 <f aes> <e g> <ees g> | <d fis> q r q | % 5a
   <ees g>4. g8 4 <a c> | <bes d>2 r4 g | f4. 8 4 4 |
   d2 r4 bes' | 1~ | 2. f4 |
-  g4. 8 f4 g | f4. 8 4 4 | 4. 8 4 4 | % 6a
-  f2 aes4 4 | 4. 8 4 ges | f2 2 |
+  g4. 8 f4 \breathe g | f4. 8 4 4 | 4. 8 4 4 | % 6a
+  f2 \breathe aes4 4 | 4. 8 4 ges | f2 2 |
   ees2. r4 | R1 | r2 r4 r8 ees16 16 |
   bes'8.(aes16) 8.(g16) 4. 8 | aes8.(16) 8. aes16 4. ees8 | bes'8.(aes16) 8.(g16) 4. 8 | % 7a
-  ees8.(g16) 8.(aes16) 4. 8 | a4 bes8(c) 4 bes8 aes | g4(aes8 bes) 4 aes8(g16 aes) |
+  ees8.(g16) 8.(aes16) 4. \breathe 8 | a4 bes8(c) 4 bes8 aes | g4(aes8 bes) 4 aes8(g16 aes) |
   aes4 beses8 8 aes4 beses | aes4 4 g8(aes) g(aes) | g4 4 r g |
   aes4. 8 bes4. 8 | aes4. 8 8 des, ees des | ees2(g4.) 8 | % 8a
   aes2 r | aes2 bes4. 8 |  aes4. 8 8 8 ges f |
@@ -286,20 +288,21 @@ dynamicsTenor = {
   s1*2 | s2.. s8\p | s2. s4\< | s2\> s4\! s\< | s1 | s2\> s4\! s\< | s2\fz\> s\fz\! | s2\fz s\fz |
   s1\fz | s2. s4\pp | s1 | s4 s2.\> | s2 s\! | s s\< | s2.\! s4\mf\> | s1 | s2 s4\! s\pp | % 4
   s1 | s4 s2.\> | s2 s\! | s s\< | s s4\! s\mf\> | s1 | s2 s\! | s1*2 |
-  s1 | s2 s\< | s\> s\! | s s\< | s\> s\! | s1*4 | % 6
+  s1 | s2 s\< | s\> s\! | s s\mf\< | s\> s\! | s1*4 | % 6
   s2. s4\pp | s\> s2.\! | s1 | s4\> s2.\! | s2.\< s4\> | s2.\< s4\> | s1\pp | s4\> s\! s2\pp | s2. s4\p |
   s2 s\< | s\> s\! | s\< s\> | s1\! | s2 s\< | s\> s\! | s\< s\> | s s4\! s\ppp | s1*2 | % 8
   s1 | s | s-\markup\italic morendo | s1 | s | s | s2 s\< | s1 | s1\> | s2 s\! | s1*2 |
 }
 
 tenor = \relative {
+  \set breathMarkType = #'tickmark
   \global
   R1*3 |
   r2 r4 c' | 2 des4. 8 | c4 4 r8 aes a bes | c2(bes4.) ees8 |
   ees2 r | c2 des4. 8 | c4 ees r8 aes,8 8 8 |
   c2 ees4.(des8) | c2 r | r r4 r8 ees, | % 2a
   c'8.(bes16) 8.(aes16) 4. r8 | r2 r4 r8 ees | c'8.(bes16) 8.(aes16) 4 8 c |
-  c4 des8(ees) 4 des8(c) | bes4 c8 des8 4 c8 ees | f4 ges f ges |
+  c4 des8(ees) 4 des8(c) | bes4 c8 des8 4 c8 \breathe ees | f4 ges f ges |
   f8(c) des(ees) 2 | 2 r | r2 r4 r8 g, | % 3a
   g4. 8 aes8. 16 8. 16 | g2 r4 bes | aes4. des8 8. 16 8. 16 |
   ces4 4 r ces | 2 aes | ces bes |
@@ -309,11 +312,11 @@ tenor = \relative {
   d4. 8 4. 8 | 4 4 4 4 | 4 4 r d | % 5a
   ees4. 8 4 4 | d2 r4 bes | 4. 8 4 a |
   bes2 r | R1 | r2 r4 bes |
-  bes2. 4 | aes4. 8 4 4 | 4. 8 4 4 | % 6a
-  aes2 4 f' | ees4. 8 4 4 | 2 des |
+  bes2. \breathe 4 | aes4. 8 4 4 | 4. 8 4 4 | % 6a
+  aes2 \breathe 4 f' | ees4. 8 4 4 | 2 des |
   c2(bes4) r | R1*2 |
   r2 r4 r8 ees,16 16 | c'8.(bes16) 8.(aes16) 4. r8 | r2 r4 r8 ees | % 7a
-  c'8.(bes16) 8. aes16 4. c8 | 4 des8(ees) 4 des8 c | bes4(c8 des) 4 c8(ees) |
+  c'8.(bes16) 8. aes16 4. \breathe c8 | 4 des8(ees) 4 des8 c | bes4(c8 des) 4 c8(ees) |
   f4 ges8 8 f4 ges | des8(ees) des(ees) 4. 8 | 4 4 r des |
   c4. 8 des4. 8 | c4. 8 8 aes a bes | c2(bes4.) ees8 | % 8a
   ees2 r | c des4. 8 | c4. 8 8 aes8 8 8 |
@@ -392,20 +395,21 @@ dynamicsBass = {
   s1*2 | s2.. s8\p | s2. s4\< | s2\> s4\! s\< | s1 | s2\> s4\! s\< | s2\fz\> s\fz\! | s2\fz s\fz |
   s1\fz | s1 | s | s | s | s | s2. s4\mf\> | s1 | s2 s\! | % 4
   s1 | s | s | s | s2. s4\mf\> | s1 | s2 s\! | s2. s4\< | s2.\> s4\! |
-  s1 | s2 s\< | s\> s\! | s s\< | s\> s\! | s1*4 | % 6
+  s1 | s2 s\< | s\> s\! | s s\mf\< | s\> s\! | s1*4 | % 6
   s2. s4\pp | s\> s2.\! | s1 | s4\> s2.\! | s2.\< s4\> | s2.\< s4\> | s1\pp | s4\> s\! s2\pp | s2. s4\p |
   s2 s\< | s\> s\! | s\< s\> | s1\! | s2 s\< | s\> s\! | s\< s\> | s s4\! s\ppp | s1*2 | % 8
   s2\< s\> | s1\! | s-\markup\italic morendo | s1 | s | s2\< s4\> s\! | s2 s\< | s1 | s1\> | s2 s\! | s1*2 |
 }
 
 bass = \relative {
+  \set breathMarkType = #'tickmark
   \global
   R1*3 |
   r2 r4 aes | 2 g4. 8 | aes4 4 r8 f f bes, | ees2 2 |
   aes,2 r | aes'2 g4. 8 | ges4 4 r8 f c des |
   ees2 2 | aes r | r2 r4 r8 ees | % 2a
   aes8.(ees16) 8.(c16) 4. r8 | r2 r4 r8 ees | aes8.(ees16) 8.(c16) 4 ees8 aes |
-  f4. 8 bes,4. c16(des) | ees4 8 8 aes4 8 bes16(c) | des4 4 4 4 |
+  f4. 8 bes,4. c16(des) | ees4 8 8 aes4 8 \breathe bes16(c) | des4 4 4 4 |
   des8(c) des(c) bes(aes bes aes) | ees2 r | r r4 r8 ees | % 3a
   ees4. 8 d8. 16 8. 16 | ees2 r4 e | f4. 8 g8. 16 8. 16 |
   aes4 4 r aes | ees2 fes | ges ges |
@@ -415,11 +419,11 @@ bass = \relative {
   R1*3 | % 5a
   R1 | r2 r4 ees | f4. 8 4 4 |
   bes,2 r | r2 r4 f' | ges2. f4 |
-  e2(d4) e | f4. 8 4 4 | 4. 8 4 4 | % 6a
-  d2 ees4 f | c4. 8 4 4 | 2 des |
+  e2(d4) \breathe e | f4. 8 4 4 | 4. 8 4 4 | % 6a
+  d2 \breathe ees4 f | c4. 8 4 4 | 2 des |
   ees2. r4 | R1*2 |
   r2 r4 r8 ees16 16 | aes8.(ees16) 8.(c16) 4. r8 | r2 r4 r8 ees | % 7a
-  aes8.(ees16) 8. c16 4. aes'8 | f4. 8 bes4 bes,8 c16(des) | ees2 aes4 8(bes16 c) |
+  aes8.(ees16) 8. c16 4. \breathe aes'8 | f4. 8 bes4 bes,8 c16(des) | ees2 aes4 8(bes16 c) |
   des4 8 8 4 4 | 8(c) des(c) bes(aes) bes(aes) | ees4 4 r ees |
   aes4. 8 g4. 8 | aes4. 8 8 f f bes, | ees2~4. 8 | % 8a
   aes2 r | aes g4. 8 | ges4. 8 8 f c des |

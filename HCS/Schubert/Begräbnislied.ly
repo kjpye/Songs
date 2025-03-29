@@ -70,7 +70,7 @@ dynamicsSop = {
   s2.. s8\pp | s1*3 | s2..\f s8\p | s1 | s2 s\cresc | s1\f\< | s1\ff |
   s8 s4.\pp s\< s8\! | s8\> s\! s2. | s8 s4\< s\! s4.\> | s1\! | s4 s\cresc s2\f | s2 s8 s4.\mf | % 2
   s1\fp | s | s\fp | s1*2 | s2.. s8\pp | s1 | s4 s4.\fp s\cresc |
-  s1\p | s2 s\cresc | s1*2 | s1\fp | s2\cresc s\f\> | s1\pp | s |
+  s1\mf | s2 s\cresc | s1*2 | s1\f | s2\cresc s\f\> | s1\pp | s |
 }
 
 soprano = \relative {
@@ -80,7 +80,7 @@ soprano = \relative {
   r8 f f f f8. 16 8 g | aes4 r r2 | r8 aes8 8 8 8. 16 8 bes | % 2a
   c4 r r2 | r8. c16 d8. 16 ees8. bes16 b8. 16 | c2->\fermata r8 g f ees |
   aes4. r16 f ees4 d | f2->\fermata r8 e aes g | f4. r16 f d4. 8 | c1 | % 3a
-  R1 | r2\fermata r4. g'8 | 4. 8 aes8. 16 4 | r8 aes bes4. 8 c8. bes16 |
+  R1 | r2\fermata r4. g'8 | 4. 8 aes8. 16 4 | r8 aes bes4. b8 c8. bes16 |
   aes8. 16 f8 8 g4\fermata r8 g | 4. 8 4 a | bes4. 8 4 4 | b4. 8 c4 c | % 4a
   bes4 4 g\fermata g | b4. 8 c4. ees,8 | 4 g c,2 | R1\fermata |
   \bar "|."
@@ -125,7 +125,7 @@ dynamicsAlto = {
   s2.. s8\pp | s1*3 | s2..\f s8\p | s1 | s2 s\cresc | s1\f\< | s1\ff |
   s8 s4.\pp s\< s8\! | s8\> s\! s2. | s8 s4\< s\! s4.\> | s1\! | s4 s\cresc s2\f | s2 s8 s4.\mf | % 2
   s1\fp | s | s\fp | s1*2 | s2.. s8\pp | s1 | s4 s4.\fp s\cresc |
-  s1\p | s2 s\cresc | s1*2 | s1\fp | s2\cresc s\f\> | s1\pp | s |
+  s1\mf | s2 s\cresc | s1*2 | s1\f | s2\cresc s\f\> | s1\pp | s |
 }
 
 alto = \relative {
@@ -162,7 +162,7 @@ dynamicsTenor = {
   s2.. s8\pp | s1*3 | s2..\f s8\p | s1 | s2 s\cresc | s1\f\< | s1\ff |
   s1 | s8 s\pp s4\< s\> s\! | s1 | s4. s4\< s4.\> | s4\! s\cresc s2\f | s2 s8 s4.\mf | % 2
   s1\fp | s | s\fp | s1*2 | s2.. s8\pp | s1 | s4 s4.\fp s\cresc |
-  s1\p | s2 s\cresc | s1*2 | s1\fp | s2\cresc s\f\> | s1\pp | s |
+  s1\mf | s2 s\cresc | s1*2 | s1\f | s2\cresc s\f\> | s1\pp | s |
 }
 
 tenor = \relative {
@@ -172,8 +172,8 @@ tenor = \relative {
   R1 | r8 c8 8 8 8. bes16 aes8 g | aes4 r r2 | % 2a
   r8 ees'8 8 8 8. des16 c8 bes | c8. ees16 f8. 16 ees8. 16 d8. 16 | c2->\fermata r8 c8 8 8 |
   d4. r16 f, g4 4 | f2->\fermata r8 bes aes bes | c4. r16 f, g4. 8 | c,1-> | % 3a
-  R1 | r2\fermata r4. c'8 | 4. 8 8. 16 4 | r8 c ees4. d8 c8. 16 |
-  c8. 16 8 8 b4\fermata r8 g | bes4. c16(d) c4 f | d4. ees16(f) ees4 4 | d4. 8 c4 d8(ees) | % 4a
+  R1 | r2\fermata r4. c'8 | 4. 8 8. 16 4 | r8 c ees4. des8 c8. 16 |
+  c8. 16 8 8 b4\fermata r8 g | b4. c16(d) c4 f | d4. ees16(f) ees4 4 | d4. 8 c4 d8(ees) | % 4a
   ees4 d ees\fermata ees | d4. 8 c4 d8(ees) | 4 d c2 | R1\fermata |
 }
 
@@ -216,7 +216,7 @@ dynamicsBass = {
   s2.. s8\pp | s1*3 | s2..\f s8\p | s1 | s2 s\cresc | s1\f\< | s1\ff |
   s1 | s8 s\pp s4\< s\> s\! | s1 | s4. s4\< s4.\> | s4\! s\cresc s2\f | s2 s8 s4.\mf | % 2
   s1\fp | s | s\fp | s1*2 | s2.. s8\pp | s1 | s4 s4.\fp s\cresc |
-  s1\p | s2 s\cresc | s1*2 | s1\fp | s2\cresc s\f\> | s1\pp | s |
+  s1\mf | s2 s\cresc | s1*2 | s1\f | s2\cresc s\f\> | s1\pp | s |
 }
 
 bass = \relative {
