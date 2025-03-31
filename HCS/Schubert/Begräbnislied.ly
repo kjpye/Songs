@@ -69,7 +69,7 @@ dynamicsSop = {
   \override DynamicTextSpanner.style = #'none
   s2.. s8\pp | s1*3 | s2..\f s8\p | s1 | s2 s\cresc | s1\f\< | s1\ff |
   s8 s4.\pp s\< s8\! | s8\> s\! s2. | s8 s4\< s\! s4.\> | s1\! | s4 s\cresc s2\f | s2 s8 s4.\mf | % 2
-  s1\fp | s | s\fp | s1*2 | s2.. s8\pp | s1 | s4 s4.\fp s\cresc |
+  s1\fp | s\fp | s\fp | s1*2 | s2.. s8\pp | s1 | s4 s4.\fp s\cresc |
   s1\mf | s2 s\cresc | s1*2 | s1\f | s2\cresc s\f\> | s1\pp | s |
 }
 
@@ -124,7 +124,7 @@ dynamicsAlto = {
   \override DynamicTextSpanner.style = #'none
   s2.. s8\pp | s1*3 | s2..\f s8\p | s1 | s2 s\cresc | s1\f\< | s1\ff |
   s8 s4.\pp s\< s8\! | s8\> s\! s2. | s8 s4\< s\! s4.\> | s1\! | s4 s\cresc s2\f | s2 s8 s4.\mf | % 2
-  s1\fp | s | s\fp | s1*2 | s2.. s8\pp | s1 | s4 s4.\fp s\cresc |
+  s1\fp | s\fp | s\fp | s1*2 | s2.. s8\pp | s1 | s4 s4.\fp s\cresc |
   s1\mf | s2 s\cresc | s1*2 | s1\f | s2\cresc s\f\> | s1\pp | s |
 }
 
@@ -161,7 +161,7 @@ dynamicsTenor = {
   \override DynamicTextSpanner.style = #'none
   s2.. s8\pp | s1*3 | s2..\f s8\p | s1 | s2 s\cresc | s1\f\< | s1\ff |
   s1 | s8 s\pp s4\< s\> s\! | s1 | s4. s4\< s4.\> | s4\! s\cresc s2\f | s2 s8 s4.\mf | % 2
-  s1\fp | s | s\fp | s1*2 | s2.. s8\pp | s1 | s4 s4.\fp s\cresc |
+  s1\fp | s\fp | s\fp | s1*2 | s2.. s8\pp | s1 | s4 s4.\fp s\cresc |
   s1\mf | s2 s\cresc | s1*2 | s1\f | s2\cresc s\f\> | s1\pp | s |
 }
 
@@ -215,7 +215,7 @@ dynamicsBass = {
   \override DynamicTextSpanner.style = #'none
   s2.. s8\pp | s1*3 | s2..\f s8\p | s1 | s2 s\cresc | s1\f\< | s1\ff |
   s1 | s8 s\pp s4\< s\> s\! | s1 | s4. s4\< s4.\> | s4\! s\cresc s2\f | s2 s8 s4.\mf | % 2
-  s1\fp | s | s\fp | s1*2 | s2.. s8\pp | s1 | s4 s4.\fp s\cresc |
+  s1\fp | s\fp | s\fp | s1*2 | s2.. s8\pp | s1 | s4 s4.\fp s\cresc |
   s1\mf | s2 s\cresc | s1*2 | s1\f | s2\cresc s\f\> | s1\pp | s |
 }
 

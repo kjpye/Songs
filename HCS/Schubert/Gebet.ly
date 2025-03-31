@@ -229,6 +229,7 @@ dynamicsSop = {
 }
 
 soprano = \relative {
+  \set breathMarkType = #'tickmark
   \global
   R1*2 | r2 r4 r8 ees' | c'4. 8 4. 8 | c2 bes4. 8 | ees4. 8 \after 8 \turn 4(f8) des |
   c2. r8 ees, | c'4. 8 4. 8 | fis2 bes,4. d8 |
@@ -242,13 +243,13 @@ soprano = \relative {
   R1*8 | r2 r4 r8
   ees8 | c'4. 8 4. 8 2 bes4 r8 8 | ees4. 8 \after 8 \turn ees4(f8) des | % 6d
   c2. r8 ees, | c'4. 8 4. 8 | f2 bes,4. d8 | ees4. 8 % 7a
-  d8(f) b,(c16 des) | c2. r8 8 | des4. 8 4. 8 | 4.(ees8) des4 ees |
+  d8(f) b,(c16 des) | c2. r8 8 | des4. \breathe 8 4. 8 | 4.(ees8) des4 ees |
   fes4. 8 aes4 ges | fes2. aes8(fes) | \grace ees8 d4. 8 4 4 |
   ees4~(16 f ees c) aes8 c ees des | c2~8.(des16) bes8.(c16) | aes2 r4 c | d4. 8 4 4 | % 8a
   f4.(ees8) 4 bes | ces4 4 bes4 4 | 2. r4 | r2 r4 ces |
   ces2 bes4 r | r2 r4 aes8. 16 | 2(g4) r | R1 | r2 r4\fermata \section \time 3/4
   \partial 4 r4 | R2.*3 | r2 % 9a
-  c4 | ees4. des8 8 bes | aes4 g a | bes4. c16(des) c8 bes | bes4(c)
+  c4 | ees4. des8 8 bes | aes4 g \breathe a | bes4. c16(des) c8 bes | bes4(c)
   r4 | R2.*3 | r2
   bes4 | 4(a8) ges' f ees | 4 des bes8(f') | ees4. aes,8 ees'16(des) c8 | bes2
   r4 | r2 bes4 | ees4. 8 c aes | aes(g8) 4 r8 ees' | % 10a
@@ -272,7 +273,7 @@ soprano = \relative {
   f8 aes g(f) ees(des) | c4..(des16) bes8.(c16) | aes2 c4 | bes(g) aes |
   aes2 4 | 2. | g | aes~ | 4 r r | r2 aes4 | % 16a
   c4(ees) des | c2.( | bes4 \grace {c32 bes} a8 bes des) c | aes2.~2 4 | 2. |
-  aes2. | 2.~ | 2 bes4 | aes2.~ | 2.~ | 4 r r | R2.*3 |
+  aes2. | 2.~ | 2 bes4 \breathe | aes2.~ | 2.~ | 4 r r | R2.*3 |
   \bar "|."
 }
 
@@ -427,6 +428,7 @@ dynamicsAlto = {
 }
 
 alto = \relative {
+  \set breathMarkType = #'tickmark
   \global
   R1*2 | r2 r4 r8 ees' | aes4. 8 4. 8 | 4.(a8) bes4. g8 | 4 aes g4. 8 |
   aes2. r8 ees | aes4. 8 4. 8 | 2 4. 8 |
@@ -439,13 +441,13 @@ alto = \relative {
   R1*12 |
   R1*8 | r2 r4 r8 ees8 | aes4. 8 4. 8 | 4.(a8) bes4 r8 g | 4 aes4 g4. 8 | % 6
   aes2. r8 ees | aes4. 8 4. 8 | 2 4. 8 | g4. 8 % 7a
-  aes4 g | 2. r8 8 | 4. 8 4. 8 | aes2 4 beses |
+  aes4 g | 2. r8 8 | 4. \breathe 8 4. 8 | aes2 4 beses |
   ces4. 8 4 4 | aes2. r4 | 4 8. 16 4 4 |
   aes2 8 8 8 8 | 2. 4 | ees2. 4 | aes4. 8 4 4 | % 8a
   aes4.(g8) 4 4 | f4 f g f8(g16 aes) | 2(g4) r | r2 r4 aes |
   aes2 g4 r | r2 r4 d8. 16 | ees2. r4 | R1 | r2 r4\fermata \section \time 3/4
   \partial 4 r4 | R2.*3 | r2 % 9a
-  aes4 | ges4. f8 8 des | c4 bes ees | f4. 8 aes g | 4(aes)
+  aes4 | ges4. f8 8 des | c4 bes \breathe ees | f4. 8 aes g | 4(aes)
   r4 | R2.*3 | r2
   ges4 | f4. 8 a a | bes4 4 g | aes4. 8 g aes | g2
   r4 | r2 ees4 | 4. 8 8 8 | 4 4 r8 8 | % 10a
@@ -469,7 +471,7 @@ alto = \relative {
   f8 8 g(aes) a(bes) | aes2 g4 | aes2 r4 | r2 aes4 |
   aes4(g) f | ees2.( | des4 \grace {ees32 d} c8 des f) ees | c2.~ | 4 r r | r2 aes'4 | % 16a
   aes4(g) f | ees2.( | des4 \grace {ees32 des} c8 des f) ees | c2.~ | 2 4 | 2. |
-  des2. | ees~( | 4 des) 4 | c2.~ | 2.~ | 4 r r | R2.*3 |
+  des2. | ees~( | 4 des) 4 \breathe | c2.~ | 2.~ | 4 r r | R2.*3 |
   \bar "|."
 }
 
@@ -622,6 +624,7 @@ dynamicsTenor = {
 }
 
 tenor = \relative {
+  \set breathMarkType = #'tickmark
   \global
   R1*2 | r2 r4 r8 ees' | 4. 8 4. 8 | f2 4. ees8 | 4. 8 4. fes8 |
   ees2. r8 8 | 4. 8 f4. c8 | 4.(ces8) bes4. f'8 |
@@ -634,12 +637,12 @@ tenor = \relative {
   R1*12 |
   R1*8 | r2 r4 r8 ees | 4. 8 4. 8 | f2 4 r8 ees | 4. 8 4. fes8 |
   ees2. r8 8 | 4. 8 f4. c8 | 4.(ces8) bes4. 8 | 4 c % 7a
-  d4 8(ees16 f) | ees2. r8 8 | 4. bes8 4. 8 | aes2 des4 ces |
+  d4 8(ees16 f) | ees2. r8 8 | 4. \breathe bes8 4. 8 | aes2 des4 ces |
   ces4. 8 fes4 ees | | fes2. r4 | bes,4 8. 16 4 4 |
   c2 8 ees ges f | ees2~8.(f16) des8.(ees16) | c2. 4 | aes4. bes8 ces4 bes8(aes) | % 8a
   d4.(ees8) 4 4 | 4 4 4 d8(ees16 f) | 2(ees4) r | r2 r4 d |
   ees2 4 r | r2 r4 ces8. 16 | ces2(bes4) r | R1 | r2 r4\fermata \section \time 3/4
-  \partial 4 ees,4 | aes4. g8 aes c16(bes) | aes4 g a | bes4. c16(des) c8 bes | 4(c) % 9a
+  \partial 4 ees,4 | aes4. g8 aes c16(bes) | aes4 g \breathe a | bes4. c16(des) c8 bes | 4(c) % 9a
   r4 | R2.*3 | r2
   c4 | bes4. 8 des bes | 4 a bes8(f') | ees4. aes,8 \grace ees' des c | bes2
   r4 | R2.*3 | r2
@@ -664,7 +667,7 @@ tenor = \relative {
   des8 f ees(des) c(bes) | ees2 des4 | c2 r4 | r2 aes4 |
   c4(ees) des | c2.( | bes4 \grace {c32 bes} a8 bes des) c | aes2.~ | 4 r c | bes4(g) aes | % 16a
   aes2 4 | 2. | g | aes~ | 2 ees4 | 2. |
-  f2. | ges2.~( | 4 f) fes | ees2.~ | 2.~ | 4 r r | R2.*3 |
+  f2. | ges2.~( | 4 f) fes \breathe | ees2.~ | 2.~ | 4 r r | R2.*3 |
   \bar "|."
 }
 
@@ -823,6 +826,7 @@ dynamicsBass = {
 }
 
 bass = \relative {
+  \set breathMarkType = #'tickmark
   \global
   R1*2 | r2 r4 r8 ees | aes4. 8 4. 8 | des,2 4. 8 | c4. 8 bes4. 8 |
   aes2. r8 ees' | aes4. 8 f4. 8 | d2 4. bes'8 |
@@ -832,16 +836,16 @@ bass = \relative {
   aes,2. r4 | R1 | r2 r4 aes' | c,4.-> des8 ees4 4 | aes,2. r4 | % 3a
   R1*11 |
   R1*16 |
-  s1*12 | % 5
-  s1*8 | s2.. ees'8 | aes4. 8 4. 8 | des,2 4 r8 des | c4. 8 bes4. 8 | % 6
+  R1*12 | % 5
+  R1*8 | r2 r4 r8 ees' | aes4. 8 4. 8 | des,2 4 r8 des | c4. 8 bes4. 8 | % 6
   aes2. r8 ees' | aes4. 8 f4. 8 | d2 4. bes8 | ees4. 8 % 7a
-  f4 g | c,2. r8 c | ees4. 8 4. 8 | des2 4 ees |
+  f4 g | c,2. r8 c | ees4. \breathe 8 4. 8 | des2 4 ees |
   aes4. 8 ces4 4 | fes,2 r | f4 8. 16 4 4 |
   c4.(ees8) aes2 | r8 c, aes c ees4 4 | aes,2. 4 | f'4. 8 4 4 | % 8a
   ees2 4 4 | aes,4 4 bes4 4 | ees2. 4 | fes4-> 4 4 4 |
   ees2 4 ees, | fes4-> 4 4 4 | ees2. r4 | R1 | r2 r4\fermata \section \time 3/4
   \partial 4 r4 | R2.*3 | r2 % 9a
-  aes'4 | a4. bes8 bes, c16(d) | ees4 4 c | des4. bes8 ees ees | 4(aes)
+  aes'4 | a4. bes8 bes, c16(d) | ees4 4 \breathe c | des4. bes8 ees ees | 4(aes)
   r4 | R2.*3 | r2
   ees4 | f4. ees8 des c | bes4 bes' des | c4. 8 bes aes | ees2
   r4 | r2 des4 | c4. 8 8 8 | des4 4 r8 8 % 10a
@@ -865,7 +869,7 @@ bass = \relative {
   des8 des,8 4 4 | ees2 4 | aes,2 r4 | R2. |
   r4 c des | ees2 4 | 2 4 | aes,2.~ | 4 r r | R2. | % 16a
   r4 c des | ees2 4 | 2 4 | aes,2.~ | 2 4 | 2. |
-  aes2. | 2.~ | 2 g4 | aes2.~ | 2.~ | 4 r r | R2.*3 |
+  aes2. | 2.~ | 2 g4 \breathe | aes2.~ | 2.~ | 4 r r | R2.*3 |
   \bar "|."
 }
 
