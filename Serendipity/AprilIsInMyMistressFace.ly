@@ -105,7 +105,7 @@ soprano = \relative c'' {
   d4 c bes a
   bes1)
   a4 d d d
-  e1
+  f1
   r4 c c c
   ees2 ees
   bes4 g bes c
