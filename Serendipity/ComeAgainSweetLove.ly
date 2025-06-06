@@ -1,4 +1,4 @@
-\version "2.25.0"
+\version "2.25.26"
 
 today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 
@@ -38,7 +38,7 @@ global = {
 
 soprano = \relative c'' {
   \global
-  \repeat volta 2 {
+  \repeat volta 3 {
     r4 b8. c16
     d2
     r4 d
@@ -67,6 +67,7 @@ soprano = \relative c'' {
       g8 fis16 e) fis4
       g2
     }
+    R2
   }
 }
 
@@ -75,7 +76,7 @@ dynamicsSop = {
 
 alto = \relative c'' {
   \global
-  \repeat volta 2 {
+  \repeat volta 3 {
     g4. g8
     g2
     r4 b
@@ -104,6 +105,7 @@ alto = \relative c'' {
       d4. c8
       b2
     }
+    R2
   }
 }
 
@@ -113,7 +115,7 @@ dynamicsAlto = {
 tenor = \relative c' {
   \global
   \clef "treble_8"
-  \repeat volta 2 {
+  \repeat volta 3 {
     d4. d8
     b2
     r4 b
@@ -142,6 +144,7 @@ tenor = \relative c' {
       a4. a8
       g2
     }
+    R2
   }
 }
   
@@ -151,7 +154,7 @@ dynamicsTenor = {
 bass= \relative c' {
   \global
   \clef bass
-  \repeat volta 2 {
+  \repeat volta 3 {
     g4 g
     g2
     r4 g,
@@ -180,6 +183,7 @@ bass= \relative c' {
       d4. d8
       g,2
     }
+    R2
   }
 }
 
@@ -187,22 +191,35 @@ dynamicsBass = {
 }
 
 wordsSopOne = \lyricmode {
+  \set stanza = "1. "
   Come a -- gain! sweet love doth now in -- vite
   Thy grac -- es, that re -- frain
   To do me due de -- light;
   \repeat volta 2 {
-    To see, to hear, to touch, to kiss, to die,
+    To see, to hear, to touch, to kiss, to die, __
     With thee a -- gain in sweet -- est sym -- pa -- thy.
   }
 }
 
 wordsSopTwo = \lyricmode {
+  \set stanza = "2. "
   Come a -- gain! that I may cease to mourn
   Through thy un -- kind dis -- dain:
   For now, left and for -- lorn,
   \repeat volta 2 {
-    I sit, I sigh, I weep, I faint, I die,
+    I sit, I sigh, I weep, I faint, I die, __
     In dead -- ly pain, and end -- less mis -- er -- y.
+  }
+}
+
+wordsSopThree = \lyricmode {
+  \set stanza = "3. "
+  Gen -- tle Love, draw forth thy wound -- ing dart,
+  Thou canst not pierce her heart:
+  For I, that do ap -- prove
+  \repeat volta 2 {
+    By sighs and tears, "(more" hot that they are "shafts)" __
+    Do tempt: while she, while she, for tri -- umphs, laughs.
   }
 }
 
@@ -222,25 +239,46 @@ wordsSopMidi = \lyricmode {
     "\nI " "sit, " "I " "sigh, " "I " "weep, " "I " "faint, " "I " "die, "
     "\nIn " dead "ly " "pain, " "and " end "less " mis er "y. "
   }
+  
+  "\nGen" "tle " "Love, " "draw " "forth " "thy " wound "ing " "dart, "
+  "\nThou " "canst " "not " "pierce " "her " "heart: "
+  "\nFor " "I, " "that " "do " ap "prove "
+  \repeat volta 2 {
+    "\nBy " "sighs " "and " "tears, " "(more " "hot " "that " "they " "are " "shafts) " 
+    "\nDo " "tempt: " "while " "she, " "while " "she, " "for " tri "umphs, " "laughs. "
+  }
 }
 
 wordsAltoOne = \lyricmode {
+  \set stanza = "1. "
   Come a -- gain! sweet love doth now in -- vite
   Thy grac -- es, that re -- frain
   To do me due de -- light;
   \repeat volta 2 {
-    To see, to hear, to touch, to kiss, to die, to die,
+    To see, to hear, to touch, to kiss, to die, to die, __
     With thee a -- gain in sweet -- est sym -- pa -- thy.
   }
 }
 
 wordsAltoTwo = \lyricmode {
+  \set stanza = "2. "
   Come a -- gain! that I may cease to mourn
   Through thy un -- kind dis -- dain:
   For now, left and for -- lorn,
   \repeat volta 2 {
-    I sit, I sigh, I weep, I faint, I die, I die,
+    I sit, I sigh, I weep, I faint, I die, I die, __
     In dead -- ly pain, and end -- less mis -- er -- y.
+  }
+}
+
+wordsAltoThree = \lyricmode {
+  \set stanza = "3. "
+  Gen -- tle Love, draw forth thy wound -- ing dart,
+  Thou canst not pierce her heart:
+  For I, that do ap -- prove
+  \repeat volta 2 {
+    By sighs and tears, "(more" hot that they are "shafts)" __
+    Do tempt, do tempt: while she, while she, for tri -- umphs, laughs.
   }
 }
 
@@ -260,9 +298,18 @@ wordsAltoMidi = \lyricmode {
     "\nI " "sit, " "I " "sigh, " "I " "weep, " "I " "faint, " "I " "die, " "I " "die, "
     "\nIn " dead "ly " "pain, " "and " end "less " mis er "y. "
   }
+
+  "\nGen" "tle " "Love, " "draw " "forth " "thy " wound "ing " "dart, "
+  "\nThou " "canst " "not " "pierce " "her " "heart: "
+  "\nFor " "I, " "that " "do " ap "prove "
+  \repeat volta 2 {
+    "\nBy " "sighs " "and " "tears, " "(more " "hot " "that " "they " "are " "shafts) " 
+    "\nDo " "tempt, " "do " "tempt: " "while " "she, " "while " "she, " "for " tri "umphs, " "laughs. "
+  }
 }
 
 wordsTenorOne = \lyricmode {
+  \set stanza = "1. "
   Come a -- gain! sweet love doth now in -- vite
   Thy grac -- es, that re -- frain
   To do me due de -- light;
@@ -273,12 +320,24 @@ wordsTenorOne = \lyricmode {
 }
 
 wordsTenorTwo = \lyricmode {
+  \set stanza = "2. "
   Come a -- gain! that I may cease to mourn
   Through thy un -- kind dis -- dain:
   For now, left and for -- lorn,
   \repeat volta 2 {
     I sit, I sigh, I weep, I faint, I die, I die,
     In dead -- ly pain, in dead -- ly pain and end -- less mis -- er -- y.
+  }
+}
+
+wordsTenorThree = \lyricmode {
+  \set stanza = "3. "
+  Gen -- tle Love, draw forth thy wound -- ing dart,
+  Thou canst not pierce her heart:
+  For I, that do ap -- prove
+  \repeat volta 2 {
+    By sighs and tears, "(more" hot that they are shafts, are "shafts)"
+    Do tempt, do tempt: while she, while she, for tri -- umphs, tri -- umphs laughs.
   }
 }
 
@@ -298,9 +357,18 @@ wordsTenorMidi = \lyricmode {
     "\nI " "sit, " "I " "sigh, " "I " "weep, " "I " "faint, " "I " "die, " "I " "die, "
     "\nIn " dead "ly " "pain, " "in " dead "ly " "pain " "and " end "less " mis er "y. "
   }
+
+  "\nGen" "tle " "Love, " "draw " "forth " "thy " wound "ing " "dart, "
+  "\nThou " "canst " "not " "pierce " "her " "heart: "
+  "\nFor " "I, " "that " "do " ap "prove "
+  \repeat volta 2 {
+    "\nBy " "sighs " "and " "tears, " "(more " "hot " "that " "they " "are " "shafts, " "are " "shafts) "
+    "\nDo " "tempt, " "do " "tempt: " "while " "she, " "while " "she, " "for " tri "umphs, " tri "umphs " "laughs. "
+  }
 }
 
 wordsBassOne = \lyricmode {
+  \set stanza = "1."
   Come a -- gain! sweet love doth now in -- vite
   Thy grac -- es, that re -- frain
   To do me due de -- light;
@@ -311,12 +379,24 @@ wordsBassOne = \lyricmode {
 }
 
 wordsBassTwo = \lyricmode {
+  \set stanza = "2."
   Come a -- gain! that I may cease to mourn
   Through thy un -- kind dis -- dain:
   For now, left and for -- lorn,
   \repeat volta 2 {
     I sit, I sigh, I weep, I faint, I die, I die,
     In dead -- ly pain, and end -- less mis -- er -- y.
+  }
+}
+
+wordsBassThree = \lyricmode {
+  \set stanza = "3."
+  Gen -- tle Love, draw forth thy wound -- ing dart,
+  Thou canst not pierce her heart:
+  For I, that do ap -- prove
+  \repeat volta 2 {
+    By sighs and tears, "(more" hot that they are "shafts)"
+    Do tempt, do tempt: while she, while she, for tri -- umphs, laughs.
   }
 }
 
@@ -336,6 +416,14 @@ wordsBassMidi = \lyricmode {
     "\nI " "sit, " "I " "sigh, " "I " "weep, " "I " "faint, " "I " "die, " "I " "die, "
     "\nIn " dead "ly " "pain, " "and " end "less " mis er "y. "
   }
+
+  "\nGen" "tle " "Love, " "draw " "forth " "thy " wound "ing " "dart, "
+  "\nThou " "canst " "not " "pierce " "her " "heart: "
+  "\nFor " "I, " "that " "do " ap "prove "
+  \repeat volta 2 {
+    "\nBy " "sighs " "and " "tears, " "(more " "hot " "that " "they " "are " "shafts) "
+    "\nDo " "tempt, " "do " "tempt: " "while " "she, " "while " "she, " "for " tri "umphs, " "laughs. "
+  }
 }
 
 \book {
@@ -345,27 +433,31 @@ wordsBassMidi = \lyricmode {
       \new ChoirStaff <<
                                 % Single soprano staff
         \new Staff \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
-          \new Voice = "soprano" \soprano
+          \new Voice = "soprano" {\soprano \bar "|."}
           \addlyrics \wordsSopOne
           \addlyrics \wordsSopTwo
+          \addlyrics \wordsSopThree
         >>
                                 % Single alto staff
         \new Staff \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
           \new Voice = "alto" \alto
           \addlyrics \wordsAltoOne
           \addlyrics \wordsAltoTwo
+          \addlyrics \wordsAltoThree
         >>
                                 % Single tenor staff
         \new Staff \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
           \new Voice = "tenor" \tenor
           \addlyrics \wordsTenorOne
           \addlyrics \wordsTenorTwo
+          \addlyrics \wordsTenorThree
         >>
                                 % Single bass staff
         \new Staff \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
           \new Voice = "bass" \bass
           \addlyrics \wordsBassOne
           \addlyrics \wordsBassTwo
+          \addlyrics \wordsBassThree
         >>
       >>
     >>
@@ -390,23 +482,23 @@ wordsBassMidi = \lyricmode {
       \new ChoirStaff <<
                                 % Single soprano staff
         \new Staff = soprano \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
-          \new Voice = "soprano" \soprano
-          \addlyrics { \wordsSopOne \wordsSopTwo }
+          \new Voice = "soprano" {\soprano \bar "|."}
+          \addlyrics { \wordsSopOne \wordsSopTwo \wordsSopThree }
         >>
                                 % Single alto staff
         \new Staff = alto \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
           \new Voice = "alto" \alto
-          \addlyrics { \wordsAltoOne \wordsAltoTwo }
+          \addlyrics { \wordsAltoOne \wordsAltoTwo \wordsAltoThree }
         >>
                                 % Single tenor staff
         \new Staff = tenor \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
           \new Voice = "tenor" \tenor
-          \addlyrics { \wordsTenorOne \wordsTenorTwo }
+          \addlyrics { \wordsTenorOne \wordsTenorTwo \wordsTenorThree }
         >>
                                 % Single bass staff
         \new Staff = bass \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
           \new Voice = "bass" \bass
-          \addlyrics { \wordsBassOne \wordsBassTwo }
+          \addlyrics { \wordsBassOne \wordsBassTwo \wordsBassThree }
         >>
       >>
     >>
@@ -440,23 +532,238 @@ wordsBassMidi = \lyricmode {
       \new ChoirStaff <<
                                 % Single soprano staff
         \new Staff = soprano \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
-          \new Voice = "soprano" \soprano
-          \addlyrics { \wordsSopOne \wordsSopTwo }
+          \new Voice = "soprano" {\soprano \bar "|."}
+          \addlyrics { \wordsSopOne \wordsSopTwo \wordsSopThree}
         >>
                                 % Single alto staff
         \new Staff = alto \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
           \new Voice = "alto" \alto
-          \addlyrics { \wordsAltoOne \wordsAltoTwo }
+          \addlyrics { \wordsAltoOne \wordsAltoTwo \wordsAltoThree}
         >>
                                 % Single tenor staff
         \new Staff = tenor \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
           \new Voice = "tenor" \tenor
-          \addlyrics { \wordsTenorOne \wordsTenorTwo }
+          \addlyrics { \wordsTenorOne \wordsTenorTwo \wordsTenorThree}
         >>
                                 % Single bass staff
         \new Staff = bass \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
           \new Voice = "bass" \bass
-          \addlyrics { \wordsBassOne \wordsBassTwo }
+          \addlyrics { \wordsBassOne \wordsBassTwo \wordsBassThree}
+        >>
+      >>
+    >>
+    \layout {
+      #(layout-set-staff-size 18)
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+\book {
+  \bookOutputSuffix singlepage-sop
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+    <<
+      \new ChoirStaff <<
+                                % Single soprano staff
+        \new Staff = soprano \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+          \new Voice = "soprano" {\soprano \bar "|."}
+          \addlyrics {\wordsSopOne \wordsSopTwo \wordsSopThree}
+        >>
+                                % Single alto staff
+        \new Staff = alto \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+          \magnifyStaff #4/7
+          \new Voice = "alto" \alto
+          \addlyrics {\tiny \wordsAltoOne \wordsAltoTwo \wordsAltoThree}
+        >>
+                                % Single tenor staff
+        \new Staff = tenor \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+          \magnifyStaff #4/7
+          \new Voice = "tenor" \tenor
+          \addlyrics { \tiny \wordsTenorOne \wordsTenorTwo \wordsTenorThree }
+        >>
+                                % Single bass staff
+        \new Staff = bass \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+          \magnifyStaff #4/7
+          \new Voice = "bass" \bass
+          \addlyrics { \tiny \wordsBassOne \wordsBassTwo \wordsBassThree }
+        >>
+      >>
+    >>
+    \layout {
+      #(layout-set-staff-size 18)
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+
+\book {
+  \bookOutputSuffix singlepage-alto
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+    <<
+      \new ChoirStaff <<
+                                % Single soprano staff
+        \new Staff = soprano \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+          \magnifyStaff #4/7
+          \new Voice = "soprano" {\soprano \bar "|."}
+          \addlyrics {\tiny \wordsSopOne \wordsSopTwo \wordsSopThree}
+        >>
+                                % Single alto staff
+        \new Staff = alto \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+          \new Voice = "alto" \alto
+          \addlyrics {\wordsAltoOne \wordsAltoTwo \wordsAltoThree}
+        >>
+                                % Single tenor staff
+        \new Staff = tenor \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+          \magnifyStaff #4/7
+          \new Voice = "tenor" \tenor
+          \addlyrics { \tiny \wordsTenorOne \wordsTenorTwo \wordsTenorThree }
+        >>
+                                % Single bass staff
+        \new Staff = bass \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+          \magnifyStaff #4/7
+          \new Voice = "bass" \bass
+          \addlyrics { \tiny \wordsBassOne \wordsBassTwo \wordsBassThree }
+        >>
+      >>
+    >>
+    \layout {
+      #(layout-set-staff-size 18)
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+
+\book {
+  \bookOutputSuffix singlepage-tenor
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+    <<
+      \new ChoirStaff <<
+                                % Single soprano staff
+        \new Staff = soprano \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+          \magnifyStaff #4/7
+          \new Voice = "soprano" {\soprano \bar "|."}
+          \addlyrics {\tiny \wordsSopOne \wordsSopTwo \wordsSopThree}
+        >>
+                                % Single alto staff
+        \new Staff = alto \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+          \magnifyStaff #4/7
+          \new Voice = "alto" \alto
+          \addlyrics {\tiny \wordsAltoOne \wordsAltoTwo \wordsAltoThree}
+        >>
+                                % Single tenor staff
+        \new Staff = tenor \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+          \new Voice = "tenor" \tenor
+          \addlyrics {\wordsTenorOne \wordsTenorTwo \wordsTenorThree }
+        >>
+                                % Single bass staff
+        \new Staff = bass \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+          \magnifyStaff #4/7
+          \new Voice = "bass" \bass
+          \addlyrics { \tiny \wordsBassOne \wordsBassTwo \wordsBassThree }
+        >>
+      >>
+    >>
+    \layout {
+      #(layout-set-staff-size 18)
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Staff \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+      }
+    }
+  }
+}
+
+
+\book {
+  \bookOutputSuffix singlepage-bass
+  \paper {
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
+  \score {
+    \unfoldRepeats
+    <<
+      \new ChoirStaff <<
+                                % Single soprano staff
+        \new Staff = soprano \with { instrumentName = #"Soprano" shortInstrumentName = #"S" } <<
+          \magnifyStaff #4/7
+          \new Voice = "soprano" {\soprano \bar "|."}
+          \addlyrics {\tiny \wordsSopOne \wordsSopTwo \wordsSopThree}
+        >>
+                                % Single alto staff
+        \new Staff = alto \with { instrumentName = #"Alto" shortInstrumentName = #"A" } <<
+          \magnifyStaff #4/7
+          \new Voice = "alto" \alto
+          \addlyrics {\tiny \wordsAltoOne \wordsAltoTwo \wordsAltoThree}
+        >>
+                                % Single tenor staff
+        \new Staff = tenor \with { instrumentName = #"Tenor" shortInstrumentName = #"T" } <<
+          \magnifyStaff #4/7
+          \new Voice = "tenor" \tenor
+          \addlyrics { \tiny \wordsTenorOne \wordsTenorTwo \wordsTenorThree }
+        >>
+                                % Single bass staff
+        \new Staff = bass \with { instrumentName = #"Bass" shortInstrumentName = #"B" } <<
+          \new Voice = "bass" \bass
+          \addlyrics {\wordsBassOne \wordsBassTwo \wordsBassThree }
         >>
       >>
     >>
