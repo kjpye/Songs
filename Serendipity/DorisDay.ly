@@ -1,5 +1,6 @@
-\version "2.25.9"
+\version "2.25.26"
 
+\include "kjp.ly"
 \include "predefined-guitar-fretboards.ly"
 \include "articulate.ly"
 \include "swing.ly"
@@ -52,16 +53,21 @@ globalC = {
 }
 
 TempoTrackA = {
+  \set Score.tempoHideNote = ##t
+  \tempo \markup{Moderately ( \rhythm { 8[8] } = \rhythm {\tuplet 3/2 {4 8}} ) } 4=120
+  s1*36
 }
 
 TempoTrackB = {
+  \set Score.tempoHideNote = ##t
   \tempo 4=108
+  s1*36
 }
 
 TempoTrackC = {
+  \set Score.tempoHideNote = ##t
   \tempo "Moderate jump tempo" 4=120
   s1*38
-%  \set Score.tempoHideNote = ##t
 }
 
 RehearsalTrackA = {
@@ -206,48 +212,50 @@ ChordTrackC = \chordmode {
 }
 
 melodyA = \relative {
+  \globalA
   R1*4
-  \tripletFeel 8 {
-    g'2 fis8 a fis e % 1b+
-    g2 fis
-    g2 fis8 g fis e % 1c
-    \tuplet 3/2 {gis4 b gis} f e
-    a2 g8 a g e
-    \tuplet 3/2 {a4 g ees} g2 % 1d
-    d8 e g a b4 e
-    d1
-    g,2 fis8 g fis e % 2a
-    g2 fis
-    g2 fis8 g fis e
-    \tuplet 3/2 {gis4 b gis} f e % 2b
-    a2 g8 a g e
-    \tuplet 3/2 {a4 g ees} g2
-    d8 e g a bes4 a % 2c
-    g2. r4
-    ees'2 \tuplet 3/2 {c4 ees c}
-    \tuplet 3/2 {bes4 g bes} c, d % 2d
-    ees'2 \tuplet 3/2 {c4 ees c}
-    bes1
-    ees2 \tuplet 3/2 {c4 ees c}
-    \tuplet 3/2 {bes4 g bes} c, d % 3a
-    ees'2 bes4 c
-    d1
-    g,2 fis8 g fis e % 3b
-    g2 fis
-    g2 fis8 g fis e
-    \tuplet 3/2 {gis4 b gis} f e % 3c
-    a2 g8 a g e
-    \tuplet 3/2 {a4 g ees} g2
-    d8 e g a bes4 a % 3d
-    g2. r4
-  }
+  g'2 fis8 a fis e % 1b+
+  g2 fis
+  r4 g fis8 g fis e % 1c
+  \tuplet 3/2 {gis4 b gis} f e
+  r4 a g8 a g e
+  \tuplet 3/2 {a4 g ees} g2 % 1d
+  d8 e g a b4 e
+  d1
+  r4 g, fis8 g fis e % 2a
+  g2 fis
+  r4 g fis8 g fis e
+  \tuplet 3/2 {gis4 b gis} f e % 2b
+  r4 a g8 a g e
+  \tuplet 3/2 {a4 g ees} g2
+  d8 e g a bes4 a % 2c
+  g2. r4
+  ees'2 \tuplet 3/2 {c4 ees c}
+  \tuplet 3/2 {bes4 g bes} c, d % 2d
+  r4 ees' \tuplet 3/2 {c4 ees c}
+  bes1
+  r4 ees
+  \tuplet 3/2 {c4 ees c}
+  \tuplet 3/2 {bes4 g bes} c, d % 3a
+  r4 ees' bes4 c
+  d1
+  r4 g, fis8 g fis e % 3b
+  g2 fis
+  r4 g fis8 g fis e
+  \tuplet 3/2 {gis4 b gis} f e % 3c
+  r4 a g8 a g e
+  \tuplet 3/2 {a4 g ees} g2
+  d8 e g a bes4 a % 3d
+  g2. r4
 }
 
 melodyB = \relative {
+  \globalB
   R1*36
 }
 
 melodyC = \relative {
+  \globalC
   R1*2 % 2c
   c'4 e8 f~8 f4.
   c4 e8 f~2 % 2d
@@ -368,10 +376,13 @@ wordsMidiC = \lyricmode {
 }
 
 sopranoA = \relative {
+  \globalA
+  R1*36
 }
 
 sopranoB = \relative {
-  R1*4 \bar "||"
+  \globalB
+  R1*4 \section
   c'4 f f f8. g16
   a2 f4. g8 % 1b
   a4 4 bes4. a8
@@ -407,6 +418,7 @@ sopranoB = \relative {
 }
 
 sopranoC = \relative {
+  \globalC
   s1*38
 }
 
@@ -519,10 +531,13 @@ wordsC = \lyricmode {
 }
 
 altoA = \relative {
+  \globalA
+  R1*36
 }
 
 altoB = \relative {
-  R1*4 \bar "||"
+  \globalB
+  R1*4 \section
   c'4 f f f8. g16
   a2 f4. g8 % 1b
   a4 4 bes4. a8
@@ -547,7 +562,7 @@ altoB = \relative {
   f4 4 e f % 2c
   e4 4 ees4 4
   d4(f e) r
-  \once\partCombineApart R1
+  R1
   c4 f  f4. e8
   f4 4 g4. f8 % 3a
   f4 e2 8. f16
@@ -558,6 +573,7 @@ altoB = \relative {
 }
 
 altoC = \relative {
+  \globalC
   s1*38
 }
 
@@ -565,10 +581,13 @@ wordsAlto = \lyricmode {
 }
 
 tenorA = \relative {
+  \globalA
+  R1*36
 }
 
 tenorB = \relative {
-  R1*4 \bar "||"
+  \globalB
+  R1*4 \section
   c4 f f f8. g16
   a2 f4. g8 % 1b
   a4 4 bes4. a8
@@ -604,6 +623,7 @@ tenorB = \relative {
 }
 
 tenorC = \relative {
+  \globalC
   s1*38
 }
 
@@ -611,10 +631,13 @@ wordsTenor = \lyricmode {
 }
 
 bassA = \relative {
+  \globalA
+  R1*36
 }
 
 bassB = \relative {
-  R1*4 \bar "||"
+  \globalB
+  R1*4 \section
   c4 f f f8. g16
   a2 f4. g8 % 1b
   a4 4 bes4. a8
@@ -639,7 +662,7 @@ bassB = \relative {
   g4 a g g % 2c
   g4 g a fis
   g2(c,4) r
-  \once\partCombineApart R1
+  R1
   c4 f f4. e8
   f4 f g4. f8 % 3a
   f4 e2 8. f16
@@ -650,6 +673,7 @@ bassB = \relative {
 }
 
 bassC = \relative {
+  \globalC
   s1*38
 }
 
@@ -717,95 +741,94 @@ wordsBassSep = \lyricmode {
 }
 
 pianoRHoneA = \relative {
-  \tripletFeel 8 {
-    g'2 fis8 g fis e
-    <bes g'>2 <a c fis>
-    b'2 a8 b a g
-    <e e'>2\arpeggio <d fis d'> % 1b
-    g2 fis8 g fis e
-    <bes g'>2 <a c fis>
-    g'2 fis8 g fis e % 1c
-    \tuplet 3/2 {gis4 b gis} f e
-    a2 g8 a g e
-    \tuplet 3/2 {a4 g ees} g2 % 1d
-    d8 e g a b4 e
-    <fis, d'>1
-    g2 fis8 g fis e % 2a
-    <bes g'>2 fis'
-    g2 fis8 g fis e
-    \tuplet 3/2 {gis4 b gis} f e % 2b
-    a2 g8 a g e
-    \tuplet 3/2 {a4 g ees} g2
-    d8 e g a bes4 a % 2c
-    g2~4 r4
-    <ees ees'>2 \tuplet 3/2 {c'4 ees c}
-    \tuplet 3/2 {bes4 g bes} c, d % 2d
-    <ees ees'>2 \tuplet 3/2 {c'4 ees c}
-    bes1
-    <ees, ees'>2 \tuplet 3/2 {c'4 ees c}
-    \tuplet 3/2 {bes4 g bes} c, d % 3a
-    ees'2 bes4 c
-    d1
-    g,2 fis8 g fis e % 3b
-    <bes g'>2 fis'
-    g2 fis8 g fis e
-    \tuplet 3/2 {gis4 b gis} f e % 3c
-    a2 g8 a g e
-    \tuplet 3/2 {a4 g ees} g2
-    d8 e g a bes4 a % 3d
-    g2 <g b d g>4\arpeggio r
-  }
+  \globalA \vo
+  g'2^\markup\bold "Dream a Little Dream of Me" fis8 g fis e
+  <bes g'>2 <a c fis>
+  b'2 a8 b a g
+  <e e'>2\arpeggio <d fis d'> % 1b
+  g2 fis8 g fis e
+  <bes g'>2 \ov <a c fis> \vo
+  g'2 fis8 g fis e % 1c
+  \tuplet 3/2 {gis4 b gis} \ov <d f> <d e> \vo
+  a'2 g8 a g e
+  \tuplet 3/2 {a4 g ees} g2 % 1d
+  d8 e g a \ov <cis, g' b>4 <g' b e> \vo
+  <fis d'>1
+  g2 fis8 g fis e % 2a
+  <bes g'>2 \vo <a c fis> \ov
+  g'2 fis8 g fis e
+  \tuplet 3/2 {gis4 b gis} \vo <d f> <d e> \ov % 2b
+  a'2 g8 a g e
+  \tuplet 3/2 {a4 g ees} g2
+  d8 e g a \ov <c, ees bes'>4 <c d a'> % 2c
+  \vo g'2~ \ov <b, d g>4 <bes d aes' bes> \vo
+  <ees ees'>2 \tuplet 3/2 {c'4 ees c}
+  \tuplet 3/2 {bes4 g bes} c, d % 2d
+  <ees ees'>2 \tuplet 3/2 {c'4 ees c}
+  bes1
+  <ees, ees'>2 \tuplet 3/2 {c'4 ees c}
+  \tuplet 3/2 {bes4 g bes} c, d % 3a
+  ees'2 bes4 c
+  d1
+  g,2 fis8 g fis e % 3b
+  <bes g'>2 \ov <a c fis> \vo
+  g'2 fis8 g fis e
+  \tuplet 3/2 {gis4 b gis} <d f> <d e> % 3c
+  a'2 g8 a g e
+  \tuplet 3/2 {a4 g ees} g2
+  d8 e g a \ov <c, ees bes'>4 <c d a'> % 3d
+  <b d g>2 <g' b d g>4\arpeggio r
 }
 
 pianoRHtwoA = \relative {
-  \tripletFeel 8 {
-    r4 <b d> q2
-    d8 ees d4 s2
-    r4 <b d> <b dis> <b e>
-    r4 <g' c> b a % 1b
-    r4 <b, d> q2
-    d8 ees d4 <a c>2
-    r4 <b d>4 2 % 1c
-    d2 4 4
-    r4 <c e> c2
-    c2. <a c>4 % 1d
-    b4 <b d> <cis g'> <g' b>
-    b4 bes bes a
-    r4 <b, d> q2 % 2a
-    d8 ees d4 <a c>2
-    r4 <b d> q2
-    d2 4 4 % 2b
-    r4 <c e> c2
-    c2. <a c>4
-    b4 <b d> <c ees> <c d> % 2c
-    <b d>4 <a c> <b d> <bes d aes'>
-    r4 <g' bes> <e g>2
-    d2 aes % 2d
-    r4 <g' bes> <ees g>2
-    <d f>4 <cis e> d2
-    r4 <g bes> <e g>2
-    d2 aes % 3a
-    r4 <ees' g> q2
-    <d fis>4 <e g> <g b> <fis a>
-    r4 <b, d> q2 % 3b
-    d8 ees d4 <a c>2
-    r4 <b d> q2
-    d2 4 4 % 3c
-    r4 <c e> c2
-    c2. <a c>4
-    b4 <b d> <c ees> <c d> % 3d
-    <b d>2 s
-  }
+  \globalA \vt
+  r4 <b d> q2
+  d8 ees d4 s2
+  r4 <b d> <b dis> <b e>
+  r4 <g' c> b a % 1b
+  r4 <b, d> q2
+  d8 ees d4 s2
+  r4 <b d>4 2 % 1c
+  d2 s
+  r4 <c e> c2
+  c2. <a c>4 % 1d
+  b4 <b d> s2
+  b'4 bes bes a
+  r4 <b, d> q2 % 2a
+  d8 ees d4 s2
+  r4 <b d> q2
+  d2 s % 2b
+  r4 <c e> c2
+  c2. <a c>4
+  b4 <b d> s2 % 2c
+  <b d>4 <a c> s2
+  r4 <g' bes> <ees g>2
+  d2 aes % 2d
+  r4 <g' bes> <ees g>2
+  <d f>4 <cis e> <d f>2
+  r4 <g bes> <ees g>2
+  d2 aes % 3a
+  r4 <ees' g> q2
+  <d fis>4 <e g> <g b> <fis a>
+  r4 <b, d> q2 % 3b
+  d8 ees d4 s2
+  r4 <b d> q2
+  d2 s % 3c
+  r4 <c e> c2
+  c2. <a c>4
+  b4 <b d> s2 % 3d
+  s1
 }
 
 pianoRHoneB = \relative {
+  \globalB \vo
   f'1^\markup\bold "The Black Hills of Dakota" ~
   f2. r4
-  <a, c>2(<bes d>
-  <a c>2 <g bes>)
+  \ov <a, c>2(<bes d>
+  <a c>2 <g bes>) \section
   <a c>2(<bes d>
   <a c>1) % 1b
-  c2(d
+  \vo q2(<bes d>
   e1)
   c2(d
   c e)
@@ -817,36 +840,37 @@ pianoRHoneB = \relative {
   r4 <bes c e> r q % 2a
   r4 q r q
   r4 q r q
-  << {r4 <a c f> r <bes d f> | <a c f>4 r r2} \new Voice {\teeny \voiceThree r4 g''8.^\markup "muted Tpt." (c16) bes8.(a16 g8. f16) | a4 f(g a)} >>
+  << {\vth r4 <a c f> r <bes d f> | <a c f>4 r r2} \new Voice {\teeny \vo r4 g''8.^\markup "muted Tpt." (c16) bes8.(a16 g8. f16) | a4 f(g a)} >> \vo
   <f,, f'>1~ % 2b
   q2 des'(
   c2 cis
   d2) cis4-- c--
   r4 <f g> r q
-  <b, f' g>4 <c f a> <cis e bes'> <d f b> % 2c
+  \ov <b, f' g>4 <c f a> <cis e bes'> <d f b> % 2c
   <e g c>4 <d e bes'> <a c ees fis> <c ees fis a>
-  g'2. r4
-  <a, c>2( <bes d>
+  \vo g'2. r4
+  \ov <a, c>2( <bes d>
   <a c>1)
   <a c>2( <bes d> % 3a
   <a f'>4 <bes e>2.)
-  c2(d
+  \vo c2(d
   c2 d4 e)
   <a, f'>4(<f' a>8. <a c>16 <bes d>4 <g bes>
-  <c, f a>8) r <a c e>4(<a c g'> <a c f>)
+  \ov <c, f a>8) r <a c e>4(<a c g'> <a c f>)
 }
 
 pianoRHtwoB = \relative {
+  \globalB \vt
   <a c>2(<bes d>
   <a c>2 <g bes>)
   s1*4
-  a2(bes % 1b+
+  \hideNotes a2(bes \unHideNotes % 1b+
   c2 bes)
   bes1~
   bes1
   a2(c4) <f a> % 1c
   <d f>4 <bes d> bes2
-  c2(d
+  \teeny c2(d
   c1)
   c2(d
   c1~) % 2a
@@ -854,14 +878,14 @@ pianoRHtwoB = \relative {
   c1
   <a c>2(<bes d>
   <a c>4) r r2
-  r4 <bes d> r q % 2b
+  \normalsize r4 <bes d> r q % 2b
   r q r <f bes>
   r4 <f a> r q
   r4 <f a> r q
   b1
   s1 % 2c
   s1
-  \once\partCombineApart r4 <bes d f> r <bes c e>
+  r4 <bes d f> r <bes c e>
   s1
   s1
   s1 % 3a
@@ -873,84 +897,86 @@ pianoRHtwoB = \relative {
 }
 
 pianoRHoneC = \relative {
+  \globalC \ov
   <e bes' c>1^\markup\bold "I Got the Sun in the Morning" % 2c
   q
-  c'4 e8 f~8 4.
-  c4 e8 f~2 % 2d
-  c4 e8 f~8 4 e8
+  \vo c'4 e8 f~ \ov <a, c d f>8 4. \vo
+  c4 e8 f~ \ov <a, c d f>2  \vo % 2d
+  c4 e8 f~ \ov <a, c d f>8 4 e'8 \vo
   <e g>8 <d f>4 a'8~8 c c c
   c4 bes8 a bes a g f % 3a
-  g4 d8 f~f \appoggiatura b'8 c8 8 8
+  g4 d8 f~ \ov <a, d f> \appoggiatura b''8 c8 8 8
   c4 bes8 a bes a g f
   g4 d8 f~2 % 3b
-  c,4 e8 f~8 4.
-  c4 e8 f~2
-  c4 e8 f~8 4 e8 % 3c
-  <e g>8 <d f>4 a'8~8 c c c
+  \vo c,4 e8 f~ \ov <a, c d f>8 4.
+  \vo c4 e8 f~ \ov <a, c d f>2
+  \vo c4 e8 f~ \ov <a, c d f>8 4 e'8 % 3c
+  \vo <e g>8 <d f>4 a'8~8 c c c
   c4 bes8 a bes a g f
-  g4 d8 f~f \appoggiatura b'8 c c c % 3d
+  g4 d8 f~ \ov <a, d f> \appoggiatura b''8 c c c % 3d
   c4 bes8 a bes a g f
   g4 d8 f~2
-  a,4. 8~2~ % 4a
-  a2 8 fis a b~
-  b8 4 8~2
-  r8 <d, d'>4. bes'4 a % 4b
-  g4. 8~2~
-  g2 8 e g a~
-  a8 4 8~2 % 4c
-  r8 <c, c'>4. a'4 g
-  c,4 e8 f~8 4.
-  c4 e8 f~2 % 4d
-  c4 e8 f~8 4 e8
+  <cis, fis a>4. 8~2~ % 4a
+  q2 \vo a'8 fis a b~
+  \ov <c, e b'>8 4 8~2
+  r8 <d d'>4. \vo bes'4 a % 4b
+  \ov <b, e g>4. 8~2~
+  q2 \vo g'8 e g a~
+  \ov <bes, d a'>8 4 8~2 % 4c
+  r8 <c c'>4. \vo a'4 g
+  c,4 e8 f~<a, c d f>8 4.
+  c4 e8 f~ \ov <a, c d f>2 % 4d
+  \vo c4 e8 f~ \ov <a, c d f>8 4 e'8 \vo
   g8 f4 a8~8 c c c % 5a
   c4 bes8 a bes a g f
-  g4 d8 f~8 \appoggiatura b'8 c c c % 5b
+  g4 d8 f~ \ov <a, d f>8 \appoggiatura b''8 c c c % 5b
   c4 bes8 a bes a g f
   g4 d8 f~8 c c c % 5c
   c4 bes8 a bes a g f
   g4 f8 e f e d4~
-  d2 e4. f8~ % 5d
-  f4 a8 c~4 r
+  \ov <bes d>2 <bes des e>4. <a d f>8~ % 5d
+  q4 <b e a>8 <d g c>~4 r
 }
 
 pianoRHtwoC = \relative {
+  \globalC \vt
   s1*2
-  <e bes'>4. <a c d>8~8 4.
-  <e bes'>4. <a c d>8~2 % 2d
-  <e bes'>4. <a c d>8~8 4. 
+  <e bes'>4. <a c d>8~ \once\hideNotes \vo q8 \vt s4.
+  <e bes'>4. <a c d>8~ \once\hideNotes \vo q2 \vt % 2d
+  <e bes'>4. <a c d>8~ \once\hideNotes \vo q8 \vt s4. 
   a4. <c e>8~4 <ees a>
   <d g>2 c % 3a
-  bes4. <a d>8~8 s4.
+  bes4. <a d>8~ \once\hideNotes \vo q8 \vt s4.
   s1
   s1 % 3b
-  <e bes'>4. <a c d>8~8 4.
-  <e bes'>4. <a c d>8~2
-  <e bes'>4. <a c d>8~8 4 s8 % 3c
+  <e bes'>4. <a c d>8~ \once\hideNotes \vo q8 \vt s4.
+  <e bes'>4. <a c d>8~ \once\hideNotes \vo q2 \vt
+  <e bes'>4. <a c d>8~ \once\hideNotes \vo q8 \vt s4. % 3c
   a4. <c e>8~4 <ees a>
   <d g>2 c
-  bes4. <a d>8~8 s4. % 3d
+  bes4. <a d>8~ \once\hideNotes \vo q8 \vt s4. % 3d
   s1
   s1
-  <cis fis>4. 8~2~ % 4a
-  q2 cis4. <c e>8~
-  q8 4 8~2
+  s1 % 4a
+  s2 cis4. <c e>8~
+  \once\hideNotes \vo q1 \vt
   s2 <c e> % 4b
-  <b e>4. 8~2~
-  q2 b4. <bes d>8~
-  q8 4 8~2 % 4c
+  s1
+  s2 b4. <bes d>8~
+  \once\hideNotes \vo <bes d>1 \vt % 4c
   s2 <bes d>
-  <e, bes'>4. <a c d>8~8 4.
-  <e bes'>4. <a c d>8~2 % 4d
-  <e bes'>4. <a c d>8 8 4 s8
+  <e, bes'>4. <a c d>8~ \once\hideNotes \vo q8 \vt s4.
+  <e bes'>4. <a c d>8~ \once\hideNotes \vo q2 \vt % 4d
+  <e bes'>4. <a c d>8~ \once\hideNotes \vo q8 \vt s4.
   a4. <c e>8~4 <ees a> % 5a
   <d g>2 c
-  bes4. <a d>8~8 s4. % 5b
+  bes4. <a d>8~\once\hideNotes \vo q8 \vt s4. % 5b
   s1
   s1 % 5c
   <d g>2 c
   b2 bes~
-  bes2 <bes des>4. <a d>8~ % 5d
-  q4 <bes e>8 <d g>~4 r4
+  \once\hideNotes \vo bes2 s % 5d
+  s1
 }
 
 dynamicsPianoA = {
@@ -987,47 +1013,47 @@ dynamicsPianoC = {
 }
 
 pianoLHoneA = \relative {
-  \tripletFeel 8 {
-    d1
-    <ees, ees'>2 d'8 e d4
-    \appoggiatura g,8 g'2 fis4 e
-    <a, e' c'>2\arpeggio <d c'> % 1b
-    d1
-    <ees, ees'>2 d'8 e d4
-    d1 % 1c
-    <e, b' gis'>2\arpeggio <b' a'>4 <e g>
-    <a, a'>4 r <a e'>2
-    <a ees'>2. <ees ees'>4 % 1d
-    <g d'>4 r <e e'> <a e' cis'>\arpeggio
-    d'2 des4 c
-    d,1 % 2a
-    <ees, ees'>2 d'8 e d4
-    d1
-    <e, b' gis'>2 <b' a'>4 <e g> % 2b
-    <a, a'>4 r <a e'>2
-    <e ees'>2. <ees ees'>4
-    <g d'>4 r <c g'> <d fis> % 2c
-    r4 e <g, d'> <f f'>
-    bes2 c
-    <bes aes'>2 <bes f'> % 2d
-    bes2 c
-    aes'4 g aes2
-    bes,2 c
-    <bes aes'>2 <bes f'> % 3a
-    <ees, bes' g'>2\arpeggio <ees' bes'>2
-    a4 b c2
-    d,1 % 3b
-    <ees, ees'>2 d'8 e d4
-    d1
-    <e, b' gis'>2\arpeggio <b' a'>4 <e g> % 3c
-    <a, a'>4 r <a e'>2
-    <a ees'>2. <ees ees'>4
-    <g d'>4 r <c g'> <d fis> % 3d
-    d8 e d4 <g, d' b'>4\arpeggio r
-  }
+  \globalA \vo
+  d1
+  \ov <ees, ees'>2 \vo d'8 e d4
+  \appoggiatura g,8 g'2 fis4 e
+  \ov <a, e' c'>2\arpeggio <d c'> \vo % 1b
+  d1
+  \ov <ees, ees'>2 \vo d'8 e d4
+  d1 % 1c
+  \ov <e, b' gis'>2\arpeggio <b' a'>4 <e g>
+  <a, a'>4 r <a e'>2
+  <a ees'>2. <ees ees'>4 % 1d
+  <g d'>4 r <e e'> <a e' cis'>\arpeggio
+  \vo d'2 des4 c
+  d,1 % 2a
+  \ov <ees, ees'>2 \vo d'8 e d4
+  d1
+  \ov <e, b' gis'>2 <b' a'>4 <e g> % 2b
+  <a, a'>4 r <a e'>2
+  <e ees'>2. <ees ees'>4
+  <g d'>4 r <c g'> <d fis> % 2c
+  \vo r4 e \ov <g, d'> <f f'> \vo
+  bes2 c
+  \ov <bes aes'>2 <bes f'> \vo % 2d
+  bes2 c
+  aes'4 g aes2
+  bes,2 c
+  \ov <bes aes'>2 <bes f'> % 3a
+  <ees, bes' g'>2\arpeggio <ees' bes'>2
+  \vo a4 b c2
+  d,1 % 3b
+  \ov <ees, ees'>2 \vo d'8 e d4
+  d1
+  \ov <e, b' gis'>2\arpeggio <b' a'>4 <e g> % 3c
+  <a, a'>4 r <a e'>2
+  <a ees'>2. <ees ees'>4
+  <g d'>4 r <c g'> <d fis> % 3d
+  \vo d8 e d4 \ov <g, d' b'>4\arpeggio r
 }
 
 pianoLHtwoA = \relative {
+  \globalA \vt
   \tripletFeel 8 {
     g,2 d
     s2 d4 r
@@ -1060,24 +1086,27 @@ pianoLHtwoA = \relative {
 }
 
 pianoLHoneB = \relative {
-  \repeat unfold 38 {r8. c16(d8. c16)}
-  f,4 r r2
+  \globalB \vo
+  \repeat unfold  8 {r8. c16(d8. c16)} \section
+  \repeat unfold 30 {r8. c16(d8. c16)}
+  \ov f,4 r r2
   <bes, bes'>4 r f' r % 2b
   q4 r g r
   <c, c'>4 r a' r
   <d, d'>4 r q r
   g4 r d r
-  d'2 e4 f % 2c
+  \vo d'2 e4 f % 2c
   c1(
   d2 e)
   \repeat unfold 14 {r8. c16(d8. c16)}
-  f,8 r e'4(g f)
+  \ov f,8 r e'4(g f)
 }
 
 pianoLHtwoB = \relative {
+  \globalB \vt
   \repeat unfold 19 {f,4 r c r}
   s1*6
-  \partCombineApart g'4 r g r % 2c
+  g'4 r g r % 2c
   c,4 r c r
   g'4 r c, r
   f4 r bes, r
@@ -1091,6 +1120,7 @@ pianoLHtwoB = \relative {
 }
 
 pianoLHoneC = \relative {
+  \globalC \ov
   r8 d c r bes2 % 2c
   a4 c8 aes r g4.
   ges4. f8~4 r
@@ -1109,12 +1139,12 @@ pianoLHoneC = \relative {
   <g f'>4. <f c'>8~2 % 3d
   <bes' d a'>2 <a c g'>
   <g bes d f>4. <f a c d>8~2
-  <a, g'>4. g'8~2~ % 4a
-  g2 <a, g'>4. <d g>8~
+  <a, g'>4. 8~ \vo g'2~ % 4a
+  \ov <a, g'>2 4. <d g>8~
   q8 4 8~2
   d,2 <d' fis> % 4b
-  <g, f'>4. f'8~2~
-  f2 <g, f'>4. <c f>8~
+  <g, f'>4. 8~ \vo f'2~
+  \ov <g, f'>2 4. <c f>8~
   q8 4 8~2 % 4c
   c,2 <c' e>
   ges4. f8~4 r
@@ -1124,23 +1154,24 @@ pianoLHoneC = \relative {
   <bes, f'>2 <a f'>
   <g f'>4. <f c'>8~2 % 5b
   <bes' d a'>2 <a c g'>
-  <g bes d f>4. d'8~4 ees % 5c
-  <bes, f'>2 <a f'>
+  <g bes d f>4. <f a c d>8~ \vo d'4 ees % 5c
+  \ov <bes, f'>2 <a f'>
   <aes f>2 <g f'>2~
   q4 d c4. <f c>8~ % 5d
   q4 <ges des'>8 <f c' a'>~4 r
 }
 
 pianoLHtwoC = \relative {
+  \globalC \vt
   s1*18
-  s4. a,8~8 des e g, % 4a
-  a2 s
+  s4. \once\hideNotes a,8~8 des e a,~ % 4a
+  \once\hideNotes a2 s
   s1
   s1 % 4b
-  s4. g8~8 cis d g,~
-  g2 s
+  s4. \once\hideNotes g8~8 cis d g,~
+  \once\hideNotes g2 s
   s1*9
-  s4. <f' a c>8~2
+  s4. \once\hideNotes <f' a c>8~2 % 5c
   s1*4
 }
 
@@ -1164,7 +1195,7 @@ pianoLHtwoC = \relative {
           <<
             \new Voice {\TempoTrackC \TempoTrackB \TempoTrackA}
             \new Voice {\RehearsalTrackC \RehearsalTrackB \RehearsalTrackA}
-            \new Voice {\globalC \melodyC \melodyB \globalA \melodyA}
+            \new Voice {\melodyC \melodyB \melodyA \bar "|." }
             \addlyrics {\wordsMelodyC \wordsMelodyB \wordsMelodyA}
           >>
                                 % Joint soprano/alto staff
@@ -1174,8 +1205,8 @@ pianoLHtwoC = \relative {
             printPartCombineTexts = ##f
           }
           <<
-            \new Voice \partCombine {\sopranoC \break \globalB \sopranoB \break \sopranoA}
-                                    {\altoC    \altoB    \altoA}
+            \new Voice \partCombine {\sopranoC \break \sopranoB \break \sopranoA}
+                                    {\altoC           \altoB           \altoA}
             \new NullVoice = alignerA {\altoC \altoB \altoA}
             \new NullVoice = alignerS {\sopranoC \sopranoB \sopranoA}
             \addlyrics {\wordsC \wordsB \wordsA}
@@ -1198,18 +1229,18 @@ pianoLHtwoC = \relative {
         >>
         \new PianoStaff = piano <<
           \new Staff = pianorh \with {
-            printPartCombineTexts = ##f
           }
           <<
-            \new Voice \partCombine {\globalC \pianoRHoneC \globalB \pianoRHoneB \globalA \pianoRHoneA} {\globalC \pianoRHtwoC \pianoRHtwoB \pianoRHtwoA}
+            \new Voice {\pianoRHoneC \pianoRHoneB \pianoRHoneA}
+            \new Voice {\pianoRHtwoC \pianoRHtwoB \pianoRHtwoA}
           >>
           \new Dynamics {\dynamicsPianoC \dynamicsPianoB \dynamicsPianoA}
           \new Staff = pianolh \with {
-            printPartCombineTexts = ##f
           }
           <<
             \clef "bass"
-            \new Voice \partCombine {\globalC \pianoLHoneC \globalB \pianoLHoneB \globalA \pianoLHoneA} {\pianoLHtwoC \pianoLHtwoB \pianoLHtwoA}
+            \new Voice {\pianoLHoneC \pianoLHoneB \pianoLHoneA}
+            \new Voice {\pianoLHtwoC \pianoLHtwoB \pianoLHtwoA}
           >>
         >>
       >>
@@ -1217,10 +1248,27 @@ pianoLHtwoC = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
@@ -1254,7 +1302,7 @@ pianoLHtwoC = \relative {
           <<
             \new Voice {\TempoTrackC \TempoTrackB \TempoTrackA}
             \new Voice {\RehearsalTrackC \RehearsalTrackB \RehearsalTrackA}
-            \new Voice {\globalC \melodyC \melodyB \globalA \melodyA}
+            \new Voice {\melodyC \melodyB \melodyA}
             \addlyrics {\wordsMelodyC \wordsMelodyB \wordsMelodyA}
           >>
                                 % Joint soprano/alto staff
@@ -1264,7 +1312,7 @@ pianoLHtwoC = \relative {
             printPartCombineTexts = ##f
           }
           <<
-            \new Voice \partCombine {\sopranoC \break \globalB \sopranoB \break \sopranoA}
+            \new Voice \partCombine {\sopranoC \break \sopranoB \break \sopranoA}
                                     {\altoC    \altoB    \altoA}
             \new NullVoice = alignerA {\altoC \altoB \altoA}
             \new NullVoice = alignerS {\sopranoC \sopranoB \sopranoA}
@@ -1288,18 +1336,18 @@ pianoLHtwoC = \relative {
         >>
         \new PianoStaff = piano <<
           \new Staff = pianorh \with {
-            printPartCombineTexts = ##f
           }
           <<
-            \new Voice \partCombine {\globalC \pianoRHoneC \globalB \pianoRHoneB \globalA \pianoRHoneA} {\globalC \pianoRHtwoC \pianoRHtwoB \pianoRHtwoA}
+            \new Voice {\pianoRHoneC \pianoRHoneB \pianoRHoneA}
+            \new Voice {\pianoRHtwoC \pianoRHtwoB \pianoRHtwoA}
           >>
           \new Dynamics {\dynamicsPianoC \dynamicsPianoB \dynamicsPianoA}
           \new Staff = pianolh \with {
-            printPartCombineTexts = ##f
           }
           <<
             \clef "bass"
-            \new Voice \partCombine {\globalC \pianoLHoneC \globalB \pianoLHoneB \globalA \pianoLHoneA} {\pianoLHtwoC \pianoLHtwoB \pianoLHtwoA}
+            \new Voice {\pianoLHoneC \pianoLHoneB \pianoLHoneA}
+            \new Voice {\pianoLHtwoC \pianoLHtwoB \pianoLHtwoA}
           >>
         >>
       >>
@@ -1307,10 +1355,27 @@ pianoLHtwoC = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
@@ -1344,7 +1409,7 @@ pianoLHtwoC = \relative {
           <<
             \new Voice {\TempoTrackC \TempoTrackB \TempoTrackA}
             \new Voice {\RehearsalTrackC \RehearsalTrackB \RehearsalTrackA}
-            \new Voice {\globalC \melodyC \melodyB \globalA \melodyA}
+            \new Voice {\melodyC \melodyB \melodyA}
             \addlyrics {\wordsMelodyC \wordsMelodyB \wordsMelodyA}
           >>
                                 % Soprano staff
@@ -1353,7 +1418,7 @@ pianoLHtwoC = \relative {
             shortInstrumentName = #"S"
           }
           <<
-            \new Voice {\sopranoC \break \globalB \sopranoB \break \sopranoA}
+            \new Voice {\sopranoC \break \sopranoB \break \sopranoA}
             \addlyrics \wordsSopSep
           >>
                                 % Alto staff
@@ -1391,20 +1456,20 @@ pianoLHtwoC = \relative {
         >>
         \new PianoStaff = piano <<
           \new Staff = pianorh \with {
-            printPartCombineTexts = ##f
           }
           <<
             \magnifyStaff #4/7
-            \new Voice \partCombine {\globalC \pianoRHoneC \globalB \pianoRHoneB \globalA \pianoRHoneA} {\globalC \pianoRHtwoC \pianoRHtwoB \pianoRHtwoA}
+            \new Voice {\pianoRHoneC \pianoRHoneB \pianoRHoneA}
+            \new Voice {\pianoRHtwoC \pianoRHtwoB \pianoRHtwoA}
           >>
           \new Dynamics {\teeny \dynamicsPianoC \dynamicsPianoB \dynamicsPianoA}
           \new Staff = pianolh \with {
-            printPartCombineTexts = ##f
           }
           <<
             \magnifyStaff #4/7
             \clef "bass"
-            \new Voice \partCombine {\globalC \pianoLHoneC \globalB \pianoLHoneB \globalA \pianoLHoneA} {\pianoLHtwoC \pianoLHtwoB \pianoLHtwoA}
+            \new Voice {\pianoLHoneC \pianoLHoneB \pianoLHoneA}
+            \new Voice {\pianoLHtwoC \pianoLHtwoB \pianoLHtwoA}
           >>
         >>
       >>
@@ -1412,10 +1477,27 @@ pianoLHtwoC = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
@@ -1449,7 +1531,7 @@ pianoLHtwoC = \relative {
           <<
             \new Voice {\TempoTrackC \TempoTrackB \TempoTrackA}
             \new Voice {\RehearsalTrackC \RehearsalTrackB \RehearsalTrackA}
-            \new Voice {\globalC \melodyC \melodyB \globalA \melodyA}
+            \new Voice {\melodyC \melodyB \melodyA}
             \addlyrics {\wordsMelodyC \wordsMelodyB \wordsMelodyA}
           >>
                                 % Soprano staff
@@ -1459,7 +1541,7 @@ pianoLHtwoC = \relative {
           }
           <<
             \magnifyStaff #4/7
-            \new Voice {\sopranoC \break \globalB \sopranoB \break \sopranoA}
+            \new Voice {\sopranoC \break \sopranoB \break \sopranoA}
             \addlyrics {\tiny \wordsSopSep}
           >>
                                 % Alto staff
@@ -1496,20 +1578,20 @@ pianoLHtwoC = \relative {
         >>
         \new PianoStaff = piano <<
           \new Staff = pianorh \with {
-            printPartCombineTexts = ##f
           }
           <<
             \magnifyStaff #4/7
-            \new Voice \partCombine {\globalC \pianoRHoneC \globalB \pianoRHoneB \globalA \pianoRHoneA} {\globalC \pianoRHtwoC \pianoRHtwoB \pianoRHtwoA}
+            \new Voice {\pianoRHoneC \pianoRHoneB \pianoRHoneA}
+            \new Voice {\pianoRHtwoC \pianoRHtwoB \pianoRHtwoA}
           >>
           \new Dynamics {\teeny \dynamicsPianoC \dynamicsPianoB \dynamicsPianoA}
           \new Staff = pianolh \with {
-            printPartCombineTexts = ##f
           }
           <<
             \magnifyStaff #4/7
             \clef "bass"
-            \new Voice \partCombine {\globalC \pianoLHoneC \globalB \pianoLHoneB \globalA \pianoLHoneA} {\pianoLHtwoC \pianoLHtwoB \pianoLHtwoA}
+            \new Voice {\pianoLHoneC \pianoLHoneB \pianoLHoneA}
+            \new Voice {\pianoLHtwoC \pianoLHtwoB \pianoLHtwoA}
           >>
         >>
       >>
@@ -1517,10 +1599,27 @@ pianoLHtwoC = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
@@ -1554,7 +1653,7 @@ pianoLHtwoC = \relative {
           <<
             \new Voice {\TempoTrackC \TempoTrackB \TempoTrackA}
             \new Voice {\RehearsalTrackC \RehearsalTrackB \RehearsalTrackA}
-            \new Voice {\globalC \melodyC \melodyB \globalA \melodyA}
+            \new Voice {\melodyC \melodyB \melodyA}
             \addlyrics {\wordsMelodyC \wordsMelodyB \wordsMelodyA}
           >>
                                 % Soprano staff
@@ -1564,7 +1663,7 @@ pianoLHtwoC = \relative {
           }
           <<
             \magnifyStaff #4/7
-            \new Voice {\sopranoC \break \globalB \sopranoB \break \sopranoA}
+            \new Voice {\sopranoC \break \sopranoB \break \sopranoA}
             \addlyrics {\tiny \wordsSopSep}
           >>
                                 % Alto staff
@@ -1601,20 +1700,20 @@ pianoLHtwoC = \relative {
         >>
         \new PianoStaff = piano <<
           \new Staff = pianorh \with {
-            printPartCombineTexts = ##f
           }
           <<
             \magnifyStaff #4/7
-            \new Voice \partCombine {\globalC \pianoRHoneC \globalB \pianoRHoneB \globalA \pianoRHoneA} {\globalC \pianoRHtwoC \pianoRHtwoB \pianoRHtwoA}
+            \new Voice {\pianoRHoneC \pianoRHoneB \pianoRHoneA}
+            \new Voice {\pianoRHtwoC \pianoRHtwoB \pianoRHtwoA}
           >>
           \new Dynamics {\teeny \dynamicsPianoC \dynamicsPianoB \dynamicsPianoA}
           \new Staff = pianolh \with {
-            printPartCombineTexts = ##f
           }
           <<
             \magnifyStaff #4/7
             \clef "bass"
-            \new Voice \partCombine {\globalC \pianoLHoneC \globalB \pianoLHoneB \globalA \pianoLHoneA} {\pianoLHtwoC \pianoLHtwoB \pianoLHtwoA}
+            \new Voice {\pianoLHoneC \pianoLHoneB \pianoLHoneA}
+            \new Voice {\pianoLHtwoC \pianoLHtwoB \pianoLHtwoA}
           >>
         >>
       >>
@@ -1622,10 +1721,27 @@ pianoLHtwoC = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
@@ -1659,7 +1775,7 @@ pianoLHtwoC = \relative {
           <<
             \new Voice {\TempoTrackC \TempoTrackB \TempoTrackA}
             \new Voice {\RehearsalTrackC \RehearsalTrackB \RehearsalTrackA}
-            \new Voice {\globalC \melodyC \melodyB \globalA \melodyA}
+            \new Voice {\melodyC \melodyB \melodyA}
             \addlyrics {\wordsMelodyC \wordsMelodyB \wordsMelodyA}
           >>
                                 % Soprano staff
@@ -1669,7 +1785,7 @@ pianoLHtwoC = \relative {
           }
           <<
             \magnifyStaff #4/7
-            \new Voice {\sopranoC \break \globalB \sopranoB \break \sopranoA}
+            \new Voice {\sopranoC \break \sopranoB \break \sopranoA}
             \addlyrics {\tiny \wordsSopSep}
           >>
                                 % Alto staff
@@ -1706,20 +1822,20 @@ pianoLHtwoC = \relative {
         >>
         \new PianoStaff = piano <<
           \new Staff = pianorh \with {
-            printPartCombineTexts = ##f
           }
           <<
             \magnifyStaff #4/7
-            \new Voice \partCombine {\globalC \pianoRHoneC \globalB \pianoRHoneB \globalA \pianoRHoneA} {\globalC \pianoRHtwoC \pianoRHtwoB \pianoRHtwoA}
+            \new Voice {\pianoRHoneC \pianoRHoneB \pianoRHoneA}
+            \new Voice {\pianoRHtwoC \pianoRHtwoB \pianoRHtwoA}
           >>
           \new Dynamics {\teeny \dynamicsPianoC \dynamicsPianoB \dynamicsPianoA}
           \new Staff = pianolh \with {
-            printPartCombineTexts = ##f
           }
           <<
             \magnifyStaff #4/7
             \clef "bass"
-            \new Voice \partCombine {\globalC \pianoLHoneC \globalB \pianoLHoneB \globalA \pianoLHoneA} {\pianoLHtwoC \pianoLHtwoB \pianoLHtwoA}
+            \new Voice {\pianoLHoneC \pianoLHoneB \pianoLHoneA}
+            \new Voice {\pianoLHtwoC \pianoLHtwoB \pianoLHtwoA}
           >>
         >>
       >>
@@ -1727,10 +1843,27 @@ pianoLHtwoC = \relative {
     \layout {
       indent = 1.5\cm
       \pointAndClickOff
-      \context {
-        \Staff \RemoveAllEmptyStaves
+      \context { \Score
+        \accidentalStyle Score.modern
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context { \Staff
+        \RemoveAllEmptyStaves
         barNumberVisibility = #first-bar-number-invisible-save-broken-bars
         \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context { \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context { \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
@@ -1757,7 +1890,7 @@ pianoLHtwoC = \relative {
           <<
             \new Voice {\TempoTrackC \TempoTrackB \TempoTrackA}
             \new Voice {\RehearsalTrackC \RehearsalTrackB \RehearsalTrackA}
-            \new Voice {\globalC \melodyC \melodyB \globalA \melodyA}
+            \new Voice {\melodyC \melodyB \tripletFeel 8 \melodyA}
             \addlyrics {\wordsMidiC \wordsMidiB \wordsMidiA}
           >>
                                 % Soprano staff
@@ -1765,7 +1898,7 @@ pianoLHtwoC = \relative {
             midiInstrument = "choir aahs"
           }
           <<
-            \new Voice {\globalC \sopranoC \globalB \sopranoB \globalA \sopranoA}
+            \new Voice {\sopranoC \sopranoB \sopranoA}
             \addlyrics \wordsMidiHigh
           >>
                                 % Alto staff
@@ -1793,26 +1926,29 @@ pianoLHtwoC = \relative {
           >>
         >>
         \new PianoStaff = piano <<
-          \new Staff = pianorh \with {
-            printPartCombineTexts = ##f
+          \new Staff = piano \with {
             midiInstrument = "acoustic grand piano"
           }
           <<
-            \new Voice \partCombine {\globalC \pianoRHoneC \globalB \pianoRHoneB \globalA \pianoRHoneA} {\globalC \pianoRHtwoC \pianoRHtwoB \pianoRHtwoA}
-          >>
-          \new Dynamics {\dynamicsPianoC \dynamicsPianoB \dynamicsPianoA}
-          \new Staff = pianolh \with {
-            printPartCombineTexts = ##f
-            midiInstrument = "acoustic grand piano"
-          }
-          <<
-            \clef "bass"
-            \new Voice \partCombine {\globalC \pianoLHoneC \globalB \pianoLHoneB \globalA \pianoLHoneA} {\pianoLHtwoC \pianoLHtwoB \pianoLHtwoA}
+            \new Voice {\pianoRHoneC \pianoRHoneB \tripletFeel 8 \pianoRHoneA}
+            \new Voice {\pianoRHtwoC \pianoRHtwoB \tripletFeel 8 \pianoRHtwoA}
+            \new Dynamics {\dynamicsPianoC \dynamicsPianoB \dynamicsPianoA}
+            \new Voice {\pianoLHoneC \pianoLHoneB \tripletFeel 8 \pianoLHoneA}
+            \new Voice {\pianoLHtwoC \pianoLHtwoB \tripletFeel 8 \pianoLHtwoA}
           >>
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
 
@@ -1837,7 +1973,7 @@ pianoLHtwoC = \relative {
           <<
             \new Voice {\TempoTrackC \TempoTrackB \TempoTrackA}
             \new Voice {\RehearsalTrackC \RehearsalTrackB \RehearsalTrackA}
-            \new Voice {\globalC \melodyC \melodyB \globalA \melodyA}
+            \new Voice {\melodyC \melodyB \tripletFeel 8 \melodyA}
             \addlyrics {\wordsMidiC \wordsMidiB \wordsMidiA}
           >>
                                 % Soprano staff
@@ -1845,7 +1981,7 @@ pianoLHtwoC = \relative {
             midiInstrument = "choir aahs"
           }
           <<
-            \new Voice {\globalC \sopranoC \globalB \sopranoB \globalA \sopranoA}
+            \new Voice {\sopranoC \sopranoB \sopranoA}
           >>
                                 % Alto staff
           \new Staff = alto \with {
@@ -1873,25 +2009,28 @@ pianoLHtwoC = \relative {
           >>
         >>
         \new PianoStaff = piano <<
-          \new Staff = pianorh \with {
-            printPartCombineTexts = ##f
+          \new Staff = piano \with {
             midiInstrument = "acoustic grand piano"
           }
           <<
-            \new Voice \partCombine {\globalC \pianoRHoneC \globalB \pianoRHoneB \globalA \pianoRHoneA} {\globalC \pianoRHtwoC \pianoRHtwoB \pianoRHtwoA}
-          >>
-          \new Dynamics {\dynamicsPianoC \dynamicsPianoB \dynamicsPianoA}
-          \new Staff = pianolh \with {
-            printPartCombineTexts = ##f
-            midiInstrument = "acoustic grand piano"
-          }
-          <<
-            \clef "bass"
-            \new Voice \partCombine {\globalC \pianoLHoneC \globalB \pianoLHoneB \globalA \pianoLHoneA} {\pianoLHtwoC \pianoLHtwoB \pianoLHtwoA}
+            \new Voice {\pianoRHoneC \pianoRHoneB \tripletFeel 8 \pianoRHoneA}
+            \new Voice {\pianoRHtwoC \pianoRHtwoB \tripletFeel 8 \pianoRHtwoA}
+            \new Dynamics {\dynamicsPianoC \dynamicsPianoB \dynamicsPianoA}
+            \new Voice {\pianoLHoneC \pianoLHoneB \tripletFeel 8 \pianoLHoneA}
+            \new Voice {\pianoLHtwoC \pianoLHtwoB \tripletFeel 8 \pianoLHtwoA}
           >>
         >>
       >>
     >>
-    \midi {}
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
