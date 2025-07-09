@@ -293,7 +293,7 @@ bass = \relative {
   R1*8 |
   R1 | bes2(a) | <bes d>2.(<c ees>4) | c4 bes2.~ | % 3a
   bes2 4(c | bes2) \breathe bes(~ | 4 c8 d ees2) | a,4(bes8 c d2 |
-  c2) f,4(g8 a | b2) r4 f | bes,4 4 c4 8 8 | d ees d4(~8 c) b4 | % 4a
+  c2) f,4(g8 a | bes2) r4 f | bes,4 4 c4 8 8 | d ees d4(~8 c) b4 | % 4a
   c8(d) ees4 f a, | bes2. bes'8(a) | f4 f8(f) ees4 d8(ees) | f4 a, bes c8(d) |
   e4 c f f | bes2(f8) r <f, f'>4 | <bes f'>4 4 <c g'> <c a'>8 8 | % 5a
   <d bes'>8 [ <c bes'> ] <<{\vo bes'(a g4) g |} \new Voice {\vt d4(ees) 8(d) |}>>
