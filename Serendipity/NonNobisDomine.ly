@@ -1,696 +1,1042 @@
-% Original from John Lemcke
+\version "2.25.26"
 
-\version "2.25.0"
+\include "../kjp.ly"
+\include "predefined-guitar-fretboards.ly"
+\include "articulate.ly"
 
-\include "english.ly"
+today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 
 \header {
-  title = "Non Nobis Domine"
-  % Remove default LilyPond tagline
-  tagline = ##f
-}
+% centered at top
+%  dedication  = "dedication"
+  title       = "Non Nobis Domine"
+  subtitle    = "from the motion picture “Henry V”"
+%  subsubtitle = "subsubtitle"
+%  instrument  = "instrument"
+  
+% arrangement of following lines:
+%
+%  poet    composer
+%  meter   arranger
+%  piece       opus
 
-#(set-global-staff-size 17)
+  composer    = "Patrick Doyle"
+  arranger    = "Arr. Graham Preskett"
+%  opus        = "opus"
+
+  poet        = "Psalm 115:1"
+%  meter       = "meter"
+%  piece       = "piece"
+
+% centered at bottom
+% tagline     = "tagline" % default lilypond version
+  tagline   = ##f
+  copyright   = \today
+}
 
 global = {
-  \key bf \major
-  \numericTimeSignature
+  \key bes \major
   \time 4/4
-  % This causes quavers to be beamed in pairs not 4s
-  \set Timing.beamExceptions = #'()
-
-  \partial 4
-
-  % 2.12.3 style Set beams for 1/8 notes in 4/4 time) to end on the 1/4 beat
-  %#(score-override-auto-beam-setting '(end 1 8 4 4) 1 4)
-  %#(score-override-auto-beam-setting '(end 1 8 4 4) 3 4)
-
 }
 
-soprano = \relative c'' {
+TempoTrack = {
+  \set Score.tempoHideNote = ##t
+  \tempo "Andante (with great breath)" 4=120
+  s1*60 \tempo "Rit." 4=100
+}
+
+RehearsalTrack = {
+%  \set Score.currentBarNumber = #5
+%  \mark \markup { \box "1a" } s2.*4
+  \textMark \markup { \box "2a" } s1*2
+  \mark \markup\circle\bold A     s1*2
+  \textMark \markup { \box "2b" } s1*4
+  \textMark \markup { \box "3a" } s1*2
+  \mark \markup\circle\bold B     s1*2
+  \textMark \markup { \box "3b" } s1*4
+  \textMark \markup { \box "4a" } s1*2
+  \mark \markup\circle\bold C     s1*2
+  \textMark \markup { \box "4b" } s1*4
+  \textMark \markup { \box "5a" } s1*2
+  \mark \markup\circle\bold D     s1*2
+  \textMark \markup { \box "5b" } s1*4
+  \textMark \markup { \box "6a" } s1*2
+  \mark \markup\circle\bold E     s1
+  \textMark \markup { \box "6b" } s1*3
+  \textMark \markup { \box "7a" } s1*4
+  \mark \markup\circle\bold F
+  \textMark \markup { \box "7b" } s1*4
+  \textMark \markup { \box "8a" } s1*4
+  \mark \markup\circle\bold G
+  \textMark \markup { \box "8b" } s1*4
+  \textMark \markup { \box "9a" } s1*4
+  \textMark \markup { \box "9b" } s1*4
+}
+
+dynamicsSop = {
+  \override DynamicTextSpanner.style = #'none
+  s1*8 |
+  s1 | s\p | s1*6 | % 3
+  s1 | s2. s4\mp | s1*6 |
+  s1 | s2. s4\mf | s1*6 |
+  s1*6 | % 6
+  s1*8 |
+  s1*3 | s2. s4\f | s1*4 |
+  s1*4 | s2 s\< | s s\! | s1\ff | s1 | % 9
+}
+
+soprano = \relative {
   \global
-  % Music follows here.
-  r4 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1
-  % bar 18
-  f,1^\p f~f2 g(~g2. a4 bf2)
-  d2(~d2. c4) c2. (bf4) bf2 ( g2~g4-> f4~f8) r8 r4
-  R1 R1 R1 R1 R1 R1 R1
-
-  %bar 34 3/4
-  r2. g8(f)
-  \key c \major
-  e?4 c' c b8 a e f g2 f8(e) f4 d' c8(b) a(g) f4(e2)
-  c'8(b) c4 b8(c) a4 c g f8(g) e4 f8(e)f4 f' e8(d) c(b) c2~c8 r8 r4
-
-  %bar 42 3/4
-  c2^"Soprano or Tenor Solo (opt.)" d4 e8(f) g4. c,8 c2 g'4 (f8 e) d4 e8(f) g4. c,8 c2
-  e4. e8 e4(d) g4. f8 e2 d4 d c4. f8^"[End Solo]" f4(e2)
-  %  g8^"Unison"(f) e4 c' c b8 a e f g2 f8(e) f4 d' c8(b) a(g) f4(e2)
-  %  c'8(b) c4 b8(c) a4 c g f8(g) e4 f8(e)f4 f' e8(d) c(b) c2.
-
-  %bar 50 3/4
-  g,8^\f(f) e4 c' c b8 a e f g2 f8(e) f4 d' c8(b) a(g) f4(e2)
-  c'8(b) c4 b8(c) a4 c g' f8(g) e4 a,8(g) f4 f' e8(d) c(b) c2~c8 r8
-
-  %bar 58 3/4
-  a8(g) f2 f'2^\< e4(d) c\!(b^\ff)
-  <<  { \stemDown \slurDown a2^"Rit." (g4 f g1)} \new Voice {c1~c} >>
+  R1*8 |
+  R1 | f' | f~ | 2 g~( | % 3a
+  g2. a4 | bes2) d(~ | 2. c4) | 2.(bes4) |
+  bes2(g~ | 4-> f~8) r f(ees) | d4 bes'4 4 a8 g | d ees f2 ees8(d) | % 4a
+  ees4 c' bes8(a) g(f) | ees4(d2) bes'8(a) | bes4 a8(bes) g4 bes | f ees8(f) d4 ees8(d) |
+  ees4 ees' d8(c) bes(a) | bes2 r4 f8(ees) | d4 bes'4 4 a8 g | d ees f2 ees8(d) | % 5a
+  ees4 c' bes8(a) g(f) | ees4(d2) bes'8(a) | bes4 a8(bes) g4 bes | f ees8(f) d4 ees8(d) |
+  ees4 ees' d8(c) bes(a) | f'8->(ees d) c bes(a) g(f) \section \key c \major | % 6a
+  e4 c' c b8 a |
+  e8 f g2 f8(e) | f4 d' c8(b) a(g) | f4(e2) c'8(b) | % 6b
+  c4 b8(c) a4 c | g f8(g) e4 f8(e) | f4 f' e8(d) c(b) | c2~8 r g4 | % 7a
+  c2-> d4 e8(f) | g4. c,8 2 | g'4(f8 e) d4 e8(f) | g4. c,8 2 |
+  e4 8 8 4 d8(c) | g'4. f8 e2 | f4 e8(d) f4 d8(f) | 4(e) r g,8(f) | % 8a
+  e4 c' c b8 a | e f g2 f8(e) | f4 d' c8(b) a(g) | f4(e2) c'8(b) |
+  c4 b8(c) a4 c | g' f8(g) e4 a,8(g) | f4 f' e8(d) c(b) | c2~8 r a(g) | % 9a
+  f2 f' | e4(d) c(b^\markup divisi ) | <<{\vo c1~ | c} \new Voice {\vt a2(g4 f | g1) |}>>
   \bar "|."
 }
 
-alto = \relative c' {
+Nndc   = \lyricmode { Non no -- bis do -- mi -- ne, }
+N_ndc  = \lyricmode { Non __ no -- bis do -- mi -- ne, }
+ndc    = \lyricmode { non do -- mi -- ne, }
+nodc    = \lyricmode { no -- bis do -- mi -- ne, }
+nndc   = \lyricmode { non no -- bis do -- mi -- ne, }
+n_ndc  = \lyricmode { non __ no -- bis do -- mi -- ne, }
+nn_dc  = \lyricmode { non no -- bis __ do -- mi -- ne, }
+n_n_dc = \lyricmode { non __ no -- bis __ do -- mi -- ne, }
+dc     = \lyricmode { do -- mi -- ne, }
+nc     = \lyricmode { no -- mi -- ne, }
+snc    = \lyricmode { sed no -- mi -- ne, }
+s_nc   = \lyricmode { sed __ no -- mi -- ne, }
+sntdgc = \lyricmode { sed no -- mi -- ne tu -- o da glo -- ri -- am, }
+sntdgp = \lyricmode { sed no -- mi -- ne tu -- o da glo -- ri -- am. }
+s_ntdgp  = \lyricmode { sed __ no -- mi -- ne tu -- o da glo -- ri -- am. }
+sn_tdgp  = \lyricmode { sed no -- mi -- ne __ tu -- o da glo -- ri -- am. }
+s_n_tdgp = \lyricmode { sed __ no -- mi -- ne __ tu -- o da glo -- ri -- am. }
+sntd_gp = \lyricmode { sed no -- mi -- ne tu -- o da __ glo -- ri -- am. }
+s_nt_dgp = \lyricmode { sed __ no -- mi -- ne tu -- o __ da __ glo -- ri -- am. }
+sn_td_gp = \lyricmode { sed no -- mi -- ne __ tu -- o da __ glo -- ri -- am. }
+sntdggc = \lyricmode { sed no -- mi -- ne tu -- o da glo -- ri, glo -- ri -- am }
+s_nt_gp = \lyricmode { sed __ no -- mi -- ne tu -- o __ glo -- ri -- am }
+tdgp    = \lyricmode { tu -- o da glo -- ri -- am. }
+
+wordsSop = \lyricmode {
+  Mm _ _ _ _ % 3
+  _ \N_ndc \dc \nndc __ \s_nc \sntdgp
+  \N_ndc \dc \n_ndc __ \s_nc \sntdggc __
+  \N_ndc \dc \n_ndc __ \s_nc % 6
+  \sntdgc __ Non, \nn_dc \n_n_dc
+  \snc \s_nt_gp __ \N_ndc \dc \n_ndc __ \s_nc
+  \sntdgc __ \tdgp __ % 9
+}
+
+MNndc    = \lyricmode { "Non " no "bis " do mi "ne, " }
+Mndc     = \lyricmode { "non " do mi "ne, " }
+Mnodc    = \lyricmode { no "bis " do mi "ne, " }
+Mnndc    = \lyricmode { "non " no "bis " do mi "ne, " }
+Mdc      = \lyricmode { do mi "ne, " }
+Mnc      = \lyricmode { no mi "ne, " }
+Msnc     = \lyricmode { "sed " no mi "ne, " }
+Msntdgc  = \lyricmode { "sed " no mi "ne " tu "o " "da " glo ri "am, " }
+Msntdgp  = \lyricmode { "sed " no mi "ne " tu "o " "da " glo ri "am. " }
+Msntdggc = \lyricmode { "sed " no mi "ne " tu "o " "da " glo "ri, " glo ri "am " }
+Msntgp   = \lyricmode { "sed " no mi "ne " tu "o " glo ri "am " }
+Mtdgp    = \lyricmode { tu "o " "da " glo ri "am. " }
+
+wordsSopMidi = \lyricmode {
+  "Mm " _ _ _ _ % 3
+  _ \MNndc \Mdc \Mnndc \Msnc \Msntdgp
+  \MNndc \Mdc \Mnndc \Msnc \Msntdggc
+  \MNndc \Mdc \Mnndc \Msnc % 6
+  \Msntdgc "Non, " \Mnndc \Mnndc
+  \Msnc \Msntgp \MNndc \Mdc \Mnndc \Msnc
+  \Msntdgc \Mtdgp % 9
+}
+
+dynamicsAlto = {
+  \override DynamicTextSpanner.style = #'none
+  s1*8 |
+  s1 | s\p | s1*6 | % 3
+  s1 | s2. s4\mp | s1*6 |
+  s1 | s2. s4\mf | s1*6 |
+  s1*6 | % 6
+  s1*8 |
+  s1*3 | s2. s4\f | s1*4 |
+  s1*4 | s2 s\< | s s\! | s1\ff | s1 | % 9
+}
+
+alto = \relative {
   \global
-  % Music follows here.
-  r4 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1
-  %bar 18
-  d2.^\p (<c ef>4) d2 (ef d) f4(ef8 d c4 ef2.) ef4 (d) f2( g4 a8 bf g2)
-  f4 (g8 a f2) g2 ef2 (~ef4-> d4~d8) r8 r4
-  R1 R1 R1 R1 R1 R1 R1
-
-  %bar 34 3/4
-  r2. d4
-  \key c \major
-  e?4 e f fs g8 r8 g f e(d) cs4 d f d f d(c8 d e4) gs
-  a g! g8(f) e(f) e4 d d8(c) d(cs) d4 a' g8(f) e(d) f4(e4~e8) r8
-
-  %bar 42 3/4
-  g8(f) e4 c' c b8 a e f g2 f8(e) f4 d' c8(b) a(g) f4(e2)
-  c'8(b) c4 b8(c) a4 c g f8(g) e4 f8(e)f4 f' e8(d) c(b) c2.
-
-  %bar 50 3/4
-  g8^\f(f) e4 f fs g8 f e d c2 bf4 c8(d) e(g) fs4 f8(e) d4(c d)
-  e8(d)e4 d8(e) e4 f e' d8(e) c4 f,8(e) d4 a' gs gs  a(d, cs)
-
-  %bar 58 3/4
-  cs4  d2 a'^\< g a4\!(g) << {g1~g} {c1~c} >>
+  R1*8 |
+  R1 | d'2.(<c ees>4) | d2(ees | d) f4(ees8 d | % 3a
+  c4 ees2.) | ees4(d) f2( | g4 a8 bes g2) | f4(g8 a f2) |
+  g2 ees(~ | 4-> d4~8) r d(c) | d4 d ees4 8 8 | d ees d2 b4 | % 4a
+  c4 g' e c | c(d8 c d4) d | g f f8(ees) d(ees) | d4 c c8(bes) c(b) |
+  c4 g' f8(ees) d(c) | ees4(d4~<d f>8) r f(ees) | d4 d ees f8 ees | d ees f2 ees8(d) % 5a
+  c4 g'8(f) ees4 b8(c) | ees4(d2) bes8(c) | d4 d ees4 4 | d c c8(bes) aes4 |
+  g4 f'8(g) bes(a) g(f) | <f bes>2~8 r d4 \section \key c \major | e4 4 f fis | % 6a
+  g8 r g-> f e->(d) cis4 | d f d f | d(c8 d e4) gis |
+  a4 g4 8(f) e(f) | e4 d4 8(c) d(cis) | d4 a' g8(f) e(d) | f4(e4~8) r g4 | % 7a
+  g2 a4 a | c4. 8 a2 | c2 8(b) <a c>(<b d>) | d4(c2) 8(b) |
+  c4 b8(c) a4 4 | b b c a8(g) | a4 a c8(b) a(g) | a4(g) r g8(f) | % 8a
+  e4 f fis g8 f  | e d c2 bes4 | c8(d) e(g) fis4 f8(e) | d4(c d) e8(d) |
+  e4 d8(e) 4 f | e' d8(e) c4 f,8(e) | d4 a' gis gis | a(d, cis) cis | % 9a
+  d2 a' | g a4(g) | <g c>1~ | q |
 }
 
-tenor = \relative c {
+wordsAlto = \lyricmode {
+  Mm _ _ _ _ _ % 3
+  _ _ \N_ndc \dc \nndc __ \snc __ \s_n_tdgp __
+  \N_ndc \dc \n_ndc __ \s_nc \sntd_gp __
+  \N_ndc \dc \n_n_dc __ \s_nc \sn_td_gp __ % 6
+  Non, \nndc \ndc __ \s_nc
+  \sntdgp __ \N_ndc \dc \nn_dc __ \s_nc
+  \sntdgc __ \tdgp __
+}
+
+wordsAltoMidi = \lyricmode {
+  "Mm " _ _ _ _ _ % 3
+  _ _ \MNndc \Mdc \Mnndc \Msnc \Msntdgp
+  \MNndc \Mdc \Mnndc \Msnc \Msntdgp
+  \MNndc \Mdc \Mnndc \Msnc \Msntdgp % 6
+  "Non, " \Mnndc \Mndc \Msnc
+  \Msntdgp \MNndc \Mdc \Mnndc \Msnc
+  \Msntdgc \Mtdgp
+}
+
+dynamicsTenor = {
+  \override DynamicTextSpanner.style = #'none
+  s1 | s2. s4\p | s1*6 |
+  s1 | s2 s\mp | s1*6 |
+  s1 | s2. s4\mp | s1*6 |
+  s1 | s2. s4\mf | s1*6 |
+  s1 | s2. s4\mf | s1*4 | % 6
+  s1*8 |
+  s1*3 | s2. s4\f | s1*4 |
+  s1*4 | s2 s\< | s s\! | s1\ff | s1 | % 9
+}
+
+tenor = \relative {
   \global
-  % Music follows here.
-  r4 R1 R1 R1 R1 R1 R1 R1 r2.^"All Men"
-
-  %bar 10 3/4
-  f8 (ef) d4 bf' bf a8 g d ef f2
-  ef8 (d) ef4 c' bf8 (a) g (f) ef4 (d2)
-  bf'8 (a) bf4 a8 (bf) g4 bf f ef8 (f) d4 ef8 (d)
-  ef4 ef' d8 (c) bf (a) bf2.
-
-  %bar 18 3/4
-  f8^\mp (ef) d4 bf' bf a8 g d ef f2
-  ef8 (d) ef4 c' bf8 (a) g (f) ef4 (d2)
-  bf'8 (a) bf4 a8 (bf) g4 bf f ef8 (f) d4 ef8 (d)
-  ef4 ef' d8 (c) bf (a) bf2 r2
-
-  %bar 27
-  bf2^\mf c4 d8(ef) f4. bf,8 bf2 f'4 (ef8 d) c4 d8(ef) f4. bf,8 bf2
-  d4. d8 d4(c) f4. ef8 d2 c4 c bf4.ef8 ef4(d2)
-
-  %bar 34 3/4
-  b4
-  \key c \major
-  c4 g c b8 a c d e(d) c bf a(g) f(g) a4 c8(b) a(g) g4( c8 b c4) e
-  e d8(e) c4 a b g d'8(c) b(bf) a4 f' e8(d) c(b)a4(g4~g8) r8
-
-  %bar 42 3/4
-  g8(f) e4 c' c b8 a e f g2 f8(e) f4 d' c8(b) a(g) f4(e2)
-  c'8(b) c4 b8(c) a4 c g f8(g) e4 f8(e)f4 f' e8(d) c(b) c2.
-
-  %bar 50 3/4
-  g8^\f(f) g4 a a c8 c g a a2 a8(g)
-  <f a>8^\markup { \italic divisi }(<g b>) <a c>(<g b>)
-  <<{a4} \new Voice {\stemDown a4}>> <g b> <g b>(<f a>2)
-  <e c'>8(<gs b>)
-  <<{\stemUp c4 b8(c) a4} \new Voice {\stemDown a4 gs4 a4} >> <a c>4
-  c4. c8 c4 cs d f e8(d) c(b) c4(a g )
-
-  %bar 58 3/4
-  a8(g) a2 \stemDown f'^\< e4(d) c\!(b)^\ff \stemNeutral
-  << {\slurUp \stemUp f'2 (e4 d e1)} \new Voice {\tieDown c1~c} >>
+  R1 | r2 r4 f8^\markup "Solo Tenor (or section)" (ees) |
+  d4 bes' bes a8 g | d ees f2 ees8(d) |
+  ees4 c' bes8(a) g(f) | ees4(d2) bes'8(a) | % 2b
+  bes4 a8(bes) g4 bes | f ees8(f) d4 ees8(d) |
+  ees4 ees' d8(c) bes(a) | bes2 r4 f8^\markup "(All)" (ees) | % 3a
+  d4 bes' bes a8 g | d ees f2 ees8(d) |
+  ees4 c' bes8(a) g(f) | ees4(d2) \breathe bes'8(a) | % 3b
+  bes4 a8(bes) g4 bes | f ees8(f) d4 ees8(d) |
+  ees4 ees' d8(c) bes(a) | bes2 r4 a | bes f g a8 a | c4 b8(a) aes4 g | % 4a
+  g4 c c f, | f(bes8 a bes4) d | d d bes4 4 | a f c'8(bes) a(aes) |
+  g4 ees' d8(c) bes(a) | <<{\vo bes2~8} \new Voice {\vt g4(f~8)}>> \ov r8 d'(c) | % 5a
+  bes2^\markup "bring out counter-melody" c4 d8(ees) | f4. bes,8 2 |
+  f'4(ees8 d) c4 d8(ees) | f4 bes,4 2 | d4 8 8 4 c8(bes) f'4. ees8 d2 | % 5b
+  ees4 d8(c) ees4(c8) ees | 4(d~8 e) b4 \section \key c \major | c g c b8 a | % 6a
+  c8 d e(d) e-> bes a(g) | f(g) a4 c8(b) a(g) | 4(c8 b c4) e |
+  e4 d8(e) c4 a | b g d'8(c) b(bes) | a4 f' e8(d) c(b) | a4(g~8) r e'->(d) | % 7a
+  e2 f4 f | g4. 8 4(f8 e) | a2 8(g) f(g) | 4. e8 2 |
+  c4 b8(c) a4 f' | g f8(g) e4 f8(e) | f4 f e8(d) c(b) | c2 r4 g8(f) | % 8a
+  g4 a a c8 8 | g a8 2 8(g) | <f a>(<g b>) <a c>(<b g>) a4 <g b> | <g b>4(<f a>2) <e c'>8(<gis b>) |
+  <a c>4 <<{\vo b8(c)} \new Voice {\vt gis4}>> a4 <a c> | c4. 8 4 cis | d4 f e8(d) c(b) | c4(a g) a8(g) | % 9a
+  <f a>2 <a f'>
+  <<{\vo e'4(d) c(b) | f'2(e4 d | e1)}
+    \new Voice {\vt a,2 f | c'1~ | c |}
+  >>
 }
 
-bass = \relative c {
+wordsTenor = \lyricmode {
+  \N_ndc \dc \n_ndc __ \s_nc \sntdgp
+  \N_ndc \dc \n_ndc __ \s_nc \sntdgp % 3
+  \Nndc \dc \nndc __ \snc \sn_tdgp __
+  Non, __ \nn_dc \n_n_dc \snc \s_nt_gp __
+  \Nndc \dc __ \dc __ \nodc __ \snc % 6
+  \sn_tdgp __ Non, __ \nndc __ \nn_dc
+  \nc \sntdgc \N_ndc \dc \n_n_dc __ \s_nc
+  \sntdgc __ \tdgp __ % 9
+}
+
+wordsTenorMidi = \lyricmode {
+  \MNndc \Mdc \Mnndc \Msnc \Msntdgp
+  \MNndc \Mdc \Mnndc \Msnc \Msntdgp % 3
+  \MNndc \Mdc \Mnndc \Msnc \Msntdgp
+  "Non, " \Mnndc \Mnndc \Msnc \Msntgp
+  \MNndc \Mdc \Mdc \Mnodc \Msnc % 6
+  \Msntdgp "Non, " \Mnndc \Mnndc
+  \Mnc \Msntdgc \MNndc \Mdc \Mnndc \Msnc
+  \Msntdgc \Mtdgp % 9
+}
+
+dynamicsBass = {
+  \override DynamicTextSpanner.style = #'none
+  s1*8 |
+  s1 | s1\p | s1*6 | % 3
+  s1 | s2. s4\mp | s1*6 |
+  s1 | s2. s4\mf | s1*6 |
+  s1*6 | % 6
+  s1*3 | s2. s4\f | s1*4 |
+  s1*3 | s2. s4\f | s1*4 |
+  s1*4 | s2 s\< | s s\! | s1\ff | s1 | % 9
+}
+
+bass = \relative {
   \global
-  % Music follows here.
-  f8^"Solo Bass" (ef) d4 bf' bf a8 g d ef f2
-  ef8 (d) ef4 c' bf8 (a) g (f) ef4 (d2)
-  bf'8 (a) bf4 a8 (bf) g4 bf f ef8 (f) d4 ef8 (d)
-  ef4 ef' d8 (c) bf (a) bf2.
-  %bar 10 3/4
-  f8 (ef) d4 bf' bf a8 g d ef f2
-  ef8 (d) ef4 c' bf8 (a) g (f) ef4 (d2)
-  bf'8 (a) bf4 a8 (bf) g4 bf f ef8 (f) d4 ef8 (d)
-  %ef4 ef' d8 (c) bf (a)
-  ef4 ef' d8 (c) bf (a)
-
-  %bar 18
-  bf2^\p (a) <bf d>2. (<c ef>4) c bf2.~bf2 bf4 (c bf2)
-  bf2(~bf4 c8 d ef2)
-  a,4 (bf8 c d2 c) f,4 (g8 a bf2) r4
-
-  %bar 26 3/4
-  f8(ef) d4^\mf bf' bf a8 g d ef f2
-  ef8 (d) ef4 c' bf8 (a) g (f) ef4 (d2)
-  bf'8 (a) bf4 a8 (bf) g4 bf f ef8 (f) d4 ef8 (d)
-  ef4 ef' d8 (c) bf (a) bf2.
-
-  %bar 34 3/4
-  g4
-  \key c \major
-  c,4 c d ds8 ds e?8 f e2 a,4 d8(e) f4 g b,? c c~c8 d e4
-  a4 g f e8(f) g4 b, c  d8(e) f(e) d4 g g, c2~c8 r8
-
-  %bar 42 3/4
-  g'8(f) e4 c' c b8 a e f g2 f8(e) f4 d' c8(b) a(g) f4(e2)
-  c'8(b) c4 b8(c) a4 c g f8(g) e4 f8(e)f4 f e8(d) c(b) c2.
-
-  %bar 50 3/4
-  g4^\f  c d ds e8 f g f ef4(d) cs d8(e) f(e) ef4 d c2(b4) e,
-  a b c d c4. c8 c4 a d c b e
-
-  %bar 58 3/4
-  f(bf, a) a d2 << {d^\< a' f\!} {s2 s2 s4 s4^\ff}>>
-  << { \slurUp c'2( b4 a g1)} \new Voice {\tieDown c,1~c} >>
+  R1*8 |
+  R1 | bes2(a) | <bes d>2.(<c ees>4) | c4 bes2.~ | % 3a
+  bes2 4(c | bes2) \breathe bes(~ | 4 c8 d ees2) | a,4(bes8 c d2 |
+  c2) f,4(g8 a | bes2) r4 f | bes,4 4 c4 8 8 | d ees d4(~8 c) b4 | % 4a
+  c8(d) ees4 f a, | bes2. bes'8(a) | f4 f8(f) ees4 d8(ees) | f4 a, bes c8(d) |
+  e4 c f f | bes2(f8) r <f, f'>4 | <bes f'>4 4 <c g'> <c a'>8 8 | % 5a
+  <d bes'>8 [ <c bes'> ] <<{\vo bes'(a g4) g |} \new Voice {\vt d4(ees) 8(d) |}>>
+  \ov <c g'>4 <c c'> <<{\vo bes'8(a) g(a) | c4(b2)} \new Voice {\vt f4 f | bes,2.}>> \ov d4 | % 5b
+  g4 f8(g) ees4 g | d c bes b |
+  c4 d8(ees) f4 4 | bes2. g4 \section \key c \major | c,4 c d dis8 8 | % 6a
+  e8 f e2 a,4 | d8(e) f4 g b, | c c->~8 d e4 |
+  a4 g f e8(f) | g4 b, c d8(e) | f(e) d4 g g, | c2~8 r g'->(f) | % 7a
+  e4 c' c b8 a | e f g2 f8(e) | f4 d' c8(b) a(g) f4(e2) c'8(b) |
+  a4 g8(a) f4 a | e d c f8(e) | d4 a' g g, | c2 r4 g | % 8a
+  c4 d dis e8 f | g f ees4(d) cis | d8(e) f(e) ees4 d | c2(b4) e, |
+  a4 b c d | c4. 8 4 a | d c b e | f(bes, a) a | % 9a
+  d2 <d, d'> | <f a'> <g f'> | <<{\vo c'2(b4 a | g1)} \new Voice {\vt c,1~ | c |}>>
 }
 
-sopranoVerse = \lyricmode {
-  % Lyrics follow here.
-  %bar 16
-  Mm - - - - -
-  %bar 32 3/4
-  Non no -- bis do -- mi -- ne do -- mi -- ne, non no -- bis do -- mi -- ne,
-  sed no -- mi -- ni, sed no -- mi -- ni, tu o da glo -- ri -- am,
-
-  %bar 40 3/4
-  %  Non no -- bis do -- mi -- ne do -- mi -- ne, non no -- bis do -- mi -- ne,
-  %  sed no -- mi -- ni, sed no -- mi -- ni, tu o da glo -- ri -- am,
-  Non no -- bis do -- mi -- ne, Non no -- bis do -- mi -- ne,
-  no -- mi -- ni no -- mi -- ni, o da glo -- ri -- am.
-
-  %bar 48 3/4
-  Non no -- bis do -- mi -- ne do -- mi -- ne, non no -- bis do -- mi -- ne,
-  sed no -- mi -- ni, sed no -- mi -- ni, tu o da glo -- ri -- am,
-  tu o da glo -- ri -- am.
-
+wordsBass = \lyricmode {
+  Mm _ _ _ _ _ _ % 3
+  _ \Nndc \dc __ \nndc \s_nc \s_ntdgp __
+  \Nndc \dc __ \n_ndc __ \snc \sntd_gp
+  \Nndc \dc \nndc \dc % 6
+  \nc \s_nt_dgp __ \N_ndc \dc \n_ndc __ \s_nc
+  \sntdgp \Nndc \dc __ \nn_dc __ \snc
+  \sntdgc __ \tdgp __ % 9
 }
 
-sopranoVerseMidi = \lyricmode {
-  % Lyrics follow here.
-  %bar 16
-  "Mm "     
-  %bar 32 3/4
-  "\nNon " no "bis " do mi "ne " do mi "ne, " "non " no "bis " do mi "ne, "
-  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
-
-  %bar 40 3/4
-  %  Non no -- bis do -- mi -- ne do -- mi -- ne, non no -- bis do -- mi -- ne,
-  %  sed no -- mi -- ni, sed no -- mi -- ni, tu o da glo -- ri -- am,
-  "\nNon " no "bis " do mi "ne, " "Non " no "bis " do mi "ne, "
-  "\nno" mi "ni " no mi "ni, " "o " "da " glo ri "am. "
-
-  %bar 48 3/4
-  "\nNon " no "bis " do mi "ne " do mi "ne, " "non " no "bis " do mi "ne, "
-  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
-  "\ntu " "o " "da " glo ri "am. "
-
+wordsBassMidi = \lyricmode {
+  "Mm " _ _ _ _ _ _ % 3
+  _ \MNndc \Mdc \Mnndc \Msnc \Msntdgp
+  \MNndc \Mdc \Mnndc \Msnc \Msntdgp
+  \MNndc \Mdc \Mnndc \Mdc % 6
+  \Mnc \Msntdgp \MNndc \Mdc \Mnndc \Msnc
+  \Msntdgp \MNndc \Mdc \Mnndc \Msnc
+  \Msntdgc \Mtdgp % 9
 }
 
-altoVerse = \lyricmode {
-  % Lyrics follow here.
-  %bar 16
-  Mm - - - - - - -
-  %bar 32 3/4
-  Non no -- bis do -- mi -- ne, do -- mi -- ne, non no -- bis do -- mi -- ne,
-  sed no -- mi -- ni, sed no -- mi -- ni, tu o da glo -- ri  -- am,
-
-  %bar 40 3/4
-  Non no -- bis do -- mi -- ne do -- mi -- ne, non no -- bis do -- mi -- ne,
-  sed no -- mi -- ni, sed no -- mi -- ni, tu o da glo -- ri -- am,
-
-  %bar 48 3/4
-  Non no -- bis do -- mi -- ne do -- mi -- ne, non no -- bis do -- mi -- ne,
-  sed no -- mi -- ni, sed no -- mi -- ni, tu o da glo -- ri -- am,
-  tu o da glo -- ri -- am.
-}
-
-altoVerseMidi = \lyricmode {
-  % Lyrics follow here.
-  %bar 16
-  "Mm "       
-  %bar 32 3/4
-  "\nNon " no "bis " do mi "ne, " do mi "ne, " "non " no "bis " do mi "ne, "
-  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
-
-  %bar 40 3/4
-  "\nNon " no "bis " do mi "ne " do mi "ne, " "non " no "bis " do mi "ne, "
-  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
-
-  %bar 48 3/4
-  "\nNon " no "bis " do mi "ne " do mi "ne, " "non " no "bis " do mi "ne, "
-  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
-  "\ntu " "o " "da " glo ri "am. "
-}
-
-tenorVerse = \lyricmode {
-  % Lyrics follow here.
-  Non no -- bis do -- mi -- ne, do -- mi -- ne, non no -- bis do -- mi -- ne,
-  sed no -- mi -- ni, sed no -- mi -- ni, tu o da glo -- ri -- am,
-
-  Non no -- bis do -- mi -- ne, do -- mi -- ne, non no -- bis do -- mi -- ne,
-  sed no -- mi -- ni, sed no -- mi -- ni, tu o da glo -- ri -- am,
-
-  Non no -- bis do -- mi -- ne, Non no -- bis do -- mi -- ne,
-  no -- mi -- ni no -- mi -- ni, o da glo -- ri -- am.
-
-  Non no -- bis do -- mi -- ne, do -- mi -- ne, do -- mi -- ne,
-  no -- bis do -- mi -- ne,
-  sed no -- mi -- ni, sed no -- mi -- ni, tu o da glo -- ri -- am,
-
-  %bar 40 3/4
-  Non no -- bis do -- mi -- ne do -- mi -- ne, non no -- bis do -- mi -- ne,
-  sed no -- mi -- ni, sed no -- mi -- ni, tu o da glo -- ri -- am,
-
-  %bar 48 3/4
-  Non no -- bis do -- mi -- ne do -- mi -- ne, non no -- bis do -- mi -- ne,
-  sed no -- mi -- ni, sed no -- mi -- ni, tu o da glo -- ri -- am,
-  tu o da glo -- ri -- am.
-}
-
-tenorVerseMidi = \lyricmode {
-  % Lyrics follow here.
-  "Non " no "bis " do mi "ne, " do mi "ne, " "non " no "bis " do mi "ne, "
-  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
-
-  "\nNon " no "bis " do mi "ne, " do mi "ne, " "non " no "bis " do mi "ne, "
-  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
-
-  "\nNon " no "bis " do mi "ne, " "Non " no "bis " do mi "ne, "
-  "\nno" mi "ni " no mi "ni, " "o " "da " glo ri "am. "
-
-  "\nNon " no "bis " do mi "ne, " do mi "ne, " do mi "ne, "
-  "\nno" "bis " do mi "ne, "
-  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
-
-  %bar 40 3/4
-  "\nNon " no "bis " do mi "ne " do mi "ne, " "non " no "bis " do mi "ne, "
-  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
-
-  %bar 48 3/4
-  "\nNon " no "bis " do mi "ne " do mi "ne, " "non " no "bis " do mi "ne, "
-  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
-  "\ntu " "o " "da " glo ri "am. "
-}
-
-bassVerse = \lyricmode {
-  % Lyrics follow here.
-  Non no -- bis do -- mi -- ne, do -- mi -- ne, non no -- bis do -- mi -- ne,
-  sed no -- mi -- ni, sed no -- mi -- ni, tu o da glo -- ri -- am,
-  Non no -- bis do -- mi -- ne, do -- mi -- ne, non no -- bis do -- mi -- ne,
-  sed no -- mi -- ni, sed no -- mi -- ni, tu o da glo -- ri
-  %o da glo -- ri -- am,
-
-  %bar 16
-  Mm - - - - - - -
-
-  %bar 24 3/4
-  Non no -- bis do -- mi -- ne, do -- mi -- ne, non no -- bis do -- mi -- ne,
-  sed no -- mi -- ni, sed no -- mi -- ni, tu o da glo -- ri -- am,
-
-  %bar 32 3/4
-  Non no -- bis do -- mi -- ne, do -- mi -- ne,
-  non no -- bis do -- mi -- ne, do -- mi -- ne,
-  no -- mi -- ni, sed no -- mi -- ni, tu o da glo -- ri -- am,
-
-  %bar 40 3/4
-  Non no -- bis do -- mi -- ne do -- mi -- ne, non no -- bis do -- mi -- ne,
-  sed no -- mi -- ni, sed no -- mi -- ni, tu o da glo -- ri -- am,
-
-  %bar 48 3/4
-  Non no -- bis do -- mi -- ne do -- mi -- ne, non no -- bis do -- mi -- ne,
-  sed no -- mi -- ni, sed no -- mi -- ni, tu o da glo -- ri -- am,
-  tu o da glo -- ri -- am.
-}
-
-bassVerseMidi = \lyricmode {
-  % Lyrics follow here.
-  "Non " no "bis " do mi "ne, " do mi "ne, " "non " no "bis " do mi "ne, "
-  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
-  "\nNon " no "bis " do mi "ne, " do mi "ne, " "non " no "bis " do mi "ne, "
-  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo "ri "
-  %o da glo -- ri -- am,
-
-  %bar 16
-  "\nMm "       
-
-  %bar 24 3/4
-  "\nNon " no "bis " do mi "ne, " do mi "ne, " "non " no "bis " do mi "ne, "
-  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
-
-  %bar 32 3/4
-  "\nNon " no "bis " do mi "ne, " do mi "ne, "
-  "\nnon " no "bis " do mi "ne, " do mi "ne, "
-  "\nno" mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
-
-  %bar 40 3/4
-  "\nNon " no "bis " do mi "ne " do mi "ne, " "non " no "bis " do mi "ne, "
-  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
-
-  %bar 48 3/4
-  "\nNon " no "bis " do mi "ne " do mi "ne, " "non " no "bis " do mi "ne, "
-  "\nsed " no mi "ni, " "sed " no mi "ni, " "tu " "o " "da " glo ri "am, "
-  "\ntu " "o " "da " glo ri "am. "
-}
-
-rehearsalMidi = #(define-music-function
-  (name midiInstrument lyrics) (string? string? ly:music?)
-  #{
-    \unfoldRepeats <<
-      \new Staff = "soprano" \new Voice = "soprano" { s1*0\f \soprano }
-      \new Staff = "alto" \new Voice = "alto" { s1*0\f \alto }
-      \new Staff = "tenor" \new Voice = "tenor" { s1*0\f \tenor }
-      \new Staff = "bass" \new Voice = "bass" { s1*0\f \bass }
-      \context Staff = $name {
-        \set Score.midiMinimumVolume = #0.5
-        \set Score.midiMaximumVolume = #0.5
-        \set Score.tempoWholesPerMinute = #(ly:make-moment 88/4)
-        \set Staff.midiMinimumVolume = #0.8
-        \set Staff.midiMaximumVolume = #1.0
-        \set Staff.midiInstrument = $midiInstrument
-      }
-      \new Lyrics \with {
-        alignBelowContext = $name
-      } \lyricsto $name $lyrics
-    >>
-#})
-
-rightOne = \relative c'' {
+pianoRHone = \relative {
   \global
-  % Music follows here.
-  s4 s1 s1 s1 s1 s1 s1 s1 s1 s1 s1 s1 s1 s1 s1 s1
-  f,4\pp f'2. f,1~f2 g(~g2. a4 bf2)
-  d2(~d2. c4) c2. (bf4) bf2 g2(~g4 f4~f8) s8 s4
-
-  %bar 25
-  s1 s1 s1 s1 s1 s1 s1 s2.
-
-  %bar32 3/4
-  g8 f
-  \key c \major
-  <g, c e? >4 <c e c'>4 <c f c'>4 <c fs b>8 a'
-  <c, e>8 <d f> <e g> <d f> <c e> <bf d> <a cs f> <g e'>
-  <a d f>4 <d a' d> <d a' c>8 <g b> <d f a> g
-  <g, d' f>4 <c e>8 <b d> <c e>4 <d gs c>8 b'
-  <e, a c>4 <d gs b>8 <e c'> <c a'>4 <c c'>4
-  <b e g>4 <g d' f>8 g'8 <g, e'>4 <b d f >8 <bf cs e>
-  <a d f>4 <f' a f'> <e g e'>8 <d f d'> <c e c'> <b d b'>
-  %  \tieDown
-  %  <c c'>2 ~ <c c'>8
-  \override TieColumn.tie-configuration =
-  #'((2.0 . 1) (-7.0 . -1))
-  <c c'>2~<c c'>8
-
-  %bar 40 3/4
-  r8 r4
-  %Trumpet
-  \stemDown
-  c'2^"Trumpet" d4 e8(f) g4. c,8 c2 g'4 (f8 e) d4 e8(f) g4. c,8 c2
-  e4. e8 e4(d) g4. f8 e2 d4 d c4. f8 f4(e2)
-  \stemNeutral
-  %s1 s1 s1 s1 s1 s1 s1 s2.
-
-  %bar 48 3/4
-  <g,, g'>8\f <f f'>
-  <e e'>4 <c' f c'> <c fs c'> <c g' b>8 <c f a>
-  e8 <d f> <a c g'>2 <bf f'>8 e
-  <a, c f>8 <g b d> <a c e> <g b g'> <a c fs>4 f'8 e
-  <b d f>4 \staccato <a c e> \tenuto <d f a d> c'8 b
-  <c, e a c>4 <d gs b>8 <e c'> <c e a>4 <c f c'>
-  \stemDown <g' e' g>4 <f d' f>8 <g e' g> \stemNeutral <e c' e>4 <g, cs f>8 e'
-  <a, d f>4 <f' a f'> <e gs e'>8 d' <d, gs c> b'
-  <c, a' c>4 <a d> (<g cs>) <a a'>8 g'
-  <a, d f>2 <d f a f'> <e g e'>4 (<d f d'>) <c a' c> (<b g'b>)
-  \override TieColumn.tie-configuration =
-  #'((2.0 . 1) (-7.0 . -1))
-  <c c'>1~<c e g c>1
-
+  f'8 f'~ 2.~ | 1\laissezVibrer | R1*6 |
+  R1 | f,4 f'2. | \vo f,1~ | 2 g~ | % 3a
+  g2. a4 | bes2 \ov <f d'>~ | \vo d'2.(c4) | 2. bes4 |
+  <g bes>2 <ees g> | 4(<d f>~8) r q(<c ees>) | % 4a
+  d4 <d bes'> <ees bes'> \vo a8 g \ov | d8 ees <d f>2 \vo ees8 d |
+  \ov <c ees>4 <g' c> <ees bes'>8 a <c, g'> f | <c ees>4 d8 c d4 bes'8 a | % 4b
+  \vo bes4 a8 bes g4 bes | f ees8 f d4 \ov <c ees>8 <b d> |
+  <c ees>4 <ees g ees'> <d f d'>8 <c ees c'> <bes d bes'> <a c a'> | % 5a
+  \vo <bes bes'>2 \ov <a d f>4^-^. 8(<c ees>) |
+  <bes d>4 <d bes'> <ees bes'> <f a>8 <ees g> | d8 ees f2 ees8 d |
+  <c ees>4 \vo c' bes8 a g f | % 5b
+  \ov <c ees>4(<bes d>8) <f' bes>8 4 <bes, bes'>8 <c a'> |
+  <d bes'>4 <d a'>8 bes' \vo <ees, g>4 <ees bes'> |
+  \ov <d f>4 <c ees>8 f \vo d4 ees8 d |
+  \ov <g, ees'>4 \vo ees'' \ov <bes d>8 <a c> <g bes> <f a> | % 6a
+  \vo f'8 ees d c bes a g f \section \key c \major |
+  \ov <g, c e>4 <c e c'> <c f c'> <c fis b>8 a' |
+  <c, e>8 [ <d f> ] \vo <e g> <d f> \ov <c e> <bes d> <a cis f> <g e'> | % 6b
+  <a d f>4 <d a' d> <d a' c>8 <g b> <d f a> g |
+  <g, d' f>4 <c e>8 <b d> <c e>4 <d gis c>8 b' |
+  <e, a c>4 <d g b>8 <e c'> \vo <c a'>4 <c c'> | % 7a
+  \ov <b e g>4 <g d' f>8 g' \vo <g, e'>4 \ov <b d f>8 <bes cis e> |
+  <a' d f>4 <f a f'> <e g e'>8 <d f d'> <c e c'> <b d b'> |
+  \vo <c c'>2~ <c e c'>8 \ov r <g g'>4 |
+  <e' g c>2 \vo d'4 e8 f | \ov <g, c g'>4. c8 \vo <a c>2 | % 7b
+  g'4 f8 e d4 \ov <a c e>8 <b d f> |
+  \vo <g g'>4. s8 \ov <e c'>4 <e e'>8 <d d'> |
+  <e c' e>4 <e b' e>8 c' q4 <f, a d>8 c' | % 8a
+  \vo g'4. f8 \ov <e, c' e>4 <f a>8 <e g> |
+  <f a f'>4 <f a e'>8 d' <e, c' f>8 b' <c, a' d> <g' f'> |
+  \vo <a f'>4(<g e'>) \ov <g g'> <g, g'>8 <f f'> |
+  <e e'>4 <c' f c'> <c fis c'> <c g' b>8 <c f a> | % 8b
+  e8 <d f> <a c g'>2 \vo <bes f'>8 e |
+  \ov <a, c f>8 <g b d> <a c e> <g b g'> <a c fis>4 \vo f'8 e |
+  \ov <b d f>4^. \vo <a c e>^- \ov <d f a d> \vo c'8 b |
+  \ov <c, e a c>4 <d gis b>8 <e c'> <c e a>4 <c f c'> | % 9a
+  <g' e' g>4 <f d' f>8 <g e' g> <e c' e>4 <g, cis f>8 e' |
+  <a, d f>4 <f' a f'> <e gis e'>8 d' <d, g c> b' |
+  <c, a' c>4 <a d>4(<g cis>^-^.) <a a'>8 g' |
+  <a, d f>2 <d f a f'> | <e g e'>4(<d f d'>) <c a' c>(<b g' b>) | % 9b
+  \vo <c c'>1~ | <c e g c> |
 }
 
-rightTwo = \relative c' {
+pianoRHtwo = \relative {
+  \global \vt
+  s1*8 |
+  s1*2 | d'2 ees | d f4 ees8 d | c4 ees2. | 4(d) s2 | f4 a8 bes g2 | f4 g8 a f2 | % 3
+  s1*2 | s2. ees4 | s2. b4 | s1*2 | g'4 f4~8 ees d ees | d4 c~8 bes s4 |
+  s1 | ees4(d) s2 | s1*2 | s4 <ees g>8 <d f> ees4 g,8 a | s1 | s2 d4 c8 bes | s2 c8 bes aes4 | % 5
+  s4 f'8 g s2 | <f bes> <d f>8 c <b d>4 \section \key c \major | s1 | % 6a
+  s4 c s2 | s1*2
+  s2 g'8 f e f | s2 d8 c s4 | s1 | f4 e~\vo 8 \vt s4. | % 7a
+  s2 <f a> | s2 g4 f8 e | <a c>2 8 <g b> s4 d'4( \vo c8) <e, c'> \vt s2 |
+  s1 | <g b>4 <f b>8 f' s2 | s1 | c2 s | % 8a
+  s1 | s2. a,8 g | s2. <g b>4 | s2. <d' e gis>4 |
+  s1*4 | % 9a
+  s1*2 | <f g a>2 <e g>4 <d f> | s1 |
+}
+
+dynamicsPiano = {
+  \override DynamicTextSpanner.style = #'none
+  s1\mp | s1*7 |
+  s1 | s\pp | s1*6 | % 3
+  s1 | s2. s4\mp | s1*6 |
+  s1 | s2. s4\mf | s1*6 |
+  s1*6 | % 6
+  s1*8 |
+  s1*3 | s2. s4\f | s1*4 |
+  s1*4 | s2. s4\< | s1 | s\ff | s | % 9
+}
+
+pianoLHone = \relative {
   \global
-  % Music follows here.
-  r4 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1
-  s1 d2 ef d f4 ef8 d c4 ef2. ef4 (d) f2 g4 a8 bf g2
-  f4 g8 a f2 g2 ef2~ef4 d4~d8 r8 r4
+  R1*8 |
+  R1 | r2 f | bes2.(c4) | 4(bes2.~ | 2) 4(c) | bes2 2~ | 4 c8 d ees2 | a,4 bes8 c d2 | % 3
+  c2 f,4 g8 a | bes2~8 r <f a>4 | <bes, bes'> <bes f'> <c g'> <c a'> | <d c'> \vo bes'8 a aes4 g | % 4a
 
-  %bar 25
-  R1 R1 R1 R1 R1 R1 R1 r2.
-
-  %bar32 3/4
-  <b! d>4
-  \key c \major
-  s1
-  s4 c4 s2
-  s1
-  s1
-  s2
-  \once \override NoteColumn.force-hshift = #1.9 gs'8 f8
-  \once \override NoteColumn.force-hshift = #1.9 e8 [f8]
-  s2
-  \once \override NoteColumn.force-hshift = #1.9 d8 c s4
-  s1
-  \once \override NoteColumn.force-hshift = #1.9 f4 e4 ~ e8
-
-  %bar 40 3/4
-  r8 r4 s1 s1 s1 s1 s1 s1 s1 s2. s4
-
-  %bar 49
-  s1
-  s2. a,8 g
-  s2. <g b>4
-  s2. <d' e gs>4
-  s1
-  s1
-  s1
-  s1
-  s1
-  s1
-  \once \override NoteColumn.force-hshift = #1.9 <f g a>2^"Rit." <e g>4 <d f> s1
-
+  g4 \ov <ees c'> <f c'> <a, f'> | \vo f' bes8 a bes4 d | % 4b
+  \ov <g, d'>4 \vo d' \ov <ees, bes'> \vo bes' | \ov <f a> <a, f'> bes <c a'>8 <d aes'> |
+  <ees g>4 c f f | \vo g(f) \ov f_-_. f, | <bes f'>4 4 <c g'> <c a'> | % 5a
+  <d bes'>4 \vo bes'8 a g4 g |
+  <c, ees>4 <c c'> \vo bes'8 a g a | \ov bes,4. bes'8 4 d, | % 5b
+  g4 d8 g ees4 g | \vo a4. g8 f4 4 |
+  c4 <d d'>8 <ees c'> <f ees'>4 \vo c'8 ees | % 6a
+  ees4 d \ov bes8 a <g, g'>4 \section \key c \major |
+  <c, c'>4 4 <d d'> <dis dis'> |
+  <e e'>4 e'2 a,4 | d8 e f4 g b, | c <c, c'>4~8 <d d'> <e e'>4 | % 6b
+  <a a'>4 <g g'> <d d'> <e e'>8 <f f'> | % 7a
+  <g g'>4 b c d8 e | <f, f'> <e e'> <d d'>4 <g g'> g |
+  <c, c'>2~8 r <g' g'>8 <f f'> |
+  <e e'>4 <c' c'> q <b b'>8 <a a'> | <e e'> <f f'> <g g'>2 <f f'>8 <e e'> | % 7b
+  <f f'>4 <d' d'> <c c'>8 <b b'> <a a'> <g g'> |
+  <f f'>4 <e e'>2 <c' c'>8 <b b'> |
+  <a a'>4 <g g'> <f f'> <a a'> | <e e'> <d d'> <c c'> <f f'>8 <e e'> | % 8a
+  <d d'>4 <a' a'> <g g'>8 d'' q b | <c, c'>4 <e, e'>8 <f f'> <g g'>4 <g, g'> |
+  <c c'>4 <d d'> <dis dis'> <e e'>8 <f f'> | % 8b
+  < g g'>8 <f f'> <ees ees'>4(<d d'>) <cis cis'> |
+  <d d'>8 <e e'> <f f'> <e e'> <ees ees'>4 <d d'> |
+  s4\vo \crossStaff f'4 \ov b, e, |
+  <a, a'>4 <b b'> <c c'> <d d'> | <c c'>2. <a a'>4 | % 9a
+  <d d'>4 <c c'> <b b'> <e e'> | <f f'> <bes, bes'>(<a a'>-.) q-- |
+  <d d'>4-. q2-> q4-> | <f a'>2 \vo g' | \ov <c,, c'>1 | q-> % 9b
 }
 
-left = \relative c {
-  \global
-  % Music follows here.
-  r4 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1 R1
-  r2 f2 bf2. (c4) c (bf2.~bf2) bf4 (c bf2)
-  bf2~bf4 c8 d ef2
-  a,4 bf8 c d2 c f,4 g8 a bf2~bf8 r8 r4
-
-  %bar 25
-  R1 R1 R1 R1 R1 R1 R1 r2.
-
-  %bar32 3/4
-  <g, g'>4
-  \key c \major
-  %  <c, c'>4 <c c'> <d d'> ds8 ds e?8 f e2 a,4 d8(e) f4 g b,? c c~c8 d e4
-  %[ a4 g f e8(f) g4 b, c  d8(e) f(e) d4 g g, c2~c8 r8
-
-  <c, c'>4 <c c'> <d d'> <ds ds'>
-  <e e'>4 e'2 a,4
-  d8 e f4 g b,c <c c,>~<c c,>8 <d d,> <e e,>4
-  <a a,>4 <g g,> <f f,> <e e,>8(<f f,>)
-  <g g,>4 b, c  d8(e)
-  <f f,>(<e e,>) <d d,>4 <g g,> g,
-  <c c,>2~<c c,>8
-
-  %bar 40 3/4
-  r8 r4 R1 R1 R1 R1 R1 R1 R1 r2.
-
-  %bar 48 3/4
-  <g g,>4
-  <c c,> <d d,> <ds ds,> <e e,>8 <f f,> g f ef4(d) cs d8(e) f(e) ef4 d c2(b4) e,
-  <a a,>4 <b b,> <c c,> <d d,>
-  <c c,>2. <a a,>4
-  <d d,> <c c,> <b b,> <e e,>
-  <f f,> <bf, bf,> (<a a,>) <a a,>
-  <d d,>4-. <d d,>2-> <d d,>4-> ^\<
-  <a' a,>2 << {g2} \\ {<f f,>} >>
-  <c c,>1\! ^\ff ~ <c c,>1->
-
-
+pianoLHtwo = \relative {
+  \global \vt
+  s1*8 |
+  s1*8 | % 3
+  s1*3 | s4 d~8 c b4 | c8 d s2. | bes2. bes'8 a | s4 f8 g s4 d8 ees | s1 |
+  s1 | bes2 s | s1 | s4 d ees4 8 d | s2 f4 f | s1*2 | d4 c bes b | % 5
+  s2. f'4 | bes4. c8 s2 \section | s1*4 |
+  s1*8 | % 7
+  s1*7 | \vo <c,, c'>4. \vt f8 s2 |
+  s1*5 | s2 <g f'> | s1*2 |
 }
 
-choirPart = \new ChoirStaff <<
-  \new Staff \with {
-    midiInstrument = "flute"
-    instrumentName = "S"
-  }
-  { \soprano }
-  \addlyrics { \sopranoVerse }
-
-  \new Staff \with {
-    midiInstrument = "oboe"
-    instrumentName = "A"
-  }
-  { \alto }
-  \addlyrics { \altoVerse }
-
-  \new Staff \with {
-    midiInstrument = "clarinet"
-    instrumentName = "T"
-  }
-  { \clef "treble_8" \tenor }
-  \addlyrics { \tenorVerse }
-
-  \new Staff \with {
-    midiInstrument = "bassoon"
-    instrumentName = "B"
-  }
-  { \clef bass \bass }
-  \addlyrics { \bassVerse }
->>
-
-pianoPart = \new PianoStaff <<
-  \new Staff = "right" \with {
-    midiInstrument = "acoustic grand"
-    printPartCombineTexts = ##f
-  }
-%  \set PianoStaff.instrumentName = #"Piano"
-  {
-    << \rightOne \\ \rightTwo >>
-    %  \partCombine \rightOne \rightTwo
-  }
-  \new Staff = "left" \with {
-    midiInstrument = "acoustic grand"
-  } { \clef bass \left }
->>
+#(set-global-staff-size 18)
 
 \book {
-  \bookOutputSuffix "single"
   \paper {
-    #(set-paper-size "a4")
-    top-margin = 10\mm
-    bottom-margin = 5\mm
-    line-width = 180\mm
-    left-margin = 15\mm
-    %ragged-bottom = ##t
-    %check-consistency = ##t
-    %two-sided = ##t
-    %inner-margin = 20\mm
+    output-suffix = single
   }
-
   \score {
     <<
-      \choirPart
-      \pianoPart
-    >>
-    \layout {
-      \context {
-        %    \Staff \RemoveEmptyStaves
-        %    \override VerticalAxisGroup.remove-first = ##t
-      }
-    }
-  }
-}
-
-\book {
-  \bookOutputSuffix "singlepage"
-  \paper {
-    top-margin = 0
-    left-margin = 7
-    right-margin = 1
-    paper-width = 190\mm
-    page-breaking = #ly:one-page-breaking
-    system-system-spacing.basic-distance = #15
-    system-separator-markup = \slashSeparator
-  }
-
-  \score {
-    <<
-      \choirPart
-      \pianoPart
-    >>
-    \layout {
-      \context {
-        %    \Staff \RemoveEmptyStaves
-        %    \override VerticalAxisGroup.remove-first = ##t
-      }
-    }
-  }
-}
-
-\book {
-  \bookOutputSuffix "singlepage-sop"
-  \paper {
-    top-margin = 0
-    left-margin = 7
-    right-margin = 1
-    paper-width = 190\mm
-    page-breaking = #ly:one-page-breaking
-    system-system-spacing.basic-distance = #15
-    system-separator-markup = \slashSeparator
-  }
-
-  \score {
-    <<
-      \new ChoirStaff
       <<
-        \new Staff \with {
-          midiInstrument = "flute"
-          instrumentName = "S"
-        }
-        { \soprano }
-        \addlyrics { \sopranoVerse }
-        
-        \new Staff \with {
-          midiInstrument = "oboe"
-          instrumentName = "A"
-        }
-        { \magnifyStaff #4/7 \alto }
-        \addlyrics { \tiny \altoVerse }
-        
-        \new Staff \with {
-          midiInstrument = "clarinet"
-          instrumentName = "T"
-        }
-        { \magnifyStaff #4/7 \clef "treble_8" \tenor }
-        \addlyrics { \tiny \tenorVerse }
-        
-        \new Staff \with {
-          midiInstrument = "bassoon"
-          instrumentName = "B"
-        }
-        { \magnifyStaff #4/7 \clef bass \bass }
-        \addlyrics { \tiny \bassVerse }
-      >>
-      \new PianoStaff <<
-        \new Staff = "right" \with {
-          midiInstrument = "acoustic grand"
-          printPartCombineTexts = ##f
-        }
-                                %  \set PianoStaff.instrumentName = #"Piano"
-        {
-          \magnifyStaff #4/7
-          << \rightOne \\ \rightTwo >>
-                                %  \partCombine \rightOne \rightTwo
-        }
-        \new Staff = "left" \with {
-          midiInstrument = "acoustic grand"
-        } { \magnifyStaff #4/7 \clef bass \left }
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics \wordsSop
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
+            \new Voice \alto
+            \addlyrics \wordsAlto
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \clef "treble_8"
+            \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
+            \new Voice \tenor
+            \addlyrics \wordsTenor
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \clef "bass"
+            \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
+            \new Voice \bass
+            \addlyrics \wordsBass
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff = pianolh \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \clef "bass"
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
       >>
     >>
     \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
       \context {
-                                %    \Staff \RemoveEmptyStaves
-        %    \override VerticalAxisGroup.remove-first = ##t
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
+#(set-global-staff-size 20)
+
 \book {
-  \bookOutputSuffix "singlepage-bass"
   \paper {
+    output-suffix = single-sop
+  }
+  \score {
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics \wordsSop
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = alto} \teeny \dynamicsAlto
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAlto}
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Dynamics \with {alignAboveContext = tenor} \teeny \dynamicsTenor
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsTenor}
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Dynamics \with {alignAboveContext = bass} \teeny \dynamicsBass
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBass}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \teeny \dynamicsPiano
+          \new Staff = pianolh \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = single-alto
+  }
+  \score {
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = soprano} \teeny \dynamicsSop
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSop}
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
+            \new Voice \alto
+            \addlyrics \wordsAlto
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Dynamics \with {alignAboveContext = tenor} \teeny \dynamicsTenor
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsTenor}
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Dynamics \with {alignAboveContext = bass} \teeny \dynamicsBass
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBass}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \teeny \dynamicsPiano
+          \new Staff = pianolh \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = single-tenor
+  }
+  \score {
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = soprano} \teeny \dynamicsSop
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSop}
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = alto} \teeny \dynamicsAlto
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAlto}
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \clef "treble_8"
+            \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
+            \new Voice \tenor
+            \addlyrics \wordsTenor
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Dynamics \with {alignAboveContext = bass} \teeny \dynamicsBass
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBass}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \teeny \dynamicsPiano
+          \new Staff = pianolh \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
+    output-suffix = single-bass
+  }
+  \score {
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = soprano} \teeny \dynamicsSop
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSop}
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = alto} \teeny \dynamicsAlto
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAlto}
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Dynamics \with {alignAboveContext = tenor} \teeny \dynamicsTenor
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsTenor}
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \clef "bass"
+            \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
+            \new Voice \bass
+            \addlyrics \wordsBass
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \teeny \dynamicsPiano
+          \new Staff = pianolh \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 18)
+
+\book {
+  \paper {
+    output-suffix = singlepage
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -699,93 +1045,973 @@ pianoPart = \new PianoStaff <<
     system-system-spacing.basic-distance = #15
     system-separator-markup = \slashSeparator
   }
-
   \score {
     <<
-      \new ChoirStaff
       <<
-        \new Staff \with {
-          midiInstrument = "flute"
-          instrumentName = "S"
-        }
-        { \magnifyStaff #4/7 \soprano }
-        \addlyrics { \tiny \sopranoVerse }
-        
-        \new Staff \with {
-          midiInstrument = "oboe"
-          instrumentName = "A"
-        }
-        { \magnifyStaff #4/7 \alto }
-        \addlyrics { \tiny \altoVerse }
-        
-        \new Staff \with {
-          midiInstrument = "clarinet"
-          instrumentName = "T"
-        }
-        { \magnifyStaff #4/7 \clef "treble_8" \tenor }
-        \addlyrics { \tiny \tenorVerse }
-        
-        \new Staff \with {
-          midiInstrument = "bassoon"
-          instrumentName = "B"
-        }
-        { \clef bass \bass }
-        \addlyrics { \bassVerse }
-      >>
-      \new PianoStaff <<
-        \new Staff = "right" \with {
-          midiInstrument = "acoustic grand"
-          printPartCombineTexts = ##f
-        }
-                                %  \set PianoStaff.instrumentName = #"Piano"
-        {
-          \magnifyStaff #4/7
-          << \rightOne \\ \rightTwo >>
-                                %  \partCombine \rightOne \rightTwo
-        }
-        \new Staff = "left" \with {
-          midiInstrument = "acoustic grand"
-        } { \magnifyStaff #4/7 \clef bass \left }
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics \wordsSop
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
+            \new Voice \alto
+            \addlyrics \wordsAlto
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \clef "treble_8"
+            \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
+            \new Voice \tenor
+            \addlyrics \wordsTenor
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \clef "bass"
+            \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
+            \new Voice \bass
+            \addlyrics \wordsBass
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \dynamicsPiano
+          \new Staff = pianolh \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \clef "bass"
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
       >>
     >>
     \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
       \context {
-                                %    \Staff \RemoveEmptyStaves
-        %    \override VerticalAxisGroup.remove-first = ##t
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
       }
     }
   }
 }
 
-% Rehearsal MIDI files:
-#(define output-suffix "midi-soprano")
+#(set-global-staff-size 20)
+
 \book {
+  \paper {
+    output-suffix = singlepage-sop
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
   \score {
-    \rehearsalMidi "soprano" "soprano sax" \sopranoVerseMidi
-    \midi { }
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics \wordsSop
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = alto} \teeny \dynamicsAlto
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAlto}
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Dynamics \with {alignAboveContext = tenor} \teeny \dynamicsTenor
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsTenor}
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Dynamics \with {alignAboveContext = bass} \teeny \dynamicsBass
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBass}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \teeny \dynamicsPiano
+          \new Staff = pianolh \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
   }
 }
 
-#(define output-suffix "midi-alto")
+#(set-global-staff-size 20)
+
 \book {
+  \paper {
+    output-suffix = singlepage-alto
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
   \score {
-    \rehearsalMidi "alto" "soprano sax" \altoVerseMidi
-    \midi { }
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = soprano} \teeny \dynamicsSop
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSop}
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
+            \new Voice \alto
+            \addlyrics \wordsAlto
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Dynamics \with {alignAboveContext = tenor} \teeny \dynamicsTenor
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsTenor}
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Dynamics \with {alignAboveContext = bass} \teeny \dynamicsBass
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBass}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \teeny \dynamicsPiano
+          \new Staff = pianolh \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
   }
 }
 
-#(define output-suffix "midi-tenor")
+#(set-global-staff-size 20)
+
 \book {
+  \paper {
+    output-suffix = singlepage-tenor
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
   \score {
-    \rehearsalMidi "tenor" "tenor sax" \tenorVerseMidi
-    \midi { }
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = soprano} \teeny \dynamicsSop
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSop}
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = alto} \teeny \dynamicsAlto
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAlto}
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \clef "treble_8"
+            \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
+            \new Voice \tenor
+            \addlyrics \wordsTenor
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Dynamics \with {alignAboveContext = bass} \teeny \dynamicsBass
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBass}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \teeny \dynamicsPiano
+          \new Staff = pianolh \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
   }
 }
 
-#(define output-suffix "midi-bass")
+#(set-global-staff-size 20)
+
 \book {
+  \paper {
+    output-suffix = singlepage-bass
+    top-margin = 0
+    left-margin = 7
+    right-margin = 1
+    paper-width = 190\mm
+    page-breaking = #ly:one-page-breaking
+    system-system-spacing.basic-distance = #15
+    system-separator-markup = \slashSeparator
+  }
   \score {
-    \rehearsalMidi "bass" "tenor sax" \bassVerseMidi
-    \midi { }
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = soprano} \teeny \dynamicsSop
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics {\tiny \wordsSop}
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = alto} \teeny \dynamicsAlto
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAlto}
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Dynamics \with {alignAboveContext = tenor} \teeny \dynamicsTenor
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsTenor}
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \clef "bass"
+            \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
+            \new Voice \bass
+            \addlyrics \wordsBass
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \teeny \dynamicsPiano
+          \new Staff = pianolh \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+    }
+  }
+}
+
+\book {
+  \paper {
+    output-suffix = midi-sop
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            midiInstrument = "choir aahs"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics \wordsSopMidi
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            midiInstrument = "choir aahs"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
+            \new Voice \alto
+%            \addlyrics \wordsAltoMidi
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+            midiInstrument = "choir aahs"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \clef "treble_8"
+            \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
+            \new Voice \tenor
+%            \addlyrics \wordsTenorMidi
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            midiInstrument = "choir aahs"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \clef "bass"
+            \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
+            \new Voice \bass
+%            \addlyrics \wordsBassMidi
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = piano \with {
+            midiInstrument = "acoustic grand piano"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+            \new Dynamics \dynamicsPiano
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
+  }
+}
+
+\book {
+  \paper {
+    output-suffix = midi-alto
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            midiInstrument = "choir aahs"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+%            \addlyrics \wordsSopMidi
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            midiInstrument = "choir aahs"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
+            \new Voice \alto
+            \addlyrics \wordsAltoMidi
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+            midiInstrument = "choir aahs"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \clef "treble_8"
+            \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
+            \new Voice \tenor
+%            \addlyrics \wordsTenorMidi
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            midiInstrument = "choir aahs"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \clef "bass"
+            \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
+            \new Voice \bass
+%            \addlyrics \wordsBassMidi
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = piano \with {
+            midiInstrument = "acoustic grand piano"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+            \new Dynamics \dynamicsPiano
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
+  }
+}
+
+\book {
+  \paper {
+    output-suffix = midi-tenor
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            midiInstrument = "choir aahs"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+%            \addlyrics \wordsSopMidi
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            midiInstrument = "choir aahs"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
+            \new Voice \alto
+%            \addlyrics \wordsAltoMidi
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+            midiInstrument = "choir aahs"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \clef "treble_8"
+            \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
+            \new Voice \tenor
+            \addlyrics \wordsTenorMidi
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            midiInstrument = "choir aahs"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \clef "bass"
+            \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
+            \new Voice \bass
+%            \addlyrics \wordsBassMidi
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = piano \with {
+            midiInstrument = "acoustic grand piano"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+            \new Dynamics \dynamicsPiano
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
+  }
+}
+
+\book {
+  \paper {
+    output-suffix = midi-bass
+  }
+  \score {
+%   \articulate
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            midiInstrument = "choir aahs"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+%            \addlyrics \wordsSopMidi
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            midiInstrument = "choir aahs"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
+            \new Voice \alto
+%            \addlyrics \wordsAltoMidi
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+            midiInstrument = "choir aahs"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \clef "treble_8"
+            \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
+            \new Voice \tenor
+%            \addlyrics \wordsTenorMidi
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            midiInstrument = "choir aahs"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \clef "bass"
+            \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
+            \new Voice \bass
+            \addlyrics \wordsBassMidi
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = piano \with {
+            midiInstrument = "acoustic grand piano"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \new Voice \TempoTrack
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+            \new Dynamics \dynamicsPiano
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \midi {
+      \context {
+        \Staff
+        \consists "Dynamic_performer"
+      }
+      \context {
+        \Voice
+        \remove "Dynamic_performer"
+      }
+    }
   }
 }
