@@ -75,7 +75,8 @@ soprano = \relative {
     R1*6
   }
   d'8 fis fis a a c16 bes c4~8 bes16(a bes8) g8 2~ | 8 fis16 e fis4 g r |
-  R1*4 |
+  <<{R1} \new Voice {s1^\markup{\with-color "red" \large\bold STAND}}>> |
+  R1*3 |
   \bar "|."
 }
 

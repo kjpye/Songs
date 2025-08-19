@@ -76,7 +76,9 @@ bass = \relative {
   cis'16(b d cis b a e'8) cis a | % 112d+
   a8 gis dis e d cis | dis8(fis a c4.~ |
   c8 b a gis b) d | cis(gis) a fis(d) e |
-  a,4 r8 r4 r8 | R2.*12 |
+  a,4 r8 r4 r8 |
+  <<{R2.} \new Voice {s2.^\markup{\with-color "red" \large\bold STAND}}>> |
+  R2.*11 |
 }
 
 wordsBass = \lyricmode {

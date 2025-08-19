@@ -1,4 +1,4 @@
-\version "2.25.26"
+\version "2.25.27"
 
 \include "../kjp.ly"
 \include "predefined-guitar-fretboards.ly"
@@ -612,7 +612,9 @@ pianoRHone = \relative {
   \ov <d fis>16 g q <cis, e> d q <d fis> <e g> <fis a> <g b> <fis a> <g b> |
   \vo a16 b a b a g fis g a g fis e | % 108c
   \ov <b d>16 e d cis b ais b cis <b d> <cis e> <d fis> <e g> |
-  <fis a>8 \tuplet 3/2 {<g b>16(<fis a> <e g>)} <fis a>8-. 16(<e g>) <fis a>8-. <b, g' b>16(<fis' a>) |
+  <fis a>8
+  ^\markup{\with-color "red" \large\bold SIT}
+  \tuplet 3/2 {<g b>16(<fis a> <e g>)} <fis a>8-. 16(<e g>) <fis a>8-. <b, g' b>16(<fis' a>) |
   <b, e g>8 \tuplet 3/2 {<fis' a>16(<e g> <d fis>)} <e g>8-. 16(<d fis>) <e g>8-. <a, fis' a>16(<e' g>) |
   <a, d fis>8 \tuplet 3/2 {<e' g>16(<d fis> <cis e>)} <d fis>8-. 16(<cis e>) <d fis>8-. <a d g>16(fis') | % 108d
   \vo e16 d \repeat unfold 5 {e fis} |

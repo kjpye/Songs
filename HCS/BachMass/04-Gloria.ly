@@ -133,7 +133,7 @@ sopranoI = \relative {
   d8 b d2.~ | 8(cis) 8(b) b(fis') e d | cis fis8 8 e16(d) cis8.(d32 e) a,8 8~ | 8(b) b(c) c(b) c(d) |
   b4 r8 b4(cis8) 8(d) | d(cis) d(e) cis4 r8 cis~ | 8(d) d(e) e(d) e(fis) | d1~ | % 36a
   d4 cis4 4 b8 a | gis a16(b) e,8 a8 4(g) | a8 e' a a, b cis16(d e4~ |
-  e8) d d e8 8.(fis16 4) | g8 fis(e) d cis(b16 a a'8) g | fis4(e) d2\fermata |
+  e8) d d e8 8.(fis16 4) | g8 fis(e) d cis(b16 a a'8) g | fis4(e) d2\fermata^\markup{\halign #RIGHT \with-color "red" \large\bold SIT} |
   \bar "|."
 }
 

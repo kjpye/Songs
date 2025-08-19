@@ -107,7 +107,9 @@ pianoRHone = \relative {
   fis16 g e fis \ov d e d e e8.\trill d16 | % 65d
   d8 <e a> \vo <fis a> d \ov <a d>8 <g cis>\trill |
   \vo d'4 \ov d' cis\trill | d d,2 | a4 g' fis\trill |
-  e4 a,2 | r8 \vo a'8 b a gis4 | a8 e a g fis4~ | % 65e
+  e4 a,2 |
+  ^\markup{\with-color "red" \large\bold STAND}
+  r8 \vo a'8 b a gis4 | a8 e a g fis4~ | % 65e
   fis8 b16 a g a fis g e g fis e | a4 d,2~ |
   d8 d'16 cis b cis a b g a fis g | e16 fis g8~16 e fis g a b g a | % 65f
   fis16 g e fis d e d e e8. d16 |

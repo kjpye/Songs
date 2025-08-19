@@ -95,7 +95,9 @@ pianoRHone = \relative {
   }
   \vo fis'32( [ e d16 ] ) g32([fis e16]) a32([gis fis16]) b32([a gis16]) \ov <e cis'>32([b' a16]) d32([cis b16]) e32([d cis16]) fis32([e d16]) | % 41c
   gis32([fis e16]) a([gis32 fis]) e16([d32 cis]) d16([cis32 b]) \vo a8 a,~16 g32(fis e[fis g16]) |
-  fis16[d] d32\trill(cis d16) 32([gis e'16])~32(d cis b) a16[d,] d32\trill([cis d16]) 32([b' fis'16])~16 e32(d) | % 41d
+  fis16[d]
+  ^\markup{{\with-color "red" \large\bold STAND} "violin solo"}
+  d32\trill(cis d16) 32([gis e'16])~32(d cis b) a16[d,] d32\trill([cis d16]) 32([b' fis'16])~16 e32(d) | % 41d
   cis32([b a16]) d32(cis b16) a8([gis16.\trill) a32] 16[dis32(e] fis16)[32(gis] a16) 32(b c8) |
   c32(b a gis \ov a cis dis,16)~32 e(fis e dis c b a) gis(e' d cis d gis) b16~32 a(gis fis e d cis b) | % 41e
   \vo cis32([fis dis16])~16(e32 a,) cis8(b16.) a32 \ov <cis, e a>2\fermata |

@@ -1,4 +1,4 @@
-\version "2.25.26"
+\version "2.25.27"
 
 \include "../kjp.ly"
 \include "predefined-guitar-fretboards.ly"
@@ -121,6 +121,8 @@ sopranoI = \relative {
   r8 d fis | fis e r | r r d | cis(e16 d e cis | d8 cis16 d e cis | % 149a
   d8) cis16(b) a(g) | fis8 d c' |
   c16(b) 8 r | r e a | fis(d cis) | d4 r8 | R4.*3 | % 149b
+  R4.*2 | <<{R4.} \new Voice {s4.^\markup{\with-color "red" \large\bold SIT}}>> |
+  R4.*26 |
 }
 
 Oc = \lyricmode { O -- san -- na, }

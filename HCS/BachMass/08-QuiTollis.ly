@@ -84,6 +84,7 @@ soprano = \relative {
   bis8(cis dis4) e | r dis4. bis8 | cis16 gis cis8~16(bis) cis(dis) b8.(cis16) | % 56a
   cis4 4. e8 | ais,4 cis8 ais fis cis' | d2.~ | 4(cis) b |
   a2 4 | r g8(fis) g(b) | eis,4. a8 fis4~ | 8 d' cis(ais b4) | ais2.\fermata
+  ^\markup{\halign #RIGHT \with-color "red" \large\bold SIT}
   \bar "|."
 }
 

@@ -70,7 +70,7 @@ alto = \relative {
     R1*9
   }
   fis'8(e) d e(fis) a d4~ | 8(ees) fis,(g) g(ees) b(c) | c(c'4) bes16(a) d(bes) a(g) bes8(a) |
-  g8 aes4 g16(f) ees8(b c) g' | fis16(g) a8 r ees16 d \appoggiatura c'16 bes8 a16(g) fis8.(g16) | 4 r r2 |
+  g8^\markup{\with-color "red" \large\bold STAND} aes4 g16(f) ees8(b c) g' | fis16(g) a8 r ees16 d \appoggiatura c'16 bes8 a16(g) fis8.(g16) | 4 r r2 |
   R1*4 |
   \bar "|."
 }

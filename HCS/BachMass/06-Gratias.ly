@@ -82,6 +82,7 @@ soprano = \relative {
   d1(e2 fis | g) fis4 e fis(d g2~ | 2) fis4 4 e1 | d2 2~4 4 cis4 4 | % 45a
   d8(e d cis b cis a b cis d b cis dis e cis dis | e1~4 d8 cis d e fis d | g1.) fis4 4 | e\breve |
   d2 r4 d e e~8(fis e d | cis4) a fis'1(e2~ | 4 a, d2~4) cis8 b cis2 | d\breve\fermata
+  ^\markup{\halign #RIGHT \with-color "red" \large\bold SIT}
   \bar "|."
 }
 

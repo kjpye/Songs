@@ -195,7 +195,7 @@ sopranoI = \relative {
   d16 e fis8) b,4 r2 | r4 r8 e, dis(a'4 g16 fis | e8 b' ais cis fis, b cis eis, | % 15a
   fis8 ais b dis e gis, a cis | d fis, b2) ais8 cis | 8(fis,) b2 ais8 8 |
   b2(~8 a) g(fis) | e gis cis4~8 fis, b a | g2~8 cis, fis e | % 16a
-  d2(~8 ais' b) d, | cis cis'(d) e fis g(fis b,) b(ais4 b8 cis) e d cis | b4 ais b2\fermata |
+  d2(~8 ais' b) d, | cis cis'(d) e fis g(fis b,) b(ais4 b8 cis) e d cis | b4 ais b2\fermata^\markup{\with-color "red" \large \bold SIT} |
   \bar "|."
 }
 

@@ -56,6 +56,7 @@ RehearsalTrack = {
   \textMark \markup { \box "19a" } s1*12
   \textMark \markup { \box "20a" } s1*3
   \textMark \markup { \box "20b" } s1*3
+  \mark \markup\circle\bold G
   \textMark \markup { \box "20c" } s1*3
   \textMark \markup { \box "20d" } s1*3
   \textMark \markup { \box "20e" } s1*3
@@ -139,7 +140,7 @@ pianoRHone = \relative {
   a,8 d4 cis8 d fis~16 e d fis | % 20b
   e16 d e8~16 d cis e d8 16 b g8 a |
   \ov <d, fis a>8. <e g>16 <cis e>8. d16 <fis, d'>8 d' a b |
-  \vo c8 a'16(g fis e d c) b(d) g(e) d(cis) g'8~ | % 20c
+  \vo c8^\markup{\with-color "red" \large\bold STAND} a'16(g fis e d c) b(d) g(e) d(cis) g'8~ | % 20c
   g8 fis16(e d cis b a) gis(b) e(cis) b ais e'8~ |
   e16 d(e fis g a b g) \ov a(cis e d) cis b a g |
   fis16(a d c) b a g fis e4~16 fis(e d) | % 20d

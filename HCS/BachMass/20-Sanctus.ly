@@ -1,4 +1,4 @@
-\version "2.25.26"
+\version "2.25.27"
 
 \include "../kjp.ly"
 \include "predefined-guitar-fretboards.ly"
@@ -99,7 +99,7 @@ dynamicsSopI = {
 
 sopranoI = \relative {
   \global
-  fis''4 d \tuplet 3/2 4 {d8(cis d e d e} |
+  fis''4^\markup{\with-color "red" \large\bold STAND} d \tuplet 3/2 4 {d8(cis d e d e} |
   fis4) d \tuplet 3/2 4 {e8(d e fis e fis} |
   g4) d \tuplet 3/2 4 {cis8(b cis d cis d} |
   \tuplet 3/2 4 {e8 d e cis b cis d cis d e d e} | % 126b

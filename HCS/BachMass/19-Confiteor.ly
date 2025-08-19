@@ -1,4 +1,4 @@
-\version "2.25.26"
+\version "2.25.27"
 
 \include "../kjp.ly"
 \include "predefined-guitar-fretboards.ly"
@@ -147,7 +147,7 @@ sopranoI = \relative {
   g4(cis,8 e g2~ | 4 cis,8 e g4) g | fis2 r4 fis8(g) | fis4 e8(d) e4 d8 cis | d4 4 r2 | R1*2 |
   R1 | r2 cis8(d b cis d e cis d e fis d e | fis g e fis d4) d | e2(fis | % 125a
   g4) g, g'2~ | 2 fis | e4 a, a'2~ | 2 g | fis4 d a8(b g a |
-  b8 cis a b cis d b cis | d e cis d e fis d e | fis4) e8(d) fis(e d cis) | d4 a fis' d | a' d,8 e fis4(e) | d r r2 |
+  b8 cis a b cis d b cis | d e cis d e fis d e | fis4) e8(d) fis(e d cis) | d4 a fis' d | a' d,8 e fis4(e) | d r r2^\markup{\halign #RIGHT \with-color "red" \large\bold "SIT--orchestra"} |
   \bar "|."
 }
 
