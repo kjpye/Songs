@@ -40,7 +40,7 @@ global = {
 }
 
 TempoTrack = {
-  \tempo 2=90
+  \tempo \markup{\with-color "red" "in 2"}2=90
   \set Score.tempoHideNote = ##t
   s4
 }
@@ -50,17 +50,22 @@ RehearsalTrack = {
 %  \mark \markup { \box "1a" } s2.*4
   \textMark \markup { \box "82a" } s1*5
   \textMark \markup { \box "82b" } s1*5
-  \textMark \markup { \box "82c" } s1*6
+  \textMark \markup { \box "82c" } s1*5
+  \mark \markup\circle\bold E      s1
   \textMark \markup { \box "83a" } s1*6
-  \textMark \markup { \box "83b" } s1*6
+  \textMark \markup { \box "83b" } s1*3
+  \mark \markup\circle\bold F      s1*3
   \textMark \markup { \box "83c" } s1*6
-  \textMark \markup { \box "84a" } s1*6
+  \textMark \markup { \box "84a" } s1*5
+  \mark \markup\circle\bold G      s1
   \textMark \markup { \box "84b" } s1*6
-  \textMark \markup { \box "84c" } s1*6
+  \textMark \markup { \box "84c" } s1*4
+  \mark \markup\circle\bold H      s1*2
   \textMark \markup { \box "85a" } s1*5
   \textMark \markup { \box "85b" } s1*5
   \textMark \markup { \box "85c" } s1*5
-  \textMark \markup { \box "86a" } s1*5
+  \textMark \markup { \box "86a" } s1
+  \mark \markup\circle\bold I      s1*4
   \textMark \markup { \box "86b" } s1*5
   \textMark \markup { \box "86c" } s1*7
 }
@@ -112,7 +117,7 @@ eioeip = \lyricmode { et in vi -- si -- bi -- li -- um o -- mni -- um et in -- v
 eic   = \lyricmode { et in -- vi -- si -- bi -- li -- um, }
 ic    = \lyricmode { in -- vi -- si -- bi -- li -- um, }
 etis   = \lyricmode { et in -- vi -- si -- bi -- li -- um; }
-vc    = \lyricmode { vi -- si -- bi -- li -- umc }
+vc    = \lyricmode { vi -- si -- bi -- li -- um, }
 cc    = \lyricmode { cre -- do, }
 
 wordsSop = \lyricmode {
@@ -235,11 +240,13 @@ wordsTenorMidi = \lyricmode {
 
 dynamicsBass = {
   \override DynamicTextSpanner.style = #'none
+  s1*13 | s1\dim | s1*2 | s1\p | s1*3 | s1\f | s1*3 | s1\dim | s\p |
+  s1*40 | s1\dim | s1*3 | s1\cresc | s | s\f | s1*11 |
 }
 
 bass = \relative {
   \global
-  a2 4 4 | fis a cis2 | d,4 d' b fis | gis(e) a d, | cis2(b) |
+  a2^\markup{\with-color "red" \bold "Every crotchet light and short"} 4 4 | fis a cis2 | d,4 d' b fis | gis(e) a d, | cis2(b) |
   a4 cis' a e | fis(d) b gis' | a a, r a | b8(d e fis g2~ | 4) fis2 b4 |
   a4 d, d(cis) | d fis8 g a2~ | 4 gis8 a b2~ | 4 a8(gis) fis4 8 g | a4 fis d e | a,2 r |
   R1*4 | a'2 4 4 | fis a cis2 | % 83a

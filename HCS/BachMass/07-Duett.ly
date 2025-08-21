@@ -90,7 +90,7 @@ sopranoI = \relative {
   cis8 fis ais, b cis b16(ais) b8 ais16 gis | % 52d
   ais8 fis fis'4~8 d b4~ |
   b8(g') cis,(b) ais(fis) d' gis, |
-  \partial 2. b4(ais8. b16) 4 \section \key b \minor \time 3/4 |
+  \partial 2. b4(ais8. b16) 4^\markup {\with-color "red" \bold segue} \section \key b \minor \time 3/4 |
 }
 
 wordsSopI = \lyricmode {

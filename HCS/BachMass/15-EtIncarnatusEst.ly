@@ -1,4 +1,4 @@
-\version "2.25.26"
+\version "2.25.27"
 
 \include "../kjp.ly"
 \include "predefined-guitar-fretboards.ly"
@@ -40,7 +40,7 @@ global = {
 }
 
 TempoTrack = {
-  \tempo 4=120
+  \tempo \markup{\with-color "red" "Devotedly and floating"} 4=120
   \set Score.tempoHideNote = ##t
   s4
 }
@@ -52,15 +52,22 @@ RehearsalTrack = {
   \textMark \markup { \box "93b" } s2.*5
   \textMark \markup { \box "93c" } s2.*5
   \textMark \markup { \box "94a" } s2.*5
-  \textMark \markup { \box "94b" } s2.*6
+  \textMark \markup { \box "94b" } s2.*2
+  \mark \markup\circle\bold A      s2.*4
   \textMark \markup { \box "94c" } s2.*5
+  \mark \markup\circle\bold B
   \textMark \markup { \box "95a" } s2.*6
-  \textMark \markup { \box "95b" } s2.*6
+  \textMark \markup { \box "95b" } s2.*4
+  \mark \markup\circle\bold C      s2.*2
   \textMark \markup { \box "95c" } s2.*6
 }
 
 dynamicsSopI = {
   \override DynamicTextSpanner.style = #'none
+  s2.*15 |
+  s2.*4 | s2\> s4\! | s2.*11 | % 94
+  s2.\p | s\cresc | s\omit\f | s2.*3 | s2.\> | s4 s2\! | s2.*3 | s2.\cresc |
+  s2. | s\f | s | s\dim | s | s\omit\p | % 95c
 }
 
 sopranoI = \relative {
@@ -121,6 +128,10 @@ wordsSopIMidi = \lyricmode {
 
 dynamicsSopII = {
   \override DynamicTextSpanner.style = #'none
+  s2.*15 |
+  s2.*4 | s2\> s4\! | s2.*11 | % 94
+  s2.\p | s\cresc | s\omit\f | s2.*3 | s2.\> | s4 s2\! | s2.*3 | s2.\cresc |
+  s2. | s\f | s | s\dim | s | s\omit\p | % 95c
 }
 
 sopranoII = \relative {
@@ -149,6 +160,10 @@ wordsSopIIMidi = \lyricmode {
 
 dynamicsAlto = {
   \override DynamicTextSpanner.style = #'none
+  s2.*15 |
+  s2.*4 | s2\> s4\! | s2.*11 | % 94
+  s2.\p | s\cresc | s\omit\f | s2.*3 | s2.\> | s4 s2\! | s2.*3 | s2.\cresc |
+  s2. | s\f | s | s\dim | s | s\omit\p | % 95c
 }
 
 alto = \relative {
@@ -178,6 +193,10 @@ wordsAltoMidi = \lyricmode {
 
 dynamicsTenor = {
   \override DynamicTextSpanner.style = #'none
+  s2.*12 | s2\> s4\! | s2.*2 |
+  s2.*4 | s2\> s4\! | s2.*11 | % 94
+  s2.\p | s\cresc | s\omit\f | s2.*3 | s2.\> | s4 s2\! | s2.*3 | s2.\cresc |
+  s2. | s\f | s | s\dim | s | s\omit\p | % 95c
 }
 
 tenor = \relative {
@@ -207,6 +226,10 @@ wordsTenorMidi = \lyricmode {
 
 dynamicsBass = {
   \override DynamicTextSpanner.style = #'none
+  s2.*6 | s2.\p\cresc | s2.*5 | s2\> s4\! | s4 s2\p | s2. |
+  s2.\cresc | s2.*3 | s2\> s4\! | s2.*6 | s2.\mp | s\cresc | s2.*2 | s4 s2\p | % 94
+  s2. | s\cresc | s\omit\f | s2.*3 | s2.\> | s4 s2\! | s2.*2 | s2.\p\cresc | s2. |
+  s2. | s\f | s | s\dim | s | s\omit\p | % 95c
 }
 
 bass = \relative {
@@ -214,7 +237,7 @@ bass = \relative {
   R2.*5 |
   R2.*2 | b4 fis d | bis2 4 | b2 b'4 |
   a4 gis fis | d2. | cis2 r4 | r fis4 4 | e2 4 |
-  dis4(gis) fis | eis dis gis~ | 4 a b | cis2 cis,4 | fis2 r4 | % 94a
+  dis4(gis) fis | eis fis gis~ | 4 a b | cis2 cis,4 | fis2 r4 | % 94a
   R2.*6 |
   cis'4 a fis | dis2 4 | e2 4 | ais,2 ais'4 | b eis,2 |
   fis4 r r | r b b | a2 4 | gis(cis) b | ais b cis~ | 4 d eis, | % 95a
@@ -318,7 +341,7 @@ pianoLH = \relative {
   
 }
 
-#(set-global-staff-size 18)
+#(set-global-staff-size 17)
 
 \book {
   \paper {

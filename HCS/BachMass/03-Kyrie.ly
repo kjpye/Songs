@@ -1,4 +1,4 @@
-\version "2.25.26"
+\version "2.25.27"
 
 \include "../kjp.ly"
 \include "predefined-guitar-fretboards.ly"
@@ -41,7 +41,7 @@ global = {
 
 TempoTrack = {
   \set Score.tempoHideNote = ##t
-  \tempo "Alla Breve." 2=120
+  \tempo \markup {"Alla Breve." \with-color "red" {in 2 \rhythm { 1 }}} 2=120
 }
 
 RehearsalTrack = {
@@ -198,7 +198,11 @@ wordsTenorMidi = \lyricmode {
 
 dynamicsBass = {
   \override DynamicTextSpanner.style = #'none
-  s\breve\f | s\breve*57 |
+  s\breve\f | s\p\cresc | s\dim | s\omit\p | s\breve*3 |
+  s\breve\dim | s\omit\p | s\breve*16 |
+  s\breve\< | s\> | s\! | s s | s1 s4 s2.\f | s\breve*3 |
+  s1.\dim s2\p | s\breve*5 | s\breve\p\cresc | s | s\f |
+  s\breve*14 | s1...\breve\dim s8\omit\p |
 }
 
 bass = \relative {
@@ -214,7 +218,7 @@ bass = \relative {
   e2) e a,4 a'2 g4 | fis(d) e(fis) g2 fis4 e | fis2 fis, b r | R\breve |
   R\breve*4 | % 24a
   fis'2 g eis2. fis4 | gis fis(gis aes b2) a4 gis | a2 gis fis r | r4 b2 a4 gis(e) fis(gis) |
-  a4(fis gis ais b a gis fis | eis cis dis eis fis e dis cis | bis2) cis4 4 gis'2 gis, | cis2 4(b) ais2 fis |
+  a4(fis gis ais b a gis fis | eis cis dis eis fis e dis cis | bis2) cis4 4 gis'2 gis, | cis2\breathe 4(b) ais2 fis |
   fis'2. e4 d(cis) b(a) | gis(b cis d e2. d4 | cis) e a,2 r1 | r1 r4 cis'2 b4 | % 25a
   ais4(fis) gis(ais) b(a gis fis) | eis(cis) fis1 g2 | eis2. fis4 gis(fis gis a |
   b2) a4 gis a2 gis | fis1~4 4(gis) ais | b(a) gis(fis) eis2 fis4 b, | cis2 2 fis,1\fermata |

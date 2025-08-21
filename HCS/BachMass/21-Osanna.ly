@@ -310,7 +310,7 @@ bassI = \relative {
   \global
   d8 | a' a a | d a r | R4.*3 | r8 r d, |
   a'8 a a | d(a16 fis g e | fis8) g a | d, d fis | f f, r | r r g' |
-  fis8 e d | a' a r | R4.*3 | r8 r g | a16(g fis a gis b | % 142a
+  fis8 e d^\markup{\with-color "red" \large\bold EK} | a'^\markup{\with-color "red" \large\bold CHEL} a^\markup{\with-color "red" \large\bold SIS} r | R4.*3 | r8 r g | a16(g fis a gis b | % 142a
   a16 gis a b gis ais | b8 fis16 b ais cis | b a b cis a b | % 142b
   cis16 b a cis b d | cis b cis d b cis | d8) fis, a | d,16(cis d e fis g |
   a16 g a b cis a | d8) a ais | b e, fis | b,16(ais b cis d e | % 143a

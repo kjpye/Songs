@@ -1,4 +1,4 @@
-\version "2.25.26"
+\version "2.25.27"
 
 \include "../kjp.ly"
 \include "predefined-guitar-fretboards.ly"
@@ -412,12 +412,17 @@ wordsTenorMidi = \lyricmode {
 
 dynamicsBass = {
   \override DynamicTextSpanner.style = #'none
+  s4.*100 | s1\mf | s1*7 | s1-\markup{\dynamic mf only} | s | s\cresc |
+  s1 | s2.\dim s4\omit\p | s1*17 | s4. s8\p s2 |
+  s1*7 | s4. s8\mf s2 | s1*2 | s1\cresc | s4. s8\f s2 |
+  s1*2 | s2. s4\dim | s8 s2..\omit\p | s1*14 | s8 s2..\f | s4 s2.\p\cresc |
+  s1*2 | s1\f | s1*10 |
 }
 
 bass = \relative {
   \global
   R4.*24 |
-  R4.*4 | d8 d e | fis g16(fis e d) | a'8 a, a' |
+  R4.*4 | d8^\markup{\with-color "red" \large\bold "keep the whole thing light"} d e | fis g16(fis e d) | a'8 a, a' |
   d8 cis d | a4 8 | R4.*5 | % 27a
   R4.*6 | a,8 a b |
   cis8 16(cis b a) | e'8 8 8 | a gis a | e4 8 | r cis cis | fis4 e8 |
@@ -427,7 +432,7 @@ bass = \relative {
   fis'8(b, fis' | g a16 g fis g | a8)  d fis, | g(a) a, | d(d'16 cis) d8~ | 8 cis4 | d8 r r | % 29a
   R4. | d,8 8 e | fis(g16 fis) e(d) | a'8 r r | R4.*2 | r8 fis8 8 |
   b4 a8 | g16(fis g a b8) | e,8 r r | r e e | a4 g8 | fis16(e dis g a8) | d,8 16(e fis d |
-  g8) e a | b,(d) g | e(cis) fis | g(b) e | cis a d | g, a b | a16(g) a4 \section \time 4/4 | % 30a
+  g8) e a | b,(d) g | e(cis) fis | g(b) e | cis a d | g, a b | a16(g) a4^\markup{\halign #RIGHT \with-color "red" \large\bold watch} \section \time 4/4 | % 30a
   d,4 d'8 d, c4 b8 8 | a4 d g, r | R1 | r4 g'2.~ | 2. r8 a,~ |
   a8(b) b(c) c(b) c(d) | b1~ | b | r4 r8 b'4(a8) a(g) | a2~8(b) b(a) |
   g8(fis) 8(e) e(d) d(c) | c b4 a8~a g16(fis g8) a | b2 e4 r | R1 | % 31a
@@ -436,7 +441,7 @@ bass = \relative {
   R1*4 |
   R1*3 | % 32a
   R1 | r4 r8 e4(fis8) 8(g) | g(fis) g(a) fis e d cis |
-  b8 a'16 gis a8 d, cis4(b) | a8 8(cis) e a(b16 c b a) g(fis) | g(b e d c b a g f a d c b a gis fis |
+  b8 a'16 gis a8 d, cis4(b) | a8 8(cis) e a(b16 c b a) g(fis) | g(b e d c b a g f a d c b a gis f |
   e16 gis a b c d c b a g fis a g fis e dis | b'8 e, b4) e8 g16(fis e8) d | cis d16(e) fis4 b, r | % 33a
   r4 r8 cis fis4 4~ | 4 4 b, r | r r8 b e4 4~ | 4 4 a, r |
   r4 r8 a d4 4~ | 4 4 g, r8 g' | g fis16 e fis8 g a4 a, | d8 fis16(e) d8 cis b cis16(d) e4 |

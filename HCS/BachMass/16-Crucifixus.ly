@@ -1,4 +1,4 @@
-\version "2.25.26"
+\version "2.25.27"
 
 \include "../kjp.ly"
 \include "predefined-guitar-fretboards.ly"
@@ -40,7 +40,7 @@ global = {
 }
 
 TempoTrack = {
-  \tempo 4=120
+  \tempo \markup{\with-color "red" "in 3"} 4=120
   \set Score.tempoHideNote = ##t
   s4
 }
@@ -196,11 +196,15 @@ wordsTenorMidi = \lyricmode {
 
 dynamicsBass = {
   \override DynamicTextSpanner.style = #'none
+  s1.*20 | s1.\f | s1.*7 | s2 s1\p |
+  s1.*6 | s1.\< | s1.\! | s1.*11 |
+  s1 s2\pp | s1.*4 |
 }
 
 bass = \relative {
   \global
-  R1.*5 |
+  R1.^\markup{\halign #LEFT \with-color "red" \bold "Start p then swell and die on crucifixus"} |
+  R1.*4 |
   R1.*2 | r2 fis2 2 | 4(e) 2 r | R1. | r2 a a |
   a4(fis) dis2 r | R1.*2 | r2 e fis | g(fis) fis | R1. |
   a2(g) fis | e fis4(g) a2~ | 4 fis b(a) g(fis) | g1.( | fis2 f1) | e2 r r | % 97a

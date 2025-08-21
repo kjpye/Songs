@@ -1,4 +1,4 @@
-\version "2.25.25"
+\version "2.25.27"
 
 \include "../kjp.ly"
 \include "predefined-guitar-fretboards.ly"
@@ -41,8 +41,9 @@ global = {
 
 TempoTrack = {
   \set Score.tempoHideNote = ##t
-  \tempo Adagio 4=60 s1*4 |
-  \tempo "largo ed un poco piano." 4=60
+  \tempo \markup{Adagio \with-color "red" { in 8 \rhythm { 8 }}} 4=60 s1*4 |
+  \tempo "largo ed un poco piano." 4=60 s1*25
+  \tempo \markup{\with-color "red" {in 4 \rhythm { 4 }}} 4=60
 }
 
 RehearsalTrackOld = {
@@ -291,32 +292,31 @@ sopranoII = \relative {
   \global
   b'4. 8 8 ais(cis e) | a,8(c4) b8 g8 r r4 | r8 f(ais cis) d cis16(b) cis8 fis |
   b,4. cis8 ais2 \sectionFermata | R1*2 |
-  R1*19 | % 2
-  R1*13 |
-  r2 fis8. 16 8-. 8 |gis-.(d cis-. g' a-. d, cis-. ais' | b16 a g8~16 fis) eis(fis) e8 d'(cis) b | % 4a
-  a8-. gis16(fis) c'4(~8 b) b(a) | g a b4(~8 a) a(g) fis8 16 16 8 8 g(d cis gis' |
-  a8 d, cis ais' b) fis b b | 4 ais b4. 8~ | 8 a g fis e(d16 e fis4) | % 5a
-  b,8 fis'16 16 8 8 gis(d cis g' | a d, cis ais' b16 a g8~16 fis) eis(fis) | eis8 d'(cis) b a gis16(fis) cis'4~ |
-  cis4 bis cis4 4~ | 8 b a gis fis4(dis'~ | 8) gis, cis b a2(~ | % 6a
-  a8 dis,) gis(fis) e4 r | r8 bis'(cis e,) dis(b' cis dis | gis,) bis, cis a' e dis4(e8 |
-  fis8 a) gis fis e4 dis | cis r r2 | r4 r8 fis eis(b'4 a16 gis | % 7a
-  a16 b cis8) fis,4 r2 | r4 r8 b ais e'4(d16 cis | b8 fis eis gis cis fis, gis bis |
-  cis8 eis fis ais, b dis e gis, | a cis fis,2) eis8 gis | 8(cis, fis2) eis8 8 | % 8a
-  fis2(~8 e') d(cis) | b d gis,4~8 cis fis e | d2~8 gis, cis b |
-  a2(~8 eis' fis) a, | gis eis(fis) gis a d(cis fis,) | 8(eis4 fis8 gis b a gis | % 9a
-  fis4) eis fis r | R1*2 |
-  R1*15 | % 10
+  R1*19 |
+  R1*12 |
+  R1 | r2 fis8. 16 8-. 8 | gis-.(d cis-. g' a-. d, cis-. ais' | % 6a
+  b16 a g8~16 fis) eis(fis) e8 d'(cis) b | a8 gis16(fis) c'4(~8 b) b(a) | g a b4(~8 a) a(g) |
+  fis8 16 16 8 8 g-.(d cis-. gis' | a8-. d, cis-. ais' b) fis b b | 4 ais b4. 8~ |
+  8 a g fis e(d16 e fis4) | b,8 fis'16 16 8 8 gis(d cis g' | a d, cis ais' b16 a g8~16 fis) eis(fis) | % 7a
+  eis8 d'(cis) b a gis16(fis) cis'4~ | cis4 bis cis4 4~ | 8 b a gis fis4(dis'~ |
+  8) gis, cis b a2(~ | a8 dis,) gis(fis) e4 r | r8 bis'(cis e,) dis(b' cis dis | gis,) bis, cis a' e dis4(e8 |
+  fis8 a) gis fis e4 dis | cis r r2 | r4 r8 fis eis(b'4 a16 gis | % 8a
+  a16 b cis8) fis,4 r2 | r4 r8 b ais e'4(d16 cis | b8 fis eis gis cis fis, gis bis | cis8 eis fis ais, b dis e gis, |
+  a8 cis fis,2) eis8 gis | 8(cis, fis2) eis8 8 | fis2(~8 e') d(cis) |
+  b8 d gis,4~8 cis fis e | d2~8 gis, cis b | a2(~8 eis' fis) a, | % 10a
+  gis8 eis(fis) gis a d(cis fis,) | 8(eis4 fis8 gis b a gis | fis4) eis fis r | R1*2 |
+  R1*15 |
   R1*6 |
-  R1 | e8. 16 8-. 8 fis-.(c b-. fis' | g-. c, b-. gis' a16 g f8~16 e) dis(e) | % 12a
-  dis8 c'(b) a g-. fis16(e) d'4(~ | 8 a) gis(d') cis b16(a) e'4(~ | 8 b) ais(e') d e fis4~ |
-  fis4 e fis r | R1 | r2 fis,8. 16 8-. 8 | % 13a
+  R1 | e8. 16 8-. 8 fis-.(c b-. fis' | g-. c, b-. gis' a16 g f8~16 e) dis(e) | % 11c
+  dis8 c'(b) a g-. fis16(e) d'4(~ | 8 a) gis(d') cis b16(a) e'4(~ | 8 b) ais(e') d e fis4~ | % 12a
+  fis4 e fis r | R1 | r2 fis,8. 16 8-. 8 | 
   gis8-.(d cis-. gis' a-. d, cis-. ais' | b16 a g8~16 fis) eis(fis) eis8 d'(cis) b | a-. gis16(fis) cis'4~8 fis, b a |
-  gis2(~8 cis,) fis(e) | d4 r8 a' cis4(d8) eis, | fis4 r8 8~8 eis eis fis | % 14a
-  gis8 b a gis fis4 eis | fis r8 e dis a'4(g16 fis | g a b8) e,4 r2 |
-  r4 r8 fis eis(b'4 a16 gis | a2~8 c, b a' | gis d cis ais' b fis eis b' | % 15a
-  ais8 e dis a' gis d cis g' | fis ais b d e) g, fis e | d4.(e16 fis e4. fis16 g |
-  fis4. g16 a g2~ | 8) cis fis, e d(cis16 b fis'4~ | 8) b, e d cis2~ | % 16a
-  cis8 fis b a g4 fis | e8 ais(b) cis fis, a(b g) | d(cis4 d8 e) g fis e | d4 cis b2\fermata |
+  gis2(~8 cis,) fis(e) | d4 r8 a' cis4(d8) eis, | fis4 r8 8~8 eis eis fis | gis8 b a gis fis4 eis | % 13a
+  fis4 r8 e dis a'4(g16 fis | g a b8) e,4 r2 | r4 r8 fis eis(b'4 a16 gis |
+  a2~8 c, b a' | gis d cis ais' b fis eis b' | ais8 e dis a' gis d cis g' |
+  fis4 ais b d e) g, fis e | d4.(e16 fis e4. fis16 g | fis4. g16 a g2~ | % 14a
+  8) cis fis, e d(cis16 b fis'4~ | 8) b, e d cis2~ | cis8 fis b a g4 fis |
+  e8 ais(b) cis fis, a(b g) | d(cis4 d8 e) g fis e | d4 cis b2\fermata |
 }
 
 wordsSopII = \lyricmode {
@@ -681,15 +681,15 @@ dynamicsBass = {
   s1*19 | % 2
   s1*13 |
   s1*6 | % 4
-  s2 s\p | s8 s\cresc s2. | s1*3 | s2 s\f |
+  s2 s\p\cresc | s1*2 | s1\f | s1*2 |
   s1*6 | % 6
-  s1 | s4. s8\p s2 | s1*4 |
+  s2. s4\dim | s4. s8\p s2 | s1*2 | s2 s2\< | s1\! |
   s1*2 | s1\cresc | s1*3 | % 8
   s8 s2..\f | s1 | s4. s8\dim s2 | s s\p | s1*2 |
-  s1*6 | s1\p | s1*8 | % 10
-  s1*6 |
-  s1*6 | % 12
-  s1 | s8 s2..\cresc | s1*3 | s1\f |
+  s1*6 | s1\f | s | s2 s\> | s1\! | s1*6 | % 10
+  s1*2 | s1\cresc | s | s2 s\dim |
+  s1\omit\p | s1*3 | s1\omit\cresc-\markup\italic " cresc. molto" | s1 | % 12
+  s1 | s1 | s1*3 | s1\f |
   s1*3 | s8 s2..\dim | s4. s8\p s2 | s1 | % 14
   s1*2 | s1\cresc | s1*2 | s1\f |
   s1*7 |
@@ -724,9 +724,9 @@ bass = \relative {
   b8 a16 b cis4) fis, r | r8 b'4 cis8 d4 eis, | fis8(gis a fis b a gis fis |
   eis8 dis) eis(cis) fis e d cis | b4 r8 cis d4 cis8(b) | a(gis) a(b) cis2(~ | % 14a
   cis2~8 b) cis4 | fis, r8 fis' b4 b, | e r8 e fis4 fis, |
-  b4 r8 b' cis4 cis, | fis8 4 g16(a) b4 b, | e(r8 e d4 r8 cis | % 15a
-  fis4 r8 b, e4 r8 a, | d4 r8 g cis,4) r8 fis | b,8 16 16 8 8 cis(g fis cis' |
-  d8 g, fis dis' e16 d c8~16 b) ais(b) | ais8 gis(ais) fis b(cis) d(b) | e(fis g e ais gis ais fis | % 16a
+  b4 r8 b' cis4 cis, | fis8 4 g16(a) b4 b, | e8(r r e d r r cis | % 15a
+  fis8 r r b, e r r a, | d r r g cis,4) r8 fis | b,8 16 16 8 8 cis-.(g fis-. cis' |
+  d8-. g, fis-. dis' e16 d c8~16 b) ais(b) | ais8 gis(ais) fis b(cis) d(b) | e(fis g e ais gis ais fis | % 16a
   b8) a g fis e4(fis | g fis8 e d) cis d e | fis1(~ | 8 e) fis4 b,2\fermata |
 }
 

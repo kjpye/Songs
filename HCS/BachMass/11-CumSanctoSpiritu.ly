@@ -1,4 +1,4 @@
-\version "2.25.26"
+\version "2.25.27"
 
 \include "../kjp.ly"
 \include "predefined-guitar-fretboards.ly"
@@ -469,11 +469,13 @@ wordsTenorMidi = \lyricmode {
 
 dynamicsBass = {
   \override DynamicTextSpanner.style = #'none
+  s2. | s\f | s2.*107 | s2.\cresc | s2.*3 |
+  s2.\fp\cresc | s2.*2 | s2.\omit\f |
 }
 
 bass = \relative {
   \global
-  R2. | r8 d d' d,16 e fis8 a | cis a r4 r |
+  R2. | r8 d^\markup short d' d,16 e fis8 a | cis a r4 r |
   r8 a, a' a,16 b cis8 a | d(d' a fis d fis | b, b' fis d b d | fis, fis' d a fis' d |
   gis2._\trill) | a8 e cis' a b(cis16) d | cis8 a a a,16 b cis8 e |
   gis8 e r4 r | r8 e e' e,16 fis gis8 e | a,(a' e cis a cis | fis, fis' cis a' fis a | % 67a
@@ -510,7 +512,7 @@ bass = \relative {
   b8 16(a g8) b g b | e,16(d cis d e fis) g(fis) a(g) fis(e) | fis8 16 e fis8 a fis a |
   dis,16(cis b cis d e fis e g fis e d | % 76a
   e8) e r e(fis gis | a) a, r a'(b cis | d4) d,8 r r4 |
-  r8 c c'8 16 16 8 8 | b2.( | a | g) | % 76b
+  r8 c c'8 16 16 8 8 | b2.( | a | gis) | % 76b
   g2 r8 8 | fis16(g a g fis8 d e fis | g16 a b a g8 e fis g |
   a16 b cis b a8 fis g a | b16 cis d cis b8 g a b | cis16 d e d cis8 a b cis | % 77a
   d8) 16 e d8 cis b a | g16(b cis d cis8 b a g | fis16 a b cis b8 a g fis |
@@ -664,7 +666,7 @@ pianoRHtwo = \relative {
   s2.*12 | % 68
   s4 b'16 a gis fis e fis gis e | s2. | % 69a
   s4. <gis,, b>8 <a cis> <gis b> | <a cis> r r cis e cis~ |
-  \once\hideNotes cis4 r8 <cis e> d~<d fis> | <d g>4 r8 d e b | % 69b
+  \once\hideNotes cis4 s8 <cis e> d~<d fis> | <d g>4 r8 d e b | % 69b
   cis4 r8 cis16 d e8~<cis e> | fis4 r8 a8~16 g fis e | d4 r8 d4. |
   d4 r8 d8 cis e | a,4 r8 s <d fis>4 | d4 r8 s e4~ | 4 r8 <fis a>4. | % 69c
   <e g>4 r8 e8~8~<cis e> | <d fis>4 r8 <fis a> <a e'> <gis b> | % 70a

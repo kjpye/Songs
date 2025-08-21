@@ -1,4 +1,4 @@
-\version "2.25.26"
+\version "2.25.27"
 
 \include "../kjp.ly"
 \include "predefined-guitar-fretboards.ly"
@@ -41,7 +41,7 @@ global = {
 }
 
 TempoTrack = {
-  \tempo 4=120
+  \tempo \markup{\with-color "red" \large\bold "always legato"} 4=120
   \set Score.tempoHideNote = ##t
   s4
 }
@@ -204,6 +204,9 @@ wordsTenorMidi = \lyricmode {
 
 dynamicsBass = {
   \override DynamicTextSpanner.style = #'none
+  s4 | s2.*8 | s2.\< | s\> | s\! | s2.*15 |
+  s2 s4\dim | s2. | s2.\< | s\> | s\! |
+  s2.*12 | s2.\cresc | s | s\dim | s4 s2\p | s2.*3 |
 }
 
 bass = \relative {
@@ -211,11 +214,11 @@ bass = \relative {
   r4 | R2.*6 |
   r4 r fis8(d) | b4 b b | g'2.~ | 4(fis) e |
   dis2 4 | r d8 cis cis b | a4 a r | R2. |
-  R2. | r4 r e'8(c) | a4 a a | g'2.~ | % 54a
+  R2. | r4 r e'8(c) | ais4 4 4 | g'2.~ | % 54a
   g4(fis) e | d2 4 | r e8(fis) g(e) | ais4 fis ais |
   b4 fis8(e) dis(e16 fis) | b,4(b') a | gis eis fis | b, gis(cis) |
   fis,4 r gis'8(eis) | cis4 4 4 | a'2.~ | 4(g8 fis) b4 | % 55a
-  b2 d,4 | r b'4. gis8 | cis2 r4 | r fis,8 gis a fis |
+  b2 d,4 | r b'4. gis8 | cis2 r4 | r fis,8^\markup{\with-color "red" \bold "still legato"} gis a fis |
   b2.~ | 4 4 4 | a fis g8(fis) | fis gis a4 gis |
   r4 dis8(cis) bis(cis) | a'4(gis8 fis) e(dis) | e16(fis gis8~8 a16 gis fis e) fis8 | % 56a
   e4 cis r | r ais'4. fis8 | b4 4 d | eis,4. 8 8 8 |

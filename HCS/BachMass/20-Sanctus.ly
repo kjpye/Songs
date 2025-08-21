@@ -130,7 +130,7 @@ sopranoI = \relative {
   d4 d \tuplet 3/2 {cis8(d) e} a,4 | % 132b
   b4 4 \tuplet 3/2 4 {a8(b cis d) cis b} |
   gis'8. cis,16 fis2(eis8.) fis16 \section \time 3/8 |
-  fis8 r r | R4.*7 | % 133a
+  fis8^\markup{\with-color "red" \large\bold "in 1"} r r | R4.*7 | % 133a
   R4.*4 | a,8 8 8 | fis'8 8 8 | b, b cis16(d | e fis g fis e d |
   cis8) b16(a) d8~ | 16(e) cis8.(d16) | d8 fis16(g fis e | % 134a
   d16 cis b cis d b | cis d e fis e d | cis b a8 cis |
@@ -702,8 +702,8 @@ bass = \relative {
   fis8 r r | R4.*7 | % 133a
   R4.*8 |
   R4.*8 | % 134a
-  a,8 a a | d' d d | b, b cis16(d | e fis g fis e d | % 134b
-  cis8) b16(a) d8~ | 16(e) cis8.(e16) | 8 16(e fis d | a'8) a a |
+  a,8^\markup{\with-color "red" \large\bold "short quavers"} a a | fis'8 8 8 | b, b cis16(d | e fis g fis e d | % 134b
+  cis8) b16(a) d8~ | 16(e) cis8.(d16) | 8 16(e fis d | a'8) a a |
   d8 a a | fis16(e d e fis d | a'8) a, r | r e'16(fis g e | % 135a
   b'8) b b | e b b | g16(fis e dis g e | b'8) b, r |
   r8 e16(fis g e | a8) a a | fis8 8 8 | b g c | % 135b
@@ -717,7 +717,7 @@ bass = \relative {
   R4.*5 | d8 d d | b' b b | e, e fis16(g | % 138a
   a16 b c b a g | fis8) e16(d) g8~ | 16(a) fis8.(g16) | % 138b
   g8 4~ | 8 fis e | fis4.~ | 8 e d |
-  4.~ | 8(d) cis | d4.~ | 8 cis b | cis16(b a b cis a | % 139a
+  e4.~ | 8(d) cis | d4.~ | 8 cis b | cis16(b a b cis a | % 139a
   d16 cis d e fis g | a g a b cis a |
   d16 e d cis b a | g a g fis e d | cis d e d cis b | % 139b
   a16 e' a g) fis(e) | d8 a'(a,) | d fis(e | g) gis e |

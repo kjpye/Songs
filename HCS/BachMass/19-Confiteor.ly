@@ -42,8 +42,8 @@ global = {
 TempoTrack = {
   \set Score.tempoHideNote = ##t
   \tempo 4=120 s1*120
-  \tempo "Adagio." 4=100 s1*26
-  \tempo "Vivace ed allegro." 4=110
+  \tempo "Adagio. (in 4)" 4=100 s1*26
+  \tempo "Vivace ed allegro. (in 2)" 4=110
 }
 
 RehearsalTrack = {
@@ -511,6 +511,10 @@ wordsTenorMidi = \lyricmode {
 
 dynamicsBass = {
   \override DynamicTextSpanner.style = #'none
+  s1*58 | s4 s2.\mf | s1*13 | s1\f | s1*14 |
+  s2 s-\markup "back with ensemble" |
+  s1*32 | s1\p |
+  s1*124 | s1\< | s | s\! | s1*4 |
 }
 
 bass = \relative {
@@ -533,8 +537,8 @@ bass = \relative {
   r2 ais | b2. 4 | a d, d'2~ | d cis | d d,~ | 4(e) fis d | e2.(fis4) | % 118a
   b,2 b'4 4 | b e, a2~ | 4 8(g) a4 d, | g1 | fis4 b, b'2~ | 2 ais b2. a4 |
   gis4 e a g | fis d e fis | g(a b g | e fis) g(e) | c(d) e(d) | cis1 | d~ |
-  d2 d'~ | d c | bes1( | a) | bes1~ | 2 a | gis1( | % 119a
-  g1 | f~ | 2) e4(d) | cis a' b cis | d a fis d | gis,1 | a~ |
+  d2\breathe d'~ | d c | bes1( | a) | bes1~ | 2 a | gis1( | % 119a
+  g1 | f~ | 2) e4(d) | cis^\markup{\with-color "red" \large\bold legato} a' b cis | d a fis d | gis,1 | a~ |
   a2 r | r a'4(g) | fis1 | e2 r | r fis4 a | cis2. 4 | d d, d c \section \key b \minor |
   b1( | bes) | a2 r | R1 | a'4 4 2~ | 2 fis4 d | a' a d a | % 120a
   fis4(d8 fis a4 fis8 a | d4) 4 2~ | 4 d, d d | d1 | 2 r | R1 |
@@ -543,7 +547,7 @@ bass = \relative {
   g4(e) a(g) | fis(d8 fis a4 fis8 a | d4) d e8(d) cis(b) | a1~ | a~ | a~ |
   a1~ | a~ | a | d,2 r | r a'4 4 | a1 |
   fis4 d d'2 | 4 d,8(fis a4) fis8(a) | d4 4 2~ | 4 d, d d | d1 | 2 r | % 122a
-  R1*5 | e'4 a, gis e |
+  R1*5 | e'4^\markup{\with-color "red" \large\bold "short quavers"} a, gis e |
   fis8(gis e fis gis a fis gis | a b a b cis d b cis | d4) d, d' d | cis b8(a) gis4 e | a fis d(e) |
   a,2 r | R1*5 | % 123a
   R1*4 | r2 e' | a1~ |

@@ -1,4 +1,4 @@
-\version "2.25.26"
+\version "2.25.27"
 
 \include "../kjp.ly"
 \include "predefined-guitar-fretboards.ly"
@@ -196,7 +196,7 @@ dynamicsTenor = {
 
 tenor = \relative {
   \global
-  e'\breve | cis1 d | cis b |
+  e'\breve^\markup{\with-color "red" \bold "strong but not overblown forte"} | cis1 d | cis b |
   e1 fis2 fis,4(g) | a cis fis1 e2~ | 4 a, d2. cis8(b) cis2 | d4 a d2.(cis4) b2 |
   a\breve | 2 r4 a e'1~ | 2 2 fis1 | e2 r4 fis b, a b2 |
   a2 e'1 d2 | a b4 cis d2(e) | a, r r r4 e' | fis(g) a2 g1 | % 79a
@@ -231,9 +231,9 @@ dynamicsBass = {
 bass = \relative {
   \global
   R\breve*3 |
-  a\breve | fis1 g | fis e | a b2 d,4(e) |
+  a\breve^\markup{\with-color "red" \bold "Roll R before beat"} | fis1 g | fis^\markup{\with-color "red" \bold less} e | a b2 d,4(e) |
   fis4 a d1 cis4 b | e e, a2.(gis8 fis gis2) | a r4 e a2 b | cis2.(b8 a e'1~ |
-  e4 cis) a2 r1 | r2 d1 a2~ | 4 g fis d a'1~ | 4(g fis e) d2 r | % 79a
+  e4 cis) a2 r1 | r2 d1^\markup "second beat" a2~ | 4 g fis d a'1~ | 4(g fis e) d2 r | % 79a
   r2 r4 b' e,2 a4(b) | cis2(b4 a e'1) | a,2 1 d,2 | r fis b4 a b2 |
   e,2 a1 d,2 | r fis1 b,2 | r e4(fis) g a b2 | a r r1 |
   r2 b1 a4 gis | e'2 a,4(b) cis(d e2) | a, r fis' fis,~ | 4 cis' d1 cis2~ | % 80a
