@@ -314,7 +314,7 @@ sopranoII = \relative {
   gis2(~8 cis,) fis(e) | d4 r8 a' cis4(d8) eis, | fis4 r8 8~8 eis eis fis | gis8 b a gis fis4 eis | % 13a
   fis4 r8 e dis a'4(g16 fis | g a b8) e,4 r2 | r4 r8 fis eis(b'4 a16 gis |
   a2~8 c, b a' | gis d cis ais' b fis eis b' | ais8 e dis a' gis d cis g' |
-  fis4 ais b d e) g, fis e | d4.(e16 fis e4. fis16 g | fis4. g16 a g2~ | % 14a
+  fis8 ais b d e) g, fis e | d4.(e16 fis e4. fis16 g | fis4. g16 a g2~ | % 14a
   8) cis fis, e d(cis16 b fis'4~ | 8) b, e d cis2~ | cis8 fis b a g4 fis |
   e8 ais(b) cis fis, a(b g) | d(cis4 d8 e) g fis e | d4 cis b2\fermata |
 }
@@ -1156,7 +1156,7 @@ pianoLHtwo = \relative {
   s1*98
 }
 
-#(set-global-staff-size 17)
+#(set-global-staff-size 16)
 
 \book {
   \paper {
