@@ -97,7 +97,7 @@ pianoRHone = \relative {
   cis8 <fis,, e'>4 <fis d'>8 \vo cis'8.(d32 e) |
   \tuplet 3/2 8 {d16([cis b]) \ov fis(b cis) d([cis b]) cis(d e) fis([e d]) e(fis g)} | % 153d
   \tuplet 3/2 8 {cis,16([b a])
-                 ^\markup{\halign #RIGHT \with-color "red" \large\bold SIT}
+                 ^\markup{\with-color "red" \large\bold "Stand quietly"}
                  fis(a b) cis([b a]) b(cis d) e([d cis]) d(e fis)} |
   \tuplet 3/2 8 {b,16([a g]) d(g a) b([a g]) a(b cis) d([cis b]) cis(dis e)} |
   \tuplet 3/2 8 {fis16([e dis]) e(fis g) a([g fis]) g(a b) c([b a]) g(a fis)} | % 153e
