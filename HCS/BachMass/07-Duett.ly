@@ -83,7 +83,7 @@ sopranoI = \relative {
   }
   R1 | b'8(a4) b16 g c8(b4) a8 | dis8(e4) g,8 16\trill(fis g8) fis4 |
   b4 8 8 2~ | 8 a gis a b16(c d8) 4 | c8(b4) a8 16(g a4) b8 |
-  g8 b16 a g8(fis) e4 r | R1^\markup{\with-color "red" \large\bold STAND} | R1 |
+  g8 b16 a g8(fis) e4 r | R1 | R1 |
   R1*2 | b'8(a~16) fis g8 cis(d4) b8 | % 52a
   g8(e'4) g,8 16\trill(fis g8) fis4 | b8(ais4) cis16 b cis(d e4) d16(cis) | dis8 e a,4~8(fis') e(d) |
   e8(d4) cis16(b) ais(b cis4) a8 | fis b16 16 8(ais) b4 r | r cis8 e16 d e8 d16(cis) d8 b |
@@ -166,7 +166,7 @@ pianoRHone = \relative {
   g8 fis16 e d4~16 c f(e) d(c) e(d) |
   c16(b) d(c) b(a) c(b) a(g) c(b) a(g) b(a) |
   g16(fis) b(a) g(fis) a(g) fis4(e16) b''[g e] | % 51d
-  \ov e4(d16) b' gis fis \vo fis4(d16) b' gis e |
+  \ov e4^\markup{\with-color "red" \large\bold STAND} (d16) b' gis fis \vo fis4(d16) b' gis e |
   d16 b' gis e d b' g e d4(c16) e a fis |
   dis4(e16) b g' e <e g>8(e fis) s8 | % 52a
   g16 b g e b e fis dis16 4(e) |
