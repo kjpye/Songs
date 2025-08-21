@@ -121,7 +121,7 @@ sopranoI = \relative {
   r8 d fis | fis e r | r r d | cis(e16 d e cis | d8 cis16 d e cis | % 149a
   d8) cis16(b) a(g) | fis8 d c' |
   c16(b) 8 r | r e a | fis(d cis) | d4 r8 | R4.*3 | % 149b
-  R4.*2 | <<{R4.} \new Voice {s4.^\markup{\with-color "red" \large\bold SIT}}>> |
+  R4.*3 |
   R4.*26 |
 }
 
@@ -666,7 +666,7 @@ pianoRHone = \relative {
   <fis a d>16 <e g cis> <fis a d>8 r |
   R4. | r8 r \vo <e a> | a <g b>16 <fis a> <e g> <fis a> | % 149b
   fis4 \ov <d, d'>8 | <a' a'>8 8 8 | <d d'> a'16 fis g e | fis8 <fis, fis'> q |
-  \vo s4 a'8 | fis8 d16 e fis g | a4. | 8 cis d | % 150a
+  \vo s4 a'8 | fis8 d16 e fis g | a4.^\markup{\with-color "red" \large\bold SIT} | 8 cis d | % 150a
   e8 a, g | fis16 e d fis e g | <d fis> <cis e> <d fis> <e g> e <d fis> |
   g16 fis e g fis a | <e g> <d fis> <e g> <fis a> <d fis> <e g> | % 150b
   <fis a>8 a a | \ov <d, fis a d> a'16 fis g e | \vo <d fis>8 fis8 8 |
