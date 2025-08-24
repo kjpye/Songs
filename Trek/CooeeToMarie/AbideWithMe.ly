@@ -1,4 +1,4 @@
-\version "2.19.80"
+\version "2.25.28"
 %\include "../include/merge-rests.ly"
 
 \header {
@@ -19,7 +19,7 @@ global = {
 }
 
 tempoMark = {
-  \tempo 4=90
+  \tempo 4=108
   \once \override Score.RehearsalMark.self-alignment-X = #LEFT
 }
 
@@ -107,36 +107,29 @@ bas = \relative c {
     aes2 g4 f
     ees4 bes c aes
     bes2 bes
-    f1
+    ees,1
   }
 }
 
 verseOne = \lyricmode {
   A- bide with me; fast falls the e- ven- tide;
-  The dark- ness deep- ens; Lord, with me a- bide!
+  The dark- ness deep- ens; Lord, with me a- bide.
   When oth- er help- ers fall, and com- forts flee,
-  help of the help- less, O a- bide with me!
+  help of the help- less, O a- bide with me.
 }
 
 verseTwo = \lyricmode {
   Swift to it's close ebbs out life's lit- tle day:
   Earth's joys grow dim, its glor- ies pass a- way;
   Change and de- cay in all a- round I see;
-  O thou who chang- est not, a- bide with me!
+  O thou who chang- est not, a- bide with me.
 }
 
 verseThree = \lyricmode {
-  I need thy pres- ence ev- "'ry" pass- ing hour;
-  What but thy grace can foil the tempt- ers power?
-  Who, like thy- self, my guide and stay can be?
-  Thro' cloud and sun- shine, Lord, a- bide with me!
-}
-
-verseFour = \lyricmode {
-  I fear no foe, with thee at hand to bless;
-  Ills have no weight, and tears no bit- ter- ness;
-  Where is death's sting? where, grave, thy vic- tor- y!
-  I tri- umph still, if thou a- bide with me.
+  Hold Thou Thy cross be -- fore my clo -- sing eyes;
+  Shine through the gloom and point me to the skies.
+  Earth's mor -- ning breaks, and earth's vain sha -- dows flee;
+  In life, in death, O Lord, a -- bide with me.
 }
 
 \book {
@@ -146,22 +139,18 @@ verseFour = \lyricmode {
       \new Lyrics \lyricsto sop \verseOne
       \new Lyrics \lyricsto sop \verseTwo
       \new Lyrics \lyricsto sop \verseThree
-      \new Lyrics \lyricsto sop \verseFour
       \new Voice = alt << \alt >>
       \new Lyrics \lyricsto alt \verseOne
       \new Lyrics \lyricsto alt \verseTwo
       \new Lyrics \lyricsto alt \verseThree
-      \new Lyrics \lyricsto alt \verseFour
       \new Voice = ten << \clef "G_8" \ten >>
       \new Lyrics \lyricsto ten \verseOne
       \new Lyrics \lyricsto ten \verseTwo
       \new Lyrics \lyricsto ten \verseThree
-      \new Lyrics \lyricsto ten \verseFour
       \new Voice = bas << \clef F \bas >>
       \new Lyrics \lyricsto bas \verseOne
       \new Lyrics \lyricsto bas \verseTwo
       \new Lyrics \lyricsto bas \verseThree
-      \new Lyrics \lyricsto bas \verseFour
     >>
     \layout {
       \context {
@@ -171,5 +160,6 @@ verseFour = \lyricmode {
 	\override DynamicLineSpanner.direction = #UP
       }
     }
+    \midi {}
   }
 }
