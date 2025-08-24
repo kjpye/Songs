@@ -1,4 +1,4 @@
-\version "2.25.27"
+\version "2.25.28"
 
 \include "kjp.ly"
 \include "predefined-guitar-fretboards.ly"
