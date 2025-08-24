@@ -128,7 +128,7 @@ verseTwo = \lyricmode {
 verseThree = \lyricmode {
   Hold Thou Thy cross be -- fore my clo -- sing eyes;
   Shine through the gloom and point me to the skies.
-  Earth's mor -- ning breaks, and earth's vain sha -- dows flee;
+  Heaven's mor -- ning breaks, and earth's vain sha -- dows flee;
   In life, in death, O Lord, a -- bide with me.
 }
 
