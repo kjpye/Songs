@@ -40,7 +40,7 @@ global = {
 }
 
 TempoTrack = {
-  \tempo "Slowly, rubato" 4=54
+  \tempo "Slowly, rubato" 4=60
   s2.
 %  \set Score.tempoHideNote = ##t
 }
@@ -307,8 +307,8 @@ bass = \relative {
   des4~8 8 f f | ges2~8 8 \time 4/4 | f4.(ees8 des) des bes8. 16 | % 3a
   ges2. r8 ges \time 3/4 | des'4(ees8) ees f f | ges2~8 8 \time 4/4 |
   f2(ees8 des) ces bes | aes2 r8 des8 8 8 \time 5/8 ges,8 8 aes4 8 \time 3/4 |
-  bes4(ces8) r des4 | 8. 16 4 ees \time 2/4 | f(ges) \time 4/4 | fes'1 \time 3/4 | % 4a
-  R2. | R \time 4/4 | f,,4(ges aes) 8. 16 \time 3/4 |
+  bes4(ces8) r des4 | 8. 16 4 ees \time 2/4 | f(ges) \time 4/4 | fes1 \time 3/4 | % 4a
+  R2. | R \time 4/4 | f,4(ges aes) 8. 16 \time 3/4 |
   bes2 r4 \time 4/4 | R1 \time 2/4 | R2 | des2_\fermata |
 }
 
@@ -1192,7 +1192,7 @@ bass = \relative {
 
 \book {
   \paper {
-    output-suffix = singlepage-midi-solo
+    output-suffix = midi-solo
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -1286,7 +1286,7 @@ bass = \relative {
 
 \book {
   \paper {
-    output-suffix = singlepage-midi-women
+    output-suffix = midi-women
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -1380,7 +1380,7 @@ bass = \relative {
 
 \book {
   \paper {
-    output-suffix = singlepage-midi-tenor
+    output-suffix = midi-tenor
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -1474,7 +1474,7 @@ bass = \relative {
 
 \book {
   \paper {
-    output-suffix = singlepage-midi-bass
+    output-suffix = midi-bass
     top-margin = 0
     left-margin = 7
     right-margin = 1
@@ -1542,7 +1542,7 @@ bass = \relative {
           \new Staff = bass \with {
             instrumentName = Bass
             shortInstrumentName = B
-            midiInstrument = "choir aahs"
+            midiInstrument = "acoustic grand piano"
             \accidentalStyle Score.modern
           }
           <<
