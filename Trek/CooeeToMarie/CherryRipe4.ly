@@ -347,9 +347,9 @@ wordsBass = \lyricmode {
   Where sun -- beams smile, % 4a
   There’s the land or cher -- ry Isle.
   Cher -- ry ripe, cher -- ry ripe, ripe, I cry, __
-  Full and faie ones come and buy. __ % 5a
+  Full and fair ones come and buy. __ % 5a
   Cher -- ry ripe, cher -- ry ripe, I cry,
-  Full and faie ones come and buy.
+  Full and fair ones come and buy.
   Where the sun -- beams sweet -- ly smile __ % 6a
   There’s the land or cher -- ry Isle,
   There plan -- ta -- tions ful -- ly __ show, __
@@ -371,9 +371,9 @@ wordsBassMidi = \lyricmode {
   "\nWhere " sun "beams " "smile, " % 4a
   "\nThere’s " "the " "land " "or " cher "ry " "Isle. "
   "\nCher" "ry " "ripe, " cher "ry " "ripe, " "ripe, " "I " "cry, " 
-  "\nFull " "and " "faie " "ones " "come " "and " "buy. "  % 5a
+  "\nFull " "and " "fair " "ones " "come " "and " "buy. "  % 5a
   "\nCher" "ry " "ripe, " cher "ry " "ripe, " "I " "cry, "
-  "\nFull " "and " "faie " "ones " "come " "and " "buy. "
+  "\nFull " "and " "fair " "ones " "come " "and " "buy. "
   "\nWhere " "the " sun "beams " sweet "ly " "smile "  % 6a
   "\nThere’s " "the " "land " "or " cher "ry " "Isle, "
   "\nThere " plan ta "tions " ful "ly "  "show, " 
