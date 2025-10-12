@@ -1,4 +1,4 @@
-\version "2.25.28"
+\version "2.25.29"
 
 \include "kjp.ly"
 \include "predefined-guitar-fretboards.ly"
@@ -97,14 +97,8 @@ melodyA = \relative {
   \tag #'v2   {d4 8. e16 d4.. 16  |}
   \tag #'v3   {d4 8. e16 d4.. 16  |}
   c4      e8 f g4 8 8 |
-  \tag #'dash {e'4 c8 a g4 e8(e) |}
-  \tag #'v1   {e'4 c8 a g4 e8 e  |}
-  \tag #'v2   {e'4 c8 a g4 e4    |}
-  \tag #'v3   {e'4 c8 a g4 e8 e  |}
-  \tag #'dash {d 8.(16) b'8 c d4 8 c |}
-  \tag #'v1   {d,4      b'8 c d4 8 c |}
-  \tag #'v2   {d,8. 16  b'8 c d4 8 c |}
-  \tag #'v3   {d,4      b'8 c d4 8 c |}
+  e'4 c8 a g4 e8 e |
+  d4      b'8 c d4 8 c |
   b4 a8. 16 g2 | d'4 8 c b a g4 |
   c4 8 a g e c4 | f4 8 8 e4 g8 e | d4 8 e d2 |
   c4 e8 f g a g4 | e' c8 a g e c4 |
@@ -154,7 +148,7 @@ wordsTwo = \lyricmode {
   Prince -- ly O' -- Neill to our aid is \nom ad -- vanc -- ing
   With ma -- ny \yesm a chief -- tain and warr -- i -- or \nom clan.
   A thou -- sand \yesm proud steeds in his van -- guard are pranc -- ing
-  \nom ’Neath the \yesm bord -- erers brave from the Banks of the Bann:
+  ’Neath bord -- er -- ers brave from the Banks of the Bann:
   Man -- y a heart shall quail
   Un -- der its coat of mail.
   Deep -- ly the mer -- ci -- less foe -- man shall rue
@@ -208,7 +202,7 @@ wordsSingle = \lyricmode {
   Prince -- ly O' -- Neill to our aid is ad -- vanc -- ing
   With ma -- ny a chief -- tain and warr -- i -- or clan.
   A thou -- sand proud steeds in his van -- guard are pranc -- ing
-  ’Neath the bord -- erers brave from the Banks of the Bann:
+  ’Neath bord -- er -- ers brave from the Banks of the Bann:
   Man -- y a heart shall quail
   Un -- der its coat of mail.
   Deep -- ly the mer -- ci -- less foe -- man shall rue
@@ -232,7 +226,7 @@ wordsSingle = \lyricmode {
 
 wordsMidi = \lyricmode {
   \set stanza = "1."
-  "\nProud" "ly " "the " "note " "of " "the " trum "pet " "is " sound "ing, "
+  "Proud" "ly " "the " "note " "of " "the " trum "pet " "is " sound "ing, "
   "\nLoud" "ly " "the " "war " "cries " a "rise " "on " "the " "Gael; "
   "\nFleet" "ly " "the " "steed " "by " "Lough " Swil "ly " "is " boun "ding, "
   "\nTo " "join " "the " "thick " squad "rons " "on " Saim "ear's " "green " "vale. "
@@ -247,7 +241,7 @@ wordsMidi = \lyricmode {
   "\nPrince" "ly " "O'" "Neill " "to " "our " "aid " "is " ad vanc "ing "
   "\nWith " ma "ny " "a " chief "tain " "and " warr i "or " "clan. "
   "\nA " thou "sand " "proud " "steeds " "in " "his " van "guard " "are " pranc "ing "
-  "\n'Neath " "the " bord "erers " "brave " "from " "the " "Banks " "of " "the " "Bann: "
+  "\n'Neath " bord er "ers " "brave " "from " "the " "Banks " "of " "the " "Bann: "
   "\nMan" "y " "a " "heart " "shall " "quail "
   "\nUn" "der " "its " "coat " "of " "mail. "
   "\nDeep" "ly " "the " mer ci "less " foe "man " "shall " "rue "
