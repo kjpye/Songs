@@ -2003,37 +2003,6 @@ pianoLHtwo = \relative {
         >>
       >>
     >>
-    \layout {
-      indent = 1.5\cm
-      \pointAndClickOff
-      \context {
-        \Score
-        \remove Metronome_mark_engraver
-%        \remove Staff_collecting_engraver
-      }
-      \context {
-        \Staff
-        \RemoveAllEmptyStaves
-        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
-        \override BarNumber.break-visibility = ##(#f #t #t)
-        \consists Merge_rests_engraver
-      }
-      \context {
-        \ChoirStaff
-        \consists Metronome_mark_engraver
-        \consists Staff_collecting_engraver
-      }
-      \context {
-        \PianoStaff
-        \consists Metronome_mark_engraver
-        \consists Staff_collecting_engraver
-        \consists Span_stem_engraver
-      }
-      \context {
-        \Voice
-%        \consists Ambitus_engraver
-      }
-    }
     \midi {
       \context {
         \Staff
@@ -2139,37 +2108,6 @@ pianoLHtwo = \relative {
         >>
       >>
     >>
-    \layout {
-      indent = 1.5\cm
-      \pointAndClickOff
-      \context {
-        \Score
-        \remove Metronome_mark_engraver
-%        \remove Staff_collecting_engraver
-      }
-      \context {
-        \Staff
-        \RemoveAllEmptyStaves
-        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
-        \override BarNumber.break-visibility = ##(#f #t #t)
-        \consists Merge_rests_engraver
-      }
-      \context {
-        \ChoirStaff
-        \consists Metronome_mark_engraver
-        \consists Staff_collecting_engraver
-      }
-      \context {
-        \PianoStaff
-        \consists Metronome_mark_engraver
-        \consists Staff_collecting_engraver
-        \consists Span_stem_engraver
-      }
-      \context {
-        \Voice
-%        \consists Ambitus_engraver
-      }
-    }
     \midi {
       \context {
         \Staff
@@ -2275,37 +2213,6 @@ pianoLHtwo = \relative {
         >>
       >>
     >>
-    \layout {
-      indent = 1.5\cm
-      \pointAndClickOff
-      \context {
-        \Score
-        \remove Metronome_mark_engraver
-%        \remove Staff_collecting_engraver
-      }
-      \context {
-        \Staff
-        \RemoveAllEmptyStaves
-        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
-        \override BarNumber.break-visibility = ##(#f #t #t)
-        \consists Merge_rests_engraver
-      }
-      \context {
-        \ChoirStaff
-        \consists Metronome_mark_engraver
-        \consists Staff_collecting_engraver
-      }
-      \context {
-        \PianoStaff
-        \consists Metronome_mark_engraver
-        \consists Staff_collecting_engraver
-        \consists Span_stem_engraver
-      }
-      \context {
-        \Voice
-%        \consists Ambitus_engraver
-      }
-    }
     \midi {
       \context {
         \Staff
@@ -2411,37 +2318,6 @@ pianoLHtwo = \relative {
         >>
       >>
     >>
-    \layout {
-      indent = 1.5\cm
-      \pointAndClickOff
-      \context {
-        \Score
-        \remove Metronome_mark_engraver
-%        \remove Staff_collecting_engraver
-      }
-      \context {
-        \Staff
-        \RemoveAllEmptyStaves
-        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
-        \override BarNumber.break-visibility = ##(#f #t #t)
-        \consists Merge_rests_engraver
-      }
-      \context {
-        \ChoirStaff
-        \consists Metronome_mark_engraver
-        \consists Staff_collecting_engraver
-      }
-      \context {
-        \PianoStaff
-        \consists Metronome_mark_engraver
-        \consists Staff_collecting_engraver
-        \consists Span_stem_engraver
-      }
-      \context {
-        \Voice
-%        \consists Ambitus_engraver
-      }
-    }
     \midi {
       \context {
         \Staff
