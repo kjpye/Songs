@@ -124,6 +124,99 @@ RehearsalTrack = {
   \textMark \markup { \box "51b" } s1*10
 }
 
+RehearsalTrack = {
+  \textMark \markup\box "10a" s1*5
+  \textMark \markup\box "10b" s1*6
+  \textMark \markup\box "10c" s1*6
+  \textMark \markup\box "11a" s1*7
+  \textMark \markup\box "11b" s1
+  \mark \markup\bold\circle A s1*5 
+  \textMark \markup\box "11c" s1*8
+  \textMark \markup\box "12a" s1*7
+  \textMark \markup\box "12b" s1*5
+  \textMark \markup\box "12c" s1*5
+  \textMark \markup\box "13a" s1*4
+  \textMark \markup\box "13b" s1*6
+  \textMark \markup\box "13c" s1*2
+  \mark \markup\bold\circle B s1*4
+  \textMark \markup\box "14a" s1*6
+  \textMark \markup\box "14b" s1*6
+  \textMark \markup\box "14c" s1*6
+  \textMark \markup\box "15a" s1*6
+  \textMark \markup\box "15b" s1*5
+  \textMark \markup\box "15c" s1*5
+  \textMark \markup\box "16a" s1*4
+  \textMark \markup\box "16b" s1*4
+  \textMark \markup\box "16c" s1*2
+  \mark \markup\bold\circle C s1*4
+  \textMark \markup\box "17a" s1*5
+  \textMark \markup\box "17b" s1*6
+  \textMark \markup\box "17c" s1*3
+  \textMark \markup\box "18a" s1*5
+  \textMark \markup\box "18b" s1*6
+  \textMark \markup\box "18c" s2.*6
+  \textMark \markup\box "19a" s2.*5
+  \textMark \markup\box "19b" s2.*6
+  \mark \markup\bold\circle D
+  \textMark \markup\box "19c" s2.*7
+  \textMark \markup\box "20a" s2.*5
+  \textMark \markup\box "20b" s2.*5
+  \textMark \markup\box "20c" s2.*2
+  \mark \markup\bold\circle E s2.*5
+  \textMark \markup\box "21a" s2.*6
+  \textMark \markup\box "21b" s2.*5
+  \textMark \markup\box "21c" s2.*7
+  \textMark \markup\box "22a" s2.*4
+  \mark \markup\bold\circle F s2.*2
+  \textMark \markup\box "22b" s2.*5
+  \textMark \markup\box "22c" s2.*5
+  \textMark \markup\box "23a" s2.*5
+  \textMark \markup\box "23b" s2.*6
+  \textMark \markup\box "23c" s1*6
+  \textMark \markup\box "24a" s1*3
+  \textMark \markup\box "24b" s1*6
+  \mark \markup\bold\circle G
+  \textMark \markup\box "24c" s1*3
+  \textMark \markup\box "25a" s1*5
+  \textMark \markup\box "25b" s1*6
+  \textMark \markup\box "25c" s1*8
+  \textMark \markup\box "26a" s1*6
+  \textMark \markup\box "26b" s1*6
+  \textMark \markup\box "26c" s1*6
+  \textMark \markup\box "27a" s1*6
+  \textMark \markup\box "27b" s1*6
+  \textMark \markup\box "28c" s1*6
+  \textMark \markup\box "28a" s1*6
+  \mark \markup\bold\circle H
+  \textMark \markup\box "28b" s1*7
+  \textMark \markup\box "28c" s1*7
+  \textMark \markup\box "29a" s1*6
+  \textMark \markup\box "29b" s1*4
+  \mark \markup\bold\circle I s1*2
+  \textMark \markup\box "29c" s1*7
+  \textMark \markup\box "30a" s1*6
+  \textMark \markup\box "30b" s1*5
+  \mark \markup\bold\circle K s1
+  \textMark \markup\box "30c" s1*8
+  \textMark \markup\box "31a" s1*7
+  \textMark \markup\box "31b" s1*6
+  \textMark \markup\box "31c" s1*6
+  \textMark \markup\box "32a" s1*6
+  \mark \markup\bold\circle L s1
+  \textMark \markup\box "32b" s1*8
+  \textMark \markup\box "32c" s1*7
+  \textMark \markup\box "33a" s1*6
+  \textMark \markup\box "33b" s1*7
+  \textMark \markup\box "33c" s1*6
+  \textMark \markup\box "34a" s1*9
+  \textMark \markup\box "34b" s1
+  \mark \markup\bold\circle M s1*6
+  \textMark \markup\box "34c" s1*6
+  \textMark \markup\box "35a" s1*6
+  \textMark \markup\box "35b" s1*6
+  \textMark \markup\box "35c" s1*8
+}
+
 ffz = #(make-dynamic-script "ffz")
 
 dynamicsSop = {
