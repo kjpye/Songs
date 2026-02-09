@@ -216,11 +216,12 @@ wordsSopMidi = \lyricmode {
   \MTtlafbt \MTtl
   "\nyet " "still " "it " "shall " "not " "come " "nigh " "thee, "
   \MBnae \MBnae
-  \MBnathin for He is near; % 120a
-  \Mbnathins \Mbna for He is near, is near,
+  \MBnathin "for " "He " "is " "near; " % 120a
+  \Mbnathins \Mbna "for " "He " "is " "near, " "is " "near, "
   \Mbnathins \Mbnathin
   "\nBe " "not " a "fraid, " "for " "He " "ios " "near; " % 121a
-  \Mbna be not a -- fraid the help is near.
+  \Mbna "\nbe " "not " a "fraid " "the " "help " "is " "near. "
+
   \MBnae \MBnae
   "\n“Thy " "help " "is " "near; " "be " "not " a "fraid;” " "saith " "God " "the " "Lord. "
 }
@@ -330,7 +331,8 @@ wordsAltoMidi = \lyricmode {
   "\nand " "fall "  "be " "side " "thee, "
   \Matotatp % 118a
   "\nand " "tens " "of " thou "sands " a "round " "thee " per "ish " a "round " "thee; "
-  \Mttlafbt and fall be -- side thee;
+  \Mttlafbt "\nand " "fall " be "side " "thee; "
+
   "\nyet " "still " "it " "shall " "not " "come " "nigh "  "thee; "
   \MTtlafbt \MTtlafbt % 119a
   "\nyet " "still " "iot " "shall " "not " "come " "nigh " "thee. "
@@ -573,16 +575,16 @@ wordsBassMidi = \lyricmode {
   "\nGod, " "the " "Lord " "thy " "God " say "eth " un "to " "thee, " 
   "\n“Be " "not " a "fraid!” " % 116a
   \MTtlafbt \Matotatp
-  \MTtlafb_t and fall be -- side thee, % 117a
-  \Mttlafbt __ 
-  \Matotatp a -- round thee per -- ish, % 118a
+  \MTtlafb_t "and " "fall " be "side " "thee, " % 117a
+  \Mttlafbt
+  \Matotatp a "round " "thee " per "ish, " % 118a
   \Mttlafb_ts
   "\nyet " "still " "it " "shall " "not " "come " "nigh "  "thee; "
   \MTtlafbt % 119a
   "\nyet " "still " "it " "shall " "not " "come " "nigh " "thee; "
   "\nThough " thou "sands " lan "guish, "
   "\nyet " "still " "it " "shall " "not " "come " "nigh " "thee; "
-  \MBnae __ Be not a -- fraid, a -- fraid!
+  \MBnae "Be " "not " a "fraid, " a "fraid! "
   "\nBe " "not " a "fraid, "  % 120a
   "\nbe " "not " a "fraid; " "thy__ "  "help " "is " "near. "
   "\nbe " "not " a "fraid; " "for " "He " "is " "near, "
