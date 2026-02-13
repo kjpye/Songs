@@ -1,4 +1,4 @@
-\version "2.25.14"
+\version "2.25.33"
 
 \include "kjp.ly"
 \include "predefined-guitar-fretboards.ly"
@@ -52,10 +52,12 @@ RehearsalTrack = {
   \textMark \markup { \box "156b" } s2.*5
   \textMark \markup { \box "156c" } s2.*5
   \textMark \markup { \box "157a" } s2.*4
+  \mark \markup\bold\circle A
   \textMark \markup { \box "157b" } s2.*4
   \textMark \markup { \box "157c" } s2.*4
   \textMark \markup { \box "158a" } s2.*4
-  \textMark \markup { \box "158b" } s2.*4
+  \textMark \markup { \box "158b" } s2.*2
+  \mark \markup\bold\circle B       s2.*2
   \textMark \markup { \box "158c" } s2.*4
   \textMark \markup { \box "159a" } s2.*5
   \textMark \markup { \box "159b" } s2.*4
