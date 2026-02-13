@@ -1,4 +1,4 @@
-\version "2.25.0"
+\version "2.25.33"
 
 \include "articulate.ly"
 
@@ -55,10 +55,10 @@ soprano = \relative {
   fis2. | b4 d2 | g,2 d'4 | e8(d e fis) e4 | d2 b4 | b8(d d4) a | b8(a g4) fis | d8(fis g4) a | fis2. \break |
   a4 fis2 | b2 g4 | c4 a2 | b2 4 | b8(c d e) d4 | gis,2 4 | a8(b c b) a4 | 2. |
   d4 b2 | g2 b4 | c8(b a b) a(g) | a4(d,) d |
-  \tag #'dash {\slurDashed g8\=1(\=2(fis\=2) e4\=1) c \slurSolid |}
-  \tag #'v1   {            g'8  (    fis     e4   ) c            |}
-  \tag #'v2   {            g'8      (fis   ) e4     c            |}
-  c'8(b a4) d | d8(c b4) a8(g) | g2. |
+  \tag #'dash {\slurDashed g8\=1(\=2(fis\=2) e4\=1) c' \slurSolid |}
+  \tag #'v1   {            g8   (    fis     e4   ) c'            |}
+  \tag #'v2   {            g8       (fis   ) e4     c'            |}
+  c8(b a4) d | d8(c b4) a8(g) | g2. |
 }
 
 alto = \relative {
