@@ -443,6 +443,17 @@ wordsSop = \lyricmode {
   \Artfearc \fearc \fears \Artarp __ % 11
 }
 
+wordsSopMidi = \lyricmode {
+  \MHmyOgc \MiTee \MTesc \MTgcfe \MIhumtce \MTwomc \MOG_hmce % 3
+  \MOG_hmcc \MPabc \MOGhmcc __ \MOGc \MOGhmce \MTesc \MTgcfs \MOG_hmce \MOG_hmce __
+  \MPabc \MOGhmce \MOGhmce \MOG_hmce __ \MOGhmce \MOGhmce __ \MOGhmce __
+  \MLhmcc \MWhoc __ \MLhmce __
+  \MOftwc \Mftwoadc \Mtwoade \MFac \MfawIrc \MfawIrc \MawIrc % 8
+  \Mfae \MItwbmanc \MArtfearc \MArtfearc \Mr_tfearc \Mr_tfearc \Mfearp __
+  \MArtc \MfawIre \MOftwoade __ \MItwbmanc
+  \MArtfearc \Mfearc \Mfears \MArtarp __ % 11
+}
+
 dynamicsAlto = {
   \override DynamicTextSpanner.style = #'none
   s1*12 |
@@ -495,6 +506,17 @@ wordsAlto = \lyricmode {
   \fae \Itwbmanc \Artfearc \rtfec \fearc \rtfearc \r_tfearc \fearp __
   \Artc \fawIre \Oftwc \ftwoade \Itwbmanc
   \Artfearc \fears \Artarp __ % 11
+}
+
+wordsAltoMidi = \lyricmode {
+  \MHmyOgc \MiTee \MTesc \MTgcfe \MIhumtce \MTwomc \MOG_hmcc
+  "my " "cry! " \MOG_hmcc \MPabc \MOGc __ \MOGh_mce \MTesc \MTgcfs \MOG_hmce __ % 4
+  \MPabc \MOGhmce \MOGc \MOGhmce \MOG_hmce __ \MOGhmce \MOGhmce __ \MOGhmce __
+  \MLhmcc \MWhoc \MLhmce __
+  \MOftwc \Mftw_oadc __ "a " "dove! " \MFac \Mfac \Mfac \MfawIrc \MawIrc % 8
+  \Mfae \MItwbmanc \MArtfearc \Mrtfec \Mfearc \Mrtfearc \Mr_tfearc \Mfearp __
+  \MArtc \MfawIre \MOftwc \Mftwoade \MItwbmanc
+  \MArtfearc \Mfears \MArtarp __ % 11
 }
 
 dynamicsTenor = {
@@ -552,6 +574,17 @@ wordsTenor = \lyricmode {
   \Artfearc \fearc \fears \Ar_tarp __ % 11
 }
 
+wordsTenorMidi = \lyricmode {
+  \MHmyOgc \MiTee \MTesc \MTgcfe \MIhumtce \MTwomc % 3
+  \MOG_hmce \MOGhmcc \MPabc \MOGhmce \MTesc \MTgcfs \MOG_hmce \MOG_hmce
+  \MPabc "O " "God, " hear, \MOGhmce \MOG_hmce __ \MOGhmce \MOGhmce __ \MO_Ghmce __
+  \MLhmce \MWhoc o "ver " "whelm‘d, " \MLhmce __
+  \MOftwc \Mftwoade \Mftwc \MOftwoade \MFac \MfawIrc \MfawIrc % 8
+  \Mfac __ \MItwbmanc \MArtfearc \MArtfec \Mfearc \Mr_tfearc \Mr_tfearc \Mfearp __
+  \MArtc \MfawIrc \MOftwc \Mftwoade \MItwbmanc
+  \MArtfearc \Mfearc \Mfears \MAr_tarp __ % 11
+}
+
 dynamicsBass = {
   \override DynamicTextSpanner.style = #'none
   s1*12 |
@@ -590,7 +623,7 @@ bass = \relative {
   a4 g8 fis8 4 e8 dis | 2 4 4 | e2 4 4 | fis d'4 2~ | 4 8 8 4 8 8 | 4 d,4 2~ |
   d4 8 8 4 8 8 | 4. 8 4 8 8 | 1~ | 1~ | 1 |
   d2 d | g,(a | b) e | R1 | a4 g fis2 | R1 | % 10a
-  d4 d g2 | b4 8 8 4 8 8 | 2(a4) 8 8 | 2 4. 8 | b2. r4 |
+  d4 d g2^\markup\with-color "red" "crotchet breath" | b4 8 8 4 8 8 | 2(a4) 8 8 | 2 4. 8 | b2. r4 |
   R1*3 | r2 g,4. 8 | a4. 8 b2 | c2 g4 g |
   a2 g4 a | b2 4. 8 | 2.. 8 | 1~ | 1~ | 2 4. 8 | e,2. r4 | % 11a
   R1 | e2 e | 1~ | 2(c') b b | e,1~ | 1~ | 4 r r2 | R1\fermata |
@@ -605,6 +638,17 @@ wordsBass = \lyricmode {
   \fac __ \fae __ \Itwbmanc \Artarc \r_tfearc \r_tfearc \fearp __
   \Artc \fawIre \Oftwc \ftwc __ \ftwoade \Itwbmanc
   \Artarc \fears \Ar_tarp __ % 11
+}
+
+wordsBassMidi = \lyricmode {
+  \MHmyOgc \MiTee \MTesc \MTgcfe \MIhumtce \MTwomc
+  \MOG_hmce \MOG_hmcc \MPabc \MOGhmcc \MOGhmce \MTesc \MTgcfs \MOG_hmce \MOG_hmce % 4
+  \MOGc "O " "God, " "hear, " \MOGhmce __ \MOGhmce __ \MOGhmce \MOGhmce __ \MO_Ghmce __
+  \MLhmcc __ \MWhoc \MLhmce __
+  \MOftwc \Mftwoadc \MOftwoade \MFa_wIrc \Mfac \Mfac \MfawIrc % 8
+  \Mfac __ \Mfae __ \MItwbmanc \MArtarc \Mr_tfearc \Mr_tfearc \Mfearp __
+  \MArtc \MfawIre \MOftwc \Mftwc __ \Mftwoade \MItwbmanc
+  \MArtarc \Mfears \MAr_tarp __ % 11
 }
 
 pianoRHone = \relative {
@@ -2504,7 +2548,7 @@ pianoLHtwo = \relative {
           <<
             \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
             \new Voice \soprano
-%            \addlyrics \wordsSopMidi
+            \addlyrics \wordsSopMidi
           >>
                                 % Single alto staff
           \new Staff = alto \with {
@@ -2619,7 +2663,7 @@ pianoLHtwo = \relative {
           <<
             \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
             \new Voice \alto
-%            \addlyrics \wordsAltoMidi
+            \addlyrics \wordsAltoMidi
           >>
                                 % Single tenor staff
           \new Staff = tenor \with {
@@ -2735,7 +2779,7 @@ pianoLHtwo = \relative {
             \clef "treble_8"
             \new Dynamics \with {alignAboveContext = tenor} \dynamicsTenor
             \new Voice \tenor
-%            \addlyrics \wordsTenorMidi
+            \addlyrics \wordsTenorMidi
           >>
                                 % Single bass staff
           \new Staff = bass \with {
@@ -2851,7 +2895,7 @@ pianoLHtwo = \relative {
             \clef "bass"
             \new Dynamics \with {alignAboveContext = bass} \dynamicsBass
             \new Voice \bass
-%            \addlyrics \wordsBassMidi
+            \addlyrics \wordsBassMidi
           >>
         >>
         \new PianoStaff = piano <<

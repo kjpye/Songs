@@ -90,7 +90,7 @@ RehearsalTrack = {
   \textMark \markup { \box "18a" } \time 3/4 \grace s4 s2. \time 4/4 s1 \time 3/4 s2.*2 |
   \textMark \markup { \box "18b" } s2.*2 \time 4/4 s1*2 |
   \textMark \markup { \box "19a" } \time 3/4 s2. \time 4/4 s1 \time 3/4 \grace s4 s2.
-  \mark \markup\box\circle "24"    \time 4/4 s1 |
+  \mark \markup\bold\circle "24"    \time 4/4 s1 |
   \textMark \markup { \box "19b" } s1*2
   \mark \markup\bold\circle "25"   s1
   \textMark \markup { \box "20a" } \time 3/4 s2.*2 \time 4/4 s1*2

@@ -223,7 +223,7 @@ dynamicsSop = {
   \override DynamicTextSpanner.style = #'none
   s1\f | s1*8 |
   s1*10 | s1\p | s1*2 |
-  s1*3 | s2. s4\f | s1*6 | s1\pp | s1*3 | % 18
+  s1*2 | s1\> | s2.\! s4\f | s1*6 | s1\pp | s1*3 | % 18
   s1*9 | s2. s4\f | s1*3 |
   s1*6 | s2 s\cresc | s1 | s2 s\ff | s1 |
   s4 s2.\p | s1*7 | s1\p | s1*5 | % 21
@@ -343,7 +343,7 @@ wordsSop = \lyricmode {
   be -- ne -- di -- ci -- mus te, __
   la -- da -- mus te, la -- da -- mus te,
   a -- do -- ra -- mus te,
-  a -- do -- ra -- mus te,
+  a -- do -- ra -- mus te,~
   a -- do -- ra -- mus, % 19a
   be -- ne -- di -- ci -- mus,
   be -- ne -- di -- ci -- mus,
@@ -537,7 +537,7 @@ dynamicsAlto = {
   \override DynamicTextSpanner.style = #'none
   s1\f | s1*8 |
   s1*10 | s1\p | s1*2 |
-  s1*3 | s2. s4\f | s1*8 | s1\pp | s1 | % 18
+  s1*2 | s1\> | s2.\! s4\f | s1*8 | s1\pp | s1 | % 18
   s1*4 | s1\pp | s1*3 | s2. s4\f | s1*4 |
   s1*6 | s2 s\cresc | s1 | s2 s\ff | s1 |
   s4 s2.\p | s1*7 | s1\p | s1*5 | % 21
@@ -659,7 +659,7 @@ wordsAlto = \lyricmode {
   be -- ne -- di -- ci -- mus te, __
   la -- da -- mus te, la -- da -- mus te,
 %  a -- do -- ra -- mus te,
-  a -- do -- ra -- mus te,
+  a -- do -- ra -- mus te,~
   a -- do -- ra -- mus te, % 19a
 %  be -- ne -- di -- ci -- mus,
   be -- ne -- di -- ci -- mus,
@@ -668,6 +668,16 @@ wordsAlto = \lyricmode {
   glo -- ri -- fi -- ca -- mus te, __
   glo -- ri -- fi -- ca -- mus te, __ % 20a
   glo -- ri -- fi -- ca -- mus te,
+
+
+
+
+
+
+
+
+
+
   lau -- da -- mus te,
   be -- ne -- di -- ci -- mus te,
   glo -- ri -- fi -- ca -- mus te,
@@ -870,7 +880,7 @@ dynamicsTenor = {
   \override DynamicTextSpanner.style = #'none
   s1\f | s1*8 |
   s1*10 | s1\p | s1*2 |
-  s1*3 | s2. s4\f | s1*8 | s1\pp | s | % 18
+  s1*2 | s1\> | s2.\! s4\f | s1*8 | s1\pp | s | % 18
   s1*4 | s1\pp | s1*5 | s2 s\f | s1*2 |
   s1*6 | s2 s\cresc | s1 | s2 s\ff | s1 |
   s4 s2.\p | s1*7 | s1\p | s1*5 | % 21
@@ -992,7 +1002,7 @@ wordsTenor = \lyricmode {
   Lau -- da -- mus te, __ % 18a
   be -- ne -- di -- ci -- mus te, __
   la -- da -- mus te, la -- da -- mus te,
-  a -- do -- ra -- mus te,
+  a -- do -- ra -- mus te,~
   a -- do -- ra -- mus te, % 19a
   be -- ne -- di -- ci -- mus,
   be -- ne -- di -- ci -- mus te,
@@ -1219,7 +1229,7 @@ dynamicsBass = {
   \override DynamicTextSpanner.style = #'none
   s1\f | s1*8 |
   s1*10 | s1\p | s1*2 |
-  s1*3 | s2. s4\f | s1*8 | s1\pp | s | % 18
+  s1*2 | s1\> | s2.\! s4\f | s1*8 | s1\pp | s | % 18
   s1*4 | s1\pp | s1*4 | s2 s\f | s1*3 |
   s1*6 | s2 s\cresc | s1 | s2 s\ff | s1 |
   s4 s2.\p | s1*7 | s1\p | s1*5 | % 21
@@ -1340,7 +1350,7 @@ wordsBass = \lyricmode {
   Lau -- da -- mus te, __ % 18a
   be -- ne -- di -- ci -- mus te, __
   la -- da -- mus te, la -- da -- mus te,
-  a -- do -- ra -- mus te,
+  a -- do -- ra -- mus te,~
   a -- do -- ra -- mus te, % 19a
   be -- ne -- di -- ci -- mus,
   be -- ne -- di -- ci -- mus te,

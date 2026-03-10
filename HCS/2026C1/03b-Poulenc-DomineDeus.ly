@@ -154,7 +154,7 @@ soprano = \relative {
   r4^\markup Moitié fis4\(e8\) r | R2. | r4 fis\(e8\) r \key c \major | R1*2 | % 23a
   ees'4 d c\(bes8\) r | a4 bes c\(fis,8\) r | R1 | f4.(aes8) g f c' aes |
   f8 r r2 | R2. | ees'2 d4 | ees8 r ees,4\(d8\) r | R1 | % 24a
-  R1 | des'4\(ges8\) r ees4\(f8\) r | des4\(ees8\) r a,4\(c8\) r\breathe | dis2 4~8 r |
+  R1 | des'4\(ges8\) r ees4\(f8\) r | des4\(ees8\) r a,4\(c8\) r\breathe | dis2 d4~8 r |
   dis2 d4~8 r | cis4\(e8.\) r16 d4\(c8\) r | cis4\(b8.\) r16 a4\(g8\) r | R1 | % 25a
   R1*2 \key d \major | s2.*3 |
   R2. | b4. dis8 f,4 g8 r | b4. dis8 f,4 g8 r | <d b'>1( | % 26a
@@ -194,7 +194,7 @@ alto = \relative {
   fis4 g8. r16 e4 fis8 r | R1*2 | R2. |
   r4 d\(cis8\) r | R2. | r4 d\(cis8\) r \key c \major | R1 | d4 c aes' g8 r | % 23a
   ees4 g d\(g8\) r | ees4 d ees\(d8\) r | R1 | c4(des) bes e |
-  f8 r r2 | R2. | ges2 ces4 | 8 r bes,4\(aes8\) r | R1 | % 24a
+  f8 r r2 | R2. | ges2 ces4 | bes8 r bes,4\(aes8\) r | R1 | % 24a
   R1 | ges'4\(ces8\) r a4\(c8\) r | ges4 8 r ees4\(ges8\) r\breathe | <dis fis>2 <d g>4~8 r | <dis fis>2 <d g>4~8 r | fis4\(g8.\) r16 f4\(gis8\) r | fis4 8. r16 4.\(eis8\) | cis4(d b eis) | % 25a
   b8 r r4 r2 | R1 | \key d \major R2.*3 |
   R2. | dis2(b4) f'8 r | dis2(b4) f'8 r | <b, g'>1( | % 26a
@@ -235,7 +235,7 @@ tenor = \relative {
   R2.*3 \key c \major | a4 gis c4 8 r | g4 g ees' d8 r | % 23a
   g,4 bes g8\((a) b\) r | d4 g,8(a) bes4\(a8\) r | R1*2 |
   f'2 e4 | e8 r f,4\(e8\) r | bes'2 f'4 | ges8 r ees4\(ces8\) r | aes2 c4~8 r | % 24a
-  aes2 d4(c8) r | ces4\(d8\) r a4\(d8\) r | bes4\(a8\) r c4\(ees8\) r\breathe | <gis, b>2 <g b>4~8 r |
+  aes2 d4~8 r | ces4\(d8\) r a4\(d8\) r | bes4\(a8\) r c4\(ees8\) r\breathe | <gis, b>2 <g b>4~8 r |
   <gis b>2 <g b>4~8 r | cis4\(ais8.\) r16 d8\((e) eis\) r | a,8\((b) cis8.\) r16 d4 e8 r | R1 | % 25a
   R1*2 \key d \major R2.*2 b2.( |
   a4) b\(g8\) r | a2(f'4) b,8 r | a2(f'4) b,8 r | e,1( | % 26a
@@ -281,7 +281,7 @@ bass = \relative {
   fis4(cis) f~8 r | a4\(cis,8.\) r16 b'4 8 r | d,4 8. r16 cis4\(b8\) r | a4(b d cis) | % 25a
   g'8 r r4 r2 | R1 \key d \major R2.*3 |
   R2. | b4\(fis8\) r g4\(d8\) r | b4\( fis'8\) r d4\( g,8\) r | b4(cis d e | % 26a
-  e4 g b) d e8 r | R1*4 |
+  fis4 g b) d e8 r | R1*4 |
 }
 
 wordsBass = \lyricmode {
