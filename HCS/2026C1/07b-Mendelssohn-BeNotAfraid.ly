@@ -1,4 +1,4 @@
-\version "2.25.33"
+\version "2.25.35"
 
 \include "../kjp.ly"
 \include "predefined-guitar-fretboards.ly"
@@ -35,11 +35,16 @@ today = #(strftime "%Y-%m-%d %H:%M:%S" (localtime (current-time)))
 }
 
 global = {
-  \key g \major
-  \time 4/4
+  \key d \major
+  \time 3/8
 }
 
 TempoTrack = {
+% Hear Ye Israel
+  \tempo Adagio 8=80 s4.*61
+  \tempo "Più Adagio" 8=80 s4.*4 s1*5
+  \tempo "Allegro maestoso" 4=132 s2.*88
+% Be not afraid
   \tempo "Allegro maestoso, ma moderato" 4=112 s1*33
   \tempo "Più animato." 4=128 s1*49
   \set Score.tempoHideNote = ##t
@@ -50,7 +55,43 @@ TempoTrack = {
 RehearsalTrack = {
 %  \set Score.currentBarNumber = #5
 %  \mark \markup { \box "1a" } s2.*4
-  \textMark \markup { \box "114a" } s1*4
+                                % Hear Ye Israel
+  \textMark \markup\box "108a" s4.*61 % s4.*5
+%  \textMark \markup\box "108b" s4.*5
+%  \textMark \markup\box "108c" s4.*5
+%  \textMark \markup\box "108d" s4.*5
+%  \textMark \markup\box "108e" s4.*5
+%  \textMark \markup\box "109a" s4.*5
+%  \textMark \markup\box "109b" s4.*6
+%  \textMark \markup\box "109c" s4.*6
+%  \textMark \markup\box "109d" s4.*6
+%  \textMark \markup\box "109e" s4.*5
+%  \textMark \markup\box "110a" s4.*6
+%  \textMark \markup\box "110b" s4.*6
+  s4.*4
+  \textMark \markup\box "110c" \time 4/4 s1*5 % 3
+%  \textMark \markup\box "110d" s1*2
+  \textMark \markup\box "110d+2"
+  \time 3/4 s2.*88 % 2
+%  \textMark \markup\box "110e" s2.*6
+%  \textMark \markup\box "111a" s2.*6
+%  \textMark \markup\box "111b" s2.*5
+%  \textMark \markup\box "111c" s2.*6
+%  \textMark \markup\box "111d" s2.*5
+%  \textMark \markup\box "111e" s2.*5
+%  \textMark \markup\box "112a" s2.*5
+%  \textMark \markup\box "112b" s2.*5
+%  \textMark \markup\box "112c" s2.*4
+%  \textMark \markup\box "112d" s2.*5
+%  \textMark \markup\box "112e" s2.*6
+%  \textMark \markup\box "113a" s2.*6
+%  \textMark \markup\box "113b" s2.*5
+%  \textMark \markup\box "113c" s2.*5
+%  \textMark \markup\box "113d" s2.*7
+%  \textMark \markup\box "113e" s2.*5
+                                % Be Not Afraid
+  \break
+  \textMark \markup { \box "114a" } \time 4/4 s1*4
   \textMark \markup { \box "114b" } s1*4
   \textMark \markup { \box "114c" } s1*5
   \textMark \markup { \box "115a" } s1*5
@@ -76,8 +117,18 @@ RehearsalTrack = {
   \textMark \markup { \box "121c" } s1*10
 }
 
+dynamicsEmpty = {
+  s4.*65 | s1*5 | s2.*88 |
+}
+
+vocalEmpty = {
+  \compressMMRests {R4.*61 | R4.*4 | R1*5 | R2.*88 |}
+  \key g \major
+}
+
 dynamicsSop = {
   \override DynamicTextSpanner.style = #'none
+  \dynamicsEmpty
   s2 s\f | s1*12 |
   s1*8 | s2 s\f | s1*6 | % 115
   s1*11 | s4. s8\f s2 | s1*4 |
@@ -90,6 +141,7 @@ dynamicsSop = {
 
 soprano = \relative {
   \global
+  \vocalEmpty
   r2 d''4 b8. g16 | e4 g' fis e | d2 4 b8. g16 | e4 fis g a |
   a2 r | R1 | r2 g'4 e8. c16 | a2 c4 a8. fis16 |
   d'4 g, a c | b b c e | d d e g | fis2 r | r b,4 8. 16 |
@@ -228,6 +280,7 @@ wordsSopMidi = \lyricmode {
 
 dynamicsAlto = {
   \override DynamicTextSpanner.style = #'none
+  \dynamicsEmpty
   s2 s\f | s1*12 |
   s1*8 | s2 s\f | s1*6 | % 115
   s1*16 |
@@ -240,6 +293,7 @@ dynamicsAlto = {
 
 alto = \relative {
   \global
+  \vocalEmpty
   r2 d'4 8. 16 | e4 e a fis | g2 d4 8. 16 | 4 4 4 cis |
   d2 r | r d'4 b8. g16 | e4. 8 4 g | 2 fis4 a8. d,16 |
   d4 d e d | g g g a | b b bes bes | a2 r4 r8 d, | d'4 c b a |
@@ -349,6 +403,7 @@ wordsAltoMidi = \lyricmode {
 
 dynamicsTenor = {
   \override DynamicTextSpanner.style = #'none
+  \dynamicsEmpty
   s2 s\f | s1*12 |
   s1*7 | s2 s\f | s1*7 | % 115
   s1*16 |
@@ -361,6 +416,7 @@ dynamicsTenor = {
 
 tenor = \relative {
   \global
+  \vocalEmpty
   r2 b4 8. 16 | c4 c c c | b2 4 8. 16 | b4 a g g' |
   fis2 a4 fis8. d16 | b4. 8 4 4 | c2 2~ | 4 4 a d |
   d2 r4 fis, | g g c c | b b cis cis | d2 r | r4 r8 d, d'4 4 |
@@ -472,6 +528,7 @@ wordsTenorMidi = \lyricmode {
 
 dynamicsBass = {
   \override DynamicTextSpanner.style = #'none
+  \dynamicsEmpty
   s2 s\f | s1*12 |
   s1*7 | s2 s\f | s1*7 | % 115
   s1*15 | s4. s8\f s2 |
@@ -484,6 +541,7 @@ dynamicsBass = {
 
 bass = \relative {
   \global
+  \vocalEmpty
   r2 g4 8. 16 | 4 g, g g | 2 g'4 8. 16 | 4 fis e e |
   d1 | 4 8. 16 2~ | 1~ | 2 a'4 fis8. d16 |
   b4 b c d | e e e fis | g g g g | d4. 8 d'4 c | b a g f |
@@ -596,8 +654,18 @@ wordsBassMidi = \lyricmode {
   "\n“Thy " "help " "is " "near; " "be " "not " a "fraid;” " "saith " "God " "the " "Lord. "
 }
 
+pianoEmpty = {
+  \compressMMRests {R4.*65 | R1*5 | \key b \major R2.*84 |}
+}
+
 pianoRHone = \relative {
   \global
+  \pianoEmpty \break
+  <b dis fis>8. 16 8. 16 <b e gis>8. <cis e ais>16 | % 113e+
+  <dis fis ais>8. <fis b dis>16 8. <b dis fis>16 <b e gis>8. <cis e ais>16 |
+  <dis fis b>4.. <b, b'>16 8. 16 |
+  q4-> q-> q-> \section \key g \major |
+                                % and now for Be Not Afraid
   <b b'>2 <d g b d>4 <b d g b>8. <b d g>16 |
   <c e>4 <g' c e g> <a c fis> <fis a c e> |
   <g b d>2 <d g b d>4 <b d g b>8. <b d g>16 |
@@ -691,6 +759,7 @@ pianoRHone = \relative {
 
 pianoRHtwo = \relative {
   \global \vt
+  \pianoEmpty s2.*4 |
   s1*7 | s2. d'4 | s1*5 |
   s1*2 | s4 <d g> fis e | dis e dis g | s2 fis | % 115a
   s2 <e g> | s1*4 |
@@ -713,6 +782,7 @@ pianoRHtwo = \relative {
 
 dynamicsPiano = {
   \override DynamicTextSpanner.style = #'none
+  \dynamicsEmpty
   s2\sf s2\ff | s1*12 |
   s1*6 | s2 s\ff | s1\sf | s2 s\sf | s1*2 | s2 s\fz | s1*3 | % 115
   s1*5 | s4 s2.\f | s4 s2.\sf | % 116a
@@ -727,7 +797,10 @@ dynamicsPiano = {
 
 pianoLHone = \relative {
   \global
-  r2 <g,, g'>4 8. 16 | 4 4 4 4 | 2 <g' g'>4 8. 16 | 4 <fis fis'> <e e'> <d d'> |
+  \pianoEmpty
+  \repeat unfold 6 {<b,, b'>8. 16} q4.. r16 r4 | R2. | \section \key g \major | % 113e+
+                                % and now for Be Not Afraid
+  r2 <g g'>4 8. 16 | 4 4 4 4 | 2 <g' g'>4 8. 16 | 4 <fis fis'> <e e'> <d d'> |
   q4 8. 16 2 | 4 8. 16 2 | 4 8. 16 2 | 4 8. 16 a'4 fis8. d16 |
   <b b'>4 \vo b''8. g16 \ov <c, e>4 <d fis> | % 114c
   <e g b>4 4 <e c'> <fis c'> |
@@ -784,6 +857,7 @@ pianoLHone = \relative {
 
 pianoLHtwo = \relative {
   \global \vt
+  \pianoEmpty s1*4 \key g \major
   s1*8 | s4 b, s2 | s1*2 | s2 d2~ | d2 s |
   s1*12 | s4 bes' a4. g8 | fis4 c' b4. a8 | <g b>2 e | % 115
   s1*10 | s2 g,4 fis | e r r <g g'> | s1*2 | s2 d'4 fis, | s1 |
