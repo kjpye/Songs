@@ -72,12 +72,9 @@ dynamicsSop = {
 
 soprano = \relative {
   \global
-  c4
-  \bar "|."
 }
 
 wordsSop = \lyricmode {
-  words
 }
 
 dynamicsAlto = {
@@ -86,12 +83,9 @@ dynamicsAlto = {
 
 alto = \relative {
   \global
-  c4
-  \bar "|."
 }
 
 wordsAlto = \lyricmode {
-  words
 }
 
 dynamicsTenor = {
@@ -100,12 +94,9 @@ dynamicsTenor = {
 
 tenor = \relative {
   \global
-  c4
-  \bar "|."
 }
 
 wordsTenor = \lyricmode {
-  words
 }
 
 dynamicsBass = {
@@ -114,24 +105,17 @@ dynamicsBass = {
 
 bass = \relative {
   \global
-  c4
-  \bar "|."
 }
 
 wordsBass = \lyricmode {
-  words
 }
 
 pianoRHone = \relative {
   \global
-  c4
-  \bar "|."
 }
 
 pianoRHtwo = \relative {
-  \global
-  c4
-  \bar "|."
+  \global \vt
 }
 
 dynamicsPiano = {
@@ -140,14 +124,10 @@ dynamicsPiano = {
 
 pianoLHone = \relative {
   \global
-  c4
-  \bar "|."
 }
 
 pianoLHtwo = \relative {
-  \global
-  c4
-  \bar "|."
+  \global \vt
 }
 
 #(set-global-staff-size 20)
@@ -178,7 +158,7 @@ pianoLHtwo = \relative {
             instrumentName = #"Soprano"
             shortInstrumentName = #"S"
             midiInstrument = "choir aahs"
-            \accidentalStyle Score.modern-cautionary
+            \accidentalStyle Score.modern
           }
           <<
             \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
@@ -192,7 +172,7 @@ pianoLHtwo = \relative {
             instrumentName = #"Alto"
             shortInstrumentName = #"A"
             midiInstrument = "choir aahs"
-            \accidentalStyle Score.modern-cautionary
+            \accidentalStyle Score.modern
           }
           <<
             \new Dynamics \with {alignAboveContext = alto} \dynamicsAlto
@@ -204,7 +184,7 @@ pianoLHtwo = \relative {
             instrumentName = #"Tenor"
             shortInstrumentName = #"T"
             midiInstrument = "choir aahs"
-            \accidentalStyle Score.modern-cautionary
+            \accidentalStyle Score.modern
           }
           <<
             \clef "treble_8"
@@ -217,7 +197,7 @@ pianoLHtwo = \relative {
             instrumentName = #"Bass"
             shortInstrumentName = #"B"
             midiInstrument = "choir aahs"
-            \accidentalStyle Score.modern-cautionary
+            \accidentalStyle Score.modern
           }
           <<
             \clef "bass"
@@ -231,7 +211,7 @@ pianoLHtwo = \relative {
             shortInstrumentName = #"SA"
             midiInstrument = "choir aahs"
             printPartCombineTexts = ##f
-            \accidentalStyle Score.modern-cautionary
+            \accidentalStyle Score.modern
           }
           <<
             \new Voice \TempoTrack
@@ -246,7 +226,7 @@ pianoLHtwo = \relative {
             shortInstrumentName = #"TB"
             midiInstrument = "choir aahs"
             printPartCombineTexts = ##f
-            \accidentalStyle Score.modern-cautionary
+            \accidentalStyle Score.modern
           }
           <<
             \clef "bass"
@@ -255,23 +235,23 @@ pianoLHtwo = \relative {
         >>
         \new PianoStaff = piano <<
           \new Staff = pianorh \with {
-            printPartCombineTexts = ##f
             midiInstrument = "acoustic grand piano"
-            \accidentalStyle Score.modern-cautionary
+            \accidentalStyle Score.modern
           }
           <<
             \new Voice \TempoTrack
-            \new Voice \partCombine \pianoRHone \pianoRHtwo
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
           >>
           \new Dynamics \dynamicsPiano
           \new Staff = pianolh \with {
-            printPartCombineTexts = ##f
             midiInstrument = "acoustic grand piano"
-            \accidentalStyle Score.modern-cautionary
+            \accidentalStyle Score.modern
           }
           <<
             \clef "bass"
-            \new Voice \partCombine \pianoLHone \pianoLHtwo
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
           >>
         >>
       >>
@@ -309,6 +289,9 @@ pianoLHtwo = \relative {
       \context {
         \Voice
 %        \consists Ambitus_engraver
+      }
+      \context { \Lyrics
+        autoExtenders = ##t
       }
     }
     \midi {
