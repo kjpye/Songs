@@ -1,4 +1,4 @@
-\version "2.25.31"
+\version "2.25.35"
 
 \include "../kjp.ly"
 \include "predefined-guitar-fretboards.ly"
@@ -50,7 +50,7 @@ TempoTrack = {
   \tempo 2=160 s1.*9 |
 }
 
-RehearsalTrack = {
+RehearsalTrackOld = {
 %  \set Score.currentBarNumber = #5
 %  \mark \markup { \box "1a" } s2.*4
   \textMark \markup { \box "5a" } s1*12
@@ -86,6 +86,39 @@ RehearsalTrack = {
   \mark \markup\circle\bold "10"   s1.*2
 }
 
+RehearsalTrack = {
+  \textMark \markup\box "1a" s1*12 |
+  \textMark \markup\box "1b" \time 3/2 s1.*5 |
+  \mark \markup\bold\circle "1"
+  \textMark \markup\box "2a" s1.*5 |
+  \textMark \markup\box "2b" s1.*5 |
+  \mark \markup\bold\circle "2"
+  \textMark \markup\box "3a" s1.*5 |
+  \textMark \markup\box "3b" s1.*5 |
+  \mark \markup\bold\circle "3"
+  \textMark \markup\box "4a" s1.*5 |
+  \textMark \markup\box "4b" s1.*5 |
+  \mark \markup\bold\circle "4"
+  \textMark \markup\box "5a" s1.*5 |
+  \textMark \markup\box "5b" s1.*5 |
+  \mark \markup\bold\circle "5"
+  \textMark \markup\box "6a" s1.*5 |
+  \textMark \markup\box "6b" s1.*5 |
+  \mark \markup\bold\circle "6" s1. |
+  \textMark \markup\box "7a" s1.*5 |
+  \textMark \markup\box "7b" s1.*4 |
+  \mark \markup\bold\circle "7" s1.*2 |
+  \textMark \markup\box "8a" s1.*6 |
+  \textMark \markup\box "8b" s1.*2 |
+  \mark \markup\bold\circle "8" s1.*3 |
+  \textMark \markup\box "8a" s1.*5 |
+  \textMark \markup\box "8b" s1.*2 |
+  \mark \markup\bold\circle "9" s1.*3 |
+  \textMark \markup\box "9a" s1.*4 |
+  \textMark \markup\box "9b" s1.*3 |
+  \mark \markup\bold\circle "10" s1.*2 |
+}
+
 dynamicsVocal = {
   \override DynamicTextSpanner.style = #'none
   s2 s1\ff s2*3 | s1*9 |
@@ -108,13 +141,24 @@ wr = \relative {
 }
 
 wrd = \relative {
-  \repeat unfold 2 {r2 f'-.-- f-.-- | e-.-- e-.-- r |}
-  r f-.-- f-.-- | e-.-- f1-- | g-- f2-.-- | d1.-- |
+  \repeat unfold 2 {r2 a'-.-- a-.-- | g-.-- g-.-- r |}
+  r f-.-- f-.-- | e-.-- f1-- | g2-. e1-- | d1.-- | \caesura
 }
 
-wrb = \relative {
+wrda = \relative {
   \repeat unfold 2 {r2 f'-.-- f-.-- | e-.-- e-.-- r |}
-  r f-.-- f-.-- | e-.-- f1-- | g2-- f1-.-- | e1.-- |
+  r f-.-- f-.-- | e-.-- d1-- | e-. e1-- | d1.-- | \caesura
+}
+
+
+wrba = \relative {
+  \repeat unfold 2 {r2 f'-.-- f-.-- | e-.-- e-.-- r |}
+  r f-.-- f-.-- | e-.-- d1-- | e2-- e1-.-- | e1.-- |
+}
+
+wrbs = \relative {
+  \repeat unfold 2 {r2 a'-.-- a-.-- | g-.-- g-.-- r |}
+  r a-.-- a-.-- | g-.-- f1-- | g2-- e1-.-- | e1.-- |
 }
 
 wre = \relative {
@@ -124,7 +168,7 @@ wre = \relative {
 
 wwr = \relative {
   \repeat unfold 2 {r2 a'-.-- a-.-- | g-.-- g-.-- r | }
-  r2 a-.-- a-.-- | g-.-- f1-- | g-.-- e2-- | g1.-- |
+  r2 a-.-- a-.-- | g-.-- f1-- | g-.-- f2-- | g1.-- |
 }
 
 wwrb = \relative {
@@ -137,9 +181,24 @@ mr = \relative {
   r f-.-- f-.-- | e-.-- f1-- | g-- f2-.-- | e1.-- |
 }
 
-mrd = \relative {
-  \repeat unfold 2 {r2 f-.-- f-.-- | e-.-- e-.-- r |}
-  r f-.-- f-.-- | e-.-- f1-- | g-- f2-.-- | d1.-- |
+mrbb = \relative {
+  \repeat unfold 2 {r2 a-.-- a-.-- | g-.-- g-.-- r |}
+  r a-.-- a-.-- | g-.-- f1-- | g2-- f1-.-- | d1.-- |
+}
+
+mrbt = \relative {
+  \repeat unfold 2 {r2 a-.-- a-.-- | a-.-- a-.-- r |}
+  r a-.-- a-.-- | a-.-- a1-- | a2-- a1-.-- | d,1.-- |
+}
+
+mrdb = \relative {
+  \repeat unfold 2 {r2 a-.-- a-.-- | g-.-- g-.-- r |}
+  r a-.-- a-.-- | g-.-- f1-- | g2-- e1-.-- | d1.-- |
+}
+
+mrdt = \relative {
+  \repeat unfold 2 {r2 a-.-- a-.-- | a-.-- a-.-- r |}
+  r a-.-- a-.-- | a-.-- a1-- | a2-- a1-.-- | d,1.-- |
 }
 
 mre = \relative {
@@ -147,19 +206,14 @@ mre = \relative {
   r f-> f-> | e-> f1-> | g-> f2-> | e1.-> |
 }
 
-mrb = \relative {
-  \repeat unfold 2 {r2 f-.-- f-.-- | e-.-- e-.-- r |}
-  r f-.-- f-.-- | e-.-- f1-- | g2-- f1-.-- | g1.-- |
-}
-
-mmr = \relative {
-  \repeat unfold 2 {r2 a-.-- a-.-- | g-.-- g-.-- r | }
-  r2 a-.-- a-.-- | g-.-- f1-- | g-.-- e2-- | g1.-- |
-}
-
 mmrb = \relative {
   \repeat unfold 2 {r2 a-.-- a-.-- | g-.-- g-.-- r | }
-  r2 a-.-- a-.-- | g-.-- f1-- | g2-.-- e1-- | d1.-- |
+  r2 a-.-- a-.-- | g-.-- f1-- | g1-.-- f2-- | g1.-- |
+}
+
+mmrt = \relative {
+  \repeat unfold 2 {r2 a-.-- a-.-- | a-.-- a-.-- r | }
+  r2 a-.-- a-.-- | a-.-- a1-- | a1-.-- a2-- | a1.-- |
 }
 
 mw = \relative {
@@ -185,9 +239,9 @@ mwd = \relative {
 
 soprano = \relative {
   \global
-  \repeat unfold 2 {r2 <d'' e>1-> <c f>2-> <c d>-> <bes d>-> \breathe |}
-  r2 <f' a>1-> <e g>2-> <f a>-> <e g>-> | q-> <d f>-> e\breve->\fermata \breathe |
-  \time 3/2 \wr \wr \wrb \wr \wr \wwr \wrd \transpose c c' {\wre \wre \mw \mwc}
+  \repeat unfold 2 {r2 <d'' e>1-> <c f>2-> <c d>-> <bes d>-> \caesura |}
+  r2 <f' a>1-> <e g>2-> <f a>-> <e g>-> | q-> <d f>-> e\breve->\fermata \caesura \section |
+  \time 3/2 \wr \wr \wrbs \wr \wr \wwr \wrd \transpose c c' {\wre \wre \mw \mwc}
   d1.->~ d~ d~ d~ | d~ d~ d~ d~ d\fermata |
   \bar "|."
 }
@@ -266,33 +320,33 @@ wordsMidi = \lyricmode {
 
 alto = \relative {
   \global
-  \repeat unfold 2 {r2 f'1-> e2-> d-> d-> \breathe |}
-  r2 a'1-> 2-> 2-> 2-> | a2-> a-> a\breve->\fermata \breathe |
-  \time 3/2 \wr \wr \wrb \wr \wr \wr \wrd \wre \wre \transpose c c' {\mwb \mwd}
+  \repeat unfold 2 {r2 f'1-> e2-> d-> d-> \caesura |}
+  r2 a'1-> 2-> 2-> 2-> | a2-> a-> a\breve->\fermata \caesura \section |
+  \time 3/2 \wr \wr \wrba \wr \wr \wr \wrd \wre \wre \transpose c c' {\mwb \mwd}
   d,1.->~ d~ d~ d~ | d~ d~ d~ d~ d\fermata |
 }
 
 tenor = \relative {
   \global
-  \repeat unfold 2 {r2 <d' e>1-> <c f>2-> <c d>-> <bes d>-> \breathe |}
-  r2 <f' a>1-> <e g>2-> <f a>-> <e g>-> | q-> <d f>-> e\breve->\fermata \breathe
-  \time 3/2 \mr \mr \mrb \mr \mr \mmr \mrd \transpose c c' { \mre \mre} \mw \mwc
+  \repeat unfold 2 {r2 <d' e>1-> <c f>2-> <c d>-> <bes d>-> \caesura |}
+  r2 <f' a>1-> <e g>2-> <f a>-> <e g>-> | q-> <d f>-> e\breve->\fermata \caesura \section |
+  \time 3/2 \mr \mr \mrbt \mr \mr \mmrt \mrdt \transpose c c' { \mre \mre} \mw \mwc
   d1.->~ d~ d~ d~ | d~ d~ d~ d~ d\fermata |
 }
 
 bass = \relative {
   \global
-  \repeat unfold 2 {r2 f1-> e2-> d-> d-> \breathe |}
-  r2 a'1-> 2-> 2-> 2-> | a2-> a-> a\breve->\fermata \breathe |
-  \time 3/2 \mr \mr \mrb \mr \mr \mmr \mrd \mre \mre \mwb \mwd
+  \repeat unfold 2 {r2 f1-> e2-> d-> d-> \caesura |}
+  r2 a'1-> 2-> 2-> 2-> | a2-> a-> a\breve->\fermata \caesura \section |
+  \time 3/2 \mr \mr \mrbb \mr \mr \mmrb \mrdb \mre \mre \mwb \mwd
   d,1.->~ d~ d~ d~ | d~ d~ d~ d~ d\fermata |
 }
 
 pianoRHone = \relative {
   \global \vo
-  \repeat unfold 2 {r2 <f'' a e'>1-> <f a f'>2-> <c d a' c d>-> <d a' bes d>-> \breathe |}
+  \repeat unfold 2 {r2 <f'' a e'>1-> <f a f'>2-> <c d a' c d>-> <d a' bes d>-> \caesura |}
   r2 <a' e' f a>1-> <g d' e g>2-> <a e' f a>-> <g d' e g>-> |
-  q2-> <f a d e f>-> <e a d e>\breve->\fermata \breathe |
+  q2-> <f a d e f>-> <e a d e>\breve->\fermata \caesura \section |
   \clef bass \time 3/2
                                 % 5b
   \repeat unfold 2 {
@@ -335,7 +389,7 @@ pianoRHone = \relative {
 
 pianoRHtwo = \relative {
   \global
-  \repeat unfold 2 {r2 <f' a e'>1-> <e a e'>2-> s <d a' bes>-> \breathe |}
+  \repeat unfold 2 {r2 <f' a e'>1-> <e a e'>2-> s <d a' bes>-> \caesura |}
   r2 <e f a e'>1-> <d e g d'>2-> <e f a e'>-> <d e g d'>-> |
   q2-> <e f a e'>-> <a, e' a>\breve \breathe \clef bass |
   \repeat unfold 2 {
@@ -374,8 +428,8 @@ dynamicsPiano = {
 
 pianoLHone = \relative {
   \global
-  \ottava #-1 \repeat unfold 2 {<d,, d'>1-> <c c'>-> <bes bes'>-> \breathe |}
-  <a a' a'>1-> \ottava #0 <a' a'>\breve~ | 1 \appoggiatura {a16 a'}<a, a'>\breve->\fermata \breathe |
+  \ottava #-1 \repeat unfold 2 {<d,, d'>1-> <c c'>-> <bes bes'>-> \caesura |}
+  <a a' a'>1-> \ottava #0 <a' a'>\breve~ | 1 \appoggiatura {a16 a'}<a, a'>\breve->\fermata \caesura \section |
   \vo \repeat unfold 28 {d1->2->~ | 2 1-> |} % 5b-11a
   \repeat unfold 2 {
     \repeat unfold 3 {
