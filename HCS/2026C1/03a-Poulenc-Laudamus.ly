@@ -376,7 +376,7 @@ dynamicsBass = {
   s1*2 s4*5 s2.*2 s1*3 s2.*3 |
   s2. s1 s2. s1 | s2. s\mf s s1 | % 17
   s2. s1 s2. s\mf | s2.*2 s1*2 |
-  s2. s1 s2 s8 s\f s1*3 s1\p |
+  s2.\f s1 s2 s8 s\f s1*3 s1\p |
   s2. s\f s2.. s8\ff s2.. s8\ff | s1 s2.. s8\fff s1*2 | % 20
 }
 
@@ -389,7 +389,7 @@ bass = \relative {
   r2 r4 r8 e, | f4 e g8 r r4 | R1 |
   ges8 aes bes ces bes4 des8 r | R1 | c,1 | % 13a
   c2.~8 r | a' g a c g r | r2 r4 r8 c, | ees4 d ees8 r r4 |
-  R1 | e8 fis gis a gis4 b8 r | R1 | % 14a
+  R1 | e8^\markup\bold\with-color "red" "higher than tenors" fis gis a gis4 b8 r | R1 | % 14a
   ces4 bes ces d8 r | R1 | b8 a b d b r | r2 r4 r8 e, |
   f4 e g8 r r4 | c,8 d e f e4 g8 r | R1 | % 15a
   R2 | d1 | 2 8 r4 a'8 | f4 a c8 r4 a8 |

@@ -88,7 +88,7 @@ dynamicsSop = {
   s1*13 |
   s1*6 | s2. s4\f | s1*5 |
   s1*2 | s4 s2.\f | s1*7 | s2 s\f | s1*6 | % 27
-  s1*3 | s1\cresc | s1*2 | s1\cresc | s1*2 | s1\sf | s1*2 | s1\dim | s1 | s2\< s\> | s1\! | s2 s\p | s s\cresc | s1 | s\f |
+  s1*3 | s1\cresc | s1*2 | s1\cresc | s1*2 | s1\sf | s\sf | s | s1\dim | s1 | s2\< s\> | s1\! | s2 s\p | s s\cresc | s1 | s\f |
   s2 s\p | s s\cresc | s1 | s\f | s\p | s1*2 | s1\cresc | s | s\f | s1*4 | s4 s2.\f |
   s1*5 | s2 s\dim | s1*4 | s4 s2.\cresc | s1 | s\f | s | % 30
   s1 | s2 s\dim | s1*3 | s2 s\cresc | s1*6 | s2 s\dim | s1*2 | s1\p |
@@ -213,7 +213,7 @@ dynamicsAlto = {
   s1*13 |
   s1*12 |
   s1*2 | s4 s2.\f | s1*7 | s2 s\f | s1*6 | % 27
-  s1*3 | s1\cresc | s1*2 | s1\cresc | s1*2 | s1\sf | s1*2 | s1\dim | s1 | s2\< s\> | s1\! | s2 s\p | s s\cresc | s1 | s\f | 
+  s1*3 | s1\cresc | s1*2 | s1\cresc | s1*2 | s1\sf | s\sf | s | s1\dim | s1 | s2\< s\> | s1\! | s2 s\p | s s\cresc | s1 | s\f | 
   s2 s\p | s s\cresc | s1 | s\f | s\p | s1*2 | s1\cresc | s | s\f | s1*3 | s2. s4\f | s1 |
   s1*5 | s2 s\dim | s1*4 | s1\cresc | s | s\f | s | % 30
   s1 | s2 s\dim | s1 | s\p | s | s2 s\cresc | s1*6 | s2 s\dim | s1*2 | s1\p |
@@ -281,7 +281,7 @@ dynamicsTenor = {
   s1*13 |
   s1*12 |
   s1*2 | s4 s2.\f | s1*7 | s2 s\f | s1*6 | % 27
-  s1*3 | s1\cresc | s1*2 | s1\cresc | s1*2 | s1\sf | s1*2 | s1\dim | s1 | s2\< s\> | s1\! | s2 s\p | s s\cresc | s1 | s\f | 
+  s1*3 | s1\cresc | s1*2 | s1\cresc | s1*2 | s1\sf | s\sf | s | s1\dim | s1 | s2\< s\> | s1\! | s2 s\p | s s\cresc | s1 | s\f | 
   s2 s\p | s s\cresc | s1 | s\f | s\p | s1*2 | s1\cresc | s | s\f | s1*3 | s4 s2.\f | s1 |
   s1*5 | s2 s\dim | s1*4 | s1\cresc | s | s\f | s | % 30
   s1 | s2 s\dim | s1 | s\p | s | s2 s\cresc | s1*6 | s2 s\dim | s1*2 | s1\p |
@@ -349,7 +349,7 @@ dynamicsBass = {
   s1*10 | s2. s4\f | s1*2 |
   s1*7 | s2. s4\f | s1*4 |
   s1*2 | s4 s2.\f | s1*7 | s2 s\f | s1*6 | % 27
-  s1*3 | s1\cresc | s1*2 | s1\cresc | s1*2 | s1\sf | s1*2 | s1\dim | s1 | s2\< s\> | s1\! | s2 s\p | s s\cresc | s1 | s\f | 
+  s1*3 | s1\cresc | s1*2 | s1\cresc | s1*2 | s1\sf | s\sf | s | s1\dim | s1 | s2\< s\> | s1\! | s2 s\p | s s\cresc | s1 | s\f | 
   s2 s\p | s s\cresc | s1 | s\f | s\p | s1*2 | s1\cresc | s | s\f | s1*2 | s2. s4\f | s1*2 |
   s1*5 | s2 s\dim | s1*4 | s1\cresc | s | s\f | s | % 30
   s1 | s2 s\dim | s1*3 | s2 s\cresc | s1*6 | s2 s\dim | s1*2 | s1\p |
@@ -370,7 +370,7 @@ bass = \relative {
   g2 2~ | 4 4 4 4 | 2 2 | r r4 g |
   ees'2 a, | bes4. 8 e,4. 8 | f2 b,~ | 4 4 4 c8 d |
   ees4 c ees d8 c | f1 | ees4 c'4 4 8 8 | 2 2 | r4 4 4 8 8 | % 27a
-  c2 c | r4 4 4 4 | 2 2 | r4 c, c c | 2 2 |
+  c2 c | r4 4 4 4 | 2 2 | r4^\markup\bold\with-color "red" accents c, c c | 2 2 |
   r2\fermata c' | bes aes | 2 g | f\fermata bes, | ees c | d d | g,1\fermata |
   c2 c | bes1 | ees2 d | c d | d d | g1\fermata | 2 c, | f aes | % 28a
   g2 f | g aes4. 8 | f2 4. 8 | ees1 | aes,2 2 | des f | f,1 \key c \major

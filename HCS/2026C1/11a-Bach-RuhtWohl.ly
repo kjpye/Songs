@@ -347,7 +347,7 @@ bass = \relative {
     R2.*5 |
     r4\fermata r c' | ees,2 4 | c2 4 | a2 4 | bes2 bes'4 | f2 4 |
     d2 4 | b2 4 | c8 b c d ees f | g aes bes c des bes | % 125a
-    c4 r8 c, des4~ | 8 bes ees4 4 | a,2 r4 | R2.*3 |
+    c4 r8^\markup\bold\with-color "red" "observe the rest" c, des4~ | 8 bes ees4 4 | a,2 r4 | R2.*3 |
     r4 r c | b2 4 | c2 d4 | ees8 c f4 fis | g g, b | c8 g' c bes aes g |
     f4.(g8 aes4~ | 8 bes) aes(g) aes(f) | g2 ees4 | aes(g) f | e2 c4 | % 126a
     f2 ees4 | d bes'8 bes, ees4 | aes4(f) ees | bes2 4 | b2 4 |

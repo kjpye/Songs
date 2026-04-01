@@ -43,7 +43,7 @@ TempoTrack = {
   \set Score.tempoHideNote = ##t
   \tempo Andante 4=108
   s1*35
-  \tempo "Allegro moderato." 8=120
+  \tempo "Allegro moderato." 8=120 s4.-\markup\bold\with-color "red" "in 1"
 }
 
 RehearsalTrack = {
@@ -114,7 +114,7 @@ solowithsop = \relative {
   e'4 8 8 4 8 8 | a4 8 8 b4. 8 | cis4 8 8 2 | % 8ab
   b4 a fis a8 d, | 4 e8. fis16 2 | r2 r4 a8 8 | fis4 g8. a16 4. 8 | 4 cis8. d16 2 |
   d4 e fis2 | r4 d8 8 4 c8 b | 4 a8 gis8 2 | r4 e'8 8 4 d8 c | 4 b8 a8 2 | % 9a
-  c2. 4 | 2 b4 a | g(a) b cis | d4 4 2~ | 4 8 8 4 8 8 4 d,4 2~ |
+  c2. 4 | 2 b4 a | g(a) b cis | d4 4 2~ | 4 8 8 4 8 8 | 4\breathe d,4 2~ |
   d4 8 8 4 8 8 |
 }
 
@@ -401,7 +401,7 @@ dynamicsSop = {
   s1*7 | s4 s2.\f | s1 | s2 s\sf | s1*2 | s4 s2.\pp | s1*2 | % 6
   s1*22 |
   s1*8 | s1\f | s1*6 | s4 s2.\cresc |
-  s1\f | s1*7 | s4 s2.\f | s1*3 s4. s8\p s2 | s1\pp | s1*2 | % 9
+  s1\f | s1*5 | s2 s\cresc | s1 | s4 s2.\f | s1*2 | s2 s\dim | s4. s8\p s2 | s1\pp | s1*2 | % 9
   s1\pp | s1*3 | s1\cresc | s || s\p | s1*7 | s2 s\p | s1*2 |
   s1 | s\cresc | s2.. s8\f | s2 s\dim | s1 | s\pp | s1*3 | s1\pp | s\< | s2\> s\! | s1\p | s1*3 |
 }
@@ -411,13 +411,13 @@ soprano = \relative {
   R1*12 |
   R1*21 |
   d''4 g, a(d,8) d | e fis g b d2 \section | R4. r8 r b | 8. c16 b8 | e e r | R4. | r8 r b | % 3a
-  b8 a e' | dis4 r8 | R4.*3 | r8 r b | e,8. g16 b8 | d c b | a g fis | dis'4 r8 | R4. |
+  b8 a e' | dis8 r4 | R4.*3 | r8 r b | e,8. g16 b8 | d c b | a g fis | dis'4 r8 | R4. |
   r8 r fis, | b b b | cis b r | R4.*7 | r8 r fis |
   fis'4.~ | 8 e d | d r g, | e'4.~ | 8 d cis | 4 ais8 | b cis d | cis d e | dis e fis | e4.~ | e | % 4a
   eis4. | fis8(e) d | d cis ais | b4 r8 | R4. | r8 r a | 8. b16 a8 | dis8 8 r | R4. | r8 r a | a b a |
   dis4 r8 | R4.*3 | r8 r b | g'4.~ | 8 fis e | 4 e,8 | e'4.~ | 8 d c |
   c4.( | b8) r r | R4. | r8 r gis | a b c | dis e fis | g fis e | 4 b8 | b a fis | e4 8 | % 5a
-  e'4.~ | e~ | e~ | e | 4 8 | a4.~ | 8 r c, | b4. | 4 8 | a4. | g | g |
+  e'4.~ | e~ | e~ | e | 4 8 | a4.~ | 8 r c, | b4. | 4 8 | a4.\breathe | g | g |
   fis4 g8 | e4.~ | 8 r r | R4.*5 | g4. | g | f4 8 | 4.( |  e) \section |
   R1*7 | r4 g'2 bes,8. a16 | % 6ab
   a4 d c bes | a g ees'2~ | 2(d4) r | R1 | r4 d,4 4. 8 | d1~ | 4 r r2\fermata \section |
@@ -464,7 +464,7 @@ dynamicsAlto = {
   s1*7 | s4 s2.\f | s1*2 | s2. s4\dim | s1 | s4 s2.\pp | s1*2 | % 6
   s1*22 |
   s1*7 | s1\f | s1*7 | s4\cresc s2. |
-  s1\f | s1*7 | s4 s2.\f | s1*3 | s4 s2.\p | s1\pp | s1*2 | % 9
+  s1\f | s1*5 | s2 s\cresc | s1 | s4 s2.\f | s1*2 | s2 s\dim | s4 s2.\p | s1\pp | s1*2 | % 9
   s1\pp | s1*3 | s1\cresc | s || s\p | s1*2 | s1\cresc | s1*4 | s2 s\p | s1*2 |
   s1 | s\cresc | s2.. s8\f | s2 s\dim | s1 | s\pp | s1*3 | s1\pp | s\< | s2\> s\! | s1\p | s1*3 |
 }
@@ -474,13 +474,13 @@ alto = \relative {
   R1*12 |
   R1*21 |
   d''4 g, a(d,8) d | e fis g b d2 \section | R4. | r8 r b | 8. c16 b8 | e e r | R4. | r8 r b | % 3a
-  b8 a e' dis4 r8 | R4.*3 | r8 r b e,8. g16 b8 | d c b | a g fis | dis'4 r8 | R4. |
+  b8 a e' | dis r4 | R4.*3 | r8 r b e,8. g16 b8 | d c b | a g fis | dis'4 r8 | R4. |
   r8 r fis, | b b b | cis b r | R4.*7 | r8 r fis |
   d'4.~ | 8 cis b | b(ais) b | g4 8 | 4.~ | 8 fis e | d r fis | e d cis | fis e dis | g4.~ | g | % 4a
   gis4. | fis4 8(~ | fis g) fis | 4 r8 | R4. | r8 r a | 8. b16 a8 | dis8 8 r | R4. | r8 r a | a b a |
   dis4 r8 | R4.*3 | r8 r b, | b'4.~ | 8 a g | g(gis a | b c b | a4.~ |
   a8) r dis, | e fis g | fis gis a | gis a b | a4.~ | a | gis | b4 g8 | g fis dis | e4 r8 | % 5a
-  r8 r e | d'4.( | c) | b | a | c~ | 8 r fis, | g4. | f4 8 | e4. | e | e |
+  r8 r e | d'4.( | c) | b | a | c~ | 8 r fis, | g4. | f4 8 | e4.\breathe | e | e |
   e4 dis8 | e4.~ | 8 r r | R4.*5 | c4. | c | 4 8 | b4.~ | b \section |
   R1*7 | r4 bes'2 g8. fis16 | % 6ab
   fis2 r | r4 d ees g | ges(f2) 4 | ees2 r | r4 d4 4. 8 | 1~ | 4 r r2\fermata \section |
@@ -488,7 +488,7 @@ alto = \relative {
   R1*7 | d4 8 8 4 8 8 | 4(c8 b c4) e8 e | 4(a2 g4)~ | g e fis2 | % 8ab
   fis4 e d2 | d4 cis d2 | d'4 a fis a8 d, | 4 e8. fis16 4. 8 | 4 g8. a16 2 |
   a4 g fis d'8 8 | 4 c8 b8 4 a8 gis | 4 r r e8 e | 4 d8 c8 4 b8 a | 2 r4 e' | % 9a
-  e2 dis4 e | fis(a) g fis | e(fis) g g | d d'4 2~ | 4 8 8 4 8 8 | 4 d,4 2~ |
+  e2 dis4 e | fis(a) g fis | e(fis) g g | d d'4 2~ | 4 8 8 4 8 8 | 4\breathe d,4 2~ |
   d4 8 8 4 8 8 | 4. 8 4 8 8 | 1~ | 1~ | 1 |
   cis2 c | b(a) | d1 | R | a'4 4 2 | R1 | % 10a
   d,4 4 2 | R1*2 | e4 8 8 4 8 8 | a2 4. 8 |
@@ -524,12 +524,12 @@ dynamicsTenor = {
   s1*12 |
   s1*21 |
   s1\f | s | s4. s4 s8\f s4.*3 s4 s8\f | | s4.*5 | s4 s8 s4.*3 s4.\f s || s4 s8\f | s4.*10 | % 3
-  s4.\sf | s4.*10 || s4.\sf | s4.*4 | s4 s8\f | s4.*3 | s4 s8\f | s4. || s4.*5 | s4 s8\f | s4.*4 |
+  s4 s8\f | s4.\sf | s4.*9 | s4.\sf | s4.*4 | s4 s8\f | s4.*3 | s4 s8\f | s4. || s4.*5 | s4 s8\f | s4.*4 |
   s4.*15 | s4.\sf | s4.*14 | s4.\p | s4.*2 | s4.\pp | s |
   s1*7 | s4 s2.\f | s1*2 | s2. s4\dim | s1 | s4 s2.\pp | s1*2 | % 6
   s1*22 |
   s1*6 | s1\f | s1*8 | s4 s2.\cresc |
-  s1\f | s1*7 | s4 s2.\f | s1*3 | s4 s2.\p | s1\pp | s1*2 | % 9
+  s1\f | s1*5 | s2 s\cresc | s1 | s4 s2.\f | s1*2 | s2 s\dim | s4 s2.\p | s1\pp | s1*2 | % 9
   s1\pp | s1*3 | s1\cresc | s || s\p | s1 | s1\cresc | s1*5 | s2 s\p | s1*2 |
   s1 | s\cresc | s2.. s8\f | s2 s\dim | s1 | s\pp | s1*2 | s1\pp | s | s\< | s2\> s\! | s1\p | s1*3 |
 }
@@ -539,13 +539,13 @@ tenor = \relative {
   R1*12 |
   R1*21 |
   d'4 g, a(d,8) d | e fis g b d2 \section | R4. | r8 r b | 8. c16 b8 | e e r | R4. | r8 r b | % 3a
-  b8 a e' dis4 r8 | R4.*3 | r8 r b e,8. g16 b8 | d c b | a g fis | dis'4 r8 | R4. |
+  b8 a e' | dis r4 | R4.*3 | r8 r b e,8. g16 b8 | d c b | a g fis | dis'4 r8 | R4. |
   r8 r fis, | b b b | cis b r | R4.*8 |
   r8 r fis | fis'4.~ | 8 e d | d(cis) b | g' fis e | 4 r8 | R4. | r8 r ais, | b cis dis | e4.~ e | % 4a
   d4 8 | cis4 8~( | 8 e) e | dis4 r8 | R4. | r8 r a | 8. b16 a8 | dis8 8 r | R4. | r8 r a | a b a |
   dis4 r8 | R4.*4 | r8 r b | e4.~ | 8 d c | d(e) d | c4.~ |
   c8 b a | b r g | a b c | d e f | e4.~ | e~ | e4(fis8) | g4 e8 | b c a | g4 r8 | % 5a
-  R4. | r8 r e | e'4.~ | e | 4 8 | dis4.~ | 8 r dis | e4. | d4 8 | cis4. | c | b |
+  R4. | r8 r e | e'4.~ | e | 4 8 | dis4.~ | 8 r dis | e4. | d4 8 | cis4.\breathe | c | b |
   a4 8 | g4.~ | 8 r r | R4.*5 | e4. | e | f4 8 | d'4.~ | d \section |
   R1*7 | r4 e2 8. a,16 | % 6ab
   a2 r4 d | c bes a bes | c c(bes) aes | g2 r | r4 b4 4. 8 | 1~ | 4 r r2\fermata \section |
@@ -554,7 +554,7 @@ tenor = \relative {
   a4 8 8 4 8 8 | 4(c2) b8 a | g2 c4. 8 | 2 b4 8 8 | 4 8 8 4(ais) |
   R1 | d4 a fis a8 d, | 4 r d'4. 8 | 4 r a4. 8 | 4 8. 16 2 |
   a4 cis d2~ | 4 r r d8 8 | 4 c8 b8 4 a8 gis | 2 r4 e'8 8 | 4 d8 c8 4 b8 c | % 9a
-  c2 a4 4 | 4 8 8 b4 c8 8 | b4(a) g a | a d4 2~ | 4 8 8 4 8 8 | 4 d,4 2~ |
+  c2 a4 4 | 4 8 8 b4 c8 8 | b4(a) g a | a d4 2~ | 4 8 8 4 8 8 | 4\breathe d,4 2~ |
   d4 8 8 4 8 8 | 4. 8 4 8 8 | 1~ | 1~ | 1 |
   d2 2 | d(c') | b1 | R | e4 c a2 | R1 | % 10a
   b4 c b2 | R1 | c4 8 8 4 8 8 | 2. e8 e | dis2. r4 |
@@ -590,12 +590,12 @@ dynamicsBass = {
   s1*12 |
   s1*21 |
   s1\f | s | s4. s4 s8\f s4.*3 s4 s8\f | | s4.*5 | s4 s8 s4.*3 s4.\f s || s4 s8\f | s4.*10 | % 3
-  s4.\sf | s4.*10 || s4.\sf | s4.*4 | s4 s8\f | s4.*3 | s4 s8\f | s4. || s4.*5 | s4 s8\f | s4.*4 |
+  s4 s8\f | s4.\sf | s4.*9 || s4.\sf | s4.*4 | s4 s8\f | s4.*3 | s4 s8\f | s4. || s4.*5 | s4 s8\f | s4.*4 |
   s4.*15 | s4.\sf | s4.*14 | s4.\p | s4.*2 | s4.\pp | s | % 5
   s1*7 | s4 s2.\f | s1*3 | s1\dim | s4 s2.\pp | s1*2 |
   s1*22 |
-  s1*5 | s1\f | s1*9 | s4 s2.\cresc | % 8
-  s1\f | s1*7 | s4 s2.\f | s1*3 | s4 s2.\p | s1\pp | s1*2 | % 9
+  s1*5 | s1\f | s1*4 | s2 s\mp | s1*4 | s4 s2.\cresc | % 8
+  s1\f | s1*3 | s2. s4\mp | s1 | s2 s\cresc | s1 | s4 s2.\f | s1*2 | s2 s\dim | s4 s2.\p | s1\pp | s1*2 | % 9
   s1\pp | s1*3 | s1\cresc | s || s\p | s1\cresc | s1*6 | s2 s\p | s1*2 |
   s1 | s\cresc | s2.. s8\f | s2 s\dim | s1 | s\pp | s1*2 | s1\pp | s | s\< | s2\> s\! | s1\p | s1*3 |
 }
@@ -604,26 +604,26 @@ bass = \relative {
   \global
   R1*12 |
   R1*21 |
-  d'4 g, a(d,8) d | e fis g b d2 \section | R4. | r8 r b | 8. c16 b8 | e e r | R4. | r8 r b | % 3a
-  b8 a e' dis4 r8 | R4.*3 | r8 r b e,8. g16 b8 | d c b | a g fis | dis'4 r8 | R4. |
+  d'4^\markup\bold\with-color "red" "very sostenuto" g, a(d,8) d | e fis g b d2 \section | R4. | r8 r b | 8. c16 b8 | e e r | R4. | r8 r b | % 3a
+  b8 a e' | dis r4 | R4.*3 | r8 r b e,8. g16 b8 | d c b | a g fis | dis'4 r8 | R4. |
   r8 r fis, | b b b | cis b r | R4.*8 |
   r8 r fis | d'4.~ | 8 cis b | b(ais) b | ais4.~ | 8 cis fis, | b4 r8 | R4. | r8 r b | e, fis g | ais b cis | % 4a
-  d8 cis b | ais4 b8 | fis8 8 8 | b,4 r8 | R4. | r8 r a' | 8. b16 a8 | dis8 8 r | R4. | r8 r a | a b a |
+  d8 cis b | ais4 b8 | fis8 8 8 | b,4 r8 | R4. | r8 r a' | 8.^\markup\bold\with-color "red" "no Y" b16 a8 | dis8 8 r | R4. | r8 r a | a b a |
   dis4 r8 | R4.*4 | r8 r g, | c4.~ | 8 b a | gis(fis) gis | a4.~ |
   a8 g fis | g4 r8 | r r a | b(c) d | c4.~ | c~ | c | b4 b,8 | b b b | e4.~ | % 5a
-  e4.~ | 4 r8 | r r e | d'4. | c4 a8 | g4.~ | 8 r a, | g4. | gis 4 8 | a4. | ais | b |
+  e4.~ | 4 r8 | r r e | d'4. | c4 a8 | g4.~ | 8 r a,^\markup\bold\with-color "red" "Keep this forte" | g4. | gis 4 8 | a4.\breathe | ais | b |
   c4 b8 | e4.~ | 8 r r | R4.*5 | c4(b8) | a4. | 4 8 | 4.( | gis) \section |
   R1*7 | r4 cis'2 cis,8. d16 | % 6ab
   d1~ | 4 4 c bes | a2 b | ees r | r4 d4 4. 8 | 1~ | 4 r r2\fermata \section |
   R1*22 |
-  R1*5 | g4 8 8 4 8 8 | % 8a
+  R1*5 | g4^\markup\bold\with-color "red" sostenuto 8 8 4 8 8 | % 8a
   g2. f8 e | f1 | e2 a4. 8 | 2 e4. 8 | 4(g) fis4. 8 |
   b,4(cis) d fis | 4(e) d4. 8 | 4 r r2 | d'4 a fis a8 d, | 4 e8. fis16 2 |
   fis4 e d2~ | 4 r d4. 8 | e1~ | 4 r r2 | r r4 a8 a | % 9a
-  a4 g8 fis8 4 e8 dis | 2 4 4 | e2 4 4 | fis d'4 2~ | 4 8 8 4 8 8 | 4 d,4 2~ |
-  d4 8 8 4 8 8 | 4. 8 4 8 8 | 1~ | 1~ | 1 |
+  a4 g8 fis8 4 e8 dis | 2 4 4 | e2 4 4 | fis d'4 2~ | 4 8 8 4 8 8 | 4\breathe d,4 2~ |
+  d4 8 8 4 8 8 | 4. 8 4 8 8 | 1~ | 1~ | 1\breathe |
   d2 d | g,(a | b) e | R1 | a4 g fis2 | R1 | % 10a
-  d4 d g2^\markup\with-color "red" "crotchet breath" | b4 8 8 4 8 8 | 2(a4) 8 8 | 2 4. 8 | b2. r4 |
+  d4 d g2\breathe | b4 8 8 4 8 8 | 2(a4) 8 8 | 2 4. 8 | b2. r4 |
   R1*3 | r2 g,4. 8 | a4. 8 b2 | c2 g4 g |
   a2 g4 a | b2 4. 8 | 2.. 8 | 1~ | 1~ | 2 4. 8 | e,2. r4 | % 11a
   R1 | e2 e | 1~ | 2(c') b b | e,1~ | 1~ | 4 r r2 | R1\fermata |

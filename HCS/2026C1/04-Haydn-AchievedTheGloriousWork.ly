@@ -45,7 +45,7 @@ TempoTrack = {
   s4
 }
 
-RehearsalTrack = {
+RehearsalTrackOld = {
 %  \set Score.currentBarNumber = #5
 %  \mark \markup { \box "1a" } s2.*4
   \textMark \markup { \box "130a" } s1*3
@@ -74,13 +74,40 @@ RehearsalTrack = {
   \textMark \markup { \box "141b" } s1*4
 }
 
+RehearsalTrack = {
+  \textMark \markup \box "99a" s1*3
+  \textMark \markup \box "99b" s1*4
+  \textMark \markup \box "99c" s1*4
+  \textMark \markup \box "100a" s1*4
+  \textMark \markup \box "100b" s1*3
+  \textMark \markup \box "100c" s1*3
+  \textMark \markup \box "101a" s1*3
+  \textMark \markup \box "101b" s1*3
+  \textMark \markup \box "101c" s1*3
+  \textMark \markup \box "102a" s1*3
+  \textMark \markup \box "102b" s1*3
+  \textMark \markup \box "102c" s1*3
+  \textMark \markup \box "103a" s1*3
+  \textMark \markup \box "103b" s1*3
+  \textMark \markup \box "103c" s1*3 |
+  \textMark \markup \box "104a" s1*3
+  \textMark \markup \box "104b" s1*3
+  \textMark \markup \box "104c" s1*3 |
+  \textMark \markup \box "105a" s1*3
+  \textMark \markup \box "105b" s1*3
+  \textMark \markup \box "105c" s1*3 |
+  \textMark \markup \box "106a" s1*3
+  \textMark \markup \box "106b" s1*3
+  \textMark \markup \box "106c" s1*3 |
+}
+
 dynamicsSop = {
   \override DynamicTextSpanner.style = #'none
 }
 
 soprano = \relative {
   \global
-  r4 r8 c'' d c bes c16(d) | ees4. f8 d4 r | R1 |
+  r4^\markup\bold\with-color "red" "All staccato; articulate everything" r8 c'' d c bes c16(d) | ees4. f8 d4 r | R1 |
   r4 r8 d g4. 8 | f4. bes,8 ees4. d8 | c4 r r8 c d d |
   c4 r r8 c d d | c4 r r2 | R1*2 | % 131a
   R1 | r2 bes4. c8 | d c d e f2 | e4. f16(e) d4. 8 |
@@ -113,45 +140,45 @@ wordsSop = \lyricmode {
   the praise of God the praise of God
   Glo -- ry to his name for e -- ver % 131b
   he sole on high ex -- alt -- ed reigns __
-  al -- le -- lu -- ja
+  Hal -- le -- lu -- jah
   he sole on high ex -- alt -- ed reigns.
   Glo -- ry to his name for e -- ver % 133a
   He sole on high ex -- alt -- ed reigns __
   He sole on high ex -- alt -- ed reigns
-  al -- le -- lu -- ja
+  Hal -- le -- lu -- jah
   Glo -- ry to his name for e -- ver % 134a
-  al -- le -- lu -- ja
+  Hal -- le -- lu -- jah
   He sole on high, % 135a
   he sole on high ex -- alt -- ed reigns
   ex -- alt -- ed reigns
-  al -- le -- lu -- ja
+  Hal -- le -- lu -- jah
   he sole on high ex -- alt -- ed reigns
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja,
-  al -- le -- lu -- ja
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah,
+  Hal -- le -- lu -- jah
   Glo -- ry to his name for e -- ver
-  al -- le -- lu -- ja % 137a
-  al -- le -- lu -- ja,
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja.
+  Hal -- le -- lu -- jah % 137a
+  Hal -- le -- lu -- jah,
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah.
   Glo -- ry to his name for e -- ver
   Glo -- ry to his name for e -- ver % 138a
   He sole on high ex -- alt -- ed reigns
   he sole on high ex -- alt -- ed reigns
   ex -- alt -- ed reigns % 139a
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah
   He sole on high __ ex -- alt -- ed reigns
   ex -- alt -- ed reigns __ % 140a
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah
   Glo -- ry to his name for e -- ver
   he sole on high ex -- alt -- ed reigns
   ex -- alt -- ed reigns % 141a
-  al -- le -- lu -- ja,
-  al -- le -- lu -- ja.
+  Hal -- le -- lu -- jah,
+  Hal -- le -- lu -- jah.
 }
 
 wordsSopMidi = \lyricmode {
@@ -240,51 +267,51 @@ wordsAlto = \lyricmode {
   the praise of God
   the praise of God % 131a
   He sole on high ex -- alt -- ed reigns
-  al -- le -- lu -- ja
+  Hal -- le -- lu -- jah
   Glo -- ry to his name for e -- ver % 132b
   He sole on high ex -- alt -- ed reigns
   He sole on high ex -- alt -- ed reigns % 133a
-  al -- le -- lu -- ja
+  Hal -- le -- lu -- jah
   he sole on high ex -- alt -- ed reigns
-  al -- le -- lu -- ja, % 134a
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja
+  Hal -- le -- lu -- jah, % 134a
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah
   Glo -- ry to his name for e -- ver
-  al -- le -- lu -- ja. % 135a
+  Hal -- le -- lu -- jah. % 135a
   He sole on high,
   he sole on high ex -- alt -- ed reigns
   ex -- alt -- ed riegn
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah
   He sole on hign ex -- alt -- ed reigns __ % 136a
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah
   Glo -- ry to his name for e -- ver
-  al -- le -- lu -- ja % 137a
-  al -- le -- lu -- ja
+  Hal -- le -- lu -- jah % 137a
+  Hal -- le -- lu -- jah
   Glo -- ry to his name for e -- ver
-  al -- le -- lu -- ja
+  Hal -- le -- lu -- jah
   Glo -- ry to his name for e -- ver
   He sole on high __ ex -- alt -- ed reigns % 138a
   ex -- alt -- ed reigns __
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja % 139a
-  al -- le -- lu -- ja,
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja.
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah % 139a
+  Hal -- le -- lu -- jah,
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah.
   He sole on high __ ex -- alt -- ed reigns __
   ex -- alt -- ed reigns __ % 140a
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah
   He sole on high __ ex -- alt -- ed reigns
   ex -- alt -- ed reigns % 141a
   ex -- alt -- ed reigns
-  al -- le -- lu -- ja,
-  al -- le -- lu -- ja.
+  Hal -- le -- lu -- jah,
+  Hal -- le -- lu -- jah.
 }
 
 wordsAltoMidi = \lyricmode {
@@ -379,51 +406,51 @@ wordsTenor = \lyricmode {
   the praise of God
   the praise of God % 131a
   He sole on high ex -- alt -- ed reigns
-  al -- le -- lu -- ja,
-  al -- le -- lu -- ja,
-  al -- le -- lu -- ja
+  Hal -- le -- lu -- jah,
+  Hal -- le -- lu -- jah,
+  Hal -- le -- lu -- jah
   Glo -- ry to his name for e -- ver % 132a
-  al -- le -- lu -- ja,
-  al -- le -- lu -- ja
+  Hal -- le -- lu -- jah,
+  Hal -- le -- lu -- jah
   Glo -- ry to his name for e -- ver
   he sole on high ex -- alt -- ed reigns
   He sole on high ex -- alt -- ed reigns % 133a
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah
   he sole on high ex -- alt -- ed reigns % 134a
-  al -- le -- lu -- ja
+  Hal -- le -- lu -- jah
   Glo -- ry to his name for e -- ver
-  al -- le -- lu -- ja,
-  al -- le -- lu -- ja % 135a
+  Hal -- le -- lu -- jah,
+  Hal -- le -- lu -- jah % 135a
   Glo -- ry to his name for e -- ver
   He sole on high ex -- alt -- ed reigns % 136a
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah
   Glo -- ry to his name for e -- ver
-  al -- le -- lu -- ja % 137a
-  al -- le -- lu -- ja
+  Hal -- le -- lu -- jah % 137a
+  Hal -- le -- lu -- jah
   Glo -- ry to his name for e -- ver
-  al -- le -- lu -- ja
+  Hal -- le -- lu -- jah
   Glo -- ry to his name for e -- ver % 138a
   for e -- ver
   he sole on high ex -- alt -- ed reigns
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja % 139a
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah % 139a
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah
   He sole on high ex -- alt -- ed reigns
   ex -- alt -- ed reigns __ % 140a
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah
   Glo -- ry to his name for e -- ver
   he sole on high ex -- alt -- ed reigns % 141a
   ex -- alt -- ed reigns
-  al -- le -- lu -- ja,
-  al -- le -- lu -- ja.
+  Hal -- le -- lu -- jah,
+  Hal -- le -- lu -- jah.
 }
 
 wordsTenorMidi = \lyricmode {
@@ -519,39 +546,39 @@ wordsBass = \lyricmode {
   the praise of God % 131a
   Glo -- ry to his name for e -- ver,
   He sole on high ex -- alt -- ed reigns
-  al -- le -- lu -- ja,
-  al -- le -- lu -- ja
+  Hal -- le -- lu -- jah,
+  Hal -- le -- lu -- jah
   Glo -- ry to his name for e -- ver % 132a
   he sol on high ex -- alt -- ed reigns
   he sole on high __ ex -- alt -- ed reigns
-  al -- le -- lu -- ja % 133a
+  Hal -- le -- lu -- jah % 133a
   Glo -- ry to his name for e -- ver, % 134a
   glo -- ry to his name for e -- ver
   Glo -- ry to his name for e -- ver
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja % 135a
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah % 135a
   Glo -- ry to his name for e -- ver
   He sole on high ex -- alt -- ed reigns __ % 136a
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja % 137a
-  al -- le -- lu -- ja.
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah % 137a
+  Hal -- le -- lu -- jah.
   Glo -- ry to his name for e -- ver
   Glo -- ry to his name for e -- ver
   Glo -- ry to his name for e -- ver, % 138a
   He sole on high ex -- alt -- ed reigns __
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja % 139a
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah % 139a
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah
   He sole on high __ es -- alt -- ed reigns __
   ex -- alt -- ed reigns __ % 140a
-  al -- le -- lu -- ja
-  al -- le -- lu -- ja
+  Hal -- le -- lu -- jah
+  Hal -- le -- lu -- jah
   He sole on high ex -- alt -- ed reigns
   ex -- alt -- ed reigns % 141a
   ex -- alt -- ed reigns
-  al -- le -- lu -- ja,
-  al -- le -- lu -- ja.
+  Hal -- le -- lu -- jah,
+  Hal -- le -- lu -- jah.
 }
 
 wordsBassMidi = \lyricmode {
