@@ -589,7 +589,7 @@ pianoLHtwo = \relative {
 
 \book {
   \paper {
-    output-suffix = single
+    output-suffix = repeat
   }
   \score {
     <<
@@ -705,9 +705,132 @@ pianoLHtwo = \relative {
 
 \book {
   \paper {
+    output-suffix = single
+  }
+  \score {
+    \unfoldRepeats
+    <<
+      <<
+        \new ChoirStaff <<
+                                % Single soprano staff
+          \new Staff = soprano \with {
+            instrumentName = #"Soprano"
+            shortInstrumentName = #"S"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \new Dynamics \with {alignAboveContext = soprano} \dynamicsSop
+            \new Voice \TempoTrack
+            \new Voice \RehearsalTrack
+            \new Voice \soprano
+            \addlyrics \wordsSop
+          >>
+                                % Single alto staff
+          \new Staff = alto \with {
+            instrumentName = #"Alto"
+            shortInstrumentName = #"A"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Dynamics \with {alignAboveContext = alto} \teeny \dynamicsAlto
+            \new Voice \alto
+            \addlyrics {\tiny \wordsAlto}
+          >>
+                                % Single tenor staff
+          \new Staff = tenor \with {
+            instrumentName = #"Tenor"
+            shortInstrumentName = #"T"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "treble_8"
+            \new Dynamics \with {alignAboveContext = tenor} \teeny \dynamicsTenor
+            \new Voice \tenor
+            \addlyrics {\tiny \wordsTenor}
+          >>
+                                % Single bass staff
+          \new Staff = bass \with {
+            instrumentName = #"Bass"
+            shortInstrumentName = #"B"
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Dynamics \with {alignAboveContext = bass} \teeny \dynamicsBass
+            \new Voice \bass
+            \addlyrics {\tiny \wordsBass}
+          >>
+        >>
+        \new PianoStaff = piano <<
+          \new Staff = pianorh \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \new Voice \TempoTrack
+            \new Voice \pianoRHone
+            \new Voice \pianoRHtwo
+          >>
+          \new Dynamics \teeny \dynamicsPiano
+          \new Staff = pianolh \with {
+            \accidentalStyle Score.modern
+          }
+          <<
+            \magnifyStaff #4/7
+            \clef "bass"
+            \new Voice \pianoLHone
+            \new Voice \pianoLHtwo
+          >>
+        >>
+      >>
+    >>
+    \layout {
+      indent = 1.5\cm
+      \pointAndClickOff
+      \context {
+        \Score
+        \remove Metronome_mark_engraver
+%        \remove Staff_collecting_engraver
+      }
+      \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        barNumberVisibility = #first-bar-number-invisible-save-broken-bars
+        \override BarNumber.break-visibility = ##(#f #t #t)
+        \consists Merge_rests_engraver
+      }
+      \context {
+        \ChoirStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \PianoStaff
+        \consists Metronome_mark_engraver
+        \consists Staff_collecting_engraver
+      }
+      \context {
+        \Voice
+%        \consists Ambitus_engraver
+      }
+      \context { \Lyrics
+        autoExtenders = ##t
+      }
+    }
+  }
+}
+
+#(set-global-staff-size 20)
+
+\book {
+  \paper {
     output-suffix = single-sop
   }
   \score {
+    \unfoldRepeats
     <<
       <<
         \new ChoirStaff <<
@@ -829,6 +952,7 @@ pianoLHtwo = \relative {
     output-suffix = single-alto
   }
   \score {
+    \unfoldRepeats
     <<
       <<
         \new ChoirStaff <<
@@ -950,6 +1074,7 @@ pianoLHtwo = \relative {
     output-suffix = single-tenor
   }
   \score {
+    \unfoldRepeats
     <<
       <<
         \new ChoirStaff <<
@@ -1071,6 +1196,7 @@ pianoLHtwo = \relative {
     output-suffix = single-bass
   }
   \score {
+    \unfoldRepeats
     <<
       <<
         \new ChoirStaff <<
@@ -1199,6 +1325,7 @@ pianoLHtwo = \relative {
     system-separator-markup = \slashSeparator
   }
   \score {
+    \unfoldRepeats
     <<
       <<
         \new ChoirStaff <<
@@ -1327,6 +1454,7 @@ pianoLHtwo = \relative {
     system-separator-markup = \slashSeparator
   }
   \score {
+    \unfoldRepeats
     <<
       <<
         \new ChoirStaff <<
@@ -1455,6 +1583,7 @@ pianoLHtwo = \relative {
     system-separator-markup = \slashSeparator
   }
   \score {
+    \unfoldRepeats
     <<
       <<
         \new ChoirStaff <<
@@ -1583,6 +1712,7 @@ pianoLHtwo = \relative {
     system-separator-markup = \slashSeparator
   }
   \score {
+    \unfoldRepeats
     <<
       <<
         \new ChoirStaff <<
