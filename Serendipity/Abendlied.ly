@@ -1,4 +1,4 @@
-\version "2.25.80"
+\version "2.27.0"
 
 \include "kjp.ly"
 \include "articulate.ly"
@@ -881,15 +881,16 @@ wordsBassMidi = \lyricmode {
 pianoRHone = \relative {
   \global
   <f' a c>2. 4 | \vo <e a c>1 | r4 <e c'> <f c' d> <g c e> \ov | % 281a
-  <f c' f>2 <g bes f'> \vo | <g f'>2 <e g e'> | d'2. 4 |
+  <f c' f>2 <g b f'> \vo | <g f'>2 <e g e'> | d'2. 4 |
   bes2 <a c> | c <a c> | <e bes' c> <f a c> | <d f bes d>1 | % 282a
   <f a c> | r4 g bes d |
-  d2 a | <d, a' b> <d g d'> | g'1 | f | ees | <fis, a d> | % 282b
-  \ov r4 d'2 4 | \vo d g, a b | c1~ | 4 bes c d | ees1~ | 1~ | % 283a
-  <f, ees'>2 <f d'> | <bes c>2. <a c>4 | c2 c | q2. 4 | <e a c>1 | % 283b
-  r4 <e, c'> <e c' d> <g c e> | \ov <f c' f>2 <g bes f'> | % 284a
+  d2 a | <d, a' bes> <d g d'> | g'1 | f | ees | <fis, a d> | % 282b
+  \ov r4 d'2 4 | \vo d g, a bes | c1~ | 4 bes c d | ees1~ | 1~ | % 283a
+  <f, ees'>2 <f d'> | <bes c>2. <a c>4 | % 283b
+  c2 <<{\vo c2} \new Voice {\vth s4 a8 bes}>> \vo | q2. 4 | <e, a c>1 |
+  r4 <e c'> <e c' d> <g c e> | \ov <f c' f>2 <g b f'> | % 284a
   <g c f>2 <e g c e> | R1*2 |
-  r4 <f a>2 <e a>4 | \vo r4 <d b' d>2 <a' d>4 | % 284b
+  r4 <f a>2 <e a>4 | \vo r4 <d bes' d>2 <a' d>4 | % 284b
   c4 d e f | 2(e) | f4 f e d |
   c2. 4 | bes d c bes | a2 bes~ | % 285a
   4 <a c> <g bes> \ov <f a f'> \vo | f'(e d) e |
@@ -900,7 +901,7 @@ pianoRHone = \relative {
 
 pianoRHtwo = \relative {
   \global \vt
-  s1 | c'2. 4 | ees2. 4 | \ss \lh \once\hideNotes d4 \hs \rh s2. |
+  s1 | c'2. 4 | e2. 4 | \ss \lh \once\hideNotes d4 \hs \rh s2. |
   c'4 g c2~ | c bes |
   r4 g2 f4 | g4 2 s4 | r4 c,2 d8 ees | \lh r4 d \ss \rh d4 f | 2 c4 s | s1 | % 282a
   r4 e fis a | s1 | g2 4 bes | <f bes>2 2~ | bes4 4 c(bes) | s1 |
@@ -910,7 +911,7 @@ pianoRHtwo = \relative {
   <<{\vt c c~c c} \new Voice {\vt s4 c \ss \lh bes a \rh}>> \vt \hs |
   e'2. 4 | s1*4 | % 284a
   s1 | <d a'>4 d e <d f> | <e g>2 <f a> | g4 4 <g c>2~ | 2 bes | % 284b
-  r4 c b a | g f <e g>2 | % 285a
+  r4 c bes a | g f <e g>2 | % 285a
   <<{\vt f4 s2.} \new Voice {\lh f,4 \ss \rh f' e d}>> |
   c2 \ss \lh \vt <f, c'> \hs \rh | <g' bes>2. g4 |
   s1 | s2 bes4(a) | s2 <c, f> | f e | s1 | % 285b
@@ -943,7 +944,7 @@ pianoLHone = \relative {
   c4 f, g a | \ov <bes, bes'>2 2 | <c c'> \vo a'4 f | % 284b
   c'2. bes4 | \ov <d, a'>2 <d f> |
   <e g>2 <f a> | \vo <g bes>2. <g c>4 | \vt <d d'>2 \vo g4(f) | % 285a
-  ees2 f4 a | \ov <c, c'>2. 4 |
+  e2 f4 a | \ov <c, c'>2. 4 |
   <d f a>2 <d a' d> | <a a'> <bes d> | <c g'> <c a'> | % 285b
   \vo c'2.(bes4) \ov | <f, c'>1\fermata |
 }
